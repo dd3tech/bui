@@ -1,0 +1,30 @@
+declare enum events {
+    CHANNEL_CREATED = "channelCreated",
+    STORY_SPECIFIED = "storySpecified",
+    SET_STORIES = "setStories",
+    SET_CURRENT_STORY = "setCurrentStory",
+    CURRENT_STORY_WAS_SET = "currentStoryWasSet",
+    FORCE_RE_RENDER = "forceReRender",
+    STORY_CHANGED = "storyChanged",
+    STORY_UNCHANGED = "storyUnchanged",
+    STORY_RENDERED = "storyRendered",
+    STORY_MISSING = "storyMissing",
+    STORY_ERRORED = "storyErrored",
+    STORY_THREW_EXCEPTION = "storyThrewException",
+    UPDATE_STORY_ARGS = "updateStoryArgs",
+    STORY_ARGS_UPDATED = "storyArgsUpdated",
+    RESET_STORY_ARGS = "resetStoryArgs",
+    UPDATE_GLOBALS = "updateGlobals",
+    GLOBALS_UPDATED = "globalsUpdated",
+    REGISTER_SUBSCRIPTION = "registerSubscription",
+    PREVIEW_KEYDOWN = "previewKeydown",
+    SELECT_STORY = "selectStory",
+    STORIES_COLLAPSE_ALL = "storiesCollapseAll",
+    STORIES_EXPAND_ALL = "storiesExpandAll",
+    DOCS_RENDERED = "docsRendered",
+    SHARED_STATE_CHANGED = "sharedStateChanged",
+    SHARED_STATE_SET = "sharedStateSet",
+    NAVIGATE_URL = "navigateUrl"
+}
+export default events;
+export declare const CHANNEL_CREATED: events, STORY_SPECIFIED: events, SET_STORIES: events, SET_CURRENT_STORY: events, CURRENT_STORY_WAS_SET: events, FORCE_RE_RENDER: events, STORY_CHANGED: events, STORY_UNCHANGED: events, STORY_RENDERED: events, STORY_MISSING: events, STORY_ERRORED: events, STORY_THREW_EXCEPTION: events, UPDATE_STORY_ARGS: events, STORY_ARGS_UPDATED: events, RESET_STORY_ARGS: events, UPDATE_GLOBALS: events, GLOBALS_UPDATED: events, REGISTER_SUBSCRIPTION: events, PREVIEW_KEYDOWN: events, SELECT_STORY: events, STORIES_COLLAPSE_ALL: events, STORIES_EXPAND_ALL: events, DOCS_RENDERED: events, SHARED_STATE_CHANGED: events, SHARED_STATE_SET: events, NAVIGATE_URL: events;

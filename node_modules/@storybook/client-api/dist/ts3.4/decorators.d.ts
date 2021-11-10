@@ -1,0 +1,4 @@
+import { PartialStoryFn, LegacyStoryFn } from '@storybook/addons';
+import { DecoratorFunction } from './types';
+export declare const decorateStory: (storyFn: LegacyStoryFn, decorator: DecoratorFunction, bindWithContext: (storyFn: LegacyStoryFn) => PartialStoryFn) => LegacyStoryFn;
+export declare const defaultDecorateStory: (storyFn: LegacyStoryFn, decorators: DecoratorFunction[]) => LegacyStoryFn;
