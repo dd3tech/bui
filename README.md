@@ -2,9 +2,7 @@
 
 This is a library of the general components based in tailwind css
 
-```
-this project is based in
-```
+## This project is based IN:
 
 [REACT](https://es.reactjs.org/)
 
@@ -19,7 +17,8 @@ this project is based in
 #### First Step: Clone Repo
 
 ```
-    git clone git@gitlab.com:dd3tech/dd3-components-ui.git
+git clone git@gitlab.com:dd3tech/dd3-components-ui.git
+
 ```
 
 #### Step two: installation
