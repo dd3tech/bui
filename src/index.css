@@ -110,3 +110,7 @@ input:-webkit-autofill + label {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
+.rounded-50 {
+    border-radius: 50%;
+}
