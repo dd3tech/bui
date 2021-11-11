@@ -5,6 +5,7 @@ interface ContainerProps {
     className?: string
     shadow?: 'lg' | 'sm'
     rounded?: 'lg' | 'sm'
+    onClick?: (event: React.ChangeEvent<any>) => void
 }
 
 export const Container = ({ children, className, shadow, rounded, ...props }: ContainerProps) => {
