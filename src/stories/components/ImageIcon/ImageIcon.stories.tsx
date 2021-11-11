@@ -1,7 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ImageIcon as ImageIconComponent } from './ImageIcon'
-import { h2 } from '../Typography/Text/Text.stories'
 
 export default {
     title: 'Design System/imageIcon'
