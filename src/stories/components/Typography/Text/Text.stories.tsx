@@ -11,28 +11,33 @@ const Template: ComponentStory<typeof TextComponent> = (args) => <TextComponent 
 export const h1 = Template.bind({})
 h1.args = {
     variant: 'h1',
-    children: 'Heading 1'
+    children: 'Heading 1',
+    align: 'center'
 }
 
 export const h2 = Template.bind({})
 h2.args = {
     variant: 'h2',
-    children: 'Heading 2'
+    children: 'Heading 2',
+    align: 'left'
 }
 export const h3 = Template.bind({})
 h3.args = {
     variant: 'h3',
-    children: 'Heading 3'
+    children: 'Heading 3',
+    align: 'right'
 }
 export const h4 = Template.bind({})
 h4.args = {
     variant: 'h4',
-    children: 'Heading 4'
+    children: 'Heading 4',
+    align: 'center'
 }
 export const h5 = Template.bind({})
 h5.args = {
     variant: 'h5',
-    children: 'Heading 5'
+    children: 'Heading 5',
+    align: 'justify'
 }
 
 export const h6 = Template.bind({})
