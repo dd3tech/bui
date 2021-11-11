@@ -1,14 +1,14 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Container } from './Layout'
+import { Container as ContainerComponent } from './Container'
 export default {
-    title: 'Example/Layout'
-} as ComponentMeta<typeof Container>
+    title: 'Design System/Layout/Container'
+} as ComponentMeta<typeof ContainerComponent>
 
-const Template: ComponentStory<typeof Container> = (args) => <Container {...args} />
+const Template: ComponentStory<typeof ContainerComponent> = (args) => <ContainerComponent {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const Container = Template.bind({})
+Container.args = {
     className: 'bg-gray-200 h-20',
     children: (
         <>
@@ -16,5 +16,3 @@ Primary.args = {
         </>
     )
 }
-
-Primary.storyName = 'Container'
