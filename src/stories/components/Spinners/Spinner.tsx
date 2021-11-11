@@ -36,5 +36,5 @@ export const Spinner = ({ color, className, variant, type, ...props }: SpinnerPr
         }
     }
 
-    return <div className={`${choiseType(type)} ${choiseColor(variant)} ${className}`} style={{ color: color }} {...props}></div>
+    return <div className={`${choiseType(type)} ${choiseColor(variant)} ${className ?? ''}`} style={{ color: color }} {...props}></div>
 }

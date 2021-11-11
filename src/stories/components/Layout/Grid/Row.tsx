@@ -11,7 +11,12 @@ interface RowProps {
 
 export const Row = ({ children, className, cols, md, gap, sm, ...props }: RowProps) => {
     return (
-        <div className={`grid grid-cols-${cols} ${md && `md:grid-cols-${md}`} ${sm && `sm:grid-cols-${sm}`} ${gap && `gap-${gap}`} ${className}`} {...props}>
+        <div
+            className={`grid ${cols ? `grid-cols-${cols}` : ''} ${md ? `md:grid-cols-${md}` : ''} ${sm ? `sm:grid-cols-${sm}` : ''} ${
+                gap ? `gap-${gap}` : ''
+            } ${className ?? ''}`}
+            {...props}
+        >
             {children}
         </div>
     )

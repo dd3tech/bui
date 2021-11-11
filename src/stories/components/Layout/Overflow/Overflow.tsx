@@ -6,7 +6,7 @@ interface OverFlowProps {
 
 export const OverFlow = ({ children, className, overflow, ...props }: OverFlowProps) => {
     return (
-        <div className={`overflow-${overflow ?? 'auto'} ${className}`} {...props}>
+        <div className={`overflow-${overflow ?? 'auto'} ${className ?? ''}`} {...props}>
             {children}
         </div>
     )

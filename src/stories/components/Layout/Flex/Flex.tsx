@@ -5,7 +5,7 @@ interface FlexProps {
 
 export const Flex = ({ className, children, ...props }: FlexProps) => {
     return (
-        <div className={`flex ${className}`} {...props}>
+        <div className={`flex ${className ?? ''}`} {...props}>
             {children}
         </div>
     )

@@ -7,7 +7,7 @@ interface OrderProps {
 
 export const Order = ({ className, children, order, ...props }: OrderProps | any) => {
     return (
-        <div className={`order-${order} ${className}`} {...props}>
+        <div className={`${order ? `order-${order}` : ''} ${className ?? ''}`} {...props}>
             {children}
         </div>
     )

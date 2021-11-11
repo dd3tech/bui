@@ -9,55 +9,55 @@ export const Text = ({ children, className, align, variant, ...props }: TextProp
     switch (variant) {
         case 'h1':
             return (
-                <h1 className={`text-${align} ${className}`} {...props}>
+                <h1 className={`${align ? `text-${align}` : ''} ${className ?? ''}`} {...props}>
                     {children}
                 </h1>
             )
         case 'h2':
             return (
-                <h2 className={`text-${align} ${className}`} {...props}>
+                <h2 className={`${align ? `text-${align}` : ''} ${className ?? ''}`} {...props}>
                     {children}
                 </h2>
             )
         case 'h3':
             return (
-                <h3 className={`text-${align} ${className}`} {...props}>
+                <h3 className={`${align ? `text-${align}` : ''} ${className ?? ''}`} {...props}>
                     {children}
                 </h3>
             )
         case 'h4':
             return (
-                <h4 className={`text-${align} ${className}`} {...props}>
+                <h4 className={`${align ? `text-${align}` : ''} ${className ?? ''}`} {...props}>
                     {children}
                 </h4>
             )
         case 'h5':
             return (
-                <h5 className={`text-${align} ${className}`} {...props}>
+                <h5 className={`${align ? `text-${align}` : ''} ${className ?? ''}`} {...props}>
                     {children}
                 </h5>
             )
         case 'h6':
             return (
-                <h6 className={`text-${align} ${className}`} {...props}>
+                <h6 className={`${align ? `text-${align}` : ''} ${className ?? ''}`} {...props}>
                     {children}
                 </h6>
             )
         case 'p':
             return (
-                <p className={`text-${align} ${className}`} {...props}>
+                <p className={`${align ? `text-${align}` : ''} ${className ?? ''}`} {...props}>
                     {children}
                 </p>
             )
         case 'span':
             return (
-                <span className={`text-${align} ${className}`} {...props}>
+                <span className={`${align ? `text-${align}` : ''} ${className ?? ''}`} {...props}>
                     {children}
                 </span>
             )
         default:
             return (
-                <p className={`text-${align} ${className}`} {...props}>
+                <p className={`${align ? `text-${align}` : ''} ${className ?? ''}`} {...props}>
                     {children}
                 </p>
             )
