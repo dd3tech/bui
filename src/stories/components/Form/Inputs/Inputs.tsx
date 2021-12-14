@@ -1,3 +1,5 @@
+import React from 'react'
+
 interface InputInterface {
     label?: string
     type?: string

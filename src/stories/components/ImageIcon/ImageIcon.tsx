@@ -1,3 +1,4 @@
+import React from 'react'
 interface ImageIconProps {
     src: string
     className?: string
