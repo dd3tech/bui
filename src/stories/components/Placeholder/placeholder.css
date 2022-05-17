@@ -1,0 +1,31 @@
+.storybook-placeholder {
+    display: inline-block;
+    min-height: 1em;
+    vertical-align: middle;
+    cursor: wait;
+    background-color: #0f0f0f;
+    opacity: 0.5;
+    animation: placeholder-glow 2s ease-in-out infinite;
+}
+
+.storybook-placeholder-grow .storybook-placeholder {
+    animation: placeholder-glow 2s ease-in-out infinite;
+}
+
+@keyframes placeholder-glow {
+    50% {
+        opacity: 0.2;
+    }
+}
+
+.storybook-placeholder-small {
+    width: 25%;
+}
+
+.storybook-placeholder-medium {
+    width: 50%;
+}
+
+.storybook-placeholder-large {
+    width: 100%;
+}
