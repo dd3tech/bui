@@ -1,0 +1,60 @@
+image: node:14.16
+
+stages:
+    - install
+    - build
+    - publish
+
+variables:
+    NPM_TOKEN:
+        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
+
+        ###############################################################################
+#     install                                                         #
+###############################################################################
+
+install:
+    stage: install
+    only:
+        - develop
+        - main
+    before_script:
+        - echo -e 'Warming up the cache'
+    script:
+        - npm i
+    cache:
+        key: $CI_PROJECT_ID
+        policy: pull-push
+        paths:
+            - node_modules
+
+    ###############################################################################
+#     build                                                         #
+###############################################################################
+
+build:
+    stage: build
+    only:
+        - develop
+        - main
+    before_script:
+        - npm i
+    script:
+        - npm run build
+    dependencies:
+        - install
+
+    ###############################################################################
+#     publish                                                         #
+###############################################################################
+
+publish:
+    stage: publish
+    only:
+        - main
+    script:
+        - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+        - npm publish
+    dependencies:
+        - install
+        - build
