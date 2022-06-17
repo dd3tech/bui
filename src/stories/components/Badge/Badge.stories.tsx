@@ -1,6 +1,8 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Badge as BadgeComponent } from './Badge'
+import {Badge as BadgeComponent} from '../../../components/Badge'
+
+// import { Badge as BadgeComponent } from '../../components/Badge'
 
 export default {
     title: 'Design System/Badge',

@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Input as InputComponent } from './Inputs'
+import { Input as InputComponent } from '../../../../components/Form/Inputs/Inputs'
+
 
 export default {
     title: 'Design System/Forms/Input'

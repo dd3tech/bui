@@ -1,19 +1,33 @@
 {
-    "name": "dd3-components-ui",
-    "version": "3.0.0",
+    "name": "dd360-ds",
+    "version": "1.0.0",
+    "main": "lib/index.js",
+    "module": "lib/index.esm.js",
+    "types": "lib/dd3.d.ts",
+    "files": [
+        "lib"
+    ],
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
+        "build-lib": "rollup -c",
         "serve": "vite preview",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     },
-    "dependencies": {
+    "workspaces": [
+        "dd360-ui"
+    ],
+    "peerDependencies": {
         "react": "^17.0.0",
-        "react-dom": "^17.0.0"
+        "react-dom": "^17.0.0",
+        "tailwindcss": "^2.2.19",
+        "postcss": "^8.4.14"
     },
     "devDependencies": {
         "@babel/core": "^7.16.0",
+        "@rollup/plugin-commonjs": "^22.0.0",
+        "@rollup/plugin-node-resolve": "^13.3.0",
         "@storybook/addon-actions": "^6.3.12",
         "@storybook/addon-essentials": "^6.3.12",
         "@storybook/addon-links": "^6.3.12",
@@ -23,7 +37,14 @@
         "@vitejs/plugin-react": "^1.0.0",
         "autoprefixer": "^10.4.0",
         "babel-loader": "^8.2.3",
-        "postcss": "^8.3.11",
+        "react": "^17.0.0",
+        "react-dom": "^17.0.0",
+        "postcss": "^8.4.14",
+        "rollup": "^2.75.6",
+        "rollup-plugin-dts": "^4.2.2",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "rollup-plugin-postcss": "^4.0.2",
+        "rollup-plugin-typescript2": "^0.32.1",
         "tailwindcss": "^2.2.19",
         "typescript": "^4.3.2",
         "vite": "^2.6.4"

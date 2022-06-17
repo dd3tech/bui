@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Order } from './Order'
+import { Order } from '../../../../components/Layout/Order/Order'
 
 export default {
     title: 'Design System/Layout/Order'

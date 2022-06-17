@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Text as TextComponent } from './Text'
+import { Text as TextComponent } from '../../../../components/Typography/Text/Text'
 
 export default {
     title: 'Design System/Typography/Text'

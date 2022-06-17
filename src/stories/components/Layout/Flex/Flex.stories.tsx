@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Flex as FlexComponent } from './Flex'
+import { Flex as FlexComponent } from '../../../../components/Layout/Flex/Flex'
+
 export default {
     title: 'Design System/Layout/Flex'
 } as ComponentMeta<typeof FlexComponent>

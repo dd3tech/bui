@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { PlaceHolder as PlaceHolderComponent } from './PlaceHolder'
+import { PlaceHolder as PlaceHolderComponent } from '../../../components/Placeholder/PlaceHolder'
 
 export default {
     title: 'Design System/PlaceHolder',

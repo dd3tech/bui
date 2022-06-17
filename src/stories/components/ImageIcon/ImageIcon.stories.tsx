@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { ImageIcon as ImageIconComponent } from './ImageIcon'
+import { ImageIcon as ImageIconComponent } from '../../../components/ImageIcon/ImageIcon'
 
 export default {
     title: 'Design System/imageIcon'
