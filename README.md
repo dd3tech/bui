@@ -1,6 +1,10 @@
 # DD360 Design System
 
-[![size](https://badgen.net/bundlephobia/min/dd360-ds)](https://www.npmjs.com/package/dd360-ds)[![minzip size](https://badgen.net/bundlephobia/minzip/dd360-ds)](https://www.npmjs.com/package/dd360-ds)[![version](https://badgen.net/npm/v/dd360-ds)](https://www.npmjs.com/package/dd360-ds)[![types](https://badgen.net/npm/types/dd360-ds)](https://www.npmjs.com/package/dd360-ds)[![license](https://badgen.net/npm/license/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
+[![size](https://badgen.net/bundlephobia/min/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
+[![minzip size](https://badgen.net/bundlephobia/minzip/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
+[![version](https://badgen.net/npm/v/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
+[![types](https://badgen.net/npm/types/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
+[![license](https://badgen.net/npm/license/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
 
 This is DD360 and LEND33R's library of UI components based on React, Tailwind and Typescript.
 
