@@ -7,7 +7,7 @@ stages:
 
 variables:
     NPM_TOKEN:
-        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
+        $NPM_TOKEN
 
         ###############################################################################
 #     install                                                         #
@@ -16,6 +16,7 @@ variables:
 install:
     stage: install
     only:
+        - merge_requests
         - develop
         - main
     before_script:
@@ -35,6 +36,7 @@ install:
 build:
     stage: build
     only:
+        - merge_requests
         - develop
         - main
     before_script:
