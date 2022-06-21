@@ -1,0 +1,12 @@
+.border-table {
+  border: 0.5px solid #d1d5db;
+  border-radius: 20px !important;
+}
+
+.border-table-bottom {
+  border-bottom: 1px solid #D1D5DB;
+}
+
+.border-table-top {
+  border-top: 1px solid #D1D5DB;
+}
