@@ -1,4 +1,4 @@
-import { HiOutlineTag, HiExclamation, HiOutlineCheckCircle, HiOutlineExclamationCircle, HiClipboardCopy } from 'react-icons/hi'
+import { TagIcon, ExclamationIcon, CheckCircleIcon, ExclamationCircleIcon, ClipboardCopyIcon } from '@heroicons/react/outline'
 
 interface IBadgeProps {
     text?: string
@@ -21,17 +21,17 @@ const badgeVariants: { [key: string]: string } = {
 const iconsSwitch = (iconType?: string, classNameIcon?: string) => {
     switch (iconType) {
         case 'tag':
-            return <HiOutlineTag className={classNameIcon ?? ''} />
+            return <TagIcon className={classNameIcon ?? ''} />
         case 'warning':
-            return <HiExclamation className={classNameIcon ?? ''} />
+            return <ExclamationIcon className={classNameIcon ?? ''} />
         case 'check':
-            return <HiOutlineCheckCircle className={classNameIcon ?? ''} />
+            return <CheckCircleIcon className={classNameIcon ?? ''} />
         case 'success':
-            return <HiOutlineCheckCircle className={classNameIcon ?? ''} />
+            return <CheckCircleIcon className={classNameIcon ?? ''} />
         case 'exclamation':
-            return <HiOutlineExclamationCircle className={classNameIcon ?? ''} />
+            return <ExclamationCircleIcon className={classNameIcon ?? ''} />
         case 'clipboard-copy':
-            return <HiClipboardCopy className={classNameIcon ?? ''} />
+            return <ClipboardCopyIcon className={classNameIcon ?? ''} />
         default:
             return ''
     }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { HiOutlineSortAscending, HiOutlineSortDescending } from 'react-icons/hi'
+import { SortAscendingIcon, SortDescendingIcon } from '@heroicons/react/outline'
 
 export function HeaderAction({ title, filter, onClick }: { title: string; filter?: boolean; onClick?: () => any }) {
     const [isAsecendIcon, setIsAscendIcon] = useState(false)
@@ -13,9 +13,9 @@ export function HeaderAction({ title, filter, onClick }: { title: string; filter
                 <div className="flex justify-center items-center gap-2 cursor-pointer">
                     {title}
                     {isAsecendIcon ? (
-                        <HiOutlineSortAscending size={20} className="text-gray-500" />
+                        <SortAscendingIcon className="text-gray-500 h-5 w-5" />
                     ) : (
-                        <HiOutlineSortDescending size={20} className="text-gray-500" />
+                        <SortDescendingIcon className="text-gray-500 h-5 w-5" />
                     )}
                 </div>
             </th>

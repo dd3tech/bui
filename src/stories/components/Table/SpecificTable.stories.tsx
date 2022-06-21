@@ -1,4 +1,4 @@
-import { MdKeyboardArrowLeft } from 'react-icons/md'
+import { ArrowLeftIcon } from '@heroicons/react/outline'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ITopHeader, IHeader } from '../../../interfaces/SpecificTable';
 import exampleJSON from '../../../assets/table-value.json'
@@ -19,7 +19,7 @@ const topHeader: ITopHeader[] = [
       children: (
         <div className="pl-4 flex gap-4 items-center">
         Estructura
-        <MdKeyboardArrowLeft size={19} />
+        <ArrowLeftIcon className='h-5 w-5' />
     </div>
       )
   },
