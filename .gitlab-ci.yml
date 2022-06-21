@@ -54,6 +54,9 @@ publish:
     stage: publish
     only:
         - main
+    before_script:
+        - npm i
+        - npm run build-lib
     script:
         - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
         - npm publish
