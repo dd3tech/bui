@@ -1,5 +1,5 @@
 import { ITopHeader, IHeader } from '../../interfaces/SpecificTable';
-import { formatWithDecimal } from '../../utils/formatCurrency';
+import { formatCustomDecimal } from 'dd360-utils';
 
 interface SpecificTableProps {
   topHeader: ITopHeader[]
@@ -38,7 +38,7 @@ function TableSpecific({ topHeader, header, data }: SpecificTableProps) {
                         <tr key={index} className="divide-x divide-gray-400 border-b border-b-gray-400 h-8 text-xs text-left text-gray-500">
                             {header.map(({ key, withCurrencyFormat }, idx) => (
                               <th key={idx}>
-                                  <div className={`pl-${idx === 0 ? '6' : '4'}`}>{withCurrencyFormat ? formatWithDecimal(item[key]) : item[key]}</div>
+                                  <div className={`pl-${idx === 0 ? '6' : '4'}`}>{withCurrencyFormat ? formatCustomDecimal(item[key]) : item[key]}</div>
                               </th>
                             ))}
                         </tr>

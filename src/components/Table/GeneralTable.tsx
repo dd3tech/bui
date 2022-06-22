@@ -1,5 +1,5 @@
 // import useResize from '@/hooks/useResize'
-import { formatWithDecimal } from '../../utils/formatCurrency'
+import { formatCustomDecimal } from 'dd360-utils'
 import { Button, Badge, Text } from '..'
 import { HeaderAction } from './HeaderAction'
 import { IDataTable, IPaginatedData, IType, IParamsPagination } from '../../interfaces/GeneralTable'
@@ -32,13 +32,13 @@ function GeneralTable({ heightColumn = 50, hasDetail = false, list, Link, pagina
             case 'amount-blue':
                 return (
                     <Text variant="p" className="text-blue-900 font-bold">
-                        ${formatWithDecimal(payload[key])}
+                        ${formatCustomDecimal(payload[key])}
                     </Text>
                 )
             case 'amount-black':
                 return (
                     <Text variant="p" className="font-bold">
-                        ${formatWithDecimal(payload[key])}
+                        ${formatCustomDecimal(payload[key])}
                     </Text>
                 )
             case 'tag':

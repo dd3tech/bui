@@ -1,1 +1,0 @@
-export { formatWithDecimal } from './formatCurrency'
