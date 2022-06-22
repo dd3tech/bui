@@ -1,0 +1,6 @@
+export { Badge } from "./Badge/Badge"
+export { Button } from "./Buttons/Button"
+export { Text } from "./Typography/Text/Text"
+export { GeneralTable } from "./Table"
+export { Wrapper } from "./Wrapper"
+export { Spinner } from "./Spinners"

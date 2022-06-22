@@ -1,52 +1,48 @@
-import './badge.css'
-import React from 'react'
+import { TagIcon, ExclamationIcon, CheckCircleIcon, ExclamationCircleIcon, ClipboardCopyIcon } from '@heroicons/react/outline'
 
-interface BadgeProps {
-    children?: React.ReactNode
-    backgroundColor?: string
-    variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
+interface IBadgeProps {
+    text?: string
     className?: string
-    btn?: boolean
-    onClick?: () => void
+    variant: 'warning' | 'infoPrimary' | 'infoSecondary' | 'success' | 'primary' | 'secondary' | 'error'
+    classNameIcon?: string
+    icon?: string
 }
 
-export const Badge = ({ children, backgroundColor, variant = 'primary', className, btn = false, onClick, ...props }: BadgeProps) => {
-    const classVariant = (variant: string) => {
-        switch (variant) {
-            case 'primary':
-                return 'bg-blue-500'
-            case 'secondary':
-                return 'bg-gray-500'
-            case 'success':
-                return 'bg-green-500'
-            case 'danger':
-                return 'bg-red-500'
-            case 'warning':
-                return 'bg-yellow-500'
-            case 'info':
-                return 'bg-blue-200'
-            case 'light':
-                return 'bg-white-500'
-            case 'dark':
-                return 'bg-black-200'
-            default:
-                return 'bg-blue-500'
-        }
+const badgeVariants: { [key: string]: string } = {
+    warning: 'bg-yellow-100 border border-yellow-500 text-gray-500',
+    infoPrimary: 'bg-blue-50 border border-blue-300 text-gray-500',
+    infoSecondary: 'bg-transparent border border-blue-300 text-gray-500',
+    success: 'bg-green-50 border border-green-300 text-gray-500 font-medium',
+    primary: 'bg-transparent border border-blue-700 text-blue-700',
+    secondary: 'bg-transparent border border-white  text-white  hover:bg-gray-50 hover:text-black',
+    error: 'bg-red-50 border border-red-300 text-gray-500 font-medium'
+}
+
+const iconsSwitch = (iconType?: string, classNameIcon?: string) => {
+    switch (iconType) {
+        case 'tag':
+            return <TagIcon className={classNameIcon ?? ''} />
+        case 'warning':
+            return <ExclamationIcon className={classNameIcon ?? ''} />
+        case 'check':
+            return <CheckCircleIcon className={classNameIcon ?? ''} />
+        case 'success':
+            return <CheckCircleIcon className={classNameIcon ?? ''} />
+        case 'exclamation':
+            return <ExclamationCircleIcon className={classNameIcon ?? ''} />
+        case 'clipboard-copy':
+            return <ClipboardCopyIcon className={classNameIcon ?? ''} />
+        default:
+            return ''
     }
+}
+
+export const Badge = ({ text, className, variant, classNameIcon, icon }: IBadgeProps) => {
+    const classNameByVariant = badgeVariants[variant] || ''
 
     return (
-        <>
-            {btn ? (
-                <button onClick={onClick}>
-                    <span className={`storybook-badge ${classVariant(variant)}`} style={{ backgroundColor }} {...props}>
-                        {children}
-                    </span>
-                </button>
-            ) : (
-                <span className={`storybook-badge ${classVariant(variant)}`} style={{ backgroundColor }} {...props}>
-                    {children}
-                </span>
-            )}
-        </>
+        <div className={`${className ?? ''} ${classNameByVariant} rounded-full flex items-center gap-1 text-xs ${icon ? '' : 'justify-center'}`}>
+            {iconsSwitch(icon, classNameIcon)} <small>{text ?? ''}</small>
+        </div>
     )
 }
