@@ -1,5 +1,5 @@
 export interface IHeaderType {
-  type?: 'warm' | 'success' | 'amount-blue' | 'amount-black' | 'tag' | 'date' | 'link' | 'input',
+  type?: 'warning' | 'success' | 'amount-blue' | 'amount-black' | 'tag' | 'date' | 'link' | 'input',
   title: string,
   key: string,
   filterCallback?: (payload?: any, key?: string) => void,
