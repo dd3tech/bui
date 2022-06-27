@@ -114,3 +114,13 @@ input:-webkit-autofill + label {
 .rounded-50 {
     border-radius: 50%;
 }
+
+.notfound-title {
+    font-size: 12rem;
+}
+
+@media screen and (min-width: 765px) {
+  .notfound-title {
+    font-size: 20rem;
+  }
+}
