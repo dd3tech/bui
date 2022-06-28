@@ -54,7 +54,7 @@ export const Button = ({
             return `py-${paddingY}`
         }
 
-        if (padding) {
+        if (padding !== undefined) {
             return `p-${padding}`
         }
 
