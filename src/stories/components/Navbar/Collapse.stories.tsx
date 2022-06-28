@@ -26,7 +26,7 @@ collapseTopBottom.args = {
         </Link>
         <Link to="/developer/new" className="flex opacity-none rounded-lg gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-100">
           <UserAddIcon height={20} width={20} className="text-gray-400" />
-          Agregar desarollador
+          Agregar desarrollador
         </Link>
       </div>
       <div className="border-b-2 p-2">
@@ -37,7 +37,7 @@ collapseTopBottom.args = {
         </Link>
         <span onClick={() => { }} className="flex rounded-lg gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
           <LockClosedIcon className="text-gray-400" height={20} width={20} />
-          Cerra sesion
+          Cerrar sesión
         </span>
       </div>
     </>
@@ -56,7 +56,7 @@ collapseTop.args = {
       </Link>
       <Link to="/developer/new" className="flex opacity-none rounded-lg gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-100">
         <UserAddIcon height={20} width={20} className="text-gray-400" />
-        Agregar desarollador
+        Agregar desarrollador
       </Link>
     </>
   ),
@@ -73,7 +73,7 @@ collapseBottom.args = {
       </Link>
       <span onClick={() => { }} className="flex rounded-lg gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
         <LockClosedIcon className="text-gray-400" height={20} width={20} />
-        Cerra sesion
+        Cerrar sesión
       </span>
     </>
   )
