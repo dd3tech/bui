@@ -1,9 +1,9 @@
-image: node:14.16
+image: node:16.15.1
 
 stages:
     - install
-    - build
     - test
+    - build
     - publish
 
 variables:
@@ -30,23 +30,7 @@ install:
         paths:
             - node_modules
 
-    ###############################################################################
-#     build                                                         #
 ###############################################################################
-
-build:
-    stage: build
-    only:
-        - merge_requests
-        - develop
-        - main
-    before_script:
-        - npm i
-    script:
-        - npm run build-lib
-    dependencies:
-        - install
-    ###############################################################################
 #     test                                                         #
 ###############################################################################
 
@@ -54,7 +38,6 @@ test:
     stage: test
     needs:
         - install
-        - build
     before_script:
         - npm i
     script:
@@ -65,7 +48,27 @@ test:
         - main
     dependencies:
         - install
-        - build
+
+    ###############################################################################
+#     build                                                         #
+###############################################################################
+
+build:
+    stage: build
+    needs:
+        - install
+        - test
+    only:
+        - merge_requests
+        - develop
+        - main
+    before_script:
+        - npm i
+    script:
+        - npm run build-lib
+    dependencies:
+        - install
+        - test
 
         ###############################################################################
 #     publish                                                         #
