@@ -49,3 +49,8 @@ export const Custom = Template.bind({})
 Custom.args = {
     color: '#f51'
 }
+
+export const PageLoader = Template.bind({})
+PageLoader.args = {
+    pageLoader: true
+}
