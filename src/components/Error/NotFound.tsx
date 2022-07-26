@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import PageNotFoundImg from '../../assets/404.svg'
 
 interface IProps {
-  toRedirect?: () => void
-  subTitle?: string
-  returnMessage?: string
-  codeError?: number
+    toRedirect?: () => void
+    subTitle?: string
+    returnMessage?: string
+    codeError?: number
 }
 
 const PageNotFound = ({ toRedirect, subTitle, returnMessage, codeError = 404 }: IProps) => {
@@ -28,8 +28,8 @@ const PageNotFound = ({ toRedirect, subTitle, returnMessage, codeError = 404 }: 
     }, [])
 
     return (
-        <div className="flex items-center justify-center h-screen">
-            <img className="lg:w-1/2" src={PageNotFoundImg} alt="" />
+        <div className="flex items-center justify-center h-screen my-6">
+            <img className="lg:w-1/2" src={PageNotFoundImg} alt="Page not found" />
             <div className="absolute text-center">
                 <p className="font-black leading-none text-blue-600 notfound-title">{codeError}</p>
                 <p className="font-bold text-3xl text-white">{subTitle}</p>
