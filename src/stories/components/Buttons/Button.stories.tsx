@@ -12,25 +12,26 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
-    primary: true,
+export const BtnPrimary = Template.bind({})
+BtnPrimary.args = {
+    variant: 'primary',
     children: 'Primary'
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
+export const BtnSecondary = Template.bind({})
+BtnSecondary.args = {
+    variant: 'secondary',
     children: 'Secondary'
 }
 
-export const Large = Template.bind({})
-Large.args = {
-    size: 'large',
-    children: 'Large'
+export const BtnSuccess = Template.bind({})
+BtnSuccess.args = {
+    variant: 'success',
+    children: 'Success'
 }
 
-export const Small = Template.bind({})
-Small.args = {
-    size: 'small',
-    children: 'Small'
+export const BtnError = Template.bind({})
+BtnError.args = {
+    variant: 'error',
+    children: 'Error'
 }

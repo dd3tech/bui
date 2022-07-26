@@ -33,6 +33,7 @@ export const Button = memo(
             primary: 'bg-blue-700 hover:bg-blue-800 text-white disabled:bg-gray-300',
             secondary: 'bg-transparent border border-black hover:bg-white disabled:opacity-20',
             cancel: 'bg-white text-black hover:text-white hover:bg-red-500 disabled:opacity-75',
+            error: 'text-white bg-red-500 hover:bg-red-600 disabled:opacity-75',
             outlineBlue: 'bg-transparent border border-blue-700 text-blue-700',
             success: 'bg-green-500 hover:bg-green-600 text-white',
             outlineWhite: 'bg-transparent border border-white  text-white  hover:bg-gray-50 hover:text-black'

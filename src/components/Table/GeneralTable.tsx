@@ -1,6 +1,6 @@
 // import useResize from '@/hooks/useResize'
 import { formatCustomDecimal } from 'dd360-utils'
-import { Button, Badge, Text } from '..'
+import { Button, Badge, Text } from '../index'
 import { HeaderAction } from './HeaderAction'
 import { IDataTable, IPaginatedData, IType, IParamsPagination } from '../../interfaces/GeneralTable'
 import './table.css'
@@ -18,17 +18,9 @@ function GeneralTable({ heightColumn = 50, hasDetail = false, list, Link, pagina
     const renderTable = (payload: any, key: string, type?: string) => {
         switch (type as IType) {
             case 'warm':
-                return (
-                    <Text className="text-yellow-400 font-bold">
-                        {payload[key]}
-                    </Text>
-                )
+                return <Text className="text-yellow-400 font-bold">{payload[key]}</Text>
             case 'success':
-                return (
-                    <Text className="text-green-500 font-bold">
-                        {payload[key]}
-                    </Text>
-                )
+                return <Text className="text-green-500 font-bold">{payload[key]}</Text>
             case 'amount-blue':
                 return (
                     <Text variant="p" className="text-blue-900 font-bold">
@@ -61,19 +53,15 @@ function GeneralTable({ heightColumn = 50, hasDetail = false, list, Link, pagina
                     </Link>
                 )
             default:
-                return (
-                    <Text className="text-gray-500 font-bold">
-                        {payload[key]}
-                    </Text>
-                )
+                return <Text className="text-gray-500 font-bold">{payload[key]}</Text>
         }
     }
 
     return (
         <>
-            <div className='overflow-x-auto sm:max-w-none border-table'>
+            <div className="overflow-x-auto sm:max-w-none border-table">
                 <table className="table w-full text-center text-sm shadow-lg">
-                    <thead className='border-table-bottom'>
+                    <thead className="border-table-bottom">
                         <tr style={{ backgroundColor: '#EFF6FF59', height: '66px' }}>
                             {list?.headers.map(({ title, key, filterCallback }, index) => (
                                 <HeaderAction
@@ -90,7 +78,7 @@ function GeneralTable({ heightColumn = 50, hasDetail = false, list, Link, pagina
                     <tbody style={{ backgroundColor: '#FFF' }}>
                         {list?.data &&
                             list?.data?.slice(paramPagination?.skipSlice, paramPagination?.limitSlice).map((row) => (
-                                <tr key={row?.id} className='border-b text-xs' style={{ height: heightColumn }}>
+                                <tr key={row?.id} className="border-b text-xs" style={{ height: heightColumn }}>
                                     {list.headers.map(({ type, key }, index) => (
                                         <td className="p-2" key={index.toString()}>
                                             {renderTable(row, key, type)}
