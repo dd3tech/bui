@@ -12,6 +12,7 @@ interface IProps {
 
 function FeedBackBox({ type, title, description, onClose, textClose }: IProps) {
     const color = type === 'error' ? 'red' : 'green'
+
     return (
         <div className={`max-w-lg border border-${color}-500 p-4 rounded-lg`}>
             <div className="flex mb-2">
@@ -22,7 +23,7 @@ function FeedBackBox({ type, title, description, onClose, textClose }: IProps) {
             <div>
                 <Button onClick={onClose} variant="link" className="font-semibold flex items-center text-xs" padding={0}>
                     <Text className="mr-1">{textClose}</Text>
-                    <XIcon className='w-3 h-3 -mb-0.5' />
+                    <XIcon className="w-3 h-3 -mb-0.5" />
                 </Button>
             </div>
         </div>

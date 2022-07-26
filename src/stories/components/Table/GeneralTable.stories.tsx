@@ -1,9 +1,10 @@
+import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import GeneralTableComponent from '../../../components/Table/GeneralTable'
 import { IDataTable, IHeaderType } from '../../../interfaces/GeneralTable'
 
 export default {
-    title: 'Design System/Table/GeneralTable'
+    title: 'Design System/Table'
 } as ComponentMeta<typeof GeneralTableComponent>
 
 const Template: ComponentStory<typeof GeneralTableComponent> = (args) => <GeneralTableComponent {...args} />
