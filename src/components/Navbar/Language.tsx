@@ -13,16 +13,16 @@ const langs = [
 ]
 
 interface Props {
-  isNavbar?: boolean
-  changeLanguage?: (lang: string) => void
-  getLangName?: (lang: string) => string
+    isNavbar?: boolean
+    changeLanguage?: (lang: string) => void
+    getLangName?: (lang: string) => string
 }
 
 function Language({ isNavbar, changeLanguage, getLangName }: Props) {
     const [language, setLanguage] = useState(localStorage.getItem('language') ?? 'es')
     const langName: { [key: string]: string } = {
-      English: "ENG",
-      Spanish: "ESP",
+        English: 'ENG',
+        Spanish: 'ESP'
     }
 
     const toggleLanguage = () => {
@@ -38,7 +38,7 @@ function Language({ isNavbar, changeLanguage, getLangName }: Props) {
             {langs.map(({ name, code }, index) => {
                 return (
                     <div key={`lenguage-${index}`} className={`${isNavbar ? 'text-sm' : 'text-base'}`}>
-                        <span className={`${language === code ? 'text-blue-700' : ''} uppercase mr-1`}>{getLangName ? getLangName(name): langName[name]}</span>
+                        <span className={`${language === code ? 'text-blue-700' : ''} uppercase mr-1`}>{getLangName ? getLangName(name) : langName[name]}</span>
                         {index !== langs.length - 1 ? <span className="mr-1">/</span> : null}
                     </div>
                 )

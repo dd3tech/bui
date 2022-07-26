@@ -1,11 +1,11 @@
 export interface ITopHeader {
-  colSpan?: number
-  children: React.ReactNode
+    colSpan?: number
+    children: React.ReactNode
 }
 
 export interface IHeader {
-  title: string,
-  key: string,
-  className?: string,
-  withCurrencyFormat?: boolean,
+    title: string
+    key: string
+    className?: string
+    withCurrencyFormat?: boolean
 }

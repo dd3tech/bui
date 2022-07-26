@@ -1,1 +1,1 @@
-export { default as GeneralTable } from "./GeneralTable"
+export { default as GeneralTable } from './GeneralTable'

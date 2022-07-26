@@ -1,1 +1,1 @@
-export { default as FeedBackBox } from "./FeedBackBox";
+export { default as FeedBackBox } from './FeedBackBox'

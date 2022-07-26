@@ -1,21 +1,25 @@
 import React, { ReactNode } from 'react'
 
 interface Props {
-  children?: JSX.Element | JSX.Element[] | ReactNode
-  to?: string
-  className?: string
-  LinkComponent?: React.ComponentType<any>
+    children?: JSX.Element | JSX.Element[] | ReactNode
+    to?: string
+    className?: string
+    LinkComponent?: React.ComponentType<any>
 }
 
 function Link({ children, to, className, LinkComponent }: Props) {
-  if (LinkComponent) {
+    if (LinkComponent) {
+        return (
+            <LinkComponent to={to} className={className}>
+                {children}
+            </LinkComponent>
+        )
+    }
     return (
-      <LinkComponent to={to} className={className}>{children}</LinkComponent>
+        <a href={to} className={className}>
+            {children}
+        </a>
     )
-  }
-  return (
-    <a href={to} className={className}>{children}</a>
-  )
 }
 
 export default Link

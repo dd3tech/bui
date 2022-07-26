@@ -7,7 +7,16 @@ interface IProps extends React.HTMLProps<HTMLDivElement> {
     hasViewportHeight?: boolean
 }
 
-function Wrapper({ children, className, paddingVertical = 10, paddingHorizontal = 20, maxWidth = 'screen-2xl', hasViewportHeight, style, ...otherProps }: IProps) {
+function Wrapper({
+    children,
+    className,
+    paddingVertical = 10,
+    paddingHorizontal = 20,
+    maxWidth = 'screen-2xl',
+    hasViewportHeight,
+    style,
+    ...otherProps
+}: IProps) {
     return (
         <div
             {...otherProps}

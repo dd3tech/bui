@@ -3,11 +3,11 @@ import { Wrapper } from '../Wrapper'
 import Language from './Language'
 
 interface Props {
-  logoUrl: string
-  logoWidth?: number
-  logoHeight?: number
-  logoName?: string
-  LinkComponent?: React.ComponentType<any>
+    logoUrl: string
+    logoWidth?: number
+    logoHeight?: number
+    logoName?: string
+    LinkComponent?: React.ComponentType<any>
 }
 
 function Navbar({ logoUrl, logoWidth, logoHeight, logoName, LinkComponent }: Props) {

@@ -1,26 +1,26 @@
 export interface IHeaderType {
-  type?: 'warning' | 'success' | 'amount-blue' | 'amount-black' | 'tag' | 'date' | 'link' | 'input',
-  title: string,
-  key: string,
-  filterCallback?: (payload?: any, key?: string) => void,
+    type?: 'warning' | 'success' | 'amount-blue' | 'amount-black' | 'tag' | 'date' | 'link' | 'input'
+    title: string
+    key: string
+    filterCallback?: (payload?: any, key?: string) => void
 }
 
-export type IType = keyof IHeaderType["type"]
+export type IType = keyof IHeaderType['type']
 
 export interface IDataTable {
-  headers: IHeaderType[],
-  data: any[]
-  page?: number,
+    headers: IHeaderType[]
+    data: any[]
+    page?: number
 }
 
 export interface IPaginatedData {
-  numPages?: number
-  nextPage?: () => void
-  previousPage?: () => void
-  blockPaginationWithCount?: () => boolean
+    numPages?: number
+    nextPage?: () => void
+    previousPage?: () => void
+    blockPaginationWithCount?: () => boolean
 }
 
 export interface IParamsPagination {
-  skipSlice: number
-  limitSlice: number
+    skipSlice: number
+    limitSlice: number
 }

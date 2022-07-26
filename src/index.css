@@ -120,7 +120,7 @@ input:-webkit-autofill + label {
 }
 
 @media screen and (min-width: 765px) {
-  .notfound-title {
-    font-size: 20rem;
-  }
+    .notfound-title {
+        font-size: 20rem;
+    }
 }
