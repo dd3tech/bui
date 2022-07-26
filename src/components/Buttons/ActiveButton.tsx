@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { Button } from './Button'
 
-export const ActiveButton = ({ children, active, to }: { children: ReactNode; active: boolean; to?: () => void }) => {
+export const ActiveButton = ({ children, active, to, ...props }: { children: ReactNode; active: boolean; to?: () => void }) => {
     return (
         <Button
             variant={active ? 'outlineBlue' : 'outline'}
@@ -13,6 +13,7 @@ export const ActiveButton = ({ children, active, to }: { children: ReactNode; ac
                     to()
                 }
             }}
+            {...props}
         >
             {children}
         </Button>
