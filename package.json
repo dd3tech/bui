@@ -14,8 +14,10 @@
         "serve": "vite preview",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
+        "format": "prettier --write ./src",
         "test": "vitest",
-        "coverage": "vitest run --coverage"
+        "coverage": "vitest run --coverage",
+        "prepare": "husky install"
     },
     "workspaces": [
         "dd360-ui"
@@ -62,6 +64,8 @@
         "tailwindcss": "^2.2.19",
         "typescript": "^4.3.2",
         "vite": "^2.6.4",
-        "vitest": "^0.19.1"
+        "vitest": "^0.19.1",
+        "husky": "^8.0.1",
+        "prettier": "^2.4.1"
     }
 }
