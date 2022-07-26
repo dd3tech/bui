@@ -54,6 +54,7 @@ test:
     stage: test
     needs:
         - install
+        - build
     before_script:
         - npm i
     script:
