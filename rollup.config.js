@@ -30,8 +30,8 @@ export default [
             typescript({ useTsconfigDeclarationDir: true, tsconfig: './tsconfig.json' }),
             postcss({
                 extensions: ['.css']
-            })
-            // svg()
+            }),
+            svg()
         ]
     },
     {
