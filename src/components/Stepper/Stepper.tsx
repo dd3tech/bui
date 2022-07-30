@@ -11,14 +11,17 @@ interface StepperProps {
     strokeWidth?: number
     strokeColor?: string
     text?: string
+    classNameContainer?: string
+    classNameCircularProgress?: string
 }
 
 export const Stepper = ({ phase, totalPhases, width, height, ...props }: StepperProps) => {
     const valuePercentage = Math.round((100 / totalPhases) * phase)
 
     return (
-        <div style={{ width, height }}>
+        <div style={{ width, height }} className={props.classNameContainer ?? ''}>
             <CircularProgressbar
+                className={props.classNameCircularProgress ?? ''}
                 styles={{
                     text: {
                         fill: props.textColor ?? '#1d4ed8',
