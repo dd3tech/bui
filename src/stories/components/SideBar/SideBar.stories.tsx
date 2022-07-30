@@ -38,5 +38,6 @@ SideBar.args = {
         <p className="text-gray-400 block text-sm">
             Crédito <span className="font-bold">Pre-puente</span>
         </p>
-    )
+    ),
+    dangerZone: { show: true, text: 'Eliminar proyecto' }
 }

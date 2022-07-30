@@ -1,30 +1,28 @@
-import { ReactElement, useEffect, useState } from 'react'
-import { ChevronDoubleRightIcon, ChevronDoubleLeftIcon, ViewGridIcon } from '@heroicons/react/outline'
+import { ReactElement, useCallback, useEffect, useState } from 'react'
+import { ChevronDoubleRightIcon, ChevronDoubleLeftIcon, ViewGridIcon, ExclamationIcon } from '@heroicons/react/outline'
 import { Text, Circle } from '../index'
 import { css } from '@emotion/css'
 
-export const SideBar = ({
-    sideBarList,
-    sideBarName = 'Álvaro Obregón 182',
-    sideBarSubTitle,
-    defaultExpand
-}: {
+interface SideBarProps {
     sideBarList?: Array<{ title: string; active: boolean; to: () => void }>
     sideBarName?: string
     sideBarSubTitle?: ReactElement
     defaultExpand?: boolean
-}) => {
+    dangerZone?: { show: boolean; text: string; callBack?: () => void }
+}
+
+export const SideBar = ({ sideBarList, sideBarName = 'Álvaro Obregón 182', sideBarSubTitle, defaultExpand, ...props }: SideBarProps) => {
     const [expand, setExpand] = useState(false)
     const [timer, setTimer] = useState(false)
 
-    const activeStyle = (activeLink: boolean) => {
+    const activeStyle = useCallback((activeLink: boolean) => {
         return css`
             width: 6px;
             height: 64px;
             background: ${activeLink ? '#1d4ed8' : 'transparent'};
             border-radius: 0px 8px 8px 0px;
         `
-    }
+    }, [])
 
     const shotTimer = () => {
         if (!expand) {
@@ -90,7 +88,6 @@ export const SideBar = ({
                         <ChevronDoubleLeftIcon className="text-blue-700 hover:text-blue-800 transition-all duration-200 ease-in-out" width={25} />
                     </div>
                 </div>
-
                 {sideBarList?.map(({ title, active, to }, index: number) => (
                     <div
                         key={index}
@@ -105,6 +102,20 @@ export const SideBar = ({
                         </Text>
                     </div>
                 ))}
+                {props.dangerZone?.show && (
+                    <div
+                        style={{ marginTop: '53px' }}
+                        className="flex cursor-pointer group fixed bottom-0 border-t bg-gray-50 border-gray-300 w-96"
+                        onClick={() => {
+                            if (props.dangerZone?.callBack) {
+                                props.dangerZone?.callBack()
+                            }
+                        }}
+                    >
+                        <ExclamationIcon width={17.86} className="text-gray-600 ml-8 group-hover:text-red-600 mt-10 mb-10" />
+                        <p className="text-gray-600 text-lg ml-4 mt-10 group-hover:text-red-600 mb-10">{props?.dangerZone?.text}</p>
+                    </div>
+                )}
             </div>
         </div>
     )
