@@ -7,11 +7,7 @@ stages:
     - chromatic
     - publish
 
-variables:
-    NPM_TOKEN:
-        $NPM_TOKEN
-
-        ###############################################################################
+###############################################################################
 #     install                                                         #
 ###############################################################################
 
@@ -39,12 +35,15 @@ build:
     stage: build
     needs:
         - install
+    cache:
+        key: $CI_PROJECT_ID
+        policy: pull
+        paths:
+            - node_modules
     only:
         - merge_requests
         - develop
         - main
-    before_script:
-        - npm i
     script:
         - npm run build-lib
     dependencies:
@@ -57,9 +56,13 @@ build:
 test:
     stage: test
     needs:
+        - install
         - build
-    before_script:
-        - npm i
+    cache:
+        key: $CI_PROJECT_ID
+        policy: pull
+        paths:
+            - node_modules
     script:
         - npm run test
     only:
@@ -67,6 +70,7 @@ test:
         - develop
         - main
     dependencies:
+        - install
         - build
 
         ###############################################################################
@@ -76,14 +80,23 @@ test:
 chromatic_publish:
     stage: chromatic
     needs:
+        - install
+        - build
         - test
+    cache:
+        key: $CI_PROJECT_ID
+        policy: pull
+        paths:
+            - node_modules
     only:
-        - merge_requests
         - develop
         - main
     script:
-        - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN
+        - npm run build-storybook
+        - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-once-uploaded --exit-zero-on-changes
     dependencies:
+        - install
+        - build
         - test
 
         ###############################################################################
@@ -98,10 +111,10 @@ publish:
         - npm i
         - npm run build-lib
     script:
-        - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+        - echo '//registry.npmjs.org/:_authToken=$NPM_TOKEN'>.npmrc
         - npm publish
     dependencies:
         - install
         - build
         - test
-        - chromatic
+        - chromatic_publish
