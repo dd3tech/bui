@@ -1,4 +1,4 @@
-interface IProps extends React.HTMLProps<HTMLDivElement> {
+export interface WrapperProps extends React.HTMLProps<HTMLDivElement> {
     children: React.ReactNode
     className?: string
     paddingVertical?: number
@@ -7,7 +7,7 @@ interface IProps extends React.HTMLProps<HTMLDivElement> {
     hasViewportHeight?: boolean
 }
 
-function Wrapper({
+export function Wrapper({
     children,
     className,
     paddingVertical = 10,
@@ -16,16 +16,14 @@ function Wrapper({
     hasViewportHeight,
     style,
     ...otherProps
-}: IProps) {
+}: WrapperProps) {
     return (
         <div
-            {...otherProps}
             style={{ ...style, minHeight: hasViewportHeight ? 'calc(100vh - 193px)' : '' }}
             className={`py-${paddingVertical} max-w-${maxWidth} px-${paddingHorizontal} mx-auto ${className ?? ''}`}
+            {...otherProps}
         >
             {children}
         </div>
     )
 }
-
-export default Wrapper

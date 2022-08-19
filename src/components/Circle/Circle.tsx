@@ -1,11 +1,9 @@
-import { ReactNode } from 'react'
+import React from 'react'
 
-interface CircleProps {
-    children?: ReactNode
+interface CircleProps extends React.HTMLProps<HTMLDivElement> {
+    children?: React.ReactNode
     backgroundColor?: string
-    onClick?: () => void
     className?: string
-    onBlur?: () => void
     width?: string
     height?: string
     border?: string
@@ -24,13 +22,14 @@ export const Circle = ({
     disabled,
     ...props
 }: CircleProps) => {
-    const classNameCircle = `${className} items-center flex justify-center rounded-full`
-
-    const disabledClassName = 'text-gray-300 border border-gray-300 flex justify-center rounded-full bg-white'
+    const chooseClassNameCircle = React.useCallback(() => {
+        if (disabled) return `disabled:text-gray-300 disabled:border disabled:border-gray-300 disabled:bg-white`
+        return className
+    }, [className, disabled])
 
     return (
         <div
-            className={disabled ? disabledClassName : classNameCircle}
+            className={`${chooseClassNameCircle()} items-center flex justify-center rounded-full`}
             style={{ backgroundColor: !useBackground ? '' : backgroundColor, width, height, border }}
             {...props}
         >

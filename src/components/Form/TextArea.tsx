@@ -1,16 +1,7 @@
-import { ChangeEvent, MouseEventHandler, FocusEvent } from 'react'
+import React from 'react'
 
-interface ITextAreaProps {
-    value?: any
-    required?: boolean
-    name?: string
-    className?: string
-    disabled?: boolean
-    placeholder?: string
+export interface ITextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     maxlength?: number
-    onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void
-    onFocus?: (event: FocusEvent<HTMLTextAreaElement>) => void
-    onClick?: MouseEventHandler<HTMLTextAreaElement>
     label?: string
     classNameLabel?: string
 }
@@ -45,7 +36,7 @@ export const TextArea = ({
                 name={name}
                 disabled={disabled}
                 {...props}
-            ></textarea>
+            />
         </>
     )
 }

@@ -1,15 +1,15 @@
 import React from 'react'
 import { css } from '@emotion/css'
 
-interface SpinnerProps {
-    color?: string
+export interface SpinnerProps {
+    textColor?: string
     className?: string
     variant?: 'red' | 'green' | 'blue' | 'black' | 'yellow'
     type?: 'circle' | 'grow'
     pageLoader?: boolean
 }
 
-export const Spinner = ({ color, className, variant, type, pageLoader, ...props }: SpinnerProps) => {
+export function Spinner({ textColor = '', className, variant, type, pageLoader, ...props }: SpinnerProps) {
     if (pageLoader) {
         const loader = css`
             border-top-color: #1d4ed8;
@@ -22,7 +22,7 @@ export const Spinner = ({ color, className, variant, type, pageLoader, ...props 
         )
     }
 
-    const choiseType = (type: SpinnerProps['type']) => {
+    const chooseType = React.useCallback(() => {
         switch (type) {
             case 'circle':
                 return 'spinner-border'
@@ -31,10 +31,10 @@ export const Spinner = ({ color, className, variant, type, pageLoader, ...props 
             default:
                 return 'spinner-border'
         }
-    }
+    }, [type])
 
-    const choiseColor = (color: SpinnerProps['color']) => {
-        switch (color) {
+    const chooseColor = React.useCallback(() => {
+        switch (variant) {
             case 'red':
                 return 'text-red-500'
             case 'green':
@@ -48,9 +48,7 @@ export const Spinner = ({ color, className, variant, type, pageLoader, ...props 
             default:
                 return ''
         }
-    }
+    }, [variant])
 
-    return <div className={`${choiseType(type)} ${choiseColor(variant)} ${className ?? ''}`} style={{ color: color }} {...props}></div>
+    return <div className={`${chooseType()} ${chooseColor()} ${className ?? ''}`} style={{ color: textColor }} {...props}></div>
 }
-
-export const LoaderSpinner = () => {}

@@ -1,6 +1,6 @@
 import { TagIcon, ExclamationIcon, CheckCircleIcon, ExclamationCircleIcon, ClipboardCopyIcon } from '@heroicons/react/outline'
 
-interface IBadgeProps {
+export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
     text?: string
     className?: string
     variant: 'warning' | 'infoPrimary' | 'infoSecondary' | 'success' | 'primary' | 'secondary' | 'error'
@@ -37,11 +37,11 @@ const iconsSwitch = (iconType?: string, classNameIcon?: string) => {
     }
 }
 
-export const Badge = ({ text, className, variant, classNameIcon, icon }: IBadgeProps) => {
+export const Badge = ({ text, className, variant, classNameIcon, icon, ...props }: IBadgeProps) => {
     const classNameByVariant = badgeVariants[variant] || ''
 
     return (
-        <div className={`${className ?? ''} ${classNameByVariant} rounded-full flex items-center gap-1 text-xs ${icon ? '' : 'justify-center'}`}>
+        <div className={`${className ?? ''} ${classNameByVariant} rounded-full flex items-center gap-1 text-xs ${icon ? '' : 'justify-center'}`} {...props}>
             {iconsSwitch(icon, classNameIcon)} <small>{text ?? ''}</small>
         </div>
     )

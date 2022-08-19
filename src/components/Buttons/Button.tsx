@@ -1,21 +1,19 @@
-import { ReactNode, MouseEventHandler, memo, ReactElement } from 'react'
+import React from 'react'
 
-interface IButtonProps {
+interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'tertiary' | 'outline' | 'link' | 'ghost' | 'cancel' | 'success' | 'outlineWhite' | 'outlineBlue'
     size?: 'small' | 'medium' | 'large'
     padding?: number
     disabled?: boolean
-    onClick?: MouseEventHandler<HTMLButtonElement>
-    children?: ReactNode
     isLoading?: boolean
     className?: string
     paddingX?: number
     paddingY?: number
     role?: string
-    loadingComponent?: ReactElement
+    loadingComponent?: React.ReactElement
 }
 
-export const Button = memo(
+export const Button = React.memo(
     ({
         variant = 'primary',
         size = 'medium',
@@ -43,7 +41,7 @@ export const Button = memo(
             large: 'rounded-lg w-auto'
         }
 
-        const buttonPading = () => {
+        const buttonPading = React.useCallback(() => {
             if (paddingX && paddingY) {
                 return `px-${paddingX} py-${paddingY}`
             }
@@ -61,7 +59,7 @@ export const Button = memo(
             }
 
             return 'p-2'
-        }
+        }, [padding, paddingX, paddingY])
 
         return (
             <button

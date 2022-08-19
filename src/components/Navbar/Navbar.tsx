@@ -1,5 +1,4 @@
-import { Link } from '../Link'
-import { Wrapper } from '../Wrapper'
+import { Anchor, Wrapper } from '..'
 import Language from './Language'
 
 interface Props {
@@ -14,11 +13,11 @@ function Navbar({ logoUrl, logoWidth, logoHeight, logoName, LinkComponent }: Pro
     return (
         <nav>
             <Wrapper className="flex items-center justify-between" paddingVertical={6} maxWidth="full">
-                <Link LinkComponent={LinkComponent} to="/">
+                <Anchor LinkComponent={LinkComponent} to="/">
                     <figure className="block">
                         <img width={logoWidth} height={logoHeight} src={logoUrl} alt={logoName ?? 'Logo Name'} />
                     </figure>
-                </Link>
+                </Anchor>
                 <Language />
             </Wrapper>
         </nav>

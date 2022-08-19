@@ -1,4 +1,4 @@
-import { ReactElement, useCallback, useEffect, useState } from 'react'
+import React from 'react'
 import { ChevronDoubleRightIcon, ChevronDoubleLeftIcon, ViewGridIcon, ExclamationIcon } from '@heroicons/react/outline'
 import { Text, Circle } from '../index'
 import { css } from '@emotion/css'
@@ -6,16 +6,16 @@ import { css } from '@emotion/css'
 interface SideBarProps {
     sideBarList?: Array<{ title: string; active: boolean; to: () => void }>
     sideBarName?: string
-    sideBarSubTitle?: ReactElement
+    sideBarSubTitle?: React.ReactElement
     defaultExpand?: boolean
     dangerZone?: { show: boolean; text: string; callBack?: () => void }
 }
 
 export const SideBar = ({ sideBarList, sideBarName = 'Álvaro Obregón 182', sideBarSubTitle, defaultExpand, ...props }: SideBarProps) => {
-    const [expand, setExpand] = useState(false)
-    const [timer, setTimer] = useState(false)
+    const [expand, setExpand] = React.useState(false)
+    const [timer, setTimer] = React.useState(false)
 
-    const activeStyle = useCallback((activeLink: boolean) => {
+    const activeStyle = React.useCallback((activeLink: boolean) => {
         return css`
             width: 6px;
             height: 64px;
@@ -38,7 +38,7 @@ export const SideBar = ({ sideBarList, sideBarName = 'Álvaro Obregón 182', sid
         width: 4.5rem;
     `
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (defaultExpand) {
             setExpand(true)
             shotTimer()

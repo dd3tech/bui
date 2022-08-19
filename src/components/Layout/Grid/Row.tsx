@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface RowProps {
+export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode
     className?: string
     cols: 1 | 2 | 3 | 4
@@ -10,13 +10,15 @@ interface RowProps {
 }
 
 export const Row = ({ children, className, cols, md, gap, sm, ...props }: RowProps) => {
+    const finalClassName = React.useCallback(() => {
+        const defCols = `${cols ? `grid-cols-${cols}` : ''} `
+        const smCols = `${sm ? `sm:grid-cols-${sm}` : ''}`
+        const mdCols = `${md ? `md:grid-cols-${md}` : ''}`
+        return `grid ${defCols} ${smCols} ${mdCols} ${gap ? `gap-${gap}` : ''} ${className ?? ''}`
+    }, [className, cols, md, gap, sm])
+
     return (
-        <div
-            className={`grid ${cols ? `grid-cols-${cols}` : ''} ${md ? `md:grid-cols-${md}` : ''} ${sm ? `sm:grid-cols-${sm}` : ''} ${
-                gap ? `gap-${gap}` : ''
-            } ${className ?? ''}`}
-            {...props}
-        >
+        <div className={finalClassName()} {...props}>
             {children}
         </div>
     )

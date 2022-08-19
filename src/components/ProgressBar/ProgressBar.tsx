@@ -1,6 +1,6 @@
 import './progressbar.css'
 
-interface ProgressBarProps {
+export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
     value?: number
     max?: number
     backgroundColor?: string
@@ -9,7 +9,7 @@ interface ProgressBarProps {
     animated?: boolean
 }
 
-export const ProgressBar = ({ value = 50, max = 100, backgroundColor, className, label, animated, ...props }: ProgressBarProps) => {
+export function ProgressBar({ value = 50, max = 100, backgroundColor, className, label, animated, ...props }: ProgressBarProps) {
     return (
         <div className="storybook-progress">
             <div

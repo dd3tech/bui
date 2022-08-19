@@ -1,8 +1,6 @@
 import React from 'react'
 
-interface OverFlowProps {
-    children?: React.ReactNode
-    className?: string
+export interface OverFlowProps extends React.HTMLAttributes<HTMLDivElement> {
     overflow?: 'auto' | 'hidden' | 'visible' | 'x-auto' | 'x-hidden' | 'x-visible' | 'scroll' | 'y-auto' | 'y-hidden' | 'y-visible' | 'x-scroll' | 'y-scroll'
 }
 

@@ -1,13 +1,11 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 
-interface Props {
-    children?: JSX.Element | JSX.Element[] | ReactNode
+export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     to?: string
-    className?: string
     LinkComponent?: React.ComponentType<any>
 }
 
-function Link({ children, to, className, LinkComponent }: Props) {
+export function Anchor({ children, to, className, LinkComponent }: LinkProps) {
     if (LinkComponent) {
         return (
             <LinkComponent to={to} className={className}>
@@ -15,11 +13,10 @@ function Link({ children, to, className, LinkComponent }: Props) {
             </LinkComponent>
         )
     }
+
     return (
         <a href={to} className={className}>
             {children}
         </a>
     )
 }
-
-export default Link

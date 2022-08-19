@@ -1,12 +1,7 @@
-import { Fragment, useState, ReactNode } from 'react'
-// import SubMenu from '../UI/Navbar/Submenu'
+import React from 'react'
 import Collapse from './Collapse'
 import { ChevronUpIcon, ChevronDownIcon, CogIcon, BellIcon } from '@heroicons/react/outline'
-import { Button } from '../Buttons'
-import { Circle } from '../Circle'
-import { Text } from '../Typography/Text'
-import { Wrapper } from '../Wrapper'
-import { Link } from '../Link'
+import { Wrapper, Anchor, Text, Circle, Button } from '..'
 
 interface ILink {
     name: string
@@ -26,7 +21,7 @@ interface IProps {
     callToActionName?: string
     callToAction?: () => void
     links: ILink[]
-    Collapse?: ReactNode
+    Collapse?: React.ReactNode
 }
 
 const NavbarAuth = ({
@@ -43,22 +38,22 @@ const NavbarAuth = ({
     links,
     Collapse
 }: IProps) => {
-    const [isShowCollapse, setIsShowCollapse] = useState(false)
+    const [isShowCollapse, setIsShowCollapse] = React.useState(false)
     return (
         <nav className="sticky shadow-sm border-b-2" style={{ backgroundColor: bgColor }}>
             <Wrapper className="flex items-center justify-between" paddingVertical={6} maxWidth="full">
                 <div className="flex gap-16 items-center">
-                    <Link LinkComponent={LinkComponent} to="/">
+                    <Anchor LinkComponent={LinkComponent} to="/">
                         <figure className="block">
                             <img width={logoWidth} height={logoHeight} src={logo} alt="Lendd3r" />
                         </figure>
-                    </Link>
+                    </Anchor>
                     <div className="flex gap-14">
                         {links.map(({ name, link, active }, index) => (
                             <div key={index}>
-                                <Link LinkComponent={LinkComponent} to={link} className={active ? 'font-bold' : 'text-base'}>
+                                <Anchor LinkComponent={LinkComponent} to={link} className={active ? 'font-bold' : 'text-base'}>
                                     {name}
-                                </Link>
+                                </Anchor>
                                 {active && <div className="w-16 bottom-0 absolute border-b-2 border-blue-700 h-4"></div>}
                             </div>
                         ))}

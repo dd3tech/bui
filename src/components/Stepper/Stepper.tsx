@@ -1,7 +1,8 @@
+import React from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
-interface StepperProps {
+export interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
     phase: number
     totalPhases: number
     width?: string
@@ -15,8 +16,10 @@ interface StepperProps {
     classNameCircularProgress?: string
 }
 
-export const Stepper = ({ phase, totalPhases, width, height, ...props }: StepperProps) => {
-    const valuePercentage = Math.round((100 / totalPhases) * phase)
+export function Stepper({ phase, totalPhases, width, height, ...props }: StepperProps) {
+    const valuePercentage = React.useCallback(() => {
+        return Math.round((100 / totalPhases) * phase)
+    }, [totalPhases, phase])
 
     return (
         <div style={{ width, height }} className={props.classNameContainer ?? ''}>
@@ -32,7 +35,7 @@ export const Stepper = ({ phase, totalPhases, width, height, ...props }: Stepper
                     }
                 }}
                 strokeWidth={props.strokeWidth}
-                value={valuePercentage}
+                value={valuePercentage()}
                 text={props.text ?? `${phase}/${totalPhases}`}
             />
         </div>

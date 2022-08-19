@@ -1,11 +1,7 @@
 import React from 'react'
-interface ImageProps {
-    src: string
-    alt: string
-    className?: string
+export interface ImageProps extends React.HTMLProps<HTMLImageElement> {
     rounded?: 'sm' | 'lg' | 'md'
     circle?: boolean
-    onClick?: (event: MouseEvent) => void
     width?: number
     height?: number
 }

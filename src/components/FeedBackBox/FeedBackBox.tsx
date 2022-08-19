@@ -1,8 +1,9 @@
+import React from 'react'
 import { Text } from '../Typography/Text'
 import { Button } from '../Buttons/Button'
 import { ExclamationIcon, XIcon, CheckCircleIcon } from '@heroicons/react/outline'
 
-interface IProps {
+export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
     type: 'error' | 'success'
     title: string
     description?: string
@@ -10,11 +11,13 @@ interface IProps {
     textClose?: string
 }
 
-function FeedBackBox({ type, title, description, onClose, textClose }: IProps) {
-    const color = type === 'error' ? 'red' : 'green'
+export function FeedBackBox({ type, title, description, onClose, textClose, ...props }: IProps) {
+    const color = React.useCallback(() => {
+        return type === 'error' ? 'red' : 'green'
+    }, [type])
 
     return (
-        <div className={`max-w-lg border border-${color}-500 p-4 rounded-lg`}>
+        <div className={`max-w-lg border border-${color}-500 p-4 rounded-lg`} {...props}>
             <div className="flex mb-2">
                 {type === 'error' ? <ExclamationIcon className="w-4 h-4 text-red-500 mr-2" /> : <CheckCircleIcon className="w-4 h-4 text-green-500 mr-2" />}
                 <Text className={`text-xs text-${color}-500 font-bold`}>{title}.</Text>
@@ -29,5 +32,3 @@ function FeedBackBox({ type, title, description, onClose, textClose }: IProps) {
         </div>
     )
 }
-
-export default FeedBackBox

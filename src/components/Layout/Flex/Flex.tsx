@@ -1,10 +1,6 @@
 import React from 'react'
-interface FlexProps {
-    className?: string
-    children?: React.ReactNode
-}
 
-export const Flex = ({ className, children, ...props }: FlexProps) => {
+export const Flex = ({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
     return (
         <div className={`flex ${className ?? ''}`} {...props}>
             {children}
