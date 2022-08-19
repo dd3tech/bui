@@ -1,56 +1,55 @@
 import React from 'react'
 import { it, describe, expect, vi } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, fireEvent, RenderResult } from '@testing-library/react'
 import { ModalCustom } from '../src/components'
 
 describe('Component UI: ModalCustom', () => {
     const setCloseModal = vi.fn()
+    let renderResult: RenderResult
 
-    it('ModalCustom is working', () => {
-        render(<ModalCustom active={false} setCloseModal={setCloseModal} />)
-        expect(screen.getByRole('popup-custom')).toBeDefined()
+    beforeEach(() => {
+        const result = render(<ModalCustom active={false} setCloseModal={setCloseModal} />)
+        renderResult = result
+    })
+
+    it('ModalCustom is closed', () => {
+        expect(renderResult.container.firstChild).toBeNull()
     })
 
     it('ModalCustom, pass the children is working', () => {
-        render(
+        renderResult.rerender(
             <ModalCustom active={true} setCloseModal={setCloseModal}>
                 <h1>Children</h1>
             </ModalCustom>
         )
-        expect(screen.getByText('Children')).toBeDefined()
-    })
 
-    it('ModalCustom not active is working', () => {
-        render(<ModalCustom active={false} setCloseModal={setCloseModal} />)
-        const popup = screen.getByRole('modal-custom')
-        expect(popup.className).toContain('hidden')
+        expect(renderResult.getByText('Children')).toBeDefined()
     })
 
     it('ModalCustom active is working', () => {
-        render(<ModalCustom active={true} setCloseModal={setCloseModal} />)
-        const popup = screen.getByRole('modal-custom')
-        expect(popup.className).toContain('fixed')
+        renderResult.rerender(<ModalCustom active={true} setCloseModal={setCloseModal} />)
+        const modal = renderResult.getByRole('modal-custom')
+        expect(modal.className).toContain('fixed')
     })
 
     it('ModalCustom, widht and height props is working', () => {
-        render(<ModalCustom active={true} setCloseModal={setCloseModal} width="50%" height="30%" />)
-        const popup = screen.getByTestId('modal-contain')
-        expect(popup.style.width).toBe('50%')
-        expect(popup.style.height).toBe('30%')
+        renderResult.rerender(<ModalCustom active={true} setCloseModal={setCloseModal} width="50%" height="30%" />)
+        const modal = renderResult.getByTestId('modal-contain')
+        expect(modal.style.width).toBe('50%')
+        expect(modal.style.height).toBe('30%')
     })
 
-    it('ModalCustom, if keyUp is escape, close popup', () => {
-        render(<ModalCustom active={true} setCloseModal={setCloseModal} />)
-        const popup = screen.getByRole('modal-custom')
-        fireEvent.keyUp(popup, { key: 'Escape' })
-        expect(popup.className).toContain('hidden')
+    it('ModalCustom, if keyUp is escape, close modal', () => {
+        renderResult.rerender(<ModalCustom active={true} setCloseModal={setCloseModal} />)
+        const modal = renderResult.getByRole('modal-custom')
+        fireEvent.keyUp(modal, { key: 'Escape' })
+        expect(renderResult.container.firstChild).toBeNull()
     })
 
     it('ModalCustom, close this when click the button (X)', () => {
-        render(<ModalCustom active={true} setCloseModal={setCloseModal} />)
-        const popup = screen.getByRole('modal-custom')
-        const btnCancel = screen.getByRole('btn-close')
+        renderResult.rerender(<ModalCustom active={true} setCloseModal={setCloseModal} />)
+        const btnCancel = renderResult.getByRole('btn-close')
         fireEvent.click(btnCancel)
-        expect(popup.className).toContain('hidden')
+        expect(renderResult.container.firstChild).toBeNull()
     })
 })
