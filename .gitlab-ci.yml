@@ -2,8 +2,9 @@ image: node:16.15.1
 
 stages:
     - install
-    - test
     - build
+    - test
+    - chromatic
     - publish
 
 variables:
@@ -30,25 +31,6 @@ install:
         paths:
             - node_modules
 
-###############################################################################
-#     test                                                         #
-###############################################################################
-
-test:
-    stage: test
-    needs:
-        - install
-    before_script:
-        - npm i
-    script:
-        - npm run test
-    only:
-        - merge_requests
-        - develop
-        - main
-    dependencies:
-        - install
-
     ###############################################################################
 #     build                                                         #
 ###############################################################################
@@ -57,7 +39,6 @@ build:
     stage: build
     needs:
         - install
-        - test
     only:
         - merge_requests
         - develop
@@ -68,6 +49,41 @@ build:
         - npm run build-lib
     dependencies:
         - install
+
+###############################################################################
+#     test                                                         #
+###############################################################################
+
+test:
+    stage: test
+    needs:
+        - build
+    before_script:
+        - npm i
+    script:
+        - npm run test
+    only:
+        - merge_requests
+        - develop
+        - main
+    dependencies:
+        - build
+
+        ###############################################################################
+#     chromatic                                                         #
+###############################################################################
+
+chromatic_publish:
+    stage: chromatic
+    needs:
+        - test
+    only:
+        - merge_requests
+        - develop
+        - main
+    script:
+        - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN
+    dependencies:
         - test
 
         ###############################################################################
@@ -87,3 +103,5 @@ publish:
     dependencies:
         - install
         - build
+        - test
+        - chromatic
