@@ -45,6 +45,7 @@
         "@vitejs/plugin-react": "^1.0.0",
         "autoprefixer": "^10.4.0",
         "babel-loader": "^8.2.3",
+        "chromatic": "^6.7.4",
         "html-webpack-plugin": "^5.5.0",
         "husky": "^8.0.1",
         "jsdom": "^20.0.0",

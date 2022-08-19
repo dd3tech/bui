@@ -2,15 +2,12 @@ image: node:16.15.1
 
 stages:
     - install
-    - test
     - build
+    - test
+    - chromatic
     - publish
 
-variables:
-    NPM_TOKEN:
-        $NPM_TOKEN
-
-        ###############################################################################
+###############################################################################
 #     install                                                         #
 ###############################################################################
 
@@ -30,25 +27,6 @@ install:
         paths:
             - node_modules
 
-###############################################################################
-#     test                                                         #
-###############################################################################
-
-test:
-    stage: test
-    needs:
-        - install
-    before_script:
-        - npm i
-    script:
-        - npm run test
-    only:
-        - merge_requests
-        - develop
-        - main
-    dependencies:
-        - install
-
     ###############################################################################
 #     build                                                         #
 ###############################################################################
@@ -57,17 +35,68 @@ build:
     stage: build
     needs:
         - install
-        - test
+    cache:
+        key: $CI_PROJECT_ID
+        policy: pull
+        paths:
+            - node_modules
     only:
         - merge_requests
         - develop
         - main
-    before_script:
-        - npm i
     script:
         - npm run build-lib
     dependencies:
         - install
+
+###############################################################################
+#     test                                                         #
+###############################################################################
+
+test:
+    stage: test
+    needs:
+        - install
+        - build
+    cache:
+        key: $CI_PROJECT_ID
+        policy: pull
+        paths:
+            - node_modules
+    script:
+        - npm run test
+    only:
+        - merge_requests
+        - develop
+        - main
+    dependencies:
+        - install
+        - build
+
+        ###############################################################################
+#     chromatic                                                         #
+###############################################################################
+
+chromatic_publish:
+    stage: chromatic
+    needs:
+        - install
+        - build
+        - test
+    cache:
+        key: $CI_PROJECT_ID
+        policy: pull
+        paths:
+            - node_modules
+    only:
+        - develop
+        - main
+    script:
+        - npm run build-storybook
+        - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-once-uploaded --exit-zero-on-changes
+    dependencies:
+        - install
+        - build
         - test
 
         ###############################################################################
@@ -82,8 +111,10 @@ publish:
         - npm i
         - npm run build-lib
     script:
-        - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+        - echo '//registry.npmjs.org/:_authToken=$NPM_TOKEN'>.npmrc
         - npm publish
     dependencies:
         - install
         - build
+        - test
+        - chromatic_publish
