@@ -13,7 +13,7 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function FeedBackBox({ type, title, description, defaultIsClose = false, onClose, txtCloseBtn, ...props }: IProps) {
-    const [isClose, setIsClose] = React.useState(defaultIsClose ?? false)
+    const [isClose, setIsClose] = React.useState<boolean>(defaultIsClose ?? false)
 
     const closeBox = React.useCallback(() => {
         setIsClose(true)

@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Anchor as AnchorComponent } from '..'
+import { Anchor as AnchorComponent } from '.'
 
 export default {
     title: 'Design System/Typography/Anchor'
