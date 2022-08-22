@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 import PageNotFoundImg from '../../assets/404.svg'
 
 interface IProps {
-    toRedirect?: () => void
+    redirectTo?: () => void
     subTitle?: string
     returnMessage?: string
     codeError?: number
 }
 
-const PageNotFound = ({ toRedirect, subTitle, returnMessage, codeError = 404 }: IProps) => {
+const PageNotFound = ({ redirectTo, subTitle, returnMessage, codeError = 404 }: IProps) => {
     const [sg, setSg] = useState(10)
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const PageNotFound = ({ toRedirect, subTitle, returnMessage, codeError = 404 }: 
 
         const timer = setTimeout(() => {
             clearInterval(counter)
-            toRedirect && toRedirect()
+            if (redirectTo) redirectTo()
         }, 10000)
 
         return () => {
