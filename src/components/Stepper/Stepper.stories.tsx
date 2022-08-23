@@ -12,5 +12,6 @@ const Template: ComponentStory<typeof StepperComponent> = (args) => <StepperComp
 export const Stepper = Template.bind({})
 Stepper.args = {
     phase: 1,
-    totalPhases: 1
+    totalPhases: 1,
+    width: '5rem'
 }

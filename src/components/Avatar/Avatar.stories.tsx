@@ -11,7 +11,7 @@ const Template: ComponentStory<typeof AvatarComponent> = (args) => <AvatarCompon
 
 export const WithImage = Template.bind({})
 WithImage.args = {
-    src: 'https://picsum.photos/50/50?grayscale',
+    src: 'https://picsum.photos/50/50',
     width: '50px',
     height: '50px',
     alt: 'Avatar'

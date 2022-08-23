@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Anchor as AnchorComponent } from '.'
 
 export default {
-    title: 'Design System/Typography/Anchor'
+    title: 'Design System/Navigation'
 } as ComponentMeta<typeof AnchorComponent>
 
 const Template: ComponentStory<typeof AnchorComponent> = (args) => <AnchorComponent {...args} />
