@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: 'primary' | 'secondary' | 'tertiary' | 'outline' | 'link' | 'ghost' | 'cancel' | 'success' | 'outlineWhite' | 'outlineBlue'
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'outline' | 'link' | 'ghost' | 'cancel' | 'success' | 'outlineWhite' | 'outlineBlue' | 'disabled'
     size?: 'small' | 'medium' | 'large'
     padding?: number
     disabled?: boolean
@@ -9,6 +9,8 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
     paddingX?: number
     paddingY?: number
+    fontWeight?: 'normal' | 'bold' | 'medium' | 'light' | 'semibold'
+    rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'
     role?: string
     loadingComponent?: React.ReactElement
 }
@@ -41,7 +43,7 @@ export const Button = React.memo(
             large: 'rounded-lg w-auto'
         }
 
-        const buttonPading = React.useCallback(() => {
+        const buttonPadding = React.useCallback(() => {
             if (paddingX && paddingY) {
                 return `px-${paddingX} py-${paddingY}`
             }
@@ -63,7 +65,7 @@ export const Button = React.memo(
 
         return (
             <button
-                className={`rounded-md ${buttonPading()} font-bold transition duration-500 ease-out hover:ease-in ${buttonsVariants[variant]} ${
+                className={`rounded-md ${buttonPadding()} font-bold transition duration-500 ease-out hover:ease-in ${buttonsVariants[variant]} ${
                     sizeVariants[size]
                 } ${className}`}
                 onClick={onClick}
