@@ -1,5 +1,5 @@
 import React from 'react'
-export interface ImageProps extends React.HTMLProps<HTMLImageElement> {
+export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     rounded?: 'sm' | 'lg' | 'md'
     circle?: boolean
     width?: number
@@ -13,6 +13,7 @@ export const Image = ({ src, alt, className, rounded, circle, width, height, ...
             style={{ height: `${height}px`, width: `${width}px` }}
             alt={alt ?? src}
             className={`${rounded ? `rounded-${rounded}` : ''} ${className ?? ''} ${circle && 'rounded-50'}`}
+            {...props}
         />
     )
 }
