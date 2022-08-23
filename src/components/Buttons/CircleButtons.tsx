@@ -1,16 +1,18 @@
 import React from 'react'
 import { DynamicHeroIcon, IconName } from '../DynamicHeroIcon'
 
-interface BaseCircleButtonProps extends React.HTMLProps<HTMLDivElement> {
+interface BaseCircleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     iconName: IconName
     disabled?: boolean
     selected?: boolean
+    width?: string
+    height: string
     shadow?: 'sm' | 'md' | 'lg' | 'xl'
-    type?: 'square' | 'circle'
+    variant?: 'square' | 'circle'
     iconProperties?: { width?: string; height?: string; padding?: string }
 }
 
-export type WithoutTypeButtonProps = Omit<BaseCircleButtonProps, 'type'>
+export type WithoutTypeButtonProps = Omit<BaseCircleButtonProps, 'variant'>
 
 const globalStyles = {
     default: 'text-blue-700 hover:bg-gray-50',
@@ -40,7 +42,7 @@ export function BaseCircleButton({
     selected,
     shadow = 'sm',
     iconProperties = defaultIconProperties,
-    type = 'circle',
+    variant = 'circle',
     ...props
 }: BaseCircleButtonProps) {
     if (disabled && selected) {
@@ -51,7 +53,7 @@ export function BaseCircleButton({
         <button
             style={{ ...props.style, width, height }}
             className={`border border-gray-300 flex items-center justify-center ${
-                type === 'circle' ? 'rounded-full' : 'rounded-lg '
+                variant === 'circle' ? 'rounded-full' : 'rounded-lg '
             } shadow-${shadow} ${buildClassName(disabled, selected)}`}
         >
             <DynamicHeroIcon
@@ -66,9 +68,9 @@ export function BaseCircleButton({
 }
 
 export function SquareButton({ ...props }: WithoutTypeButtonProps) {
-    return <BaseCircleButton type="square" {...props} />
+    return <BaseCircleButton variant="square" {...props} />
 }
 
 export function CircleButton({ ...props }: WithoutTypeButtonProps) {
-    return <BaseCircleButton type="circle" {...props} />
+    return <BaseCircleButton variant="circle" {...props} />
 }

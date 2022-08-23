@@ -10,6 +10,6 @@ export default {
 const Template: ComponentStory<typeof BaseCircleButtonComponent> = (args) => <BaseCircleButtonComponent {...args} />
 
 export const SquareButton = Template.bind({})
-SquareButton.args = { type: 'square' }
+SquareButton.args = { variant: 'square' }
 export const CircleButton = Template.bind({})
-CircleButton.args = { type: 'circle' }
+CircleButton.args = { variant: 'circle' }
