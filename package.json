@@ -7,6 +7,13 @@
     "files": [
         "lib"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.com/dd3tech/dd360/dd3-components-ui"
+    },
+    "bugs": {
+        "url": "https://gitlab.com/dd3tech/dd360/dd3-components-ui/-/issues"
+    },
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
