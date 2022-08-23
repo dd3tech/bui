@@ -1,5 +1,5 @@
 import { Anchor, Wrapper } from '..'
-import Language from './Language'
+import { Language } from '.'
 
 interface Props {
     logoUrl: string
@@ -9,7 +9,7 @@ interface Props {
     LinkComponent?: React.ComponentType<any>
 }
 
-function Navbar({ logoUrl, logoWidth, logoHeight, logoName, LinkComponent }: Props) {
+export function Navbar({ logoUrl, logoWidth, logoHeight, logoName, LinkComponent }: Props) {
     return (
         <nav>
             <Wrapper className="flex items-center justify-between" paddingVertical={6} maxWidth="full">
@@ -23,5 +23,3 @@ function Navbar({ logoUrl, logoWidth, logoHeight, logoName, LinkComponent }: Pro
         </nav>
     )
 }
-
-export default Navbar

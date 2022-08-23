@@ -5,7 +5,7 @@ import { LockClosedIcon, UserAddIcon, UserCircleIcon } from '@heroicons/react/so
 import { ClipboardCheckIcon } from '@heroicons/react/solid'
 import { Text } from '../Typography/Text'
 import { Anchor } from '..'
-import Collapse from './Collapse'
+import { Collapse } from './Collapse'
 
 export default {
     title: 'Design System/NavbarAuth',

@@ -18,7 +18,7 @@ interface Props {
     getLangName?: (lang: string) => string
 }
 
-function Language({ isNavbar, changeLanguage, getLangName }: Props) {
+export function Language({ isNavbar, changeLanguage, getLangName }: Props) {
     const [language, setLanguage] = useState(localStorage.getItem('language') ?? 'es')
     const langName: { [key: string]: string } = {
         English: 'ENG',
@@ -46,5 +46,3 @@ function Language({ isNavbar, changeLanguage, getLangName }: Props) {
         </div>
     )
 }
-
-export default Language

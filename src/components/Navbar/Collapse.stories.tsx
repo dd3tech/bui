@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { LockClosedIcon, UserAddIcon, UserCircleIcon } from '@heroicons/react/solid'
 import { ClipboardCheckIcon } from '@heroicons/react/solid'
 import { Collapse } from '.'
-import { Text, Anchor } from '../Typography'
+import { Text, Anchor } from '..'
 
 export default {
     title: 'Design System/Collapse',

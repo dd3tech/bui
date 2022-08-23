@@ -1,5 +1,5 @@
 import React from 'react'
-import Collapse from './Collapse'
+import { Collapse } from './Collapse'
 import { ChevronUpIcon, ChevronDownIcon, CogIcon, BellIcon } from '@heroicons/react/outline'
 import { Wrapper, Anchor, Text, Circle, Button } from '..'
 
@@ -24,7 +24,7 @@ interface IProps {
     Collapse?: React.ReactNode
 }
 
-const NavbarAuth = ({
+export const NavbarAuth = ({
     LinkComponent,
     logo,
     logoHeight,
@@ -93,5 +93,3 @@ const NavbarAuth = ({
         </nav>
     )
 }
-
-export default NavbarAuth

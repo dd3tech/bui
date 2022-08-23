@@ -1,11 +1,11 @@
 import { ReactNode } from 'react'
-import Language from './Language'
+import { Language } from '.'
 
 interface Props {
     children: ReactNode
 }
 
-function Collapse({ children }: Props) {
+export function Collapse({ children }: Props) {
     return (
         <div className="absolute mt-2 right-0 w-64 bg-white border shadow-lg z-20 py-1 rounded-xl">
             {children}
@@ -17,5 +17,3 @@ function Collapse({ children }: Props) {
         </div>
     )
 }
-
-export default Collapse
