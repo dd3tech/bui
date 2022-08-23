@@ -13,5 +13,5 @@ export const notfound = Template.bind({})
 notfound.args = {
     subTitle: 'Page not found',
     returnMessage: "Let's go back to home",
-    toRedirect: () => console.log('go back to home /')
+    redirectTo: () => location.reload()
 }
