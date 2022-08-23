@@ -1,8 +1,8 @@
 import React from 'react'
-import { DynamicHeroIcon } from '../DynamicHeroIcon'
+import { DynamicHeroIcon, IconName } from '../DynamicHeroIcon'
 
 export interface BreadcrumbsProps extends React.HTMLProps<HTMLDivElement> {
-    options: Array<{ name?: string; to?: () => void }>
+    options: Array<{ name?: string; icon?: IconName; to?: () => void }>
     separator?: any
 }
 
@@ -25,8 +25,9 @@ export function Breadcrumbs({ options, separator, ...props }: BreadcrumbsProps) 
     return (
         <>
             <div className="flex gap-4 items-center absolute" {...props}>
-                {options.map(({ name, to }, indexKey) => (
+                {options.map(({ name, icon, to }, indexKey) => (
                     <React.Fragment key={`${name}-${to}-${indexKey}`}>
+                        {icon?.length && <DynamicHeroIcon icon={icon} className="text-gray-500 bold" width={17} />}
                         <p
                             onClick={() => {
                                 if (to) {
