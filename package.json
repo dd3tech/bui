@@ -22,10 +22,14 @@
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "format": "prettier --write ./src",
-        "test": "vitest",
+        "test": "vitest run",
         "coverage": "vitest run --coverage",
         "prepare": "husky install",
-        "commit:release": "git cz"
+        "commit": "git cz",
+        "add-co": "git add . && git cz",
+        "pre-commit": "npm run format",
+        "pre-push": "npm run test",
+        "clean": "rm -rf ./node_modules && rm -f package-lock.json"
     },
     "dependencies": {
         "@emotion/css": "^11.1.3",
