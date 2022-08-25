@@ -88,8 +88,8 @@ chromatic_publish:
         paths:
             - node_modules
     only:
-        - develop
-        - main
+        refs:
+            - branches
         changes:
             - src/components/**/*
     script:
