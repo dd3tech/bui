@@ -90,6 +90,8 @@ chromatic_publish:
     only:
         - develop
         - main
+        changes:
+            - src/components/**/*
     script:
         - npm run build-storybook
         - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-once-uploaded --exit-zero-on-changes
