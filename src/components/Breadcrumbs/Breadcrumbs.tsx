@@ -11,7 +11,7 @@ function InsertSeparators({ separator }: { separator: BreadcrumbsProps['separato
         return <>{separator}</>
     }
 
-    return <DynamicHeroIcon icon="ChevronRightIcon" className="text-gray-500 bold" width={15} />
+    return <DynamicHeroIcon icon="ChevronRightIcon" data-icon="ChevronRightIcon" className="text-gray-500 bold" width={15} />
 }
 
 export function Breadcrumbs({ options, separator, ...props }: BreadcrumbsProps) {
@@ -27,7 +27,7 @@ export function Breadcrumbs({ options, separator, ...props }: BreadcrumbsProps) 
             <div className="flex gap-4 items-center absolute" {...props}>
                 {options.map(({ name, icon, to }, indexKey) => (
                     <React.Fragment key={`${name}-${to}-${indexKey}`}>
-                        {icon?.length && <DynamicHeroIcon icon={icon} className="text-gray-500 bold" width={17} />}
+                        {icon?.length && <DynamicHeroIcon icon={icon} data-icon={icon} className="text-gray-500 bold" width={17} />}
                         <p
                             onClick={() => {
                                 if (to) {
