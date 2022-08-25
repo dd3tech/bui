@@ -1,4 +1,4 @@
-# DD360 React Components ![CI](https://gitlab.com/dd3tech/dd360/dd3-components-ui/badges/main/pipeline.svg)
+# DD360 React Components ![CI](https://gitlab.com/dd3tech/dd360/dd360-components/badges/main/pipeline.svg)
 
 [![size](https://badgen.net/bundlephobia/min/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
 [![minzip size](https://badgen.net/bundlephobia/minzip/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
