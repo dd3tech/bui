@@ -1,6 +1,12 @@
 {
     "name": "dd360-ds",
     "version": "1.0.20",
+    "description": "This repo containing all SUI components based in tailwind.",
+    "private": true,
+    "engines": {
+        "node": "16",
+        "npm": "7 || 8"
+    },
     "main": "lib/index.js",
     "module": "lib/index.esm.js",
     "types": "lib/dd3.d.ts",

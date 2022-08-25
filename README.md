@@ -1,4 +1,4 @@
-# DD360 Design System
+# DD360 React Components
 
 [![size](https://badgen.net/bundlephobia/min/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
 [![minzip size](https://badgen.net/bundlephobia/minzip/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
@@ -6,39 +6,11 @@
 [![types](https://badgen.net/npm/types/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
 [![license](https://badgen.net/npm/license/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
 
-This is DD360 and LEND33R's library of UI components based on React, Tailwind and Typescript.
+DD360 Components is a tailwind based React component library
 
-## This project is based IN:
-
-[TAILWIND CSS](https://tailwindcss.com/)
-
-[TYPESCRIPT](https://www.typescriptlang.org/)
-
-## How to run the project?
-
-#### First step: installation
-
-```
-npm install
-```
-
-#### Step Two: Run project
-
-```
-npm run storybook
-```
-
-```
-npm run dev
-```
-
-Runs the app in the development mode.
-
-Open [http://localhost:6006](http://localhost:6006) to view it in the browser. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-> If you have any errors in the installation, try to install vite globally
-
-# If download package from npm (How to use)
+## ⚙️ Minimum requirements
+![node](https://shields.io/badge/node-v16+-lightgray?logo=nodedotjs&logoWidth=20&style=for-the-badge)
+![npm](https://shields.io/badge/npm-v7+-lightgrey?logo=npm&logoWidth=20&style=for-the-badge)
 
 ```jsx
 import { Button, Container, PlaceHolder, Text, Badge, ProgressBar, Spinner, Flex, Imageicon } from 'dd360-ds'
