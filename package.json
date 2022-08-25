@@ -1,6 +1,6 @@
 {
     "name": "dd360-ds",
-    "version": "1.0.19",
+    "version": "1.0.20",
     "main": "lib/index.js",
     "module": "lib/index.esm.js",
     "types": "lib/dd3.d.ts",
