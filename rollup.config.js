@@ -6,6 +6,8 @@ import postcss from 'rollup-plugin-postcss'
 import dts from 'rollup-plugin-dts'
 import svg from 'rollup-plugin-svg'
 
+import { terser } from 'rollup-plugin-terser'
+
 const packageJson = require('./package.json')
 
 export default [
@@ -31,7 +33,8 @@ export default [
             postcss({
                 extensions: ['.css']
             }),
-            svg()
+            svg(),
+            terser()
         ]
     },
     {
