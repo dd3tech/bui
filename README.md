@@ -8,15 +8,56 @@
 
 DD360 Components is a tailwind based React component library
 
+***It is important that you have tailwind installed in the project where you want to use this library.***
+
+
 ## ⚙️ Minimum requirements
 ![node](https://shields.io/badge/node-v16+-lightgray?logo=nodedotjs&logoWidth=20&style=for-the-badge)
 ![npm](https://shields.io/badge/npm-v7+-lightgrey?logo=npm&logoWidth=20&style=for-the-badge)
+
+## 🔮 Links
+
+- [storybook](https://main--62ffec7466615c40c8dbe435.chromatic.com/)
+- [npm](https://www.npmjs.com/package/dd360-ds)
+- [gitlab](https://gitlab.com/dd3tech/dd360/dd360-components)
 
 ## 🧪 Testing
 
 we use [vitest](https://vitest.dev/) for unit tests
 
+## 📲 Instalation
+
+```bash
+npm install dd360-ds
+```
+
 ## 💡 Usage
+
+Once you have installed the library, you will have to make some extra configurations for everything to work normally.
+
+Paste this code into your tailwind.config.js file
+
+`tailwind.config.js`
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}', './node_modules/dd360-ds/**/*.{js,jsx,ts,tsx}'],
+    theme: {
+        extend: {}
+    },
+    plugins: []
+}
+```
+
+
+How to import components?
+
 ```jsx
 import { Button } from 'dd360-ds'
 ```
+
+
+## 🔫 Components
+
+This is the most fun part. Below we will explain the use of the components we are currently developing.
+
