@@ -5,7 +5,6 @@ stages:
     - build
     - test
     - chromatic
-    - publish
 
 ###############################################################################
 #     install                                                         #
@@ -98,23 +97,3 @@ chromatic_publish:
         - install
         - build
         - test
-
-        ###############################################################################
-#     publish                                                         #
-###############################################################################
-
-publish:
-    stage: publish
-    only:
-        - main
-    before_script:
-        - npm i
-        - npm run build-lib
-    script:
-        - echo '//registry.npmjs.org/:_authToken=$NPM_TOKEN'>.npmrc
-        - npm publish
-    dependencies:
-        - install
-        - build
-        - test
-        - chromatic_publish
