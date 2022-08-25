@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from '../Typography/Text'
+import { Text } from '../Typography'
 import { Button } from '../Buttons/Button'
 import { DynamicHeroIcon } from '../DynamicHeroIcon'
 

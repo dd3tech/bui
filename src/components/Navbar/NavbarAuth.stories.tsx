@@ -3,8 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { NavbarAuth as NavbarApp } from '.'
 import { LockClosedIcon, UserAddIcon, UserCircleIcon } from '@heroicons/react/solid'
 import { ClipboardCheckIcon } from '@heroicons/react/solid'
-import { Text } from '../Typography/Text'
-import { Anchor } from '..'
+import { Text, Anchor } from '..'
 import { Collapse } from './Collapse'
 
 export default {

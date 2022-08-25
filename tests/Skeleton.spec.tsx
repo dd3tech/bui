@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { Skeleton } from '../src/components/Skeleton'
+import { Skeleton } from '../src/components'
 
 describe('Component UI: Skeleton', () => {
     it('Skeleton is working', () => {
