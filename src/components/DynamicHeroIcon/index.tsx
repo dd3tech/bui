@@ -10,5 +10,5 @@ export interface DynamicHeroIconProps extends React.ComponentProps<'svg'> {
 export const DynamicHeroIcon = ({ icon, className, ...props }: DynamicHeroIconProps) => {
     const SingleIcon = HIcons[icon]
 
-    return <SingleIcon className={className} aria-hidden="true" {...props} />
+    return <SingleIcon id={icon} className={className} aria-hidden="true" {...props} />
 }
