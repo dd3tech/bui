@@ -71,9 +71,9 @@ test:
             - coverage/cobertura-coverage.xml
         expire_in: 30 days
         reports:
-        coverage_report:
-            coverage_format: cobertura
-            path: coverage/cobertura-coverage.xml
+            coverage_report:
+                coverage_format: cobertura
+                path: coverage/cobertura-coverage.xml
     only:
         - merge_requests
         - develop
