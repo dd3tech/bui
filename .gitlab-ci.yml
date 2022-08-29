@@ -63,7 +63,17 @@ test:
         paths:
             - node_modules
     script:
-        - npm run test
+        - npm run coverage
+    coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+    artifacts:
+        when: always
+        paths:
+            - coverage/cobertura-coverage.xml
+        expire_in: 30 days
+        reports:
+        coverage_report:
+            coverage_format: cobertura
+            path: coverage/cobertura-coverage.xml
     only:
         - merge_requests
         - develop

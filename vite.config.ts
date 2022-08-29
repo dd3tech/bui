@@ -8,7 +8,7 @@ export default defineConfig({
     plugins: [react()],
     test: {
         coverage: {
-            reporter: ['html', 'json', 'lcovonly', 'cobertura', 'text-summary']
+            reporter: ['html', 'json', 'lcovonly', 'cobertura', 'text-summary', 'text', 'html-spa', 'text-lcov']
         },
         globals: true,
         environment: 'jsdom',
