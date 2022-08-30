@@ -8,46 +8,12 @@ export default {
 
 const Template: ComponentStory<typeof SpinnerComponent> = (args) => <SpinnerComponent {...args} />
 
-export const Grow = Template.bind({})
-
-Grow.args = {
-    type: 'grow',
-    color: '#f51'
-}
-
-export const Circle = Template.bind({})
-
-Circle.args = {
-    type: 'circle',
-    color: '#f51'
-}
-
-export const Red = Template.bind({})
-
-Red.args = {
-    variant: 'red'
-}
-
-export const Blue = Template.bind({})
-
-Blue.args = {
-    variant: 'blue'
-}
-export const Yellow = Template.bind({})
-
-Yellow.args = {
-    variant: 'yellow'
-}
-export const Green = Template.bind({})
-
-Green.args = {
-    variant: 'green'
-}
-
-export const Custom = Template.bind({})
-
-Custom.args = {
-    color: '#f51'
+export const Spinner = Template.bind({})
+Spinner.args = {
+    color: '#f51',
+    width: '4rem',
+    height: '4rem',
+    border: 5
 }
 
 export const PageLoader = Template.bind({})
