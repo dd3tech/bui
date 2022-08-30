@@ -42,6 +42,13 @@ const optionsWithIcon = [
     }
 ]
 
+export const Breadcrumbs = Template.bind({})
+Breadcrumbs.args = {
+    options: optionsWithIcon,
+    separator: '>',
+    className: 'ml-12'
+}
+
 export const WhitOutIcon = Template.bind({})
 WhitOutIcon.args = {
     options: optionsWithOutIcon,
