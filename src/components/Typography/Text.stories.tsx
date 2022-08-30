@@ -56,3 +56,9 @@ span.args = {
     variant: 'span',
     children: 'Span'
 }
+
+export const currency = Template.bind({})
+currency.args = {
+    variant: 'currency',
+    children: '32500'
+}

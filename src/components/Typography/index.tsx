@@ -1,9 +1,10 @@
+import { format } from 'dd360-utils'
 import React from 'react'
 
 export interface TextProps {
     children?: React.ReactNode
     className?: string
-    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'small' | 'label' | 'a'
+    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'small' | 'label' | 'a' | 'currency'
     align?: 'center' | 'left' | 'right' | 'justify'
     bold?: boolean
     fontBold?: 'bold' | 'medium'
@@ -117,6 +118,12 @@ export const Text = ({ children, className, align, variant, bold, fontBold, text
                 <a className={chooseStyle()} {...props}>
                     {children}
                 </a>
+            )
+        case 'currency':
+            return (
+                <p className={chooseStyle()} {...props}>
+                    {format(children)}
+                </p>
             )
         default:
             return (
