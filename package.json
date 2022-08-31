@@ -1,6 +1,6 @@
 {
     "name": "dd360-ds",
-    "version": "1.0.20",
+    "version": "1.0.21",
     "description": "This repo containing all SUI components based in tailwind.",
     "private": true,
     "engines": {
