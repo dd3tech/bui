@@ -1,4 +1,5 @@
 import React from 'react'
+import { Spinner } from '../Spinners'
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?:
@@ -81,13 +82,23 @@ export const Button = React.memo(
 
         return (
             <button
-                className={`rounded-md ${buttonPadding()} font-bold transition duration-500 ease-out hover:ease-in ${buttonsVariants[variant]} ${
-                    sizeVariants[size]
-                } ${className}`}
-                onClick={onClick}
+                className={`rounded-md ${buttonPadding()} font-bold transition duration-500 ease-out hover:ease-in ${
+                    isLoading || props.disabled ? 'cursor-not-allowed' : ''
+                } ${buttonsVariants[variant]} ${sizeVariants[size]} ${className}`}
+                onClick={(e) => {
+                    if (!props.disabled && onClick !== undefined && !isLoading) {
+                        onClick(e)
+                    }
+                }}
                 {...props}
             >
-                {isLoading ? <div className="flex items-center gap-2 justify-center">{loadingComponent}</div> : children}
+                {isLoading ? (
+                    <div className="flex items-center gap-2 justify-center">
+                        {loadingComponent ?? <Spinner color="#FFF" width="2rem" height="2rem" border={5} />}
+                    </div>
+                ) : (
+                    children
+                )}
             </button>
         )
     }
