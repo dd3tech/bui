@@ -6,14 +6,22 @@ import postcss from 'rollup-plugin-postcss'
 import dts from 'rollup-plugin-dts'
 import svg from 'rollup-plugin-svg'
 import visualizer from 'rollup-plugin-visualizer'
-
 import { terser } from 'rollup-plugin-terser'
+// const packageJson = require('./package.json')
 
-const packageJson = require('./package.json')
+// Code Splitting getFiles
+import { getFiles } from './.build/rollup'
 
 export default [
     {
-        input: './src/index.ts',
+        input: ['./src/index.ts', ...getFiles('./src/components')],
+        // output: {
+        //     dir: 'lib',
+        //     format: 'esm',
+        //     preserveModules: true,
+        //     preserveModulesRoot: 'src/components',
+        //     sourcemap: true
+        // },
         output: [
             {
                 file: packageJson.main,
@@ -30,12 +38,23 @@ export default [
             peerDepsExternal(),
             resolve(),
             commonjs(),
-            typescript({ useTsconfigDeclarationDir: true, tsconfig: './tsconfig.json' }),
+            typescript({
+                clean: true,
+                abortOnError: true,
+                useTsconfigDeclarationDir: true,
+                tsconfig: './.build/tsconfig.build.json'
+            }),
             postcss({
                 extensions: ['.css']
             }),
             svg(),
-            terser(),
+            terser({
+                compress: {
+                    keep_infinity: true,
+                    pure_getters: true,
+                    passes: 10
+                }
+            }),
             visualizer({
                 filename: 'bundle-analysis.html',
                 open: true
