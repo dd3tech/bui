@@ -35,3 +35,15 @@ BtnError.args = {
     variant: 'error',
     children: 'Error'
 }
+
+export const BtnDanger = Template.bind({})
+BtnDanger.args = {
+    variant: 'danger',
+    children: 'Danger'
+}
+
+export const BtnOutlineWhiteRed = Template.bind({})
+BtnOutlineWhiteRed.args = {
+    variant: 'outlineWhiteRed',
+    children: 'Danger'
+}

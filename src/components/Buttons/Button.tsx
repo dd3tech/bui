@@ -1,7 +1,21 @@
 import React from 'react'
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: 'primary' | 'secondary' | 'tertiary' | 'outline' | 'link' | 'ghost' | 'cancel' | 'success' | 'outlineWhite' | 'outlineBlue' | 'disabled'
+    variant?:
+        | 'primary'
+        | 'secondary'
+        | 'tertiary'
+        | 'outline'
+        | 'link'
+        | 'ghost'
+        | 'cancel'
+        | 'success'
+        | 'outlineWhite'
+        | 'outlineBlue'
+        | 'disabled'
+        | 'danger'
+        | 'outlineWhiteRed'
+
     size?: 'small' | 'medium' | 'large'
     padding?: number
     disabled?: boolean
@@ -36,7 +50,9 @@ export const Button = React.memo(
             error: 'text-white bg-red-500 hover:bg-red-600 disabled:opacity-75',
             outlineBlue: 'bg-transparent border border-blue-700 text-blue-700',
             success: 'bg-green-500 hover:bg-green-600 text-white',
-            outlineWhite: 'bg-transparent border border-white  text-white  hover:bg-gray-50 hover:text-black'
+            outlineWhite: 'bg-transparent border border-white text-white hover:bg-gray-50 hover:text-black',
+            danger: 'bg-red-600 hover:bg-red-700 text-white disabled:bg-red-300',
+            outlineWhiteRed: 'bg-white border border-red-600 text-red-600 hover:bg-red-600 hover:text-white'
         }
 
         const sizeVariants: { [key: string]: string } = {
