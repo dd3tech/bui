@@ -1,14 +1,18 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
+        "baseUrl": "src/",
         "paths": {
-            "@/*": ["src/*"]
+            "@/*": ["src/*"],
+            "components": ["src/components/*"],
+            "interfaces": ["src/interfaces/*"],
+            "utils": ["src/utils/*"]
         },
+        "sourceMap": true,
         "target": "ES6",
         "declaration": true,
         "declarationDir": "dist/dts",
         "useDefineForClassFields": true,
-        "lib": ["DOM", "DOM.Iterable", "ESNext", "ES5", "ES2015", "ES2016"],
+        "lib": ["DOM", "DOM.Iterable", "ESNext", "ES5", "ES2015", "ES2016", "es6", "dom"],
         "allowJs": false,
         "skipLibCheck": false,
         "esModuleInterop": false,
@@ -22,6 +26,22 @@
         "noEmit": true,
         "jsx": "react-jsx"
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx"],
-    "exclude": ["node_modules", "lib", "src/**/*.stories.ts", "src/**/*.stories.tsx", "src/assets/*"]
+    "exclude": [
+        "node_modules",
+        "acceptance-tests",
+        "lib",
+        "src/**/*.stories.ts",
+        "src/**/*.stories.tsx",
+        "src/**/*.test.tsx",
+        "tests/**/*.test.tsx",
+        "src/assets/*",
+        "dist",
+        "tests/*",
+        "build",
+        "scripts",
+        "webpack",
+        "jest",
+        "vitest"
+    ],
+    "include": ["src/**/*.ts", "src/**/*.tsx"]
 }
