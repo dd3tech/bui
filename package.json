@@ -43,8 +43,8 @@
         "react-circular-progressbar": "^2.1.0"
     },
     "peerDependencies": {
-        "react": "^17.0.0",
-        "react-dom": "^17.0.0"
+        "react": ">= 17.0.0",
+        "react-dom": ">= 17.0.0"
     },
     "devDependencies": {
         "@babel/core": "^7.16.0",
@@ -79,6 +79,7 @@
         "rollup-plugin-svg": "^2.0.0",
         "rollup-plugin-terser": "^7.0.2",
         "rollup-plugin-typescript2": "^0.32.1",
+        "rollup-plugin-visualizer": "^5.8.0",
         "tailwindcss": "^2.2.19",
         "typescript": "^4.3.2",
         "vite": "^2.6.4",
