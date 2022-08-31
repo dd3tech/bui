@@ -5,6 +5,7 @@ import typescript from 'rollup-plugin-typescript2'
 import postcss from 'rollup-plugin-postcss'
 import dts from 'rollup-plugin-dts'
 import svg from 'rollup-plugin-svg'
+import visualizer from 'rollup-plugin-visualizer'
 
 import { terser } from 'rollup-plugin-terser'
 
@@ -34,8 +35,13 @@ export default [
                 extensions: ['.css']
             }),
             svg(),
-            terser()
-        ]
+            terser(),
+            visualizer({
+                filename: 'bundle-analysis.html',
+                open: true
+            })
+        ],
+        external: ['react', 'react-dom']
     },
     {
         input: './dist/dts/index.d.ts',
