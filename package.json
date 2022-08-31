@@ -2,7 +2,6 @@
     "name": "dd360-ds",
     "version": "1.0.21",
     "description": "This repo containing all SUI components based in tailwind.",
-    "private": true,
     "engines": {
         "node": "16",
         "npm": "7 || 8"
