@@ -44,22 +44,31 @@ export const inputVariants: { [key: string]: { input: { borderColor: string }; t
 type InputClassNameOpts = {
     variant: string
     padding?: string
-    className?: string
     rounded?: 'sm' | 'md' | 'full'
     border?: boolean
     startAdorment?: boolean
     endAdorment?: boolean
 }
 
-export function getInputClassName({ variant, rounded, padding = '2', border, startAdorment, endAdorment, className }: InputClassNameOpts) {
+export function getInputClassName({ variant, rounded, padding = '2', border, startAdorment, endAdorment }: InputClassNameOpts) {
     const { input, text } = inputVariants[variant]
 
     return {
-        input: `${className ?? ''} bg-white ${startAdorment ? 'pl-8' : ''} ${endAdorment ? 'pr-8' : ''} ${!border ? 'border-none' : ''} ${
-            rounded ? `rounded-${rounded}` : ''
-        } ${padding ? `p-${padding}` : ''} ${
-            input.borderColor
-        } mt-1 focus:border-blue-500 transition duration-500 ease-out focus:ease-in border-solid border font-medium w-full`,
+        input: `bg-white ${startAdorment ? 'pl-8' : ''} ${endAdorment ? 'pr-8' : ''} ${!border ? 'border-none' : ''} ${rounded ? `rounded-${rounded}` : ''} ${
+            padding ? `p-${padding}` : ''
+        } ${input.borderColor} mt-1 focus:border-blue-500 transition duration-500 ease-out focus:ease-in border-solid border font-medium w-full`,
         message: `text-xs mt-2 ml-2 font-medium ${text.color}`
     }
+}
+
+export function variantIs({ variant, error, success }: { variant: string; error?: boolean; success?: boolean }) {
+    if (error) {
+        return 'error'
+    }
+
+    if (success) {
+        return 'success'
+    }
+
+    return variant
 }
