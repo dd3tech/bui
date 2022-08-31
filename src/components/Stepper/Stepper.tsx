@@ -16,7 +16,7 @@ export interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
     classNameCircularProgress?: string
 }
 
-export function Stepper({ phase, totalPhases, width, height, ...props }: StepperProps) {
+function Stepper({ phase, totalPhases, width, height, ...props }: StepperProps) {
     const valuePercentage = React.useCallback(() => {
         return Math.round((100 / totalPhases) * phase)
     }, [totalPhases, phase])
@@ -41,3 +41,5 @@ export function Stepper({ phase, totalPhases, width, height, ...props }: Stepper
         </div>
     )
 }
+
+export default Stepper

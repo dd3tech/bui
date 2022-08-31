@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
-import { Button } from './Button'
+import Button from './Button'
 
-export const ActiveButton = ({ children, active, to, ...props }: { children: ReactNode; active: boolean; to?: () => void }) => {
+const ActiveButton = ({ children, active, to, ...props }: { children: ReactNode; active: boolean; to?: () => void }) => {
     return (
         <Button
             variant={active ? 'outlineBlue' : 'outline'}
@@ -19,3 +19,5 @@ export const ActiveButton = ({ children, active, to, ...props }: { children: Rea
         </Button>
     )
 }
+
+export default ActiveButton

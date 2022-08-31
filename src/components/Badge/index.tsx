@@ -1,4 +1,4 @@
-import { DynamicHeroIcon, IconName } from '../DynamicHeroIcon'
+import DynamicHeroIcon, { IconName } from '../DynamicHeroIcon'
 
 export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
     text?: string

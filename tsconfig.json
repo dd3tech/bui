@@ -3,9 +3,10 @@
         "baseUrl": "src/",
         "paths": {
             "@/*": ["src/*"],
-            "components": ["src/components/*"],
-            "interfaces": ["src/interfaces/*"],
-            "utils": ["src/utils/*"]
+            "@components": ["src/components/*"],
+            "@interfaces": ["src/interfaces/*"],
+            "@hooks": ["src/hooks/*"],
+            "@utils": ["src/utils/*"]
         },
         "sourceMap": true,
         "target": "ES6",

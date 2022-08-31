@@ -1,5 +1,5 @@
 import React from 'react'
-import { DynamicHeroIcon, IconName } from '../DynamicHeroIcon'
+import DynamicHeroIcon, { IconName } from '../DynamicHeroIcon'
 
 interface BaseCircleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     iconName: IconName

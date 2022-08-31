@@ -15,7 +15,7 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     loadingComponent?: React.ReactElement
 }
 
-export const Button = React.memo(
+const Button = React.memo(
     ({
         variant = 'primary',
         size = 'medium',
@@ -76,3 +76,5 @@ export const Button = React.memo(
         )
     }
 )
+
+export default Button

@@ -7,7 +7,7 @@ export interface SpinnerProps {
     border?: number
 }
 
-export function Spinner({ color = '#1d4ed8', pageLoader = false, width = '2rem', height = '2rem', border = 4 }: SpinnerProps) {
+function Spinner({ color = '#1d4ed8', pageLoader = false, width = '2rem', height = '2rem', border = 4 }: SpinnerProps) {
     if (pageLoader) {
         width = '8rem'
         height = '8rem'
@@ -23,3 +23,5 @@ export function Spinner({ color = '#1d4ed8', pageLoader = false, width = '2rem',
         </div>
     )
 }
+
+export default Spinner

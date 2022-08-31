@@ -2,7 +2,7 @@ import React from 'react'
 import { ArrowLeftIcon } from '@heroicons/react/outline'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ITopHeader, IHeader } from '../../interfaces/SpecificTable'
-import exampleJSON from '../../assets/table-value.json'
+import exampleJSON from '../../../assets/table-value.json'
 import SpecificTableComponent from './SpecificTable'
 
 export default {

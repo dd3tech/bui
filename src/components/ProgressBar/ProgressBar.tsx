@@ -9,7 +9,7 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
     animated?: boolean
 }
 
-export function ProgressBar({ value = 50, max = 100, backgroundColor, className, label, animated, ...props }: ProgressBarProps) {
+function ProgressBar({ value = 50, max = 100, backgroundColor, className, label, animated, ...props }: ProgressBarProps) {
     return (
         <div className="storybook-progress">
             <div
@@ -26,3 +26,5 @@ export function ProgressBar({ value = 50, max = 100, backgroundColor, className,
         </div>
     )
 }
+
+export default ProgressBar

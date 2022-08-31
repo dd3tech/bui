@@ -1,5 +1,35 @@
+export { default as Button } from './Buttons'
 export * from './Buttons'
+
+export { default as Circle } from './Circle'
 export * from './Circle'
+
+export { default as Stepper } from './Stepper'
+export * from './Stepper'
+
+export { default as Text } from './Typography/Text'
+export * from './Typography/Text'
+
+export { default as ModalCustom } from './Modal/ModalCustom'
+export * from './Modal/ModalCustom'
+
+export { default as DynamicHeroIcon } from './DynamicHeroIcon'
+export * from './DynamicHeroIcon'
+
+export { default as Breadcrumbs } from './Breadcrumbs'
+export * from './Breadcrumbs'
+
+export { default as Avatar } from './Avatar'
+export * from './Avatar'
+
+export * from './Navigation'
+
+export { default as Kbd } from './Kbd'
+export * from './Kbd'
+
+export { default as ProgressBar } from './ProgressBar'
+export * from './ProgressBar'
+
 export * from './Error'
 export * from './FeedBackBox'
 export * from './Form'
@@ -7,18 +37,10 @@ export * from './ImageIcon'
 export * from './Images'
 export * from './Layout'
 export * from './Navbar'
-export * from './ProgressBar'
+
 export * from './Skeleton'
 export * from './Spinners'
-export * from './Stepper'
 export * from './Table'
-export * from './Typography'
 export * from './Wrapper'
-export * from './Modal'
 export * from './SideBar'
 export * from './Badge'
-export * from './DynamicHeroIcon'
-export * from './Breadcrumbs'
-export * from './Avatar'
-export * from './Navigation'
-export * from './Kbd'

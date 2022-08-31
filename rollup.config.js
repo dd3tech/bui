@@ -7,33 +7,18 @@ import dts from 'rollup-plugin-dts'
 import svg from 'rollup-plugin-svg'
 import visualizer from 'rollup-plugin-visualizer'
 import { terser } from 'rollup-plugin-terser'
-// const packageJson = require('./package.json')
-
-// Code Splitting getFiles
 import { getFiles } from './.build/rollup'
 
 export default [
     {
-        input: ['./src/index.ts', ...getFiles('./src/components')],
-        // output: {
-        //     dir: 'lib',
-        //     format: 'esm',
-        //     preserveModules: true,
-        //     preserveModulesRoot: 'src/components',
-        //     sourcemap: true
-        // },
-        output: [
-            {
-                file: packageJson.main,
-                format: 'cjs',
-                sourcemap: true
-            },
-            {
-                file: packageJson.module,
-                format: 'esm',
-                sourcemap: true
-            }
-        ],
+        input: ['./src/index.ts', ...getFiles('./src/components'), ...getFiles('./src/hooks')],
+        output: {
+            dir: 'lib',
+            format: 'esm',
+            preserveModules: true,
+            preserveModulesRoot: 'src',
+            sourcemap: true
+        },
         plugins: [
             peerDepsExternal(),
             resolve(),
@@ -63,7 +48,7 @@ export default [
         external: ['react', 'react-dom']
     },
     {
-        input: './dist/dts/index.d.ts',
+        input: './dist/dts/src/index.d.ts',
         output: [{ file: 'lib/dd3.d.ts', format: 'es' }],
         external: [/\.css$/], // ignore .scss file
         plugins: [dts()]

@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-export const getFiles = (entry, extensions = ['.js', '.ts', '.jsx', '.tsx'], excludeExtensions = ['.stories.tsx']) => {
+export const getFiles = (entry, extensions = ['.js', '.ts', '.jsx', '.tsx'], excludeExtensions = ['.stories.tsx', '.svg']) => {
     let fileNames = []
     const dirs = fs.readdirSync(entry)
 

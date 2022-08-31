@@ -26,7 +26,7 @@ const animationModal = css`
     }
 `
 
-export function ModalCustom({ active, children, width, height, overlay = true, setCloseModal, animation, className, ...props }: ModalCustomProps) {
+function ModalCustom({ active, children, width, height, overlay = true, setCloseModal, animation, className, ...props }: ModalCustomProps) {
     const [isClose, setClose] = React.useState(false)
 
     const dynamicClassName: () => string = React.useCallback(() => {
@@ -83,3 +83,5 @@ export function ModalCustom({ active, children, width, height, overlay = true, s
         </>
     )
 }
+
+export default ModalCustom

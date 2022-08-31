@@ -15,7 +15,7 @@ export interface TextProps {
     target?: string
 }
 
-export const Text = ({ children, className, align, variant, bold, fontBold, textColor, textMuted, textMuted500, ...props }: TextProps) => {
+const Text = ({ children, className, align, variant, bold, fontBold, textColor, textMuted, textMuted500, ...props }: TextProps) => {
     const chooseStyle = React.useCallback(() => {
         let style = ' '
 
@@ -133,3 +133,5 @@ export const Text = ({ children, className, align, variant, bold, fontBold, text
             )
     }
 }
+
+export default Text

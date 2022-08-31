@@ -1,5 +1,5 @@
 import React from 'react'
-import { DynamicHeroIcon, IconName } from '../DynamicHeroIcon'
+import DynamicHeroIcon, { IconName } from '../DynamicHeroIcon'
 
 export interface BreadcrumbsProps extends React.HTMLProps<HTMLDivElement> {
     options: Array<{ name?: string; icon?: IconName; to?: () => void }>
@@ -14,7 +14,7 @@ function InsertSeparators({ separator }: { separator: BreadcrumbsProps['separato
     return <DynamicHeroIcon icon="ChevronRightIcon" data-icon="ChevronRightIcon" className="text-gray-500 bold" width={15} />
 }
 
-export function Breadcrumbs({ options, separator, className, ...anotherProps }: BreadcrumbsProps) {
+function Breadcrumbs({ options, separator, className, ...anotherProps }: BreadcrumbsProps) {
     const isActiveLink = React.useCallback(
         (indexOfKey: number) => {
             return options.length - 1 === indexOfKey
@@ -45,3 +45,5 @@ export function Breadcrumbs({ options, separator, className, ...anotherProps }: 
         </>
     )
 }
+
+export default Breadcrumbs

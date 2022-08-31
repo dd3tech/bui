@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import PageNotFoundImg from '../../assets/404.svg'
+import PageNotFoundImg from '../../../assets/404.svg'
 
 interface IProps {
     redirectTo?: () => void

@@ -11,7 +11,7 @@ interface CircleProps extends React.HTMLProps<HTMLDivElement> {
     disabled?: boolean
 }
 
-export const Circle = ({
+const Circle = ({
     children,
     backgroundColor = '#EFF6FF',
     className = '',
@@ -37,3 +37,5 @@ export const Circle = ({
         </div>
     )
 }
+
+export default Circle

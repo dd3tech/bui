@@ -5,7 +5,7 @@ export interface KBDProps {
     separator?: string
 }
 
-export function Kbd({ kbds, separator }: KBDProps) {
+function Kbd({ kbds, separator }: KBDProps) {
     const isLastKbd = React.useCallback(
         (indexOfKey: number) => {
             return kbds.length - 1 === indexOfKey
@@ -26,3 +26,5 @@ export function Kbd({ kbds, separator }: KBDProps) {
         </p>
     )
 }
+
+export default Kbd

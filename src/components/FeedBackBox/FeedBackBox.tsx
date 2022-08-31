@@ -1,7 +1,6 @@
 import React from 'react'
-import { Text } from '../Typography'
-import { Button } from '../Buttons/Button'
-import { DynamicHeroIcon } from '../DynamicHeroIcon'
+import { Button, Text } from '..'
+import DynamicHeroIcon from '../DynamicHeroIcon'
 
 export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
     type: 'error' | 'success'
@@ -12,7 +11,7 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
     txtCloseBtn?: string
 }
 
-export function FeedBackBox({ type, title, description, defaultIsClose = false, onClose, txtCloseBtn, ...props }: IProps) {
+function FeedBackBox({ type, title, description, defaultIsClose = false, onClose, txtCloseBtn, ...props }: IProps) {
     const [isClose, setIsClose] = React.useState<boolean>(defaultIsClose ?? false)
 
     const closeBox = React.useCallback(() => {
@@ -50,3 +49,5 @@ export function FeedBackBox({ type, title, description, defaultIsClose = false, 
         </div>
     )
 }
+
+export default FeedBackBox
