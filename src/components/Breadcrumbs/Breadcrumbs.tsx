@@ -1,8 +1,8 @@
-import React from 'react'
-import DynamicHeroIcon, { IconName } from '../DynamicHeroIcon'
+import { ChevronRightIcon } from '@heroicons/react/outline'
+import React, { ReactNode } from 'react'
 
 export interface BreadcrumbsProps extends React.HTMLProps<HTMLDivElement> {
-    options: Array<{ name?: string; icon?: IconName; to?: () => void }>
+    options: Array<{ name?: string; icon?: () => ReactNode; to?: () => void }>
     separator?: any
 }
 
@@ -11,7 +11,7 @@ function InsertSeparators({ separator }: { separator: BreadcrumbsProps['separato
         return <>{separator}</>
     }
 
-    return <DynamicHeroIcon icon="ChevronRightIcon" data-icon="ChevronRightIcon" className="text-gray-500 bold" width={15} />
+    return <ChevronRightIcon data-icon="ChevronRightIcon" className="text-gray-500 bold" width={15} />
 }
 
 function Breadcrumbs({ options, separator, className, ...anotherProps }: BreadcrumbsProps) {
@@ -27,7 +27,7 @@ function Breadcrumbs({ options, separator, className, ...anotherProps }: Breadcr
             <div className={`${className ?? ''} flex gap-4 items-center absolute`} {...anotherProps}>
                 {options.map(({ name, icon, to }, indexKey) => (
                     <React.Fragment key={`${name}-${to}-${indexKey}`}>
-                        {icon?.length && <DynamicHeroIcon icon={icon} data-icon={icon} className="text-gray-500 bold" width={17} />}
+                        {icon && icon()}
                         <p
                             onClick={() => {
                                 if (to) {

@@ -1,4 +1,4 @@
-import { useCallback, FC } from 'react'
+import { useCallback } from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
@@ -39,7 +39,7 @@ function Stepper({ phase, totalPhases, width, height, ...props }: StepperProps) 
                 text={props.text ?? `${phase}/${totalPhases}`}
             />
         </div>
-    ) as unknown as FC<StepperProps>
+    )
 }
 
 export default Stepper

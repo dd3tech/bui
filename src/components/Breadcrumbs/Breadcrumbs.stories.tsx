@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Breadcrumbs as BreadcrumbsComponent } from '..'
+import BreadcrumbsComponent, { BreadcrumbsProps } from './Breadcrumbs'
+import DynamicHeroIcon from '../../common/DynamicHeroIcon'
 
 export default {
     title: 'Design System/Breadcrumbs',
@@ -27,17 +28,17 @@ const optionsWithOutIcon = [
 const optionsWithIcon = [
     {
         name: 'Proyectos',
-        icon: 'HomeIcon',
+        icon: () => <DynamicHeroIcon icon="HomeIcon" width={17} />,
         to: () => alert('Proyectos')
     },
     {
         name: 'Jalapa 200',
-        icon: 'BeakerIcon',
+        icon: () => <DynamicHeroIcon icon="BeakerIcon" width={17} />,
         to: () => alert('Jalapa 200')
     },
     {
         name: 'Ventas',
-        icon: 'ChartBarIcon',
+        icon: () => <DynamicHeroIcon icon="ChartBarIcon" width={17} />,
         to: () => alert('Ventas')
     }
 ]
@@ -47,16 +48,16 @@ Breadcrumbs.args = {
     options: optionsWithIcon,
     separator: '>',
     className: 'ml-12'
-}
+} as BreadcrumbsProps
 
 export const WhitOutIcon = Template.bind({})
 WhitOutIcon.args = {
     options: optionsWithOutIcon,
     separator: '>'
-}
+} as BreadcrumbsProps
 
 export const WithIcon = Template.bind({})
 WithIcon.args = {
-    options: optionsWithIcon,
+    options: optionsWithIcon as BreadcrumbsProps['options'],
     separator: '>'
-}
+} as BreadcrumbsProps

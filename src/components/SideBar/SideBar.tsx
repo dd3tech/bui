@@ -1,6 +1,7 @@
 import React from 'react'
 import { ChevronDoubleRightIcon, ChevronDoubleLeftIcon, ViewGridIcon, ExclamationIcon } from '@heroicons/react/outline'
-import { Text, Circle } from '../index'
+import Text from '../Typography'
+import Circle from '../Circle'
 
 export interface SideBarProps {
     sideBarList?: Array<{ title: string; active: boolean; to: () => void }>
