@@ -30,7 +30,6 @@ export * from './Kbd'
 export { default as ProgressBar } from './ProgressBar'
 export * from './ProgressBar'
 
-export * from './Error'
 export * from './FeedBackBox'
 export * from './Form'
 export * from './ImageIcon'

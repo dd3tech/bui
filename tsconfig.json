@@ -1,5 +1,7 @@
 {
     "compilerOptions": {
+        "target": "es5",
+        "rootDir": "src",
         "baseUrl": "src/",
         "paths": {
             "@/*": ["src/*"],
@@ -8,15 +10,18 @@
             "@hooks": ["src/hooks/*"],
             "@utils": ["src/utils/*"]
         },
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "esModuleInterop": true,
         "sourceMap": true,
-        "target": "ES6",
         "declaration": true,
-        "declarationDir": "dist/dts",
+        "declarationDir": "dist",
         "useDefineForClassFields": true,
-        "lib": ["DOM", "DOM.Iterable", "ESNext", "ES5", "ES2015", "ES2016", "es6", "dom"],
+        "lib": ["es6", "dom"],
         "allowJs": false,
         "skipLibCheck": false,
-        "esModuleInterop": false,
         "allowSyntheticDefaultImports": true,
         "strict": true,
         "forceConsistentCasingInFileNames": true,
@@ -30,7 +35,6 @@
     "exclude": [
         "node_modules",
         "acceptance-tests",
-        "lib",
         "src/**/*.stories.ts",
         "src/**/*.stories.tsx",
         "**/*.test.ts",
@@ -47,5 +51,6 @@
         "jest",
         "vitest"
     ],
-    "include": ["src/**/*.ts", "src/**/*.tsx"]
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "types": ["typePatches"]
 }
