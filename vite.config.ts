@@ -6,18 +6,19 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
-    test: {
-        coverage: {
-            reporter: ['html', 'json', 'lcovonly', 'cobertura', 'text-summary', 'text', 'html-spa', 'text-lcov']
-        },
-        globals: true,
-        environment: 'jsdom',
-        setupFiles: './tests/test-setup.ts'
-    },
+
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
+            components: path.resolve(__dirname, './src', 'components'),
+            hooks: path.resolve(__dirname, './src', 'hooks'),
+            interfaces: path.resolve(__dirname, './src', 'interfaces'),
             tests: path.resolve(__dirname, './tests')
         }
     }
+    // test: {
+    //     coverage: {
+    //         reporter: ['html', 'json', 'lcovonly', 'cobertura', 'text-summary', 'text', 'html-spa', 'text-lcov']
+    //     }
+    // },
 })

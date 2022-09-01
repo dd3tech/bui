@@ -15,7 +15,7 @@ export type useResizeReturnedTypes = {
  * is mobile or not
  * @returns An object with two properties: size and isMobile.
  */
-export function useResize(): useResizeReturnedTypes {
+function useResize(): useResizeReturnedTypes {
     const [size, setSize] = React.useState<SizeTypes>({
         width: undefined,
         height: undefined
@@ -41,3 +41,5 @@ export function useResize(): useResizeReturnedTypes {
 
     return { size, isMobile: window.innerWidth < 768 }
 }
+
+export default useResize

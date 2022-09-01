@@ -9,7 +9,7 @@ import { terser } from 'rollup-plugin-terser'
 import { getFiles } from './.build/rollup'
 
 export default {
-    input: [...getFiles('./src/hooks')],
+    input: ['./src/index.ts', ...getFiles('./src/hooks')],
     output: {
         dir: 'dist',
         format: 'esm',
@@ -22,9 +22,6 @@ export default {
         resolve(),
         commonjs(),
         typescript({
-            clean: true,
-            abortOnError: true,
-            useTsconfigDeclarationDir: true,
             tsconfig: './.build/tsconfig.build.json'
         }),
         postcss({

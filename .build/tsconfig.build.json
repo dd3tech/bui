@@ -2,23 +2,14 @@
     "extends": "../tsconfig.json",
     "exclude": [
         "node_modules",
-        "src/assets/*",
-        "acceptance-tests",
-        "lib",
-        "src/**/*.stories.ts",
-        "src/**/*.stories.tsx",
-        "**/*.test.ts",
-        "**/*.test.tsx",
-        "**/*.spec.tsx",
-        "src/**/*.test.tsx",
-        "tests/**/*.test.tsx",
-        "src/assets/*",
-        "dist",
-        "tests/*",
         "build",
+        "dist",
         "scripts",
+        "acceptance-tests",
         "webpack",
         "jest",
-        "vitest"
+        "src/stories/**",
+        "src/**/*.stories.ts",
+        "src/**/*.stories.tsx"
     ]
 }
