@@ -13,9 +13,6 @@ export * from './Typography/Text'
 export { default as ModalCustom } from './Modal/ModalCustom'
 export * from './Modal/ModalCustom'
 
-// export { default as DynamicHeroIcon } from './DynamicHeroIcon'
-// export * from './DynamicHeroIcon'
-
 export { default as Breadcrumbs } from './Breadcrumbs'
 export * from './Breadcrumbs'
 
