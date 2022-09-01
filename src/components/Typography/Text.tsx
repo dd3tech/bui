@@ -4,7 +4,7 @@ import React from 'react'
 export interface TextProps {
     children?: React.ReactNode
     className?: string
-    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'small' | 'label' | 'a' | 'currency'
+    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'small' | 'label' | 'a' | 'currency' | 'anchorSmall'
     align?: 'center' | 'left' | 'right' | 'justify'
     bold?: boolean
     fontBold?: 'bold' | 'medium'
@@ -53,37 +53,37 @@ const Text = ({ children, className, align, variant, bold, fontBold, textColor, 
     switch (variant) {
         case 'h1':
             return (
-                <h1 className={chooseStyle()} {...props}>
+                <h1 className={`${chooseStyle()} text-4xl`} {...props}>
                     {children}
                 </h1>
             )
         case 'h2':
             return (
-                <h2 className={chooseStyle()} {...props}>
+                <h2 className={`${chooseStyle()} text-3xl`} {...props}>
                     {children}
                 </h2>
             )
         case 'h3':
             return (
-                <h3 className={chooseStyle()} {...props}>
+                <h3 className={`${chooseStyle()} text-2xl`} {...props}>
                     {children}
                 </h3>
             )
         case 'h4':
             return (
-                <h4 className={chooseStyle()} {...props}>
+                <h4 className={`${chooseStyle()} text-xl`} {...props}>
                     {children}
                 </h4>
             )
         case 'h5':
             return (
-                <h5 className={chooseStyle()} {...props}>
+                <h5 className={`${chooseStyle()} text-lg`} {...props}>
                     {children}
                 </h5>
             )
         case 'h6':
             return (
-                <h6 className={chooseStyle()} {...props}>
+                <h6 className={`${chooseStyle()} text-base`} {...props}>
                     {children}
                 </h6>
             )
@@ -124,6 +124,14 @@ const Text = ({ children, className, align, variant, bold, fontBold, textColor, 
                 <p className={chooseStyle()} {...props}>
                     {format(children)}
                 </p>
+            )
+        case 'anchorSmall':
+            return (
+                <small className={chooseStyle()} {...props}>
+                    <a className={chooseStyle()} {...props}>
+                        {children}
+                    </a>
+                </small>
             )
         default:
             return (
