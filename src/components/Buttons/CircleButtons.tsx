@@ -34,7 +34,7 @@ const buildClassName = (disabled?: boolean, selected?: boolean) => {
     return selected ? globalStyles.selected : globalStyles.default
 }
 
-export function BaseCircleButton({
+function BaseCircleButton({
     iconName = 'HomeIcon',
     width = '3rem',
     height = '3rem',
@@ -67,10 +67,16 @@ export function BaseCircleButton({
     )
 }
 
-export function SquareButton({ ...props }: WithoutTypeButtonProps) {
+function SquareButton({ ...props }: WithoutTypeButtonProps) {
     return <BaseCircleButton variant="square" {...props} />
 }
 
-export function CircleButton({ ...props }: WithoutTypeButtonProps) {
+function CircleButton({ ...props }: WithoutTypeButtonProps) {
     return <BaseCircleButton variant="circle" {...props} />
+}
+
+export default {
+    BaseCircleButton,
+    SquareButton,
+    CircleButton
 }

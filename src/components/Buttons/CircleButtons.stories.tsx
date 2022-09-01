@@ -1,13 +1,13 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { BaseCircleButton as BaseCircleButtonComponent } from '.'
+import { CircleButton as BaseCircleButtonComponent } from '.'
 
 export default {
     title: 'Design System/Button',
-    component: BaseCircleButtonComponent
-} as ComponentMeta<typeof BaseCircleButtonComponent>
+    component: BaseCircleButtonComponent.BaseCircleButton
+} as ComponentMeta<typeof BaseCircleButtonComponent.BaseCircleButton>
 
-const Template: ComponentStory<typeof BaseCircleButtonComponent> = (args) => <BaseCircleButtonComponent {...args} />
+const Template: ComponentStory<typeof BaseCircleButtonComponent.BaseCircleButton> = (args) => <BaseCircleButtonComponent.BaseCircleButton {...args} />
 
 export const SquareButton = Template.bind({})
 SquareButton.args = { variant: 'square' }

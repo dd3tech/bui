@@ -1,4 +1,4 @@
-import DynamicHeroIcon, { IconName } from '../DynamicHeroIcon'
+import { ExclamationCircleIcon, TagIcon, CheckCircleIcon, ExclamationIcon, ClipboardCopyIcon, HomeIcon } from '@heroicons/react/outline'
 
 export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
     text?: string
@@ -21,21 +21,21 @@ const badgeVariants: { [key: string]: string } = {
 const iconsSwitch = (iconType: string = 'HomeIcon', classNameIcon?: string) => {
     switch (iconType) {
         case 'tag':
-            return <DynamicHeroIcon icon="TagIcon" className={classNameIcon ?? ''} />
+            return <TagIcon className={classNameIcon ?? ''} />
         case 'warning':
-            return <DynamicHeroIcon icon="ExclamationIcon" className={classNameIcon ?? ''} />
+            return <ExclamationIcon className={classNameIcon ?? ''} />
         case 'check':
-            return <DynamicHeroIcon icon="CheckCircleIcon" className={classNameIcon ?? ''} />
+            return <CheckCircleIcon className={classNameIcon ?? ''} />
         case 'success':
-            return <DynamicHeroIcon icon="CheckCircleIcon" className={classNameIcon ?? ''} />
+            return <CheckCircleIcon className={classNameIcon ?? ''} />
         case 'exclamation':
-            return <DynamicHeroIcon icon="ExclamationCircleIcon" className={classNameIcon ?? ''} />
+            return <ExclamationCircleIcon className={classNameIcon ?? ''} />
         case 'clipboard-copy':
-            return <DynamicHeroIcon icon="ClipboardCopyIcon" className={classNameIcon ?? ''} />
+            return <ClipboardCopyIcon className={classNameIcon ?? ''} />
         case 'none':
             return <></>
         default:
-            return <DynamicHeroIcon icon={iconType as IconName} className={classNameIcon ?? ''} />
+            return <HomeIcon className={classNameIcon ?? ''} />
     }
 }
 

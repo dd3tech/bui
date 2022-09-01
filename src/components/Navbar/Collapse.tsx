@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Language } from '.'
+import { Language } from './Language'
 
 interface Props {
     children: ReactNode

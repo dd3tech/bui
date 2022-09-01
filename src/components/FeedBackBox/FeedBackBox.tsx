@@ -1,6 +1,7 @@
 import React from 'react'
-import { Button, Text } from '..'
-import DynamicHeroIcon from '../DynamicHeroIcon'
+import Button from '../Buttons/index'
+import Text from '../Typography'
+import { ExclamationIcon, CheckCircleIcon, XIcon } from '@heroicons/react/outline'
 
 export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
     type: 'error' | 'success'
@@ -32,18 +33,14 @@ function FeedBackBox({ type, title, description, defaultIsClose = false, onClose
     return (
         <div className={`w-max border border-${color}-500 p-4 rounded-lg`} {...props}>
             <div className="flex mb-2">
-                {type === 'error' ? (
-                    <DynamicHeroIcon icon="ExclamationIcon" className="w-4 h-4 text-red-500 mr-2" />
-                ) : (
-                    <DynamicHeroIcon icon="CheckCircleIcon" className="w-4 h-4 text-green-500 mr-2" />
-                )}
+                {type === 'error' ? <ExclamationIcon className="w-4 h-4 text-red-500 mr-2" /> : <CheckCircleIcon className="w-4 h-4 text-green-500 mr-2" />}
                 <Text className={`text-xs text-${color}-500 font-bold`}>{title}.</Text>
                 <Text className="ml-1 text-xs text-gray-600 font-semibold">{description}.</Text>
             </div>
             <div>
                 <Button onClick={closeBox} variant="link" className="font-semibold flex items-center text-xs" padding={0}>
                     <Text className="mr-1">{txtCloseBtn}</Text>
-                    <DynamicHeroIcon icon="XIcon" className="w-3 h-3 -mb-0.5" />
+                    <XIcon className="w-3 h-3 -mb-0.5" />
                 </Button>
             </div>
         </div>

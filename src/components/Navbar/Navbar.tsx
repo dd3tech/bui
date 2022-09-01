@@ -1,5 +1,6 @@
-import { Anchor, Wrapper } from '..'
-import { Language } from '.'
+import { Wrapper } from '../Wrapper'
+import { Anchor } from '../Navigation'
+import { Language } from './Language'
 
 interface Props {
     logoUrl: string

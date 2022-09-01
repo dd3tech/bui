@@ -1,7 +1,10 @@
 import React from 'react'
-import { Collapse } from './Collapse'
 import { ChevronUpIcon, ChevronDownIcon, CogIcon, BellIcon } from '@heroicons/react/outline'
-import { Wrapper, Anchor, Text, Circle, Button } from '..'
+import { Wrapper } from '../Wrapper'
+import { Anchor } from '../Navigation'
+import Text from '../Typography'
+import Circle from '../Circle'
+import Button from '../Buttons'
 
 interface ILink {
     name: string
