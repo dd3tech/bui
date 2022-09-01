@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Kbd as KbdComponent } from '.'
+import KbdComponent from './Kbd'
 
 export default {
     title: 'Design System/Kbd'
