@@ -12,7 +12,8 @@ export const h1 = Template.bind({})
 h1.args = {
     variant: 'h1',
     children: 'Heading 1',
-    align: 'center'
+    align: 'center',
+    bold: true
 }
 
 export const h2 = Template.bind({})
