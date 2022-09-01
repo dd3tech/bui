@@ -3,7 +3,7 @@
     "version": "1.0.26",
     "description": "DD360 Components is a tailwind based React component library",
     "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "types": "dist/dd3.d.ts",
     "files": [
         "dist",
         "README.md"

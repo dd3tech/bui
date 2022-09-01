@@ -5,7 +5,7 @@
         "lib": ["es6", "dom"],
         "sourceMap": true,
         "jsx": "react-jsx",
-        "moduleResolution": "node",
+        "moduleResolution": "Node",
         "rootDir": "src",
         "noImplicitReturns": true,
         "noImplicitThis": true,

@@ -6,9 +6,10 @@ import postcss from 'rollup-plugin-postcss'
 import svg from 'rollup-plugin-svg'
 import visualizer from 'rollup-plugin-visualizer'
 import { terser } from 'rollup-plugin-terser'
+import dts from 'rollup-plugin-dts'
 import { getFiles } from './.build/rollup'
 
-export default {
+const buildConfiguration = {
     input: ['./src/index.ts', ...getFiles('./src/components'), ...getFiles('./src/hooks'), ...getFiles('./src/common')],
     output: {
         dir: 'dist',
@@ -36,3 +37,12 @@ export default {
     ],
     external: ['react', 'react-dom']
 }
+
+const mapTypes = {
+    input: './dist/index.d.ts',
+    output: [{ file: 'dist/dd3.d.ts', format: 'es' }],
+    external: [/\.css$/], // ignore .scss file
+    plugins: [dts()]
+}
+
+export default [buildConfiguration, mapTypes]
