@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { SideBar as SideBarComponent } from '..'
+import { SideBar as SideBarComponent } from '.'
 
 export default {
     title: 'Design System/SideBar',

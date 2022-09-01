@@ -11,7 +11,7 @@ interface CircleProps extends React.HTMLProps<HTMLDivElement> {
     disabled?: boolean
 }
 
-const Circle = ({
+const Circle: React.FC<CircleProps> = ({
     children,
     backgroundColor = '#EFF6FF',
     className = '',

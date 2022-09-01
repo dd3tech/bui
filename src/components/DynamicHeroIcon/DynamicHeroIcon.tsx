@@ -1,4 +1,3 @@
-import React from 'react'
 import * as HIcons from '@heroicons/react/outline'
 
 export type IconName = keyof typeof HIcons

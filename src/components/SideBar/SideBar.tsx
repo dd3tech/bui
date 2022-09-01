@@ -1,9 +1,8 @@
 import React from 'react'
 import { ChevronDoubleRightIcon, ChevronDoubleLeftIcon, ViewGridIcon, ExclamationIcon } from '@heroicons/react/outline'
 import { Text, Circle } from '../index'
-import { css } from '@emotion/css'
 
-interface SideBarProps {
+export interface SideBarProps {
     sideBarList?: Array<{ title: string; active: boolean; to: () => void }>
     sideBarName?: string
     sideBarSubTitle?: React.ReactElement
@@ -11,17 +10,17 @@ interface SideBarProps {
     dangerZone?: { show: boolean; text: string; callBack?: () => void }
 }
 
-export const SideBar = ({ sideBarList, sideBarName = 'Álvaro Obregón 182', sideBarSubTitle, defaultExpand, ...props }: SideBarProps) => {
+const SideBar = ({ sideBarList, sideBarName = 'Álvaro Obregón 182', sideBarSubTitle, defaultExpand, ...props }: SideBarProps) => {
     const [expand, setExpand] = React.useState(false)
     const [timer, setTimer] = React.useState(false)
 
     const activeStyle = React.useCallback((activeLink: boolean) => {
-        return css`
-            width: 6px;
-            height: 64px;
-            background: ${activeLink ? '#1d4ed8' : 'transparent'};
-            border-radius: 0px 8px 8px 0px;
-        `
+        return {
+            width: '6px',
+            height: '64px',
+            backgroundColor: `${activeLink ? '#1d4ed8' : 'transparent'}`,
+            borderRadius: '0px 8px 8px 0px'
+        }
     }, [])
 
     const shotTimer = () => {
@@ -33,10 +32,6 @@ export const SideBar = ({ sideBarList, sideBarName = 'Álvaro Obregón 182', sid
 
         setTimer(false)
     }
-
-    const widthSideBar = css`
-        width: 4.5rem;
-    `
 
     React.useEffect(() => {
         if (defaultExpand) {
@@ -51,11 +46,7 @@ export const SideBar = ({ sideBarList, sideBarName = 'Álvaro Obregón 182', sid
     }, [defaultExpand])
 
     return (
-        <div
-            className={`shadow-lg border-t-0 ${
-                expand ? 'w-96 h-full' : `${widthSideBar} h-20`
-            } border bg-white fixed transition-all delay-75 duration-200 ease-in z-40`}
-        >
+        <div className={`shadow-lg border-t-0 ${expand ? 'w-96 h-full' : `w-20 h-20`} border bg-white fixed transition-all delay-75 duration-200 ease-in z-40`}>
             {!expand && (
                 <div
                     className="flex items-center justify-center h-full cursor-pointer"
@@ -96,7 +87,7 @@ export const SideBar = ({ sideBarList, sideBarName = 'Álvaro Obregón 182', sid
                         }`}
                         onClick={() => to()}
                     >
-                        <div className={activeStyle(active)}></div>
+                        <div style={activeStyle(active)}></div>
                         <Text variant="span" className="text-lg text-gray-500 ">
                             {title}
                         </Text>
@@ -120,3 +111,5 @@ export const SideBar = ({ sideBarList, sideBarName = 'Álvaro Obregón 182', sid
         </div>
     )
 }
+
+export default SideBar

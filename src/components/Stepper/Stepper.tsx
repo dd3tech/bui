@@ -1,4 +1,4 @@
-import React from 'react'
+import { useCallback, FC } from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
@@ -17,7 +17,7 @@ export interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 function Stepper({ phase, totalPhases, width, height, ...props }: StepperProps) {
-    const valuePercentage = React.useCallback(() => {
+    const valuePercentage = useCallback(() => {
         return Math.round((100 / totalPhases) * phase)
     }, [totalPhases, phase])
 
@@ -39,7 +39,7 @@ function Stepper({ phase, totalPhases, width, height, ...props }: StepperProps) 
                 text={props.text ?? `${phase}/${totalPhases}`}
             />
         </div>
-    )
+    ) as unknown as FC<StepperProps>
 }
 
 export default Stepper

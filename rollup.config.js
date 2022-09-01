@@ -9,7 +9,7 @@ import { terser } from 'rollup-plugin-terser'
 import { getFiles } from './.build/rollup'
 
 export default {
-    input: ['./src/index.ts', ...getFiles('./src/hooks')],
+    input: ['./src/index.ts', ...getFiles('./src/components'), ...getFiles('./src/hooks')],
     output: {
         dir: 'dist',
         format: 'esm',

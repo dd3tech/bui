@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { DynamicHeroIcon as DynamicHeroIconComponent } from '..'
+import { DynamicHeroIcon as DynamicHeroIconComponent } from '.'
 
 export default {
     title: 'Design System/DynamicHeroIcon',

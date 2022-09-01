@@ -13,8 +13,8 @@ export * from './Typography/Text'
 export { default as ModalCustom } from './Modal/ModalCustom'
 export * from './Modal/ModalCustom'
 
-export { default as DynamicHeroIcon } from './DynamicHeroIcon'
-export * from './DynamicHeroIcon'
+// export { default as DynamicHeroIcon } from './DynamicHeroIcon'
+// export * from './DynamicHeroIcon'
 
 export { default as Breadcrumbs } from './Breadcrumbs'
 export * from './Breadcrumbs'
@@ -22,24 +22,22 @@ export * from './Breadcrumbs'
 export { default as Avatar } from './Avatar'
 export * from './Avatar'
 
-export * from './Navigation'
-
 export { default as Kbd } from './Kbd'
 export * from './Kbd'
 
 export { default as ProgressBar } from './ProgressBar'
 export * from './ProgressBar'
 
+export * from './SideBar'
+export * from './Navigation'
 export * from './FeedBackBox'
 export * from './Form'
 export * from './ImageIcon'
 export * from './Images'
 export * from './Layout'
 export * from './Navbar'
-
 export * from './Skeleton'
 export * from './Spinners'
 export * from './Table'
 export * from './Wrapper'
-export * from './SideBar'
 export * from './Badge'
