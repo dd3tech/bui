@@ -1,4 +1,4 @@
 {
     "extends": "../tsconfig.json",
-    "exclude": ["node_modules", "build", "dist", "scripts", "acceptance-tests", "webpack", "jest", "**/*.stories.ts", "**/*.stories.tsx"]
+    "exclude": ["node_modules", "build", "dist", "scripts", "tests", "src/stories/**"]
 }

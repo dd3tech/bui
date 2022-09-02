@@ -20,7 +20,7 @@
             "hooks/*": ["hooks/*"]
         }
     },
-    "include": ["src/**/*"],
-    "exclude": ["**/node_modules", "**/tests", "**/build", "**/*.stories", "**/*.stories.tsx", "**/scripts"],
+    "include": ["src/common", "src/hooks", "src/interfaces", "src/index.ts", "src/components", "src/global.d.ts"],
+    "exclude": ["node_modules", "build", "dist", "scripts", "tests"],
     "types": ["typePatches"]
 }
