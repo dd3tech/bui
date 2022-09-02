@@ -9,7 +9,18 @@
         "dist",
         "README.md"
     ],
-    "outputDir": "./dist",
+    "exports": {
+        ".": "./dist/",
+        "./components": "./dist/esm/components/",
+        "./common": "./dist/esm/common"
+    },
+    "typesVersions": {
+        "*": {
+            "*": [
+                "./dist/*"
+            ]
+        }
+    },
     "engines": {
         "node": ">=16",
         "npm": "7 || 8"
