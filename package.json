@@ -3,23 +3,14 @@
     "version": "1.0.29",
     "description": "DD360 Components is a tailwind based React component library",
     "main": "dist/cjs/index.js",
-    "types": "dist/cjs/index.d.ts",
     "module": "dist/esm/index.js",
+    "types": "dist/types/cjs/index.d.ts",
     "files": [
         "dist",
         "README.md"
     ],
     "exports": {
-        ".": "./dist/",
-        "./components": "./dist/esm/components/",
-        "./common": "./dist/esm/common"
-    },
-    "typesVersions": {
-        "*": {
-            "*": [
-                "./dist/*"
-            ]
-        }
+        ".": "./dist/cjs/"
     },
     "engines": {
         "node": ">=16",
@@ -40,6 +31,7 @@
         "coverage": "vitest run --coverage",
         "prebuild-lib": "rimraf dist",
         "build-lib": "rollup -c",
+        "postbuild-lib": "npm run copy",
         "build-storybook": "build-storybook",
         "format": "prettier --write ./src",
         "prepare": "husky install",
@@ -47,6 +39,7 @@
         "add-co": "git add . && git cz",
         "pre-commit": "npm run format",
         "pre-push": "npm run test",
+        "copy": "downlevel-dts dist dist/types",
         "clean": "rm -rf ./node_modules && rm -f package-lock.json"
     },
     "dependencies": {
@@ -103,7 +96,8 @@
         "tailwindcss": "2.2.19",
         "typescript": "4.3.2",
         "vite": "^3.0.4",
-        "vitest": "^0.20.3"
+        "vitest": "^0.20.3",
+        "downlevel-dts": "^0.10.0"
     },
     "config": {
         "commitizen": {
