@@ -20,20 +20,7 @@
             "hooks/*": ["hooks/*"]
         }
     },
-    "exclude": [
-        "node_modules",
-        "build",
-        "dist",
-        "tests",
-        "scripts",
-        "build",
-        "vitest",
-        "**/*.stories.ts",
-        "**/*.stories.tsx",
-        "**/*.test.ts",
-        "**/*.test.tsx",
-        "**/*.spec.tsx"
-    ],
-    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "include": ["src/**/*"],
+    "exclude": ["**/node_modules", "**/tests", "**/build", "**/*.stories", "**/*.stories.tsx", "**/scripts"],
     "types": ["typePatches"]
 }
