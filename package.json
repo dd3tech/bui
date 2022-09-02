@@ -4,13 +4,26 @@
     "description": "DD360 Components is a tailwind based React component library",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
-    "types": "dist/types/cjs/index.d.ts",
+    "types": "dist/cjs/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "dist/index.d.ts": [
+                "dist/cjs/index.d.ts"
+            ],
+            "*": [
+                "dist/cjs/*"
+            ]
+        }
+    },
     "files": [
         "dist",
         "README.md"
     ],
     "exports": {
-        ".": "./dist/cjs/"
+        ".": "./dist/cjs/index.js",
+        "./common/*": "./dist/cjs/common/**",
+        "./components/*": "./dist/cjs/components/**",
+        "./hooks/*": "./dist/cjs/hooks/**"
     },
     "engines": {
         "node": ">=16",
@@ -31,7 +44,6 @@
         "coverage": "vitest run --coverage",
         "prebuild-lib": "rimraf dist",
         "build-lib": "rollup -c",
-        "postbuild-lib": "npm run copy",
         "build-storybook": "build-storybook",
         "format": "prettier --write ./src",
         "prepare": "husky install",
