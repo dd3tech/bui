@@ -59,7 +59,7 @@ const SideBar = ({ sideBarList, sideBarName = 'Álvaro Obregón 182', sideBarSub
                     <ChevronDoubleRightIcon className="text-blue-700 hover:text-blue-800 transition-all duration-200 ease-in-out" width={30} />
                 </div>
             )}
-            <div className={`${timer ? 'block' : 'hidden'}  transition-all delay-300 ease-out`}>
+            <div className={`${timer && expand ? 'block' : 'hidden'}  transition-all delay-300 ease-out`}>
                 <div className="grid grid-cols-3 justify-between border-b items-center w-full">
                     <div className="flex items-center gap-4 col-span-2 p-3 w-full h-24">
                         <Circle>
