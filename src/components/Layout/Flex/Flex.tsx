@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-export const Flex = ({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+const Flex = forwardRef<HTMLDivElement>(({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>, ref) => {
     return (
-        <div className={`flex ${className ?? ''}`} {...props}>
+        <div ref={ref} className={`flex ${className ?? ''}`} {...props}>
             {children}
         </div>
     )
-}
+})
+
+export default Flex
