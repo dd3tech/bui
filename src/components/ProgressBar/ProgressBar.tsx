@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import './progressbar.css'
 
 export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -9,10 +10,13 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
     animated?: boolean
 }
 
-function ProgressBar({ value = 50, max = 100, backgroundColor, className, label, animated, ...props }: ProgressBarProps) {
+const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>((props: ProgressBarProps, ref) => {
+    const { value, max, backgroundColor, className, label, animated } = props
+
     return (
         <div className="storybook-progress">
             <div
+                ref={ref}
                 role="progressbar"
                 aria-valuenow={value}
                 aria-valuemin={0}
@@ -21,10 +25,20 @@ function ProgressBar({ value = 50, max = 100, backgroundColor, className, label,
                 style={{ backgroundColor, width: `${value}%` }}
                 {...props}
             >
-                {value > 5 && label && label}
+                {value && value > 5 && label && label}
             </div>
         </div>
     )
+})
+
+ProgressBar.displayName = 'ProgressBar'
+ProgressBar.defaultProps = {
+    value: 50,
+    max: 100,
+    backgroundColor: 'red',
+    className: undefined,
+    label: undefined,
+    animated: false
 }
 
 export default ProgressBar

@@ -10,8 +10,8 @@ export * from './Stepper'
 export { default as Text } from './Typography/Text'
 export * from './Typography/Text'
 
-export { default as ModalCustom } from './Modal/ModalCustom'
-export * from './Modal/ModalCustom'
+export { default as Modal } from './Modal'
+export * from './Modal'
 
 export { default as Breadcrumbs } from './Breadcrumbs'
 export * from './Breadcrumbs'

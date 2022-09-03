@@ -1,4 +1,4 @@
-import ModalCustom from './ModalCustom'
+import Modal from './Modal'
 
-export default ModalCustom
-export * from './ModalCustom'
+export default Modal
+export * from './Modal'

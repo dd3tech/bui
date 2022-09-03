@@ -1,17 +1,29 @@
+import { forwardRef } from 'react'
+
 export interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     children?: React.ReactNode
 }
 
-function Avatar({ src, alt, className, children, ...props }: AvatarProps) {
+const Avatar = forwardRef<HTMLImageElement, AvatarProps>((props: AvatarProps, ref) => {
+    const { children, src, alt, className } = props
+
     if (children) {
         return (
-            <div role="avatar" className={`${className ?? ''} rounded-full flex items-center justify-center`} {...props}>
+            <div role="avatar" ref={ref} className={`${className ?? ''} rounded-full flex items-center justify-center`} {...props}>
                 {children}
             </div>
         )
     }
 
-    return <img src={src} role="avatar" alt={alt} {...props} className={`${className ?? ''} rounded-full`} />
+    return <img src={src} ref={ref} role="avatar" alt={alt} {...props} className={`${className ?? ''} rounded-full`} />
+})
+
+Avatar.displayName = 'Avatar'
+Avatar.defaultProps = {
+    children: undefined,
+    src: undefined,
+    alt: undefined,
+    className: undefined
 }
 
 export default Avatar
