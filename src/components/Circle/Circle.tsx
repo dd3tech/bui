@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 interface CircleProps extends React.HTMLProps<HTMLDivElement> {
     children?: React.ReactNode
@@ -11,17 +11,19 @@ interface CircleProps extends React.HTMLProps<HTMLDivElement> {
     disabled?: boolean
 }
 
-const Circle: React.FC<CircleProps> = ({
-    children,
-    backgroundColor = '#EFF6FF',
-    className = '',
-    width = '3rem',
-    height = '3rem',
-    border,
-    useBackground = true,
-    disabled,
-    ...props
-}: CircleProps) => {
+const Circle = forwardRef<HTMLDivElement, CircleProps>((circleProps: CircleProps, ref) => {
+    const {
+        children,
+        backgroundColor = '#EFF6FF',
+        className = '',
+        width = '3rem',
+        height = '3rem',
+        border,
+        useBackground = true,
+        disabled,
+        ...props
+    } = circleProps
+
     const chooseClassNameCircle = React.useCallback(() => {
         if (disabled) return `disabled:text-gray-300 disabled:border disabled:border-gray-300 disabled:bg-white`
         return className
@@ -29,6 +31,7 @@ const Circle: React.FC<CircleProps> = ({
 
     return (
         <div
+            ref={ref}
             className={`${chooseClassNameCircle()} items-center flex justify-center rounded-full`}
             style={{ backgroundColor: !useBackground ? '' : backgroundColor, width, height, border }}
             {...props}
@@ -36,6 +39,8 @@ const Circle: React.FC<CircleProps> = ({
             {children}
         </div>
     )
-}
+})
+
+Circle.displayName = 'Circle'
 
 export default Circle
