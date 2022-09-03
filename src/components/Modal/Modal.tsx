@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { css } from '@emotion/css'
 
 export interface ModalCustomProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -26,7 +26,9 @@ const animationModal = css`
     }
 `
 
-function ModalCustom({ active, children, width, height, overlay = true, setCloseModal, animation, className, ...props }: ModalCustomProps) {
+const Modal = forwardRef<HTMLDivElement, ModalCustomProps>((props: ModalCustomProps, ref) => {
+    const { active, children, width, height, overlay = true, setCloseModal, animation, className } = props
+
     const [isClose, setClose] = React.useState(false)
 
     const dynamicClassName: () => string = React.useCallback(() => {
@@ -82,6 +84,15 @@ function ModalCustom({ active, children, width, height, overlay = true, setClose
             </div>
         </>
     )
+})
+
+Modal.displayName = 'Modal'
+Modal.defaultProps = {
+    active: false,
+    children: undefined,
+    overlay: true,
+    animation: true,
+    className: undefined
 }
 
-export default ModalCustom
+export default Modal
