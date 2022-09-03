@@ -4,9 +4,7 @@ export interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     children?: React.ReactNode
 }
 
-const Avatar = forwardRef<HTMLImageElement, AvatarProps>((props: AvatarProps, ref) => {
-    const { children, src, alt, className } = props
-
+const Avatar = forwardRef<HTMLImageElement, AvatarProps>(({ children, src, alt, className, ...props }: AvatarProps, ref) => {
     if (children) {
         return (
             <div role="avatar" ref={ref} className={`${className ?? ''} rounded-full flex items-center justify-center`} {...props}>
