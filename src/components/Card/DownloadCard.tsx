@@ -1,6 +1,8 @@
 import React from 'react'
 import { InformationCircleIcon, DownloadIcon, XIcon } from '@heroicons/react/outline'
-import { Card, Text, Anchor } from '..'
+import { Card } from '../Card'
+import Text from '../Typography'
+import { Anchor } from '../Navigation'
 
 export interface IDownloadCardProps {
     onClose?: () => void
