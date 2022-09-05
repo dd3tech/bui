@@ -32,9 +32,9 @@ function Card({ children, rounded = 'md', height = 'fit-content', width, padding
     return (
         <div
             data-testid="card-contain"
-            {...otherProps}
             style={{ ...style, height, width }}
             className={`rounded-${rounded} ${getPadding()} shadow-sm border ${className}`}
+            {...otherProps}
         >
             {children}
         </div>
