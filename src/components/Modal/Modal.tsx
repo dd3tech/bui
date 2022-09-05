@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
-import { css } from '@emotion/css'
+import './modal.css'
 
-export interface ModalCustomProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
     active: boolean
     width?: string
     height?: string
@@ -13,26 +13,13 @@ export interface ModalCustomProps extends React.HTMLAttributes<HTMLDivElement> {
     overlay?: boolean
 }
 
-const animationModal = css`
-    animation: popup 0.5s;
-    transition: height 0.08s ease-out;
-    @keyframes popup {
-        from {
-            transform: scale(0);
-        }
-        to {
-            transform: scale(1);
-        }
-    }
-`
-
-const Modal = forwardRef<HTMLDivElement, ModalCustomProps>(
-    ({ active, children, width, height, overlay = true, setCloseModal, animation, className, ...props }: ModalCustomProps, ref) => {
+const Modal = forwardRef<HTMLDivElement, ModalProps>(
+    ({ active, children, width, height, overlay = true, setCloseModal, animation, className, ...props }: ModalProps, ref) => {
         const [isClose, setClose] = React.useState(false)
 
         const dynamicClassName: () => string = React.useCallback(() => {
             const defaultClassName = 'absolute z-50 flex-wrap text-center flex drop-shadow-lg bg-white rounded-2xl ml-24 mb-6 mt-6'
-            return `${defaultClassName} ${className ?? ''} ${animation ? animationModal : ''}`
+            return `${defaultClassName} ${className ?? ''} ${animation ? 'animation-modal' : ''}`
         }, [className, animation])
 
         const handleClose = React.useCallback(() => {
