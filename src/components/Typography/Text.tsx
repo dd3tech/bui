@@ -9,10 +9,14 @@ export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
     bold?: boolean
     fontBold?: 'bold' | 'medium'
     textColor?: string
+    size?: '9xl' | '8xl' | '7xl' | '6xl' | '5xl' | '4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'base' | 'sm' | 'xs'
     textMuted?: boolean
     textMuted500?: boolean
     href?: string
     target?: string
+    style?: any
+    onClick?: () => void
+    onBlur?: () => void
 }
 
 const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
@@ -76,6 +80,17 @@ const getStyles = (props: TextProps) => {
     }
     if (props.textMuted500) {
         style += 'text-gray-500 '
+    }
+    if (props.size) {
+        style += `text-${props.size} `
+    }
+    if (props.variant && !props.size) {
+        if (props.variant === 'h1') style += `text-4xl`
+        else if (props.variant === 'h2') style += `text-3xl`
+        else if (props.variant === 'h3') style += `text-2xl`
+        else if (props.variant === 'h4') style += `text-xl`
+        else if (props.variant === 'h5') style += `text-lg`
+        else if (props.variant === 'h6') style += `text-base`
     }
     return style
 }
