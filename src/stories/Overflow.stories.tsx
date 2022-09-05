@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { OverFlow as OverFlowComponent } from '../components/Layout/Overflow/Overflow'
+import OverFlowComponent from '../components/Layout/Overflow/Overflow'
 
 export default {
     title: 'Design System/Layout/OverFlow'

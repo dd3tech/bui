@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Row as RowComponent } from '../components/Layout/Grid/Row'
+import RowComponent from '../components/Layout/Grid/Row'
 
 export default {
     title: 'Design System/Layout/Row'

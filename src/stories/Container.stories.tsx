@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Container as ContainerComponent } from '../components/Layout/Container/Container'
+import ContainerComponent from '../components/Layout/Container'
 
 export default {
     title: 'Design System/Layout/Container'

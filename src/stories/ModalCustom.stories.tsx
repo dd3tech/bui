@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { ModalCustom as ModalCustomComponent } from '../components'
+import ModalCustomComponent from '../components/Modal'
 
 export default {
     title: 'Design System/Modal/ModalCustom',
