@@ -1,6 +1,6 @@
 import React from 'react'
 import { InformationCircleIcon, DownloadIcon, XIcon } from '@heroicons/react/outline'
-import { Card } from '../Card'
+import Card from './Card'
 import Text from '../Typography'
 import { Anchor } from '../Navigation'
 

@@ -1,5 +1,6 @@
-export { default as Card } from './Card'
-export type { ICardProps } from './Card'
+import Card from './Card'
+export default Card
 export * from './Card'
+
 export { default as DownloadCard } from './DownloadCard'
 export type { IDownloadCardProps } from './DownloadCard'
