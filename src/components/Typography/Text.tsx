@@ -19,6 +19,12 @@ export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
     onBlur?: () => void
 }
 
+/**
+ * It takes in a variant prop and returns a component based on the variant
+ * @param {TextProps} props - TextProps - this is the props that are passed to the component
+ * @param ref - LegacyRef<any>
+ * @returns A function that returns a JSX.Element
+ */
 const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
     switch (props.variant) {
         case 'h1':
@@ -58,47 +64,83 @@ const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
     }
 }
 
+/**
+ * It returns a string that represents the font size of the text
+ * @param variant - The variant of the text.
+ * @returns A string
+ */
+const getFontSize = (variant: TextProps['variant']) => {
+    if (variant === 'h1') return `text-4xl`
+    if (variant === 'h2') return `text-3xl`
+    if (variant === 'h3') return `text-2xl`
+    if (variant === 'h4') return `text-xl`
+    if (variant === 'h5') return `text-lg`
+    if (variant === 'h6') return `text-base`
+
+    return 'text-base'
+}
+
+/**
+ * It takes in a TextProps object, and returns a string of className
+ * @param {TextProps} props - TextProps
+ * @returns A string of className
+ */
 const getStyles = (props: TextProps) => {
-    let style = ' '
-    if (props.className) {
-        style += props.className + ' '
+    if (props.className?.length !== 0) {
+        props.className += ' '
     }
+
     if (props.align) {
-        style += `text-${props.align} `
+        props.className += `text-${props.align} `
     }
     if (props.bold) {
-        style += 'font-bold' + ' '
+        props.className += 'font-bold' + ' '
     }
     if (props.fontBold) {
-        style += `font-${props.fontBold} `
+        props.className += `font-${props.fontBold} `
     }
     if (props.textColor) {
-        style += props.textColor + ' '
+        props.className += props.textColor + ' '
     }
     if (props.textMuted) {
-        style += 'text-muted '
+        props.className += 'text-gray-300 '
     }
     if (props.textMuted500) {
-        style += 'text-gray-500 '
+        props.className += 'text-gray-500 '
     }
     if (props.size) {
-        style += `text-${props.size} `
+        props.className += `text-${props.size} `
     }
+
     if (props.variant && !props.size) {
-        if (props.variant === 'h1') style += `text-4xl`
-        else if (props.variant === 'h2') style += `text-3xl`
-        else if (props.variant === 'h3') style += `text-2xl`
-        else if (props.variant === 'h4') style += `text-xl`
-        else if (props.variant === 'h5') style += `text-lg`
-        else if (props.variant === 'h6') style += `text-base`
+        props.className += `${getFontSize(props.variant)}`
     }
-    return style
+
+    return props.className
+}
+
+/**
+ * It removes the props that are not needed for the `<Text>` component
+ * @param {TextProps} props - TextProps - This is the props that are passed to the component.
+ */
+const rmvUnnecesaryProps = (props: TextProps) => {
+    delete props.align
+    delete props.bold
+    delete props.fontBold
+    delete props.textColor
+    delete props.textMuted
+    delete props.textMuted500
 }
 
 const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>((textProps: TextProps, ref) => {
     const { ...props } = textProps
-    props.className += `${getStyles(props)} `
-    const renderTextComponent = () => getComponent(props, ref)
+
+    props.className = getStyles(props)
+
+    const renderTextComponent = () => {
+        rmvUnnecesaryProps(props)
+        return getComponent(props, ref)
+    }
 
     return renderTextComponent()
 })
@@ -106,10 +148,10 @@ const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>((textProps: TextP
 Text.displayName = 'Text'
 Text.defaultProps = {
     children: 'This is a children',
-    className: undefined,
     variant: 'h1',
     align: 'center',
     bold: false,
+    className: '',
     fontBold: undefined,
     textColor: undefined,
     textMuted: false,
