@@ -1,9 +1,9 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Text as TextComponent } from '../components'
+import TextComponent from '../components/Typography/Text'
 
 export default {
-    title: 'Design System/Typography/Text'
+    title: 'Design System/Text'
 } as ComponentMeta<typeof TextComponent>
 
 const Template: ComponentStory<typeof TextComponent> = (args) => <TextComponent {...args} />

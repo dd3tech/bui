@@ -1,7 +1,7 @@
+import React, { DetailedHTMLProps, FC, forwardRef, HTMLAttributes, LegacyRef } from 'react'
 import { format } from 'dd360-utils'
-import React from 'react'
 
-export interface TextProps {
+export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
     children?: React.ReactNode
     className?: string
     variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'small' | 'label' | 'a' | 'currency' | 'anchorSmall'
@@ -15,131 +15,92 @@ export interface TextProps {
     target?: string
 }
 
-const Text = ({ children, className, align, variant, bold, fontBold, textColor, textMuted, textMuted500, ...props }: TextProps) => {
-    const chooseStyle = React.useCallback(() => {
-        let style = ' '
-
-        if (className) {
-            style += className + ' '
-        }
-
-        if (align) {
-            style += `text-${align} `
-        }
-
-        if (bold) {
-            style += 'font-bold' + ' '
-        }
-
-        if (fontBold) {
-            style += `font-${fontBold} `
-        }
-
-        if (textColor) {
-            style += textColor + ' '
-        }
-
-        if (textMuted) {
-            style += 'text-muted '
-        }
-
-        if (textMuted500) {
-            style += 'text-gray-500 '
-        }
-
-        return style
-    }, [className, align, bold, fontBold, textColor, textMuted, textMuted500])
-
-    switch (variant) {
+const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
+    switch (props.variant) {
         case 'h1':
-            return (
-                <h1 className={`${chooseStyle()} text-4xl`} {...props}>
-                    {children}
-                </h1>
-            )
+            return <h1 {...props} ref={ref} />
         case 'h2':
-            return (
-                <h2 className={`${chooseStyle()} text-3xl`} {...props}>
-                    {children}
-                </h2>
-            )
+            return <h2 {...props} ref={ref} />
         case 'h3':
-            return (
-                <h3 className={`${chooseStyle()} text-2xl`} {...props}>
-                    {children}
-                </h3>
-            )
+            return <h3 {...props} ref={ref} />
         case 'h4':
-            return (
-                <h4 className={`${chooseStyle()} text-xl`} {...props}>
-                    {children}
-                </h4>
-            )
+            return <h4 {...props} ref={ref} />
         case 'h5':
-            return (
-                <h5 className={`${chooseStyle()} text-lg`} {...props}>
-                    {children}
-                </h5>
-            )
+            return <h5 {...props} ref={ref} />
         case 'h6':
-            return (
-                <h6 className={`${chooseStyle()} text-base`} {...props}>
-                    {children}
-                </h6>
-            )
+            return <h6 {...props} ref={ref} />
         case 'p':
-            return (
-                <p className={chooseStyle()} {...props}>
-                    {children}
-                </p>
-            )
+            return <p {...props} ref={ref} />
         case 'span':
-            return (
-                <span className={chooseStyle()} {...props}>
-                    {children}
-                </span>
-            )
+            return <span {...props} ref={ref} />
         case 'small':
-            return (
-                <small className={chooseStyle()} {...props}>
-                    {children}
-                </small>
-            )
+            return <small {...props} ref={ref} />
 
         case 'label':
-            return (
-                <label className={chooseStyle()} {...props}>
-                    {children}
-                </label>
-            )
+            return <label {...props} ref={ref} />
 
         case 'a':
-            return (
-                <a className={chooseStyle()} {...props}>
-                    {children}
-                </a>
-            )
+            return <a {...props} ref={ref} />
         case 'currency':
             return (
-                <p className={chooseStyle()} {...props}>
-                    {format(children)}
+                <p {...props} ref={ref}>
+                    {format(props.children)}
                 </p>
             )
         case 'anchorSmall':
-            return (
-                <small className={chooseStyle()} {...props}>
-                    <a className={chooseStyle()} {...props}>
-                        {children}
-                    </a>
-                </small>
-            )
+            return <a className={`text-xs ${props.className}`} {...props} ref={ref} />
         default:
-            return (
-                <p className={chooseStyle()} {...props}>
-                    {children}
-                </p>
-            )
+            return <p {...props} ref={ref} />
     }
+}
+
+const getStyles = (props: TextProps) => {
+    let style = ' '
+    if (props.className) {
+        style += props.className + ' '
+    }
+    if (props.align) {
+        style += `text-${props.align} `
+    }
+    if (props.bold) {
+        style += 'font-bold' + ' '
+    }
+    if (props.fontBold) {
+        style += `font-${props.fontBold} `
+    }
+    if (props.textColor) {
+        style += props.textColor + ' '
+    }
+    if (props.textMuted) {
+        style += 'text-muted '
+    }
+    if (props.textMuted500) {
+        style += 'text-gray-500 '
+    }
+    return style
+}
+
+const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>((textProps: TextProps, ref) => {
+    const { ...props } = textProps
+    props.className += `${getStyles(props)} `
+    const renderTextComponent = () => getComponent(props, ref)
+
+    return renderTextComponent()
+})
+
+Text.displayName = 'Text'
+Text.defaultProps = {
+    children: 'This is a children',
+    className: undefined,
+    variant: 'h1',
+    align: 'center',
+    bold: false,
+    fontBold: undefined,
+    textColor: undefined,
+    textMuted: false,
+    textMuted500: false,
+    href: undefined,
+    target: '__blank'
 }
 
 export default Text
