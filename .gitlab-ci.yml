@@ -102,6 +102,7 @@ chromatic_publish:
             - branches
         changes:
             - src/components/**/*
+            - src/stories/**/*
     script:
         - npm run build-storybook
         - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-once-uploaded --exit-zero-on-changes

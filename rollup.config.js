@@ -1,46 +1,37 @@
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import typescript from 'rollup-plugin-typescript2'
+import ts from 'rollup-plugin-typescript2'
 import postcss from 'rollup-plugin-postcss'
-import dts from 'rollup-plugin-dts'
 import svg from 'rollup-plugin-svg'
-
+import visualizer from 'rollup-plugin-visualizer'
 import { terser } from 'rollup-plugin-terser'
+import babelPlugin from '@rollup/plugin-babel'
+import { createModule, getBabelOptions } from './scripts/rollup.cfg'
 
-const packageJson = require('./package.json')
+const extensions = ['.js', '.ts', '.tsx']
 
-export default [
-    {
-        input: './src/index.ts',
-        output: [
-            {
-                file: packageJson.main,
-                format: 'cjs',
-                sourcemap: true
-            },
-            {
-                file: packageJson.module,
-                format: 'esm',
-                sourcemap: true
-            }
-        ],
-        plugins: [
-            peerDepsExternal(),
-            resolve(),
-            commonjs(),
-            typescript({ useTsconfigDeclarationDir: true, tsconfig: './tsconfig.json' }),
-            postcss({
-                extensions: ['.css']
-            }),
-            svg(),
-            terser()
-        ]
-    },
-    {
-        input: './dist/dts/index.d.ts',
-        output: [{ file: 'lib/dd3.d.ts', format: 'es' }],
-        external: [/\.css$/], // ignore .scss file
-        plugins: [dts()]
-    }
+const plugs = [
+    peerDepsExternal(),
+    resolve({ extensions }),
+    commonjs(),
+    ts({
+        tsconfig: './scripts/tsconfig.build.json',
+        declaration: true,
+        declarationDir: 'dist'
+    }),
+    postcss({
+        extensions: ['.css']
+    }),
+    svg(),
+    terser(),
+    visualizer({
+        filename: 'bundle-analysis.html'
+    })
 ]
+
+const esmModule = createModule({ plugins: plugs, format: 'esm' })
+
+const cjsModule = createModule({ plugins: [...plugs, babelPlugin(getBabelOptions({ ie: 11 }))], format: 'cjs' })
+
+export default [esmModule, cjsModule]

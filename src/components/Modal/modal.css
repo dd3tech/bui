@@ -1,0 +1,13 @@
+.animation-modal {
+    animation: popup 0.5s;
+    transition: height 0.08s ease-out;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}

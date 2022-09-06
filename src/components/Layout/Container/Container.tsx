@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode
@@ -7,7 +7,9 @@ export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
     rounded?: 'lg' | 'sm'
 }
 
-export const Container = ({ children, className, shadow, rounded, ...props }: ContainerProps) => {
+const Container = forwardRef<HTMLDivElement, ContainerProps>((containerProps: ContainerProps, ref) => {
+    const { children, className, shadow, rounded, ...props } = containerProps
+
     const chooseRounded = React.useCallback(() => {
         if (!rounded) return ''
         return `rounded-${rounded}`
@@ -19,8 +21,12 @@ export const Container = ({ children, className, shadow, rounded, ...props }: Co
     }, [shadow])
 
     return (
-        <div className={`container mx-auto ${className ?? ''} ${chooseShadow()} ${chooseRounded()}`} {...props}>
+        <div ref={ref} className={`container mx-auto ${className ?? ''} ${chooseShadow()} ${chooseRounded()}`} {...props}>
             {children}
         </div>
     )
-}
+})
+
+Container.displayName = 'Container'
+
+export default Container

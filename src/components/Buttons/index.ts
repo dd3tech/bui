@@ -1,3 +1,6 @@
+import Button from './Button'
+export default Button
 export * from './Button'
-export * from './ActiveButton'
-export * from './CircleButtons'
+
+export { default as ActiveButton } from './ActiveButton'
+export { default as CircleButton } from './CircleButtons'

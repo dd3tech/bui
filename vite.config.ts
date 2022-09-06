@@ -12,11 +12,14 @@ export default defineConfig({
         },
         globals: true,
         environment: 'jsdom',
-        setupFiles: './tests/test-setup.ts'
+        setupFiles: './tests/setupTests.ts'
     },
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
+            components: path.resolve(__dirname, './src', 'components'),
+            hooks: path.resolve(__dirname, './src', 'hooks'),
+            interfaces: path.resolve(__dirname, './src', 'interfaces'),
             tests: path.resolve(__dirname, './tests')
         }
     }

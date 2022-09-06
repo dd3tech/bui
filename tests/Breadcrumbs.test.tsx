@@ -2,18 +2,19 @@ import React from 'react'
 import { Breadcrumbs } from '../src/components'
 import { it, describe, vi } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
+import { HomeIcon, ChartBarIcon } from '@heroicons/react/outline'
 
 const fnMocked = vi.fn()
 
 const breadCrumbsOptions: Array<{ name: string; icon: any; to(): void }> = [
     {
         name: 'Home',
-        icon: 'HomeIcon',
+        icon: () => <HomeIcon data-icon="HomeIcon" width={15} />,
         to: fnMocked
     },
     {
         name: 'Projects',
-        icon: 'HomeIcon',
+        icon: () => <HomeIcon data-icon="HomeIcon" width={15} />,
         to: fnMocked
     }
 ]
@@ -43,7 +44,7 @@ describe('Breadcumbs component works properly', () => {
                     ...breadCrumbsOptions,
                     {
                         name: 'Sales',
-                        icon: 'ChartBarIcon',
+                        icon: () => <ChartBarIcon data-icon="ChartBarIcon" />,
                         to: fnMocked
                     }
                 ]}
@@ -58,9 +59,6 @@ describe('Breadcumbs component works properly', () => {
     })
 
     it('verifying that it is rendered with icons', () => {
-        breadCrumbsOptions.map((item) => {
-            expect(renderResult.container.querySelector(`[data-icon=${item.icon}]`)).toBeDefined()
-        })
         expect(renderResult.container.querySelectorAll('[data-icon]')).toHaveLength(3)
     })
 

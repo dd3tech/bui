@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
-import { DynamicHeroIcon } from '../src/components'
+import DynamicHeroIcon from '../src/common/DynamicHeroIcon'
 
 describe('Component DynamicHeroicon', () => {
     let renderResult: RenderResult

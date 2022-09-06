@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode
@@ -9,7 +9,9 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
     gap?: 1 | 2 | 3 | 4 | 5
 }
 
-export const Row = ({ children, className, cols, md, gap, sm, ...props }: RowProps) => {
+const Row = forwardRef<HTMLDivElement, RowProps>((rowProps: RowProps, ref) => {
+    const { children, className, cols, md, gap, sm, ...props } = rowProps
+
     const finalClassName = React.useCallback(() => {
         const defCols = `${cols ? `grid-cols-${cols}` : ''} `
         const smCols = `${sm ? `sm:grid-cols-${sm}` : ''}`
@@ -18,8 +20,10 @@ export const Row = ({ children, className, cols, md, gap, sm, ...props }: RowPro
     }, [className, cols, md, gap, sm])
 
     return (
-        <div className={finalClassName()} {...props}>
+        <div className={finalClassName()} ref={ref} {...props}>
             {children}
         </div>
     )
-}
+})
+
+export default Row
