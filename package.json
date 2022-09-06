@@ -15,10 +15,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://gitlab.com/dd3tech/dd360/dd3-components-ui"
+        "url": "https://gitlab.com/dd3tech/dd360/dd360-components"
     },
     "bugs": {
-        "url": "https://gitlab.com/dd3tech/dd360/dd3-components-ui/-/issues"
+        "url": "https://gitlab.com/dd3tech/dd360/dd360-components/-/issues"
     },
     "scripts": {
         "serve": "vite preview",
