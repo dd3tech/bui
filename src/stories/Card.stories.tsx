@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Card as CardComponent } from '../components/Card'
+import CardComponent from '../components/Card'
 import { Button } from '../components'
 import Text from '../components/Typography'
 
