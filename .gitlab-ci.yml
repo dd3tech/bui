@@ -14,7 +14,6 @@ install:
     stage: install
     only:
         - merge_requests
-        - develop
         - main
     before_script:
         - echo -e 'Warming up the cache'
@@ -41,7 +40,6 @@ build:
             - node_modules
     only:
         - merge_requests
-        - develop
         - main
     script:
         - npm run build-lib
@@ -76,7 +74,6 @@ test:
                 path: coverage/cobertura-coverage.xml
     only:
         - merge_requests
-        - develop
         - main
     dependencies:
         - install
@@ -99,10 +96,11 @@ chromatic_publish:
             - node_modules
     only:
         refs:
-            - branches
+            - main
         changes:
             - src/components/**/*
             - src/stories/**/*
+            - .storybook/**/*
     script:
         - npm run build-storybook
         - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-once-uploaded --exit-zero-on-changes
