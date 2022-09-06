@@ -4,7 +4,7 @@ import GeneralTableComponent from '../components/Table/GeneralTable'
 import { IDataTable, IHeaderType } from '../interfaces/GeneralTable'
 
 export default {
-    title: 'Design System/Table'
+    title: 'Components/Table'
 } as ComponentMeta<typeof GeneralTableComponent>
 
 const Template: ComponentStory<typeof GeneralTableComponent> = (args) => <GeneralTableComponent {...args} />

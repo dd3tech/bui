@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import ContainerComponent from '../components/Layout/Container'
 
 export default {
-    title: 'Design System/Layout/Container'
+    title: 'Layout/Container'
 } as ComponentMeta<typeof ContainerComponent>
 
 const Template: ComponentStory<typeof ContainerComponent> = (args) => <ContainerComponent {...args} />

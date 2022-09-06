@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ActiveButton as ActiveButtonComponent } from '../components'
 
 export default {
-    title: 'Design System/Button',
+    title: 'Buttons/ActiveButton',
     component: ActiveButtonComponent
 } as ComponentMeta<typeof ActiveButtonComponent>
 

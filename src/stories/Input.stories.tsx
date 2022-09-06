@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Input as InputComponent } from '../components/Form/Input'
 
 export default {
-    title: 'Design System/Form/Input'
+    title: 'Form/Input'
 } as ComponentMeta<typeof InputComponent>
 
 const Template: ComponentStory<typeof InputComponent> = (args) => <InputComponent {...args} />

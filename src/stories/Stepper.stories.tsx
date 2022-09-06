@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Stepper as StepperComponent } from '../components'
 
 export default {
-    title: 'Design System/Stepper',
+    title: 'Controls/Stepper',
     component: StepperComponent
 } as ComponentMeta<typeof StepperComponent>
 

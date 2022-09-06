@@ -1,13 +1,13 @@
 import React from 'react'
 import { ComponentMeta } from '@storybook/react'
-import { InputCurrency } from './InputCurrency'
+import InputCurrency from '../components/Form/InputCurrency'
 import { format } from 'dd360-utils'
 
 export default {
-    title: 'Design System/Form/ICurrency'
+    title: 'Form/InputCurrency'
 } as ComponentMeta<typeof InputCurrency>
 
-export const ICurrency = () => {
+export const Default = () => {
     const [values, setValues] = React.useState({
         currency: format('32500'),
         withoutSymbol: format('4200000.32').replace(/[$]/g, ''),

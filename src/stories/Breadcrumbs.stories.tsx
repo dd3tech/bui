@@ -4,7 +4,7 @@ import BreadcrumbsComponent, { BreadcrumbsProps } from '../components/Breadcrumb
 import DynamicHeroIcon from '../common/DynamicHeroIcon'
 
 export default {
-    title: 'Design System/Breadcrumbs',
+    title: 'Navigation/Breadcrumbs',
     component: BreadcrumbsComponent
 } as ComponentMeta<typeof BreadcrumbsComponent>
 

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import ModalCustomComponent from '../components/Modal'
 
 export default {
-    title: 'Design System/Modal',
+    title: 'Modals/Modal',
     component: ModalCustomComponent
 } as ComponentMeta<typeof ModalCustomComponent>
 

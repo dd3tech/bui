@@ -5,7 +5,7 @@ import { Button } from '../components'
 import Text from '../components/Typography'
 
 export default {
-    title: 'Design System/Card'
+    title: 'Layout/Card'
 } as ComponentMeta<typeof CardComponent>
 
 const Template: ComponentStory<typeof CardComponent> = (args) => <CardComponent {...args} />

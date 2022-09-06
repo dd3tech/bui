@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import FlexComponent from '../components/Layout/Flex/Flex'
 
 export default {
-    title: 'Design System/Layout/Flex'
+    title: 'Layout/Flex'
 } as ComponentMeta<typeof FlexComponent>
 
 const Template: ComponentStory<typeof FlexComponent> = (args) => <FlexComponent {...args} />

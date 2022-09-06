@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { FeedBackBox } from '../components/FeedBackBox'
 
 export default {
-    title: 'Design System/FeedBackBox'
+    title: 'Components/FeedBackBox'
 } as ComponentMeta<typeof FeedBackBox>
 
 const Template: ComponentStory<typeof FeedBackBox> = (args) => <FeedBackBox {...args} />

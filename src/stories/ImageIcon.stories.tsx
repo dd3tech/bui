@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ImageIcon as ImageIconComponent } from '../components/ImageIcon'
 
 export default {
-    title: 'Design System/imageIcon'
+    title: 'Images/imageIcon'
 } as ComponentMeta<typeof ImageIconComponent>
 
 const Template: ComponentStory<typeof ImageIconComponent> = (args) => <ImageIconComponent {...args} />

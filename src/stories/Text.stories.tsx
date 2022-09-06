@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import TextComponent from '../components/Typography/Text'
 
 export default {
-    title: 'Design System/Text'
+    title: 'Typography/Text'
 } as ComponentMeta<typeof TextComponent>
 
 const Template: ComponentStory<typeof TextComponent> = (args) => <TextComponent {...args} />

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import OverFlowComponent from '../components/Layout/Overflow/Overflow'
 
 export default {
-    title: 'Design System/Layout/OverFlow'
+    title: 'Layout/OverFlow'
 } as ComponentMeta<typeof OverFlowComponent>
 
 const Template: ComponentStory<typeof OverFlowComponent> = (args) => <OverFlowComponent {...args} />

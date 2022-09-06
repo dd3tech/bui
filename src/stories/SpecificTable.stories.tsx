@@ -6,7 +6,7 @@ import exampleJSON from '../../assets/table-value.json'
 import SpecificTableComponent from '../components/Table/SpecificTable'
 
 export default {
-    title: 'Design System/Table'
+    title: 'Components/Table'
 } as ComponentMeta<typeof SpecificTableComponent>
 
 const Template: ComponentStory<typeof SpecificTableComponent> = (args) => <SpecificTableComponent {...args} />

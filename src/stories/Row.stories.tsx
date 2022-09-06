@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import RowComponent from '../components/Layout/Grid/Row'
 
 export default {
-    title: 'Design System/Layout/Row'
+    title: 'Layout/Row'
 } as ComponentMeta<typeof RowComponent>
 
 const Template: ComponentStory<typeof RowComponent> = (args) => <RowComponent {...args} />

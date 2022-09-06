@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Portal as PortalComponent } from '../common/Portal'
 
 export default {
-    title: 'Design System/Portal'
+    title: 'Components/Portal'
 } as ComponentMeta<typeof PortalComponent>
 
 const Template: ComponentStory<typeof PortalComponent> = (args) => <PortalComponent {...args} />

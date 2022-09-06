@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Language as LanguageComponent } from '../components/Navbar'
 
 export default {
-    title: 'Design System/Language',
+    title: 'Components/Language',
     component: LanguageComponent
 } as ComponentMeta<typeof LanguageComponent>
 

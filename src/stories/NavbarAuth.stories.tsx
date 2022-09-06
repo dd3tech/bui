@@ -7,7 +7,7 @@ import { Text, Anchor } from '../components'
 import { Collapse } from '../components/Navbar/Collapse'
 
 export default {
-    title: 'Design System/NavbarAuth',
+    title: 'Layout/NavbarAuth',
     component: NavbarApp
 } as ComponentMeta<typeof NavbarApp>
 

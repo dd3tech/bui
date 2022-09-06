@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Image as ImageComponent } from '../components/Images'
 
 export default {
-    title: 'Design System/Image'
+    title: 'Images/Image'
 } as ComponentMeta<typeof ImageComponent>
 
 const Template: ComponentStory<typeof ImageComponent> = (args) => <ImageComponent {...args} />

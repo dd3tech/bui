@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import SideBarComponent from '../components/SideBar/SideBar'
 
 export default {
-    title: 'Design System/SideBar',
+    title: 'Layout/SideBar',
     component: SideBarComponent
 } as ComponentMeta<typeof SideBarComponent>
 

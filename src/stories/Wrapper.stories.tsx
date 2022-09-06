@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Wrapper as WrapperComponent } from '../components/Wrapper'
 
 export default {
-    title: 'Design System/Wrapper'
+    title: 'Layout/Wrapper'
 } as ComponentMeta<typeof WrapperComponent>
 
 const Template: ComponentStory<typeof WrapperComponent> = (args) => <WrapperComponent {...args} />

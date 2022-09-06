@@ -6,7 +6,7 @@ import { Collapse } from '../components/Navbar'
 import { Text, Anchor } from '../components'
 
 export default {
-    title: 'Design System/Collapse',
+    title: 'Layout/Collapse',
     component: Collapse
 } as ComponentMeta<typeof Collapse>
 
@@ -18,7 +18,9 @@ collapseTopBottom.args = {
         <>
             <div className="border-b-2 p-2">
                 <div className="flex items-center pt-2 pl-2">
-                    <Text className="text-gray-600 text-xs font-semibold">{'workspace'.toUpperCase()}</Text>
+                    <Text size="xs" className="text-gray-600 font-semibold">
+                        {'workspace'.toUpperCase()}
+                    </Text>
                 </div>
                 <Anchor to="/project-list" className="mt-4 opacity-none rounded-lg flex gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-100">
                     <ClipboardCheckIcon className="text-gray-400" height={20} width={20} /> Mis proyectos
@@ -29,7 +31,9 @@ collapseTopBottom.args = {
                 </Anchor>
             </div>
             <div className="border-b-2 p-2">
-                <Text className="text-gray-600 text-xs pt-2 pl-2 font-semibold">{'cuenta'.toUpperCase()}</Text>
+                <Text size="xs" className="text-gray-600 pt-2 pl-2 font-semibold">
+                    {'cuenta'.toUpperCase()}
+                </Text>
                 <Anchor to="/developer/profile" className="flex opacity-none rounded-lg mt-4 gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-100">
                     <UserCircleIcon height={20} width={20} className="text-gray-400" />
                     Mi perfil
@@ -48,7 +52,7 @@ collapseTop.args = {
     children: (
         <>
             <div className="flex items-center pt-2 pl-2">
-                <Text className="text-gray-600 text-xs font-semibold">{'workspace'.toUpperCase()}</Text>
+                <Text className="text-gray-600 font-semibold">{'workspace'.toUpperCase()}</Text>
             </div>
             <Anchor to="/project-list" className="mt-4 opacity-none rounded-lg flex gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-100">
                 <ClipboardCheckIcon className="text-gray-400" height={20} width={20} /> Mis proyectos

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { DynamicHeroIcon as DynamicHeroIconComponent } from '../common/DynamicHeroIcon'
 
 export default {
-    title: 'Design System/DynamicHeroIcon',
+    title: 'Components/DynamicHeroIcon',
     component: DynamicHeroIconComponent
 } as ComponentMeta<typeof DynamicHeroIconComponent>
 

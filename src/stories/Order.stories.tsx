@@ -1,15 +1,23 @@
 import React from 'react'
-import { ComponentMeta } from '@storybook/react'
-import Order from '../components/Layout/Order/Order'
+import { ComponentMeta, Story } from '@storybook/react'
+import Order, { OrderProps } from '../components/Layout/Order/Order'
 
 export default {
-    title: 'Design System/Layout/Order'
+    title: 'Layout/Order'
 } as ComponentMeta<typeof Order>
 
-export const OrderComponent = () => (
-    <div className="flex justify-between bg-gray-200">
-        <Order order="last">1</Order>
-        <Order order="1">2</Order>
-        <Order order="2"> 3</Order>
-    </div>
-)
+const Template: Story<OrderProps> = (args: OrderProps) => {
+    return (
+        <div className="flex justify-between bg-gray-200">
+            <Order {...args} />
+            <Order order="1">Order 1</Order>
+            <Order order="2">Order 2</Order>
+        </div>
+    )
+}
+
+export const Default = Template.bind({})
+Default.args = {
+    order: 'last',
+    children: 'My custom order component'
+}
