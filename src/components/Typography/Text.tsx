@@ -70,14 +70,16 @@ const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
  * @returns A string
  */
 const getFontSize = (variant: TextProps['variant']) => {
-    if (variant === 'h1') return `text-4xl`
-    if (variant === 'h2') return `text-3xl`
-    if (variant === 'h3') return `text-2xl`
-    if (variant === 'h4') return `text-xl`
-    if (variant === 'h5') return `text-lg`
-    if (variant === 'h6') return `text-base`
+    if (variant === 'h1') return 'text-4xl'
+    if (variant === 'h2') return 'text-3xl'
+    if (variant === 'h3') return 'text-2xl'
+    if (variant === 'h4') return 'text-xl'
+    if (variant === 'h5') return 'text-lg'
+    if (variant === 'h6') return 'text-base'
+    if (variant === 'p' || variant === 'span') return 'text-sm'
+    if (variant === 'small' || variant === 'a') return 'text-xs'
 
-    return 'text-base'
+    return 'text-sm'
 }
 
 /**
@@ -148,16 +150,17 @@ const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>((textProps: TextP
 Text.displayName = 'Text'
 Text.defaultProps = {
     children: 'This is a children',
-    variant: 'h1',
-    align: 'center',
+    variant: 'span',
+    size: undefined,
+    align: undefined,
     bold: false,
-    className: '',
+    className: undefined,
     fontBold: undefined,
     textColor: undefined,
     textMuted: false,
     textMuted500: false,
     href: undefined,
-    target: '__blank'
+    target: undefined
 }
 
 export default Text
