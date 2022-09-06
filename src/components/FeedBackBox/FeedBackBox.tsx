@@ -34,12 +34,18 @@ function FeedBackBox({ type, title, description, defaultIsClose = false, onClose
         <div className={`w-max border border-${color}-500 p-4 rounded-lg`} {...props}>
             <div className="flex mb-2">
                 {type === 'error' ? <ExclamationIcon className="w-4 h-4 text-red-500 mr-2" /> : <CheckCircleIcon className="w-4 h-4 text-green-500 mr-2" />}
-                <Text className={`text-xs text-${color}-500 font-bold`}>{title}.</Text>
-                <Text className="ml-1 text-xs text-gray-600 font-semibold">{description}.</Text>
+                <Text variant="span" size="xs" className={`text-${color}-500 font-bold`}>
+                    {title}.
+                </Text>
+                <Text variant="span" size="xs" className="ml-1 text-gray-600 font-semibold">
+                    {description}.
+                </Text>
             </div>
             <div>
                 <Button onClick={closeBox} variant="link" className="font-semibold flex items-center text-xs" padding={0}>
-                    <Text className="mr-1">{txtCloseBtn}</Text>
+                    <Text variant="small" size="xs" className="mr-1">
+                        {txtCloseBtn}
+                    </Text>
                     <XIcon className="w-3 h-3 -mb-0.5" />
                 </Button>
             </div>
