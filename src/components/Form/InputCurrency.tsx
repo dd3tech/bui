@@ -14,7 +14,7 @@ export interface InputCurrencyProps extends React.HTMLProps<HTMLInputElement> {
     rounded?: 'sm' | 'md' | 'full'
 }
 
-const InputCurrency: FC<InputCurrencyProps> = forwardRef<HTMLInputElement, InputCurrencyProps>((iCurrencyProps: InputCurrencyProps) => {
+const InputCurrency: FC<InputCurrencyProps> = forwardRef<HTMLInputElement, InputCurrencyProps>((iCurrencyProps: InputCurrencyProps, ref) => {
     const { success, error, onChangeCurrency, value, useSymbol, rounded, variant = 'active', helperText, className, ...otherProps } = iCurrencyProps
     const formatProps = { removeCents: false, removeCommas: false, removeSymbol: !useSymbol }
     const { input: inputClassName, message: messageClassName } = getInputClassName({
@@ -50,6 +50,7 @@ const InputCurrency: FC<InputCurrencyProps> = forwardRef<HTMLInputElement, Input
     return (
         <>
             <input
+                ref={ref}
                 style={{ outline: 'none' }}
                 className={`${className ?? ''} ${inputClassName}`}
                 onChange={inputOnChange}
