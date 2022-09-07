@@ -1,12 +1,25 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import TextComponent from '../components/Typography/Text'
+import { Story, Meta } from '@storybook/react'
+import TextComponent, { TextProps } from '../components/Typography/Text'
 
 export default {
-    title: 'Typography/Text'
-} as ComponentMeta<typeof TextComponent>
+    title: 'Typography/Text',
+    component: TextComponent
+} as Meta<TextProps>
 
-const Template: ComponentStory<typeof TextComponent> = (args) => <TextComponent {...args} />
+const Template: Story<TextProps> = (args: TextProps) => <TextComponent {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+    variant: 'p',
+    children: 'Default',
+    className: 'text-blue-700',
+    align: 'center',
+    bold: true,
+    textMuted: false,
+    textMuted500: false,
+    size: 'base'
+} as TextProps
 
 export const h1 = Template.bind({})
 h1.args = {
@@ -17,7 +30,7 @@ h1.args = {
     bold: true,
     textMuted: false,
     textMuted500: false
-}
+} as TextProps
 
 export const h2 = Template.bind({})
 h2.args = {
@@ -27,7 +40,8 @@ h2.args = {
     bold: false,
     textMuted: false,
     textMuted500: false
-}
+} as TextProps
+
 export const h3 = Template.bind({})
 h3.args = {
     variant: 'h3',
@@ -36,7 +50,8 @@ h3.args = {
     bold: false,
     textMuted: false,
     textMuted500: false
-}
+} as TextProps
+
 export const h4 = Template.bind({})
 h4.args = {
     variant: 'h4',
@@ -45,7 +60,8 @@ h4.args = {
     bold: false,
     textMuted: false,
     textMuted500: false
-}
+} as TextProps
+
 export const h5 = Template.bind({})
 h5.args = {
     variant: 'h5',
@@ -54,7 +70,7 @@ h5.args = {
     bold: false,
     textMuted: false,
     textMuted500: false
-}
+} as TextProps
 
 export const h6 = Template.bind({})
 h6.args = {
@@ -63,7 +79,8 @@ h6.args = {
     bold: false,
     textMuted: false,
     textMuted500: false
-}
+} as TextProps
+
 export const p = Template.bind({})
 p.args = {
     variant: 'p',
@@ -71,7 +88,7 @@ p.args = {
     bold: false,
     textMuted: false,
     textMuted500: false
-}
+} as TextProps
 
 export const span = Template.bind({})
 span.args = {
@@ -80,7 +97,7 @@ span.args = {
     bold: false,
     textMuted: false,
     textMuted500: false
-}
+} as TextProps
 
 export const currency = Template.bind({})
 currency.args = {
@@ -89,4 +106,4 @@ currency.args = {
     bold: false,
     textMuted: false,
     textMuted500: false
-}
+} as TextProps

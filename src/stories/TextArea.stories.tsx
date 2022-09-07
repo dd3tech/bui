@@ -3,7 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { TextArea as TextAreaComponent } from '../components/Form'
 
 export default {
-    title: 'Form/TextArea'
+    title: 'Form/TextArea',
+    component: TextAreaComponent
 } as ComponentMeta<typeof TextAreaComponent>
 
 const Template: ComponentStory<typeof TextAreaComponent> = (args) => <TextAreaComponent {...args} />

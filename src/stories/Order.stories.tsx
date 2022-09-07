@@ -3,7 +3,8 @@ import { ComponentMeta, Story } from '@storybook/react'
 import Order, { OrderProps } from '../components/Layout/Order/Order'
 
 export default {
-    title: 'Layout/Order'
+    title: 'Layout/Order',
+    component: Order
 } as ComponentMeta<typeof Order>
 
 const Template: Story<OrderProps> = (args: OrderProps) => {

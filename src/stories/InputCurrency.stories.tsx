@@ -4,7 +4,8 @@ import InputCurrency, { InputCurrencyProps } from '../components/Form/InputCurre
 import { format } from 'dd360-utils'
 
 export default {
-    title: 'Form/InputCurrency'
+    title: 'Form/InputCurrency',
+    component: InputCurrency
 } as ComponentMeta<typeof InputCurrency>
 
 const Template: Story<InputCurrencyProps> = (args: InputCurrencyProps) => {

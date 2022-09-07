@@ -3,7 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { DownloadCard as DownloadCardComponent, IDownloadCardProps } from '../components/Card'
 
 export default {
-    title: 'Layout/Card'
+    title: 'Layout/Card',
+    component: DownloadCardComponent
 } as ComponentMeta<typeof DownloadCardComponent>
 
 const Template: ComponentStory<typeof DownloadCardComponent> = (args) => <DownloadCardComponent {...args} />

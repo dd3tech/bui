@@ -3,7 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import KbdComponent from '../components/Kbd/Kbd'
 
 export default {
-    title: 'Typography/Kbd'
+    title: 'Typography/Kbd',
+    component: KbdComponent
 } as ComponentMeta<typeof KbdComponent>
 
 const Template: ComponentStory<typeof KbdComponent> = (args) => <KbdComponent {...args} />

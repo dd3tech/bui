@@ -1,6 +1,8 @@
 import React, { DetailedHTMLProps, FC, forwardRef, HTMLAttributes, LegacyRef } from 'react'
 import { format } from 'dd360-utils'
 
+export type TextSizeType = '9xl' | '8xl' | '7xl' | '6xl' | '5xl' | '4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'base' | 'sm' | 'xs'
+
 export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
     children?: React.ReactNode
     className?: string
@@ -9,7 +11,7 @@ export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
     bold?: boolean
     fontBold?: 'bold' | 'medium'
     textColor?: string
-    size?: '9xl' | '8xl' | '7xl' | '6xl' | '5xl' | '4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'base' | 'sm' | 'xs'
+    size?: TextSizeType
     textMuted?: boolean
     textMuted500?: boolean
     href?: string
