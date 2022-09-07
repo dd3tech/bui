@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Breadcrumbs } from '../src/components'
 import { it, describe, vi } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
@@ -6,7 +6,7 @@ import { HomeIcon, ChartBarIcon } from '@heroicons/react/outline'
 
 const fnMocked = vi.fn()
 
-const breadCrumbsOptions: Array<{ name: string; icon: any; to(): void }> = [
+const breadCrumbsOptions: Array<{ name: string; icon?: () => ReactNode; to(): void }> = [
     {
         name: 'Home',
         icon: () => <HomeIcon data-icon="HomeIcon" width={15} />,
@@ -64,7 +64,7 @@ describe('Breadcumbs component works properly', () => {
 
     it('verifying that it is rendered without icons', () => {
         expect(renderResult.container.querySelectorAll('[data-icon]')).toHaveLength(3)
-        breadCrumbsOptions[1] = { ...breadCrumbsOptions[1], icon: '' }
+        breadCrumbsOptions[1] = { ...breadCrumbsOptions[1], icon: undefined }
         renderResult.rerender(<Breadcrumbs options={breadCrumbsOptions} />)
         expect(renderResult.container.querySelectorAll('[data-icon]')).toHaveLength(2)
     })
