@@ -8,21 +8,20 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
     className?: string
     label?: string
     animated?: boolean
+    height?: string
 }
 
 const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
-    ({ value, max, backgroundColor, className, label, animated, ...props }: ProgressBarProps, ref) => {
+    ({ value, max, backgroundColor, height, className, label, animated, ...props }: ProgressBarProps, ref) => {
         return (
-            <div className="storybook-progress">
+            <div className="storybook-progress h-auto" style={{ height }} {...props} ref={ref}>
                 <div
-                    ref={ref}
                     role="progressbar"
                     aria-valuenow={value}
                     aria-valuemin={0}
                     aria-valuemax={max}
                     className={`storybook-progress-bar ${className ?? ''} ${animated ? 'storybook-progress-bar-animated storybook-progress-bar-animated' : ''}`}
                     style={{ backgroundColor, width: `${value}%` }}
-                    {...props}
                 >
                     {value && value > 5 && label && label}
                 </div>
@@ -35,9 +34,10 @@ ProgressBar.displayName = 'ProgressBar'
 ProgressBar.defaultProps = {
     value: 50,
     max: 100,
-    backgroundColor: 'red',
+    backgroundColor: '#1d4ed8',
     className: undefined,
     label: undefined,
+    height: '1rem',
     animated: false
 }
 
