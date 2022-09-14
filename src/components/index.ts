@@ -28,6 +28,7 @@ export * from './ProgressBar'
 export { default as Card } from './Card'
 export * from './Card'
 
+export * from './Switch'
 export * from './SideBar'
 export * from './Navigation'
 export * from './FeedBackBox'
