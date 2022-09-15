@@ -26,7 +26,7 @@ describe('Component UI: TextArea', () => {
     })
 
     it('TextArea if we pass it the value', async () => {
-        render(<TextArea role="textarea" value={'Hello'} />)
+        render(<TextArea role="textarea" value={'Hello'} readOnly />)
         const textArea = screen.getByText('Hello')
         expect(textArea).toBeDefined()
     })
