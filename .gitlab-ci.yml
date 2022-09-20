@@ -1,7 +1,7 @@
 image: node:16.15.1
 
 stages:
-    - install
+    # - install
     - build
     - test
     - chromatic
@@ -10,37 +10,39 @@ stages:
 #     install                                                         #
 ###############################################################################
 
-install:
-    stage: install
-    only:
-        - merge_requests
-        - main
-    before_script:
-        - echo -e 'Warming up the cache'
-    script:
-        - npm i
-    cache:
-        key: $CI_PROJECT_ID
-        policy: pull-push
-        paths:
-            - node_modules
+# install:
+#     stage: install
+#     only:
+#         - merge_requests
+#         - main
+#     before_script:
+#         - echo -e 'Warming up the cache'
+#     script:
+#         - npm i
+#     cache:
+#         key: $CI_PROJECT_ID
+#         policy: pull-push
+#         paths:
+#             - node_modules
 
-    ###############################################################################
+###############################################################################
 #     build                                                         #
 ###############################################################################
 
 build:
     stage: build
-    needs:
-        - install
-    cache:
-        key: $CI_PROJECT_ID
-        policy: pull
-        paths:
-            - node_modules
+    # needs:
+    #     - install
+    # cache:
+    #     key: $CI_PROJECT_ID
+    #     policy: pull
+    #     paths:
+    #         - node_modules
     only:
         - merge_requests
         - main
+    before_script:
+        - npm i
     script:
         - npm run build-lib
     dependencies:
@@ -53,13 +55,15 @@ build:
 test:
     stage: test
     needs:
-        - install
+        # - install
         - build
-    cache:
-        key: $CI_PROJECT_ID
-        policy: pull
-        paths:
-            - node_modules
+    # cache:
+    #     key: $CI_PROJECT_ID
+    #     policy: pull
+    #     paths:
+    #         - node_modules
+    before_script:
+        - npm i
     script:
         - npm run coverage
     coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
@@ -76,7 +80,7 @@ test:
         - merge_requests
         - main
     dependencies:
-        - install
+        # - install
         - build
 
         ###############################################################################
@@ -86,14 +90,14 @@ test:
 chromatic_publish:
     stage: chromatic
     needs:
-        - install
+        # - install
         - build
         - test
-    cache:
-        key: $CI_PROJECT_ID
-        policy: pull
-        paths:
-            - node_modules
+    # cache:
+    #     key: $CI_PROJECT_ID
+    #     policy: pull
+    #     paths:
+    #         - node_modules
     only:
         refs:
             - main
@@ -101,10 +105,12 @@ chromatic_publish:
             - src/components/**/*
             - src/stories/**/*
             - .storybook/**/*
+    before_script:
+        - npm i
     script:
         - npm run build-storybook
         - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-once-uploaded --exit-zero-on-changes
     dependencies:
-        - install
+        # - install
         - build
         - test
