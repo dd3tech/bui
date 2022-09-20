@@ -45,8 +45,8 @@ build:
         - npm i
     script:
         - npm run build-lib
-    dependencies:
-        - install
+    # dependencies:
+    #     - install
 
 ###############################################################################
 #     test                                                         #
