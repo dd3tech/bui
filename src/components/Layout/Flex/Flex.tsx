@@ -1,8 +1,13 @@
 import React, { forwardRef } from 'react'
 
-const Flex = forwardRef<HTMLDivElement>(({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>, ref) => {
+interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
+    className?: string
+    children?: React.ReactNode
+}
+
+const Flex = forwardRef<HTMLDivElement, FlexProps>(({ className, children, ...props }: FlexProps, ref) => {
     return (
-        <div ref={ref} className={`flex ${className ?? ''}`} {...props}>
+        <div ref={ref} role="flex" className={`flex ${className ?? ''}`} {...props}>
             {children}
         </div>
     )
