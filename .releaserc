@@ -4,14 +4,20 @@
     ],
     "plugins": [
         "@semantic-release/commit-analyzer",
-        "@semantic-release/npm",
-        "@semantic-release/changelog",
+        [
+            "@semantic-release/changelog",
+            {
+                "changelogFile": "CHANGELOG.md"
+            }
+        ],
         "@semantic-release/release-notes-generator",
         [
             "@semantic-release/gitlab",
             {
                 "gitlabUrl": "https://gitlab.com/dd3tech/dd360/dd360-components"
             }
-        ]
+        ],
+        "@semantic-release/npm",
+        "@semantic-release/git"
     ]
 }
