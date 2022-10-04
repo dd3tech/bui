@@ -129,7 +129,7 @@ semantic-release:
         - main
     before_script:
         - npm i
-    env:
+    variables:
         GITLAB_TOKEN: $GITLAB_TOKEN
         NPM_TOKEN: $NPM_TOKEN
     script:
