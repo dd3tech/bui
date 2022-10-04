@@ -9,6 +9,17 @@
         "dist",
         "README.md"
     ],
+    "exports": {
+        ".": "./dist/index.js",
+        "./hooks": "./dist/hooks/index.js"
+    },
+    "typesVersions": {
+        "*": {
+            "hooks": [
+                "./dist/hooks/index.d.ts"
+            ]
+        }
+    },
     "engines": {
         "node": ">=16",
         "npm": "7 || 8"
