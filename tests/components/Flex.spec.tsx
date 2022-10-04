@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe } from 'vitest'
 import { render, RenderResult, screen } from '@testing-library/react'
-import { Flex } from '../src/components'
+import { Flex } from '../../src/components'
 
 describe('Component UI: Flex', () => {
     let renderResult: RenderResult

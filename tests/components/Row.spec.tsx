@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe } from 'vitest'
 import { render, RenderResult } from '@testing-library/react'
-import Row from '../src/components/Layout/Grid'
+import Row from '../../src/components/Layout/Grid'
 
 describe('Component UI: Row', () => {
     let renderResult: RenderResult

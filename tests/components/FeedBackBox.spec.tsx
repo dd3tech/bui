@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe, vi } from 'vitest'
 import { fireEvent, render, RenderResult } from '@testing-library/react'
-import { FeedBackBox } from '../src/components'
+import { FeedBackBox } from '../../src/components'
 
 describe('Component UI: FeedBackBox', () => {
     const onClose = vi.fn()

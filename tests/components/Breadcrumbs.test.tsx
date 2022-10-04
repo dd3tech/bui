@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { Breadcrumbs } from '../src/components'
+import { Breadcrumbs } from '../../src/components'
 import { it, describe, vi } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
 import { HomeIcon, ChartBarIcon } from '@heroicons/react/outline'

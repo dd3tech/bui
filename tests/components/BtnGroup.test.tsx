@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonGroup, ButtonGroupProps, Button } from '../src/components'
+import { ButtonGroup, ButtonGroupProps, Button } from '../../src/components'
 import { it, describe } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
 

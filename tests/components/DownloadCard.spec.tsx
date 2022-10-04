@@ -1,12 +1,13 @@
 import React from 'react'
 import { it, describe, expect, vi } from 'vitest'
 import { render, fireEvent, RenderResult } from '@testing-library/react'
-import { DownloadCard, IDownloadCardProps } from '../src/components'
+import { DownloadCard, IDownloadCardProps } from '../../src/components'
 
 const cardProps: IDownloadCardProps = {
-  cancelText: 'No volver a recordarme',
-  downloadText: 'Descargar Template',
-  description: 'Descarga el template de excel, llena los campos necesarios y re-sube el archivo para rellenar la tabla. También puedes llenar la tabla manualmente.',
+    cancelText: 'No volver a recordarme',
+    downloadText: 'Descargar Template',
+    description:
+        'Descarga el template de excel, llena los campos necesarios y re-sube el archivo para rellenar la tabla. También puedes llenar la tabla manualmente.'
 }
 
 describe('DownloadCard component', () => {
@@ -22,9 +23,9 @@ describe('DownloadCard component', () => {
     })
 
     it('the DownloadCard is open', () => {
-      renderResult.rerender(<DownloadCard {...cardProps} isActive onClose={setClose} />)
-      const card = renderResult.getByRole('downloadCard')
-      expect(card.className).toContain('visible')
+        renderResult.rerender(<DownloadCard {...cardProps} isActive onClose={setClose} />)
+        const card = renderResult.getByRole('downloadCard')
+        expect(card.className).toContain('visible')
     })
 
     it('DownloadCard width prop is working', () => {

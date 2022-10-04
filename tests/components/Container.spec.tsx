@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { Container, Text } from '../src/components'
+import { Container, Text } from '../../src/components'
 
 describe('Component UI: Container', () => {
     it('Container is working', () => {

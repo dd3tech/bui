@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe } from 'vitest'
 import { render, waitFor, cleanup } from '@testing-library/react'
-import { Badge } from '../src/components'
+import { Badge } from '../../src/components'
 
 const badgeContainer = (getByRole) => {
     return getByRole('container-badge')

@@ -1,7 +1,7 @@
 import React from 'react'
 import { describe, it } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
-import { Stepper } from '../src/components'
+import { Stepper } from '../../src/components'
 
 const defaultProps = {
     phase: 1,

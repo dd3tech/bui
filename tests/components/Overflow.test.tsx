@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { Overflow, Text } from '../src/components'
+import { Overflow, Text } from '../../src/components'
 
 describe('Component UI: Overflow', () => {
     it('Overflow is working', () => {

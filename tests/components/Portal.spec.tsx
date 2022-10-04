@@ -2,7 +2,7 @@ import React from 'react'
 import { describe, it, vi, expect } from 'vitest'
 import ReactDOM from 'react-dom'
 import { render } from '@testing-library/react'
-import { Portal } from '../src/common/Portal'
+import { Portal } from '../../src/common/Portal'
 
 describe('Portal Component Tests', () => {
     beforeEach(() => {

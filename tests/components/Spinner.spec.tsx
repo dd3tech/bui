@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe } from 'vitest'
 import { render, RenderResult } from '@testing-library/react'
-import { Spinner } from '../src/components'
+import { Spinner } from '../../src/components'
 
 describe('Component UI: Spinner', () => {
     let renderResult: RenderResult

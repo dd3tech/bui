@@ -1,7 +1,7 @@
 import React from 'react'
 import { describe, expect, it } from 'vitest'
 import { RenderResult, render, cleanup } from '@testing-library/react'
-import { Circle } from '../src/components'
+import { Circle } from '../../src/components'
 
 const propsCircle = {
     children: 'Circle component',

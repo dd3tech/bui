@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
-import { TextArea } from '../src/components'
+import { TextArea } from '../../src/components'
 
 describe('Component UI: TextArea', () => {
     it('TextArea is working', () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe, vi } from 'vitest'
 import { fireEvent, render, RenderResult } from '@testing-library/react'
-import { Pagination } from '../src/components/Pagination'
+import { Pagination } from '../../src/components/Pagination'
 
 let currentPage = 1
 

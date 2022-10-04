@@ -1,7 +1,7 @@
 import React from 'react'
 import { it, describe, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { ProgressBar } from '../src/components'
+import { ProgressBar } from '../../src/components'
 
 describe('Component UI: ProgressBar', () => {
     it('ProgressBar is working', () => {
