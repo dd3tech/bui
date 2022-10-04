@@ -5,6 +5,7 @@ stages:
     - build
     - test
     - chromatic
+    - release
 
 ###############################################################################
 #     install                                                         #
@@ -112,5 +113,28 @@ chromatic_publish:
         - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-once-uploaded --exit-zero-on-changes
     dependencies:
         # - install
+        - build
+        - test
+
+###############################################################################
+#     Releases                                                         #
+###############################################################################
+
+semantic-release:
+    stage: release
+    needs:
+        - build
+        - test
+    only:
+        - main
+    before_script:
+        - npm i
+    env:
+        GITLAB_TOKEN: $GITLAB_TOKEN
+        NPM_TOKEN: $NPM_TOKEN
+    script:
+        - npm run build-lib
+        - npx semantic-release
+    dependencies:
         - build
         - test
