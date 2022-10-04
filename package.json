@@ -51,8 +51,8 @@
         "build-storybook": "build-storybook",
         "format": "prettier --write ./src",
         "prepare": "husky install",
-        "commit": "git cz --scope",
-        "add-co": "git add . && git cz --scope",
+        "commit": "git cz",
+        "add-co": "git add . && git cz",
         "pre-commit": "npm run format",
         "pre-push": "npm run test",
         "copy": "downlevel-dts dist dist/types",
@@ -125,7 +125,7 @@
     },
     "config": {
         "commitizen": {
-            "path": "./node_modules/git-cz"
+            "path": "git-cz"
         }
     },
     "publishConfig": {
