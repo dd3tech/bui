@@ -1,3 +1,10 @@
+## [1.4.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.4.1...v1.4.2) (2022-10-05)
+
+
+### Bug Fixes
+
+* **Pagination:** 🐛 pagination import added ([a737c6f](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a737c6f616f674cab68484c1f3d8cf18e178f8f3))
+
 ## [1.4.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.4.0...v1.4.1) (2022-10-05)
 
 
