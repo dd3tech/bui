@@ -1,3 +1,10 @@
+## [1.4.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.4.0...v1.4.1) (2022-10-05)
+
+
+### Bug Fixes
+
+* **package:** 🐛 the exports are taken out ([5b1d185](https://gitlab.com/dd3tech/dd360/dd360-components/commit/5b1d18552763f0df48a7313fef0ee7ca85ae5258))
+
 # [1.4.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.3.0...v1.4.0) (2022-10-05)
 
 
