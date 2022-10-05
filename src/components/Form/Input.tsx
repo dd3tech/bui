@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEventHandler, FocusEvent, useState } from 'react'
+import { ChangeEvent, MouseEventHandler, FocusEvent, useState, ReactElement } from 'react'
 import { formatCurrency, getValueWithDecimalFormat } from 'dd360-utils'
 import { EyeIcon, EyeOffIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/outline'
 
@@ -12,8 +12,8 @@ interface IInputProps {
     defaultValue?: any
     isCurrency?: boolean
     separators?: boolean
-    endAdorment?: string
-    startAdorment?: string
+    endAdorment?: string | ReactElement
+    startAdorment?: string | ReactElement
     inputBlank?: boolean
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void
     onFocus?: (event: FocusEvent<HTMLInputElement>) => void
@@ -120,6 +120,7 @@ export const Input = ({
     const [isEditingCurrency, setIsEditingCurrency] = useState<boolean>(true)
     const [typeInput, setTypeInput] = useState<string>(type)
     const [numberFormat, setNumberFormat] = useState<any>(numberValue())
+    const [focused, setFocused] = useState(false)
 
     const getNumbers = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.value.split(',').join('').match('^[0-9]*$')) {
@@ -167,29 +168,16 @@ export const Input = ({
         <>
             {label && <label className="block text-sm font-medium leading-4">{label}</label>}
             {isCurrency || separators ? (
-                <div className="relative">
-                    {!inputBlank && (
-                        <>
-                            <span
-                                style={{ transform: separators ? 'translateY(-40%)' : 'translateY(-39%)' }}
-                                className="absolute text-gray-400 left-4 top-1/2 translate-y-2/4 text"
-                            >
-                                {startAdorment}
-                            </span>
-                            <span
-                                style={{ transform: separators ? 'translateY(-40%)' : 'translateY(-39%)' }}
-                                className="absolute text-gray-400 right-4 top-1/2 translate-y-2/4"
-                            >
-                                {endAdorment}
-                            </span>
-                        </>
-                    )}
+                <div
+                    className={`flex items-center justify-between ${inputBlank && 'border-none'} ${
+                        variant === 'active' && focused && 'border-blue-500'
+                    } bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium rounded-${rounded} p-${
+                        padding ?? '3'
+                    } mt-1 ${className ?? 'w-60'} ${input.borderColor} ${input.color}`}
+                >
+                    {startAdorment && !inputBlank && <span className=" text-gray-400 text mr-2">{startAdorment}</span>}
                     <input
-                        className={`${
-                            inputBlank && 'border-none'
-                        } focus:border-blue-500 bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium w-full rounded-${rounded} p-${
-                            padding ?? '3'
-                        } mt-1 ${className ?? ''} ${startAdorment && 'pl-8'} ${endAdorment && 'pr-8'} ${input.borderColor} ${input.color}`}
+                        className="w-full"
                         type={typeInput}
                         name={name}
                         disabled={disabled}
@@ -199,39 +187,31 @@ export const Input = ({
                         style={{ outline: 'none' }}
                         onFocus={(event) => {
                             setIsEditingCurrency(false)
+                            setFocused(true)
                             onFocus && onFocus(event)
                         }}
                         onBlur={(event: any) => {
                             setIsEditingCurrency(true)
+                            setFocused(false)
                             onBlur && onBlur(event)
                         }}
                         value={valueCurrency(isCurrency)}
                         {...props}
                     />
+                    {endAdorment && !inputBlank && <span className="text-gray-400 ml-2">{endAdorment}</span>}
                 </div>
             ) : (
                 <>
-                    <div className="relative">
-                        <>
-                            <span
-                                style={{ transform: separators ? 'translateY(-40%)' : 'translateY(-39%)' }}
-                                className="absolute text-gray-400 left-4 top-1/2  translate-y-2/4 text"
-                            >
-                                {startAdorment}
-                            </span>
-                            <span
-                                style={{ transform: separators ? 'translateY(-40%)' : 'translateY(-39%)' }}
-                                className="absolute text-gray-400 right-4 top-1/2 translate-y-2/4"
-                            >
-                                {endAdorment}
-                            </span>
-                        </>
+                    <div
+                        className={`flex items-center justify-between ${inputBlank && 'border-none'} ${
+                            variant === 'active' && focused && 'border-blue-500'
+                        } bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium rounded-${rounded} p-${
+                            padding ?? '3'
+                        } mt-1 ${className ?? 'w-60'} ${input.borderColor} ${input.color}`}
+                    >
+                        {startAdorment && !inputBlank && <span className=" text-gray-400 text mr-2">{startAdorment}</span>}
                         <input
-                            className={`${inputBlank && 'border-none'} ${
-                                variant === 'active' && 'focus:border-blue-500'
-                            } bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium rounded-${rounded} p-${
-                                padding ?? '3'
-                            } mt-1 ${className ?? ''} ${input.borderColor} ${input.color}`}
+                            className="w-full"
                             type={typeInput}
                             name={name}
                             disabled={disabled}
@@ -241,9 +221,12 @@ export const Input = ({
                             style={{ outline: 'none' }}
                             value={value}
                             defaultValue={defaultValue}
-                            onFocus={onFocus}
+                            onFocus={(e) => {
+                                setFocused(true)
+                                onFocus && onFocus(e)
+                            }}
                             onBlur={(event: any) => {
-                                setIsEditingCurrency(true)
+                                setFocused(false)
                                 onBlur && onBlur(event)
                             }}
                             {...props}
@@ -271,6 +254,7 @@ export const Input = ({
                                 )}
                             </span>
                         )}
+                        {endAdorment && !inputBlank && <span className="text-gray-400 ml-2">{endAdorment}</span>}
                     </div>
                     {variant !== 'active' && message && <p className={`text-xs mt-2 ml-2 font-medium ${text.color}`}>{message}</p>}
                 </>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Input as InputComponent } from '../components/Form/Input'
+import { SearchCircleIcon } from '@heroicons/react/outline'
 
 export default {
     title: 'Form/Input',
@@ -12,4 +13,21 @@ const Template: ComponentStory<typeof InputComponent> = (args) => <InputComponen
 export const Input = Template.bind({})
 Input.args = {
     label: 'Ejemplo'
+}
+export const InputWithIcon = Template.bind({})
+InputWithIcon.args = {
+    label: 'Con Icono',
+    endAdorment: <SearchCircleIcon className="w-5 text-gray-500" />,
+    startAdorment: <SearchCircleIcon className="w-5 text-gray-500" />,
+    className: 'w-60',
+    variant: 'active'
+}
+export const InputCurrency = Template.bind({})
+InputCurrency.args = {
+    label: 'Currency',
+    endAdorment: '$',
+    startAdorment: '%',
+    className: 'w-full',
+    variant: 'active',
+    isCurrency: true
 }
