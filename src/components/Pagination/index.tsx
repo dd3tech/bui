@@ -2,7 +2,7 @@ import { SetStateAction, useEffect, useState } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import Text from '../Typography'
 
-interface IPagination {
+export interface PaginationProps {
     totalPages: number
     currentPage: number
     sliceSize?: '5' | '10' | '15' | '20' | '25' | '30'
@@ -16,7 +16,17 @@ interface IPagination {
 
 const buttonStyle = 'w-full h-full flex justify-center items-center rounded-full hover:bg-gray-200'
 
-export const Pagination = ({ totalPages, currentPage, sliceSize, firstText, secondText, goToPreviousPage, goToNextPage, goToPage, setSize }: IPagination) => {
+export const Pagination = ({
+    totalPages,
+    currentPage,
+    sliceSize,
+    firstText,
+    secondText,
+    goToPreviousPage,
+    goToNextPage,
+    goToPage,
+    setSize
+}: PaginationProps) => {
     const pages = new Array(totalPages).fill(0).map((item, index) => index + 1)
     const [selectSliceSize, setSelectSliceSize] = useState(sliceSize ?? '5')
 
