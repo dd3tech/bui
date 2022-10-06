@@ -31,3 +31,17 @@ InputCurrency.args = {
     variant: 'active',
     isCurrency: true
 }
+export const InputPassword = Template.bind({})
+InputPassword.args = {
+    label: 'Password',
+    type: 'password',
+    className: 'w-full',
+    variant: 'active'
+}
+export const InputEmail = Template.bind({})
+InputEmail.args = {
+    label: 'Email',
+    type: 'email',
+    className: 'w-full',
+    variant: 'active'
+}

@@ -232,7 +232,7 @@ export const Input = ({
                             {...props}
                         />
                         {type === 'email' && variant !== 'active' && (
-                            <span style={{ transform: 'translateY(-39%)' }} className="absolute bold right-4 top-1/2">
+                            <span className=" bold">
                                 {variant === 'error' && <XCircleIcon width={24} className={`${text.color} transition duration-500 ease-out focus:ease-in`} />}
                                 {variant !== 'error' && (
                                     <CheckCircleIcon width={24} className={`${text.color} transition duration-500 ease-out focus:ease-in`} />
@@ -244,8 +244,7 @@ export const Input = ({
                                 onClick={() => {
                                     setTypeInput((prev: string) => (prev === 'text' ? 'password' : 'text'))
                                 }}
-                                style={{ transform: 'translateY(-39%)' }}
-                                className="absolute bold cursor-pointer right-4 top-1/2 "
+                                className="bold cursor-pointer "
                             >
                                 {typeInput === 'password' ? (
                                     <EyeIcon className={`${text.color} transition duration-500 ease-out focus:ease-in`} width={23} />
