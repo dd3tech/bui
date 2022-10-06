@@ -232,7 +232,7 @@ export const Input = ({
                             {...props}
                         />
                         {type === 'email' && variant !== 'active' && (
-                            <span className=" bold">
+                            <span className="bold">
                                 {variant === 'error' && <XCircleIcon width={24} className={`${text.color} transition duration-500 ease-out focus:ease-in`} />}
                                 {variant !== 'error' && (
                                     <CheckCircleIcon width={24} className={`${text.color} transition duration-500 ease-out focus:ease-in`} />
