@@ -1,3 +1,10 @@
+## [1.4.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.4.3...v1.4.4) (2022-10-06)
+
+
+### Bug Fixes
+
+* **components:** 🐛 default icons on Input component ([9d391f9](https://gitlab.com/dd3tech/dd360/dd360-components/commit/9d391f958fa027a0e004849547d702d39d2dd81f))
+
 ## [1.4.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.4.2...v1.4.3) (2022-10-06)
 
 
