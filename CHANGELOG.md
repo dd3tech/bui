@@ -1,3 +1,10 @@
+## [1.4.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.4.2...v1.4.3) (2022-10-06)
+
+
+### Bug Fixes
+
+* **usePagination:** 🐛 add dynamic initial size on usePagination ([095f13b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/095f13b65091bca528305d3964e73af07f4123fa))
+
 ## [1.4.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.4.1...v1.4.2) (2022-10-05)
 
 
