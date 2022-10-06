@@ -13,10 +13,11 @@ type usePaginationReturn = {
 
 type PaginationProps = {
     abortSignal?(): void
+    initialSize?: number
 }
 
 export function usePagination(opt: PaginationProps = {}): usePaginationReturn {
-    const [size, setSize] = React.useState<number>(5)
+    const [size, setSize] = React.useState<number>(opt?.initialSize ?? 5)
     const [currentPage, setCurrentPage] = React.useState<number>(0)
 
     const changePage = React.useCallback((sum: boolean) => {
