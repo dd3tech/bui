@@ -6,7 +6,7 @@ export interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
     paddingX?: number
     className?: string
     height?: 'fit-content' | 'auto' | number
-    width?: number
+    width?: number | string
 }
 
 const Card = ({ children, rounded = 'lg', height = 'fit-content', width, padding = 4, paddingX, paddingY, className, style, ...otherProps }: ICardProps) => {
