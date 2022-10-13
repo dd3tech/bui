@@ -12,6 +12,7 @@ export interface InputCurrencyProps {
     decimalScale?: number
     suffix?: string
     value?: string | number
+    onBlurInput?: () => void
 }
 
 const InputCurrency: FC<InputCurrencyProps> = (props) => {
@@ -29,6 +30,7 @@ const InputCurrency: FC<InputCurrencyProps> = (props) => {
             decimalScale={props.decimalScale}
             suffix={props.suffix}
             value={props.value}
+            onBlur={() => props.onBlurInput && props.onBlurInput()}
         />
     )
 }
