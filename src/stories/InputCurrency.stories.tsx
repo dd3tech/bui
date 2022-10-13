@@ -9,14 +9,14 @@ export default {
 } as ComponentMeta<typeof InputCurrency>
 
 const Template: Story<InputCurrencyProps> = (args: InputCurrencyProps) => {
-    const [value, setValue] = React.useState(format('32500'))
+    const [value, setValue] = React.useState<string | undefined>('0')
 
-    return <InputCurrency value={value} onChangeCurrency={(n) => setValue(n)} {...args} />
+    return <InputCurrency value={value} onChange={(value) => setValue(value)} {...args} />
 }
 
 export const Default = Template.bind({})
 Default.args = {
-    className: 'mt-2',
-    useSymbol: true,
-    helperText: 'Su saldo se guardó exitosamente!'
+    className: 'mt-2 w-full',
+    prefix: '$',
+    decimalScale: 2
 }
