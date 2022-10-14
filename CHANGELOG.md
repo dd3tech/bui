@@ -1,3 +1,10 @@
+## [1.5.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.5.0...v1.5.1) (2022-10-14)
+
+
+### Bug Fixes
+
+* **components:** 🐛 Adding disabled prop and onFocus event on InputCurrency component ([a21c23b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a21c23b12fadcf81ab592589aeb0b5a57c07d1b7))
+
 # [1.5.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.4.5...v1.5.0) (2022-10-14)
 
 
