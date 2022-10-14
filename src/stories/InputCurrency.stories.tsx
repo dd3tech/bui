@@ -1,7 +1,6 @@
 import React from 'react'
 import { ComponentMeta, Story } from '@storybook/react'
 import InputCurrency, { InputCurrencyProps } from '../components/Form/InputCurrency'
-import { format } from 'dd360-utils'
 
 export default {
     title: 'Form/InputCurrency',
@@ -9,14 +8,12 @@ export default {
 } as ComponentMeta<typeof InputCurrency>
 
 const Template: Story<InputCurrencyProps> = (args: InputCurrencyProps) => {
-    const [value, setValue] = React.useState(format('32500'))
+    const [value, setValue] = React.useState<string | undefined>()
 
-    return <InputCurrency value={value} onChangeCurrency={(n) => setValue(n)} {...args} />
+    return <InputCurrency prefix="$" value={value} defaultValue={0} decimalScale={2} decimalsLimit={0} onChange={(value) => setValue(value)} {...args} />
 }
 
 export const Default = Template.bind({})
 Default.args = {
-    className: 'mt-2',
-    useSymbol: true,
-    helperText: 'Su saldo se guardó exitosamente!'
+    onBlurInput: () => console.log('ON BLUR 123')
 }
