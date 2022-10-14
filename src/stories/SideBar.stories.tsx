@@ -39,5 +39,7 @@ SideBar.args = {
             Crédito <span className="font-bold">Pre-puente</span>
         </p>
     ),
+    disabledOptions: [2],
+    disabledOptionsTag: 'Próximamente',
     dangerZone: { show: true, text: 'Eliminar proyecto' }
 }
