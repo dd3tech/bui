@@ -1,3 +1,15 @@
+# [1.5.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.4.5...v1.5.0) (2022-10-14)
+
+
+### Bug Fixes
+
+* **components:** 🐛 Adding onBlur event to input currency ([e1b9705](https://gitlab.com/dd3tech/dd360/dd360-components/commit/e1b970590a26b3a05e7e8c948dde23a2389d2333))
+
+
+### Features
+
+* **components:** 🎸 InputCurrency component ([bd033a5](https://gitlab.com/dd3tech/dd360/dd360-components/commit/bd033a51c8f42092cbe474029b6ec3899e9c7ea4))
+
 ## [1.4.5](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.4.4...v1.4.5) (2022-10-12)
 
 
