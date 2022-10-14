@@ -20,7 +20,9 @@ export interface InputCurrencyProps {
 const InputCurrency: FC<InputCurrencyProps> = (props) => {
     return (
         <CurrencyInput
-            className={`flex items-center justify-between border-none bg-transparent transition duration-500 ease-out focus:ease-in font-medium rounded-sm p-3 mt-1 ${
+            className={`${
+                props.disabled ? 'bg-gray-100 text-gray-500' : ''
+            } flex items-center justify-between border-none bg-transparent transition duration-500 ease-out focus:ease-in font-medium rounded-sm p-3 mt-1 ${
                 props.className ?? 'w-60'
             }`}
             name={props.name}
