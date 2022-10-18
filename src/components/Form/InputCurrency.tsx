@@ -15,6 +15,7 @@ export interface InputCurrencyProps {
     onBlurInput?: () => void
     disabled?: boolean
     onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
+    role?: string
 }
 
 const InputCurrency: FC<InputCurrencyProps> = (props) => {
@@ -37,6 +38,7 @@ const InputCurrency: FC<InputCurrencyProps> = (props) => {
             onBlur={() => props.onBlurInput && props.onBlurInput()}
             disabled={props.disabled}
             onFocus={(e) => props.onFocus && props.onFocus(e)}
+            role={props?.role ?? ''}
         />
     )
 }
