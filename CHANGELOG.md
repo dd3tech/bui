@@ -1,3 +1,10 @@
+# [1.6.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.5.2...v1.6.0) (2022-10-18)
+
+
+### Features
+
+* **components:** 🎸 add clock icon on Badge and fix align on Pagination ([01cc4b5](https://gitlab.com/dd3tech/dd360/dd360-components/commit/01cc4b5c18d8adc9f6143914f6e2173622de5129))
+
 ## [1.5.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.5.1...v1.5.2) (2022-10-18)
 
 
