@@ -1,3 +1,13 @@
+## [1.5.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.5.1...v1.5.2) (2022-10-18)
+
+
+### Bug Fixes
+
+* **components:** 🐛 Adding disabled props and onFocus event on InputCurrency component ([d2c4990](https://gitlab.com/dd3tech/dd360/dd360-components/commit/d2c4990f221bc87d35b85aa5661436d6ac6af461))
+* **components:** 🐛 Adding Role prop to InputCurrency Component ([04a9fb7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/04a9fb7579cfc81ed2d1bcb504f8e4a0b26261bf))
+* **components:** 🐛 Disabled styles in InputCurrency component ([760ffec](https://gitlab.com/dd3tech/dd360/dd360-components/commit/760ffec60c98d16c203c9407b6263a88faac8028))
+* **components:** 🐛 Solving conflicts ([8aee643](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8aee6435e117188adc52f6b87667271640f528c5))
+
 ## [1.5.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.5.0...v1.5.1) (2022-10-14)
 
 
