@@ -52,7 +52,7 @@ export const Pagination = ({
     }
 
     return (
-        <div role="pagination" className="flex flex-col md:flex-row md:gap-6">
+        <div role="pagination" className="flex flex-col md:flex-row items-center md:gap-6">
             <div className="flex items-center">
                 {firstText && <Text size="base">{firstText}</Text>}
                 <select
