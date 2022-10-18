@@ -1,4 +1,4 @@
-import { ExclamationCircleIcon, TagIcon, CheckCircleIcon, ExclamationIcon, ClipboardCopyIcon, HomeIcon } from '@heroicons/react/outline'
+import { ExclamationCircleIcon, TagIcon, CheckCircleIcon, ExclamationIcon, ClipboardCopyIcon, HomeIcon, ClockIcon } from '@heroicons/react/outline'
 import { span } from '../../stories/Text.stories'
 
 export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
@@ -23,6 +23,8 @@ const iconsSwitch = (iconType: string = 'HomeIcon', classNameIcon?: string) => {
     switch (iconType) {
         case 'tag':
             return <TagIcon className={classNameIcon ?? ''} />
+        case 'clock':
+            return <ClockIcon className={classNameIcon ?? ''} />
         case 'warning':
             return <ExclamationIcon className={classNameIcon ?? ''} />
         case 'check':
