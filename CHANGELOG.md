@@ -1,3 +1,10 @@
+## [1.6.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.6.0...v1.6.1) (2022-10-20)
+
+
+### Bug Fixes
+
+* **components:** 🐛 InputCurrency ([1a488b7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/1a488b79ebb1019590d3a11503d3a194d04b6699))
+
 # [1.6.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.5.2...v1.6.0) (2022-10-18)
 
 
