@@ -23,7 +23,7 @@ const InputCurrency: FC<InputCurrencyProps> = (props) => {
         <CurrencyInput
             className={`${
                 props.disabled ? 'bg-gray-100 text-gray-500' : ''
-            } flex items-center justify-between border-none bg-transparent transition duration-500 ease-out focus:ease-in font-medium rounded-sm p-3 mt-1 ${
+            } flex items-center justify-between bg-transparent transition duration-500 ease-out focus:ease-in font-medium rounded-sm p-3 mt-1 ${
                 props.className ?? 'w-60'
             }`}
             name={props.name}
