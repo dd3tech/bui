@@ -16,6 +16,7 @@ export interface InputCurrencyProps {
     disabled?: boolean
     onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
     role?: string
+    onPaste?: React.ClipboardEventHandler<HTMLInputElement>
 }
 
 const InputCurrency: FC<InputCurrencyProps> = (props) => {
@@ -39,6 +40,7 @@ const InputCurrency: FC<InputCurrencyProps> = (props) => {
             disabled={props.disabled}
             onFocus={(e) => props.onFocus && props.onFocus(e)}
             role={props?.role ?? ''}
+            onPaste={props.onPaste}
         />
     )
 }
