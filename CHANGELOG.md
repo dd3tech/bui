@@ -1,3 +1,10 @@
+# [1.7.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.6.1...v1.7.0) (2022-10-25)
+
+
+### Features
+
+* **components:** 🎸 add ToolTipHover component ([3612fa0](https://gitlab.com/dd3tech/dd360/dd360-components/commit/3612fa0e42164f577d5201c15fc23b47f6cf3c6b))
+
 ## [1.6.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.6.0...v1.6.1) (2022-10-20)
 
 
