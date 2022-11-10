@@ -1,3 +1,15 @@
+# [1.8.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.7.0...v1.8.0) (2022-11-10)
+
+
+### Bug Fixes
+
+* move variants to out of component and add default size ([a9dbce5](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a9dbce578171676e256e91bb3de63d18d04c5682))
+
+
+### Features
+
+* add variant outlineWhite to see on storybook ([ef3ac53](https://gitlab.com/dd3tech/dd360/dd360-components/commit/ef3ac5393b05f0d7a4d6861522c5e41417047a1f))
+
 # [1.7.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.6.1...v1.7.0) (2022-10-25)
 
 
