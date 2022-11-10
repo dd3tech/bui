@@ -48,6 +48,18 @@ const ContentLoading: React.FC<renderLoading> = ({ textLoading = 'Cargando...', 
     )
 }
 
+const buttonsVariants: { [key: string]: string } = {
+    primary: 'bg-blue-700 hover:bg-blue-800 text-white disabled:bg-gray-300',
+    secondary: 'bg-transparent border border-black hover:bg-white disabled:opacity-20',
+    cancel: 'bg-white text-black hover:text-white hover:bg-red-500 disabled:opacity-75',
+    error: 'text-white bg-red-500 hover:bg-red-600 disabled:opacity-75',
+    outlineBlue: 'bg-transparent border border-blue-700 text-blue-700',
+    success: 'bg-green-500 hover:bg-green-600 text-white',
+    outlineWhite: 'bg-transparent border border-white text-white hover:bg-gray-50 hover:text-black',
+    danger: 'bg-red-600 hover:bg-red-700 text-white disabled:bg-red-300',
+    outlineWhiteRed: 'bg-white border border-red-600 text-red-600 hover:bg-red-600 hover:text-white'
+}
+
 const Button = forwardRef<HTMLButtonElement, IButtonProps>(
     (
         {
@@ -65,18 +77,6 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
         }: IButtonProps,
         ref
     ) => {
-        const buttonsVariants: { [key: string]: string } = {
-            primary: 'bg-blue-700 hover:bg-blue-800 text-white disabled:bg-gray-300',
-            secondary: 'bg-transparent border border-black hover:bg-white disabled:opacity-20',
-            cancel: 'bg-white text-black hover:text-white hover:bg-red-500 disabled:opacity-75',
-            error: 'text-white bg-red-500 hover:bg-red-600 disabled:opacity-75',
-            outlineBlue: 'bg-transparent border border-blue-700 text-blue-700',
-            success: 'bg-green-500 hover:bg-green-600 text-white',
-            outlineWhite: 'bg-transparent border border-white text-white hover:bg-gray-50 hover:text-black',
-            danger: 'bg-red-600 hover:bg-red-700 text-white disabled:bg-red-300',
-            outlineWhiteRed: 'bg-white border border-red-600 text-red-600 hover:bg-red-600 hover:text-white'
-        }
-
         const sizeVariants: { [key: string]: string } = {
             large: 'rounded-lg w-auto'
         }
@@ -106,7 +106,7 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
                 ref={ref}
                 className={`rounded-md ${buttonPadding()} font-bold transition duration-500 ease-out hover:ease-in ${
                     isLoading || props.disabled ? 'cursor-not-allowed' : ''
-                } ${buttonsVariants[variant]} ${sizeVariants[size]} ${className}`}
+                } ${buttonsVariants[variant]} ${sizeVariants[size] || ''} ${className}`}
                 onClick={(e) => {
                     if (!props.disabled && onClick !== undefined && !isLoading) {
                         onClick(e)
