@@ -51,8 +51,17 @@ BtnDanger.args = {
     children: 'Danger'
 }
 
-export const BtnOutlineWhiteRed = Template.bind({})
-BtnOutlineWhiteRed.args = {
+export const BtnOutlineRed = Template.bind({})
+BtnOutlineRed.args = {
     variant: 'outlineWhiteRed',
     children: 'Danger'
+}
+
+export const BtnOutlineWhite = Template.bind({})
+BtnOutlineWhite.args = {
+    variant: 'outlineWhite',
+    children: 'Contacto',
+    paddingX: 14,
+    paddingY: 3,
+    className: 'text-base rounded-lg px-'
 }
