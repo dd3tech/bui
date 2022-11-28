@@ -1,3 +1,10 @@
+## [1.8.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.8.0...v1.8.1) (2022-11-28)
+
+
+### Bug Fixes
+
+* changes on gitlab template ([e969fc4](https://gitlab.com/dd3tech/dd360/dd360-components/commit/e969fc461beb1a06eecced9516d94c89c3971873))
+
 # [1.8.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.7.0...v1.8.0) (2022-11-10)
 
 
