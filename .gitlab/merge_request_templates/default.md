@@ -1,6 +1,3 @@
-<!--
-  Thanks for submitting a merge request!
--->
 ## Summary
 
 <!--
