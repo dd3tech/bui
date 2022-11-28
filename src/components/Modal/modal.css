@@ -1,6 +1,21 @@
 .animation-modal {
-    animation: popup 0.5s;
-    transition: height 0.08s ease-out;
+    animation: up 0.5s;
+    transition: all 0.08s ease-out;
+}
+
+@media (min-width: 768px) {
+    .animation-modal {
+        animation: popup 0.5s;
+    }
+}
+
+@keyframes up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 @keyframes popup {

@@ -18,7 +18,8 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         const [isClose, setClose] = React.useState(false)
 
         const dynamicClassName: () => string = React.useCallback(() => {
-            const defaultClassName = 'absolute z-50 flex-wrap text-center flex drop-shadow-lg bg-white rounded-2xl ml-24 mb-6 mt-6'
+            const defaultClassName =
+                'absolute z-50 flex-wrap text-center flex drop-shadow-lg bg-white w-full md:w-auto bottom-0 md:bottom-auto rounded-t-2xl md:rounded-2xl md:ml-24 md:mb-6 md:mt-6'
             return `${defaultClassName} ${className ?? ''} ${animation ? 'animation-modal' : ''}`
         }, [className, animation])
 
