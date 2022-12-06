@@ -1,3 +1,10 @@
+## [1.8.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.8.1...v1.8.2) (2022-12-06)
+
+
+### Performance Improvements
+
+* **config:** ⚡️ purge content enabled to remove unused tailwind css ([e12a7d4](https://gitlab.com/dd3tech/dd360/dd360-components/commit/e12a7d4e9a5699cf00bc11adad9d65d579dca3f0))
+
 ## [1.8.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.8.0...v1.8.1) (2022-11-28)
 
 
