@@ -1,4 +1,6 @@
-import { ReactNode, useState, useCallback } from 'react'
+// TODO: Create storie and test for this component
+
+import React, { ReactNode, useState, useCallback } from 'react'
 import { getLeftAndTopScreen } from 'dd360-utils'
 import { Portal } from '../../common/Portal'
 
@@ -12,7 +14,7 @@ interface IToolTipHover {
     disabled?: boolean
 }
 
-export const ToolTipHover = ({ children, variantPopup = 'blue', element, className, align, customPosition = { top: 0, left: 0 }, disabled }: IToolTipHover) => {
+const ToolTipHover = ({ children, variantPopup = 'blue', element, className, align, customPosition = { top: 0, left: 0 }, disabled }: IToolTipHover) => {
     const [position, setPosition] = useState({ show: false, left: 0, top: 0 })
 
     const handleMouseOver = useCallback((e: React.MouseEvent) => {
@@ -54,3 +56,7 @@ export const ToolTipHover = ({ children, variantPopup = 'blue', element, classNa
         </>
     )
 }
+
+ToolTipHover.displayName = 'ToolTipHover'
+
+export default ToolTipHover

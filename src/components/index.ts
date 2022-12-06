@@ -28,19 +28,37 @@ export * from './ProgressBar'
 export { default as Card } from './Card'
 export * from './Card'
 
+export { default as Pagination } from './Pagination'
+export * from './Pagination'
+
+export { default as Image } from './Image'
+export * from './Image'
+
+export { default as Skeleton } from './Skeleton'
+export * from './Skeleton'
+
+export { default as Wrapper } from './Wrapper'
+export * from './Wrapper'
+
+export { default as Badge } from './Badge'
+export * from './Badge'
+
+export { default as Switch } from './Switch'
 export * from './Switch'
+
+export { default as ToolTipHover } from './ToolTipHover'
+export * from './ToolTipHover'
+
+export { default as ImageIcon } from './ImageIcon'
+export * from './ImageIcon'
+
+export { default as Spinner } from './Spinners'
+export * from './Spinners'
+
 export * from './SideBar'
 export * from './Navigation'
 export * from './FeedBackBox'
 export * from './Form'
-export * from './ImageIcon'
-export * from './Images'
 export * from './Layout'
 export * from './Navbar'
-export * from './Skeleton'
-export * from './Spinners'
 export * from './Table'
-export * from './Wrapper'
-export * from './Badge'
-export * from './Pagination'
-export * from './ToolTipHover'

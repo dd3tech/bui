@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Spinner as SpinnerComponent } from '../components/Spinners'
+import SpinnerComponent from '../components/Spinners'
 
 export default {
     title: 'Controls/Spinner',

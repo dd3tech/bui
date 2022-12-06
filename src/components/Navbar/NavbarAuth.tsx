@@ -1,6 +1,6 @@
 import React from 'react'
 import { ChevronUpIcon, ChevronDownIcon, CogIcon, BellIcon } from '@heroicons/react/outline'
-import { Wrapper } from '../Wrapper'
+import Wrapper from '../Wrapper'
 import { Anchor } from '../Navigation'
 import Text from '../Typography'
 import Circle from '../Circle'

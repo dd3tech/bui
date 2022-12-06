@@ -1,4 +1,4 @@
-import { Wrapper } from '../Wrapper'
+import Wrapper from '../Wrapper'
 import { Anchor } from '../Navigation'
 import { Language } from './Language'
 

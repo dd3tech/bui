@@ -1,7 +1,7 @@
 // import useResize from '@/hooks/useResize'
 import { formatCustomDecimal } from 'dd360-utils'
 import Button from '../Buttons'
-import { Badge } from '../Badge'
+import Badge from '../Badge'
 import Text from '../Typography'
 import { HeaderAction } from './HeaderAction'
 import { IDataTable, IPaginatedData, IType, IParamsPagination } from '../../interfaces/GeneralTable'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Image as ImageComponent } from '../components/Images'
+import ImageComponent from '../components/Image'
 
 export default {
     title: 'Images/Image',
