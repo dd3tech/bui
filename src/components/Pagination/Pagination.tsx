@@ -16,17 +16,7 @@ export interface PaginationProps {
 
 const buttonStyle = 'w-full h-full flex justify-center items-center rounded-full hover:bg-gray-200'
 
-export const Pagination = ({
-    totalPages,
-    currentPage,
-    sliceSize,
-    firstText,
-    secondText,
-    goToPreviousPage,
-    goToNextPage,
-    goToPage,
-    setSize
-}: PaginationProps) => {
+const Pagination = ({ totalPages, currentPage, sliceSize, firstText, secondText, goToPreviousPage, goToNextPage, goToPage, setSize }: PaginationProps) => {
     const pages = new Array(totalPages).fill(0).map((item, index) => index + 1)
     const [selectSliceSize, setSelectSliceSize] = useState(sliceSize ?? '5')
 
@@ -125,3 +115,7 @@ export const Pagination = ({
         </div>
     )
 }
+
+Pagination.displayName = 'Pagination'
+
+export default Pagination
