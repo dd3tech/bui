@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import SideBarComponent from '../components/SideBar/SideBar'
+import DynamicHeroIcon from '../common/DynamicHeroIcon'
 
 export default {
     title: 'Layout/SideBar',
@@ -15,7 +16,8 @@ SideBar.args = {
         {
             title: 'Lista 1',
             active: true,
-            to: () => console.log('Hola 1')
+            to: () => console.log('Hola 1'),
+            icon: <DynamicHeroIcon icon="HomeIcon" />
         },
         {
             title: 'Lista 2',
@@ -25,7 +27,8 @@ SideBar.args = {
         {
             title: 'Lista 3',
             active: false,
-            to: () => console.log('Hola 3')
+            to: () => console.log('Hola 3'),
+            disabled: true
         },
         {
             title: 'Lista 4',
@@ -34,12 +37,7 @@ SideBar.args = {
         }
     ],
     sideBarName: 'Ejemplo SideBar',
-    sideBarSubTitle: (
-        <p className="text-gray-400 block text-sm">
-            Crédito <span className="font-bold">Pre-puente</span>
-        </p>
-    ),
-    disabledOptions: [2],
+    sideBarSubTitle: 'Crédito Pre-puente',
     disabledOptionsTag: 'Próximamente',
     dangerZone: { show: true, text: 'Eliminar proyecto' }
 }

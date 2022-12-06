@@ -1,25 +1,27 @@
-import React from 'react'
-import { ChevronDoubleRightIcon, ChevronDoubleLeftIcon, ViewGridIcon, ExclamationIcon, ClockIcon } from '@heroicons/react/outline'
+import React, { useRef } from 'react'
+import { ChevronDoubleLeftIcon, ExclamationIcon, ClockIcon, ExclamationCircleIcon } from '@heroicons/react/outline'
 import Text from '../Typography'
-import Circle from '../Circle'
+import ToolTipHover from '../ToolTipHover'
+import './sideBar.css'
 
 export interface SideBarProps {
-    sideBarList?: Array<{ title: string; active: boolean; to: () => void }>
+    sideBarList?: Array<{ title: string; active: boolean; to: () => void; icon?: JSX.Element; disabled?: boolean }>
     sideBarName: string
-    sideBarSubTitle?: React.ReactElement
+    sideBarSubTitle?: string | React.ReactElement
     defaultExpand?: boolean
     dangerZone?: { show: boolean; text: string; callBack?: () => void }
-    disabledOptions?: number[]
     disabledOptionsTag?: string
 }
 
-const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, disabledOptions, disabledOptionsTag, ...props }: SideBarProps) => {
+const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, disabledOptionsTag, ...props }: SideBarProps) => {
+    const sidebarRef: React.MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null)
     const [expand, setExpand] = React.useState(false)
     const [timer, setTimer] = React.useState(false)
 
     const activeStyle = React.useCallback((activeLink: boolean) => {
         return {
             width: '6px',
+            minWidth: '6px',
             height: '64px',
             backgroundColor: `${activeLink ? '#1d4ed8' : 'transparent'}`,
             borderRadius: '0px 8px 8px 0px'
@@ -27,13 +29,9 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
     }, [])
 
     const shotTimer = () => {
-        if (!expand) {
-            setTimeout(() => {
-                setTimer(true)
-            }, 300)
-        }
-
-        setTimer(false)
+        setTimeout(() => {
+            setTimer(!expand)
+        }, 300)
     }
 
     React.useEffect(() => {
@@ -47,91 +45,134 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
             defaultExpand = false
         }
     }, [defaultExpand])
-    return (
-        <div
-            role="container-sidebar"
-            className={`shadow-lg border-t-0 ${expand ? 'w-96 h-full' : 'w-20 h-20'} border bg-white fixed transition-all delay-75 duration-200 ease-in z-40`}
-        >
-            {!expand && (
-                <div
-                    role="active-sidebar"
-                    className="flex items-center justify-center h-full cursor-pointer"
-                    onClick={() => {
-                        setExpand(true)
-                        shotTimer()
-                    }}
-                >
-                    <ChevronDoubleRightIcon className="text-blue-700 hover:text-blue-800 transition-all duration-200 ease-in-out" width={30} />
-                </div>
-            )}
 
-            {timer && expand && (
-                <div className="transition-all delay-300 ease-out">
-                    <div className="grid grid-cols-3 justify-between border-b items-center w-full">
-                        <div className="flex items-center gap-4 col-span-2 p-3 w-full h-24">
-                            <Circle>
-                                <ViewGridIcon className="text-blue-700" width={20} />
-                            </Circle>
-                            <Text variant="span" className="font-bold text-lg letter-spacing-negative capitalize">
-                                {sideBarName}
-                                {sideBarSubTitle}
-                            </Text>
-                        </div>
+    return (
+        <>
+            <div
+                className={`${timer ? 'fixed' : 'hidden'} ${expand ? 'fade-in' : 'fade-out'} top-0 left-0 lg:hidden w-full h-screen`}
+                style={{ backgroundColor: 'rgba(17, 24, 39, 0.75)' }}
+            />
+            <div
+                ref={sidebarRef}
+                role="container-sidebar"
+                className={`shadow-lg border-t-0 box-border ${
+                    expand ? 'w-72' : 'w-0 lg:w-16'
+                } overflow-hidden h-full bg-white fixed top-0 left-0 transition-all delay-75 duration-200 ease-in z-40`}
+                style={{ maxHeight: `calc(100vh - ${sidebarRef.current?.offsetTop}px)` }}
+            >
+                <div className="h-full flex flex-col transition-all delay-300 ease-out">
+                    <div className="flex justify-between border-b items-center w-full h-16 lg:h-20">
                         <div
-                            className="w-full flex items-center justify-center cursor-pointer"
+                            role="active-sidebar"
+                            className="fixed ml-6 lg:ml-3.5 border rounded-full hover:bg-blue-50 focus:bg-blue-700 focus:text-white text-blue-700 cursor-pointer transition-all duration-300 ease-in-out"
                             onClick={() => {
-                                setExpand(false)
+                                setExpand(!expand)
                                 shotTimer()
                             }}
                         >
-                            <ChevronDoubleLeftIcon className="text-blue-700 hover:text-blue-800 transition-all duration-200 ease-in-out" width={25} />
+                            <div
+                                className={`${
+                                    expand ? 'rotate-0' : 'rotate-180'
+                                } w-9 h-9 flex justify-center items-center transform transition-all duration-200 ease-in-out`}
+                            >
+                                <ChevronDoubleLeftIcon className="transition-all duration-200 ease-in-out" width={25} />
+                            </div>
+                        </div>
+                        <div className="flex flex-col justify-center gap-1 col-span-2 p-3 ml-16 w-full h-24">
+                            <Text variant="span" size="base" bold className="letter-spacing-negative capitalize whitespace-nowrap">
+                                {sideBarName}
+                            </Text>
+                            {sideBarSubTitle && (
+                                <Text variant="small" fontBold="medium" className="text-gray-400 whitespace-nowrap">
+                                    {sideBarSubTitle}
+                                </Text>
+                            )}
                         </div>
                     </div>
-                    {sideBarList?.map(({ title, active, to }, index: number) => (
-                        <div
-                            key={index.toString()}
-                            className={`h-16 mb-2 transition-all duration-300 ease-out letter-spacing-negative flex items-center justify-start gap-6  ${
-                                active ? ' bold' : ''
-                            } ${disabledOptions?.includes(index) ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100'}`}
-                            onClick={() => {
-                                !disabledOptions?.includes(index) && to()
-                            }}
-                        >
-                            <div style={activeStyle(active)}></div>
-                            <Text
-                                role={`option-${index}`}
-                                variant="h5"
-                                textMuted500
-                                style={{ color: `${disabledOptions?.includes(index) ? '#cdcdcd' : ''}` }}
-                                className="flex justify-between w-full"
+                    <div className={`${!expand ? 'hide-scroll' : ''} overflow-y-auto overflow-x-hidden flex-grow`}>
+                        {sideBarList?.map(({ title, active, to, icon, disabled }, index: number) => (
+                            <div
+                                key={index.toString()}
+                                className={`w-72 h-16 hover:text-red-500 transition-all duration-300 ease-out letter-spacing-negative flex items-center justify-start gap-1  ${
+                                    active ? 'bg-blue-50' : ''
+                                } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100'}`}
+                                onClick={() => {
+                                    !disabled && to()
+                                }}
                             >
-                                {title}
-                                {disabledOptions?.includes(index) && (
-                                    <span className="relative bottom-4 text-xs mr-10 flex items-center gap-1 italic" style={{ color: '#cdcdcd' }}>
-                                        <ClockIcon width={15} />
-                                        {disabledOptionsTag}
-                                    </span>
-                                )}
-                            </Text>
-                        </div>
-                    ))}
+                                <ToolTipHover
+                                    element={
+                                        <div role={`option-icon-${index}`} className="w-16 flex items-center">
+                                            <div style={activeStyle(active)}></div>
+                                            <div
+                                                className={`w-6 h-6 ml-3.5 flex items-center ${disabled ? 'text-gray-300' : 'text-gray-400'} ${
+                                                    active ? 'text-blue-700' : ''
+                                                }`}
+                                            >
+                                                {icon ? icon : <ExclamationCircleIcon />}
+                                            </div>
+                                        </div>
+                                    }
+                                    variantPopup="dark"
+                                    disabled={expand}
+                                    complementPosition={{ top: 55, left: 85 }}
+                                >
+                                    {!disabled ? (
+                                        title
+                                    ) : (
+                                        <span className="flex items-center gap-1">
+                                            <ClockIcon width={15} />
+                                            {disabledOptionsTag}
+                                        </span>
+                                    )}
+                                </ToolTipHover>
+                                <Text
+                                    role={`option-${index}`}
+                                    variant="span"
+                                    className={`${disabled ? 'text-gray-300' : 'text-gray-500'} w-56 whitespace-nowrap font-semibold`}
+                                >
+                                    {disabled && (
+                                        <span className="mr-10 flex items-center gap-1 italic" style={{ fontSize: '10px' }}>
+                                            <ClockIcon width={15} />
+                                            {disabledOptionsTag}
+                                        </span>
+                                    )}
+                                    {title}
+                                </Text>
+                            </div>
+                        ))}
+                    </div>
                     {props.dangerZone?.show && (
-                        <div
-                            style={{ marginTop: '53px' }}
-                            className="flex cursor-pointer group fixed bottom-0 border-t bg-gray-50 border-gray-300 w-96"
-                            onClick={() => {
-                                if (props.dangerZone?.callBack) {
-                                    props.dangerZone?.callBack()
-                                }
-                            }}
-                        >
-                            <ExclamationIcon width={17.86} className="text-gray-600 ml-8 group-hover:text-red-600 mt-10 mb-10" />
-                            <p className="text-gray-600 text-lg ml-4 mt-10 group-hover:text-red-600 mb-10">{props?.dangerZone?.text}</p>
+                        <div role="danger-zone" className="w-72 border-t bg-gray-50 border-gray-300 hover:bg-red-200 transition ease-in duration-300">
+                            <div
+                                className="w-full h-20 lg:h-32 flex items-center cursor-pointer group focus:bg-red-600 focus:text-white"
+                                onClick={() => {
+                                    if (props.dangerZone?.callBack) {
+                                        props.dangerZone?.callBack()
+                                    }
+                                }}
+                            >
+                                <ToolTipHover
+                                    variantPopup="dark"
+                                    disabled={expand}
+                                    complementPosition={{ top: 55, left: 85 }}
+                                    element={
+                                        <div className="h-20 w-16 flex items-center">
+                                            <ExclamationIcon width={25} className="text-red-600 ml-5" />
+                                        </div>
+                                    }
+                                >
+                                    {props?.dangerZone?.text}
+                                </ToolTipHover>
+                                <Text textMuted500 className="focus:text-white font-semibold">
+                                    {props?.dangerZone?.text}
+                                </Text>
+                            </div>
                         </div>
                     )}
                 </div>
-            )}
-        </div>
+            </div>
+        </>
     )
 }
 
