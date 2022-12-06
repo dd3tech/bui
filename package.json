@@ -1,6 +1,6 @@
 {
     "name": "dd360-ds",
-    "version": "1.8.2",
+    "version": "1.9.0",
     "description": "DD360 Components is a tailwind based React component library",
     "license": "MIT",
     "repository": {

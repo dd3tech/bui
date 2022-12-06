@@ -1,3 +1,16 @@
+# [1.9.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.8.2...v1.9.0) (2022-12-06)
+
+
+### Bug Fixes
+
+* **components:** 🐛 change name of property on tooltiphover ([8f268ee](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8f268ee0e197cf248895684f2b99fdcd23ff1c44))
+* **components:** 🐛 resolve comments ([9d13646](https://gitlab.com/dd3tech/dd360/dd360-components/commit/9d136460f32e78cf8be2fc142d5ccf6551f54ef3))
+
+
+### Features
+
+* **components:** 🎸 mobile sidebar ([e59de95](https://gitlab.com/dd3tech/dd360/dd360-components/commit/e59de9510cb309f8f3247e29bd6445d0df3076cb))
+
 ## [1.8.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.8.1...v1.8.2) (2022-12-06)
 
 
