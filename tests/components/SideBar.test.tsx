@@ -2,6 +2,7 @@ import React from 'react'
 import { it, describe, vi } from 'vitest'
 import { render, RenderResult, fireEvent } from '@testing-library/react'
 import SideBar from '../../src/components/SideBar/SideBar'
+import { HomeIcon } from '@heroicons/react/outline'
 
 const dangerZoneCallback = vi.fn()
 const push = vi.fn()
@@ -12,22 +13,24 @@ describe('Component UI: SideBar', () => {
         renderResult = render(
             <SideBar
                 sideBarName={'Name Test'}
+                sideBarSubTitle={'Subtitle text'}
                 sideBarList={[
                     {
                         title: 'Project information',
                         active: true,
-                        to: push
+                        to: push,
+                        icon: <HomeIcon id="home-icon" />
                     },
                     {
                         title: 'Monthly Flow',
                         active: false,
-                        to: () => '',
+                        to: push,
                         disabled: true
                     },
                     {
                         title: 'Documentation',
                         active: false,
-                        to: () => '',
+                        to: push,
                         disabled: true
                     }
                 ]}
@@ -79,5 +82,41 @@ describe('Component UI: SideBar', () => {
         vi.advanceTimersByTime(300)
 
         expect(push).toHaveBeenCalled()
+    })
+
+    it('SideBar, subtitle and title are showing correctly', () => {
+        expect(renderResult.getByText('Name Test')).toBeDefined()
+        expect(renderResult.getByText('Subtitle text')).toBeDefined()
+    })
+
+    it('SideBar, rotate expand button when it is clicked', () => {
+        const btnExpand = renderResult.getByRole('active-sidebar')
+
+        fireEvent.click(btnExpand)
+        vi.advanceTimersByTime(300)
+
+        expect((btnExpand.firstChild as HTMLElement).className.includes('rotate-0')).toBeTruthy()
+    })
+
+    it('SideBar, option is blue when is selected', () => {
+        const adornment = renderResult.getByRole('option-icon-0').firstChild as HTMLDivElement
+        const icon = renderResult.getByRole('option-icon-0').lastChild as HTMLDivElement
+        const option = renderResult.getByRole('option-icon-0').parentElement?.parentElement as HTMLDivElement
+
+        expect(adornment.style.backgroundColor).toBe('rgb(29, 78, 216)')
+        expect(icon.className.includes('text-blue-700')).toBeTruthy()
+        expect(option.className.includes('bg-blue-50')).toBeTruthy()
+    })
+
+    it('SideBar, is showing icon correctly when is passed by props', () => {
+        const icon = renderResult.getByRole('option-icon-0').lastChild as HTMLDivElement
+
+        expect(icon.querySelector('svg')?.id).toBe('home-icon')
+    })
+
+    it('SideBar, is showing default icon', () => {
+        const icon = renderResult.getByRole('option-icon-1').lastChild as HTMLDivElement
+
+        expect(icon.querySelector('svg')).toBeDefined()
     })
 })

@@ -7,7 +7,7 @@ import './sideBar.css'
 export interface SideBarProps {
     sideBarList?: Array<{ title: string; active: boolean; to: () => void; icon?: JSX.Element; disabled?: boolean }>
     sideBarName: string
-    sideBarSubTitle?: string
+    sideBarSubTitle?: string | React.ReactElement
     defaultExpand?: boolean
     dangerZone?: { show: boolean; text: string; callBack?: () => void }
     disabledOptionsTag?: string
@@ -78,7 +78,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                 <ChevronDoubleLeftIcon className="transition-all duration-200 ease-in-out" width={25} />
                             </div>
                         </div>
-                        <div className="flex flex-col justify-center gap-1 col-span-2 p-3 ml-20 w-full h-24">
+                        <div className="flex flex-col justify-center gap-1 col-span-2 p-3 ml-16 w-full h-24">
                             <Text variant="span" size="base" bold className="letter-spacing-negative capitalize whitespace-nowrap">
                                 {sideBarName}
                             </Text>
@@ -102,11 +102,11 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                             >
                                 <ToolTipHover
                                     element={
-                                        <div className="w-16 flex items-center">
+                                        <div role={`option-icon-${index}`} className="w-16 flex items-center">
                                             <div style={activeStyle(active)}></div>
                                             <div
-                                                className={`w-6 h-6 ml-3.5 flex items-center ${
-                                                    active ? 'text-blue-700' : `${disabled ? 'text-gray-300' : 'text-gray-400'}`
+                                                className={`w-6 h-6 ml-3.5 flex items-center ${disabled ? 'text-gray-300' : 'text-gray-400'} ${
+                                                    active ? 'text-blue-700' : ''
                                                 }`}
                                             >
                                                 {icon ? icon : <ExclamationCircleIcon />}

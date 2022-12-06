@@ -1,7 +1,6 @@
 .hide-scroll {
-    /* display: none; */
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 .hide-scroll::-webkit-scrollbar {
     display: none;
