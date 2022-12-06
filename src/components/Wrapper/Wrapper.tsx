@@ -1,3 +1,5 @@
+import React from 'react'
+
 export interface WrapperProps extends React.HTMLProps<HTMLDivElement> {
     children: React.ReactNode
     className?: string
@@ -7,7 +9,7 @@ export interface WrapperProps extends React.HTMLProps<HTMLDivElement> {
     hasViewportHeight?: boolean
 }
 
-export function Wrapper({
+function Wrapper({
     children,
     className,
     paddingVertical = 10,
@@ -27,3 +29,5 @@ export function Wrapper({
         </div>
     )
 }
+
+export default Wrapper

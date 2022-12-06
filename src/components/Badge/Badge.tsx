@@ -1,5 +1,4 @@
 import { ExclamationCircleIcon, TagIcon, CheckCircleIcon, ExclamationIcon, ClipboardCopyIcon, HomeIcon, ClockIcon } from '@heroicons/react/outline'
-import { span } from '../../stories/Text.stories'
 
 export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
     text?: string
@@ -42,7 +41,7 @@ const iconsSwitch = (iconType: string = 'HomeIcon', classNameIcon?: string) => {
     }
 }
 
-export const Badge = ({ text, className, variant, classNameIcon, icon, ...props }: IBadgeProps) => {
+const Badge = ({ text, className, variant, classNameIcon, icon, ...props }: IBadgeProps) => {
     const classNameByVariant = badgeVariants[variant] || ''
 
     return (
@@ -56,4 +55,7 @@ export const Badge = ({ text, className, variant, classNameIcon, icon, ...props 
         </div>
     )
 }
+
+Badge.displayName = 'Badge'
+
 export default Badge

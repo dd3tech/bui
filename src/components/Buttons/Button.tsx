@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Spinner } from '../Spinners'
+import Spinner from '../Spinners'
 
 export type renderLoading = {
     component?: React.ReactElement

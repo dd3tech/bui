@@ -6,7 +6,7 @@ export interface ImageIconProps extends React.ImgHTMLAttributes<HTMLImageElement
     classNameButton?: string
 }
 
-export const ImageIcon = ({ src, className, alt, button, buttonOnClick, classNameButton, ...props }: ImageIconProps) => {
+const ImageIcon = ({ src, className, alt, button, buttonOnClick, classNameButton, ...props }: ImageIconProps) => {
     if (button) {
         return (
             <button className={`${classNameButton ?? ''} flex text-sm rounded-full`} onClick={buttonOnClick}>
@@ -17,3 +17,7 @@ export const ImageIcon = ({ src, className, alt, button, buttonOnClick, classNam
 
     return <img className={`${className ?? ''} h-8 w-8 rounded-full`} src={src} alt={alt ?? src} {...props} />
 }
+
+ImageIcon.displayName = 'ImageIcon'
+
+export default ImageIcon

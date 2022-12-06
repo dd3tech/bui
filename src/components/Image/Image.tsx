@@ -1,4 +1,5 @@
 import React from 'react'
+
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     rounded?: 'sm' | 'lg' | 'md'
     circle?: boolean
@@ -6,7 +7,7 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     height?: number
 }
 
-export const Image = ({ src, alt, className, rounded, circle, width, height, ...props }: ImageProps) => {
+const Image = ({ src, alt, className, rounded, circle, width, height, ...props }: ImageProps) => {
     return (
         <img
             src={src}
@@ -17,3 +18,7 @@ export const Image = ({ src, alt, className, rounded, circle, width, height, ...
         />
     )
 }
+
+Image.displayName = 'Image'
+
+export default Image
