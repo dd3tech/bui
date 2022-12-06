@@ -10,11 +10,11 @@ interface IToolTipHover {
     variantPopup: 'blue' | 'warning' | 'gray' | 'dark'
     element: any
     align?: string
-    customPosition?: { top: number; left: number }
+    complementPosition?: { top: number; left: number }
     disabled?: boolean
 }
 
-const ToolTipHover = ({ children, variantPopup = 'blue', element, className, align, customPosition = { top: 0, left: 0 }, disabled }: IToolTipHover) => {
+const ToolTipHover = ({ children, variantPopup = 'blue', element, className, align, complementPosition = { top: 0, left: 0 }, disabled }: IToolTipHover) => {
     const [position, setPosition] = useState({ show: false, left: 0, top: 0 })
 
     const handleMouseOver = useCallback((e: React.MouseEvent) => {
@@ -47,7 +47,7 @@ const ToolTipHover = ({ children, variantPopup = 'blue', element, className, ali
                     <div
                         role="children-tooltip"
                         className={`${displayVariant[variantPopup]} ${className} whitespace-pre-line antialiased z-50 w-auto text-xs font-thin leading-4 border rounded-md absolute`}
-                        style={{ left: position.left + customPosition.left, top: position.top + customPosition.top }}
+                        style={{ left: position.left + complementPosition.left, top: position.top + complementPosition.top }}
                     >
                         {children}
                     </div>

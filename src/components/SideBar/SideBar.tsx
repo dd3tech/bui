@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { ChevronDoubleLeftIcon, ExclamationIcon, ClockIcon, ExclamationCircleIcon } from '@heroicons/react/outline'
 import Text from '../Typography'
-import { ToolTipHover } from '../ToolTipHover'
+import ToolTipHover from '../ToolTipHover'
 import './sideBar.css'
 
 export interface SideBarProps {
@@ -115,7 +115,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                     }
                                     variantPopup="dark"
                                     disabled={expand}
-                                    customPosition={{ top: 55, left: 85 }}
+                                    complementPosition={{ top: 55, left: 85 }}
                                 >
                                     {!disabled ? (
                                         title
@@ -155,7 +155,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                 <ToolTipHover
                                     variantPopup="dark"
                                     disabled={expand}
-                                    customPosition={{ top: 55, left: 85 }}
+                                    complementPosition={{ top: 55, left: 85 }}
                                     element={
                                         <div className="h-20 w-16 flex items-center">
                                             <ExclamationIcon width={25} className="text-red-600 ml-5" />
