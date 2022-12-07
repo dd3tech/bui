@@ -24,8 +24,7 @@ describe('Component UI: SideBar', () => {
                     {
                         title: 'Monthly Flow',
                         active: false,
-                        to: push,
-                        disabled: true
+                        to: push
                     },
                     {
                         title: 'Documentation',
@@ -35,7 +34,7 @@ describe('Component UI: SideBar', () => {
                     }
                 ]}
                 disabledOptionsTag="Próximamente"
-                dangerZone={{ show: true, text: 'Eliminar proyecto', callBack: dangerZoneCallback }}
+                dangerZone={{ show: true, text: 'Eliminar proyecto', active: false, callBack: dangerZoneCallback }}
             />
         )
         vi.useFakeTimers()
@@ -72,12 +71,12 @@ describe('Component UI: SideBar', () => {
         vi.advanceTimersByTime(300)
 
         expect(renderResult.getByRole('option-0').textContent).not.contain('Próximamente')
-        expect(renderResult.getByRole('option-1').textContent).contain('Próximamente')
+        expect(renderResult.getByRole('option-1').textContent).not.contain('Próximamente')
         expect(renderResult.getByRole('option-2').textContent).contain('Próximamente')
     })
 
     it('SideBar, when click an option redirect to new path', () => {
-        fireEvent.click(renderResult.getByRole('option-0'))
+        fireEvent.click(renderResult.getByRole('option-1'))
 
         vi.advanceTimersByTime(300)
 
