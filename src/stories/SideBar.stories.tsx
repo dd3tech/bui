@@ -39,5 +39,5 @@ SideBar.args = {
     sideBarName: 'Ejemplo SideBar',
     sideBarSubTitle: 'Crédito Pre-puente',
     disabledOptionsTag: 'Próximamente',
-    dangerZone: { show: true, text: 'Eliminar proyecto' }
+    dangerZone: { show: true, text: 'Eliminar proyecto', active: false }
 }

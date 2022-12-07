@@ -9,14 +9,17 @@ export interface SideBarProps {
     sideBarName: string
     sideBarSubTitle?: string | React.ReactElement
     defaultExpand?: boolean
-    dangerZone?: { show: boolean; text: string; callBack?: () => void }
+    dangerZone?: { show: boolean; text: string; active: boolean; callBack?: () => void }
     disabledOptionsTag?: string
+    top?: number
+    left?: number
 }
 
-const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, disabledOptionsTag, ...props }: SideBarProps) => {
+const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, disabledOptionsTag, top, left, ...props }: SideBarProps) => {
     const sidebarRef: React.MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null)
     const [expand, setExpand] = React.useState(false)
     const [timer, setTimer] = React.useState(false)
+    const [isOptionClicked, setIsOptionClicked] = React.useState(false)
 
     const activeStyle = React.useCallback((activeLink: boolean) => {
         return {
@@ -49,16 +52,16 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
     return (
         <>
             <div
-                className={`${timer ? 'fixed' : 'hidden'} ${expand ? 'fade-in' : 'fade-out'} top-0 left-0 lg:hidden w-full h-screen`}
-                style={{ backgroundColor: 'rgba(17, 24, 39, 0.75)' }}
+                className={`${timer ? 'fixed' : 'hidden'} ${expand ? 'fade-in' : 'fade-out'} lg:hidden w-full h-screen z-40`}
+                style={{ backgroundColor: 'rgba(17, 24, 39, 0.75)', top: top ?? 0, left: left ?? 0 }}
             />
             <div
                 ref={sidebarRef}
                 role="container-sidebar"
                 className={`shadow-lg border-t-0 box-border ${
                     expand ? 'w-72' : 'w-0 lg:w-16'
-                } overflow-hidden h-full bg-white fixed top-0 left-0 transition-all delay-75 duration-200 ease-in z-40`}
-                style={{ maxHeight: `calc(100vh - ${sidebarRef.current?.offsetTop}px)` }}
+                } overflow-hidden h-full bg-white fixed transition-all delay-75 duration-200 ease-in z-40`}
+                style={{ maxHeight: `calc(100vh - ${sidebarRef.current?.offsetTop}px)`, top: top ?? 0, left: left ?? 0 }}
             >
                 <div className="h-full flex flex-col transition-all delay-300 ease-out">
                     <div className="flex justify-between border-b items-center w-full h-16 lg:h-20">
@@ -79,7 +82,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                             </div>
                         </div>
                         <div className="flex flex-col justify-center gap-1 col-span-2 p-3 ml-16 w-full h-24">
-                            <Text variant="span" size="base" bold className="letter-spacing-negative capitalize whitespace-nowrap">
+                            <Text variant="span" size="base" bold className="block w-52 letter-spacing-negative capitalize">
                                 {sideBarName}
                             </Text>
                             {sideBarSubTitle && (
@@ -97,7 +100,9 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                     active ? 'bg-blue-50' : ''
                                 } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100'}`}
                                 onClick={() => {
-                                    !disabled && to()
+                                    if (disabled || active) return
+                                    setIsOptionClicked(true)
+                                    to()
                                 }}
                             >
                                 <ToolTipHover
@@ -114,7 +119,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                         </div>
                                     }
                                     variantPopup="dark"
-                                    disabled={expand}
+                                    disabled={expand || isOptionClicked}
                                     complementPosition={{ top: 55, left: 85 }}
                                 >
                                     {!disabled ? (
@@ -143,30 +148,34 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                         ))}
                     </div>
                     {props.dangerZone?.show && (
-                        <div role="danger-zone" className="w-72 border-t bg-gray-50 border-gray-300 hover:bg-red-200 transition ease-in duration-300">
+                        <div
+                            role="danger-zone"
+                            className={`w-72 border-t ${
+                                props.dangerZone?.active ? 'bg-red-600' : 'bg-gray-50'
+                            } border-gray-300 hover:bg-red-200 transition ease-in duration-300`}
+                        >
                             <div
-                                className="w-full h-20 lg:h-32 flex items-center cursor-pointer group focus:bg-red-600 focus:text-white"
+                                className="w-full h-20 lg:h-32 flex items-center cursor-pointer group"
                                 onClick={() => {
                                     if (props.dangerZone?.callBack) {
+                                        setIsOptionClicked(true)
                                         props.dangerZone?.callBack()
                                     }
                                 }}
                             >
                                 <ToolTipHover
                                     variantPopup="dark"
-                                    disabled={expand}
+                                    disabled={expand || isOptionClicked}
                                     complementPosition={{ top: 55, left: 85 }}
                                     element={
                                         <div className="h-20 w-16 flex items-center">
-                                            <ExclamationIcon width={25} className="text-red-600 ml-5" />
+                                            <ExclamationIcon width={25} className={`${props.dangerZone?.active ? 'text-white' : 'text-red-600'} ml-5`} />
                                         </div>
                                     }
                                 >
                                     {props?.dangerZone?.text}
                                 </ToolTipHover>
-                                <Text textMuted500 className="focus:text-white font-semibold">
-                                    {props?.dangerZone?.text}
-                                </Text>
+                                <Text className={`${props.dangerZone?.active ? 'text-white' : 'text-gray-500'} font-semibold`}>{props?.dangerZone?.text}</Text>
                             </div>
                         </div>
                     )}
