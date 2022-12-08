@@ -1,9 +1,10 @@
 import React from 'react'
 import { it, describe } from 'vitest'
 import { render, screen } from '@testing-library/react'
+
 import { Overflow, Text } from '../../src/components'
 
-describe('Component UI: Overflow', () => {
+describe('<Overflow/>', () => {
     it('should be render', () => {
         render(
             <Overflow role="overflow">

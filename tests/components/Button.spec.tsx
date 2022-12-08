@@ -1,21 +1,24 @@
 import React from 'react'
 import { it, describe } from 'vitest'
 import { render, screen } from '@testing-library/react'
+
 import { Button } from '../../src/components'
 
-describe('Component UI: Button', () => {
-    it('Button Primary is working', () => {
-        render(<Button>Click me!</Button>)
-        expect(screen.getByRole('button')).toBeDefined()
+describe('<Button/>', () => {
+    it('should be render', () => {
+        const { container } = render(<Button />)
+        expect(container.firstChild).toBeDefined()
     })
 
-    it('Button is disabled', () => {
-        render(<Button disabled>Click me!</Button>)
-        expect(screen.getByRole('button')).toBeDisabled()
-    })
+    describe('prop: disabled', () => {
+        it('should render button disabled', () => {
+            render(<Button disabled />)
+            expect(screen.getByRole('button')).toBeDisabled()
+        })
 
-    it('Button is not disabled', () => {
-        render(<Button variant="disabled">Click me!</Button>)
-        expect(screen.getByRole('button')).not.toBeDisabled()
+        it('should render button not disabled', () => {
+            render(<Button disabled={false} />)
+            expect(screen.getByRole('button')).not.toBeDisabled()
+        })
     })
 })
