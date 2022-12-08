@@ -1,76 +1,93 @@
-import React, { ReactNode } from 'react'
-import { Breadcrumbs } from '../../src/components'
+import React from 'react'
 import { it, describe, vi } from 'vitest'
-import { cleanup, render, RenderResult } from '@testing-library/react'
+import { cleanup, fireEvent, render } from '@testing-library/react'
 import { HomeIcon, ChartBarIcon } from '@heroicons/react/outline'
 
-const fnMocked = vi.fn()
+import { Breadcrumbs, BreadcrumbsProps } from '../../src/components'
 
-const breadCrumbsOptions: Array<{ name: string; icon?: () => ReactNode; to(): void }> = [
+const breadCrumbsOptions: BreadcrumbsProps['options'] = [
     {
         name: 'Home',
         icon: () => <HomeIcon data-icon="HomeIcon" width={15} />,
-        to: fnMocked
+        to: vi.fn()
     },
     {
         name: 'Projects',
         icon: () => <HomeIcon data-icon="HomeIcon" width={15} />,
-        to: fnMocked
+        to: vi.fn()
     }
 ]
 
-describe('Breadcumbs component works properly', () => {
-    let renderResult: RenderResult
-
-    beforeEach(() => {
-        renderResult = render(<Breadcrumbs options={breadCrumbsOptions} />)
-    })
-
+describe('<Breadcumbs/>', () => {
     afterEach(cleanup)
 
-    it('can render', () => {
-        expect(renderResult.container).toBeDefined()
+    it('should be render', () => {
+        const { container, getByText } = render(<Breadcrumbs options={breadCrumbsOptions} />)
+        expect(container).toBeDefined()
         breadCrumbsOptions.map((item) => {
-            expect(renderResult.getByText(item.name)).toBeDefined()
+            expect(getByText(item.name as string)).toBeDefined()
         })
     })
 
-    it('verifying the rendering of separators', () => {
+    it('should be render with seperators', () => {
+        const { container, rerender } = render(<Breadcrumbs options={breadCrumbsOptions} />)
+        const chevRightIcon = '[data-icon=ChevronRightIcon]'
+
         /* Checking that the number of elements with separators is equal to the number of options we are passing to it */
-        expect(renderResult.container.querySelectorAll('[data-icon=ChevronRightIcon]')).toHaveLength(1)
-        renderResult.rerender(
+        expect(container.querySelectorAll(chevRightIcon)).toHaveLength(1)
+
+        rerender(
             <Breadcrumbs
                 options={[
                     ...breadCrumbsOptions,
                     {
                         name: 'Sales',
                         icon: () => <ChartBarIcon data-icon="ChartBarIcon" />,
-                        to: fnMocked
+                        to: vi.fn()
                     }
                 ]}
             />
         )
-        expect(renderResult.container.querySelectorAll('[data-icon=ChevronRightIcon]')).toHaveLength(2)
+
+        expect(container.querySelectorAll(chevRightIcon)).toHaveLength(2)
     })
 
-    it('by passing a different separator', () => {
-        renderResult.rerender(<Breadcrumbs options={breadCrumbsOptions} separator="+" />)
-        expect(renderResult.getAllByText('+')).toHaveLength(1)
+    it('should be render with custom separator', () => {
+        const { getAllByText } = render(<Breadcrumbs options={breadCrumbsOptions} separator="+" />)
+        expect(getAllByText('+')).toHaveLength(1)
     })
 
-    it('verifying that it is rendered with icons', () => {
-        expect(renderResult.container.querySelectorAll('[data-icon]')).toHaveLength(3)
+    it('should be render with icons', () => {
+        const { container } = render(<Breadcrumbs options={breadCrumbsOptions} />)
+        expect(container.querySelectorAll('[data-icon]')).toHaveLength(3)
     })
 
     it('verifying that it is rendered without icons', () => {
-        expect(renderResult.container.querySelectorAll('[data-icon]')).toHaveLength(3)
         breadCrumbsOptions[1] = { ...breadCrumbsOptions[1], icon: undefined }
-        renderResult.rerender(<Breadcrumbs options={breadCrumbsOptions} />)
-        expect(renderResult.container.querySelectorAll('[data-icon]')).toHaveLength(2)
+        const { container } = render(<Breadcrumbs options={breadCrumbsOptions} />)
+
+        expect(container.querySelectorAll('[data-icon]')).toHaveLength(2)
     })
 
-    it('verifying that the last element of the options is active', () => {
-        expect(renderResult.getByText('Home').className).not.toContain('text-blue-700 font-bold')
-        expect(renderResult.getByText('Projects').className).toContain('text-blue-700 font-bold')
+    it('the last element of options should be render with active', () => {
+        const { getByText } = render(<Breadcrumbs options={breadCrumbsOptions} />)
+        expect(getByText('Home').className).not.toContain('text-blue-700 font-bold')
+        expect(getByText('Projects').className).toContain('text-blue-700 font-bold')
+    })
+
+    it('when we click on an option and the to function exists, it should be executed', () => {
+        breadCrumbsOptions[0].to = undefined
+        const { getByText, rerender } = render(<Breadcrumbs options={breadCrumbsOptions} />)
+
+        fireEvent.click(getByText('Home'))
+
+        expect(breadCrumbsOptions[0].to).toBeUndefined()
+
+        breadCrumbsOptions[0].to = vi.fn()
+        rerender(<Breadcrumbs options={breadCrumbsOptions} />)
+
+        fireEvent.click(getByText('Home'))
+
+        expect(breadCrumbsOptions[0].to).toHaveBeenCalledTimes(1)
     })
 })
