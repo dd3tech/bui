@@ -1,3 +1,10 @@
+## [1.9.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.0...v1.9.1) (2022-12-07)
+
+
+### Bug Fixes
+
+* **components:** 🐛 dynamic position and style bugs ([b31e56d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/b31e56dcad3a7ed3a458f99b3eeb2cdba79c6f8c))
+
 # [1.9.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.8.2...v1.9.0) (2022-12-06)
 
 
