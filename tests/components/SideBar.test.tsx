@@ -8,37 +8,36 @@ const dangerZoneCallback = vi.fn()
 const push = vi.fn()
 const flushSync = vi.fn()
 
+const props = {
+    sideBarName: 'Name Test',
+    sideBarSubTitle: 'Subtitle text',
+    sideBarList: [
+        {
+            title: 'Project information',
+            active: true,
+            to: push,
+            icon: <HomeIcon id="home-icon" />
+        },
+        {
+            title: 'Monthly Flow',
+            active: false,
+            to: push
+        },
+        {
+            title: 'Documentation',
+            active: false,
+            to: push,
+            disabled: true
+        }
+    ],
+    disabledOptionsTag: 'Próximamente',
+    dangerZone: { show: true, text: 'Eliminar proyecto', active: true, callBack: dangerZoneCallback }
+}
+
 describe('Component UI: SideBar', () => {
     let renderResult: RenderResult
     beforeEach(() => {
-        renderResult = render(
-            <SideBar
-                sideBarName={'Name Test'}
-                sideBarSubTitle={'Subtitle text'}
-                sideBarList={[
-                    {
-                        title: 'Project information',
-                        active: true,
-                        to: push,
-                        icon: <HomeIcon id="home-icon" />
-                    },
-                    {
-                        title: 'Monthly Flow',
-                        active: false,
-                        to: push
-                    },
-                    {
-                        title: 'Documentation',
-                        active: false,
-                        to: push,
-                        disabled: true
-                    }
-                ]}
-                flushSync={flushSync}
-                disabledOptionsTag="Próximamente"
-                dangerZone={{ show: true, text: 'Eliminar proyecto', active: true, callBack: dangerZoneCallback }}
-            />
-        )
+        renderResult = render(<SideBar {...props} />)
         vi.useFakeTimers()
     })
 
@@ -82,6 +81,17 @@ describe('Component UI: SideBar', () => {
 
         vi.advanceTimersByTime(300)
 
+        expect(flushSync).not.toHaveBeenCalled()
+        expect(push).toHaveBeenCalled()
+    })
+
+    it('SideBar, execute flushSync function when is passed by props and an option was clicked', () => {
+        renderResult.rerender(<SideBar {...props} flushSync={flushSync} />)
+
+        fireEvent.click(renderResult.getByRole('option-1'))
+        vi.advanceTimersByTime(300)
+
+        expect(flushSync).toHaveBeenCalled()
         expect(push).toHaveBeenCalled()
     })
 

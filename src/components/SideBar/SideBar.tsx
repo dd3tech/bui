@@ -13,7 +13,7 @@ export interface SideBarProps {
     disabledOptionsTag?: string
     top?: number
     left?: number
-    flushSync: <R>(fn: () => R) => R
+    flushSync?: <R>(fn: () => R) => R
 }
 
 const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, disabledOptionsTag, top, left, flushSync, ...props }: SideBarProps) => {
@@ -118,9 +118,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                 } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100'}`}
                                 onClick={() => {
                                     if (disabled || active) return
-                                    flushSync(() => {
-                                        setIsOptionClicked(true)
-                                    })
+                                    flushSync ? flushSync(() => setIsOptionClicked(true)) : setIsOptionClicked(true)
                                     to()
                                 }}
                             >
@@ -177,9 +175,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                 className="w-full h-20 lg:h-32 flex items-center cursor-pointer group"
                                 onClick={() => {
                                     if (props.dangerZone?.callBack) {
-                                        flushSync(() => {
-                                            setIsOptionClicked(true)
-                                        })
+                                        flushSync ? flushSync(() => setIsOptionClicked(true)) : setIsOptionClicked(true)
                                         props.dangerZone?.callBack()
                                     }
                                 }}
