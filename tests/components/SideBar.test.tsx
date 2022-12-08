@@ -6,6 +6,7 @@ import { HomeIcon } from '@heroicons/react/outline'
 
 const dangerZoneCallback = vi.fn()
 const push = vi.fn()
+const flushSync = vi.fn()
 
 describe('Component UI: SideBar', () => {
     let renderResult: RenderResult
@@ -33,8 +34,9 @@ describe('Component UI: SideBar', () => {
                         disabled: true
                     }
                 ]}
+                flushSync={flushSync}
                 disabledOptionsTag="Próximamente"
-                dangerZone={{ show: true, text: 'Eliminar proyecto', active: false, callBack: dangerZoneCallback }}
+                dangerZone={{ show: true, text: 'Eliminar proyecto', active: true, callBack: dangerZoneCallback }}
             />
         )
         vi.useFakeTimers()

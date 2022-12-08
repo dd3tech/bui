@@ -13,10 +13,12 @@ export interface SideBarProps {
     disabledOptionsTag?: string
     top?: number
     left?: number
+    flushSync: <R>(fn: () => R) => R
 }
 
-const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, disabledOptionsTag, top, left, ...props }: SideBarProps) => {
+const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, disabledOptionsTag, top, left, flushSync, ...props }: SideBarProps) => {
     const sidebarRef: React.MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null)
+    const isScrolling = useRef<number>()
     const [expand, setExpand] = React.useState(false)
     const [timer, setTimer] = React.useState(false)
     const [isOptionClicked, setIsOptionClicked] = React.useState(false)
@@ -48,6 +50,21 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
             defaultExpand = false
         }
     }, [defaultExpand])
+
+    const handleScroll = () => {
+        if (isOptionClicked) return
+        setIsOptionClicked(true)
+        window.clearTimeout(isScrolling.current)
+        isScrolling.current = window.setTimeout(() => {
+            setIsOptionClicked(false)
+        }, 20)
+    }
+    React.useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
     return (
         <>
@@ -101,7 +118,9 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                 } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100'}`}
                                 onClick={() => {
                                     if (disabled || active) return
-                                    setIsOptionClicked(true)
+                                    flushSync(() => {
+                                        setIsOptionClicked(true)
+                                    })
                                     to()
                                 }}
                             >
@@ -158,7 +177,9 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                 className="w-full h-20 lg:h-32 flex items-center cursor-pointer group"
                                 onClick={() => {
                                     if (props.dangerZone?.callBack) {
-                                        setIsOptionClicked(true)
+                                        flushSync(() => {
+                                            setIsOptionClicked(true)
+                                        })
                                         props.dangerZone?.callBack()
                                     }
                                 }}
@@ -166,7 +187,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                 <ToolTipHover
                                     variantPopup="dark"
                                     disabled={expand || isOptionClicked}
-                                    complementPosition={{ top: 55, left: 85 }}
+                                    complementPosition={{ top: 65, left: 85 }}
                                     element={
                                         <div className="h-20 w-16 flex items-center">
                                             <ExclamationIcon width={25} className={`${props.dangerZone?.active ? 'text-white' : 'text-red-600'} ml-5`} />
