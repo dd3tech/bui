@@ -121,5 +121,10 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
 )
 
 Button.displayName = 'Button'
+Button.defaultProps = {
+    children: 'Click Me!',
+    variant: 'primary',
+    size: 'medium'
+}
 
 export default Button
