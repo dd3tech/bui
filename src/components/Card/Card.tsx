@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 
 export interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode
-    rounded?: 'sm' | 'md' | 'full' | 'lg' | 'xl' | '2x' | '3x' | '2xl' | '3xl' | '4xl' | '5xl'
+    rounded?: 'sm' | 'md' | 'full' | 'lg' | 'xl' | '2x' | '3x' | '2xl' | '3xl' | '4xl' | '5xl' | 'none'
     padding?: number
     paddingY?: number
     paddingX?: number
@@ -11,7 +11,7 @@ export interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
     width?: number | string
 }
 
-const Card = ({ children, rounded = 'lg', height = 'fit-content', width, padding = 4, paddingX, paddingY, className, style, ...otherProps }: ICardProps) => {
+const Card = ({ children, rounded, height, width, padding, paddingX, paddingY, className, style, ...otherProps }: ICardProps) => {
     const getPadding = useCallback(() => {
         if (paddingX && paddingY) {
             return `px-${paddingX} py-${paddingY}`
@@ -25,10 +25,7 @@ const Card = ({ children, rounded = 'lg', height = 'fit-content', width, padding
             return `py-${paddingY}`
         }
 
-        if (padding !== undefined) {
-            return `p-${padding}`
-        }
-        return 'p-2'
+        return `p-${padding}`
     }, [padding, paddingY, paddingX])
 
     return (
@@ -44,5 +41,11 @@ const Card = ({ children, rounded = 'lg', height = 'fit-content', width, padding
 }
 
 Card.displayName = 'Card'
+Card.defaultProps = {
+    rounded: 'none',
+    padding: 4,
+    height: 'fit-content',
+    className: ''
+}
 
 export default Card
