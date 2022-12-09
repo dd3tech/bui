@@ -39,5 +39,6 @@ SideBar.args = {
     sideBarName: 'Ejemplo SideBar',
     sideBarSubTitle: 'Crédito Pre-puente',
     disabledOptionsTag: 'Próximamente',
-    dangerZone: { show: true, text: 'Eliminar proyecto', active: false }
+    dangerZone: { show: true, text: 'Eliminar proyecto', active: false },
+    flushSync: () => console.log('Hola 5')
 }
