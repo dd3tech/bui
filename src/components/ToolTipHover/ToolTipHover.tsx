@@ -1,6 +1,6 @@
 // TODO: Create storie and test for this component
 
-import React, { ReactNode, useState, useCallback } from 'react'
+import React, { ReactNode, useState, useCallback, useEffect } from 'react'
 import { getLeftAndTopScreen } from 'dd360-utils'
 import { Portal } from '../../common/Portal'
 
@@ -34,6 +34,10 @@ const ToolTipHover = ({ children, variantPopup = 'blue', element, className, ali
         gray: 'text-center -ml-2 -mt-14 bg-gray-500 py-2 px-4 text-white',
         dark: 'text-center -ml-11 -mt-10 bg-gray-900 opacity-80 py-2 px-4 text-white'
     }
+    useEffect(() => {
+        if (disabled) return
+        setPosition({ ...position, show: false })
+    }, [disabled])
 
     return (
         <>

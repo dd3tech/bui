@@ -1,3 +1,11 @@
+## [1.9.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.1...v1.9.2) (2022-12-09)
+
+
+### Bug Fixes
+
+* **components:** 🐛 add flushsync by props and fix visual bug on tooltip ([bf8e22d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/bf8e22db02684b3ab317ff42b433e85f8d75ec79))
+* **components:** 🐛 change flushSync property to optional property ([6644b57](https://gitlab.com/dd3tech/dd360/dd360-components/commit/6644b57e079d247639cd8e60620627f38f4b6e55))
+
 ## [1.9.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.0...v1.9.1) (2022-12-07)
 
 
