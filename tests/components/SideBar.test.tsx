@@ -31,7 +31,7 @@ const props = {
         }
     ],
     disabledOptionsTag: 'Próximamente',
-    dangerZone: { show: true, text: 'Eliminar proyecto', active: true, callBack: dangerZoneCallback }
+    dangerZone: { show: true, text: 'Eliminar proyecto', active: false, callBack: dangerZoneCallback }
 }
 
 describe('Component UI: SideBar', () => {
@@ -76,6 +76,16 @@ describe('Component UI: SideBar', () => {
         expect(renderResult.getByRole('option-2').textContent).contain('Próximamente')
     })
 
+    it('SideBar, do not redirect to new path when option is disabled or active', () => {
+        const option1 = renderResult.getByRole('option-icon-0') as HTMLDivElement
+        const option2 = renderResult.getByRole('option-icon-2') as HTMLDivElement
+
+        fireEvent.click(option1)
+        fireEvent.click(option2)
+
+        expect(push).not.toHaveBeenCalled()
+    })
+
     it('SideBar, when click an option redirect to new path', () => {
         fireEvent.click(renderResult.getByRole('option-1'))
 
@@ -87,12 +97,14 @@ describe('Component UI: SideBar', () => {
 
     it('SideBar, execute flushSync function when is passed by props and an option was clicked', () => {
         renderResult.rerender(<SideBar {...props} flushSync={flushSync} />)
+        const dangerBtn = renderResult.getByRole('danger-zone').firstChild as HTMLDivElement
+        const option = renderResult.getByRole('option-1') as HTMLDivElement
 
-        fireEvent.click(renderResult.getByRole('option-1'))
-        vi.advanceTimersByTime(300)
+        fireEvent.click(option)
+        fireEvent.click(dangerBtn)
 
-        expect(flushSync).toHaveBeenCalled()
-        expect(push).toHaveBeenCalled()
+        expect(flushSync).toHaveBeenCalledTimes(2)
+        expect(push).toHaveBeenCalledTimes(2)
     })
 
     it('SideBar, subtitle and title are showing correctly', () => {
@@ -129,5 +141,43 @@ describe('Component UI: SideBar', () => {
         const icon = renderResult.getByRole('option-icon-1').lastChild as HTMLDivElement
 
         expect(icon.querySelector('svg')).toBeDefined()
+    })
+
+    it('SideBar, expand sidebar by default is working', () => {
+        renderResult.rerender(<SideBar {...props} defaultExpand={true} />)
+        const sidebar = renderResult.getByRole('container-sidebar') as HTMLDivElement
+
+        vi.advanceTimersByTime(300)
+
+        expect(sidebar.className.includes('w-72')).toBeTruthy()
+    })
+
+    it('SideBar, hide tooltip when scroll page', () => {
+        const icon = renderResult.getByRole('option-icon-1') as HTMLDivElement
+
+        fireEvent.mouseEnter(icon)
+        fireEvent.scroll(window, { target: { scrollY: 10 } })
+
+        expect(renderResult.getAllByText('Monthly Flow')[1]).not.toBeDefined()
+    })
+
+    it('SideBar, is able to display tooltip after scrolling', () => {
+        const option = renderResult.getByRole('option-icon-1') as HTMLDivElement
+
+        fireEvent.mouseEnter(option)
+        fireEvent.scroll(window, { target: { scrollY: 10 } })
+        vi.advanceTimersByTime(20)
+        fireEvent.mouseEnter(option)
+
+        expect(renderResult.getAllByText('Monthly Flow')[1]).toBeDefined()
+    })
+
+    it('SideBar, display correct styles when danger zone is active', () => {
+        renderResult.rerender(<SideBar {...props} dangerZone={{ ...props.dangerZone, active: true }} />)
+        const dangerZone = renderResult.getByRole('danger-zone') as HTMLDivElement
+        const dangerZoneText = renderResult.getByRole('danger-zone').firstChild?.lastChild as HTMLDivElement
+
+        expect(dangerZone.className.includes('bg-red-600')).toBeTruthy()
+        expect(dangerZoneText.className.includes('text-white')).toBeTruthy()
     })
 })

@@ -59,6 +59,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
             setIsOptionClicked(false)
         }, 20)
     }
+
     React.useEffect(() => {
         window.addEventListener('scroll', handleScroll)
         return () => {
@@ -186,7 +187,11 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                     complementPosition={{ top: 65, left: 85 }}
                                     element={
                                         <div className="h-20 w-16 flex items-center">
-                                            <ExclamationIcon width={25} className={`${props.dangerZone?.active ? 'text-white' : 'text-red-600'} ml-5`} />
+                                            <ExclamationIcon
+                                                role="danger-zone-icon"
+                                                width={25}
+                                                className={`${props.dangerZone?.active ? 'text-white' : 'text-red-600'} ml-5`}
+                                            />
                                         </div>
                                     }
                                 >
