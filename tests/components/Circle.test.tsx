@@ -2,8 +2,7 @@ import React from 'react'
 import { describe, expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 
-import Circle from '../../src/components/Circle'
-import Text from '../../src/components/Typography'
+import { Circle, Text } from '../../src/components'
 
 describe('<Circle/>', () => {
     it('should be render', () => {

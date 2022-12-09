@@ -2,7 +2,7 @@ import React from 'react'
 import { it, describe } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
 
-import Kbd from '../../src/components/Kbd'
+import { Kbd } from '../../src/components'
 
 const kbds = ['Ctrl', 'Shift', 'R']
 

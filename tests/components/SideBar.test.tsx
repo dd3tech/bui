@@ -1,7 +1,8 @@
 import React from 'react'
 import { it, describe, vi } from 'vitest'
 import { render, RenderResult, fireEvent } from '@testing-library/react'
-import SideBar from '../../src/components/SideBar/SideBar'
+
+import { SideBar } from '../../src/components'
 import { HomeIcon } from '@heroicons/react/outline'
 
 const dangerZoneCallback = vi.fn()

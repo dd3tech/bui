@@ -1,7 +1,8 @@
 import React from 'react'
 import { it, describe, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import Switch from '../../src/components/Switch'
+
+import { Switch } from '../../src/components'
 
 describe('Component Switch', () => {
     const setToggle = vi.fn()
