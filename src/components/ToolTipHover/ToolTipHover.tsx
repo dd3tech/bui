@@ -12,9 +12,19 @@ interface IToolTipHover {
     align?: string
     complementPosition?: { top: number; left: number }
     disabled?: boolean
+    styleElement?: any
 }
 
-const ToolTipHover = ({ children, variantPopup = 'blue', element, className, align, complementPosition = { top: 0, left: 0 }, disabled }: IToolTipHover) => {
+const ToolTipHover = ({
+    children,
+    variantPopup = 'blue',
+    element,
+    className,
+    align,
+    complementPosition = { top: 0, left: 0 },
+    disabled,
+    styleElement
+}: IToolTipHover) => {
     const [position, setPosition] = useState({ show: false, left: 0, top: 0 })
 
     const handleMouseOver = useCallback((e: React.MouseEvent) => {
@@ -42,7 +52,13 @@ const ToolTipHover = ({ children, variantPopup = 'blue', element, className, ali
     return (
         <>
             {/* Element Hover */}
-            <div role="element-tooltip" className="flex item-center justify-center" onMouseEnter={handleMouseOver} onMouseLeave={handleMouseLeave}>
+            <div
+                role="element-tooltip"
+                className="flex item-center justify-center"
+                style={styleElement}
+                onMouseEnter={handleMouseOver}
+                onMouseLeave={handleMouseLeave}
+            >
                 {element}
             </div>
             {/* Popup */}
