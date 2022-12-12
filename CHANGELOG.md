@@ -1,3 +1,10 @@
+## [1.9.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.2...v1.9.3) (2022-12-12)
+
+
+### Bug Fixes
+
+* **components:** 🐛 replace disable option text on hover ([c795990](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c7959901ebf7c127bfe8ca8241bb0590b355e55e))
+
 ## [1.9.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.1...v1.9.2) (2022-12-09)
 
 

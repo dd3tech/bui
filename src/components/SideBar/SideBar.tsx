@@ -145,7 +145,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                     ) : (
                                         <span className="flex items-center gap-1">
                                             <ClockIcon width={15} />
-                                            {disabledOptionsTag}
+                                            {title}
                                         </span>
                                     )}
                                 </ToolTipHover>
