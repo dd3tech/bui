@@ -13,10 +13,10 @@ const Row = forwardRef<HTMLDivElement, RowProps>((rowProps: RowProps, ref) => {
     const { children, className, cols, md, gap, sm, ...props } = rowProps
 
     const finalClassName = React.useCallback(() => {
-        const defCols = `${cols ? `grid-cols-${cols}` : ''} `
-        const smCols = `${sm ? `sm:grid-cols-${sm}` : ''}`
-        const mdCols = `${md ? `md:grid-cols-${md}` : ''}`
-        return `grid ${defCols} ${smCols} ${mdCols} ${gap ? `gap-${gap}` : ''} ${className ?? ''}`
+        const defCols = `grid-cols-${cols}`
+        const smCols = `sm:grid-cols-${sm}`
+        const mdCols = `md:grid-cols-${md}`
+        return `grid ${defCols} ${smCols} ${mdCols} gap-${gap} ${className}`
     }, [className, cols, md, gap, sm])
 
     return (
@@ -25,5 +25,14 @@ const Row = forwardRef<HTMLDivElement, RowProps>((rowProps: RowProps, ref) => {
         </div>
     )
 })
+
+Row.displayName = 'Row'
+Row.defaultProps = {
+    cols: 4,
+    md: 2,
+    sm: 1,
+    gap: 4,
+    className: ''
+}
 
 export default Row
