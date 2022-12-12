@@ -2,7 +2,7 @@ import React from 'react'
 
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     to?: string
-    LinkComponent?: React.ComponentType<any>
+    LinkComponent?: any
 }
 
 export function Anchor({ children, to, className, LinkComponent, ...props }: LinkProps) {
