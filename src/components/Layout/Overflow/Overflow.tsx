@@ -8,7 +8,7 @@ const OverFlow = forwardRef<HTMLDivElement, OverFlowProps>((overflowProps: OverF
     const { children, className, overflow, ...props } = overflowProps
 
     return (
-        <div ref={ref} className={`overflow-${overflow ?? 'auto'} ${className ?? ''}`} {...props}>
+        <div ref={ref} className={`overflow-${overflow} ${className ?? ''}`} {...props}>
             {children}
         </div>
     )
@@ -16,7 +16,7 @@ const OverFlow = forwardRef<HTMLDivElement, OverFlowProps>((overflowProps: OverF
 
 OverFlow.displayName = 'OverFlow'
 OverFlow.defaultProps = {
-    overflow: 'hidden'
+    overflow: 'auto'
 }
 
 export default OverFlow
