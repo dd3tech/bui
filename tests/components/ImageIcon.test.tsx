@@ -1,6 +1,6 @@
 import React from 'react'
 import { it, describe, vi } from 'vitest'
-import { fireEvent, prettyDOM, render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 
 import { ImageIcon, ImageIconProps } from '../../src/components'
 
