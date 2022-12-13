@@ -1,3 +1,18 @@
+## [1.9.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.3...v1.9.4) (2022-12-13)
+
+
+### Bug Fixes
+
+* add defaultProps and displayName ([4de7245](https://gitlab.com/dd3tech/dd360/dd360-components/commit/4de72455e236f0f3801435efd1a9ec7935b1165f))
+* **components:** 🐛 add default separator and remove unnecesary fragment ([8857dc9](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8857dc92d8e803d80f177d2b73b008776f8711c7))
+* **components:** 🐛 add more variants of shadow and rounded props ([ce8485d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/ce8485d7d224d3aac9309c5e69c6d2f8f6dfea59))
+* **components:** 🐛 add types of icon prop ([1afd4fb](https://gitlab.com/dd3tech/dd360/dd360-components/commit/1afd4fb1275dc5e7d727802918c1d098c65f0e3a))
+* **components:** 🐛 change conditional rendering class ([4e803b6](https://gitlab.com/dd3tech/dd360/dd360-components/commit/4e803b607fa1346e0048c3ba7b8fa6ae11a96fcd))
+* **components:** 🐛 change conditional rendering to improve visibility ([eb0dc50](https://gitlab.com/dd3tech/dd360/dd360-components/commit/eb0dc50b813bf5af0954f3505c393daaa1d7f8aa))
+* **components:** 🐛 passing missing props to anchor element ([2ebb700](https://gitlab.com/dd3tech/dd360/dd360-components/commit/2ebb700749aac2b9dc1660c509ef08be32d2c8ea))
+* **components:** 🐛 remove duplicate declarations ([21ea9f9](https://gitlab.com/dd3tech/dd360/dd360-components/commit/21ea9f97631b6f505547256c2e9e29b193a482d7))
+* LinkComponent type ([ff80052](https://gitlab.com/dd3tech/dd360/dd360-components/commit/ff80052baca54759e787be8e038d11b78c6ad5a1))
+
 ## [1.9.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.2...v1.9.3) (2022-12-12)
 
 
