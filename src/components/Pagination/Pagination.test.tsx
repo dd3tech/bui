@@ -1,12 +1,12 @@
 import { it, describe, vi } from 'vitest'
 import { cleanup, fireEvent, render } from '@testing-library/react'
 
-import Pagination from './Pagination'
+import Pagination, { PaginationProps } from './Pagination'
 
-const defaultProps = {
+const defaultProps: PaginationProps = {
     totalPages: 10,
     currentPage: 1,
-    sliceSize: '5' as any,
+    sliceSize: '5',
     firstText: 'Show',
     secondText: 'of 30 projects',
     goToPreviousPage: vi.fn(),
@@ -28,12 +28,12 @@ describe('<Pagination/>', () => {
 
     it('should render with prop firstText', () => {
         const { getByText } = render(<Pagination {...defaultProps} />)
-        expect(getByText(defaultProps.firstText)).toBeDefined()
+        expect(getByText(defaultProps.firstText as string)).toBeDefined()
     })
 
     it('should render with a secondText', () => {
         const { getByText } = render(<Pagination {...defaultProps} />)
-        expect(getByText(defaultProps.secondText)).toBeDefined()
+        expect(getByText(defaultProps.secondText as string)).toBeDefined()
     })
 
     it('should render with all pages', () => {
