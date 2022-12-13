@@ -49,7 +49,7 @@ const Badge = ({ text, className, variant, classNameIcon, icon, ...props }: IBad
             id={icon}
             role="container-badge"
             className={`${className ?? ''} ${classNameByVariant} rounded-full flex items-center gap-1 text-xs ${
-                !icon || (icon === 'none' && 'justify-center')
+                !icon || icon === 'none' ? 'justify-center' : ''
             }`}
             {...props}
         >
