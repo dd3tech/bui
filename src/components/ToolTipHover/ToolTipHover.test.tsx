@@ -1,9 +1,9 @@
-import { cleanup, fireEvent, render, RenderResult } from '@testing-library/react'
 import { it, describe, expect } from 'vitest'
-import React from 'react'
-import ToolTipHover from '../../src/components/ToolTipHover/ToolTipHover'
+import { cleanup, fireEvent, render, RenderResult } from '@testing-library/react'
 
-describe('Component ToolTipHover', () => {
+import ToolTipHover from './ToolTipHover'
+
+describe('<ToolTipHover/>', () => {
     let renderResult: RenderResult
 
     beforeEach(() => {

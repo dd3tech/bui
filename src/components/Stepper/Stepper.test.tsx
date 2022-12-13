@@ -1,7 +1,7 @@
-import React from 'react'
 import { describe, it } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
-import { Stepper } from '../../src/components'
+
+import Stepper from './Stepper'
 
 const defaultProps = {
     phase: 1,
@@ -12,7 +12,7 @@ const defaultProps = {
     textColor: '#1d4ed8'
 }
 
-describe('Stepper component', () => {
+describe('<Stepper/>', () => {
     let renderResult: RenderResult
 
     beforeEach(() => {

@@ -28,9 +28,8 @@ const Switch: FC<ISwitchProps> = forwardRef<HTMLDivElement, ISwitchProps>(({ tog
                 >
                     <div
                         className={
-                            ` ${toggleStyle} ${toggle ? 'bg-blue-700' : 'bg-white'} md:w-6 md:h-6 h-5 w-5 rounded-full shadow-md transform ${
-                                toggle ? '' : 'bg-white'
-                            }` + (toggle ? toggleClass : null)
+                            ` ${toggleStyle} ${toggle ? 'bg-blue-700' : 'bg-white'} md:w-6 md:h-6 h-5 w-5 rounded-full shadow-md transform ` +
+                            (toggle ? toggleClass : null)
                         }
                     ></div>
                 </div>

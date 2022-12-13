@@ -1,7 +1,13 @@
 import { ReactNode } from 'react'
 import Button from './Button'
 
-const ActiveButton = ({ children, active, to, ...props }: { children: ReactNode; active: boolean; to?: () => void }) => {
+export interface ActiveButtonProps {
+    children: ReactNode
+    active: boolean
+    to?: () => void
+}
+
+const ActiveButton = ({ children, active, to, ...props }: ActiveButtonProps) => {
     return (
         <Button
             variant={active ? 'outlineBlue' : 'outline'}

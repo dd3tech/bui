@@ -5,7 +5,7 @@ import Text from '../Typography'
 export interface PaginationProps {
     totalPages: number
     currentPage: number
-    sliceSize?: '5' | '10' | '15' | '20' | '25' | '30'
+    sliceSize?: '5' | '10' | '15' | '20' | '25' | '30' | '35' | '40' | '45' | '50'
     firstText?: string
     secondText?: string
     goToPreviousPage: () => void
@@ -17,11 +17,10 @@ export interface PaginationProps {
 const buttonStyle = 'w-full h-full flex justify-center items-center rounded-full hover:bg-gray-200'
 
 const Pagination = ({ totalPages, currentPage, sliceSize, firstText, secondText, goToPreviousPage, goToNextPage, goToPage, setSize }: PaginationProps) => {
-    const pages = new Array(totalPages).fill(0).map((item, index) => index + 1)
-    const [selectSliceSize, setSelectSliceSize] = useState(sliceSize ?? '5')
+    const pages = new Array(totalPages).fill(0).map((_, index) => index + 1)
+    const [selectSliceSize, setSelectSliceSize] = useState(sliceSize)
 
     const getPages = () => {
-        if (totalPages <= 5) return pages
         if (totalPages > 5 && currentPage <= 5) return pages.slice(0, 5)
         if (totalPages > 5 && currentPage + 5 > totalPages) return pages.slice(totalPages - 5, totalPages)
         if (totalPages > 5 && currentPage > 5) return pages.slice(currentPage - 3, currentPage + 2)
@@ -57,6 +56,10 @@ const Pagination = ({ totalPages, currentPage, sliceSize, firstText, secondText,
                     <option value="20">20</option>
                     <option value="25">25</option>
                     <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50">50</option>
                 </select>
                 {secondText && <Text size="base">{secondText}</Text>}
             </div>
@@ -82,7 +85,7 @@ const Pagination = ({ totalPages, currentPage, sliceSize, firstText, secondText,
                         </>
                     )}
                     {getPages().map((page) => (
-                        <li key={`${page}-page`} className="w-6 h-6">
+                        <li key={`${page}-page`} className="w-6 h-6" role="list-page">
                             <button
                                 className={`${buttonStyle} ${page === currentPage && 'bg-blue-700 text-white hover:bg-blue-700'}`}
                                 onClick={() => goToPage(page)}
@@ -117,5 +120,8 @@ const Pagination = ({ totalPages, currentPage, sliceSize, firstText, secondText,
 }
 
 Pagination.displayName = 'Pagination'
+Pagination.defaultProps = {
+    sliceSize: '5'
+} as PaginationProps
 
 export default Pagination

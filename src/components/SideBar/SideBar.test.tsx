@@ -1,7 +1,7 @@
-import React from 'react'
 import { it, describe, vi } from 'vitest'
 import { render, RenderResult, fireEvent } from '@testing-library/react'
-import SideBar from '../../src/components/SideBar/SideBar'
+
+import SideBar from './SideBar'
 import { HomeIcon } from '@heroicons/react/outline'
 
 const dangerZoneCallback = vi.fn()
@@ -34,7 +34,7 @@ const props = {
     dangerZone: { show: true, text: 'Eliminar proyecto', active: false, callBack: dangerZoneCallback }
 }
 
-describe('Component UI: SideBar', () => {
+describe('<SideBar/>', () => {
     let renderResult: RenderResult
     beforeEach(() => {
         renderResult = render(<SideBar {...props} />)

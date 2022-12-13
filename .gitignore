@@ -7,3 +7,4 @@ dist-ssr
 .env
 *.local
 bundle-analysis.html
+coverage

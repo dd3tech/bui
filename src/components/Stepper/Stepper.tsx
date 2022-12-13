@@ -27,19 +27,26 @@ function Stepper({ phase, totalPhases, width, height, ...props }: StepperProps) 
                 className={props.classNameCircularProgress ?? ''}
                 styles={{
                     text: {
-                        fill: props.textColor ?? '#1d4ed8',
-                        fontSize: props.fontSize ?? ''
+                        fill: props.textColor,
+                        fontSize: props.fontSize
                     },
                     path: {
-                        stroke: props.strokeColor ?? '#1d4ed8'
+                        stroke: props.strokeColor
                     }
                 }}
                 strokeWidth={props.strokeWidth}
                 value={valuePercentage()}
-                text={props.text ?? `${phase}/${totalPhases}`}
+                text={props.text || `${phase}/${totalPhases}`}
             />
         </div>
     )
+}
+
+Stepper.displayName = 'Stepper'
+Stepper.defaultProps = {
+    textColor: '#1d4ed8',
+    strokeColor: '#1d4ed8',
+    fontSize: ''
 }
 
 export default Stepper

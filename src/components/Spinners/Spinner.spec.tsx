@@ -1,9 +1,9 @@
-import React from 'react'
 import { it, describe } from 'vitest'
 import { render, RenderResult } from '@testing-library/react'
-import { Spinner } from '../../src/components'
 
-describe('Component UI: Spinner', () => {
+import Spinner from './Spinner'
+
+describe('<Spinner/>', () => {
     let renderResult: RenderResult
     let spinnerStyle: CSSStyleDeclaration
 

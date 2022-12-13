@@ -3,8 +3,8 @@ import React, { forwardRef } from 'react'
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode
     className?: string
-    shadow?: 'lg' | 'sm'
-    rounded?: 'lg' | 'sm'
+    shadow?: 'lg' | 'sm' | 'md' | 'xl' | '2xl' | 'inner' | 'none'
+    rounded?: 'lg' | 'sm' | 'md' | 'xl' | '2xl' | '3xl' | 'full' | 'rounded' | 'none'
 }
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>((containerProps: ContainerProps, ref) => {

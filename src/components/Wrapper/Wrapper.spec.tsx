@@ -1,9 +1,9 @@
-import React from 'react'
 import { it, describe } from 'vitest'
 import { render, RenderResult } from '@testing-library/react'
-import { Wrapper } from '../../src/components'
 
-describe('Component UI: Wrapper', () => {
+import Wrapper from './Wrapper'
+
+describe('<Wrapper/>', () => {
     let renderResult: RenderResult
 
     beforeEach(() => {

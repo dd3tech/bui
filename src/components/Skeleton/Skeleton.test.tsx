@@ -1,9 +1,9 @@
-import React from 'react'
 import { it, describe, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { Skeleton } from '../../src/components'
 
-describe('Component UI: Skeleton', () => {
+import Skeleton from './Skeleton'
+
+describe('<Skeleton/>', () => {
     it('Skeleton is working', () => {
         render(<Skeleton />)
         expect(screen.getByTestId('skeleton')).toBeDefined()

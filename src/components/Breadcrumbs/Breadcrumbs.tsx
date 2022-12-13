@@ -33,9 +33,8 @@ const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(({ options, sep
                     {icon && icon()}
                     <p
                         onClick={() => {
-                            if (to) {
-                                to()
-                            }
+                            if (!to) return
+                            to()
                         }}
                         className={`${isActiveLink(indexKey) ? 'text-blue-700 font-bold' : 'text-gray-500 font-medium'} cursor-pointer text-sm`}
                     >

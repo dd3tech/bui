@@ -1,7 +1,7 @@
-import React from 'react'
-import { Avatar } from '../../src/components'
 import { it, describe } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
+
+import Avatar from './Avatar'
 
 const baseOptions = {
     src: 'https://picsum.photos/50/50',

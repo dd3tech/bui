@@ -5,7 +5,7 @@ export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
     className?: string
     variant: 'warning' | 'infoPrimary' | 'infoSecondary' | 'success' | 'primary' | 'secondary' | 'error'
     classNameIcon?: string
-    icon?: string
+    icon?: 'tag' | 'clock' | 'warning' | 'check' | 'success' | 'exclamation' | 'clipboard-copy' | 'HomeIcon' | 'none'
 }
 
 const badgeVariants: { [key: string]: string } = {
@@ -18,7 +18,7 @@ const badgeVariants: { [key: string]: string } = {
     error: 'bg-red-50 border border-red-300 text-gray-500 font-medium'
 }
 
-const iconsSwitch = (iconType: string = 'HomeIcon', classNameIcon?: string) => {
+const iconsSwitch = (iconType: IBadgeProps['icon'], classNameIcon?: string) => {
     switch (iconType) {
         case 'tag':
             return <TagIcon className={classNameIcon ?? ''} />
@@ -34,28 +34,35 @@ const iconsSwitch = (iconType: string = 'HomeIcon', classNameIcon?: string) => {
             return <ExclamationCircleIcon className={classNameIcon ?? ''} />
         case 'clipboard-copy':
             return <ClipboardCopyIcon className={classNameIcon ?? ''} />
-        case 'none':
-            return <></>
-        default:
+        case 'HomeIcon':
             return <HomeIcon className={classNameIcon ?? ''} />
+        case 'none':
+        default:
+            return <></>
     }
 }
 
 const Badge = ({ text, className, variant, classNameIcon, icon, ...props }: IBadgeProps) => {
-    const classNameByVariant = badgeVariants[variant] || ''
-
+    const classNameByVariant = badgeVariants[variant]
     return (
         <div
             id={icon}
             role="container-badge"
-            className={`${className ?? ''} ${classNameByVariant} rounded-full flex items-center gap-1 text-xs ${icon ? '' : 'justify-center'}`}
+            className={`${className ?? ''} ${classNameByVariant} rounded-full flex items-center gap-1 text-xs ${
+                !icon || icon === 'none' ? 'justify-center' : ''
+            }`}
             {...props}
         >
-            {iconsSwitch(icon, classNameIcon)} <small role="text-badge">{text ?? ''}</small>
+            {iconsSwitch(icon, classNameIcon)} <small role="text-badge">{text}</small>
         </div>
     )
 }
 
 Badge.displayName = 'Badge'
+Badge.defaultProps = {
+    icon: 'HomeIcon',
+    text: '',
+    variant: 'primary'
+}
 
 export default Badge
