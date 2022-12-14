@@ -1,3 +1,10 @@
+## [1.9.5](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.4...v1.9.5) (2022-12-14)
+
+
+### Bug Fixes
+
+* **components:** 🐛 ToolTipHover ([d56ed8d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/d56ed8dc833d1c5cf3970cbc0f6611377db4ed8c))
+
 ## [1.9.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.3...v1.9.4) (2022-12-13)
 
 
