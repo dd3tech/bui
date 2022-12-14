@@ -13,6 +13,7 @@ interface IToolTipHover {
     complementPosition?: { top: number; left: number }
     disabled?: boolean
     styleElement?: any
+    classNameElement?: string
 }
 
 const ToolTipHover = ({
@@ -23,7 +24,8 @@ const ToolTipHover = ({
     align,
     complementPosition = { top: 0, left: 0 },
     disabled,
-    styleElement
+    styleElement,
+    classNameElement
 }: IToolTipHover) => {
     const [position, setPosition] = useState({ show: false, left: 0, top: 0 })
 
@@ -54,7 +56,7 @@ const ToolTipHover = ({
             {/* Element Hover */}
             <div
                 role="element-tooltip"
-                className="flex item-center justify-center"
+                className={`flex item-center justify-center  ${classNameElement}`}
                 style={styleElement}
                 onMouseEnter={handleMouseOver}
                 onMouseLeave={handleMouseLeave}
