@@ -56,7 +56,7 @@ const ToolTipHover = ({
             {/* Element Hover */}
             <div
                 role="element-tooltip"
-                className={`flex item-center justify-center  ${classNameElement}`}
+                className={`flex item-center justify-center ${classNameElement}`}
                 style={styleElement}
                 onMouseEnter={handleMouseOver}
                 onMouseLeave={handleMouseLeave}
