@@ -3,6 +3,14 @@ import { format } from 'dd360-utils'
 
 export type TextSizeType = '9xl' | '8xl' | '7xl' | '6xl' | '5xl' | '4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'base' | 'sm' | 'xs'
 
+type TResponsiveText = {
+    sm?: TextSizeType | number
+    md?: TextSizeType | number
+    lg?: TextSizeType | number
+    xl?: TextSizeType | number
+    '2xl'?: TextSizeType | number
+}
+
 export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
     children?: React.ReactNode
     className?: string
@@ -11,7 +19,7 @@ export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
     bold?: boolean
     fontBold?: 'bold' | 'medium'
     textColor?: string
-    size?: TextSizeType
+    size?: TextSizeType | number | TResponsiveText
     textMuted?: boolean
     textMuted500?: boolean
     href?: string
@@ -113,7 +121,20 @@ const getStyles = (props: TextProps) => {
         props.className += 'text-gray-500 '
     }
     if (props.size) {
-        props.className += `text-${props.size} `
+        if (typeof props.size === 'object') {
+            let sizes = ''
+            Object.keys(props.size).forEach((item: 'sm' | 'md' | 'lg' | 'xl' | '2xl') => {
+                const typedSize = props?.size as TResponsiveText
+                const value = typedSize[item]
+                const classSize = typeof value === 'number' ? `text-[${value}px]` : `text-${value}`
+                sizes += ` ${item}:${classSize}`
+            })
+            props.className += sizes
+        } else if (typeof props.size === 'number') {
+            props.className += `text-[${props.size}px] `
+        } else {
+            props.className += `text-${props.size} `
+        }
     }
 
     if (props.variant && !props.size) {

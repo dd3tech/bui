@@ -107,3 +107,9 @@ currency.args = {
     textMuted: false,
     textMuted500: false
 } as TextProps
+
+export const responsive = Template.bind({})
+responsive.args = {
+    children: 'Responsive',
+    size: { sm: 'xs', md: '2xl', lg: '6xl', xl: '9xl', '2xl': 'sm' }
+} as TextProps
