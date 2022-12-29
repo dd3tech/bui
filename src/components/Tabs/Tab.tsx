@@ -2,7 +2,7 @@ import { ClockIcon } from '@heroicons/react/outline'
 import { useRef, useMemo } from 'react'
 
 interface PrivateProps {
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+    onChange?: (event: React.MouseEvent<HTMLButtonElement>) => void
     disabledText?: string
     index?: number
     value?: number
@@ -14,12 +14,16 @@ interface PrivateProps {
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
     label: string
     disabled?: boolean
-    fontSize?: string
 }
 
-function Tab({ label, id, disabled, fontSize, ...otherProps }: Props) {
+function Tab({ label, id, disabled, onClick, ...otherProps }: Props) {
     const element = useRef<HTMLButtonElement | null>(null)
-    const { onClick, disabledText, index, value, childClassName = '', textColor, variant = 'primary' } = otherProps as PrivateProps
+    const { onChange, disabledText, index, value, childClassName = '', textColor, variant = 'primary' } = otherProps as PrivateProps
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        onChange && onChange(event)
+        onClick && onClick(event)
+    }
 
     const variantStyle = {
         secondary: 'border rounded-md py-2 px-5',
@@ -28,7 +32,6 @@ function Tab({ label, id, disabled, fontSize, ...otherProps }: Props) {
 
     const classes = useMemo(() => {
         const list = []
-        list.push(fontSize ? fontSize : 'text-xs')
         list.push(index !== value ? 'font-semibold' : 'font-bold')
         if (index === value) {
             if (variant === 'secondary') {
@@ -39,20 +42,21 @@ function Tab({ label, id, disabled, fontSize, ...otherProps }: Props) {
             list.push(disabled ? 'text-gray-300' : 'text-gray-500')
         }
         return list.join(' ')
-    }, [value, variant])
+    }, [value, variant, childClassName])
 
     return (
         <button
+            {...otherProps}
+            role="tab"
             ref={element}
             disabled={disabled}
-            onClick={onClick}
+            onClick={handleClick}
             style={{ color: textColor && index === value ? textColor : undefined }}
-            {...otherProps}
             className={`inline-flex justify-center flex-wrap items-center box-content leading-5 select-none transition-all duration-300 ease-in ${classes} ${variantStyle[variant]} ${childClassName}`}
         >
             {label}
             {disabledText && disabled && (
-                <label style={{ fontSize: 10 }} className="flex gap-1.5 ml-3">
+                <label role="contentinfo" style={{ fontSize: 10 }} className="flex gap-1.5 ml-3">
                     <ClockIcon width={15} />
                     {disabledText}
                 </label>

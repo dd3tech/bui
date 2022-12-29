@@ -1,5 +1,18 @@
 import React, { MouseEvent, useRef, useState, useEffect, ReactNode } from 'react'
 
+export interface ITabGroupProps {
+    disabledText?: string
+    orientation?: 'vertical' | 'horizontal'
+    wideLine?: number
+    width?: number
+    childClassName?: string
+    indicatorColor?: string
+    textColor?: string
+    variant?: 'secondary' | 'primary'
+    className?: string
+    fontSize?: 'xs' | 'sm' | 'base' | 'xl' | 'lg'
+}
+
 interface IDashRect {
     width?: number
     height?: number
@@ -8,19 +21,11 @@ interface IDashRect {
     top?: number
 }
 
-type Props = {
-    disabledText?: string
-    orientation?: 'vertical' | 'horizontal'
+interface Props extends ITabGroupProps {
     children: React.ReactNode
-    value?: number
     onChange?: (newValue: number) => void
-    wideLine?: number
-    width?: number
-    childClassName?: string
-    indicatorColor?: string
-    textColor?: string
-    variant?: 'secondary' | 'primary'
-    className?: string
+    value?: number
+    role?: string
 }
 
 const getClientSize = (items: HTMLCollection, position: number) => {
@@ -52,7 +57,9 @@ function TabGroup({
     indicatorColor,
     variant = 'primary',
     textColor,
-    className = ''
+    className = '',
+    fontSize = 'xs',
+    ...otherProps
 }: Props) {
     const refContainer = useRef<HTMLDivElement | null>(null)
     const [dashRect, setDashRect] = useState<IDashRect>({})
@@ -108,11 +115,16 @@ function TabGroup({
 
     return (
         <div style={{ width }} className="relative overflow-auto">
-            <div ref={refContainer} className={`flex ${className} ${getBorder()} ${variantStyle[variant]} ${orientationStyle[orientation]}`}>
+            <div
+                {...otherProps}
+                ref={refContainer}
+                className={`flex text-${fontSize} ${className} ${getBorder()} ${variantStyle[variant]} ${orientationStyle[orientation]}`}
+            >
                 {childrenWithProps()}
             </div>
             {variant === 'primary' && (
                 <span
+                    role="indication-bar"
                     style={{
                         ...dashRect,
                         backgroundColor: !indicatorColor?.includes('bg-') ? indicatorColor : undefined

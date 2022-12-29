@@ -9,7 +9,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 function TabPanel({ index, value, children, className, ...otherProps }: Props) {
     if (index !== value) return null
     return (
-        <div className={className ?? 'px-4 py-2'} {...otherProps}>
+        <div role="tabpanel" className={className ?? 'px-4 py-2'} {...otherProps}>
             {children}
         </div>
     )

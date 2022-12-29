@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { TabGroup as TabGroupComponent, Tab as TabComponent, TabPanel as TabPanelComponent } from '../components'
 
 export default {
-    title: 'Tabs/TabGroup',
+    title: 'Navigation/Tabs',
     component: TabGroupComponent
 } as ComponentMeta<typeof TabGroupComponent>
 
