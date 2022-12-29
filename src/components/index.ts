@@ -55,6 +55,8 @@ export * from './ImageIcon'
 export { default as Spinner } from './Spinners'
 export * from './Spinners'
 
+export * from './Tabs'
+
 export * from './SideBar'
 export * from './Navigation'
 export * from './FeedBackBox'
