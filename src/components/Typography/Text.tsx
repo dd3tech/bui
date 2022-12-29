@@ -127,7 +127,7 @@ const getStyles = (props: TextProps) => {
                 const typedSize = props?.size as TResponsiveText
                 const value = typedSize[item]
                 const classSize = typeof value === 'number' ? `text-[${value}px]` : `text-${value}`
-                sizes += `${item === 'sm' ? '' : item}${item === 'sm' ? '' : ':'}${classSize} `
+                sizes += `${item === 'sm' ? '' : item + ':'}${classSize} `
             })
             props.className += sizes
         } else if (typeof props.size === 'number') {
