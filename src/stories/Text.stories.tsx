@@ -111,5 +111,5 @@ currency.args = {
 export const responsive = Template.bind({})
 responsive.args = {
     children: 'Responsive',
-    size: { sm: 'xs', md: '2xl', lg: '6xl', xl: '9xl', '2xl': 'sm' }
+    size: { sm: '4xl', md: '2xl', lg: '6xl', xl: '9xl', '2xl': 'sm' }
 } as TextProps

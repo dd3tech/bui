@@ -70,7 +70,7 @@ const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
         case 'anchorSmall':
             return <a className={`text-xs ${props.className}`} {...props} ref={ref} />
         default:
-            return <p {...props} ref={ref} />
+            return <span {...props} ref={ref} />
     }
 }
 
@@ -127,7 +127,7 @@ const getStyles = (props: TextProps) => {
                 const typedSize = props?.size as TResponsiveText
                 const value = typedSize[item]
                 const classSize = typeof value === 'number' ? `text-[${value}px]` : `text-${value}`
-                sizes += ` ${item}:${classSize}`
+                sizes += `${item === 'sm' ? '' : item + ':'}${classSize} `
             })
             props.className += sizes
         } else if (typeof props.size === 'number') {
@@ -173,7 +173,7 @@ const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>((textProps: TextP
 Text.displayName = 'Text'
 Text.defaultProps = {
     children: 'This is a children',
-    variant: 'span',
+    variant: undefined,
     size: undefined,
     align: undefined,
     bold: false,
