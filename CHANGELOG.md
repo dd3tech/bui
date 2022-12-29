@@ -1,3 +1,10 @@
+# [1.10.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.5...v1.10.0) (2022-12-29)
+
+
+### Features
+
+* **components:** 🎸 Text responsive ([fe2257c](https://gitlab.com/dd3tech/dd360/dd360-components/commit/fe2257c04f5b656c8df0a72a72a628a0eee80745))
+
 ## [1.9.5](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.4...v1.9.5) (2022-12-14)
 
 
