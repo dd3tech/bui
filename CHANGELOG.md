@@ -1,3 +1,10 @@
+# [1.11.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.10.1...v1.11.0) (2022-12-30)
+
+
+### Features
+
+* **components:** 🎸 add Tabs components ([ff0dab7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/ff0dab7636906a4f5e195e758322af4d10202666))
+
 ## [1.10.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.10.0...v1.10.1) (2022-12-29)
 
 
