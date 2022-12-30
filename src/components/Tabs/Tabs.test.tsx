@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { cleanup, fireEvent, render, RenderResult } from '@testing-library/react'
 import { beforeEach, describe, it } from 'vitest'
-import { TabGroup, Tab, TabPanel, ITabGroupProps } from './index'
+import { TabGroup, Tab, TabPanel, TabGroupProps } from './index'
 
-const defaultProps: ITabGroupProps = {
+const defaultProps: TabGroupProps = {
     childClassName: '',
     className: '',
     orientation: 'vertical',
@@ -16,7 +16,7 @@ const defaultProps: ITabGroupProps = {
 
 const initialValue = 2
 
-const BasicTabs = (props: ITabGroupProps) => {
+const BasicTabs = (props: TabGroupProps) => {
     const [value, setValue] = useState(initialValue)
 
     return (
@@ -41,7 +41,7 @@ const BasicTabs = (props: ITabGroupProps) => {
 
 describe('<TabGroup /> variant="primary ', () => {
     it('Indication bar is renderer: orientation="horizontal"', () => {
-        const props: ITabGroupProps = { ...defaultProps, orientation: 'horizontal', variant: 'primary', wideLine: 3.5 }
+        const props: TabGroupProps = { ...defaultProps, orientation: 'horizontal', variant: 'primary', wideLine: 3.5 }
         const result = render(<BasicTabs {...props} />)
         const indicationBar = result.getByRole('indication-bar')
 
@@ -51,7 +51,7 @@ describe('<TabGroup /> variant="primary ', () => {
     })
 
     it('Indication bar orientation="vertical"', () => {
-        const props: ITabGroupProps = { ...defaultProps, variant: 'primary', indicatorColor: 'bg-purple-500', wideLine: 3.5 }
+        const props: TabGroupProps = { ...defaultProps, variant: 'primary', indicatorColor: 'bg-purple-500', wideLine: 3.5 }
         const result = render(<BasicTabs {...props} />)
         const indicationBar = result.getByRole('indication-bar')
 
@@ -62,7 +62,7 @@ describe('<TabGroup /> variant="primary ', () => {
     })
 
     it('<Tab /> was renderer: orientation="vertical"', () => {
-        const props: ITabGroupProps = { ...defaultProps, variant: 'primary', orientation: 'horizontal', textColor: 'rgb(89, 22, 201)' }
+        const props: TabGroupProps = { ...defaultProps, variant: 'primary', orientation: 'horizontal', textColor: 'rgb(89, 22, 201)' }
         const result = render(<BasicTabs {...props} />)
         const currentTab = result.getAllByRole('tab')[initialValue]
 
@@ -76,7 +76,7 @@ describe('<TabGroup /> variant="primary ', () => {
 
 describe('<TabGroup /> variant="secondary"', () => {
     it('<TabGroup /> validation className and props', () => {
-        const props: ITabGroupProps = { ...defaultProps }
+        const props: TabGroupProps = { ...defaultProps }
         const result = render(<BasicTabs {...props} />)
         const tabContainer = result.getByRole('tablist')
 
