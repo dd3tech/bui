@@ -1,6 +1,6 @@
 import React, { MouseEvent, useRef, useState, useEffect, ReactNode, useCallback } from 'react'
 
-export interface ITabGroupProps {
+export interface TabGroupProps {
     disabledText?: string
     orientation?: 'vertical' | 'horizontal'
     wideLine?: number
@@ -13,7 +13,7 @@ export interface ITabGroupProps {
     fontSize?: 'xs' | 'sm' | 'base' | 'xl' | 'lg'
 }
 
-interface IDashRect {
+interface DashRect {
     width?: number
     height?: number
     left?: number
@@ -21,7 +21,7 @@ interface IDashRect {
     top?: number
 }
 
-interface Props extends ITabGroupProps {
+interface Props extends TabGroupProps {
     children: React.ReactNode
     onChange?: (newValue: number) => void
     value?: number
@@ -72,7 +72,7 @@ function TabGroup({
     ...otherProps
 }: Props) {
     const refContainer = useRef<HTMLDivElement | null>(null)
-    const [dashRect, setDashRect] = useState<IDashRect>({})
+    const [dashRect, setDashRect] = useState<DashRect>({})
 
     const getBorder = useCallback(() => {
         if (orientation === 'horizontal' && variant === 'primary') return 'border-b'
@@ -84,7 +84,7 @@ function TabGroup({
         (newValue: number) => {
             if (refContainer.current) {
                 const { height, left, top, width } = getClientSize(refContainer.current.children, newValue)
-                let newDashRect: IDashRect = {}
+                let newDashRect: DashRect = {}
                 if (orientation == 'horizontal') {
                     newDashRect = { left, height: wideLine, width }
                 } else {
