@@ -55,6 +55,9 @@ export * from './ImageIcon'
 export { default as Spinner } from './Spinners'
 export * from './Spinners'
 
+export { default as Cell } from './Cell'
+export * from './Cell'
+
 export * from './Tabs'
 
 export * from './SideBar'
