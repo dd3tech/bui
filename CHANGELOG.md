@@ -1,3 +1,18 @@
+## [1.10.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.10.0...v1.10.1) (2022-12-29)
+
+
+### Bug Fixes
+
+* **components:** 🐛 Fixing comments ([7a46086](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7a4608668f5a1b295cdd60ead623e65cebd5e0cc))
+* **components:** 🐛 Fixing mobile className in text component ([0ee8ec9](https://gitlab.com/dd3tech/dd360/dd360-components/commit/0ee8ec950f099f4bb4552b4501b60a43465f0142))
+
+# [1.10.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.5...v1.10.0) (2022-12-29)
+
+
+### Features
+
+* **components:** 🎸 Text responsive ([fe2257c](https://gitlab.com/dd3tech/dd360/dd360-components/commit/fe2257c04f5b656c8df0a72a72a628a0eee80745))
+
 ## [1.9.5](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.9.4...v1.9.5) (2022-12-14)
 
 

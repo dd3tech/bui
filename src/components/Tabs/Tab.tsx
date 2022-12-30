@@ -1,5 +1,5 @@
 import { ClockIcon } from '@heroicons/react/outline'
-import { useRef, useMemo } from 'react'
+import { useMemo, useCallback } from 'react'
 
 interface PrivateProps {
     onChange?: (event: React.MouseEvent<HTMLButtonElement>) => void
@@ -16,19 +16,21 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
     disabled?: boolean
 }
 
+const variantStyle = {
+    secondary: 'border rounded-md py-2 px-5',
+    primary: 'py-3 px-4'
+}
+
 function Tab({ label, id, disabled, onClick, ...otherProps }: Props) {
-    const element = useRef<HTMLButtonElement | null>(null)
     const { onChange, disabledText, index, value, childClassName = '', textColor, variant = 'primary' } = otherProps as PrivateProps
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        onChange && onChange(event)
-        onClick && onClick(event)
-    }
-
-    const variantStyle = {
-        secondary: 'border rounded-md py-2 px-5',
-        primary: 'py-3 px-4'
-    }
+    const handleClick = useCallback(
+        (event: React.MouseEvent<HTMLButtonElement>) => {
+            onChange && onChange(event)
+            onClick && onClick(event)
+        },
+        [onClick, onChange]
+    )
 
     const classes = useMemo(() => {
         const list = []
@@ -48,7 +50,6 @@ function Tab({ label, id, disabled, onClick, ...otherProps }: Props) {
         <button
             {...otherProps}
             role="tab"
-            ref={element}
             disabled={disabled}
             onClick={handleClick}
             style={{ color: textColor && index === value ? textColor : undefined }}

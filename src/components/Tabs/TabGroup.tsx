@@ -1,4 +1,4 @@
-import React, { MouseEvent, useRef, useState, useEffect, ReactNode } from 'react'
+import React, { MouseEvent, useRef, useState, useEffect, ReactNode, useCallback } from 'react'
 
 export interface ITabGroupProps {
     disabledText?: string
@@ -45,6 +45,16 @@ const getClientSize = (items: HTMLCollection, position: number) => {
     }
 }
 
+const orientationStyle = {
+    vertical: 'flex-col',
+    horizontal: 'min-w-max'
+}
+
+const variantStyle = {
+    primary: 'border-gray-200',
+    secondary: 'gap-4'
+}
+
 function TabGroup({
     orientation = 'horizontal',
     children,
@@ -64,54 +74,50 @@ function TabGroup({
     const refContainer = useRef<HTMLDivElement | null>(null)
     const [dashRect, setDashRect] = useState<IDashRect>({})
 
-    const orientationStyle = {
-        vertical: 'flex-col',
-        horizontal: 'min-w-max'
-    }
-
-    const variantStyle = {
-        primary: 'border-gray-200',
-        secondary: 'gap-4'
-    }
-
-    const getBorder = () => {
+    const getBorder = useCallback(() => {
         if (orientation === 'horizontal' && variant === 'primary') return 'border-b'
         if (orientation === 'vertical' && variant === 'primary') return 'border-r'
         return ''
-    }
+    }, [orientation, variant])
 
-    const handleChangeIndicator = (newValue: number) => {
-        if (refContainer.current) {
-            const { height, left, top, width } = getClientSize(refContainer.current.children, newValue)
-            let newDashRect: IDashRect = {}
-            if (orientation == 'horizontal') {
-                newDashRect = { left, height: wideLine, width }
-            } else {
-                newDashRect = Object.assign({ height, width: wideLine, top }, variant == 'secondary' ? { left: 0 } : { right: 0 })
+    const handleChangeIndicator = useCallback(
+        (newValue: number) => {
+            if (refContainer.current) {
+                const { height, left, top, width } = getClientSize(refContainer.current.children, newValue)
+                let newDashRect: IDashRect = {}
+                if (orientation == 'horizontal') {
+                    newDashRect = { left, height: wideLine, width }
+                } else {
+                    newDashRect = Object.assign({ height, width: wideLine, top }, variant == 'secondary' ? { left: 0 } : { right: 0 })
+                }
+                setDashRect(newDashRect)
             }
-            setDashRect(newDashRect)
-        }
-    }
+        },
+        [orientation, variant, refContainer, dashRect]
+    )
 
-    const onClick = (event: MouseEvent<HTMLButtonElement>) => {
-        const nodes = Array.prototype.slice.call(refContainer.current?.children)
-        const newValue = nodes.indexOf(event.target) ?? 0
-        handleChangeIndicator(newValue)
-        onChange && onChange(newValue)
-    }
+    const onClick = useCallback(
+        (event: MouseEvent<HTMLButtonElement>) => {
+            const nodes = Array.prototype.slice.call(refContainer.current?.children)
+            const newValue = nodes.indexOf(event.target) ?? 0
+            handleChangeIndicator(newValue)
+            onChange && onChange(newValue)
+        },
+        [refContainer, handleChangeIndicator]
+    )
 
-    const childrenWithProps = (): ReactNode => {
+    const childrenWithProps = useCallback((): ReactNode => {
         return React.Children.map(children, (child, index): ReactNode => {
             if (React.isValidElement(child)) {
                 return React.cloneElement(child as React.ReactElement, { index, value, onClick, disabledText, childClassName, textColor, variant })
             }
             return child
         })
-    }
+    }, [value, onClick, disabledText, childClassName, textColor, variant])
 
     useEffect(() => {
         handleChangeIndicator(value)
-    }, [orientation, variant])
+    }, [orientation, variant, wideLine])
 
     return (
         <div style={{ width }} className="relative overflow-auto">

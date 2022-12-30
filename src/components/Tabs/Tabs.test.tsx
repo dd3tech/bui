@@ -21,7 +21,7 @@ const BasicTabs = (props: ITabGroupProps) => {
 
     return (
         <div data-testid="container">
-            <TabGroup {...props} role="tablist" data-testid="tab-group" aria-label="basic tabs example" value={value} onChange={setValue}>
+            <TabGroup {...props} role="tablist" aria-label="basic tabs example" value={value} onChange={setValue}>
                 <Tab label="Precio y absorción" />
                 <Tab data-testid="disabled" label="Competencia" disabled />
                 <Tab label="Insights de mercado históricos" />
