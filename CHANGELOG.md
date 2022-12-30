@@ -1,3 +1,10 @@
+# [1.12.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.11.0...v1.12.0) (2022-12-30)
+
+
+### Features
+
+* **components:** Added Cell component ([0adcfec](https://gitlab.com/dd3tech/dd360/dd360-components/commit/0adcfec74c3da9454a28b2417201f90e59a27c4f))
+
 # [1.11.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.10.1...v1.11.0) (2022-12-30)
 
 
