@@ -59,6 +59,7 @@ export { default as Cell } from './Cell'
 export * from './Cell'
 
 export * from './Tabs'
+export * from './Checkbox'
 
 export * from './SideBar'
 export * from './Navigation'
