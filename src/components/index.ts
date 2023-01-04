@@ -60,6 +60,8 @@ export * from './Cell'
 
 export * from './Tabs'
 
+export * from './Radio'
+
 export * from './SideBar'
 export * from './Navigation'
 export * from './FeedBackBox'
