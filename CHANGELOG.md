@@ -1,3 +1,10 @@
+# [1.13.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.12.0...v1.13.0) (2023-01-04)
+
+
+### Features
+
+* **components:** Added RadioGroup and Radio components ([f7fd78b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/f7fd78b0d4d5ade57890b42fde2635790adcfc51))
+
 # [1.12.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.11.0...v1.12.0) (2022-12-30)
 
 
