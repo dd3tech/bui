@@ -109,7 +109,16 @@ function TabGroup({
     const childrenWithProps = useCallback((): ReactNode => {
         return React.Children.map(children, (child, index): ReactNode => {
             if (React.isValidElement(child)) {
-                return React.cloneElement(child as React.ReactElement, { index, value, onClick, disabledText, childClassName, textColor, variant })
+                return React.cloneElement(child as React.ReactElement, {
+                    index,
+                    value,
+                    onClick,
+                    textColor,
+                    variant,
+                    disabledText,
+                    className: childClassName,
+                    ...child.props
+                })
             }
             return child
         })
