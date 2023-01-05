@@ -4,10 +4,10 @@ export interface OrderProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Order = forwardRef<HTMLDivElement, OrderProps>((orderProps: OrderProps, ref) => {
-    const { className, children, order, ...props } = orderProps
+    const { className = '', children, order, ...props } = orderProps
 
     return (
-        <div className={`${order ? `order-${order}` : ''} ${className ?? ''}`} ref={ref} {...props}>
+        <div className={`order-${order} ${className}`} ref={ref} {...props}>
             {children}
         </div>
     )

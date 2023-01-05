@@ -58,9 +58,14 @@ export * from './Spinners'
 export { default as Cell } from './Cell'
 export * from './Cell'
 
+export { default as Divider } from './Divider'
+export * from './Divider'
+
 export * from './Tabs'
 export * from './Checkbox'
 export * from './FormControl'
+
+export * from './Radio'
 
 export * from './SideBar'
 export * from './Navigation'
