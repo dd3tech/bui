@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { useState } from 'react'
-import { Radio } from '..'
+import Radio from './Radio'
 import RadioGroup, { IRadioGroup } from './RadioGroup'
 
 const RadioGroupComponent = (props: Omit<IRadioGroup, 'children' | 'onChange' | 'value'>) => {
