@@ -1,3 +1,10 @@
+# [1.14.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.13.1...v1.14.0) (2023-01-05)
+
+
+### Features
+
+* **components:** Added Divider component ([defabd2](https://gitlab.com/dd3tech/dd360/dd360-components/commit/defabd29d30d668ad45022296de1c85219784774))
+
 ## [1.13.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.13.0...v1.13.1) (2023-01-05)
 
 
