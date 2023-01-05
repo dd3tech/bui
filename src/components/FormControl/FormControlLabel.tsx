@@ -20,7 +20,7 @@ function FormControlLabel({ label, control, labelPlacement = 'start', disabled }
             style={{ color: disabled ? 'rgba(0, 0, 0, 0.38)' : undefined }}
             className={`inline-flex mx-4 items-center align-middle cursor-pointer ${directionLabel[labelPlacement]}`}
         >
-            {cloneElement(control, { disabled })}
+            {cloneElement(control, Object.assign(disabled ? { disabled } : {}, { ...control.props }), null)}
             <span>{label}</span>
         </label>
     )

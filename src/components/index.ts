@@ -60,6 +60,7 @@ export * from './Cell'
 
 export * from './Tabs'
 export * from './Checkbox'
+export * from './FormControl'
 
 export * from './SideBar'
 export * from './Navigation'

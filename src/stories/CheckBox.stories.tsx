@@ -11,12 +11,12 @@ const Template: ComponentStory<typeof CheckboxComponent> = (args) => <CheckboxCo
 export const Checkbox = Template.bind({})
 
 Checkbox.args = {
-    size: '3xl',
-    checked: true,
-    indeterminate: true
+    fontSize: '4xl'
 }
 
-const TemplateControl: ComponentStory<typeof FormControlLabelComponent> = (args) => <FormControlLabelComponent {...args} control={<Checkbox {...args} />} />
+const TemplateControl: ComponentStory<typeof FormControlLabelComponent> = (args) => (
+    <FormControlLabelComponent {...args} control={<Checkbox {...Checkbox.args} />} />
+)
 
 export const CheckBoxWithControl = TemplateControl.bind({})
 
