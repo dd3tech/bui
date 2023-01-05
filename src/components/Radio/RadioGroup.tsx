@@ -1,6 +1,6 @@
 import React from 'react'
 import Text from '../Typography'
-import { IRadio } from '..'
+import { IRadio } from './Radio'
 
 export interface IRadioGroup {
     title?: string
@@ -16,7 +16,7 @@ function RadioGroup({ title, row, children, name, value, className, onChange }: 
     return (
         <div className={`flex flex-col ${className ?? ''}`}>
             {title && (
-                <Text role="title" className="text-base mb-5 text-gray-500">
+                <Text role="title" size="base" className="mb-5" textMuted500>
                     {title}
                 </Text>
             )}
