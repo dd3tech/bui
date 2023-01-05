@@ -1,3 +1,10 @@
+## [1.13.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.13.0...v1.13.1) (2023-01-05)
+
+
+### Bug Fixes
+
+* **components:** 🐛 change class of sizes to use props on the title RadioGroup ([240ef75](https://gitlab.com/dd3tech/dd360/dd360-components/commit/240ef75abdb1251dfbc490efb5da699825d00ebb))
+
 # [1.13.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.12.0...v1.13.0) (2023-01-04)
 
 
