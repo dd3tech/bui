@@ -4,7 +4,6 @@ import { beforeEach, describe, it } from 'vitest'
 import { TabGroup, Tab, TabPanel, TabGroupProps } from './index'
 
 const defaultProps: TabGroupProps = {
-    childClassName: '',
     className: '',
     orientation: 'vertical',
     disabledText: 'Próximamente',
