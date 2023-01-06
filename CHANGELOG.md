@@ -1,3 +1,10 @@
+## [1.14.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.14.0...v1.14.1) (2023-01-05)
+
+
+### Bug Fixes
+
+* **components:** 🐛 TabGroup update props passing ([1aabe31](https://gitlab.com/dd3tech/dd360/dd360-components/commit/1aabe3152d4ccc2a0f36c51002ca652610b70d8e))
+
 # [1.14.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.13.1...v1.14.0) (2023-01-05)
 
 
