@@ -20,15 +20,19 @@ const sizeByProp = {
 
 function Checkbox({ checked, color = '#3b82f6', fontSize = '2xl', disabled, padding, classNameContainer, indeterminate, onChange, ...props }: Props) {
     const [selected, setSelected] = useState(false)
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        onChange && onChange(event)
-        setSelected(event.target.checked)
-    }
+    const handleChange = useCallback(
+        (event: ChangeEvent<HTMLInputElement>) => {
+            onChange && onChange(event)
+            setSelected(event.target.checked)
+        },
+        [selected]
+    )
 
     const checkedValue = checked ? checked : selected
 
     const getColor = useCallback(() => {
-        if (disabled) return 'rgba(0, 0, 0, 0.26)'
+        const disabledColor = 'rgba(0, 0, 0, 0.26)'
+        if (disabled) return disabledColor
         if (checkedValue || indeterminate) return color
         return undefined
     }, [color, disabled, indeterminate, checkedValue])

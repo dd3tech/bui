@@ -1,4 +1,4 @@
-const SVGIcon = ({ children, ...props }: React.SVGProps<SVGSVGElement>) => {
+export const SVGIcon = ({ children, ...props }: React.SVGProps<SVGSVGElement>) => {
     return (
         <svg {...props} role="generic" width="1em" height="1em" focusable="false" aria-hidden="true" viewBox="0 0 24 24">
             {children}
