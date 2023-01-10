@@ -1,3 +1,10 @@
+# [1.15.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.14.1...v1.15.0) (2023-01-10)
+
+
+### Features
+
+* **components:** 🎸 [add] FormControlLabel and CheckBox test ([c08d9ce](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c08d9cec409a4e30f61f24573523d9e86db46228))
+
 ## [1.14.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.14.0...v1.14.1) (2023-01-05)
 
 
