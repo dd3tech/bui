@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react'
 import { describe, it, vi } from 'vitest'
-import { FormControlLabel } from '..'
+import { FormControlLabel } from '../FormControl'
 import Checkbox from './Checkbox'
 
 describe('<Checkbox /> ', () => {
