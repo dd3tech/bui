@@ -62,6 +62,8 @@ export { default as Divider } from './Divider'
 export * from './Divider'
 
 export * from './Tabs'
+export * from './Checkbox'
+export * from './FormControl'
 
 export * from './Radio'
 
