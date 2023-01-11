@@ -64,6 +64,7 @@ export * from './Divider'
 export * from './Tabs'
 export * from './Checkbox'
 export * from './FormControl'
+export * from './DatePicker'
 
 export * from './Radio'
 
