@@ -14,12 +14,12 @@ export const directionLabel = {
     end: 'flex-row'
 }
 
-function FormControlLabel({ label, control, labelPlacement = 'start', disabled, ...props }: Props) {
+function FormControlLabel({ label, control, labelPlacement = 'start', disabled, style, className, ...props }: Props) {
     return (
         <label
             {...props}
-            style={{ color: disabled ? 'rgba(0, 0, 0, 0.38)' : undefined }}
-            className={`inline-flex mx-4 items-center align-middle cursor-pointer ${directionLabel[labelPlacement]}`}
+            style={{ color: disabled ? 'rgba(0, 0, 0, 0.38)' : undefined, ...style }}
+            className={`inline-flex mx-4 items-center align-middle cursor-pointer ${directionLabel[labelPlacement]} ${className}`}
         >
             {cloneElement(control, Object.assign(disabled ? { disabled } : {}, { ...control.props }), null)}
             <span>{label}</span>

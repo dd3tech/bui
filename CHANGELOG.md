@@ -1,3 +1,10 @@
+## [1.15.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.2...v1.15.3) (2023-01-11)
+
+
+### Bug Fixes
+
+* **components:** 🐛 validation checked prop ([22c5de7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/22c5de713e170bb9909d0b247679f637a636473e))
+
 ## [1.15.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.1...v1.15.2) (2023-01-11)
 
 
