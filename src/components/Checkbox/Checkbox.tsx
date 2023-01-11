@@ -28,7 +28,7 @@ function Checkbox({ checked, color = '#3b82f6', fontSize = '2xl', disabled, padd
         [selected]
     )
 
-    const checkedValue = checked ? checked : selected
+    const checkedValue = checked || selected
 
     const getColor = useCallback(() => {
         const disabledColor = 'rgba(0, 0, 0, 0.26)'
