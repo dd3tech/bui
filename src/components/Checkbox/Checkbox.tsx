@@ -1,9 +1,8 @@
-import { useState, ChangeEvent, useCallback } from 'react'
+import { useState, ChangeEvent, useCallback, useMemo } from 'react'
 import { CheckBoxIcon, CheckBoxOutlineBlankIcon, IndeterminateCheckBoxIcon } from './icons'
 
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+interface Props extends React.HTMLProps<HTMLInputElement> {
     fontSize?: 'sm' | 'xl' | '2xl' | '3xl' | '4xl'
-    checked?: boolean
     color?: string
     padding?: string
     indeterminate?: boolean
@@ -20,15 +19,17 @@ const sizeByProp = {
 
 function Checkbox({ checked, color = '#3b82f6', fontSize = '2xl', disabled, padding, classNameContainer, indeterminate, onChange, ...props }: Props) {
     const [selected, setSelected] = useState(false)
-    const handleChange = useCallback(
-        (event: ChangeEvent<HTMLInputElement>) => {
-            onChange && onChange(event)
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        onChange && onChange(event)
+        if (checked === undefined) {
             setSelected(event.target.checked)
-        },
-        [selected]
-    )
+        }
+    }
 
-    const checkedValue = checked || selected
+    const checkedValue: boolean = useMemo(() => {
+        if (checked === undefined) return selected
+        return checked
+    }, [checked, selected])
 
     const getColor = useCallback(() => {
         const disabledColor = 'rgba(0, 0, 0, 0.26)'
