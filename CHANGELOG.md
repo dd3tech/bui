@@ -1,3 +1,10 @@
+## [1.15.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.1...v1.15.2) (2023-01-11)
+
+
+### Bug Fixes
+
+* **components:** 🐛 strict mode overlay bug and button style ([516d752](https://gitlab.com/dd3tech/dd360/dd360-components/commit/516d7525ae505c587bf492b2f548f4e74890df2f))
+
 ## [1.15.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.0...v1.15.1) (2023-01-11)
 
 
