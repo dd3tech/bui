@@ -46,8 +46,6 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
         }
         return () => {
             setExpand(false)
-            shotTimer()
-            defaultExpand = false
         }
     }, [defaultExpand])
 
@@ -85,7 +83,7 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                     <div className="flex justify-between border-b items-center w-full h-16 lg:h-20">
                         <div
                             role="active-sidebar"
-                            className="fixed ml-6 lg:ml-3.5 border rounded-full hover:bg-blue-50 focus:bg-blue-700 focus:text-white text-blue-700 cursor-pointer transition-all duration-300 ease-in-out"
+                            className="fixed ml-6 lg:ml-3.5 border rounded-full bg-white hover:bg-blue-50 focus:bg-blue-700 focus:text-white text-blue-700 cursor-pointer transition-all duration-300 ease-in-out"
                             onClick={() => {
                                 setExpand(!expand)
                                 shotTimer()
