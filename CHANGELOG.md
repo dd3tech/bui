@@ -1,3 +1,10 @@
+## [1.15.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.3...v1.15.4) (2023-01-11)
+
+
+### Bug Fixes
+
+* **components:** 🐛 validating checked property when it is infringed ([c353948](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c3539485dbca6286620dfa710c45730cdcf51f1a))
+
 ## [1.15.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.2...v1.15.3) (2023-01-11)
 
 
