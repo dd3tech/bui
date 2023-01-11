@@ -1,3 +1,10 @@
+## [1.15.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.0...v1.15.1) (2023-01-11)
+
+
+### Bug Fixes
+
+* **tests:** 🐛 test "the props icon works correctly" was fixed ([5d131d1](https://gitlab.com/dd3tech/dd360/dd360-components/commit/5d131d1dc4fa5f2c1fbf6654adabffa5edba7109))
+
 # [1.15.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.14.1...v1.15.0) (2023-01-10)
 
 
