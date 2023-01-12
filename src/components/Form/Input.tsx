@@ -1,13 +1,12 @@
-import { ChangeEvent, MouseEventHandler, FocusEvent, useState, ReactElement } from 'react'
+import { ChangeEvent, useState, ReactElement } from 'react'
 import { formatCurrency, getValueWithDecimalFormat } from 'dd360-utils'
 import { EyeIcon, EyeOffIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/outline'
 
-interface IInputProps {
+export interface IInputProps extends React.HTMLProps<HTMLInputElement> {
     label?: string
     padding?: number
-    variant?: string
+    variant?: 'active' | 'focus' | 'success' | 'warning' | 'error'
     message?: string
-    type?: string
     value?: any
     defaultValue?: any
     isCurrency?: boolean
@@ -15,24 +14,9 @@ interface IInputProps {
     endAdorment?: string | ReactElement
     startAdorment?: string | ReactElement
     inputBlank?: boolean
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void
-    onFocus?: (event: FocusEvent<HTMLInputElement>) => void
-    onClick?: MouseEventHandler<HTMLInputElement>
-    required?: boolean
-    name?: string
-    style?: any
-    onKeyPress?: any
-    className?: string
-    disabled?: boolean
-    placeholder?: string
     rounded?: string
-    onBlur?: (event: { target: HTMLInputElement }) => void
-    max?: number
-    min?: number
     isDecimal?: boolean
     isInteger?: boolean
-    role?: string
-    onSubmit?: any
 }
 
 const inputVariants: { [key: string]: { input: { borderColor: string; color?: string }; text: { color: string } } } = {
@@ -177,6 +161,7 @@ export const Input = ({
                 >
                     {startAdorment && !inputBlank && <span className=" text-gray-400 text mr-2">{startAdorment}</span>}
                     <input
+                        {...props}
                         className="w-full"
                         type={typeInput}
                         name={name}
@@ -196,7 +181,6 @@ export const Input = ({
                             onBlur && onBlur(event)
                         }}
                         value={valueCurrency(isCurrency)}
-                        {...props}
                     />
                     {endAdorment && !inputBlank && <span className="text-gray-400 ml-2">{endAdorment}</span>}
                 </div>
@@ -211,6 +195,7 @@ export const Input = ({
                     >
                         {startAdorment && !inputBlank && <span className=" text-gray-400 text mr-2">{startAdorment}</span>}
                         <input
+                            {...props}
                             className="w-full"
                             type={typeInput}
                             name={name}
@@ -229,7 +214,6 @@ export const Input = ({
                                 setFocused(false)
                                 onBlur && onBlur(event)
                             }}
-                            {...props}
                         />
                         {type === 'email' && variant !== 'active' && (
                             <span className="bold">
