@@ -1,22 +1,7 @@
 import Card from 'components/Card'
 import Text from 'components/Typography'
-import { HTMLProps, useCallback, useState } from 'react'
+import { useCallback, useState, useMemo, useEffect } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
-
-interface RowProps extends HTMLProps<HTMLButtonElement> {
-    index: number
-    isActive?: boolean
-}
-
-function Row({ children, index, onClick, isActive }: RowProps) {
-    return (
-        <td key={index}>
-            <button onClick={onClick} className={`w-8 h-8 font-semibold ${isActive ? 'bg-blue-500 text-white rounded-full' : 'text-gray-800'}`}>
-                {children}
-            </button>
-        </td>
-    )
-}
 
 const monthNames = {
     es: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -24,7 +9,7 @@ const monthNames = {
 }
 
 const weekDays = {
-    es: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+    es: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'],
     en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 }
 
@@ -55,16 +40,17 @@ type OptionType = 'day' | 'month' | 'year'
 interface Props {
     format?: 'long' | 'short'
     language?: 'es' | 'en'
+    value?: Date
+    onChange?: (newDate: Date) => void
 }
 
 const TOTAL_YEARS = 11
 
-function Calendar({ format = 'short', language = 'es' }: Props) {
-    const [currentDate, setCurrentDate] = useState(new Date())
-    const [selectedDate, setSelectedDate] = useState<Date | null>(new Date())
-    const [currentOption, setCurrentOption] = useState<OptionType>('month')
-    const currentYear = currentDate.getFullYear()
-    const currentMonth = currentDate.getMonth()
+function Calendar({ format = 'short', language = 'es', value, onChange }: Props) {
+    const today = new Date()
+    const [currentDate, setCurrentDate] = useState(today)
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+    const [currentOption, setCurrentOption] = useState<OptionType>('day')
 
     const updateCurrentOption = useCallback(() => {
         let newCurrentOption = currentOption
@@ -81,20 +67,25 @@ function Calendar({ format = 'short', language = 'es' }: Props) {
         selectedDate && setCurrentDate(selectedDate)
     }, [currentOption, currentDate, selectedDate])
 
+    const handleChangeSelectedDate = (newDate: Date) => {
+        onChange && onChange(newDate)
+        setSelectedDate(newDate)
+    }
+
     const handleSelectMonth = (index: number) => {
         const newDate = updateCurrentDate(currentDate, { month: index, isNotAddition: true })
-        setSelectedDate(newDate)
+        handleChangeSelectedDate(newDate)
     }
 
     const handleSelectDay = (day: number) => {
         const newDate = updateCurrentDate(currentDate, { day, isNotAddition: true })
-        setSelectedDate(newDate)
+        handleChangeSelectedDate(newDate)
         setCurrentDate(newDate)
     }
 
     const handleSelectYear = (year: number) => {
         const newDate = updateCurrentDate(currentDate, { year, isNotAddition: true })
-        setSelectedDate(newDate)
+        handleChangeSelectedDate(newDate)
     }
 
     const handlePrevDay = () => setCurrentDate(updateCurrentDate(currentDate, { month: -1 }))
@@ -106,43 +97,28 @@ function Calendar({ format = 'short', language = 'es' }: Props) {
     const handlePrevYear = () => setCurrentDate(updateCurrentDate(currentDate, { year: -TOTAL_YEARS }))
     const handleNextYear = () => setCurrentDate(updateCurrentDate(currentDate, { year: TOTAL_YEARS }))
 
-    const yearList = getYearList(currentDate.getFullYear(), TOTAL_YEARS)
+    const yearList = getYearList(currentDate.getFullYear() + 1, TOTAL_YEARS)
 
     // Obtener el número de días en el mes actual
-    const numDaysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
-    let days = []
-    for (let i = 1; i <= numDaysInMonth; i++) {
-        days.push(i)
-    }
-    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay()
-    for (let i = 0; i < firstDayOfMonth; i++) {
-        days.unshift('')
-    }
+    const { days, listOfSpaces } = useMemo(() => {
+        const days = []
+        const currentYear = currentDate.getFullYear()
+        const currentMonth = currentDate.getMonth()
+        const numDaysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
+        const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay()
+        for (let i = 1; i <= numDaysInMonth; i++) {
+            days.push(i)
+        }
+        const listOfSpaces = Array.from(Array(firstDayOfMonth).keys())
+        return { days, listOfSpaces }
+    }, [currentDate])
 
-    const rows: any[] = []
-    let cells: any[] = []
-    days.forEach((day, index) => {
-        const onClick = () => typeof day === 'number' && handleSelectDay(day)
-        const isActive = day === selectedDate?.getDate() && selectedDate?.getFullYear() === currentDate.getFullYear()
-        if (index % 7 !== 0) {
-            cells.push(
-                <Row isActive={isActive} onClick={onClick} index={index}>
-                    {day}
-                </Row>
-            )
-        } else {
-            rows.push(cells)
-            cells = []
-            cells.push(
-                <Row isActive={isActive} onClick={onClick} index={index}>
-                    {day}
-                </Row>
-            )
+    useEffect(() => {
+        if (value) {
+            setSelectedDate(value)
+            setCurrentDate(value)
         }
-        if (index === days.length - 1) {
-            rows.push(cells)
-        }
-    })
+    }, [value])
 
     if (currentOption === 'year') {
         return (
@@ -160,16 +136,22 @@ function Calendar({ format = 'short', language = 'es' }: Props) {
                         <ChevronRightIcon className="w-4 h-4" />
                     </button>
                 </div>
-                <div className="grid grid-cols-3 gap-0.5">
-                    {yearList.map((year) => (
-                        <button
-                            key={year}
-                            onClick={() => handleSelectYear(year)}
-                            className={`px-3 p-1.5 rounded-lg ${selectedDate?.getFullYear() === year ? 'border bg-blue-500 text-white' : ''}`}
-                        >
-                            {year}
-                        </button>
-                    ))}
+                <div className="grid grid-cols-3 gap-x-7 gap-y-2 mx-4">
+                    {yearList.map((year) => {
+                        const isActive = selectedDate?.getFullYear() === year
+                        const isToday = today.getFullYear() === year
+                        const todayBorder = isToday ? 'border border-blue-500' : ''
+                        const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
+                        return (
+                            <button
+                                key={year}
+                                onClick={() => handleSelectYear(year)}
+                                className={`px-3 p-1.5 rounded-lg box-content border border-transparent hover:border-blue-500 ${bgColor}`}
+                            >
+                                {year}
+                            </button>
+                        )
+                    })}
                 </div>
             </div>
         )
@@ -191,20 +173,22 @@ function Calendar({ format = 'short', language = 'es' }: Props) {
                         <ChevronRightIcon className="w-4 h-4" />
                     </button>
                 </div>
-                <div className="grid grid-cols-3 gap-0.5">
-                    {monthNames[language].map((month, index) => (
-                        <button
-                            key={month}
-                            onClick={() => handleSelectMonth(index)}
-                            className={`px-3 p-1.5 rounded-lg ${
-                                selectedDate?.getMonth() === index && selectedDate?.getFullYear() === currentDate.getFullYear()
-                                    ? 'border bg-blue-500 text-white'
-                                    : ''
-                            }`}
-                        >
-                            {format === 'long' ? month : month.substring(0, 3)}
-                        </button>
-                    ))}
+                <div className="grid grid-cols-3 gap-x-7 gap-y-2 mx-4">
+                    {monthNames[language].map((month, index) => {
+                        const isActive = selectedDate?.getMonth() === index && selectedDate?.getFullYear() === currentDate.getFullYear()
+                        const isToday = today.getMonth() === index && today.getFullYear() === currentDate.getFullYear()
+                        const todayBorder = isToday ? 'border border-blue-500' : ''
+                        const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
+                        return (
+                            <button
+                                key={month}
+                                onClick={() => handleSelectMonth(index)}
+                                className={`px-3 p-1.5 rounded-lg box-content border border-transparent hover:border-blue-500 ${bgColor}`}
+                            >
+                                {format === 'long' ? month : month.substring(0, 3)}
+                            </button>
+                        )
+                    })}
                 </div>
             </div>
         )
@@ -225,24 +209,36 @@ function Calendar({ format = 'short', language = 'es' }: Props) {
                     <ChevronRightIcon className="w-4 h-4" />
                 </button>
             </div>
-            <table>
-                <thead>
-                    <tr className="text-sm">
-                        {weekDays[language].map((day, index) => (
-                            <th className={index === weekDays[language].length - 1 ? '' : 'pr-4'} key={day}>
-                                {format === 'long' ? day : day.substring(0, 3)}
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {rows.map((day, index) => (
-                        <tr key={index} className="text-sm">
+            <section className="grid grid-cols-7 gap-x-4 gap-y-2">
+                {weekDays[language].map((day) => (
+                    <div key={day} className="text-center font-bold">
+                        {format === 'long' ? day : day.substring(0, 2)}
+                    </div>
+                ))}
+                {listOfSpaces.map((num) => (
+                    <div key={num}></div>
+                ))}
+                {days.map((day) => {
+                    const isActive =
+                        day === selectedDate?.getDate() &&
+                        selectedDate.getMonth() === currentDate.getMonth() &&
+                        currentDate?.getFullYear() === currentDate.getFullYear()
+                    const isToday = day === today.getDate() && today.getMonth() == currentDate.getMonth() && today.getFullYear() === currentDate.getFullYear()
+                    const todayBorder = isToday ? 'border border-blue-500' : ''
+                    const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
+                    return (
+                        <button
+                            key={day}
+                            onClick={() => handleSelectDay(day as number)}
+                            className={`w-6 h-6 select-none font-semibold rounded-full box-content border border-transparent hover:border-blue-500 ${bgColor} ${
+                                format === 'long' ? 'justify-self-center' : ''
+                            }`}
+                        >
                             {day}
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+                        </button>
+                    )
+                })}
+            </section>
         </div>
     )
 }
