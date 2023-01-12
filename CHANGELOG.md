@@ -1,3 +1,10 @@
+# [1.16.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.4...v1.16.0) (2023-01-12)
+
+
+### Features
+
+* **components:** 🎸 add Autocomplete component ([0457fdb](https://gitlab.com/dd3tech/dd360/dd360-components/commit/0457fdbf50d8aedfb0fc4aef9b9a6fa6ee3f792c))
+
 ## [1.15.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.3...v1.15.4) (2023-01-11)
 
 
