@@ -65,6 +65,7 @@ export * from './Tabs'
 export * from './Checkbox'
 export * from './FormControl'
 export * from './DatePicker'
+export * from './AutoComplete'
 
 export * from './Radio'
 
