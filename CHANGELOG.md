@@ -1,3 +1,31 @@
+## [1.15.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.3...v1.15.4) (2023-01-11)
+
+
+### Bug Fixes
+
+* **components:** 🐛 validating checked property when it is infringed ([c353948](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c3539485dbca6286620dfa710c45730cdcf51f1a))
+
+## [1.15.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.2...v1.15.3) (2023-01-11)
+
+
+### Bug Fixes
+
+* **components:** 🐛 validation checked prop ([22c5de7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/22c5de713e170bb9909d0b247679f637a636473e))
+
+## [1.15.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.1...v1.15.2) (2023-01-11)
+
+
+### Bug Fixes
+
+* **components:** 🐛 strict mode overlay bug and button style ([516d752](https://gitlab.com/dd3tech/dd360/dd360-components/commit/516d7525ae505c587bf492b2f548f4e74890df2f))
+
+## [1.15.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.0...v1.15.1) (2023-01-11)
+
+
+### Bug Fixes
+
+* **tests:** 🐛 test "the props icon works correctly" was fixed ([5d131d1](https://gitlab.com/dd3tech/dd360/dd360-components/commit/5d131d1dc4fa5f2c1fbf6654adabffa5edba7109))
+
 # [1.15.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.14.1...v1.15.0) (2023-01-10)
 
 
