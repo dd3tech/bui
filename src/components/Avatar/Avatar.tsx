@@ -1,4 +1,5 @@
 import { forwardRef } from 'react'
+import { composeClasses } from 'lib'
 
 export interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     children?: React.ReactNode
@@ -7,13 +8,13 @@ export interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 const Avatar = forwardRef<HTMLImageElement, AvatarProps>(({ children, src, alt, className, ...props }: AvatarProps, ref) => {
     if (children) {
         return (
-            <div role="avatar" ref={ref} className={`${className ?? ''} rounded-full flex items-center justify-center`} {...props}>
+            <div role="avatar" ref={ref} className={composeClasses(className, 'rounded-full', 'justify-center', 'flex', 'items-center')} {...props}>
                 {children}
             </div>
         )
     }
 
-    return <img src={src} ref={ref} role="avatar" alt={alt} {...props} className={`${className ?? ''} rounded-full`} />
+    return <img src={src} ref={ref} role="avatar" alt={alt} {...props} className={composeClasses(className, 'rounded-full')} />
 })
 
 Avatar.displayName = 'Avatar'

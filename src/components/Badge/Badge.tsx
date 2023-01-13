@@ -1,4 +1,5 @@
 import { ExclamationCircleIcon, TagIcon, CheckCircleIcon, ExclamationIcon, ClipboardCopyIcon, HomeIcon, ClockIcon } from '@heroicons/react/outline'
+import { composeClasses } from 'lib'
 
 export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
     text?: string
@@ -18,24 +19,24 @@ const badgeVariants: { [key: string]: string } = {
     error: 'bg-red-50 border border-red-300 text-gray-500 font-medium'
 }
 
-const iconsSwitch = (iconType: IBadgeProps['icon'], classNameIcon?: string) => {
+const iconsSwitch = (iconType: IBadgeProps['icon'], classNameIcon: string = '') => {
     switch (iconType) {
         case 'tag':
-            return <TagIcon className={classNameIcon ?? ''} />
+            return <TagIcon className={classNameIcon} />
         case 'clock':
-            return <ClockIcon className={classNameIcon ?? ''} />
+            return <ClockIcon className={classNameIcon} />
         case 'warning':
-            return <ExclamationIcon className={classNameIcon ?? ''} />
+            return <ExclamationIcon className={classNameIcon} />
         case 'check':
-            return <CheckCircleIcon className={classNameIcon ?? ''} />
+            return <CheckCircleIcon className={classNameIcon} />
         case 'success':
-            return <CheckCircleIcon className={classNameIcon ?? ''} />
+            return <CheckCircleIcon className={classNameIcon} />
         case 'exclamation':
-            return <ExclamationCircleIcon className={classNameIcon ?? ''} />
+            return <ExclamationCircleIcon className={classNameIcon} />
         case 'clipboard-copy':
-            return <ClipboardCopyIcon className={classNameIcon ?? ''} />
+            return <ClipboardCopyIcon className={classNameIcon} />
         case 'HomeIcon':
-            return <HomeIcon className={classNameIcon ?? ''} />
+            return <HomeIcon className={classNameIcon} />
         case 'none':
         default:
             return <></>
@@ -44,15 +45,15 @@ const iconsSwitch = (iconType: IBadgeProps['icon'], classNameIcon?: string) => {
 
 const Badge = ({ text, className, variant, classNameIcon, icon, ...props }: IBadgeProps) => {
     const classNameByVariant = badgeVariants[variant]
+    const classess = composeClasses(
+        className,
+        classNameByVariant,
+        'flex items-center rounded-full gap-1 text-xs',
+        (!icon || icon === 'none') && 'justify-center'
+    )
+
     return (
-        <div
-            id={icon}
-            role="container-badge"
-            className={`${className ?? ''} ${classNameByVariant} rounded-full flex items-center gap-1 text-xs ${
-                !icon || icon === 'none' ? 'justify-center' : ''
-            }`}
-            {...props}
-        >
+        <div id={icon} role="container-badge" className={classess} {...props}>
             {iconsSwitch(icon, classNameIcon)} <small role="text-badge">{text}</small>
         </div>
     )
@@ -61,7 +62,7 @@ const Badge = ({ text, className, variant, classNameIcon, icon, ...props }: IBad
 Badge.displayName = 'Badge'
 Badge.defaultProps = {
     icon: 'HomeIcon',
-    text: '',
+    text: 'Home Badge',
     variant: 'primary'
 }
 
