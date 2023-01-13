@@ -70,7 +70,7 @@ export function createModule({ plugins, format = 'esm', ...otherProps }) {
     }
 
     if (format === 'cjs') {
-        config.output = { ...config.output, dir: 'dist', exports: 'named' }
+        config.output = { ...config.output, exports: 'named' }
     }
 
     return config

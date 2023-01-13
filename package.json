@@ -11,14 +11,15 @@
         "url": "https://gitlab.com/dd3tech/dd360/dd360-components/-/issues"
     },
     "keywords": [
+        "tailwind components",
         "design system",
         "react components",
-        "Tailwind components",
         "react",
         "typescript",
+        "javascript",
         "components"
     ],
-    "main": "dist/index.js",
+    "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
     "types": "dist/index.d.ts",
     "files": [
