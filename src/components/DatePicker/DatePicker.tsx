@@ -1,5 +1,6 @@
 import Card from 'components/Card'
 import Text from 'components/Typography'
+import { Portal } from '../../common/Portal'
 import { useCallback, useState, useMemo, useEffect } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 
@@ -38,19 +39,21 @@ const getYearList = (startYear: number, size: number) => {
 type OptionType = 'day' | 'month' | 'year'
 
 interface Props {
+    className?: string
     format?: 'long' | 'short'
     language?: 'es' | 'en'
     value?: Date
     onChange?: (newDate: Date) => void
+    onlyOf?: OptionType
 }
 
 const TOTAL_YEARS = 11
+const TODAY = new Date()
 
-function Calendar({ format = 'short', language = 'es', value, onChange }: Props) {
-    const today = new Date()
-    const [currentDate, setCurrentDate] = useState(today)
+function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }: Props) {
+    const [currentDate, setCurrentDate] = useState(TODAY)
     const [selectedDate, setSelectedDate] = useState<Date | null>(null)
-    const [currentOption, setCurrentOption] = useState<OptionType>('day')
+    const [currentOption, setCurrentOption] = useState<OptionType>(onlyOf ?? 'day')
 
     const updateCurrentOption = useCallback(() => {
         let newCurrentOption = currentOption
@@ -126,7 +129,7 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                     <button role="pevRangeYear" onClick={handlePrevRangeYears}>
                         <ChevronLeftIcon className="w-4 h-4" />
                     </button>
-                    <button role="range-years" onClick={updateCurrentOption}>
+                    <button disabled={!!onlyOf} role="range-years" onClick={updateCurrentOption}>
                         <Text bold size="sm">
                             {yearList[yearList.length - 1]} - {yearList[0]}
                         </Text>
@@ -138,7 +141,7 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                 <ul role="list" className="grid grid-cols-3 gap-x-7 gap-y-2 mx-4">
                     {yearList.map((year) => {
                         const isActive = selectedDate?.getFullYear() === year
-                        const isToday = today.getFullYear() === year
+                        const isToday = TODAY.getFullYear() === year
                         const todayBorder = isToday ? 'border border-blue-500' : ''
                         const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
                         return (
@@ -164,7 +167,7 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                     <button role="prevYear" onClick={handlePrevYear}>
                         <ChevronLeftIcon className="w-4 h-4" />
                     </button>
-                    <button role="select-year" onClick={updateCurrentOption}>
+                    <button disabled={!!onlyOf} role="select-year" onClick={updateCurrentOption}>
                         <Text bold size="sm">
                             {currentDate.getFullYear()}
                         </Text>
@@ -176,7 +179,7 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                 <ul role="list" className="grid grid-cols-3 gap-x-7 gap-y-2 mx-4">
                     {monthNames[language].map((month, index) => {
                         const isActive = selectedDate?.getMonth() === index && selectedDate?.getFullYear() === currentDate.getFullYear()
-                        const isToday = today.getMonth() === index && today.getFullYear() === currentDate.getFullYear()
+                        const isToday = TODAY.getMonth() === index && TODAY.getFullYear() === currentDate.getFullYear()
                         const todayBorder = isToday ? 'border border-blue-500' : ''
                         const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
                         return (
@@ -201,7 +204,7 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                 <button role="prevMonth" onClick={handlePrevMonth}>
                     <ChevronLeftIcon className="w-4 h-4" />
                 </button>
-                <button role="select-month" onClick={updateCurrentOption}>
+                <button disabled={!!onlyOf} role="select-month" onClick={updateCurrentOption}>
                     <Text bold size="sm">
                         {monthNames[language][currentDate.getMonth()]} {currentDate.getFullYear()}
                     </Text>
@@ -224,7 +227,7 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                         day === selectedDate?.getDate() &&
                         selectedDate.getMonth() === currentDate.getMonth() &&
                         currentDate?.getFullYear() === currentDate.getFullYear()
-                    const isToday = day === today.getDate() && today.getMonth() == currentDate.getMonth() && today.getFullYear() === currentDate.getFullYear()
+                    const isToday = day === TODAY.getDate() && TODAY.getMonth() == currentDate.getMonth() && TODAY.getFullYear() === currentDate.getFullYear()
                     const todayBorder = isToday ? 'border border-blue-500' : ''
                     const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
                     return (
@@ -232,8 +235,9 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                             role="numberDay"
                             key={day}
                             onClick={() => handleSelectDay(day)}
-                            className={`w-6 h-6 select-none font-semibold rounded-full box-content border border-transparent hover:border-blue-500 ${bgColor} ${format === 'long' ? 'justify-self-center' : ''
-                                }`}
+                            className={`w-6 h-6 select-none font-semibold rounded-full box-content border border-transparent hover:border-blue-500 ${bgColor} ${
+                                format === 'long' ? 'justify-self-center' : ''
+                            }`}
                         >
                             {day}
                         </button>
@@ -244,11 +248,13 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
     )
 }
 
-function DatePicker(props: Props) {
+function DatePicker({ className, ...props }: Props) {
     return (
-        <Card role="calendar-container" width="fit-content" className="p-5" rounded="lg">
-            <Calendar {...props} />
-        </Card>
+        <Portal>
+            <Card role="calendar-container" width="fit-content" className={`p-5 ${className ?? ''}`.trim()} rounded="lg">
+                <Calendar {...props} />
+            </Card>
+        </Portal>
     )
 }
 
