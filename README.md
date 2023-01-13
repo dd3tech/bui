@@ -8,8 +8,6 @@
 
 DD360 Components is a tailwind based React component library
 
-***It is important that you have tailwind installed in the project where you want to use this library.***
-
 
 ## ⚙️ Minimum requirements
 ![node](https://shields.io/badge/node-v16+-lightgray?logo=nodedotjs&logoWidth=20&style=for-the-badge)
