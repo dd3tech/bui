@@ -1,3 +1,12 @@
+# [1.17.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.16.0...v1.17.0) (2023-01-13)
+
+
+### Features
+
+* **components:** 🎸 [add] DatePicker component ([7afd633](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7afd63386e698c676bd2ca1ea4ce46bb90369cda))
+* **components:** 🎸 add DatePicker component ([2787fd9](https://gitlab.com/dd3tech/dd360/dd360-components/commit/2787fd93d468462a2dac40746839d8237f3fd764))
+* **components:** 🎸 add new prop to validate the use the calendar ([9466837](https://gitlab.com/dd3tech/dd360/dd360-components/commit/9466837b72f7cfdd312401a42ea0206968a8b10c))
+
 # [1.16.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.4...v1.16.0) (2023-01-12)
 
 
