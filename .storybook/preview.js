@@ -1,4 +1,4 @@
-import './index.css'
+import '../src/dd360.css'
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },

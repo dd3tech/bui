@@ -35,18 +35,11 @@ npm install dd360-ds
 
 Once you have installed the library, you will have to make some extra configurations for everything to work normally.
 
-Paste this code into your tailwind.config.js file
 
-`tailwind.config.js`
+Import stylesheets into the `App.js` or `App.tsx`
+
 ```js
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}', './node_modules/dd360-ds/**/*.{js,jsx,ts,tsx}'],
-    theme: {
-        extend: {}
-    },
-    plugins: []
-}
+import 'dd360-ds/dist/esm/dd360.css'
 ```
 
 
