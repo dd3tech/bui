@@ -1,3 +1,10 @@
+## [2.0.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.0.0...v2.0.1) (2023-01-13)
+
+
+### Bug Fixes
+
+* **components:** 🐛 fix onChange prop define ChangeEvent() ([8c87419](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8c874199e8863975e8a975eaad179b6b16c3f535))
+
 # [2.0.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.17.0...v2.0.0) (2023-01-13)
 
 
