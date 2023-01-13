@@ -9,7 +9,7 @@ const monthNames = {
 }
 
 const weekDays = {
-    es: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'],
+    es: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
     en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 }
 
@@ -88,18 +88,17 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
         handleChangeSelectedDate(newDate)
     }
 
-    const handlePrevDay = () => setCurrentDate(updateCurrentDate(currentDate, { month: -1 }))
-    const handleNextDay = () => setCurrentDate(updateCurrentDate(currentDate, { month: 1 }))
+    const handlePrevMonth = () => setCurrentDate(updateCurrentDate(currentDate, { month: -1 }))
+    const handleNextMonth = () => setCurrentDate(updateCurrentDate(currentDate, { month: 1 }))
 
-    const handlePrevMonth = () => setCurrentDate(updateCurrentDate(currentDate, { year: -1 }))
-    const handleNextMonth = () => setCurrentDate(updateCurrentDate(currentDate, { year: 1 }))
+    const handlePrevYear = () => setCurrentDate(updateCurrentDate(currentDate, { year: -1 }))
+    const handleNextYear = () => setCurrentDate(updateCurrentDate(currentDate, { year: 1 }))
 
-    const handlePrevYear = () => setCurrentDate(updateCurrentDate(currentDate, { year: -TOTAL_YEARS }))
-    const handleNextYear = () => setCurrentDate(updateCurrentDate(currentDate, { year: TOTAL_YEARS }))
+    const handlePrevRangeYears = () => setCurrentDate(updateCurrentDate(currentDate, { year: -TOTAL_YEARS }))
+    const handleNextRangeYears = () => setCurrentDate(updateCurrentDate(currentDate, { year: TOTAL_YEARS }))
 
     const yearList = getYearList(currentDate.getFullYear() + 1, TOTAL_YEARS)
 
-    // Obtener el número de días en el mes actual
     const { days, listOfSpaces } = useMemo(() => {
         const days = []
         const currentYear = currentDate.getFullYear()
@@ -122,21 +121,21 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
 
     if (currentOption === 'year') {
         return (
-            <div>
+            <>
                 <div className="flex flex-1 justify-between items-center mb-5 text-gray-700">
-                    <button onClick={handlePrevYear}>
+                    <button role="pevRangeYear" onClick={handlePrevRangeYears}>
                         <ChevronLeftIcon className="w-4 h-4" />
                     </button>
-                    <button onClick={updateCurrentOption}>
+                    <button role="range-years" onClick={updateCurrentOption}>
                         <Text bold size="sm">
                             {yearList[yearList.length - 1]} - {yearList[0]}
                         </Text>
                     </button>
-                    <button onClick={handleNextYear}>
+                    <button role="nextRangeYear" onClick={handleNextRangeYears}>
                         <ChevronRightIcon className="w-4 h-4" />
                     </button>
                 </div>
-                <div className="grid grid-cols-3 gap-x-7 gap-y-2 mx-4">
+                <ul role="list" className="grid grid-cols-3 gap-x-7 gap-y-2 mx-4">
                     {yearList.map((year) => {
                         const isActive = selectedDate?.getFullYear() === year
                         const isToday = today.getFullYear() === year
@@ -144,6 +143,7 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                         const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
                         return (
                             <button
+                                role={year.toString()}
                                 key={year}
                                 onClick={() => handleSelectYear(year)}
                                 className={`px-3 p-1.5 rounded-lg box-content border border-transparent hover:border-blue-500 ${bgColor}`}
@@ -152,28 +152,28 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                             </button>
                         )
                     })}
-                </div>
-            </div>
+                </ul>
+            </>
         )
     }
 
     if (currentOption === 'month') {
         return (
-            <div>
+            <>
                 <div className="flex flex-1 justify-between items-center mb-5 text-gray-700">
-                    <button onClick={handlePrevMonth}>
+                    <button role="prevYear" onClick={handlePrevYear}>
                         <ChevronLeftIcon className="w-4 h-4" />
                     </button>
-                    <button onClick={updateCurrentOption}>
+                    <button role="select-year" onClick={updateCurrentOption}>
                         <Text bold size="sm">
                             {currentDate.getFullYear()}
                         </Text>
                     </button>
-                    <button onClick={handleNextMonth}>
+                    <button role="nextYear" onClick={handleNextYear}>
                         <ChevronRightIcon className="w-4 h-4" />
                     </button>
                 </div>
-                <div className="grid grid-cols-3 gap-x-7 gap-y-2 mx-4">
+                <ul role="list" className="grid grid-cols-3 gap-x-7 gap-y-2 mx-4">
                     {monthNames[language].map((month, index) => {
                         const isActive = selectedDate?.getMonth() === index && selectedDate?.getFullYear() === currentDate.getFullYear()
                         const isToday = today.getMonth() === index && today.getFullYear() === currentDate.getFullYear()
@@ -181,6 +181,7 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                         const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
                         return (
                             <button
+                                role="month"
                                 key={month}
                                 onClick={() => handleSelectMonth(index)}
                                 className={`px-3 p-1.5 rounded-lg box-content border border-transparent hover:border-blue-500 ${bgColor}`}
@@ -189,29 +190,29 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                             </button>
                         )
                     })}
-                </div>
-            </div>
+                </ul>
+            </>
         )
     }
 
     return (
-        <div>
+        <>
             <div className="flex flex-1 justify-between items-center mb-5 text-gray-700">
-                <button onClick={handlePrevDay}>
+                <button role="prevMonth" onClick={handlePrevMonth}>
                     <ChevronLeftIcon className="w-4 h-4" />
                 </button>
-                <button onClick={updateCurrentOption}>
+                <button role="select-month" onClick={updateCurrentOption}>
                     <Text bold size="sm">
                         {monthNames[language][currentDate.getMonth()]} {currentDate.getFullYear()}
                     </Text>
                 </button>
-                <button onClick={handleNextDay}>
+                <button role="nextMonth" onClick={handleNextMonth}>
                     <ChevronRightIcon className="w-4 h-4" />
                 </button>
             </div>
-            <section className="grid grid-cols-7 gap-x-4 gap-y-2">
+            <ul role="list" className="grid grid-cols-7 gap-x-4 gap-y-2">
                 {weekDays[language].map((day) => (
-                    <div key={day} className="text-center font-bold">
+                    <div role="day" key={day} className="text-center font-bold">
                         {format === 'long' ? day : day.substring(0, 2)}
                     </div>
                 ))}
@@ -228,24 +229,24 @@ function Calendar({ format = 'short', language = 'es', value, onChange }: Props)
                     const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
                     return (
                         <button
+                            role="numberDay"
                             key={day}
-                            onClick={() => handleSelectDay(day as number)}
-                            className={`w-6 h-6 select-none font-semibold rounded-full box-content border border-transparent hover:border-blue-500 ${bgColor} ${
-                                format === 'long' ? 'justify-self-center' : ''
-                            }`}
+                            onClick={() => handleSelectDay(day)}
+                            className={`w-6 h-6 select-none font-semibold rounded-full box-content border border-transparent hover:border-blue-500 ${bgColor} ${format === 'long' ? 'justify-self-center' : ''
+                                }`}
                         >
                             {day}
                         </button>
                     )
                 })}
-            </section>
-        </div>
+            </ul>
+        </>
     )
 }
 
 function DatePicker(props: Props) {
     return (
-        <Card width="fit-content" className="p-5" rounded="lg">
+        <Card role="calendar-container" width="fit-content" className="p-5" rounded="lg">
             <Calendar {...props} />
         </Card>
     )
