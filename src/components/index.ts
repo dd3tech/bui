@@ -61,11 +61,13 @@ export * from './Cell'
 export { default as Divider } from './Divider'
 export * from './Divider'
 
+export { default as DatePicker } from './DatePicker'
+export * from './DatePicker'
+
 export * from './Tabs'
 export * from './Checkbox'
 export * from './FormControl'
 export * from './AutoComplete'
-
 export * from './Radio'
 
 export * from './SideBar'
