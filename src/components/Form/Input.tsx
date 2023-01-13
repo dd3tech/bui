@@ -17,6 +17,7 @@ export interface IInputProps extends React.HTMLProps<HTMLInputElement> {
     rounded?: string
     isDecimal?: boolean
     isInteger?: boolean
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const inputVariants: { [key: string]: { input: { borderColor: string; color?: string }; text: { color: string } } } = {
@@ -153,11 +154,9 @@ export const Input = ({
             {label && <label className="block text-sm font-medium leading-4">{label}</label>}
             {isCurrency || separators ? (
                 <div
-                    className={`flex items-center justify-between ${inputBlank && 'border-none'} ${
-                        variant === 'active' && focused && 'border-blue-500'
-                    } bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium rounded-${rounded} p-${
-                        padding ?? '3'
-                    } mt-1 ${className ?? 'w-60'} ${input.borderColor} ${input.color}`}
+                    className={`flex items-center justify-between ${inputBlank && 'border-none'} ${variant === 'active' && focused && 'border-blue-500'
+                        } bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium rounded-${rounded} p-${padding ?? '3'
+                        } mt-1 ${className ?? 'w-60'} ${input.borderColor} ${input.color}`}
                 >
                     {startAdorment && !inputBlank && <span className=" text-gray-400 text mr-2">{startAdorment}</span>}
                     <input
@@ -187,11 +186,9 @@ export const Input = ({
             ) : (
                 <>
                     <div
-                        className={`flex items-center justify-between ${inputBlank && 'border-none'} ${
-                            variant === 'active' && focused && 'border-blue-500'
-                        } bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium rounded-${rounded} p-${
-                            padding ?? '3'
-                        } mt-1 ${className ?? 'w-60'} ${input.borderColor} ${input.color}`}
+                        className={`flex items-center justify-between ${inputBlank && 'border-none'} ${variant === 'active' && focused && 'border-blue-500'
+                            } bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium rounded-${rounded} p-${padding ?? '3'
+                            } mt-1 ${className ?? 'w-60'} ${input.borderColor} ${input.color}`}
                     >
                         {startAdorment && !inputBlank && <span className=" text-gray-400 text mr-2">{startAdorment}</span>}
                         <input
