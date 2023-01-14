@@ -64,6 +64,9 @@ export * from './Divider'
 export { default as DatePicker } from './DatePicker'
 export * from './DatePicker'
 
+export { default as MultiRangeSlider } from './MultiRangeSlider'
+export * from './MultiRangeSlider'
+
 export * from './Tabs'
 export * from './Checkbox'
 export * from './FormControl'
