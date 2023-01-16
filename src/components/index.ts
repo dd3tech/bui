@@ -67,13 +67,19 @@ export * from './DatePicker'
 export { default as MultiRangeSlider } from './MultiRangeSlider'
 export * from './MultiRangeSlider'
 
-export * from './Tabs'
+export { default as Checkbox } from './Checkbox'
 export * from './Checkbox'
-export * from './FormControl'
+
+export { default as AutoComplete } from './AutoComplete'
 export * from './AutoComplete'
+
+export { default as SideBar } from './SideBar'
+export * from './SideBar'
+
+export * from './Tabs'
+export * from './FormControl'
 export * from './Radio'
 
-export * from './SideBar'
 export * from './Navigation'
 export * from './FeedBackBox'
 export * from './Form'
