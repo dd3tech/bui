@@ -1,3 +1,74 @@
+# [2.1.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.0.1...v2.1.0) (2023-01-14)
+
+
+### Features
+
+* **components:** Added MultiRangeSlider component ([6d14f03](https://gitlab.com/dd3tech/dd360/dd360-components/commit/6d14f038007d828cc0e984f9d275fad16e95c20e))
+
+## [2.0.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.0.0...v2.0.1) (2023-01-13)
+
+
+### Bug Fixes
+
+* **components:** 🐛 fix onChange prop define ChangeEvent() ([8c87419](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8c874199e8863975e8a975eaad179b6b16c3f535))
+
+# [2.0.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.17.0...v2.0.0) (2023-01-13)
+
+
+### Features
+
+* **components:** 🎸 add missing css ([a96a017](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a96a0170c707c30adbc575b01a843a8055e5a2af))
+* **package:** 🎸 stylesheets load ([7635c9c](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7635c9c096167c8ded307155ef1d1fe302a81eb1))
+
+
+### BREAKING CHANGES
+
+* **package:** 🧨 Change way of load stylesheets
+
+# [1.17.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.16.0...v1.17.0) (2023-01-13)
+
+
+### Features
+
+* **components:** 🎸 [add] DatePicker component ([7afd633](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7afd63386e698c676bd2ca1ea4ce46bb90369cda))
+* **components:** 🎸 add DatePicker component ([2787fd9](https://gitlab.com/dd3tech/dd360/dd360-components/commit/2787fd93d468462a2dac40746839d8237f3fd764))
+* **components:** 🎸 add new prop to validate the use the calendar ([9466837](https://gitlab.com/dd3tech/dd360/dd360-components/commit/9466837b72f7cfdd312401a42ea0206968a8b10c))
+
+# [1.16.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.4...v1.16.0) (2023-01-12)
+
+
+### Features
+
+* **components:** 🎸 add Autocomplete component ([0457fdb](https://gitlab.com/dd3tech/dd360/dd360-components/commit/0457fdbf50d8aedfb0fc4aef9b9a6fa6ee3f792c))
+
+## [1.15.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.3...v1.15.4) (2023-01-11)
+
+
+### Bug Fixes
+
+* **components:** 🐛 validating checked property when it is infringed ([c353948](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c3539485dbca6286620dfa710c45730cdcf51f1a))
+
+## [1.15.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.2...v1.15.3) (2023-01-11)
+
+
+### Bug Fixes
+
+* **components:** 🐛 validation checked prop ([22c5de7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/22c5de713e170bb9909d0b247679f637a636473e))
+
+## [1.15.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.1...v1.15.2) (2023-01-11)
+
+
+### Bug Fixes
+
+* **components:** 🐛 strict mode overlay bug and button style ([516d752](https://gitlab.com/dd3tech/dd360/dd360-components/commit/516d7525ae505c587bf492b2f548f4e74890df2f))
+
+## [1.15.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.15.0...v1.15.1) (2023-01-11)
+
+
+### Bug Fixes
+
+* **tests:** 🐛 test "the props icon works correctly" was fixed ([5d131d1](https://gitlab.com/dd3tech/dd360/dd360-components/commit/5d131d1dc4fa5f2c1fbf6654adabffa5edba7109))
+
 # [1.15.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.14.1...v1.15.0) (2023-01-10)
 
 

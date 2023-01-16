@@ -67,12 +67,10 @@ describe('<Badge/>', () => {
         })
 
         it('the props icon works correctly ', async () => {
-            const { container, rerender } = render(<Badge variant="success" />)
-            expect(container.querySelector(`[id=success]`)).toBeDefined()
+            const { container, rerender } = render(<Badge variant="success" icon="success" />)
+            expect(container.querySelector(`[id=success]`)).not.toBeNull()
             rerender(<Badge variant="primary" icon="tag" />)
-            waitFor(() => {
-                expect(container.querySelector(`[id=success]`)).toBeUndefined()
-            })
+            expect(container.querySelector(`[id=success]`)).toBeNull()
             expect(container.querySelector(`[id=tag]`)).toBeDefined()
         })
 
