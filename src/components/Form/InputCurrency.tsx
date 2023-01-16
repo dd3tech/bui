@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import CurrencyInput from 'react-currency-input-field'
 
+import { composeClasses } from 'lib/classes'
+
 export interface InputCurrencyProps {
     className?: string
     name?: string
@@ -22,11 +24,12 @@ export interface InputCurrencyProps {
 const InputCurrency: FC<InputCurrencyProps> = (props) => {
     return (
         <CurrencyInput
-            className={`${
-                props.disabled ? 'bg-gray-100 text-gray-500' : ''
-            } flex items-center justify-between bg-transparent transition duration-500 ease-out focus:ease-in font-medium rounded-sm p-3 mt-1 ${
+            className={composeClasses(
+                'flex items-center justify-between bg-transparent transition duration-500 ease-out font-medium rounded-sm p-3 mt-1',
+                'focus:ease-in',
+                props.disabled && 'bg-gray-100 text-gray-500',
                 props.className ?? 'w-60'
-            }`}
+            )}
             name={props.name}
             placeholder={props.placeholder}
             defaultValue={props.defaultValue}

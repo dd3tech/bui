@@ -2,9 +2,11 @@ import { ChangeEvent, useState, ReactElement } from 'react'
 import { formatCurrency, getValueWithDecimalFormat } from 'dd360-utils'
 import { EyeIcon, EyeOffIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/outline'
 
+import { composeClasses } from 'lib/classes'
+
 export interface IInputProps extends React.HTMLProps<HTMLInputElement> {
     label?: string
-    padding?: number
+    padding?: number | string
     variant?: 'active' | 'focus' | 'success' | 'warning' | 'error'
     message?: string
     value?: any
@@ -83,7 +85,7 @@ export const Input = ({
     startAdorment,
     inputBlank,
     onFocus,
-    padding,
+    padding = 3,
     rounded = 'lg',
     isDecimal,
     isInteger,
@@ -149,15 +151,24 @@ export const Input = ({
 
     const handleChange = isInteger ? getNumbers : onChange
 
+    const finalClassName = composeClasses(
+        'mt-1 flex items-center justify-between bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium',
+        inputBlank && 'border-none',
+        variant === 'active' && focused && 'border-blue-500',
+        rounded && `rounded-${rounded}`,
+        `p-${padding}`,
+        className ?? 'w-60',
+        input.borderColor,
+        input.color
+    )
+
+    const iconClassName = composeClasses('transition duration-500 ease-out', 'focus:ease-in', text.color)
+
     return (
         <>
             {label && <label className="block text-sm font-medium leading-4">{label}</label>}
             {isCurrency || separators ? (
-                <div
-                    className={`flex items-center justify-between ${inputBlank && 'border-none'} ${variant === 'active' && focused && 'border-blue-500'
-                        } bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium rounded-${rounded} p-${padding ?? '3'
-                        } mt-1 ${className ?? 'w-60'} ${input.borderColor} ${input.color}`}
-                >
+                <div className={finalClassName}>
                     {startAdorment && !inputBlank && <span className=" text-gray-400 text mr-2">{startAdorment}</span>}
                     <input
                         {...props}
@@ -185,11 +196,7 @@ export const Input = ({
                 </div>
             ) : (
                 <>
-                    <div
-                        className={`flex items-center justify-between ${inputBlank && 'border-none'} ${variant === 'active' && focused && 'border-blue-500'
-                            } bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium rounded-${rounded} p-${padding ?? '3'
-                            } mt-1 ${className ?? 'w-60'} ${input.borderColor} ${input.color}`}
-                    >
+                    <div className={finalClassName}>
                         {startAdorment && !inputBlank && <span className=" text-gray-400 text mr-2">{startAdorment}</span>}
                         <input
                             {...props}
@@ -214,10 +221,8 @@ export const Input = ({
                         />
                         {type === 'email' && variant !== 'active' && (
                             <span className="bold">
-                                {variant === 'error' && <XCircleIcon width={24} className={`${text.color} transition duration-500 ease-out focus:ease-in`} />}
-                                {variant !== 'error' && (
-                                    <CheckCircleIcon width={24} className={`${text.color} transition duration-500 ease-out focus:ease-in`} />
-                                )}
+                                {variant === 'error' && <XCircleIcon width={24} className={iconClassName} />}
+                                {variant !== 'error' && <CheckCircleIcon width={24} className={iconClassName} />}
                             </span>
                         )}
                         {type === 'password' && (
@@ -228,15 +233,15 @@ export const Input = ({
                                 className="bold cursor-pointer "
                             >
                                 {typeInput === 'password' ? (
-                                    <EyeIcon className={`${text.color} transition duration-500 ease-out focus:ease-in`} width={23} />
+                                    <EyeIcon className={iconClassName} width={23} />
                                 ) : (
-                                    <EyeOffIcon className={`${text.color} transition duration-500 ease-out focus:ease-in`} width={23} />
+                                    <EyeOffIcon className={iconClassName} width={23} />
                                 )}
                             </span>
                         )}
                         {endAdorment && !inputBlank && <span className="text-gray-400 ml-2">{endAdorment}</span>}
                     </div>
-                    {variant !== 'active' && message && <p className={`text-xs mt-2 ml-2 font-medium ${text.color}`}>{message}</p>}
+                    {variant !== 'active' && message && <p className={composeClasses('text-xs mt-2 ml-2 font-medium', text.color)}>{message}</p>}
                 </>
             )}
         </>

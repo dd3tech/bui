@@ -45,15 +45,18 @@ const iconsSwitch = (iconType: IBadgeProps['icon'], classNameIcon: string = '') 
 
 const Badge = ({ text, className, variant, classNameIcon, icon, ...props }: IBadgeProps) => {
     const classNameByVariant = badgeVariants[variant]
-    const classess = composeClasses(
-        className,
-        classNameByVariant,
-        'flex items-center rounded-full gap-1 text-xs',
-        (!icon || icon === 'none') && 'justify-center'
-    )
-
     return (
-        <div id={icon} role="container-badge" className={classess} {...props}>
+        <div
+            id={icon}
+            role="container-badge"
+            className={composeClasses(
+                className,
+                classNameByVariant,
+                'flex items-center rounded-full gap-1 text-xs',
+                (!icon || icon === 'none') && 'justify-center'
+            )}
+            {...props}
+        >
             {iconsSwitch(icon, classNameIcon)} <small role="text-badge">{text}</small>
         </div>
     )

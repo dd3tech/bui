@@ -1,5 +1,6 @@
 import React, { forwardRef, ReactNode, FC } from 'react'
 import { ChevronRightIcon } from '@heroicons/react/outline'
+import { composeClasses } from 'lib/classes'
 
 export interface BreadcrumbsProps extends React.HTMLProps<HTMLDivElement> {
     options: Array<{ name?: string; icon?: () => ReactNode; to?: () => void }>
@@ -27,7 +28,7 @@ const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(({ options, sep
     )
 
     return (
-        <div className={`${className ?? ''} flex gap-4 items-center absolute`} ref={ref} {...props}>
+        <div className={composeClasses('flex gap-4 items-center absolute', className)} ref={ref} {...props}>
             {options.map(({ name, icon, to }, indexKey) => (
                 <React.Fragment key={`${name}-${to}-${indexKey}`}>
                     {icon && icon()}
@@ -36,7 +37,7 @@ const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(({ options, sep
                             if (!to) return
                             to()
                         }}
-                        className={`${isActiveLink(indexKey) ? 'text-blue-700 font-bold' : 'text-gray-500 font-medium'} cursor-pointer text-sm`}
+                        className={composeClasses('cursor-pointer text-sm', isActiveLink(indexKey) ? 'text-blue-700 font-bold' : 'text-gray-500 font-medium')}
                     >
                         {name && name.charAt(0).toLocaleUpperCase() + name.slice(1)}
                     </p>
