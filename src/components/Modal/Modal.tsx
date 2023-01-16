@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import { composeClasses } from 'lib/classes'
 import './modal.css'
 
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -18,9 +19,12 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         const [isClose, setClose] = React.useState(false)
 
         const dynamicClassName: () => string = React.useCallback(() => {
-            const defaultClassName =
-                'absolute z-50 flex-wrap text-center flex drop-shadow-lg bg-white w-full md:w-auto bottom-0 md:bottom-auto rounded-t-2xl md:rounded-2xl md:ml-24 md:mb-6 md:mt-6'
-            return `${defaultClassName} ${className ?? ''} ${animation ? 'animation-modal' : ''}`
+            return composeClasses(
+                'absolute z-50 flex-wrap text-center flex drop-shadow-lg bg-white w-full bottom-0 rounded-t-2xl',
+                'md:bottom-auto md:w-auto md:rounded-2xl md:ml-24 md:mb-6 md:mt-6',
+                animation && 'animation-modal',
+                className
+            )
         }, [className, animation])
 
         const handleClose = React.useCallback(() => {
@@ -54,7 +58,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
                 <div
                     ref={ref}
                     role="modal-custom"
-                    className={`${!isClose ? 'hidden' : 'fixed'} top-0 w-full z-50 transition duration-1000 ease-in delay-1500`}
+                    className={composeClasses(!isClose ? 'hidden' : 'fixed', 'top-0 w-full z-50 transition duration-1000 ease-in delay-1500')}
                     style={{ backgroundColor: overlay ? 'rgba(17, 24, 39, 0.75)' : '', height: `100vh` }}
                     onClick={handleClose}
                     {...props}

@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import { composeClasses } from 'lib/classes'
 
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode
@@ -9,19 +10,8 @@ export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>((containerProps: ContainerProps, ref) => {
     const { children, className, shadow, rounded, ...props } = containerProps
-
-    const chooseRounded = React.useCallback(() => {
-        if (!rounded) return ''
-        return `rounded-${rounded}`
-    }, [rounded])
-
-    const chooseShadow = React.useCallback(() => {
-        if (!shadow) return ''
-        return `shadow-${shadow}`
-    }, [shadow])
-
     return (
-        <div ref={ref} className={`container mx-auto ${className ?? ''} ${chooseShadow()} ${chooseRounded()}`} {...props}>
+        <div ref={ref} className={composeClasses('container mx-auto', rounded && `rounded-${rounded}`, shadow && `shadow-${shadow}`, className)} {...props}>
             {children}
         </div>
     )

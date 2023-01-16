@@ -2,6 +2,7 @@
 
 import React, { ReactNode, useState, useCallback, useEffect } from 'react'
 import { getLeftAndTopScreen } from 'dd360-utils'
+import { composeClasses } from 'lib/classes'
 import { Portal } from '../../common/Portal'
 
 interface IToolTipHover {
@@ -14,6 +15,13 @@ interface IToolTipHover {
     disabled?: boolean
     styleElement?: any
     classNameElement?: string
+}
+
+const displayVariant: { [key: string]: string } = {
+    blue: `bg-white border-blue-700 p-2 text-slate-50`,
+    warning: 'ml-1 -mt-10 bg-white border-yellow-500 p-2 text-gray-500',
+    gray: 'text-center -ml-2 -mt-14 bg-gray-500 py-2 px-4 text-white',
+    dark: 'text-center -ml-11 -mt-10 bg-gray-900 opacity-80 py-2 px-4 text-white'
 }
 
 const ToolTipHover = ({
@@ -40,12 +48,6 @@ const ToolTipHover = ({
         setPosition({ ...position, show: false, left: 0, top: 0 })
     }, [])
 
-    const displayVariant: { [key: string]: string } = {
-        blue: `${align ?? 'ml-1 -mt-10'} bg-white border-blue-700 p-2 text-slate-50`,
-        warning: 'ml-1 -mt-10 bg-white border-yellow-500 p-2 text-gray-500',
-        gray: 'text-center -ml-2 -mt-14 bg-gray-500 py-2 px-4 text-white',
-        dark: 'text-center -ml-11 -mt-10 bg-gray-900 opacity-80 py-2 px-4 text-white'
-    }
     useEffect(() => {
         if (disabled) return
         setPosition({ ...position, show: false })
@@ -56,7 +58,7 @@ const ToolTipHover = ({
             {/* Element Hover */}
             <div
                 role="element-tooltip"
-                className={`flex item-center justify-center ${classNameElement}`}
+                className={composeClasses('flex item-center justify-center', classNameElement)}
                 style={styleElement}
                 onMouseEnter={handleMouseOver}
                 onMouseLeave={handleMouseLeave}
@@ -68,7 +70,12 @@ const ToolTipHover = ({
                 <Portal>
                     <div
                         role="children-tooltip"
-                        className={`${displayVariant[variantPopup]} ${className} whitespace-pre-line antialiased z-50 w-auto text-xs font-thin leading-4 border rounded-md absolute`}
+                        className={composeClasses(
+                            'whitespace-pre-line antialiased z-50 w-auto text-xs font-thin leading-4 border rounded-md absolute',
+                            variantPopup === 'blue' && !align ? 'ml-1 -mt-10' : align,
+                            displayVariant[variantPopup],
+                            className
+                        )}
                         style={{ left: position.left + complementPosition.left, top: position.top + complementPosition.top }}
                     >
                         {children}

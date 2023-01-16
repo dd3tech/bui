@@ -1,11 +1,12 @@
 import { SetStateAction, useEffect, useState } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
+import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 
 export interface PaginationProps {
     totalPages: number
     currentPage: number
-    sliceSize?: '5' | '10' | '15' | '20' | '25' | '30' | '35' | '40' | '45' | '50'
+    sliceSize?: '5' | '10' | '15' | '20' | '25' | '30' | '35' | '40' | '45' | '50' | '55' | '60' | '65'
     firstText?: string
     secondText?: string
     goToPreviousPage: () => void
@@ -60,6 +61,9 @@ const Pagination = ({ totalPages, currentPage, sliceSize, firstText, secondText,
                     <option value="40">40</option>
                     <option value="45">45</option>
                     <option value="50">50</option>
+                    <option value="55">55</option>
+                    <option value="60">60</option>
+                    <option value="65">65</option>
                 </select>
                 {secondText && <Text size="base">{secondText}</Text>}
             </div>
@@ -87,7 +91,7 @@ const Pagination = ({ totalPages, currentPage, sliceSize, firstText, secondText,
                     {getPages().map((page) => (
                         <li key={`${page}-page`} className="w-6 h-6" role="list-page">
                             <button
-                                className={`${buttonStyle} ${page === currentPage && 'bg-blue-700 text-white hover:bg-blue-700'}`}
+                                className={composeClasses(buttonStyle, page === currentPage && 'bg-blue-700 text-white hover:bg-blue-700')}
                                 onClick={() => goToPage(page)}
                             >
                                 <Text variant="small">{page}</Text>

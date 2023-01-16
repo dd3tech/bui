@@ -115,25 +115,6 @@ const getFontSizeBySize = (size: TextProps['size']) => {
 }
 
 /**
- * It takes in a TextProps object, and returns a string of className
- * @param {TextProps} props - TextProps
- * @returns A string of className
- */
-const getStyles = (props: TextProps) => {
-    return composeClasses(
-        props.className,
-        props.align && `text-${props.align}`,
-        props.bold && 'font-bold',
-        props.fontBold && `font-${props.fontBold}`,
-        props.textColor,
-        props.textMuted && 'text-gray-300',
-        props.textMuted500 && 'text-gray-500',
-        getFontSizeBySize(props.size),
-        props.variant && !props.size && getFontSizeByVariant(props.variant)
-    )
-}
-
-/**
  * It removes the props that are not needed for the `<Text>` component
  * @param {TextProps} props - TextProps - This is the props that are passed to the component.
  */
@@ -149,7 +130,17 @@ const rmvUnnecesaryProps = (props: TextProps) => {
 const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>((textProps: TextProps, ref) => {
     const { ...props } = textProps
 
-    props.className = getStyles(props)
+    props.className = composeClasses(
+        props.className,
+        props.align && `text-${props.align}`,
+        props.bold && 'font-bold',
+        props.fontBold && `font-${props.fontBold}`,
+        props.textColor,
+        props.textMuted && 'text-gray-300',
+        props.textMuted500 && 'text-gray-500',
+        getFontSizeBySize(props.size),
+        props.variant && !props.size && getFontSizeByVariant(props.variant)
+    )
 
     const renderTextComponent = () => {
         rmvUnnecesaryProps(props)

@@ -1,5 +1,6 @@
-import { ClockIcon } from '@heroicons/react/outline'
 import { useMemo, useCallback } from 'react'
+import { composeClasses } from 'lib/classes'
+import { ClockIcon } from '@heroicons/react/outline'
 
 interface PrivateProps {
     onChange?: (event: React.MouseEvent<HTMLButtonElement>) => void
@@ -52,9 +53,12 @@ function Tab({ label, id, disabled, onClick, disabledText, textColor, className,
             disabled={disabled}
             onClick={handleClick}
             style={{ color: textColor && index === value ? textColor : undefined }}
-            className={`inline-flex justify-center flex-wrap items-center box-content leading-5 select-none transition-all duration-300 ease-in ${classes} ${
-                variantStyle[variant]
-            } ${className ?? ''}`.trim()}
+            className={composeClasses(
+                'inline-flex justify-center flex-wrap items-center box-content leading-5 select-none transition-all duration-300 ease-in',
+                classes,
+                variantStyle[variant],
+                className
+            )}
         >
             {label}
             {disabledText && disabled && (
