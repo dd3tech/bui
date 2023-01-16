@@ -4,6 +4,8 @@ import Text from '../Typography'
 import ToolTipHover from '../ToolTipHover'
 import './sideBar.css'
 
+import { composeClasses } from 'lib/classes'
+
 export interface SideBarProps {
     sideBarList?: Array<{ title: string; active: boolean; to: () => void; icon?: JSX.Element; disabled?: boolean }>
     sideBarName: string
@@ -74,25 +76,31 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
             <div
                 ref={sidebarRef}
                 role="container-sidebar"
-                className={`shadow-lg border-t-0 box-border ${
+                className={composeClasses(
+                    'shadow-lg border-t-0 box-border overflow-hidden h-full bg-white fixed transition-all delay-75 duration-200 ease-in z-40',
                     expand ? 'w-72' : 'w-0 lg:w-16'
-                } overflow-hidden h-full bg-white fixed transition-all delay-75 duration-200 ease-in z-40`}
+                )}
                 style={{ maxHeight: `calc(100vh - ${sidebarRef.current?.offsetTop}px)`, top: top ?? 0, left: left ?? 0 }}
             >
                 <div className="h-full flex flex-col transition-all delay-300 ease-out">
                     <div className="flex justify-between border-b items-center w-full h-16 lg:h-20">
                         <div
                             role="active-sidebar"
-                            className="fixed ml-6 lg:ml-3.5 border rounded-full bg-white hover:bg-blue-50 focus:bg-blue-700 focus:text-white text-blue-700 cursor-pointer transition-all duration-300 ease-in-out"
+                            className={composeClasses(
+                                'fixed ml-6 lg:ml-3.5 border rounded-full bg-white text-blue-700 cursor-pointer transition-all duration-300 ease-in-out',
+                                'focus:bg-blue-700 focus:text-white',
+                                'hover:bg-blue-50'
+                            )}
                             onClick={() => {
                                 setExpand(!expand)
                                 shotTimer()
                             }}
                         >
                             <div
-                                className={`${
+                                className={composeClasses(
+                                    'w-9 h-9 flex justify-center items-center transform transition-all duration-200 ease-in-out',
                                     expand ? 'rotate-0' : 'rotate-180'
-                                } w-9 h-9 flex justify-center items-center transform transition-all duration-200 ease-in-out`}
+                                )}
                             >
                                 <ChevronDoubleLeftIcon className="transition-all duration-200 ease-in-out" width={25} />
                             </div>
@@ -112,9 +120,12 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                         {sideBarList?.map(({ title, active, to, icon, disabled }, index: number) => (
                             <div
                                 key={index.toString()}
-                                className={`w-72 h-16 hover:text-red-500 transition-all duration-300 ease-out letter-spacing-negative flex items-center justify-start gap-1  ${
-                                    active ? 'bg-blue-50' : ''
-                                } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100'}`}
+                                className={composeClasses(
+                                    'w-72 h-16 transition-all duration-300 ease-out letter-spacing-negative flex items-center justify-start gap-1',
+                                    'hover:text-red-500',
+                                    disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100',
+                                    active && 'bg-blue-50'
+                                )}
                                 onClick={() => {
                                     if (disabled || active) return
                                     flushSync ? flushSync(() => setIsOptionClicked(true)) : setIsOptionClicked(true)
@@ -126,9 +137,11 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                         <div role={`option-icon-${index}`} className="w-16 flex items-center">
                                             <div style={activeStyle(active)}></div>
                                             <div
-                                                className={`w-6 h-6 ml-3.5 flex items-center ${disabled ? 'text-gray-300' : 'text-gray-400'} ${
-                                                    active ? 'text-blue-700' : ''
-                                                }`}
+                                                className={composeClasses(
+                                                    'w-6 h-6 ml-3.5 flex items-center',
+                                                    disabled ? 'text-gray-300' : 'text-gray-400',
+                                                    active && 'text-blue-700'
+                                                )}
                                             >
                                                 {icon ? icon : <ExclamationCircleIcon />}
                                             </div>
@@ -188,14 +201,16 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                                             <ExclamationIcon
                                                 role="danger-zone-icon"
                                                 width={25}
-                                                className={`${props.dangerZone?.active ? 'text-white' : 'text-red-600'} ml-5`}
+                                                className={composeClasses('ml-5', props.dangerZone?.active ? 'text-white' : 'text-red-600')}
                                             />
                                         </div>
                                     }
                                 >
                                     {props?.dangerZone?.text}
                                 </ToolTipHover>
-                                <Text className={`${props.dangerZone?.active ? 'text-white' : 'text-gray-500'} font-semibold`}>{props?.dangerZone?.text}</Text>
+                                <Text className={composeClasses('font-semibold', props.dangerZone?.active ? 'text-white' : 'text-gray-500')}>
+                                    {props?.dangerZone?.text}
+                                </Text>
                             </div>
                         </div>
                     )}

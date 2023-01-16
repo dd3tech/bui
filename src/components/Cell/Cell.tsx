@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, forwardRef } from 'react'
 import Text, { TextSizeType } from '../Typography'
+import { composeClasses } from 'lib/classes'
 
 interface ICellProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: 'small' | 'medium' | 'large' | 'extraLarge'
@@ -25,10 +26,12 @@ const iconSizeVariants: { [key: string]: number } = {
 }
 
 export const getClassName = (selected: boolean, disabled: boolean, border: boolean) => {
-    if (selected && !disabled) return `bg-blue-500 text-white ${border ? 'border border-blue-500' : ''}`
-    return `bg-white text-gray-600 hover:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed ${
-        border ? 'border border-blue-500 disabled:border-gray-300' : ''
-    }`
+    if (selected && !disabled) return composeClasses('bg-blue-500 text-white', border && 'border border-blue-500')
+
+    return composeClasses(
+        'bg-white text-gray-600 hover:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed',
+        border && 'border border-blue-500 disabled:border-gray-300'
+    )
 }
 
 const Cell = forwardRef<HTMLButtonElement, ICellProps>(
@@ -42,14 +45,14 @@ const Cell = forwardRef<HTMLButtonElement, ICellProps>(
         return (
             <button
                 ref={ref}
-                className={`${className ? className : ''} flex items-center rounded px-2 py-1 ${getClassName(selected, disabled, border)}`}
+                className={composeClasses('flex items-center rounded px-2 py-1', getClassName(selected, disabled, border), className)}
                 onClick={onClickHandler}
                 disabled={disabled}
             >
                 {icon && (
                     <div
                         id="cell-icon"
-                        className={`font-light mr-1 ${!disabled && !selected ? 'text-gray-400' : ''}`}
+                        className={composeClasses('font-light mr-1', !disabled && !selected && 'text-gray-400')}
                         style={{ width: icon.props.width ? icon.props.width : iconSizeVariants[size] }}
                     >
                         {icon}

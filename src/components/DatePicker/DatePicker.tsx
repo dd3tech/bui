@@ -3,6 +3,7 @@ import Text from 'components/Typography'
 import { Portal } from '../../common/Portal'
 import { useCallback, useState, useMemo, useEffect } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
+import { composeClasses } from 'lib/classes'
 
 const monthNames = {
     es: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -35,6 +36,8 @@ const getYearList = (startYear: number, size: number) => {
     }
     return yearList
 }
+
+const btnClassName = (bgColor: string) => composeClasses('px-3 p-1.5 rounded-lg box-content border border-transparent', 'hover:border-blue-500', bgColor)
 
 type OptionType = 'day' | 'month' | 'year'
 
@@ -144,13 +147,9 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
                         const isToday = TODAY.getFullYear() === year
                         const todayBorder = isToday ? 'border border-blue-500' : ''
                         const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
+
                         return (
-                            <button
-                                role={year.toString()}
-                                key={year}
-                                onClick={() => handleSelectYear(year)}
-                                className={`px-3 p-1.5 rounded-lg box-content border border-transparent hover:border-blue-500 ${bgColor}`}
-                            >
+                            <button role={year.toString()} key={year} onClick={() => handleSelectYear(year)} className={btnClassName(bgColor)}>
                                 {year}
                             </button>
                         )
@@ -182,13 +181,9 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
                         const isToday = TODAY.getMonth() === index && TODAY.getFullYear() === currentDate.getFullYear()
                         const todayBorder = isToday ? 'border border-blue-500' : ''
                         const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
+
                         return (
-                            <button
-                                role="month"
-                                key={month}
-                                onClick={() => handleSelectMonth(index)}
-                                className={`px-3 p-1.5 rounded-lg box-content border border-transparent hover:border-blue-500 ${bgColor}`}
-                            >
+                            <button role="month" key={month} onClick={() => handleSelectMonth(index)} className={btnClassName(bgColor)}>
                                 {format === 'long' ? month : month.substring(0, 3)}
                             </button>
                         )
@@ -235,9 +230,12 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
                             role="numberDay"
                             key={day}
                             onClick={() => handleSelectDay(day)}
-                            className={`w-6 h-6 select-none font-semibold rounded-full box-content border border-transparent hover:border-blue-500 ${bgColor} ${
-                                format === 'long' ? 'justify-self-center' : ''
-                            }`}
+                            className={composeClasses(
+                                'w-6 h-6 select-none font-semibold rounded-full box-content border  border-transparent',
+                                'hover:border-blue-500',
+                                bgColor,
+                                format === 'long' && 'justify-self-center'
+                            )}
                         >
                             {day}
                         </button>
@@ -251,7 +249,7 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
 function DatePicker({ className, ...props }: Props) {
     return (
         <Portal>
-            <Card role="calendar-container" width="fit-content" className={`p-5 ${className ?? ''}`.trim()} rounded="lg">
+            <Card role="calendar-container" width="fit-content" className={composeClasses('p-5', className)} rounded="lg">
                 <Calendar {...props} />
             </Card>
         </Portal>

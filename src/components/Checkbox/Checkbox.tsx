@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, useCallback, useMemo } from 'react'
 import { CheckBoxIcon, CheckBoxOutlineBlankIcon, IndeterminateCheckBoxIcon } from './icons'
+import { composeClasses } from 'lib/classes'
 
 interface Props extends React.HTMLProps<HTMLInputElement> {
     fontSize?: 'sm' | 'xl' | '2xl' | '3xl' | '4xl'
@@ -19,6 +20,7 @@ const sizeByProp = {
 
 function Checkbox({ checked, color = '#3b82f6', fontSize = '2xl', disabled, padding, classNameContainer, indeterminate, onChange, ...props }: Props) {
     const [selected, setSelected] = useState(false)
+
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         onChange && onChange(event)
         if (checked === undefined) {
@@ -44,7 +46,7 @@ function Checkbox({ checked, color = '#3b82f6', fontSize = '2xl', disabled, padd
         <span
             role="container"
             style={{ color: getColor() }}
-            className={`${padding ? padding : 'p-2.5'} inline-flex relative outline-none align-middle ${classNameContainer}`}
+            className={composeClasses('inline-flex relative outline-none align-middle', padding ? padding : 'p-2.5', classNameContainer)}
         >
             <input
                 {...props}

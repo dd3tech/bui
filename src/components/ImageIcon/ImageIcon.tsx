@@ -1,4 +1,5 @@
 import React from 'react'
+import { composeClasses } from 'lib/classes'
 
 export interface ImageIconProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     button?: boolean
@@ -9,19 +10,19 @@ export interface ImageIconProps extends React.ImgHTMLAttributes<HTMLImageElement
 const ImageIcon = ({ src, className, alt, button, buttonOnClick, classNameButton, ...props }: ImageIconProps) => {
     if (button) {
         return (
-            <button className={`${classNameButton} flex text-sm rounded-full`} onClick={buttonOnClick}>
+            <button className={composeClasses('flex text-sm rounded-full', classNameButton)} onClick={buttonOnClick}>
                 <img className="h-8 w-8 rounded-full" src={src} alt={alt ?? src} {...props} />
             </button>
         )
     }
 
-    return <img className={`${className ?? ''} h-8 w-8 rounded-full`} src={src} alt={alt ?? src} {...props} />
+    return <img className={composeClasses('h-8 w-8 rounded-full', className)} src={src} alt={alt ?? src} {...props} />
 }
 
 ImageIcon.displayName = 'ImageIcon'
 ImageIcon.defaultProps = {
     button: false,
-    classNameButton: ''
+    classNameButton: undefined
 }
 
 export default ImageIcon

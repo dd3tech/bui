@@ -17,7 +17,8 @@
         "baseUrl": "src/",
         "paths": {
             "components/*": ["components/*"],
-            "hooks/*": ["hooks/*"]
+            "hooks/*": ["hooks/*"],
+            "lib/*": ["lib/*"]
         }
     },
     "include": ["src/common", "src/hooks", "src/interfaces", "src/index.ts", "src/components", "src/global.d.ts"],

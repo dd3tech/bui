@@ -1,5 +1,6 @@
 import React, { DetailedHTMLProps, FC, forwardRef, HTMLAttributes, LegacyRef } from 'react'
 import { format } from 'dd360-utils'
+import { composeClasses } from 'lib'
 
 export type TextSizeType = '9xl' | '8xl' | '7xl' | '6xl' | '5xl' | '4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'base' | 'sm' | 'xs'
 
@@ -79,7 +80,7 @@ const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
  * @param variant - The variant of the text.
  * @returns A string
  */
-const getFontSize = (variant: TextProps['variant']) => {
+const getFontSizeByVariant = (variant: TextProps['variant']) => {
     if (variant === 'h1') return 'text-4xl'
     if (variant === 'h2') return 'text-3xl'
     if (variant === 'h3') return 'text-2xl'
@@ -92,56 +93,25 @@ const getFontSize = (variant: TextProps['variant']) => {
     return 'text-sm'
 }
 
-/**
- * It takes in a TextProps object, and returns a string of className
- * @param {TextProps} props - TextProps
- * @returns A string of className
- */
-const getStyles = (props: TextProps) => {
-    if (props.className?.length !== 0) {
-        props.className += ' '
+const getFontSizeBySize = (size: TextProps['size']) => {
+    if (!size) return ''
+
+    if (typeof size === 'object') {
+        let sizes = ''
+        Object.keys(size).forEach((item: 'sm' | 'md' | 'lg' | 'xl' | '2xl') => {
+            const value = size[item]
+            const classSize = typeof value === 'number' ? `text-[${value}px]` : `text-${value}`
+            sizes += `${item === 'sm' ? '' : item + ':'}${classSize} `
+        })
+
+        return sizes
     }
 
-    if (props.align) {
-        props.className += `text-${props.align} `
-    }
-    if (props.bold) {
-        props.className += 'font-bold' + ' '
-    }
-    if (props.fontBold) {
-        props.className += `font-${props.fontBold} `
-    }
-    if (props.textColor) {
-        props.className += props.textColor + ' '
-    }
-    if (props.textMuted) {
-        props.className += 'text-gray-300 '
-    }
-    if (props.textMuted500) {
-        props.className += 'text-gray-500 '
-    }
-    if (props.size) {
-        if (typeof props.size === 'object') {
-            let sizes = ''
-            Object.keys(props.size).forEach((item: 'sm' | 'md' | 'lg' | 'xl' | '2xl') => {
-                const typedSize = props?.size as TResponsiveText
-                const value = typedSize[item]
-                const classSize = typeof value === 'number' ? `text-[${value}px]` : `text-${value}`
-                sizes += `${item === 'sm' ? '' : item + ':'}${classSize} `
-            })
-            props.className += sizes
-        } else if (typeof props.size === 'number') {
-            props.className += `text-[${props.size}px] `
-        } else {
-            props.className += `text-${props.size} `
-        }
+    if (typeof size === 'number') {
+        return `text-[${size}px]`
     }
 
-    if (props.variant && !props.size) {
-        props.className += `${getFontSize(props.variant)}`
-    }
-
-    return props.className
+    return `text-${size}`
 }
 
 /**
@@ -160,7 +130,17 @@ const rmvUnnecesaryProps = (props: TextProps) => {
 const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>((textProps: TextProps, ref) => {
     const { ...props } = textProps
 
-    props.className = getStyles(props)
+    props.className = composeClasses(
+        props.className,
+        props.align && `text-${props.align}`,
+        props.bold && 'font-bold',
+        props.fontBold && `font-${props.fontBold}`,
+        props.textColor,
+        props.textMuted && 'text-gray-300',
+        props.textMuted500 && 'text-gray-500',
+        getFontSizeBySize(props.size),
+        props.variant && !props.size && getFontSizeByVariant(props.variant)
+    )
 
     const renderTextComponent = () => {
         rmvUnnecesaryProps(props)

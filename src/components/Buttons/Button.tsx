@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react'
 import Spinner from '../Spinners'
 
+import { composeClasses } from 'lib/classes'
+
 export type renderLoading = {
     component?: React.ReactElement
     textLoading?: string
@@ -78,6 +80,8 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
         ref
     ) => {
         const sizeVariants: { [key: string]: string } = {
+            small: '',
+            medium: '',
             large: 'rounded-lg w-auto'
         }
 
@@ -104,9 +108,15 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
         return (
             <button
                 ref={ref}
-                className={`rounded-md ${buttonPadding()} font-bold transition duration-500 ease-out hover:ease-in ${
-                    isLoading || props.disabled ? 'cursor-not-allowed' : ''
-                } ${buttonsVariants[variant]} ${sizeVariants[size] || ''} ${className}`}
+                className={composeClasses(
+                    'rounded-md font-bold transition duration-500 ease-out',
+                    'hover:ease-in ',
+                    buttonPadding(),
+                    buttonsVariants[variant],
+                    (isLoading || props.disabled) && 'cursor-not-allowed',
+                    sizeVariants[size] || '',
+                    className
+                )}
                 onClick={(e) => {
                     if (!props.disabled && onClick !== undefined && !isLoading) {
                         onClick(e)

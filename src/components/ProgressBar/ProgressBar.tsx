@@ -1,4 +1,5 @@
 import { forwardRef } from 'react'
+import { composeClasses } from 'lib/classes'
 import './progressbar.css'
 
 export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -20,7 +21,11 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
                     aria-valuenow={value}
                     aria-valuemin={0}
                     aria-valuemax={max}
-                    className={`storybook-progress-bar ${className ?? ''} ${animated ? 'storybook-progress-bar-animated storybook-progress-bar-animated' : ''}`}
+                    className={composeClasses(
+                        'storybook-progress-bar',
+                        animated && 'storybook-progress-bar-animated storybook-progress-bar-animated',
+                        className
+                    )}
                     style={{ backgroundColor, width: `${value}%` }}
                 >
                     {value && value > 5 && label && label}

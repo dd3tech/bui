@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { Checkbox } from 'components/Checkbox'
+import Checkbox from 'components/Checkbox'
 import FormControlLabel, { directionLabel } from './FormControlLabel'
 
 describe('<FormControlLabel /> ', () => {

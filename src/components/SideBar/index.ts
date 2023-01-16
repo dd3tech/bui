@@ -1,3 +1,5 @@
-export { default as SideBar } from './SideBar'
+import SideBar from './SideBar'
 export type { SideBarProps } from './SideBar'
 export * from './SideBar'
+
+export default SideBar
