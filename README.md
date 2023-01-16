@@ -8,7 +8,7 @@
 
 DD360 Components is a tailwind based React component library
 
-***It is important that you have tailwind installed in the project where you want to use this library.***
+***You do not need to have tailwind installed to use this library. However it can be 100% compatible with tailwind and you should not have any problem if you want to combine them.***
 
 
 ## ⚙️ Minimum requirements
@@ -33,14 +33,15 @@ npm install dd360-ds
 
 ## 💡 Usage
 
-Once you have installed the library, you will have to make some extra configurations for everything to work normally.
-
+After Installation, you will have to make some extra configurations for everything to work normally.
 
 Import stylesheets into the `App.js` or `App.tsx`
 
 ```js
 import 'dd360-ds/dist/esm/dd360.css'
 ```
+
+***⚠️Warning: If you want to combine it with other styles, be sure to import our css as the last one.***
 
 
 How to import components?
