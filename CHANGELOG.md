@@ -1,3 +1,30 @@
+# [2.1.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.0.1...v2.1.0) (2023-01-14)
+
+
+### Features
+
+* **components:** Added MultiRangeSlider component ([6d14f03](https://gitlab.com/dd3tech/dd360/dd360-components/commit/6d14f038007d828cc0e984f9d275fad16e95c20e))
+
+## [2.0.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.0.0...v2.0.1) (2023-01-13)
+
+
+### Bug Fixes
+
+* **components:** 🐛 fix onChange prop define ChangeEvent() ([8c87419](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8c874199e8863975e8a975eaad179b6b16c3f535))
+
+# [2.0.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.17.0...v2.0.0) (2023-01-13)
+
+
+### Features
+
+* **components:** 🎸 add missing css ([a96a017](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a96a0170c707c30adbc575b01a843a8055e5a2af))
+* **package:** 🎸 stylesheets load ([7635c9c](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7635c9c096167c8ded307155ef1d1fe302a81eb1))
+
+
+### BREAKING CHANGES
+
+* **package:** 🧨 Change way of load stylesheets
+
 # [1.17.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v1.16.0...v1.17.0) (2023-01-13)
 
 
