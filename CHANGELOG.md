@@ -1,3 +1,18 @@
+# [2.2.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.1.0...v2.2.0) (2023-01-16)
+
+
+### Bug Fixes
+
+* **components:** 🐛 way of exporting components ([4810991](https://gitlab.com/dd3tech/dd360/dd360-components/commit/481099168108366384152268f515a9c50253a46c))
+* **stories:** import default Autocomplete ([9a961ac](https://gitlab.com/dd3tech/dd360/dd360-components/commit/9a961ac96758ae5ef9ec6cef117c0e6de647328f))
+
+
+### Features
+
+* add composeClasses to avoid undefined and null on classes ([2d3fc4b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/2d3fc4bc76d886ca70b535a7eb687b6103005025))
+* **components:** 🎸 add composeClasses to some components ([609e1f2](https://gitlab.com/dd3tech/dd360/dd360-components/commit/609e1f2b5ef0a2bbdb42e7d7a0d4e6e02ea48c3c))
+* **components:** 🎸 composeClasses was added to components to avoid trash on the classNames ([710d831](https://gitlab.com/dd3tech/dd360/dd360-components/commit/710d831480018b2f0a13dddcfb1322cd1e4ec213))
+
 # [2.1.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.0.1...v2.1.0) (2023-01-14)
 
 
