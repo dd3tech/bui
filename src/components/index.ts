@@ -67,6 +67,9 @@ export * from './DatePicker'
 export { default as MultiRangeSlider } from './MultiRangeSlider'
 export * from './MultiRangeSlider'
 
+export { default as ConfirmDialog } from './ConfirmDialog'
+export * from './ConfirmDialog'
+
 export { default as Checkbox } from './Checkbox'
 export * from './Checkbox'
 
@@ -76,6 +79,7 @@ export * from './AutoComplete'
 export { default as SideBar } from './SideBar'
 export * from './SideBar'
 
+export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
 export * from './Radio'

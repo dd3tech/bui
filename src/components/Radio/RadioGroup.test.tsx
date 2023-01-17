@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react'
 import { useState } from 'react'
+import { render } from '@testing-library/react'
 import Radio from './Radio'
 import RadioGroup, { IRadioGroup } from './RadioGroup'
 
