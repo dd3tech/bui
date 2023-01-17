@@ -1,4 +1,5 @@
-import { forwardRef } from 'react'
+import { CSSProperties, forwardRef } from 'react'
+import { composeClasses } from 'lib/classes'
 
 export interface IRadio {
     label?: string
@@ -11,6 +12,7 @@ export interface IRadio {
     inputProps?: React.InputHTMLAttributes<HTMLInputElement>
     className?: string
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+    style?: CSSProperties
 }
 
 export const getClasses = (checked: boolean, disabled: boolean, error: boolean, markColor: string) => {
@@ -44,11 +46,16 @@ const colorsVariants: { [key: string]: string } = {
 }
 
 const Radio = forwardRef<HTMLLabelElement, IRadio>(
-    ({ label, name, value, checked = false, disabled = false, error = false, color = 'primary', inputProps, className, onChange }: IRadio, ref) => {
+    ({ label, name, value, checked = false, disabled = false, error = false, color = 'primary', inputProps, className, style, onChange }: IRadio, ref) => {
         const classes = getClasses(checked, disabled, error, colorsVariants[color])
 
         return (
-            <label role="label" ref={ref} className={`${className ?? ''} flex items-center relative text-sm font-medium mb-5 content-radio ${classes.label}`}>
+            <label
+                role="label"
+                ref={ref}
+                className={composeClasses('flex items-center relative text-sm font-medium mb-5 content-radio', classes.label, className)}
+                style={style}
+            >
                 <input
                     type="radio"
                     name={name}
@@ -59,8 +66,11 @@ const Radio = forwardRef<HTMLLabelElement, IRadio>(
                     onChange={onChange}
                     {...inputProps}
                 />
-                <span role="radioCustom" className={`flex justify-center items-center relative w-5 h-5 rounded-full mr-3.5 border ${classes.radio}`}>
-                    <span role="mark" className={`block rounded-full absolute transition-all ${classes.mark.size} ${classes.mark.color}`} />
+                <span
+                    role="radioCustom"
+                    className={composeClasses('flex justify-center items-center relative w-5 h-5 rounded-full mr-3.5 border', classes.radio)}
+                >
+                    <span role="mark" className={composeClasses('block rounded-full absolute transition-all', classes.mark.size, classes.mark.color)} />
                 </span>
                 {label}
             </label>

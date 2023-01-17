@@ -1,5 +1,6 @@
 import React from 'react'
-import Text from '../Typography'
+import { composeClasses } from 'lib/classes'
+import Text from '../Typography/Text'
 import { IRadio } from './Radio'
 
 export interface IRadioGroup {
@@ -14,13 +15,13 @@ export interface IRadioGroup {
 
 function RadioGroup({ title, row, children, name, value, className, onChange }: IRadioGroup) {
     return (
-        <div className={`flex flex-col ${className ?? ''}`}>
+        <div className={composeClasses('flex flex-col', className)}>
             {title && (
                 <Text role="title" size="base" className="mb-5" textMuted500>
                     {title}
                 </Text>
             )}
-            <div role="radio-group" className={`flex ${row ? 'flex-row' : 'flex-col'}`}>
+            <div role="radio-group" className={composeClasses('flex', row ? 'flex-row' : 'flex-col')}>
                 {React.Children.map(children, (child) => {
                     if (!React.isValidElement<IRadio>(child)) {
                         return child
