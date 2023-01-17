@@ -1,3 +1,10 @@
+# [2.3.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.2.0...v2.3.0) (2023-01-17)
+
+
+### Features
+
+* **components:** Added FilterSelect, FilterSelectMulti, FilterRange components ([2f1330c](https://gitlab.com/dd3tech/dd360/dd360-components/commit/2f1330ca661ed19ad18f89f9c1c3ffca1841f338))
+
 # [2.2.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.1.0...v2.2.0) (2023-01-16)
 
 
