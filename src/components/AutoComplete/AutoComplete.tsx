@@ -1,14 +1,16 @@
+import React, { useEffect, useState } from 'react'
 import Divider from 'components/Divider'
 import Text from 'components/Typography'
-import React, { useEffect, useState } from 'react'
 import { Input, IInputProps } from '../Form/Input'
+
+import { composeClasses } from 'lib/classes'
 
 type Item = {
     name: string
     id: string | number
 }
 
-interface AutoCompleteProps extends IInputProps {
+export interface AutoCompleteProps extends IInputProps {
     canFindText?: string
     isLoading?: boolean
     items: Array<Partial<Item>>
@@ -83,14 +85,14 @@ function AutoComplete({
             <Input
                 {...otherProps}
                 role="autocomplete"
-                className={` ${disabled ? 'opacity-30 bg-gray-100' : ''} ${className ?? ''}`.trim()}
+                className={composeClasses(disabled && 'opacity-30 bg-gray-100', className)}
                 onChange={handleChange}
                 onBlur={onBlur}
                 onFocus={onFocus}
                 value={itemName}
                 disabled={disabled}
             />
-            <div role="panel" className={`transition duration-500 ease-out relative z-10 ${!isActiveAutoComplete ? 'hidden' : ''}`.trim()}>
+            <div role="panel" className={composeClasses('transition duration-500 ease-out relative z-10', !isActiveAutoComplete && 'hidden')}>
                 <div
                     data-testid="container"
                     style={{ minHeight: '16px', maxHeight: '265px' }}

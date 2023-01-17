@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import { composeClasses } from 'lib/classes'
 
 interface CircleProps extends React.HTMLProps<HTMLDivElement> {
     children?: React.ReactNode
@@ -32,7 +33,7 @@ const Circle = forwardRef<HTMLDivElement, CircleProps>((circleProps: CircleProps
     return (
         <div
             ref={ref}
-            className={`${chooseClassNameCircle()} items-center flex justify-center rounded-full`}
+            className={composeClasses('items-center flex justify-center rounded-full', chooseClassNameCircle())}
             style={{ backgroundColor: !useBackground ? '' : backgroundColor, width, height, border }}
             {...props}
         >
@@ -42,5 +43,4 @@ const Circle = forwardRef<HTMLDivElement, CircleProps>((circleProps: CircleProps
 })
 
 Circle.displayName = 'Circle'
-
 export default Circle

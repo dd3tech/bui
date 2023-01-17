@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { AutoComplete as AutoCompleteComponent } from '../components/AutoComplete'
+import AutoCompleteComponent from '../components/AutoComplete'
 
 export default {
     title: 'Form/AutoComplete',

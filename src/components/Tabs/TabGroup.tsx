@@ -1,4 +1,5 @@
 import React, { MouseEvent, useRef, useState, useEffect, ReactNode, useCallback } from 'react'
+import { composeClasses } from 'lib/classes'
 
 export interface TabGroupProps {
     disabledText?: string
@@ -133,7 +134,7 @@ function TabGroup({
             <div
                 {...otherProps}
                 ref={refContainer}
-                className={`flex text-${fontSize} ${className} ${getBorder()} ${variantStyle[variant]} ${orientationStyle[orientation]}`}
+                className={composeClasses('flex', fontSize && `text-${fontSize}`, variantStyle[variant], orientationStyle[orientation], getBorder(), className)}
             >
                 {childrenWithProps()}
             </div>
@@ -144,7 +145,10 @@ function TabGroup({
                         ...dashRect,
                         backgroundColor: !indicatorColor?.includes('bg-') ? indicatorColor : undefined
                     }}
-                    className={`${indicatorColor?.includes('bg-') ? indicatorColor : ''} bg-blue-500 transition-all duration-300 ease-in absolute bottom-0`}
+                    className={composeClasses(
+                        'bg-blue-500 transition-all duration-300 ease-in absolute bottom-0',
+                        indicatorColor?.includes('bg-') && indicatorColor
+                    )}
                 />
             )}
         </div>

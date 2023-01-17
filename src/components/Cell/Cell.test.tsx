@@ -44,6 +44,7 @@ describe('<Cell/>', () => {
         it('should render a cell without border', () => {
             const { container } = render(<Cell border={false} />)
             const btn = container.firstChild as HTMLButtonElement
+
             expect(btn.className).toContain(getClassName(false, false, false))
         })
     })

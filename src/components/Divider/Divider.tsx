@@ -1,3 +1,5 @@
+import { composeClasses } from 'lib/classes'
+
 export interface IDivider {
     vertical?: boolean
     light?: boolean
@@ -24,7 +26,7 @@ export const getClassesDivider = ({ vertical, light, variant, size = 'small' }: 
 
 const Divider = (props: IDivider) => {
     const classes = getClassesDivider(props)
-    return <hr className={`flex self-stretch ${props.className ?? ''} ${classes.orientation} ${classes.variant} ${classes.size} ${classes.color}`} />
+    return <hr className={composeClasses('flex self-stretch', classes.orientation, classes.variant, classes.size, classes.color, props.className)} />
 }
 
 export default Divider

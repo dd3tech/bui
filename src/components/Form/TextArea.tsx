@@ -1,4 +1,5 @@
 import React from 'react'
+import { composeClasses } from 'lib/classes'
 
 export interface ITextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     maxlength?: number
@@ -12,8 +13,8 @@ export const TextArea = ({
     name,
     className,
     disabled,
-    placeholder,
-    maxlength,
+    placeholder = '',
+    maxlength = 500,
     onChange,
     onClick,
     onFocus,
@@ -23,11 +24,15 @@ export const TextArea = ({
 }: ITextAreaProps) => {
     return (
         <>
-            {label && <label className={`block text-sm font-medium leading-4 mb-2 ${classNameLabel}`}>{label}</label>}
+            {label && <label className={composeClasses('block text-sm font-medium leading-4 mb-2', classNameLabel)}>{label}</label>}
             <textarea
                 placeholder={placeholder}
-                className={` ${className} focus:border-blue-500 bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium rounded-lg outline-none p-3 `}
-                maxLength={maxlength ?? 400}
+                className={composeClasses(
+                    ' bg-transparent transition duration-500 ease-out border-solid border border-black font-medium rounded-lg outline-none p-3',
+                    'focus:border-blue-500 focus:ease-in',
+                    className
+                )}
+                maxLength={maxlength}
                 onChange={onChange}
                 onClick={onClick}
                 onFocus={onFocus}

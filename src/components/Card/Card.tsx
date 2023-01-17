@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { composeClasses } from 'lib/classes'
 
 export interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode
@@ -32,7 +33,7 @@ const Card = ({ children, rounded, height, width, padding, paddingX, paddingY, c
         <div
             data-testid="card-contain"
             style={{ ...style, height, width }}
-            className={`rounded-${rounded} ${getPadding()} shadow-sm border ${className}`}
+            className={composeClasses('shadow-sm border', rounded && `rounded-${rounded}`, getPadding(), className)}
             {...otherProps}
         >
             {children}

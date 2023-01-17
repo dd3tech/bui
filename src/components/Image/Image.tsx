@@ -1,4 +1,5 @@
 import React from 'react'
+import { composeClasses } from 'lib/classes'
 
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     rounded?: 'sm' | 'md' | 'lg'
@@ -12,8 +13,8 @@ const Image = ({ src, alt, className, rounded, circle, width, height, ...props }
         <img
             src={src}
             style={{ height: `${height}px`, width: `${width}px` }}
-            alt={alt ?? src}
-            className={`rounded-${rounded} ${className ?? ''} ${circle ? 'rounded-50' : ''}`}
+            alt={alt || src}
+            className={composeClasses(circle ? 'rounded-50' : `rounded-${rounded}`, className)}
             {...props}
         />
     )
