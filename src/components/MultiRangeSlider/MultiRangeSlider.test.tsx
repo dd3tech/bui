@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react'
 import { RefObject } from 'react'
+import { fireEvent, render } from '@testing-library/react'
 import { vi } from 'vitest'
 import MultiRangeSlider, { updateBar } from './MultiRangeSlider'
 

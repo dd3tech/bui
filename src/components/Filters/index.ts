@@ -6,3 +6,6 @@ export * from './FilterSelectMulti'
 
 export { default as FilterRange } from './FilterRange'
 export * from './FilterRange'
+
+export { default as FilterRangeSlider } from './FilterRangeSlider'
+export * from './FilterRangeSlider'
