@@ -1,3 +1,10 @@
+# [2.4.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.3.0...v2.4.0) (2023-01-18)
+
+
+### Features
+
+* **components:** added MultiRangeSlider component ([355f5e3](https://gitlab.com/dd3tech/dd360/dd360-components/commit/355f5e366dbca7cef00a465b3213d22c277b4c71))
+
 # [2.3.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.2.0...v2.3.0) (2023-01-17)
 
 
