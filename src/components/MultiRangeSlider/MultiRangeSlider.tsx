@@ -1,21 +1,65 @@
 import { useEffect, useState, useRef, RefObject } from 'react'
+import { composeClasses } from 'lib/classes'
 import './multiRangeSlider.css'
 
-interface IRage {
+export interface IRangeSlider {
     min: number
     max: number
 }
 
 export interface MultiRangeSliderProps {
+    /**
+     * Minimum value that can be selected.
+     */
     min: number
+    /**
+     * Maximum value that can be selected.
+     */
     max: number
-    onChange: (rage: IRage) => void
+    /**
+     * The initial value for the minimum value input. If not provided,
+     * it will default to the minimum value.
+     */
+    initMinValue?: number
+    /**
+     * The initial value for the maximum value input. If not provided,
+     * it will default to the maximum value.
+     */
+    initMaxValue?: number
+    /**
+     * A callback function that will be called whenever the selected range changes.
+     * It receives an object with the properties min and max.
+     * @param range
+     */
+    onChange: (range: IRangeSlider) => void
+    /**
+     * Bar color
+     */
     barColor?: string
+    /**
+     * Bar height
+     */
     sizeBar?: 'small' | 'medium' | 'large'
+    /**
+     * Bar controls (thumbs) size
+     */
     size?: 'small' | 'medium' | 'large'
+    /**
+     * Indicates if the minimum value input is disabled.
+     */
     minValDisabled?: boolean
+    /**
+     * Indicates if the maximum value input is disabled
+     */
     maxValDisabled?: boolean
+    /**
+     * The class name to apply to the ConfirmDialog
+     */
     className?: string
+    /**
+     * A boolean that forces the component to update its value with the initMinValue and initMaxValue.
+     */
+    fireReset?: boolean
 }
 
 const barSizeVariants: { [key: string]: string } = {
@@ -30,7 +74,7 @@ const thumbMargin: { [key: string]: string } = {
     large: 'mt-0.5'
 }
 
-export const getPercent = (value: number, min: number, max: number) => Math.round(((value - min) / (max - min)) * 100)
+const getPercent = (value: number, min: number, max: number) => Math.round(((value - min) / (max - min)) * 100)
 
 export const updateBar = (input: HTMLInputElement, range: RefObject<HTMLDivElement>, minMaxVal: number, min: number, max: number) => {
     const minPercent = getPercent(input.name === 'max-val' ? minMaxVal : Number(input.value), min, max)
@@ -42,31 +86,58 @@ export const updateBar = (input: HTMLInputElement, range: RefObject<HTMLDivEleme
     }
 }
 
-const MultiRangeSlider = ({ min, max, onChange, barColor, sizeBar = 'small', size, className, minValDisabled, maxValDisabled }: MultiRangeSliderProps) => {
-    const [minVal, setMinVal] = useState(min)
-    const [maxVal, setMaxVal] = useState(max)
+const MultiRangeSlider = ({
+    min,
+    max,
+    initMinValue,
+    initMaxValue,
+    fireReset,
+    onChange,
+    barColor,
+    sizeBar = 'small',
+    size,
+    className,
+    minValDisabled,
+    maxValDisabled
+}: MultiRangeSliderProps) => {
+    const initValue = { min: initMinValue ?? min, max: initMaxValue ?? max }
+    const [minVal, setMinVal] = useState(initValue.min)
+    const [maxVal, setMaxVal] = useState(initValue.max)
     const minValRef = useRef<HTMLInputElement>(null)
     const maxValRef = useRef<HTMLInputElement>(null)
     const range = useRef<HTMLDivElement>(null)
 
-    useEffect(() => {
-        if (maxValRef.current) {
-            updateBar(maxValRef.current, range, minVal, min, max)
-        }
-    }, [minVal])
-
-    useEffect(() => {
+    const updateMin = (val: number) => {
+        // We always obtain a value lower than the maximum selected, since the maximum is reserved for the input maxVal
+        const minValue = Math.min(val, maxVal - 1)
+        setMinVal(minValue)
         if (minValRef.current) {
-            updateBar(minValRef.current, range, maxVal, min, max)
+            minValRef.current.value = minValue.toString()
         }
-    }, [maxVal])
+        maxValRef.current && updateBar(maxValRef.current, range, minValue, min, max)
+    }
+
+    const updateMax = (val: number) => {
+        // We always obtain a value greater than the selected minimum, since the minimum is reserved for the input minVal
+        const maxValue = Math.max(val, minVal + 1)
+        setMaxVal(maxValue)
+        if (maxValRef.current) {
+            maxValRef.current.value = maxValue.toString()
+        }
+        minValRef.current && updateBar(minValRef.current, range, maxValue, min, max)
+    }
 
     useEffect(() => {
         onChange({ min: minVal, max: maxVal })
-    }, [minVal, maxVal, onChange])
+    }, [minVal, maxVal])
+
+    useEffect(() => {
+        updateMin(initValue.min)
+        updateMax(initValue.max)
+    }, [fireReset])
 
     return (
-        <div className={`${className ?? ''} relative multi-slider`}>
+        <div className={composeClasses('relative multi-slider', className)}>
             <input
                 name="min-val"
                 type="range"
@@ -74,14 +145,9 @@ const MultiRangeSlider = ({ min, max, onChange, barColor, sizeBar = 'small', siz
                 max={max}
                 value={minVal}
                 ref={minValRef}
-                onChange={(event) => {
-                    // We always obtain a value lower than the maximum selected, since the maximum is reserved for the input maxVal
-                    const value = Math.min(Number(event.target.value), maxVal - 1)
-                    setMinVal(value)
-                    event.target.value = value.toString()
-                }}
+                onChange={(event) => updateMin(Number(event.target.value))}
                 disabled={minValDisabled}
-                className={`thumb z-30 absolute pointer-events-none h-0 w-full outline-none ${thumbMargin[sizeBar]} ${size}`}
+                className={composeClasses('thumb z-30 absolute pointer-events-none h-0 w-full outline-none', thumbMargin[sizeBar], size)}
             />
             <input
                 name="max-val"
@@ -90,22 +156,17 @@ const MultiRangeSlider = ({ min, max, onChange, barColor, sizeBar = 'small', siz
                 max={max}
                 value={maxVal}
                 ref={maxValRef}
-                onChange={(event) => {
-                    // We always obtain a value greater than the selected minimum, since the minimum is reserved for the input minVal
-                    const value = Math.max(Number(event.target.value), minVal + 1)
-                    setMaxVal(value)
-                    event.target.value = value.toString()
-                }}
+                onChange={(event) => updateMax(Number(event.target.value))}
                 disabled={maxValDisabled}
-                className={`thumb z-40 absolute pointer-events-none h-0 w-full outline-none ${thumbMargin[sizeBar]} ${size}`}
+                className={composeClasses('thumb z-40 absolute pointer-events-none h-0 w-full outline-none', thumbMargin[sizeBar], size)}
             />
 
             <div className="relative w-full">
-                <div className={`bar absolute w-full rounded bg-blue-100 z-10 ${barSizeVariants[sizeBar]}`} />
+                <div className={composeClasses('bar absolute w-full rounded bg-blue-100 z-10', barSizeVariants[sizeBar])} />
                 <div
                     role="range-bar"
                     ref={range}
-                    className={`absolute rounded bg-blue-800 z-20 ${barSizeVariants[sizeBar]} ${sizeBar}`}
+                    className={composeClasses('absolute rounded bg-blue-800 z-20', barSizeVariants[sizeBar], sizeBar)}
                     style={{ backgroundColor: barColor }}
                 />
             </div>
