@@ -8,10 +8,6 @@ export default {
     component: FilterRangeSliderComponent
 } as ComponentMeta<typeof FilterRangeSliderComponent>
 
-const handleChange = (range: IRangeSlider) => {
-    console.log(range)
-}
-
 const Template: ComponentStory<typeof FilterRangeSliderComponent> = (args) => {
     const refButton = useRef<null | HTMLButtonElement>(null)
     const [position, setPosition] = useState({ show: false, left: 0, top: 0 })
@@ -49,5 +45,5 @@ FilterRangeSlider.args = {
     min: 50,
     max: 150,
     width: 188,
-    onApply: handleChange
+    onApply: (range: IRangeSlider) => console.log(range)
 }
