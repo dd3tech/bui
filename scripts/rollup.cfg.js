@@ -56,7 +56,7 @@ export function getBabelOptions(targets) {
  */
 export function createModule({ plugins, format = 'esm', ...otherProps }) {
     const config = {
-        input: ['./src/index.ts', ...getFiles('./src/hooks'), ...getFiles('./src/common')],
+        input: ['./src/index.ts', ...getFiles('./src/hooks'), ...getFiles('./src/common'), ...getFiles('./src/lib')],
         output: {
             dir: `dist/${format}`,
             format: `${format}`,
