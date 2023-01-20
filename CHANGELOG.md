@@ -1,3 +1,10 @@
+## [2.4.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.4.0...v2.4.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* add stop propagation and style prop on card ([5f9d58b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/5f9d58bb721f141e2fe8462ef105e45d9575d214))
+
 # [2.4.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.3.0...v2.4.0) (2023-01-18)
 
 
