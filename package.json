@@ -1,6 +1,6 @@
 {
     "name": "dd360-ds",
-    "version": "2.5.0",
+    "version": "2.5.1",
     "description": "DD360 Components is a tailwind based React component library",
     "license": "MIT",
     "repository": {
@@ -149,7 +149,7 @@
                 "./dist/esm/lib/index.d.ts"
             ],
             "DynamicHeroIcon": [
-                "./dist/esm/common/DynamicHeroIcon/index.js"
+                "./dist/esm/common/DynamicHeroIcon/index.d.ts"
             ]
         }
     }

@@ -1,3 +1,10 @@
+## [2.5.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.5.0...v2.5.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* typo on typesVersions of DynamicHeroIcon exports ([8f72286](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8f7228691b3465897527971347ff4aeeec9778c5))
+
 # [2.5.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.4.1...v2.5.0) (2023-01-20)
 
 
