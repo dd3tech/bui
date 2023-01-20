@@ -1,6 +1,6 @@
 {
     "name": "dd360-ds",
-    "version": "2.4.1",
+    "version": "2.5.0",
     "description": "DD360 Components is a tailwind based React component library",
     "license": "MIT",
     "repository": {
@@ -122,5 +122,35 @@
     },
     "publishConfig": {
         "access": "public"
+    },
+    "exports": {
+        ".": {
+            "require": "./dist/cjs/index.js",
+            "module": "./dist/esm/index.js",
+            "default": "./dist/esm/index.js"
+        },
+        "./lib": {
+            "require": "./dist/cjs/lib/index.js",
+            "module": "./dist/esm/lib/index.js",
+            "default": "./dist/esm/lib/index.js"
+        },
+        "./DynamicHeroIcon": {
+            "require": "./dist/cjs/common/DynamicHeroIcon/index.js",
+            "module": "./dist/esm/common/DynamicHeroIcon/index.js",
+            "default": "./dist/esm/common/DynamicHeroIcon/index.js"
+        }
+    },
+    "typesVersions": {
+        "*": {
+            ".": [
+                "./dist/esm/index.d.ts"
+            ],
+            "lib": [
+                "./dist/esm/lib/index.d.ts"
+            ],
+            "DynamicHeroIcon": [
+                "./dist/esm/common/DynamicHeroIcon/index.js"
+            ]
+        }
     }
 }

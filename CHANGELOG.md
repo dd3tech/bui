@@ -1,3 +1,15 @@
+# [2.5.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.4.1...v2.5.0) (2023-01-20)
+
+
+### Bug Fixes
+
+* paths were changed to relative path on FilterRangeSlider to avoid circular dependencies ([b56d04b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/b56d04b68722f0c252f82a997aada102c737bf66))
+
+
+### Features
+
+* add combinePackage to combine package json and exports on the same file ([83d1f42](https://gitlab.com/dd3tech/dd360/dd360-components/commit/83d1f42ee8d9768c7c204a3c0fe4d0947f5313b0))
+
 ## [2.4.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.4.0...v2.4.1) (2023-01-20)
 
 
