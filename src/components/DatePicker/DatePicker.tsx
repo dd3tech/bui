@@ -1,7 +1,7 @@
 import Card from 'components/Card'
 import Text from 'components/Typography'
 import { Portal } from '../../common/Portal'
-import { useCallback, useState, useMemo, useEffect } from 'react'
+import { useCallback, useState, useMemo, useEffect, CSSProperties } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 
@@ -43,6 +43,7 @@ type OptionType = 'day' | 'month' | 'year'
 
 interface Props {
     className?: string
+    style?: CSSProperties
     format?: 'long' | 'short'
     language?: 'es' | 'en'
     value?: Date
@@ -246,10 +247,17 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
     )
 }
 
-function DatePicker({ className, ...props }: Props) {
+function DatePicker({ className, style, ...props }: Props) {
     return (
         <Portal>
-            <Card role="calendar-container" width="fit-content" className={composeClasses('p-5', className)} rounded="lg">
+            <Card
+                onClick={(e) => e.stopPropagation()}
+                role="calendar-container"
+                width="fit-content"
+                className={composeClasses('p-5', className)}
+                style={style}
+                rounded="lg"
+            >
                 <Calendar {...props} />
             </Card>
         </Portal>
