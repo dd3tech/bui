@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
-import MultiRangeSlider, { IRangeSlider } from 'components/MultiRangeSlider/MultiRangeSlider'
-import ConfirmDialog from 'components/ConfirmDialog/ConfirmDialog'
-import Text from 'components/Typography/Text'
+import MultiRangeSlider, { IRangeSlider } from '../MultiRangeSlider/MultiRangeSlider'
+import ConfirmDialog from '../ConfirmDialog/ConfirmDialog'
+import Text from '../Typography/Text'
 
 export interface FilterRangeSliderProps {
     /**
