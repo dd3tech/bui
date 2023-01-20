@@ -20,7 +20,7 @@
         "*": {
             ".": ["./dist/esm/index.d.ts"],
             "lib": ["./dist/esm/lib/index.d.ts"],
-            "DynamicHeroIcon": ["./dist/esm/common/DynamicHeroIcon/index.js"]
+            "DynamicHeroIcon": ["./dist/esm/common/DynamicHeroIcon/index.d.ts"]
         }
     }
 }
