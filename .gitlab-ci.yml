@@ -133,6 +133,7 @@ semantic-release:
         GITLAB_TOKEN: $GITLAB_TOKEN
         NPM_TOKEN: $NPM_TOKEN
     script:
+        - npm run generate-exports
         - npm run build-lib
         - npx semantic-release
     dependencies:
