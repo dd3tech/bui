@@ -1,3 +1,11 @@
+## [2.5.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.5.1...v2.5.2) (2023-01-23)
+
+
+### Bug Fixes
+
+* add more exports of components ([ca8bf70](https://gitlab.com/dd3tech/dd360/dd360-components/commit/ca8bf702b66fd6c455c76e86a2837e053c77799c))
+* change name of Spinner component ([a7e3e77](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a7e3e7779f55f2d9d7a5e95249878da04454763f))
+
 ## [2.5.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.5.0...v2.5.1) (2023-01-20)
 
 
