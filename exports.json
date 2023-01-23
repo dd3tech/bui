@@ -14,13 +14,43 @@
             "require": "./dist/cjs/common/DynamicHeroIcon/index.js",
             "module": "./dist/esm/common/DynamicHeroIcon/index.js",
             "default": "./dist/esm/common/DynamicHeroIcon/index.js"
+        },
+        "./dd360.css": {
+            "require": "./dist/cjs/dd360.css",
+            "module": "./dist/esm/dd360.css",
+            "default": "./dist/esm/dd360.css",
+            "css": "./dist/esm/dd360.css"
+        },
+        "./Spinner": {
+            "require": "./dist/cjs/components/Spinner/index.js",
+            "module": "./dist/esm/components/Spinner/index.js",
+            "default": "./dist/esm/components/Spinner/index.js"
+        },
+        "./Buttons": {
+            "require": "./dist/cjs/components/Buttons/index.js",
+            "module": "./dist/esm/components/Buttons/index.js",
+            "default": "./dist/esm/components/Buttons/index.js"
+        },
+        "./Breadcrumbs": {
+            "require": "./dist/cjs/components/Breadcrumbs/index.js",
+            "module": "./dist/esm/components/Breadcrumbs/index.js",
+            "default": "./dist/esm/components/Breadcrumbs/index.js"
+        },
+        "./Pagination": {
+            "require": "./dist/cjs/components/Pagination/index.js",
+            "module": "./dist/esm/components/Pagination/index.js",
+            "default": "./dist/esm/components/Pagination/index.js"
         }
     },
     "typesVersions": {
         "*": {
             ".": ["./dist/esm/index.d.ts"],
             "lib": ["./dist/esm/lib/index.d.ts"],
-            "DynamicHeroIcon": ["./dist/esm/common/DynamicHeroIcon/index.d.ts"]
+            "DynamicHeroIcon": ["./dist/esm/common/DynamicHeroIcon/index.d.ts"],
+            "Spinner": ["./dist/esm/components/Spinner/index.d.ts"],
+            "Buttons": ["./dist/esm/components/Buttons/index.d.ts"],
+            "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
+            "Pagination": ["./dist/esm/components/Pagination/index.d.ts"]
         }
     }
 }
