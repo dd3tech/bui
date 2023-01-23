@@ -1,3 +1,10 @@
+## [2.5.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.5.2...v2.5.3) (2023-01-23)
+
+
+### Bug Fixes
+
+* add composeClasses to Wrapper component ([977bf8c](https://gitlab.com/dd3tech/dd360/dd360-components/commit/977bf8cce2c7afc01fd51aaaa98f2eb9ff9236e5))
+
 ## [2.5.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.5.1...v2.5.2) (2023-01-23)
 
 
