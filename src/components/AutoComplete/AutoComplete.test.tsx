@@ -120,7 +120,7 @@ describe('<AutoComplete />', () => {
         it('If the onSelect, removeSelect function is executed, the container elements should disappear', () => {
             const onSelected = vi.fn()
             const removeSelected = vi.fn()
-            const { getByRole, getAllByRole } = render(<AutoComplete removeSelectedItem={removeSelected} onSelected={onSelected} items={testProjectData} />)
+            const { getByRole, getAllByRole } = render(<AutoComplete removeSelectedItem={removeSelected} onSelectItem={onSelected} items={testProjectData} />)
 
             fireEvent.change(getByRole('autocomplete'), { target: { value: 'show list' } })
             expect(getByRole('panel').className).not.toContain('hidden')

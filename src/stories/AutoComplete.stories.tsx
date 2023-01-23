@@ -39,7 +39,7 @@ const Template: ComponentStory<typeof AutoCompleteComponent> = (args) => {
         return () => clearTimeout(timeout)
     }, [value])
 
-    return <AutoCompleteComponent {...args} onSelected={onSelected} items={projects} value={value} onChange={onChange} isLoading={isLoading} />
+    return <AutoCompleteComponent {...args} onSelectItem={onSelected} items={projects} value={value} onChange={onChange} isLoading={isLoading} />
 }
 
 export const AutoComplete = Template.bind({})
