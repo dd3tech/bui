@@ -1,4 +1,5 @@
 import React from 'react'
+import { composeClasses } from 'lib/classes'
 
 export interface WrapperProps extends React.HTMLProps<HTMLDivElement> {
     children: React.ReactNode
@@ -22,7 +23,7 @@ function Wrapper({
     return (
         <div
             style={{ ...style, minHeight: hasViewportHeight ? 'calc(100vh - 193px)' : '' }}
-            className={`py-${paddingVertical} max-w-${maxWidth} px-${paddingHorizontal} mx-auto ${className ?? ''}`}
+            className={composeClasses(`py-${paddingVertical} max-w-${maxWidth} px-${paddingHorizontal} mx-auto`, className)}
             {...otherProps}
         >
             {children}
