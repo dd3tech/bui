@@ -1,3 +1,10 @@
+## [2.5.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.5.3...v2.5.4) (2023-01-23)
+
+
+### Bug Fixes
+
+* with certain languages set in the configuration, the format was displayed incorrectly ([beafe13](https://gitlab.com/dd3tech/dd360/dd360-components/commit/beafe13d7dc4f97b5620b5e2d2712995cfca68aa))
+
 ## [2.5.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.5.2...v2.5.3) (2023-01-23)
 
 
