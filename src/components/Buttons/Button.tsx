@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import Spinner from '../Spinners'
+import Spinner from '../Spinner'
 
 import { composeClasses } from 'lib/classes'
 

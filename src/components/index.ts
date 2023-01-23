@@ -52,8 +52,8 @@ export * from './ToolTipHover'
 export { default as ImageIcon } from './ImageIcon'
 export * from './ImageIcon'
 
-export { default as Spinner } from './Spinners'
-export * from './Spinners'
+export { default as Spinner } from './Spinner'
+export * from './Spinner'
 
 export { default as Cell } from './Cell'
 export * from './Cell'
