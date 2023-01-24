@@ -44,8 +44,8 @@ const InputCurrency: FC<InputCurrencyProps> = (props) => {
             onFocus={(e) => props.onFocus && props.onFocus(e)}
             role={props?.role ?? ''}
             onPaste={props.onPaste}
-            decimalSeparator=","
-            groupSeparator="."
+            decimalSeparator="."
+            groupSeparator=","
         />
     )
 }
