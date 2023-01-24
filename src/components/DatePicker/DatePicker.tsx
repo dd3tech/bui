@@ -1,7 +1,7 @@
 import Card from '../Card'
 import Text from '../Typography'
 import { Portal } from '../../common/Portal'
-import { useCallback, useState, useMemo, useEffect, CSSProperties } from 'react'
+import React, { useCallback, useState, useMemo, useEffect, CSSProperties } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 
@@ -38,6 +38,10 @@ const getYearList = (startYear: number, size: number) => {
 }
 
 const btnClassName = (bgColor: string) => composeClasses('px-3 p-1.5 rounded-lg box-content border border-transparent', 'hover:border-blue-500', bgColor)
+
+const stopPropagationCalendar = (event: React.MouseEvent) => {
+    event.stopPropagation()
+}
 
 type OptionType = 'day' | 'month' | 'year'
 
@@ -265,7 +269,8 @@ function DatePicker({ className, style, usePortal = false, ...props }: Props) {
             width="fit-content"
             className={composeClasses('p-5', className ?? 'bg-white')}
             rounded="lg"
-            onClick={(e) => e.stopPropagation()}
+            onClick={stopPropagationCalendar}
+            onMouseDown={stopPropagationCalendar}
         >
             <Calendar {...props} />
         </Card>
