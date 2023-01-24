@@ -1,7 +1,7 @@
-import Card from 'components/Card'
-import Text from 'components/Typography'
+import Card from '../Card'
+import Text from '../Typography'
 import { Portal } from '../../common/Portal'
-import { useCallback, useState, useMemo, useEffect, CSSProperties } from 'react'
+import React, { useCallback, useState, useMemo, useEffect, CSSProperties } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 
@@ -39,6 +39,10 @@ const getYearList = (startYear: number, size: number) => {
 
 const btnClassName = (bgColor: string) => composeClasses('px-3 p-1.5 rounded-lg box-content border border-transparent', 'hover:border-blue-500', bgColor)
 
+const stopPropagationCalendar = (event: React.MouseEvent) => {
+    event.stopPropagation()
+}
+
 type OptionType = 'day' | 'month' | 'year'
 
 interface Props {
@@ -49,6 +53,7 @@ interface Props {
     value?: Date
     onChange?: (newDate: Date) => void
     onlyOf?: OptionType
+    usePortal?: boolean
 }
 
 const TOTAL_YEARS = 11
@@ -163,18 +168,27 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
     if (currentOption === 'month') {
         return (
             <>
-                <div className="flex flex-1 justify-between items-center mb-5 text-gray-700">
-                    <button role="prevYear" onClick={handlePrevYear}>
-                        <ChevronLeftIcon className="w-4 h-4" />
-                    </button>
-                    <button disabled={!!onlyOf} role="select-year" onClick={updateCurrentOption}>
+                <div className={composeClasses('flex flex-1 items-center mb-5 text-gray-700', !onlyOf && 'justify-between', onlyOf && 'justify-center')}>
+                    {!onlyOf && (
+                        <>
+                            <button role="prevYear" onClick={handlePrevYear}>
+                                <ChevronLeftIcon className="w-4 h-4" />
+                            </button>
+                            <button disabled={!!onlyOf} role="select-year" onClick={updateCurrentOption}>
+                                <Text bold size="sm">
+                                    {currentDate.getFullYear()}
+                                </Text>
+                            </button>
+                            <button role="nextYear" onClick={handleNextYear}>
+                                <ChevronRightIcon className="w-4 h-4" />
+                            </button>
+                        </>
+                    )}
+                    {onlyOf && (
                         <Text bold size="sm">
-                            {currentDate.getFullYear()}
+                            {monthNames[language][selectedDate?.getMonth() ?? TODAY.getMonth()]}
                         </Text>
-                    </button>
-                    <button role="nextYear" onClick={handleNextYear}>
-                        <ChevronRightIcon className="w-4 h-4" />
-                    </button>
+                    )}
                 </div>
                 <ul role="list" className="grid grid-cols-3 gap-x-7 gap-y-2 mx-4">
                     {monthNames[language].map((month, index) => {
@@ -247,21 +261,23 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
     )
 }
 
-function DatePicker({ className, style, ...props }: Props) {
-    return (
-        <Portal>
-            <Card
-                onClick={(e) => e.stopPropagation()}
-                role="calendar-container"
-                width="fit-content"
-                className={composeClasses('p-5', className)}
-                style={style}
-                rounded="lg"
-            >
-                <Calendar {...props} />
-            </Card>
-        </Portal>
+function DatePicker({ className, style, usePortal = false, ...props }: Props) {
+    const CalendarComponent = (
+        <Card
+            style={style}
+            role="calendar-container"
+            width="fit-content"
+            className={composeClasses('p-5', className ?? 'bg-white')}
+            rounded="lg"
+            onClick={stopPropagationCalendar}
+            onMouseDown={stopPropagationCalendar}
+        >
+            <Calendar {...props} />
+        </Card>
     )
+
+    if (!usePortal) return CalendarComponent
+    return <Portal>{CalendarComponent}</Portal>
 }
 
 export default DatePicker

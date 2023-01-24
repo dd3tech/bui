@@ -38,7 +38,7 @@ After Installation, you will have to make some extra configurations for everythi
 Import stylesheets into the `App.js` or `App.tsx`
 
 ```js
-import 'dd360-ds/dist/esm/dd360.css'
+import 'dd360-ds/dd360.css'
 ```
 
 ***⚠️Warning: If you want to combine it with other styles, be sure to import our css as the last one.***

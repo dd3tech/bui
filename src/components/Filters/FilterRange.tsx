@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 import ConfirmDialog from 'components/ConfirmDialog/ConfirmDialog'
-import { Input } from 'components/Form/Input'
+import Input from 'components/Form/Input'
 import Text from 'components/Typography/Text'
 
 export interface IRange {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Divider from 'components/Divider'
 import Text from 'components/Typography'
-import { Input, IInputProps } from '../Form/Input'
+import Input, { InputProps } from '../Form/Input'
 
 import { composeClasses } from 'lib/classes'
 
@@ -10,12 +10,12 @@ type Item = {
     id: string | number
 }
 
-export interface AutoCompleteProps extends IInputProps {
+export interface AutoCompleteProps extends InputProps {
     canFindText?: string
     isLoading?: boolean
     items: Array<Partial<Item>>
     loadingText?: string
-    onSelected?: (item: Partial<Item>) => void
+    onSelectItem?: (item: Partial<Item>) => void
     value?: string
     removeSelectedItem?: () => void
     role?: string
@@ -27,7 +27,7 @@ export interface AutoCompleteProps extends IInputProps {
 
 function AutoComplete({
     value,
-    onSelect,
+    onSelectItem,
     className,
     role,
     items,
@@ -66,7 +66,7 @@ function AutoComplete({
     }
 
     const handleSelectedItem = (item: any) => {
-        onSelect && onSelect(item)
+        onSelectItem && onSelectItem(item)
         setItemName(item.name)
         setIsActiveAutoComplete(false)
     }
