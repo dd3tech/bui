@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Input as InputComponent } from '../components/Form/Input'
+import InputComponent from '../components/Form/Input'
 import { SearchCircleIcon } from '@heroicons/react/outline'
 
 export default {
@@ -12,24 +12,26 @@ const Template: ComponentStory<typeof InputComponent> = (args) => <InputComponen
 
 export const Input = Template.bind({})
 Input.args = {
-    label: 'Ejemplo'
+    label: 'Ejemplo',
+    type: 'text',
+    variant: 'success'
 }
 export const InputWithIcon = Template.bind({})
 InputWithIcon.args = {
     label: 'Con Icono',
-    endAdorment: <SearchCircleIcon className="w-5 text-gray-500" />,
-    startAdorment: <SearchCircleIcon className="w-5 text-gray-500" />,
+    endAdornment: <SearchCircleIcon className="w-5 text-gray-500" />,
+    startAdornment: <SearchCircleIcon className="w-5 text-gray-500" />,
     className: 'w-60',
     variant: 'active'
 }
 export const InputCurrency = Template.bind({})
 InputCurrency.args = {
     label: 'Currency',
-    endAdorment: '$',
-    startAdorment: '%',
+    endAdornment: '$',
+    startAdornment: '%',
     className: 'w-full',
     variant: 'active',
-    isCurrency: true
+    type: 'currency'
 }
 export const InputPassword = Template.bind({})
 InputPassword.args = {
@@ -42,6 +44,27 @@ export const InputEmail = Template.bind({})
 InputEmail.args = {
     label: 'Email',
     type: 'email',
+    className: 'w-full',
+    variant: 'active'
+}
+export const InputDate = Template.bind({})
+InputDate.args = {
+    label: 'Date',
+    type: 'date',
+    className: 'w-full',
+    variant: 'active'
+}
+export const InputMonth = Template.bind({})
+InputMonth.args = {
+    label: 'Day',
+    type: 'month',
+    className: 'w-full',
+    variant: 'active'
+}
+export const InputYear = Template.bind({})
+InputYear.args = {
+    label: 'Year',
+    type: 'year',
     className: 'w-full',
     variant: 'active'
 }
