@@ -1,3 +1,10 @@
+## [3.0.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.0.0...v3.0.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* stop propagation on mousedown event ([45f79db](https://gitlab.com/dd3tech/dd360/dd360-components/commit/45f79dba9e0e7252061a42be1f8eb404dc7b1534))
+
 # [3.0.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.5.4...v3.0.0) (2023-01-24)
 
 
