@@ -1,3 +1,10 @@
+## [3.1.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.1.0...v3.1.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* change to single quotes on displayVariant ([09d19b6](https://gitlab.com/dd3tech/dd360/dd360-components/commit/09d19b6b60937a318c40040ee176c4542e0097ef))
+
 # [3.1.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.0.1...v3.1.0) (2023-01-24)
 
 
