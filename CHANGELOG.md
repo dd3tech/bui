@@ -1,3 +1,10 @@
+# [3.1.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.0.1...v3.1.0) (2023-01-24)
+
+
+### Features
+
+* add composeStyles to filter any value not defined ([6db787d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/6db787d62c0d475b6029c0ef117b8f0f1b112a70))
+
 ## [3.0.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.0.0...v3.0.1) (2023-01-24)
 
 
