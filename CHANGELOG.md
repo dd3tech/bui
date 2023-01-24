@@ -1,3 +1,15 @@
+# [3.0.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.5.4...v3.0.0) (2023-01-24)
+
+
+### Bug Fixes
+
+* add improvements to the code: useCallback and usePortal prop and new tests ([614fca7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/614fca726802576678905708782edd39a99527a7))
+
+
+### BREAKING CHANGES
+
+* 🧨 the use of the portal, add more tests to achieve 100 coverage
+
 ## [2.5.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v2.5.3...v2.5.4) (2023-01-23)
 
 
