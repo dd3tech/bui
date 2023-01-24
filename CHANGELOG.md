@@ -1,3 +1,10 @@
+## [3.1.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.1.1...v3.1.2) (2023-01-24)
+
+
+### Bug Fixes
+
+* add fixed export default Input ([c235deb](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c235debcb0e8e733724ea3f4d3f00546f8bc5bf8))
+
 ## [3.1.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.1.0...v3.1.1) (2023-01-24)
 
 
