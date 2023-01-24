@@ -1,6 +1,9 @@
 export { default as Button } from './Buttons'
 export * from './Buttons'
 
+export { default as Input } from './Form'
+export * from './Form'
+
 export { default as Circle } from './Circle'
 export * from './Circle'
 
@@ -86,7 +89,6 @@ export * from './Radio'
 
 export * from './Navigation'
 export * from './FeedBackBox'
-export * from './Form'
 export * from './Layout'
 export * from './Navbar'
 export * from './Table'
