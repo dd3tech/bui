@@ -1,4 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
+import { ChangeEvent } from 'react'
 import { describe, it, vi } from 'vitest'
 import MonthInput from './MonthInput'
 
@@ -26,12 +27,10 @@ describe('<MonthInput />', () => {
     })
 
     it('input onDateChange callback', () => {
-        const { getByTestId, getAllByRole, getByRole } = render(<MonthInput onChange={mockOnChange} language="en" data-testid="month-input" />)
-        const input = getByTestId('month-input') as HTMLInputElement
-
+        const { getAllByRole, getByRole } = render(<MonthInput onChange={mockOnChange} language="en" data-testid="month-input" />)
         fireEvent.click(getByRole('active-calendar'))
         fireEvent.click(getAllByRole('month')[0])
-        expect(input.value).toBe('January')
+        expect(mockOnChange).toHaveBeenCalledWith({ target: { value: '0', name: undefined } })
     })
 
     it('check default value', () => {
