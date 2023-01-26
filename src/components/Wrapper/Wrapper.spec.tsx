@@ -8,7 +8,7 @@ describe('<Wrapper/>', () => {
 
     beforeEach(() => {
         renderResult = render(
-            <Wrapper className="bg-blue-500" paddingVertical={5} paddingHorizontal={10} maxWidth="full" hasViewportHeight style={{ padding: '8px' }}>
+            <Wrapper className="bg-blue-500" paddingY="py-5" paddingX="px-10" maxWidth="max-w-full" hasViewportHeight style={{ padding: '8px' }}>
                 <span>This is a Wrapper</span>
             </Wrapper>
         )

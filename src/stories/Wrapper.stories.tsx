@@ -11,28 +11,28 @@ const Template: ComponentStory<typeof WrapperComponent> = (args) => <WrapperComp
 
 export const lg = Template.bind({})
 lg.args = {
-    maxWidth: 'screen-lg',
+    maxWidth: 'max-w-screen-lg',
     className: 'bg-blue-200',
     children: 'Hello World LG'
 }
 
 export const xl = Template.bind({})
 xl.args = {
-    maxWidth: 'screen-xl',
+    maxWidth: 'max-w-screen-xl',
     className: 'bg-pink-200',
     children: 'Hello World XL'
 }
 
 export const xl2 = Template.bind({})
 xl2.args = {
-    maxWidth: 'screen-2xl',
+    maxWidth: 'max-w-screen-2xl',
     className: 'bg-green-200',
     children: 'Hello World 2XL'
 }
 
 export const full = Template.bind({})
 full.args = {
-    maxWidth: 'full',
+    maxWidth: 'max-w-full',
     className: 'bg-gray-200',
     children: 'Hello World FULL'
 }

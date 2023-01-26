@@ -1,21 +1,23 @@
 import React from 'react'
 import { composeClasses } from 'lib/classes'
+import { MaxWidth, paddingY, paddingX } from 'lib/types'
+import { spacing } from 'lib/spacing'
 
 export interface WrapperProps extends React.HTMLProps<HTMLDivElement> {
     children: React.ReactNode
     className?: string
-    paddingVertical?: number
-    paddingHorizontal?: number
-    maxWidth?: 'full' | 'screen-2xl' | 'screen-xl' | 'screen-lg' | 'screen-md' | 'screen-sm'
+    paddingY?: paddingY
+    paddingX?: paddingX
+    maxWidth?: MaxWidth
     hasViewportHeight?: boolean
 }
 
 function Wrapper({
     children,
     className,
-    paddingVertical = 10,
-    paddingHorizontal = 20,
-    maxWidth = 'screen-2xl',
+    paddingY = 'py-10',
+    paddingX = 'px-20',
+    maxWidth = 'max-w-screen-2xl',
     hasViewportHeight,
     style,
     ...otherProps
@@ -23,7 +25,7 @@ function Wrapper({
     return (
         <div
             style={{ ...style, minHeight: hasViewportHeight ? 'calc(100vh - 193px)' : '' }}
-            className={composeClasses(`py-${paddingVertical} max-w-${maxWidth} px-${paddingHorizontal} mx-auto`, className)}
+            className={composeClasses(paddingY, maxWidth, paddingX, spacing.auto.marginHorizontal, className)}
             {...otherProps}
         >
             {children}
