@@ -37,7 +37,8 @@ const getYearList = (startYear: number, size: number) => {
     return yearList
 }
 
-const btnClassName = (bgColor: string) => composeClasses('px-3 p-1.5 rounded-lg box-content border border-transparent', 'hover:border-blue-500', bgColor)
+const btnClassName = (bgColor: string) =>
+    composeClasses('px-3 p-1.5 rounded-lg box-content border border-transparent min-w-min', 'hover:border-blue-500', bgColor)
 
 const stopPropagationCalendar = (event: React.MouseEvent) => {
     event.stopPropagation()
@@ -267,7 +268,7 @@ function DatePicker({ className, style, usePortal = false, ...props }: Props) {
             style={style}
             role="calendar-container"
             width="fit-content"
-            className={composeClasses('p-5', className ?? 'bg-white')}
+            className={composeClasses('p-5 bg-white z-10', className)}
             rounded="lg"
             onClick={stopPropagationCalendar}
             onMouseDown={stopPropagationCalendar}
