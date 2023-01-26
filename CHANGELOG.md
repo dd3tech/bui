@@ -1,3 +1,10 @@
+# [3.2.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.1.2...v3.2.0) (2023-01-26)
+
+
+### Features
+
+* Added FilterDate component ([0898bb3](https://gitlab.com/dd3tech/dd360/dd360-components/commit/0898bb3009bb9e3941e2c5139266a7e12ef8f720))
+
 ## [3.1.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.1.1...v3.1.2) (2023-01-24)
 
 
