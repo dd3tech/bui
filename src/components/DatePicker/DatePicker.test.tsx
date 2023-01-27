@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, RenderResult } from '@testing-library/react'
+import { cleanup, fireEvent, getByRole, render, RenderResult } from '@testing-library/react'
 import { describe, it } from 'vitest'
 import DatePicker from './DatePicker'
 
@@ -219,5 +219,15 @@ describe('<DatePicker /> ', () => {
         const { getAllByRole } = render(<DatePicker value={date} onlyOf="month" />)
         const monthList = getAllByRole('month')
         expect(monthList[1].innerHTML).toBe('Feb')
+    })
+
+    it('should be render with prop onlyOf=month-year', () => {
+        const date = new Date('01-22-2021')
+        const { getAllByRole, getByRole } = render(<DatePicker value={date} onlyOf="month-year" />)
+        const monthList = getAllByRole('month')
+        expect(monthList[1].innerHTML).toBe('Feb')
+        fireEvent.click(getByRole('select-year'))
+        fireEvent.click(getByRole('range-years'))
+        expect(monthList[2].innerHTML).toBe('Mar')
     })
 })
