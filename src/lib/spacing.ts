@@ -198,7 +198,7 @@ export const spacing = {
         bottom: 'bottom-4',
         spaceX: 'space-x-4'
     },
-    threeXl: {
+    xxxl: {
         paddingLeft: 'pl-6',
         paddingTop: 'pt-6',
         paddingRight: 'pr-6',
@@ -217,7 +217,7 @@ export const spacing = {
         bottom: 'bottom-6',
         spaceX: 'space-x-6'
     },
-    fourXl: {
+    jmb: {
         paddingLeft: 'pl-8',
         paddingTop: 'pt-8',
         paddingRight: 'pr-8',

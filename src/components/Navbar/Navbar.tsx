@@ -13,7 +13,7 @@ interface Props {
 export function Navbar({ logoUrl, logoWidth, logoHeight, logoName, LinkComponent }: Props) {
     return (
         <nav>
-            <Wrapper className="flex items-center justify-between" paddingY="py-6" maxWidth="max-w-full">
+            <Wrapper className="flex items-center justify-between" paddingY="6" maxWidth="full">
                 <Anchor LinkComponent={LinkComponent} to="/">
                     <figure className="block">
                         <img width={logoWidth} height={logoHeight} src={logoUrl} alt={logoName ?? 'Logo Name'} />

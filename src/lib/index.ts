@@ -1,2 +1,6 @@
 export * from './classes'
 export * from './styles'
+export * from './primitives'
+export * from './shape'
+export * from './spacing'
+export * from './types'

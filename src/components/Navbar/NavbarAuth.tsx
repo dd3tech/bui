@@ -44,7 +44,7 @@ export const NavbarAuth = ({
     const [isShowCollapse, setIsShowCollapse] = React.useState(false)
     return (
         <nav className="sticky shadow-sm border-b-2" style={{ backgroundColor: bgColor }}>
-            <Wrapper className="flex items-center justify-between" paddingY="py-6" maxWidth="max-w-full">
+            <Wrapper className="flex items-center justify-between" paddingY="6" maxWidth="full">
                 <div className="flex gap-16 items-center">
                     <Anchor LinkComponent={LinkComponent} to="/">
                         <figure className="block">

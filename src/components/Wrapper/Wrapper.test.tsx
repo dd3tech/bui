@@ -8,7 +8,7 @@ describe('<Wrapper/>', () => {
 
     beforeEach(() => {
         renderResult = render(
-            <Wrapper className="bg-blue-500" paddingY="py-5" paddingX="px-10" maxWidth="max-w-full" hasViewportHeight style={{ padding: '8px' }}>
+            <Wrapper className="bg-blue-500" paddingY="5" paddingX="10" maxWidth="full" hasViewportHeight style={{ padding: '8px' }}>
                 <span>This is a Wrapper</span>
             </Wrapper>
         )
@@ -35,7 +35,7 @@ describe('<Wrapper/>', () => {
             </Wrapper>
         )
         const { className: wrapperClassName, style: wrapperStyle } = renderResult.container.firstChild as HTMLDivElement
-        expect(wrapperClassName).toContain('py-10 max-w-screen-2xl px-20 mx-auto')
+        expect(wrapperClassName).toContain('max-w-screen-2xl py-10 px-20 mx-auto')
         expect(wrapperStyle.minHeight).toBe('')
     })
 })

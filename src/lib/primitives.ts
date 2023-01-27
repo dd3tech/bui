@@ -1,6 +1,6 @@
 import { TextAlignment, Size, ButtonVariant, Importance, HorizontalPosition, VerticalPosition } from './types'
 
-export const TextAlignments: { [key: string]: TextAlignment } = {
+export const TextAlignments: { [key: string]: `text-${TextAlignment}` } = {
     Left: 'text-left',
     Center: 'text-center',
     Right: 'text-right',
@@ -12,9 +12,12 @@ export const TextAlignments: { [key: string]: TextAlignment } = {
 export const Sizes: { [key: string]: Size } = {
     XS: 'xs',
     SM: 'sm',
-    MD: 'md',
+    Base: 'base',
     LG: 'lg',
-    XL: 'xl'
+    XL: 'xl',
+    xxl: '2xl',
+    xxxl: '3xl',
+    jmb: '4xl'
 }
 
 export const Importances: { [key: string]: Importance } = {
