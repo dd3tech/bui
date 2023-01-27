@@ -40,11 +40,13 @@ const getYearList = (startYear: number, size: number) => {
 const btnClassName = (bgColor: string) =>
     composeClasses('px-3 p-1.5 rounded-lg box-content border border-transparent min-w-min', 'hover:border-blue-500', bgColor)
 
-const stopPropagationCalendar = (event: React.MouseEvent) => {
-    event.stopPropagation()
+const getInitialOption = (opt?: OptionType): 'day' | 'month' | 'year' => {
+    if (opt === 'month-year') return 'month'
+    if (opt) return opt
+    return 'day'
 }
 
-type OptionType = 'day' | 'month' | 'year'
+type OptionType = 'day' | 'month' | 'year' | 'month-year'
 
 interface Props {
     className?: string
@@ -63,7 +65,7 @@ const TODAY = new Date()
 function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }: Props) {
     const [currentDate, setCurrentDate] = useState(TODAY)
     const [selectedDate, setSelectedDate] = useState<Date | null>(null)
-    const [currentOption, setCurrentOption] = useState<OptionType>(onlyOf ?? 'day')
+    const [currentOption, setCurrentOption] = useState<OptionType>(getInitialOption(onlyOf))
 
     const updateCurrentOption = useCallback(() => {
         let newCurrentOption = currentOption
@@ -74,7 +76,11 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
             newCurrentOption = 'year'
         }
         if (currentOption === 'year') {
-            newCurrentOption = 'day'
+            if (onlyOf === 'month-year') {
+                newCurrentOption = 'month'
+            } else {
+                newCurrentOption = 'day'
+            }
         }
         setCurrentOption(newCurrentOption)
         selectedDate && setCurrentDate(selectedDate)
@@ -139,7 +145,7 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
                     <button role="pevRangeYear" onClick={handlePrevRangeYears}>
                         <ChevronLeftIcon className="w-4 h-4" />
                     </button>
-                    <button disabled={!!onlyOf} role="range-years" onClick={updateCurrentOption}>
+                    <button disabled={onlyOf === 'year'} role="range-years" onClick={updateCurrentOption}>
                         <Text bold size="sm">
                             {yearList[yearList.length - 1]} - {yearList[0]}
                         </Text>
@@ -167,25 +173,34 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
     }
 
     if (currentOption === 'month') {
+        const buttons = (
+            <>
+                <button role="prevYear" onClick={handlePrevYear}>
+                    <ChevronLeftIcon className="w-4 h-4" />
+                </button>
+                <button role="select-year" onClick={updateCurrentOption}>
+                    <Text bold size="sm">
+                        {currentDate.getFullYear()}
+                    </Text>
+                </button>
+                <button role="nextYear" onClick={handleNextYear}>
+                    <ChevronRightIcon className="w-4 h-4" />
+                </button>
+            </>
+        )
         return (
             <>
-                <div className={composeClasses('flex flex-1 items-center mb-5 text-gray-700', !onlyOf && 'justify-between', onlyOf && 'justify-center')}>
-                    {!onlyOf && (
-                        <>
-                            <button role="prevYear" onClick={handlePrevYear}>
-                                <ChevronLeftIcon className="w-4 h-4" />
-                            </button>
-                            <button disabled={!!onlyOf} role="select-year" onClick={updateCurrentOption}>
-                                <Text bold size="sm">
-                                    {currentDate.getFullYear()}
-                                </Text>
-                            </button>
-                            <button role="nextYear" onClick={handleNextYear}>
-                                <ChevronRightIcon className="w-4 h-4" />
-                            </button>
-                        </>
+                <div
+                    className={composeClasses(
+                        'flex flex-1 items-center mb-5 text-gray-700',
+                        !onlyOf && 'justify-between',
+                        onlyOf === 'month-year' && 'justify-between',
+                        onlyOf && 'justify-center'
                     )}
-                    {onlyOf && (
+                >
+                    {!onlyOf && buttons}
+                    {onlyOf === 'month-year' && buttons}
+                    {onlyOf === 'month' && (
                         <Text bold size="sm">
                             {monthNames[language][selectedDate?.getMonth() ?? TODAY.getMonth()]}
                         </Text>
@@ -260,6 +275,10 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
             </ul>
         </>
     )
+}
+
+const stopPropagationCalendar = (event: React.MouseEvent) => {
+    event.stopPropagation()
 }
 
 function DatePicker({ className, style, usePortal = false, ...props }: Props) {

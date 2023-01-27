@@ -1,3 +1,10 @@
+# [3.3.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.2.0...v3.3.0) (2023-01-27)
+
+
+### Features
+
+* add new datepicker variant ([ba6884b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/ba6884b2a7a0daf6aa1ba118d25236d7b57a52d2))
+
 # [3.2.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.1.2...v3.2.0) (2023-01-26)
 
 
