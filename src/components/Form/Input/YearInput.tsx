@@ -1,4 +1,4 @@
-import { useState, useMemo, ChangeEvent, useCallback } from 'react'
+import { useState, useMemo, ChangeEvent, useCallback, useEffect } from 'react'
 import { CalendarIcon } from '@heroicons/react/outline'
 import BaseInput, { InputProps } from './BaseInput'
 import DatePicker from 'components/DatePicker/DatePicker'
@@ -23,7 +23,7 @@ function YearInput({ className, value, onChange, ...props }: InputProps) {
             const newYear = newDate.getFullYear().toString()
             const event = { target: { value: newYear, name: props.name } }
             setYear(newYear)
-            setShowDatePicker(!showDatePicker)
+            setShowDatePicker(false)
             onChange && onChange(event as ChangeEvent<HTMLInputElement>)
         },
         [onChange, year]
@@ -33,6 +33,10 @@ function YearInput({ className, value, onChange, ...props }: InputProps) {
         if (!year.length || Number(year) < 500) return undefined
         return new Date(`${year}/01/01`)
     }, [year])
+
+    useEffect(() => {
+        if (value === '') setYear('')
+    }, [value])
 
     return (
         <BaseInput

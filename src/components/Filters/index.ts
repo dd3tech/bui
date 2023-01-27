@@ -9,3 +9,6 @@ export * from './FilterRange'
 
 export { default as FilterRangeSlider } from './FilterRangeSlider'
 export * from './FilterRangeSlider'
+
+export { default as FilterDate } from './FilterDate'
+export * from './FilterDate'

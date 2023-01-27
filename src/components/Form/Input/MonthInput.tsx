@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, useCallback } from 'react'
+import { useState, ChangeEvent, useCallback, useEffect } from 'react'
 import { CalendarIcon } from '@heroicons/react/outline'
 import BaseInput, { InputProps } from './BaseInput'
 import DatePicker from 'components/DatePicker/DatePicker'
@@ -12,7 +12,7 @@ const monthNames = {
 function MonthInput({ className, value, onChange, language, ...props }: InputProps) {
     const [showDatePicker, setShowDatePicker] = useState(false)
     const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
-    const [localValue, setLocalValue] = useState(typeof value === 'number' ? value : 0)
+    const [localValue, setLocalValue] = useState(typeof value === 'number' ? value : null)
 
     const handleDateChange = useCallback(
         (newDate: Date) => {
@@ -24,12 +24,16 @@ function MonthInput({ className, value, onChange, language, ...props }: InputPro
         [localValue, onChange]
     )
 
+    useEffect(() => {
+        if (value === '') setLocalValue(null)
+    }, [value])
+
     return (
         <BaseInput
             {...props}
             type="text"
             disabled
-            value={localValue < monthNames.en.length ? monthNames[language ?? 'es'][localValue] : ''}
+            value={localValue ? (localValue < monthNames.en.length ? monthNames[language ?? 'es'][localValue] : '') : ''}
             className={composeClasses('relative', className)}
             endAdornment={
                 <>
