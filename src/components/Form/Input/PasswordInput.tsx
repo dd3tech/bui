@@ -11,7 +11,7 @@ function PasswordInput(props: InputProps) {
             {...props}
             type={showText ? 'text' : 'password'}
             endAdornment={
-                <button type='button' role="showText" onClick={onClick}>
+                <button type="button" role="showText" onClick={onClick}>
                     {showText ? <EyeIcon aria-label="eyeOn" width={23} /> : <EyeOffIcon aria-label="eyeOff" width={23} />}
                 </button>
             }
