@@ -1,3 +1,10 @@
+## [3.3.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.3.1...v3.3.2) (2023-01-28)
+
+
+### Bug Fixes
+
+* button type on PasswordInput ([dc37612](https://gitlab.com/dd3tech/dd360/dd360-components/commit/dc37612d7c83626535075e2bfab82a8c5be451a9))
+
 ## [3.3.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.3.0...v3.3.1) (2023-01-27)
 
 
