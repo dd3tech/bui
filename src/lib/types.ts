@@ -135,7 +135,7 @@ export type Margin = typeof twGlobalUnits[number]
 
 /* --------------------------------- COLORS --------------------------------- */
 
-const baseColorValues = [
+export const baseColorValues = [
     'slate',
     'gray',
     'zinc',
