@@ -1,6 +1,6 @@
 import Card from '../Card'
 import Text from '../Typography'
-import { Portal } from '../../common/Portal'
+import { Portal } from '../../common/Portal/Portal'
 import React, { useCallback, useState, useMemo, useEffect, CSSProperties } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
@@ -282,22 +282,24 @@ const stopPropagationCalendar = (event: React.MouseEvent) => {
 }
 
 function DatePicker({ className, style, usePortal = false, ...props }: Props) {
-    const CalendarComponent = (
-        <Card
-            style={style}
-            role="calendar-container"
-            width="fit-content"
-            className={composeClasses('p-5 bg-white z-10', className)}
-            rounded="lg"
-            onClick={stopPropagationCalendar}
-            onMouseDown={stopPropagationCalendar}
-        >
-            <Calendar {...props} />
-        </Card>
-    )
+    const CalendarComponent = () => {
+        return (
+            <Card
+                style={style}
+                role="calendar-container"
+                width="fit-content"
+                className={composeClasses('p-5 bg-white z-10', className)}
+                rounded="lg"
+                onClick={stopPropagationCalendar}
+                onMouseDown={stopPropagationCalendar}
+            >
+                <Calendar {...props} />
+            </Card>
+        )
+    }
 
-    if (!usePortal) return CalendarComponent
-    return <Portal>{CalendarComponent}</Portal>
+    if (!usePortal) return CalendarComponent()
+    return <Portal>{CalendarComponent()}</Portal>
 }
 
 export default DatePicker
