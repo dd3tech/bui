@@ -1,4 +1,4 @@
-import { TextAlignment, Size, ButtonVariant, Importance, HorizontalPosition, VerticalPosition } from './types'
+import { TextAlignment, Size, ButtonVariant, Importance, HorizontalPosition, VerticalPosition } from '../interfaces/types'
 
 export const TextAlignments: { [key: string]: `text-${TextAlignment}` } = {
     Left: 'text-left',
