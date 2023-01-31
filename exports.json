@@ -45,6 +45,11 @@
             "require": "./dist/cjs/components/Pagination/index.js",
             "module": "./dist/esm/components/Pagination/index.js",
             "default": "./dist/esm/components/Pagination/index.js"
+        },
+        "./DatePicker": {
+            "require": "./dist/cjs/components/DatePicker/index.js",
+            "module": "./dist/esm/components/DatePicker/index.js",
+            "default": "./dist/esm/components/DatePicker/index.js"
         }
     },
     "typesVersions": {
@@ -56,7 +61,8 @@
             "Spinner": ["./dist/esm/components/Spinner/index.d.ts"],
             "Buttons": ["./dist/esm/components/Buttons/index.d.ts"],
             "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
-            "Pagination": ["./dist/esm/components/Pagination/index.d.ts"]
+            "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
+            "DatePicker": ["./dist/esm/components/DatePicker/index.d.ts"]
         }
     }
 }
