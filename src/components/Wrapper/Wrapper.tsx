@@ -1,7 +1,7 @@
 import React from 'react'
-import { composeClasses } from 'lib/classes'
-import { MaxWidth, Padding } from 'lib/types'
-import { spacing } from 'lib/spacing'
+import { composeClasses } from '../../lib/classes'
+import { MaxWidth, Padding } from '../../interfaces/types'
+import { spacing } from '../../lib/spacing'
 
 export interface WrapperProps extends React.HTMLProps<HTMLDivElement> {
     children: React.ReactNode

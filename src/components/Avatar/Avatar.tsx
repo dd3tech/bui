@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
-import { composeClasses } from 'lib/classes'
-import { borderRadius } from 'lib/shape'
+import { composeClasses } from '../../lib/classes'
+import { borderRadius } from '../../lib/shape'
 
 export interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     children?: React.ReactNode
