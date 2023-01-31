@@ -15,6 +15,7 @@ export interface InputProps extends HTMLProps<HTMLInputElement> {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
     endAdornment?: ReactNode
     startAdornment?: ReactNode
+    classNameAdornment?: string
     rounded?: string
     language?: 'es' | 'en'
 }
@@ -68,6 +69,7 @@ function BaseInput({
     label,
     rounded = 'lg',
     className,
+    classNameAdornment,
     padding = 3,
     startAdornment,
     endAdornment,
@@ -105,7 +107,8 @@ function BaseInput({
         `p-${padding}`,
         className ?? 'w-60',
         input.borderColor,
-        input.color
+        input.color,
+        classNameAdornment
     )
 
     return (

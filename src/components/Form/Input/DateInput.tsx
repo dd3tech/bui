@@ -22,7 +22,7 @@ function getDateFormat(value: string) {
     return newValue
 }
 
-function DateInput({ className, value, onChange, language, ...props }: InputProps) {
+function DateInput({ className, value, onChange, language, disabled, ...props }: InputProps) {
     const [showDatePicker, setShowDatePicker] = useState(false)
     const [date, setDate] = useState(getDateFormat(String(value ?? '')))
     const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
@@ -81,7 +81,7 @@ function DateInput({ className, value, onChange, language, ...props }: InputProp
             className={composeClasses('relative', className)}
             endAdornment={
                 <>
-                    <button role="active-calendar" onClick={handleToggleDatePicker}>
+                    <button role="active-calendar" type="button" disabled={disabled} onClick={handleToggleDatePicker}>
                         <CalendarIcon width={24} />
                     </button>
                     {showDatePicker && (

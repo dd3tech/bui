@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useMemo, useEffect, CSSProperties } from 'react'
-import Card from '../Card'
-import Text from '../Typography'
+import Card from '../Card/Card'
+import Text from '../Typography/Text'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 
@@ -171,7 +171,7 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
     }
 
     if (currentOption === 'month') {
-        const buttons = (
+        const controlsMonth = (
             <>
                 <button role="prevYear" onClick={handlePrevYear}>
                     <ChevronLeftIcon className="w-4 h-4" />
@@ -196,8 +196,8 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
                         onlyOf && 'justify-center'
                     )}
                 >
-                    {!onlyOf && buttons}
-                    {onlyOf === 'month-year' && buttons}
+                    {!onlyOf && controlsMonth}
+                    {onlyOf === 'month-year' && controlsMonth}
                     {onlyOf === 'month' && (
                         <Text bold size="sm">
                             {monthNames[language][selectedDate?.getMonth() ?? TODAY.getMonth()]}

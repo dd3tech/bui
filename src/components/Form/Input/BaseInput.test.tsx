@@ -5,7 +5,7 @@ import BaseInput from './BaseInput'
 
 describe('<BaseInput />', () => {
     it('the basic input as renderer', () => {
-        const { getByTestId } = render(<BaseInput data-testid="input" />)
+        const { getByTestId } = render(<BaseInput classNameAdornment="p-4" data-testid="input" />)
 
         expect(getByTestId('input')).toBeInTheDocument()
         expect(getByTestId('input')).toBeDefined()
