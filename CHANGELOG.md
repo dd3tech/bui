@@ -1,3 +1,15 @@
+# [3.4.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.3.2...v3.4.0) (2023-01-31)
+
+
+### Bug Fixes
+
+* change relative imports ([7b6acc0](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7b6acc0d21971b83690a401ccc7b835a6b505904))
+
+
+### Features
+
+* add Portal to exports ([a0fa397](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a0fa397fb099e45f1ce1dfe773db07397311f37e))
+
 ## [3.3.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.3.1...v3.3.2) (2023-01-28)
 
 
