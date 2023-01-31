@@ -33,7 +33,7 @@ function MonthInput({ className, value, onChange, language, ...props }: InputPro
             {...props}
             type="text"
             disabled
-            value={localValue ? (localValue < monthNames.en.length ? monthNames[language ?? 'es'][localValue] : '') : ''}
+            value={localValue !== null ? (localValue < monthNames.en.length ? monthNames[language ?? 'es'][localValue] : '') : ''}
             className={composeClasses('relative', className)}
             endAdornment={
                 <>
