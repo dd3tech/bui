@@ -1,3 +1,10 @@
+## [3.4.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.4.0...v3.4.1) (2023-01-31)
+
+
+### Bug Fixes
+
+* localValue is validated to be different from null ([6230f1f](https://gitlab.com/dd3tech/dd360/dd360-components/commit/6230f1fe4e8bb07d68755f90a09ad609043fc998))
+
 # [3.4.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.3.2...v3.4.0) (2023-01-31)
 
 
