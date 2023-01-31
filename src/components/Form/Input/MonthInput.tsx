@@ -37,7 +37,7 @@ function MonthInput({ className, value, onChange, language, ...props }: InputPro
             className={composeClasses('relative', className)}
             endAdornment={
                 <>
-                    <button role="active-calendar" onClick={handleToggleDatePicker}>
+                    <button role="active-calendar" type="button" onClick={handleToggleDatePicker}>
                         <CalendarIcon width={24} />
                     </button>
                     {showDatePicker && (

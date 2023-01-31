@@ -105,7 +105,8 @@ function BaseInput({
         `p-${padding}`,
         className ?? 'w-60',
         input.borderColor,
-        input.color
+        input.color,
+        className
     )
 
     return (
@@ -117,7 +118,7 @@ function BaseInput({
                         {startAdornment}
                     </div>
                 )}
-                <input {...props} className={composeClasses('outline-none w-full', className)} onFocus={handleFocus} onBlur={handleBlur} />
+                <input {...props} className="outline-none w-full" onFocus={handleFocus} onBlur={handleBlur} />
                 {endAdornment && (
                     <div data-testid="endAdornment" className={adornmentClassName}>
                         {endAdornment}

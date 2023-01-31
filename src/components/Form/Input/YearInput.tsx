@@ -48,7 +48,7 @@ function YearInput({ className, value, onChange, ...props }: InputProps) {
             className={composeClasses('relative', className)}
             endAdornment={
                 <>
-                    <button role="toggle-calendar" onClick={handleToggleDatePicker}>
+                    <button role="toggle-calendar" type="button" onClick={handleToggleDatePicker}>
                         <CalendarIcon width={24} />
                     </button>
                     {showDatePicker && (
