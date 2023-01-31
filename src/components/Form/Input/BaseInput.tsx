@@ -15,6 +15,7 @@ export interface InputProps extends HTMLProps<HTMLInputElement> {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
     endAdornment?: ReactNode
     startAdornment?: ReactNode
+    classNameAdornment?: string
     rounded?: string
     language?: 'es' | 'en'
 }
@@ -68,6 +69,7 @@ function BaseInput({
     label,
     rounded = 'lg',
     className,
+    classNameAdornment,
     padding = 3,
     startAdornment,
     endAdornment,
@@ -106,7 +108,7 @@ function BaseInput({
         className ?? 'w-60',
         input.borderColor,
         input.color,
-        className
+        classNameAdornment
     )
 
     return (
@@ -118,7 +120,7 @@ function BaseInput({
                         {startAdornment}
                     </div>
                 )}
-                <input {...props} className="outline-none w-full" onFocus={handleFocus} onBlur={handleBlur} />
+                <input {...props} className={composeClasses('outline-none w-full', className)} onFocus={handleFocus} onBlur={handleBlur} />
                 {endAdornment && (
                     <div data-testid="endAdornment" className={adornmentClassName}>
                         {endAdornment}
