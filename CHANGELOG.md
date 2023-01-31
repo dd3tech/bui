@@ -1,3 +1,15 @@
+# [3.5.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.4.1...v3.5.0) (2023-01-31)
+
+
+### Bug Fixes
+
+* add DatePicker with Portal on other component ([a4eddee](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a4eddee3ee352d0693338fedb5943780ea37ab47))
+
+
+### Features
+
+* add DatePicker to exports ([a2c120d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a2c120d48e4f4df1501e6d8f29cf62f8d70bb531))
+
 ## [3.4.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.4.0...v3.4.1) (2023-01-31)
 
 
