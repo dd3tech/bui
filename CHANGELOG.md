@@ -1,3 +1,10 @@
+## [3.6.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.6.0...v3.6.1) (2023-01-31)
+
+
+### Bug Fixes
+
+* setting input buttons to their explicit button type ([ae82454](https://gitlab.com/dd3tech/dd360/dd360-components/commit/ae82454f112ae24b1716cf9116b49c56041ca6c5))
+
 # [3.6.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.5.0...v3.6.0) (2023-01-31)
 
 
