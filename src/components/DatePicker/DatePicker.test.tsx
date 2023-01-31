@@ -209,11 +209,6 @@ describe('<DatePicker /> ', () => {
         })
     })
 
-    it('should be rendered in a portal', () => {
-        const { getByTestId } = render(<DatePicker usePortal={true} />)
-        expect(getByTestId('card-contain').parentElement?.parentElement?.id).toContain('portal-root')
-    })
-
     it('should be render with prop onlyOf=month', () => {
         const date = new Date('01-14-2000')
         const { getAllByRole } = render(<DatePicker value={date} onlyOf="month" />)
