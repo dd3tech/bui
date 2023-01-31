@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from 'react'
-import ConfirmDialog from 'components/ConfirmDialog/ConfirmDialog'
-import MonthInput from 'components/Form/Input/MonthInput'
-import YearInput from 'components/Form/Input/YearInput'
-import Text from 'components/Typography/Text'
+import ConfirmDialog from '../ConfirmDialog/ConfirmDialog'
+import MonthInput from '../Form/Input/MonthInput'
+import YearInput from '../Form/Input/YearInput'
+import Text from '../Typography/Text'
 
 export interface IFilterDateValue {
     month: string
