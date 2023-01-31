@@ -1,6 +1,6 @@
 import React from 'react'
 import { ChevronUpIcon, ChevronDownIcon, CogIcon, BellIcon } from '@heroicons/react/outline'
-import Wrapper from '../Wrapper'
+import Wrapper from '../Wrapper/Wrapper'
 import { Anchor } from '../Navigation'
 import Text from '../Typography'
 import Circle from '../Circle'
@@ -44,7 +44,7 @@ export const NavbarAuth = ({
     const [isShowCollapse, setIsShowCollapse] = React.useState(false)
     return (
         <nav className="sticky shadow-sm border-b-2" style={{ backgroundColor: bgColor }}>
-            <Wrapper className="flex items-center justify-between" paddingVertical={6} maxWidth="full">
+            <Wrapper className="flex items-center justify-between" paddingY="6" maxWidth="full">
                 <div className="flex gap-16 items-center">
                     <Anchor LinkComponent={LinkComponent} to="/">
                         <figure className="block">
