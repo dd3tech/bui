@@ -1,3 +1,10 @@
+# [3.6.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.5.0...v3.6.0) (2023-01-31)
+
+
+### Features
+
+* **components:** Added Select component ([731f741](https://gitlab.com/dd3tech/dd360/dd360-components/commit/731f7416dc213e019506cb6cd6472f817f059dd0))
+
 # [3.5.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.4.1...v3.5.0) (2023-01-31)
 
 
