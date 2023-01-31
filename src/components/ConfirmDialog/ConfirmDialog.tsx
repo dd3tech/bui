@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Portal } from '../../common/Portal/Portal'
-import Card from 'components/Card/Card'
-import Text from 'components/Typography/Text'
-import Button from 'components/Buttons/Button'
+import Card from '../Card/Card'
+import Text from '../Typography/Text'
+import Button from '../Buttons/Button'
 
 export interface IConfirmDialog {
     title?: string

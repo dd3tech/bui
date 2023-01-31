@@ -1,3 +1,34 @@
+# [3.5.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.4.1...v3.5.0) (2023-01-31)
+
+
+### Bug Fixes
+
+* add DatePicker with Portal on other component ([a4eddee](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a4eddee3ee352d0693338fedb5943780ea37ab47))
+
+
+### Features
+
+* add DatePicker to exports ([a2c120d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a2c120d48e4f4df1501e6d8f29cf62f8d70bb531))
+
+## [3.4.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.4.0...v3.4.1) (2023-01-31)
+
+
+### Bug Fixes
+
+* localValue is validated to be different from null ([6230f1f](https://gitlab.com/dd3tech/dd360/dd360-components/commit/6230f1fe4e8bb07d68755f90a09ad609043fc998))
+
+# [3.4.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.3.2...v3.4.0) (2023-01-31)
+
+
+### Bug Fixes
+
+* change relative imports ([7b6acc0](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7b6acc0d21971b83690a401ccc7b835a6b505904))
+
+
+### Features
+
+* add Portal to exports ([a0fa397](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a0fa397fb099e45f1ce1dfe773db07397311f37e))
+
 ## [3.3.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.3.1...v3.3.2) (2023-01-28)
 
 

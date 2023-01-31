@@ -1,7 +1,6 @@
+import React, { useCallback, useState, useMemo, useEffect, CSSProperties } from 'react'
 import Card from '../Card'
 import Text from '../Typography'
-import { Portal } from '../../common/Portal'
-import React, { useCallback, useState, useMemo, useEffect, CSSProperties } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 
@@ -48,7 +47,7 @@ const getInitialOption = (opt?: OptionType): 'day' | 'month' | 'year' => {
 
 type OptionType = 'day' | 'month' | 'year' | 'month-year'
 
-interface Props {
+export interface DatePickerProps {
     className?: string
     style?: CSSProperties
     format?: 'long' | 'short'
@@ -56,13 +55,12 @@ interface Props {
     value?: Date
     onChange?: (newDate: Date) => void
     onlyOf?: OptionType
-    usePortal?: boolean
 }
 
 const TOTAL_YEARS = 11
 const TODAY = new Date()
 
-function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }: Props) {
+function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }: DatePickerProps) {
     const [currentDate, setCurrentDate] = useState(TODAY)
     const [selectedDate, setSelectedDate] = useState<Date | null>(null)
     const [currentOption, setCurrentOption] = useState<OptionType>(getInitialOption(onlyOf))
@@ -281,8 +279,8 @@ const stopPropagationCalendar = (event: React.MouseEvent) => {
     event.stopPropagation()
 }
 
-function DatePicker({ className, style, usePortal = false, ...props }: Props) {
-    const CalendarComponent = (
+function DatePicker({ className, style, ...props }: DatePickerProps) {
+    return (
         <Card
             style={style}
             role="calendar-container"
@@ -295,9 +293,6 @@ function DatePicker({ className, style, usePortal = false, ...props }: Props) {
             <Calendar {...props} />
         </Card>
     )
-
-    if (!usePortal) return CalendarComponent
-    return <Portal>{CalendarComponent}</Portal>
 }
 
 export default DatePicker

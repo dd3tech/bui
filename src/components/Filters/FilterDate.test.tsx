@@ -34,11 +34,11 @@ describe('<FilterDate/>', () => {
         const { getByRole, getAllByRole } = render(<FilterDate {...defaultProps} />)
 
         fireEvent.click(getByRole('active-calendar'))
-        fireEvent.click(getAllByRole('month')[3])
+        fireEvent.click(getAllByRole('month')[4])
         const applyBtn = getByRole('confirm-btn')
         fireEvent.click(applyBtn)
 
-        expect(onApply).toHaveBeenCalledWith({ month: '3', year: '' })
+        expect(onApply).toHaveBeenCalledWith({ month: '4', year: '' })
     })
 
     it('should be rendered with the correct language', () => {
