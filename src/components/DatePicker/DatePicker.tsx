@@ -129,6 +129,22 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
         return { days, listOfSpaces }
     }, [currentDate])
 
+    const getControlsMonth = () => (
+        <div>
+            <button role="prevYear" onClick={handlePrevYear}>
+                <ChevronLeftIcon className="w-4 h-4" />
+            </button>
+            <button role="select-year" onClick={updateCurrentOption}>
+                <Text bold size="sm">
+                    {currentDate.getFullYear()}
+                </Text>
+            </button>
+            <button role="nextYear" onClick={handleNextYear}>
+                <ChevronRightIcon className="w-4 h-4" />
+            </button>
+        </div>
+    )
+
     useEffect(() => {
         if (value) {
             setSelectedDate(value)
@@ -171,21 +187,6 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
     }
 
     if (currentOption === 'month') {
-        const controlsMonth = (
-            <>
-                <button role="prevYear" onClick={handlePrevYear}>
-                    <ChevronLeftIcon className="w-4 h-4" />
-                </button>
-                <button role="select-year" onClick={updateCurrentOption}>
-                    <Text bold size="sm">
-                        {currentDate.getFullYear()}
-                    </Text>
-                </button>
-                <button role="nextYear" onClick={handleNextYear}>
-                    <ChevronRightIcon className="w-4 h-4" />
-                </button>
-            </>
-        )
         return (
             <>
                 <div
@@ -196,8 +197,8 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
                         onlyOf && 'justify-center'
                     )}
                 >
-                    {!onlyOf && controlsMonth}
-                    {onlyOf === 'month-year' && controlsMonth}
+                    {!onlyOf && getControlsMonth()}
+                    {onlyOf === 'month-year' && getControlsMonth()}
                     {onlyOf === 'month' && (
                         <Text bold size="sm">
                             {monthNames[language][selectedDate?.getMonth() ?? TODAY.getMonth()]}

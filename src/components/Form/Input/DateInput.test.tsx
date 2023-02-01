@@ -48,17 +48,22 @@ describe('<DateInput />', () => {
     })
 
     it('input onDateChange callback', () => {
-        const TODAY = new Date()
-        const { getByTestId, getByRole, getAllByRole } = render(<DateInput onChange={mockOnChange} data-testid="date-input" />)
+        const TODAY = new Date('2023-01-01T23:59:59.000Z')
+        const value = TODAY.toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        })
+        const { getByTestId, getByRole, getAllByRole } = render(<DateInput value={value} onChange={mockOnChange} data-testid="date-input" />)
         const input = getByTestId('date-input') as HTMLInputElement
 
         fireEvent.click(getByRole('active-calendar'))
         fireEvent.click(getByRole('select-month'))
-        fireEvent.click(getAllByRole('month')[0])
+        fireEvent.click(getAllByRole('month')[TODAY.getMonth()])
         fireEvent.click(getByRole('select-year'))
         fireEvent.click(getByRole('list').children[0])
 
         const month = `${TODAY.getMonth() + 1}`.padStart(2, '0')
-        expect(input.value).toBe(`${TODAY.getDate()}/${month}/${TODAY.getFullYear() - 10}`)
+        expect(input.value).toBe(`${TODAY.getDate().toString().padStart(2, '0')}/${month}/${TODAY.getFullYear() - 10}`)
     })
 })
