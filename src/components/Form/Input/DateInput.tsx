@@ -75,6 +75,7 @@ function DateInput({ className, value, onChange, language, disabled, ...props }:
         <BaseInput
             {...props}
             type="text"
+            disabled={disabled}
             variant={showVariant}
             onChange={handleChange}
             value={date}
