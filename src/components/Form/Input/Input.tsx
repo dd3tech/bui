@@ -4,6 +4,7 @@ import BaseInput from './BaseInput'
 import DateInput from './DateInput'
 import YearInput from './YearInput'
 import MonthInput from './MonthInput'
+import PercentageInput from './PercentageInput'
 import type { InputProps } from './BaseInput'
 
 export default function Input(props: InputProps) {
@@ -21,6 +22,8 @@ export default function Input(props: InputProps) {
             return <YearInput placeholder="yyyy" {...props} />
         case 'month':
             return <MonthInput {...props} />
+        case 'percentage':
+            return <PercentageInput placeholder="00.00" endAdornment="%" {...props} />
         default:
             return <BaseInput {...props} />
     }

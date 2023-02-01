@@ -5,7 +5,7 @@ import { HTMLProps, ReactNode, useCallback, useState } from 'react'
 export type InputVariant = 'active' | 'focus' | 'success' | 'warning' | 'error'
 
 export interface InputProps extends HTMLProps<HTMLInputElement> {
-    type?: 'text' | 'currency' | 'password' | 'email' | 'date' | 'year' | 'month' | 'number'
+    type?: 'text' | 'currency' | 'password' | 'email' | 'date' | 'year' | 'month' | 'number' | 'percentage'
     variant?: InputVariant
     label?: string
     message?: string
