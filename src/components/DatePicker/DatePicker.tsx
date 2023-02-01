@@ -131,7 +131,7 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
     }, [currentDate])
 
     const getControlsMonth = () => (
-        <div>
+        <>
             <button role="prevYear" onClick={handlePrevYear}>
                 <ChevronLeftIcon className="w-4 h-4" />
             </button>
@@ -143,7 +143,7 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
             <button role="nextYear" onClick={handleNextYear}>
                 <ChevronRightIcon className="w-4 h-4" />
             </button>
-        </div>
+        </>
     )
 
     useEffect(() => {
