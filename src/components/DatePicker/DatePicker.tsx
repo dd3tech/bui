@@ -90,7 +90,8 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
     }
 
     const handleSelectMonth = (index: number) => {
-        const newDate = updateCurrentDate(currentDate, { month: index, isNotAddition: true })
+        const date = onlyOf?.includes('month') ? new Date(currentDate.getFullYear(), index + 1, 0) : currentDate
+        const newDate = updateCurrentDate(date, { month: index, isNotAddition: true })
         handleChangeSelectedDate(newDate)
     }
 
