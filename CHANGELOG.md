@@ -1,3 +1,11 @@
+# [3.7.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.6.3...v3.7.0) (2023-02-01)
+
+
+### Features
+
+* Add percentage-input ([98ee6cb](https://gitlab.com/dd3tech/dd360/dd360-components/commit/98ee6cb7ff71d2432b077a902b8409d0afba0679))
+* add storie input percentage ([95a19fb](https://gitlab.com/dd3tech/dd360/dd360-components/commit/95a19fbf416817fb4ea2b1b459e250ebacba6d9d))
+
 ## [3.6.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.6.2...v3.6.3) (2023-02-01)
 
 
