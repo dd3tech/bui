@@ -16,7 +16,7 @@ function PercentageInput(props: InputProps) {
         [onChange, localValue]
     )
 
-    return <BaseInput {...props} onChange={handleChange} value={localValue} />
+    return <BaseInput type="percentage" {...props} onChange={handleChange} value={localValue} />
 }
 
 export default PercentageInput
