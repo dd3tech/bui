@@ -39,6 +39,12 @@ describe('<Input />', () => {
         expect(inputElement).toBeInTheDocument()
     })
 
+    it('renders PercentageInput when type is percentage', () => {
+        const { getByTestId } = render(<Input type="percentage" data-testid="percentage-input" />)
+        const inputElement = getByTestId('percentage-input')
+        expect(inputElement).toBeInTheDocument()
+    })
+
     it('renders BaseInput when type is not specified or is not a valid value', () => {
         const { getByTestId } = render(<Input data-testid="base-input" />)
         const inputElement = getByTestId('base-input')
