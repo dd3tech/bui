@@ -1,3 +1,10 @@
+## [3.6.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.6.2...v3.6.3) (2023-02-01)
+
+
+### Bug Fixes
+
+* control buttons style ([b7fbbf4](https://gitlab.com/dd3tech/dd360/dd360-components/commit/b7fbbf479f2d1470578bd64dad1a97bbb0ac46bb))
+
 ## [3.6.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.6.1...v3.6.2) (2023-02-01)
 
 
