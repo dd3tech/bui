@@ -68,3 +68,10 @@ InputYear.args = {
     className: 'w-full',
     variant: 'active'
 }
+export const InputPercentage = Template.bind({})
+InputPercentage.args = {
+    label: 'Percentage',
+    type: 'percentage',
+    className: 'w-56',
+    variant: 'active'
+}
