@@ -1,3 +1,10 @@
+## [3.6.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.6.1...v3.6.2) (2023-02-01)
+
+
+### Bug Fixes
+
+* the constant controlsMonth was replaced in function getControlsMonth due to a bundle error when running build-lib ([6f79634](https://gitlab.com/dd3tech/dd360/dd360-components/commit/6f79634018fd503373c2038ae575017512476a8a))
+
 ## [3.6.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.6.0...v3.6.1) (2023-01-31)
 
 
