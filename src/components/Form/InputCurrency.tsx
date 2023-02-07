@@ -28,7 +28,7 @@ const InputCurrency: FC<InputCurrencyProps> = (props) => {
                 'flex items-center justify-between bg-transparent transition duration-500 ease-out font-medium rounded-sm p-3 mt-1',
                 'focus:ease-in',
                 props.disabled && 'bg-gray-100 text-gray-500',
-                props.className ?? 'w-60'
+                props.className || 'w-60'
             )}
             name={props.name}
             placeholder={props.placeholder}
