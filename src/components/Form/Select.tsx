@@ -1,9 +1,10 @@
 import { HTMLProps, ReactNode, useEffect, useState } from 'react'
 import { Padding, Rounded, Size, Weight } from '../../interfaces/types'
-import { fontSize as textSize, fontWeight as textWeight } from '../../lib/font'
-import { composeClasses } from '../../lib/classes'
-import { borderRadius } from '../../lib/shape'
-import { spacing } from '../../lib/spacing'
+
+import { fontSize as textSize, fontWeight as textWeight } from 'lib/font'
+import { composeClasses } from 'lib/classes'
+import { borderRadius } from 'lib/shape'
+import { spacing } from 'lib/spacing'
 
 export type SelectVariant = 'none' | 'standard' | 'outlined'
 
