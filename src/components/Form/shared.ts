@@ -1,4 +1,8 @@
-export const inputVariants: { [key: string]: { input: { borderColor: string }; text: { color: string } } } = {
+export type InputType = 'text' | 'currency' | 'password' | 'email' | 'date' | 'year' | 'month' | 'number' | 'percentage'
+
+export type InputVariant = 'active' | 'focus' | 'success' | 'warning' | 'error'
+
+export const inputVariants: { [key in InputVariant]: { input: { borderColor: string; color?: string }; text: { color: string } } } = {
     active: {
         input: {
             borderColor: 'border-black'
@@ -33,7 +37,8 @@ export const inputVariants: { [key: string]: { input: { borderColor: string }; t
     },
     error: {
         input: {
-            borderColor: 'border-red-500'
+            borderColor: 'border-red-500',
+            color: ''
         },
         text: {
             color: 'text-red-500'
@@ -42,7 +47,7 @@ export const inputVariants: { [key: string]: { input: { borderColor: string }; t
 }
 
 type InputClassNameOpts = {
-    variant: string
+    variant: InputVariant
     padding?: string
     rounded?: 'sm' | 'md' | 'full'
     border?: boolean
