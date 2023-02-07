@@ -1,8 +1,9 @@
 import { useState, ChangeEvent, useCallback, useEffect } from 'react'
 import { CalendarIcon } from '@heroicons/react/outline'
+import { composeClasses } from 'lib/classes'
+
 import BaseInput, { InputProps } from './BaseInput'
 import DatePicker from '../../DatePicker/DatePicker'
-import { composeClasses } from 'lib/classes'
 
 const monthNames = {
     es: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
