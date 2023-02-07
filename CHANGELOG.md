@@ -1,3 +1,18 @@
+# [3.8.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.7.0...v3.8.0) (2023-02-07)
+
+
+### Bug Fixes
+
+* change path to imports libs functions ([c7a67a6](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c7a67a67f1837778fda3742c5c95d93fce6e162b))
+* **InputCurrency:** change operator nulish to or ([c9d3461](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c9d3461d76ede0b0ebf49135bc4c05d8666e6172))
+* **Select:** change path to import libs functions ([26890ba](https://gitlab.com/dd3tech/dd360/dd360-components/commit/26890ba2af37f2c2444eee183f7346b9539f1b3f))
+
+
+### Features
+
+* move inputVariant and types to shared and use on BaseInput ([e875d33](https://gitlab.com/dd3tech/dd360/dd360-components/commit/e875d336ec4deae8a5781f3b37be0eb1a2bc49eb))
+* move inputVariants and types to shared ([24aefa4](https://gitlab.com/dd3tech/dd360/dd360-components/commit/24aefa41ad2421dc8cb7f80e32c77376d01cf301))
+
 # [3.7.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.6.3...v3.7.0) (2023-02-01)
 
 
