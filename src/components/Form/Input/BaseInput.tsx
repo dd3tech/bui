@@ -1,11 +1,13 @@
+import { HTMLProps, ReactNode, useCallback, useState } from 'react'
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
-import { HTMLProps, ReactNode, useCallback, useState } from 'react'
 
-export type InputVariant = 'active' | 'focus' | 'success' | 'warning' | 'error'
+import { inputVariants, InputVariant as InputVariantType, InputType } from '../shared'
+
+export type InputVariant = InputVariantType
 
 export interface InputProps extends HTMLProps<HTMLInputElement> {
-    type?: 'text' | 'currency' | 'password' | 'email' | 'date' | 'year' | 'month' | 'number' | 'percentage'
+    type?: InputType
     variant?: InputVariant
     label?: string
     message?: string
@@ -18,50 +20,6 @@ export interface InputProps extends HTMLProps<HTMLInputElement> {
     classNameAdornment?: string
     rounded?: string
     language?: 'es' | 'en'
-}
-
-const inputVariants: { [key in InputVariant]: { input: { borderColor: string; color?: string }; text: { color: string } } } = {
-    active: {
-        input: {
-            borderColor: 'border-black'
-        },
-        text: {
-            color: 'text-black'
-        }
-    },
-    focus: {
-        input: {
-            borderColor: 'border-blue-500'
-        },
-        text: {
-            color: 'text-blue-500'
-        }
-    },
-    success: {
-        input: {
-            borderColor: 'border-green-500'
-        },
-        text: {
-            color: 'text-green-500'
-        }
-    },
-    warning: {
-        input: {
-            borderColor: 'border-yellow-500'
-        },
-        text: {
-            color: 'text-yellow-500'
-        }
-    },
-    error: {
-        input: {
-            borderColor: 'border-red-500',
-            color: ''
-        },
-        text: {
-            color: 'text-red-500'
-        }
-    }
 }
 
 function BaseInput({
