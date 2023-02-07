@@ -5,26 +5,26 @@ import DateInput from './DateInput'
 import YearInput from './YearInput'
 import MonthInput from './MonthInput'
 import PercentageInput from './PercentageInput'
+
 import type { InputProps } from './BaseInput'
 
-export default function Input(props: InputProps) {
-    const { type = 'text' } = props
+export default function Input({ type = 'text', ...otherProps }: InputProps) {
     switch (type) {
         case 'text':
-            return <BaseInput {...props} />
+            return <BaseInput {...otherProps} />
         case 'currency':
-            return <CurrencyInput {...props} />
+            return <CurrencyInput {...otherProps} />
         case 'password':
-            return <PasswordInput {...props} />
+            return <PasswordInput {...otherProps} />
         case 'date':
-            return <DateInput placeholder="dd/mm/year" {...props} />
+            return <DateInput placeholder="dd/mm/year" {...otherProps} />
         case 'year':
-            return <YearInput placeholder="yyyy" {...props} />
+            return <YearInput placeholder="yyyy" {...otherProps} />
         case 'month':
-            return <MonthInput {...props} />
+            return <MonthInput {...otherProps} />
         case 'percentage':
-            return <PercentageInput placeholder="00.00" endAdornment="%" {...props} />
+            return <PercentageInput placeholder="00.00" endAdornment="%" {...otherProps} />
         default:
-            return <BaseInput {...props} />
+            return <BaseInput {...otherProps} />
     }
 }
