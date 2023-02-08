@@ -4,7 +4,7 @@ import Wrapper from '../Wrapper/Wrapper'
 import { Anchor } from '../Navigation'
 import Text from '../Typography'
 import Circle from '../Circle'
-import Button from '../Buttons'
+import Button from '../Buttons/Button'
 
 interface ILink {
     name: string

@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../Buttons/index'
+import Button from '../Buttons/Button'
 import Text from '../Typography'
 import { ExclamationIcon, CheckCircleIcon, XIcon } from '@heroicons/react/outline'
 
@@ -40,7 +40,7 @@ function FeedBackBox({ type, title, description, defaultIsClose = false, onClose
                 </Text>
             </div>
             <div>
-                <Button role="btn-close" onClick={closeBox} variant="link" className="font-semibold flex items-center text-xs" padding={0}>
+                <Button role="btn-close" onClick={closeBox} variant="link" className="font-semibold flex items-center text-xs" padding="0">
                     <Text variant="small" size="xs" className="mr-1">
                         {txtCloseBtn}
                     </Text>

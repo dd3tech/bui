@@ -1,5 +1,6 @@
-import { composeClasses } from 'lib/classes'
 import { forwardRef, FC, ReactNode } from 'react'
+import { AlignItems } from '../../interfaces/types'
+import { composeClasses } from 'lib/classes'
 
 export type BtnPosition = 'horizontal' | 'vertical'
 
@@ -7,7 +8,7 @@ export interface ButtonGroupProps {
     children: ReactNode
     orientation?: BtnPosition
     gap?: number
-    align?: 'center' | 'start' | 'end'
+    align?: AlignItems
     className?: string
 }
 

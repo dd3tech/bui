@@ -1,7 +1,8 @@
 import React, { forwardRef } from 'react'
-import Spinner from '../Spinner'
-
+import Spinner from '../Spinner/Spinner'
 import { composeClasses } from 'lib/classes'
+import { ButtonVariant, Padding, Weight, Rounded } from '../../interfaces/types'
+import { fontSize } from 'lib/font'
 
 export type renderLoading = {
     component?: React.ReactElement
@@ -9,30 +10,16 @@ export type renderLoading = {
 }
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?:
-        | 'primary'
-        | 'secondary'
-        | 'tertiary'
-        | 'outline'
-        | 'link'
-        | 'ghost'
-        | 'cancel'
-        | 'success'
-        | 'outlineWhite'
-        | 'outlineBlue'
-        | 'disabled'
-        | 'danger'
-        | 'outlineWhiteRed'
-
-    size?: 'small' | 'medium' | 'large'
-    padding?: number
+    variant?: ButtonVariant
+    size?: 'small' | 'medium' | 'large' | 'extraLarge'
     disabled?: boolean
     isLoading?: boolean
     className?: string
-    paddingX?: number
-    paddingY?: number
-    fontWeight?: 'normal' | 'bold' | 'medium' | 'light' | 'semibold'
-    rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'
+    padding?: Padding
+    paddingX?: Padding
+    paddingY?: Padding
+    fontWeight?: Weight
+    rounded?: Rounded
     role?: string
     renderLoading?: renderLoading
 }
@@ -62,29 +49,32 @@ const buttonsVariants: { [key: string]: string } = {
     outlineWhiteRed: 'bg-white border border-red-600 text-red-600 hover:bg-red-600 hover:text-white'
 }
 
+const sizeVariants: { [key: string]: string } = {
+    small: fontSize.xs,
+    medium: fontSize.sm,
+    large: fontSize.md,
+    extraLarge: fontSize.lg
+}
+
 const Button = forwardRef<HTMLButtonElement, IButtonProps>(
     (
         {
             variant = 'primary',
             size = 'medium',
             onClick,
-            children,
+            children = 'Click Me!',
             isLoading,
             className = '',
             padding,
             paddingX,
             paddingY,
             renderLoading,
+            fontWeight = 'bold',
+            rounded = 'lg',
             ...props
         }: IButtonProps,
         ref
     ) => {
-        const sizeVariants: { [key: string]: string } = {
-            small: '',
-            medium: '',
-            large: 'rounded-lg w-auto'
-        }
-
         const buttonPadding = React.useCallback(() => {
             if (paddingX && paddingY) {
                 return `px-${paddingX} py-${paddingY}`
@@ -109,12 +99,14 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
             <button
                 ref={ref}
                 className={composeClasses(
-                    'rounded-md font-bold transition duration-500 ease-out',
-                    'hover:ease-in ',
+                    'rounded transition duration-500 ease-out',
+                    'hover:ease-in',
                     buttonPadding(),
                     buttonsVariants[variant],
                     (isLoading || props.disabled) && 'cursor-not-allowed',
-                    sizeVariants[size] || '',
+                    sizeVariants[size],
+                    `font-${fontWeight}`,
+                    `rounded-${rounded}`,
                     className
                 )}
                 onClick={(e) => {
@@ -131,10 +123,5 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
 )
 
 Button.displayName = 'Button'
-Button.defaultProps = {
-    children: 'Click Me!',
-    variant: 'primary',
-    size: 'medium'
-}
 
 export default Button

@@ -1,12 +1,16 @@
-import { HomeIcon } from '@heroicons/react/outline'
 import React from 'react'
+import HomeIcon from '@heroicons/react/outline/HomeIcon'
+import { ShadowVariants } from '../../interfaces/types'
+import { borderRadius } from 'lib/shape'
+import { composeClasses } from 'lib/classes'
+
 interface BaseCircleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     Icon?: () => React.ReactNode
     disabled?: boolean
     selected?: boolean
     width?: string
     height: string
-    shadow?: 'sm' | 'md' | 'lg' | 'xl'
+    shadow?: ShadowVariants
     variant?: 'square' | 'circle'
     iconProperties?: { width?: string; height?: string; padding?: string }
 }
@@ -51,9 +55,12 @@ function BaseCircleButton({
     return (
         <button
             style={{ ...props.style, width, height }}
-            className={`border border-gray-300 flex items-center justify-center ${
-                variant === 'circle' ? 'rounded-full' : 'rounded-lg '
-            } shadow-${shadow} ${buildClassName(disabled, selected)}`}
+            className={composeClasses(
+                'border border-gray-300 flex items-center justify-center',
+                variant === 'circle' ? borderRadius.full.all : borderRadius.lg.all,
+                `shadow-${shadow}`,
+                buildClassName(disabled, selected)
+            )}
         >
             {!Icon && <HomeIcon style={iconProperties} />}
             {Icon && Icon()}
