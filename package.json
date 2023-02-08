@@ -1,6 +1,6 @@
 {
     "name": "dd360-ds",
-    "version": "3.7.0",
+    "version": "3.8.1",
     "description": "DD360 Components is a tailwind based React component library",
     "license": "MIT",
     "repository": {
@@ -214,6 +214,12 @@
             ],
             "DatePicker": [
                 "./dist/esm/components/DatePicker/index.d.ts"
+            ],
+            "Input": [
+                "./dist/esm/components/Input/index.d.ts"
+            ],
+            "InputFile": [
+                "./dist/esm/components/Input/InputFile.d.ts"
             ]
         }
     }

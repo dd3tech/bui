@@ -1,3 +1,10 @@
+## [3.8.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.8.0...v3.8.1) (2023-02-08)
+
+
+### Bug Fixes
+
+* add description to the props and also add the exports of the Input and InputFile components to the exports.json file ([fa33dd5](https://gitlab.com/dd3tech/dd360/dd360-components/commit/fa33dd59de681b363530f408a4961696ad6ef530))
+
 # [3.8.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.7.0...v3.8.0) (2023-02-07)
 
 
