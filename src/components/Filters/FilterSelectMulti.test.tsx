@@ -10,7 +10,7 @@ const list: ICheckBoxItems = {
     }
 }
 
-const onApply = vi.fn((val: string[]) => console.log(val))
+const onApply = vi.fn((val: string[]) => {})
 const onReset = vi.fn(() => {})
 const defaultProps = {
     initialItemList: list,

@@ -3,7 +3,7 @@ import { describe, it, vi } from 'vitest'
 import YearInput from './YearInput'
 
 describe('<YearInput />', () => {
-    const mockChange = vi.fn
+    const mockChange = vi.fn()
 
     it('was renderer', () => {
         const { container, getByRole } = render(<YearInput role="input" />)
@@ -15,9 +15,9 @@ describe('<YearInput />', () => {
         const { getByRole } = render(<YearInput role="input" value={1998} onChange={mockChange} />)
         const input = getByRole('input') as HTMLInputElement
 
-        fireEvent.change(getByRole('input'), { target: { value: '222245' } })
+        fireEvent.change(input, { target: { value: '222245' } })
         expect(input.value).toEqual('1998')
-        fireEvent.change(getByRole('input'), { target: { value: '2022' } })
+        fireEvent.change(input, { target: { value: '2022' } })
         expect(input.value).toEqual('2022')
     })
 

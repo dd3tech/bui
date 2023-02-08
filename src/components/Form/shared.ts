@@ -1,4 +1,4 @@
-export type InputType = 'text' | 'currency' | 'password' | 'email' | 'date' | 'year' | 'month' | 'number' | 'percentage'
+export type InputType = 'text' | 'currency' | 'password' | 'email' | 'date' | 'year' | 'month' | 'number' | 'percentage' | 'file'
 
 export type InputVariant = 'active' | 'focus' | 'success' | 'warning' | 'error'
 

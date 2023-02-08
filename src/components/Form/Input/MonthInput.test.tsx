@@ -1,5 +1,4 @@
 import { render, fireEvent } from '@testing-library/react'
-import { ChangeEvent } from 'react'
 import { describe, it, vi } from 'vitest'
 import MonthInput from './MonthInput'
 
