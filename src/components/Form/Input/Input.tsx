@@ -5,7 +5,6 @@ import DateInput from './DateInput'
 import YearInput from './YearInput'
 import MonthInput from './MonthInput'
 import PercentageInput from './PercentageInput'
-
 import type { InputProps } from './BaseInput'
 
 export default function Input({ type = 'text', ...otherProps }: InputProps) {

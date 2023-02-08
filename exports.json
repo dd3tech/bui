@@ -50,6 +50,16 @@
             "require": "./dist/cjs/components/DatePicker/index.js",
             "module": "./dist/esm/components/DatePicker/index.js",
             "default": "./dist/esm/components/DatePicker/index.js"
+        },
+        "./Input": {
+            "require": "./dist/cjs/components/Form/Input/index.js",
+            "module": "./dist/esm/components/Form/Input/index.js",
+            "default": "./dist/esm/components/Form/Input/index.js"
+        },
+        "./InputFile": {
+            "require": "./dist/cjs/components/Form/Input/InputFile.js",
+            "module": "./dist/esm/components/Form/Input/InputFile.js",
+            "default": "./dist/esm/components/Form/Input/InputFile.js"
         }
     },
     "typesVersions": {
@@ -62,7 +72,9 @@
             "Buttons": ["./dist/esm/components/Buttons/index.d.ts"],
             "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
             "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
-            "DatePicker": ["./dist/esm/components/DatePicker/index.d.ts"]
+            "DatePicker": ["./dist/esm/components/DatePicker/index.d.ts"],
+            "Input": ["./dist/esm/components/Input/index.d.ts"],
+            "InputFile": ["./dist/esm/components/Input/InputFile.d.ts"]
         }
     }
 }

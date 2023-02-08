@@ -22,7 +22,7 @@ function getDateFormat(value: string) {
     return newValue
 }
 
-function DateInput({ className, value, onChange, language, disabled, ...props }: InputProps) {
+function DateInput({ className, value, onChange, language, disabled, variant, ...props }: InputProps) {
     const [showDatePicker, setShowDatePicker] = useState(false)
     const [date, setDate] = useState(getDateFormat(String(value ?? '')))
     const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
@@ -66,10 +66,11 @@ function DateInput({ className, value, onChange, language, disabled, ...props }:
     }, [date])
 
     const showVariant = useMemo(() => {
+        if (variant) return variant
         if (!date.length) return 'active'
         if (!currentDate) return 'error'
         return 'active'
-    }, [currentDate])
+    }, [currentDate, variant])
 
     return (
         <BaseInput

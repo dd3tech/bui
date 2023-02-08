@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, getByRole, render, RenderResult } from '@testing-library/react'
+import { cleanup, fireEvent, render, RenderResult } from '@testing-library/react'
 import { describe, it } from 'vitest'
 import DatePicker from './DatePicker'
 

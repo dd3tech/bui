@@ -19,6 +19,28 @@ describe('<DateInput />', () => {
         expect(input.value).toBe('10/02/2025')
     })
 
+    describe('checking variant types', () => {
+        it('it should display the "active" variant correctly', () => {
+            const { container } = render(<DateInput variant="active" data-testid="date-input" />)
+            expect(container.firstChild).toHaveClass('border-black')
+        })
+
+        it('it should display the "focus" variant correctly', () => {
+            const { container } = render(<DateInput variant="focus" data-testid="date-input" />)
+            expect(container.firstChild).toHaveClass('border-blue-500')
+        })
+
+        it('it should display the "success" variant correctly', () => {
+            const { container } = render(<DateInput variant="success" data-testid="date-input" />)
+            expect(container.firstChild).toHaveClass('border-green-500')
+        })
+
+        it('it should display the "warning" variant correctly', () => {
+            const { container } = render(<DateInput variant="warning" data-testid="date-input" />)
+            expect(container.firstChild).toHaveClass('border-yellow-500')
+        })
+    })
+
     it('DatePicker was rendering', () => {
         const { getByRole, getByTestId } = render(<DateInput onChange={mockOnChange} data-testid="date-input" />)
         const endAdornment = getByTestId('endAdornment')
