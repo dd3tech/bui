@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react'
 import Spinner from '../Spinner/Spinner'
-import { composeClasses } from '../../lib/classes'
+import { composeClasses } from 'lib/classes'
 import { ButtonVariant, Padding, Weight, Rounded } from '../../interfaces/types'
-import { fontSize } from '../../lib/font'
+import { fontSize } from 'lib/font'
 
 export type renderLoading = {
     component?: React.ReactElement
@@ -50,10 +50,10 @@ const buttonsVariants: { [key: string]: string } = {
 }
 
 const sizeVariants: { [key: string]: string } = {
-    small: `${fontSize.xs}`,
-    medium: `${fontSize.sm}`,
-    large: `${fontSize.md}`,
-    extraLarge: `${fontSize.lg}`
+    small: fontSize.xs,
+    medium: fontSize.sm,
+    large: fontSize.md,
+    extraLarge: fontSize.lg
 }
 
 const Button = forwardRef<HTMLButtonElement, IButtonProps>(

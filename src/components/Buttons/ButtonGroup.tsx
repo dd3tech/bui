@@ -1,5 +1,5 @@
 import { forwardRef, FC, ReactNode } from 'react'
-import { AlignItems } from 'interfaces/types'
+import { AlignItems } from '../../interfaces/types'
 import { composeClasses } from 'lib/classes'
 
 export type BtnPosition = 'horizontal' | 'vertical'

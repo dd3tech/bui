@@ -1,7 +1,7 @@
 import React from 'react'
 import HomeIcon from '@heroicons/react/outline/HomeIcon'
-import { Shadow } from 'interfaces/types'
-import { borderRadius } from '../../lib/shape'
+import { ShadowVariants } from '../../interfaces/types'
+import { borderRadius } from 'lib/shape'
 import { composeClasses } from 'lib/classes'
 
 interface BaseCircleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -10,7 +10,7 @@ interface BaseCircleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEle
     selected?: boolean
     width?: string
     height: string
-    shadow?: Shadow
+    shadow?: ShadowVariants
     variant?: 'square' | 'circle'
     iconProperties?: { width?: string; height?: string; padding?: string }
 }

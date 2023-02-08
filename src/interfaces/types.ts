@@ -181,7 +181,7 @@ export type Rounded = typeof roundedValues[number]
 
 const shadowValues = ['sm', 'md', 'lg', 'xl', '2xl', 'inner', 'none'] as const
 
-export type Shadow = typeof shadowValues[number]
+export type ShadowVariants = typeof shadowValues[number]
 
 /* -------------------------------- Positions ------------------------------- */
 

@@ -1,7 +1,7 @@
 import { ExclamationCircleIcon, TagIcon, CheckCircleIcon, ExclamationIcon, ClipboardCopyIcon, HomeIcon, ClockIcon } from '@heroicons/react/outline'
-import { borderRadius } from '../../lib/shape'
-import { composeClasses } from '../../lib/classes'
-import { fontSize } from '../../lib/font'
+import { borderRadius } from 'lib/shape'
+import { composeClasses } from 'lib/classes'
+import { fontSize } from 'lib/font'
 
 export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
     text?: string
