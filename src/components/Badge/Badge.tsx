@@ -1,5 +1,7 @@
 import { ExclamationCircleIcon, TagIcon, CheckCircleIcon, ExclamationIcon, ClipboardCopyIcon, HomeIcon, ClockIcon } from '@heroicons/react/outline'
-import { composeClasses } from 'lib'
+import { borderRadius } from '../../lib/shape'
+import { composeClasses } from '../../lib/classes'
+import { fontSize } from '../../lib/font'
 
 export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
     text?: string
@@ -52,7 +54,9 @@ const Badge = ({ text, className, variant, classNameIcon, icon, ...props }: IBad
             className={composeClasses(
                 className,
                 classNameByVariant,
-                'flex items-center rounded-full gap-1 text-xs',
+                borderRadius.full.all,
+                fontSize.xs,
+                'flex items-center gap-1',
                 (!icon || icon === 'none') && 'justify-center'
             )}
             {...props}

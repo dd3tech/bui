@@ -1,6 +1,6 @@
 // import useResize from '@/hooks/useResize'
 import { formatCustomDecimal } from 'dd360-utils'
-import Button from '../Buttons'
+import Button from '../Buttons/Button'
 import Badge from '../Badge'
 import Text from '../Typography'
 import { HeaderAction } from './HeaderAction'
@@ -108,8 +108,8 @@ function GeneralTable({ heightColumn = 50, hasDetail = false, list, Link, pagina
                             variant="secondary"
                             onClick={list?.page! > 0 ? paginated.previousPage : undefined}
                             disabled={list?.page! <= 0}
-                            paddingX={5}
-                            paddingY={2}
+                            paddingX="5"
+                            paddingY="2"
                             className="rounded-lg text-xs"
                         >
                             Anterior
@@ -118,8 +118,8 @@ function GeneralTable({ heightColumn = 50, hasDetail = false, list, Link, pagina
                         <Button
                             variant="secondary"
                             onClick={paginated.nextPage}
-                            paddingX={5}
-                            paddingY={2}
+                            paddingX="5"
+                            paddingY="2"
                             className="rounded-lg text-xs"
                             disabled={paginated.blockPaginationWithCount && paginated.blockPaginationWithCount()}
                         >

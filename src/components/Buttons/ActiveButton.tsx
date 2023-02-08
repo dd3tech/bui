@@ -1,3 +1,5 @@
+import { composeClasses } from 'lib/classes'
+import { fontSize } from 'lib/font'
 import { ReactNode } from 'react'
 import Button from './Button'
 
@@ -11,9 +13,9 @@ const ActiveButton = ({ children, active, to, ...props }: ActiveButtonProps) => 
     return (
         <Button
             variant={active ? 'outlineBlue' : 'outline'}
-            className={`${!active && 'bg-transparent border border-gray-300 text-gray-300 hover:border-blue-700 hover:text-blue-700'} text-sm`}
-            paddingX={5}
-            paddingY={2}
+            className={composeClasses(!active && 'bg-transparent border border-gray-300 text-gray-300 hover:border-blue-700 hover:text-blue-700', fontSize.sm)}
+            paddingX="5"
+            paddingY="2"
             onClick={() => {
                 if (to) {
                     to()

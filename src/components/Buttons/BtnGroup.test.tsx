@@ -1,6 +1,5 @@
 import { it, describe } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
-
 import ButtonGroup, { ButtonGroupProps } from './ButtonGroup'
 import Button from './Button'
 

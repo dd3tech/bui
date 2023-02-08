@@ -177,6 +177,12 @@ const roundedValues = [
 
 export type Rounded = typeof roundedValues[number]
 
+/* --------------------------------- Shadow --------------------------------- */
+
+const shadowValues = ['sm', 'md', 'lg', 'xl', '2xl', 'inner', 'none'] as const
+
+export type Shadow = typeof shadowValues[number]
+
 /* -------------------------------- Positions ------------------------------- */
 
 export type HorizontalPosition = 'left' | 'right'

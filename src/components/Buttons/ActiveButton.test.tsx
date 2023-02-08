@@ -1,6 +1,5 @@
 import { it, describe, vi } from 'vitest'
 import { fireEvent, render } from '@testing-library/react'
-
 import ActiveButton, { ActiveButtonProps } from './ActiveButton'
 
 const defProps: ActiveButtonProps = {
