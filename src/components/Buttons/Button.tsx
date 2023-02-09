@@ -70,7 +70,7 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
             paddingY,
             renderLoading,
             fontWeight = 'bold',
-            rounded = 'lg',
+            rounded = 'md',
             ...props
         }: IButtonProps,
         ref
@@ -99,7 +99,7 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
             <button
                 ref={ref}
                 className={composeClasses(
-                    'rounded transition duration-500 ease-out',
+                    'transition duration-500 ease-out',
                     'hover:ease-in',
                     buttonPadding(),
                     buttonsVariants[variant],
