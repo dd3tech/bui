@@ -11,6 +11,9 @@ module.exports = {
             fontSize: {
                 xxs: '0.625rem'
             },
+            borderRadius: {
+                base: '0.25rem'
+            }
         }
     },
     variants: {
