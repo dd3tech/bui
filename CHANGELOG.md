@@ -1,3 +1,10 @@
+## [3.8.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.8.1...v3.8.2) (2023-02-09)
+
+
+### Bug Fixes
+
+* just a patch ([bbf6dc9](https://gitlab.com/dd3tech/dd360/dd360-components/commit/bbf6dc9969b4b0932b341228376ecf8f309f83c4))
+
 ## [3.8.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.8.0...v3.8.1) (2023-02-08)
 
 
