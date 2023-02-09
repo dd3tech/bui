@@ -89,7 +89,7 @@ const Select = ({
     const className = composeClasses(
         'absolute w-full h-full appearance-none bg-transparent px-4 left-0',
         'focus:outline-none',
-        rounded && `rounded-${rounded}`,
+        `rounded-${rounded}`,
         variant === 'outlined' && `border ${borderRadius.sm.all}`,
         variant === 'standard' && 'border-b-2',
         input.borderColor,
