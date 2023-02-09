@@ -20,6 +20,7 @@ export interface InputProps extends HTMLProps<HTMLInputElement> {
     classNameAdornment?: string
     rounded?: string
     language?: 'es' | 'en'
+    controllers?: boolean
 }
 
 function BaseInput({

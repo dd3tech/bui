@@ -75,6 +75,15 @@ InputPercentage.args = {
     className: 'w-56',
     variant: 'active'
 }
+
+export const InputNumber = Template.bind({})
+InputNumber.args = {
+    label: 'Number',
+    type: 'number',
+    className: 'w-56',
+    variant: 'active'
+}
+
 export const InputFile = Template.bind({})
 InputFile.args = {
     label: 'Upload your documentation',
