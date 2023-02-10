@@ -95,27 +95,20 @@ describe('<BaseInput />', () => {
         })
     })
 
-    describe('CheckCircle was renderer', () => {
-        it('focus', () => {
+    describe('endAdornment default by variant', () => {
+        it('CheckCircleIcon was rendered when variant is success', () => {
             const { getByRole } = render(<BaseInput variant="success" />)
             expect(getByRole('defaultIcon').firstChild).toHaveAttribute('aria-label', 'check')
         })
 
-        it('success', () => {
-            const { getByRole } = render(<BaseInput variant="success" />)
-            expect(getByRole('defaultIcon').firstChild).toHaveAttribute('aria-label', 'check')
+        it('InformationCircleIcon was rendered when variant is warning', () => {
+            const { getByRole } = render(<BaseInput variant="warning" />)
+            expect(getByRole('defaultIcon').firstChild).toHaveAttribute('aria-label', 'warning')
         })
 
-        it('warning', () => {
-            const { getByRole } = render(<BaseInput variant="success" />)
-            expect(getByRole('defaultIcon').firstChild).toHaveAttribute('aria-label', 'check')
-        })
-    })
-
-    describe('XCircleIcon was renderer', () => {
-        it('error', () => {
+        it('XCircleIcon was rendered when variant is error', () => {
             const { getByRole } = render(<BaseInput variant="error" />)
-            expect(getByRole('defaultIcon').firstChild).toHaveAttribute('aria-label', 'x')
+            expect(getByRole('defaultIcon').firstChild).toHaveAttribute('aria-label', 'error')
         })
     })
 })
