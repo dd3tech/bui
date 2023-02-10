@@ -2,7 +2,11 @@ import { useCallback, useState } from 'react'
 import BaseInput, { InputProps } from './BaseInput'
 import { ArrowCircleDownIcon, ArrowCircleUpIcon } from '@heroicons/react/outline'
 
-function NumberInput({ onChange, value, controllers, ...props }: InputProps) {
+export interface InputNumberProps extends InputProps {
+    controllers?: boolean
+}
+
+function NumberInput({ onChange, value, controllers, ...props }: InputNumberProps) {
     const [localValue, setLocalValue] = useState(value ?? 0)
 
     const handleChange = useCallback(

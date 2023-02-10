@@ -8,7 +8,11 @@ import PercentageInput from './PercentageInput'
 import type { InputProps } from './BaseInput'
 import NumberInput from './InputNumber'
 
-export default function Input({ type = 'text', ...otherProps }: InputProps) {
+export interface GenericInputProps extends InputProps {
+    controllers?: boolean
+}
+
+export default function Input({ type = 'text', ...otherProps }: GenericInputProps) {
     switch (type) {
         case 'text':
             return <BaseInput {...otherProps} />
