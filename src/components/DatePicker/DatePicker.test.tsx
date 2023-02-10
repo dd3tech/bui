@@ -1,5 +1,5 @@
 import { cleanup, fireEvent, render, RenderResult } from '@testing-library/react'
-import { describe, it } from 'vitest'
+import { describe, it, vi } from 'vitest'
 import DatePicker from './DatePicker'
 
 const monthNames = {
@@ -68,13 +68,15 @@ describe('<DatePicker /> ', () => {
 
         it('onChange: prop should listen and return the date you select on the calendar.', () => {
             let value: Date | undefined
+            const mockDaySelected = vi.fn()
             const onChange = (newDate: Date) => {
                 value = newDate
             }
-            const { getAllByRole, getByRole } = render(<DatePicker onChange={onChange} />)
+            const { getAllByRole, getByRole } = render(<DatePicker onChange={onChange} onDaySelected={mockDaySelected} />)
             fireEvent.click(getAllByRole('numberDay')[5])
             fireEvent.click(getByRole('select-month'))
             fireEvent.click(getAllByRole('month')[1])
+            fireEvent.click(getByRole('select-month'))
             fireEvent.click(getByRole('select-year'))
             fireEvent.click(getByRole('list').children[0])
 

@@ -55,12 +55,13 @@ export interface DatePickerProps {
     value?: Date
     onChange?: (newDate: Date) => void
     onlyOf?: OptionType
+    onDaySelected?: () => void
 }
 
 const TOTAL_YEARS = 11
 const TODAY = new Date()
 
-function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }: DatePickerProps) {
+function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, onDaySelected }: DatePickerProps) {
     const [currentDate, setCurrentDate] = useState(TODAY)
     const [selectedDate, setSelectedDate] = useState<Date | null>(null)
     const [currentOption, setCurrentOption] = useState<OptionType>(getInitialOption(onlyOf))
@@ -89,21 +90,24 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange }
         setSelectedDate(newDate)
     }
 
-    const handleSelectMonth = (index: number) => {
-        const date = onlyOf?.includes('month') ? new Date(currentDate.getFullYear(), index + 1, 0) : currentDate
-        const newDate = updateCurrentDate(date, { month: index, isNotAddition: true })
-        handleChangeSelectedDate(newDate)
-    }
-
     const handleSelectDay = (day: number) => {
         const newDate = updateCurrentDate(currentDate, { day, isNotAddition: true })
         handleChangeSelectedDate(newDate)
         setCurrentDate(newDate)
+        onDaySelected && onDaySelected()
+    }
+
+    const handleSelectMonth = (index: number) => {
+        const date = onlyOf?.includes('month') ? new Date(currentDate.getFullYear(), index + 1, 0) : currentDate
+        const newDate = updateCurrentDate(date, { month: index, isNotAddition: true })
+        handleChangeSelectedDate(newDate)
+        setCurrentOption('day')
     }
 
     const handleSelectYear = (year: number) => {
         const newDate = updateCurrentDate(currentDate, { year, isNotAddition: true })
         handleChangeSelectedDate(newDate)
+        setCurrentOption('month')
     }
 
     const handlePrevMonth = () => setCurrentDate(updateCurrentDate(currentDate, { month: -1 }))
