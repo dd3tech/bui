@@ -50,6 +50,8 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
         [onChange, date]
     )
 
+    const onDaySelected = useCallback(() => setShowDatePicker(false), [showDatePicker])
+
     const currentDate = useMemo(() => {
         const dateArray = date.split('/')
         let newDate = undefined
@@ -87,7 +89,13 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
                         <CalendarIcon width={24} />
                     </button>
                     {showDatePicker && (
-                        <DatePicker language={language} onChange={handleDateChange} value={currentDate} className="absolute top-14 right-0 text-black" />
+                        <DatePicker
+                            language={language}
+                            onChange={handleDateChange}
+                            onDaySelected={onDaySelected}
+                            value={currentDate}
+                            className="absolute top-14 right-0 text-black"
+                        />
                     )}
                 </>
             }

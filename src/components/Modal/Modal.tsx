@@ -21,7 +21,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         const dynamicClassName: () => string = React.useCallback(() => {
             return composeClasses(
                 'absolute z-50 flex-wrap text-center flex drop-shadow-lg bg-white w-full bottom-0 rounded-t-2xl',
-                'md:bottom-auto md:w-auto md:rounded-2xl md:ml-24 md:mb-6 md:mt-6',
+                'md:bottom-auto md:w-auto md:rounded-2xl md:mb-6 md:mt-6',
                 animation && 'animation-modal',
                 className
             )

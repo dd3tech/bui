@@ -82,6 +82,7 @@ describe('<DateInput />', () => {
         fireEvent.click(getByRole('active-calendar'))
         fireEvent.click(getByRole('select-month'))
         fireEvent.click(getAllByRole('month')[TODAY.getMonth()])
+        fireEvent.click(getByRole('select-month'))
         fireEvent.click(getByRole('select-year'))
         fireEvent.click(getByRole('list').children[0])
 
