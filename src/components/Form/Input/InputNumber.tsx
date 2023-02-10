@@ -7,9 +7,15 @@ function NumberInput({ onChange, value, controllers, ...props }: InputProps) {
 
     const handleChange = useCallback(
         (event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.value === '') setLocalValue('')
-            if (/^[0-9]*$/.test(event.target.value)) setLocalValue(event.target.value)
-            onChange && onChange(event)
+            const validateNumber = /^[0-9]*$/.test(event.target.value)
+            if (event.target.value === '') {
+                setLocalValue('')
+                return
+            }
+            if (validateNumber) {
+                setLocalValue(event.target.value)
+                onChange && onChange(event)
+            }
         },
         [onChange, localValue]
     )
