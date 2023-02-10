@@ -1,3 +1,15 @@
+# [4.1.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.0.0...v4.1.0) (2023-02-10)
+
+
+### Bug Fixes
+
+* the bug was fixed when writing letters in the input of type number and in the input of type percentage ([7e55810](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7e5581082f07eb600dc1726e544cf2b10a6b4dbd))
+
+
+### Features
+
+* Add InputNumber ([e13b3f0](https://gitlab.com/dd3tech/dd360/dd360-components/commit/e13b3f0b7f962088a07da9c51349d610a84ef914))
+
 # [4.0.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.8.2...v4.0.0) (2023-02-10)
 
 
