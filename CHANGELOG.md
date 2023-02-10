@@ -1,3 +1,17 @@
+# [4.0.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.8.2...v4.0.0) (2023-02-10)
+
+
+### Bug Fixes
+
+* fixed to the DatePicker so that it is closed using the InputDate ([28dfa5b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/28dfa5ba26ca15569932badb9ad24ed3e2c7e8ed))
+
+
+### BREAKING CHANGES
+
+* 🧨 fixed to the DatePicker so that it is closed using the InputDate and
+also that it changes the option from year to day when the date is
+selected
+
 ## [3.8.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v3.8.1...v3.8.2) (2023-02-09)
 
 
