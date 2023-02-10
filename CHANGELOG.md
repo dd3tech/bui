@@ -1,3 +1,10 @@
+## [4.1.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.1.1...v4.1.2) (2023-02-10)
+
+
+### Bug Fixes
+
+* **InputNumber:** add missing endAdornment and delete unnecesary deps on useCallback ([7a4fcb8](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7a4fcb8a59dbce63865bc1bc7ccd9a71ae203d7e))
+
 ## [4.1.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.1.0...v4.1.1) (2023-02-10)
 
 
