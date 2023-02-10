@@ -1,5 +1,5 @@
 import { HTMLProps, ReactNode, useCallback, useState } from 'react'
-import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/outline'
+import { CheckCircleIcon, XCircleIcon, InformationCircleIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 
 import { inputVariants, InputVariant as InputVariantType, InputType } from '../shared'
@@ -35,7 +35,7 @@ function BaseInput({
     inputBlank,
     onFocus,
     onBlur,
-    ...props
+    ...otherProps
 }: InputProps) {
     const [focused, setFocused] = useState(false)
     const { input, text } = inputVariants[variant]
@@ -56,38 +56,42 @@ function BaseInput({
         [onBlur]
     )
 
-    const adornmentClassName = composeClasses('transition duration-500 ease-out max-h-6', 'focus:ease-in', text.color)
-    const finalClassName = composeClasses(
-        'mt-1 flex items-center justify-between bg-transparent transition duration-500 ease-out focus:ease-in border-solid border border-black font-medium',
-        inputBlank && 'border-none',
-        rounded && `rounded-${rounded}`,
-        variant === 'active' && focused && 'border-blue-500',
-        `p-${padding}`,
-        className ?? 'w-60',
-        input.borderColor,
-        input.color,
-        classNameAdornment
-    )
+    const styles = {
+        adornment: composeClasses('transition duration-500 ease-out max-h-6', 'focus:ease-in', text.color),
+        container: composeClasses(
+            'mt-1 flex items-center justify-between bg-transparent border-solid border border-black font-medium',
+            'transition duration-500 ease-out focus:ease-in',
+            inputBlank && 'border-none',
+            rounded && `rounded-${rounded}`,
+            variant === 'active' && focused && 'border-blue-500',
+            `p-${padding}`,
+            className ?? 'w-60',
+            input.borderColor,
+            input.color,
+            classNameAdornment
+        )
+    }
 
     return (
         <>
             {label && <label className="block text-sm font-medium leading-none mb-2">{label}</label>}
-            <div role="input-container" className={finalClassName}>
+            <div role="input-container" className={styles.container}>
                 {startAdornment && (
-                    <div data-testid="startAdornment" className={adornmentClassName}>
+                    <div data-testid="startAdornment" className={styles.adornment}>
                         {startAdornment}
                     </div>
                 )}
-                <input {...props} className={composeClasses('outline-none w-full', className)} onFocus={handleFocus} onBlur={handleBlur} />
+                <input {...otherProps} className={composeClasses('outline-none w-full', className)} onFocus={handleFocus} onBlur={handleBlur} />
                 {endAdornment && (
-                    <div data-testid="endAdornment" className={adornmentClassName}>
+                    <div data-testid="endAdornment" className={styles.adornment}>
                         {endAdornment}
                     </div>
                 )}
                 {!endAdornment && variant !== 'active' && (
-                    <div role="defaultIcon" className={adornmentClassName}>
-                        {variant === 'error' && <XCircleIcon aria-label="x" width={24} />}
-                        {variant !== 'error' && <CheckCircleIcon aria-label="check" width={24} />}
+                    <div role="defaultIcon" className={styles.adornment}>
+                        {variant === 'warning' && <InformationCircleIcon aria-label="warning" width={24} />}
+                        {variant === 'error' && <XCircleIcon aria-label="error" width={24} />}
+                        {variant === 'success' && <CheckCircleIcon aria-label="check" width={24} />}
                     </div>
                 )}
             </div>
