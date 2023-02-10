@@ -1,3 +1,10 @@
+## [4.1.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.1.0...v4.1.1) (2023-02-10)
+
+
+### Bug Fixes
+
+* **BaseInput:** add icon when variant is warning and refactor classNames ([c68e311](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c68e311eda386f20ddf7973a9394a0edc16eb7ad))
+
 # [4.1.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.0.0...v4.1.0) (2023-02-10)
 
 
