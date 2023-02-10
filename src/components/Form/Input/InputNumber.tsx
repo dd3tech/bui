@@ -6,8 +6,8 @@ export interface InputNumberProps extends InputProps {
     controllers?: boolean
 }
 
-function NumberInput({ onChange, value, controllers, ...props }: InputNumberProps) {
-    const [localValue, setLocalValue] = useState(value ?? 0)
+function NumberInput({ onChange, value, controllers, endAdornment, ...props }: InputNumberProps) {
+    const [localValue, setLocalValue] = useState(value || 0)
 
     const handleChange = useCallback(
         (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,14 +21,16 @@ function NumberInput({ onChange, value, controllers, ...props }: InputNumberProp
                 onChange && onChange(event)
             }
         },
-        [onChange, localValue]
+        [onChange]
     )
 
-    const increment = useCallback(() => setLocalValue(Number(localValue) + 1), [localValue])
+    const increment = useCallback(() => {
+        setLocalValue((prevValue) => Number(prevValue) + 1)
+    }, [])
 
     const decrement = useCallback(() => {
-        if (Number(localValue) > 0) setLocalValue(Number(localValue) - 1)
-    }, [localValue])
+        setLocalValue((prevValue) => (Number(prevValue) > 0 ? Number(prevValue) - 1 : prevValue))
+    }, [])
 
     return (
         <BaseInput
@@ -36,7 +38,7 @@ function NumberInput({ onChange, value, controllers, ...props }: InputNumberProp
             onChange={handleChange}
             value={localValue}
             endAdornment={
-                controllers && (
+                controllers ? (
                     <div className="grid -mt-2.5 gap-y-0.5  text-gray-500">
                         <button role="increment-number" onClick={increment} type="button">
                             <ArrowCircleUpIcon aria-label="arrowUp" width={20} />
@@ -45,6 +47,8 @@ function NumberInput({ onChange, value, controllers, ...props }: InputNumberProp
                             {<ArrowCircleDownIcon aria-label="arrowDown" width={20} />}
                         </button>
                     </div>
+                ) : (
+                    endAdornment
                 )
             }
         />
