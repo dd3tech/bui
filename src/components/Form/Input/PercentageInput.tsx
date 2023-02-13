@@ -1,9 +1,10 @@
 import { useCallback, useState, useEffect } from 'react'
 import BaseInput, { InputProps } from './BaseInput'
+import { getValueWithDecimalFormat } from 'dd360-utils'
 
 function PercentageInput(props: InputProps) {
     const { onChange, value } = props
-    const [localValue, setLocalValue] = useState(value || 0)
+    const [localValue, setLocalValue] = useState(getValueWithDecimalFormat(String(value)) || 0)
 
     const handleChange = useCallback(
         (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +22,7 @@ function PercentageInput(props: InputProps) {
     )
 
     useEffect(() => {
-        if (value) setLocalValue(value)
+        if (value) setLocalValue(getValueWithDecimalFormat(String(value)))
     }, [value])
 
     return <BaseInput {...props} onChange={handleChange} value={localValue} />
