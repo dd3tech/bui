@@ -29,7 +29,7 @@ export default function Input({ type = 'text', ...otherProps }: GenericInputProp
         case 'percentage':
             return <PercentageInput placeholder="00.00" endAdornment="%" {...otherProps} />
         case 'number':
-            return <NumberInput {...otherProps} />
+            return <NumberInput placeholder="0" {...otherProps} />
         default:
             return <BaseInput {...otherProps} />
     }

@@ -1,6 +1,6 @@
-import { useCallback, useState } from 'react'
-import BaseInput, { InputProps } from './BaseInput'
+import { useCallback, useState, useEffect } from 'react'
 import { ArrowCircleDownIcon, ArrowCircleUpIcon } from '@heroicons/react/outline'
+import BaseInput, { InputProps } from './BaseInput'
 
 export interface InputNumberProps extends InputProps {
     controllers?: boolean
@@ -31,6 +31,10 @@ function NumberInput({ onChange, value, controllers, endAdornment, ...props }: I
     const decrement = useCallback(() => {
         setLocalValue((prevValue) => (Number(prevValue) > 0 ? Number(prevValue) - 1 : prevValue))
     }, [])
+
+    useEffect(() => {
+        if (value) setLocalValue(value)
+    }, [value])
 
     return (
         <BaseInput
