@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
-export function Portal({ children }: { children: any }) {
+export function Portal({ children, idRoot }: { children: any; idRoot?: string }) {
     const [container] = useState(document.createElement('div'))
 
     useEffect(() => {
-        let portalRoot = document.getElementById('portal-root')
+        let portalRoot = idRoot ? document.getElementById(idRoot) : document.getElementById('portal-root')
 
         if (!portalRoot) {
             const newElement = document.createElement('div')
@@ -15,6 +15,7 @@ export function Portal({ children }: { children: any }) {
         }
 
         portalRoot?.appendChild(container)
+
         return () => {
             portalRoot?.removeChild(container)
         }
