@@ -1,3 +1,11 @@
+## [4.1.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.1.3...v4.1.4) (2023-02-13)
+
+
+### Bug Fixes
+
+* add format ([0f5f308](https://gitlab.com/dd3tech/dd360/dd360-components/commit/0f5f3086524b63a8759f1bd3c6730b0bb76f6bc8))
+* Added status update when value changes ([4e93fd0](https://gitlab.com/dd3tech/dd360/dd360-components/commit/4e93fd02c33c60217bdc5da011f0e8ce010cc85a))
+
 ## [4.1.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.1.2...v4.1.3) (2023-02-13)
 
 
