@@ -1,3 +1,15 @@
+# [4.2.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.1.4...v4.2.0) (2023-02-14)
+
+
+### Bug Fixes
+
+* remove id ([7e445e5](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7e445e576aaa0528ac994fb52c25eb9a155451b2))
+
+
+### Features
+
+* add portalId when provide idRoot ([a15e313](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a15e3135d65acb27c4c71d9c9f082d3d830f0921))
+
 ## [4.1.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.1.3...v4.1.4) (2023-02-13)
 
 
