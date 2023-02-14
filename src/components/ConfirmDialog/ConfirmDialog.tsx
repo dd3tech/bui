@@ -15,6 +15,7 @@ export interface IConfirmDialog {
     position?: { show: boolean; left: number; top: number }
     className?: string
     width?: number | string
+    idRoot?: string
 }
 
 const ConfirmDialog = ({
@@ -26,10 +27,11 @@ const ConfirmDialog = ({
     className,
     width,
     onConfirm,
-    onCancel
+    onCancel,
+    idRoot
 }: IConfirmDialog) => {
     return (
-        <Portal>
+        <Portal idRoot={idRoot}>
             {position?.show && (
                 <Card
                     rounded="lg"
