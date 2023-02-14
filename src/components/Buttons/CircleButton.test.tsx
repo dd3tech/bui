@@ -44,10 +44,4 @@ describe('<BaseCircleButton />', () => {
         const { container } = render(<Button.BaseCircleButton {...defaultProps} selected={true} />)
         expect(container.firstChild).toHaveClass('bg-blue-700 text-white')
     })
-
-    it('should throw an error when placing the disabled and selected props', () => {
-        expect(() => {
-            render(<Button.BaseCircleButton {...defaultProps} selected={true} disabled={true} />)
-        }).toThrow('You cannot have these two properties activated simultaneously')
-    })
 })

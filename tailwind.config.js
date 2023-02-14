@@ -6,7 +6,7 @@ module.exports = {
     theme: {
         extend: {
             borderWidth: {
-                '3': '3px'
+                3: '3px'
             },
             fontSize: {
                 xxs: '0.625rem'

@@ -48,10 +48,6 @@ function BaseCircleButton({
     variant = 'circle',
     ...props
 }: BaseCircleButtonProps) {
-    if (disabled && selected) {
-        throw new Error('You cannot have these two properties activated simultaneously')
-    }
-
     return (
         <button
             style={{ ...props.style, width, height }}
