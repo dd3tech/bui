@@ -10,3 +10,87 @@
 .border-table-top {
     border-top: 1px solid #d1d5db;
 }
+
+thead tr th,
+tbody tr td {
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: left;
+}
+
+tbody tr {
+    height: 2rem;
+}
+
+.bordered {
+    border: 1px solid #d1d5db;
+}
+
+thead tr {
+    background-color: #f9fcff;
+}
+
+tbody tr {
+    background-color: #fff;
+}
+
+.vertical-borders thead tr th::after,
+.vertical-borders tbody tr td::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 1px;
+    height: 100%;
+    background-color: #8f969a;
+}
+
+.vertical-borders thead tr th:last-child::after,
+.vertical-borders tbody tr td:last-child::after {
+    width: 0;
+}
+
+.vertical-borders thead tr.tertiary th::after {
+    height: calc(100% - 8px);
+    margin-bottom: 4px;
+    margin-top: 4px;
+    background-color: #d1d5db;
+}
+
+.horizontal-borders thead tr th::before,
+.horizontal-borders tbody tr td::before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 1px;
+    width: 100%;
+    background-color: #d1d5db;
+}
+
+.horizontal-borders tbody tr:last-child td::before {
+    height: 0;
+}
+
+.tertiary {
+    color: #8f969a;
+}
+
+[role='input-container'] {
+    height: 30px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+input {
+    background-color: inherit;
+}
+
+.sticky {
+    position: sticky;
+    z-index: 1;
+    background-color: inherit;
+}
