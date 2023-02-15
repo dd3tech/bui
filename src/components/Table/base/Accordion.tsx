@@ -2,31 +2,30 @@ import React, { useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import ChevronUpIcon from '@heroicons/react/outline/ChevronUpIcon'
 
-interface AccordionGroupProps {
-    children: React.ReactNode[]
-    iconPosition?: number
-}
-
-const AccordionGroup = ({
+interface AccordionProps {
     /**
      * Row list
      * The first child is the header
      */
-    children,
+    children: React.ReactNode[]
     /**
      * The column number where the icon will be displayed
      * 0 is the position of the first column
      */
+    iconPosition?: number
+}
+
+const Accordion = ({
+    children,
     iconPosition = 0
-}: AccordionGroupProps) => {
+}: AccordionProps) => {
     const [toggle, setToggle] = useState(false)
 
     const onClick = () => {
         setToggle(!toggle)
     }
 
-    const content = [...children]
-    const firstChild = content.shift() as React.ReactElement
+    const [firstChild, ...childs] = children as React.ReactElement[]
 
     const modifiedCells = React.Children.map(firstChild.props.children, (cell, index) => {
         if (index === iconPosition) {
@@ -52,9 +51,9 @@ const AccordionGroup = ({
     return (
         <>
             {header}
-            {toggle && content}
+            {toggle && childs}
         </>
     )
 }
 
-export default AccordionGroup
+export default Accordion

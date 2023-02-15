@@ -6,7 +6,7 @@ interface HeaderProps extends React.HTMLAttributes<HTMLTableSectionElement> {
 }
 
 const Header = (props: HeaderProps) => {
-    return <thead>{props.children}</thead>
+    return <thead {...props}>{props.children}</thead>
 }
 
 export default Header

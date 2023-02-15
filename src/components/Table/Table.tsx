@@ -7,7 +7,7 @@ import HeaderCell from './base/HeaderCell'
 import Body from './base/Body'
 import Row from './base/Row'
 import Cell from './base/Cell'
-import AccordionGroup from './base/AccordionGroup'
+import Accordion from './base/Accordion'
 import './table.css'
 
 interface TableProps {
@@ -62,7 +62,7 @@ type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<PropsWithoutRef
     Body: typeof Body
     Row: typeof Row
     Cell: typeof Cell
-    AccordionGroup: typeof AccordionGroup
+    Accordion: typeof Accordion
 }
 
 Table.displayName = 'Table'

@@ -7,7 +7,7 @@ import HeaderCell from './base/HeaderCell'
 import Body from './base/Body'
 import Row from './base/Row'
 import Cell from './base/Cell'
-import AccordionGroup from './base/AccordionGroup'
+import Accordion from './base/Accordion'
 
 describe('<Table />', () => {
     let renderResult: RenderResult
@@ -36,7 +36,7 @@ describe('<Table />', () => {
                             Cell
                         </Cell>
                     </Row>
-                    <AccordionGroup iconPosition={1}>
+                    <Accordion iconPosition={1}>
                         <Row data-testid="row-accordion">
                             <Cell data-testid="cell-input" inputProps={{}}>
                                 data accordion
@@ -49,7 +49,7 @@ describe('<Table />', () => {
                             <Cell>data accordion</Cell>
                             <Cell>data accordion</Cell>
                         </Row>
-                    </AccordionGroup>
+                    </Accordion>
                 </Body>
             </Table>
         )
@@ -84,7 +84,7 @@ describe('<Table />', () => {
         expect(cell.children[0].getAttribute('role')).toBe('input-container')
     })
 
-    describe('AccordionGroup with iconPosition=1', () => {
+    describe('Accordion with iconPosition=1', () => {
         it('should be render a accordion group with a icon in the second cell', () => {
             const { getByTestId } = renderResult
             const cell = getByTestId('cell-icon')

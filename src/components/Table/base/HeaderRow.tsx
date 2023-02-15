@@ -9,17 +9,17 @@ interface HeaderRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
     /**
      * Row variants
      */
-    variant?: 'main' | 'sub' | 'secundary'
+    variant?: 'primary' | 'secondary' | 'tertiary'
 }
 
 const headerRowVariant: { [key: string]: string } = {
-    main: `${fontSize.sm} h-12 text-gray-600`,
-    sub: `${fontSize.xxs} h-10 text-gray-500`,
-    secundary: `secundary ${fontSize.xs} h-8 bg-gray-50`
+    primary: `${fontSize.sm} h-12 text-gray-600`,
+    secondary: `${fontSize.xxs} h-10 text-gray-500`,
+    tertiary: `tertiary ${fontSize.xs} h-8 bg-gray-50`
 }
 
-const HeaderRow = ({ variant = 'main', children }: HeaderRowProps) => {
-    return <tr className={composeClasses(fontWeight.bold, headerRowVariant[variant])}>{children}</tr>
+const HeaderRow = ({ variant = 'primary', children, ...props }: HeaderRowProps) => {
+    return <tr {...props} className={composeClasses(props.className, fontWeight.bold, headerRowVariant[variant])}>{children}</tr>
 }
 
 export default HeaderRow

@@ -20,7 +20,7 @@ tbody tr td {
 }
 
 tbody tr {
-    height: 30px;
+    height: 2rem;
 }
 
 .bordered {
@@ -47,7 +47,7 @@ thead tr {
     width: 0;
 }
 
-.vertical-borders thead tr.secundary th::after {
+.vertical-borders thead tr.tertiary th::after {
     height: calc(100% - 8px);
     margin-bottom: 4px;
     margin-top: 4px;
@@ -69,7 +69,7 @@ thead tr {
     height: 0;
 }
 
-.secundary {
+.tertiary {
     color: #8f969a;
 }
 

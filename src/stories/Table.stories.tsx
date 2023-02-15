@@ -21,7 +21,7 @@ const Template: ComponentStory<typeof TableComp> = (args) => {
                         <TableComp.HeaderCell colSpan={5}>Estructura</TableComp.HeaderCell>
                         <TableComp.HeaderCell colSpan={7}>Valores y detalles</TableComp.HeaderCell>
                     </TableComp.HeaderRow>
-                    <TableComp.HeaderRow variant="sub">
+                    <TableComp.HeaderRow variant="secondary">
                         {columns.map((val) => (
                             <TableComp.HeaderCell key={val}>
                                 <div>May. 22</div>
@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof TableComp> = (args) => {
                             </TableComp.HeaderCell>
                         ))}
                     </TableComp.HeaderRow>
-                    <TableComp.HeaderRow variant="secundary">
+                    <TableComp.HeaderRow variant="tertiary">
                         {columns.map((val) => (
                             <TableComp.HeaderCell key={val} style={{ minWidth: 108 }}>
                                 Column Head
@@ -51,7 +51,7 @@ const Template: ComponentStory<typeof TableComp> = (args) => {
                         ))}
                     </TableComp.Row>
 
-                    <TableComp.AccordionGroup>
+                    <TableComp.Accordion>
                         <TableComp.Row>
                             <TableComp.Cell colSpan={13}>
                                 <div>Total Loan + Pre-Sales</div>
@@ -62,17 +62,17 @@ const Template: ComponentStory<typeof TableComp> = (args) => {
                                 <TableComp.Cell key={val}>$0.00</TableComp.Cell>
                             ))}
                         </TableComp.Row>
-                    </TableComp.AccordionGroup>
+                    </TableComp.Accordion>
 
-                    <TableComp.Row variant="headerBody">
+                    <TableComp.Row variant="header">
                         <TableComp.Cell colSpan={13}>Return Metrics</TableComp.Cell>
                     </TableComp.Row>
 
-                    <TableComp.Row variant="bottomResult">
+                    <TableComp.Row variant="result">
                         <TableComp.Cell colSpan={13}>Return Metrics</TableComp.Cell>
                     </TableComp.Row>
 
-                    <TableComp.AccordionGroup iconPosition={1}>
+                    <TableComp.Accordion iconPosition={1}>
                         <TableComp.Row>
                             <TableComp.Cell className="bg-white" rowSpan={5} colSpan={2}>
                                 00330001
@@ -91,9 +91,9 @@ const Template: ComponentStory<typeof TableComp> = (args) => {
                                 </TableComp.Cell>
                             ))}
                         </TableComp.Row>
-                    </TableComp.AccordionGroup>
+                    </TableComp.Accordion>
 
-                    <TableComp.AccordionGroup iconPosition={0}>
+                    <TableComp.Accordion iconPosition={0}>
                         <TableComp.Row>
                             <TableComp.Cell className="bg-blue-50" colSpan={2}>
                                 Accordion 2
@@ -107,7 +107,7 @@ const Template: ComponentStory<typeof TableComp> = (args) => {
                                 <TableComp.Cell key={val} inputProps={{ type: 'currency' }} />
                             ))}
                         </TableComp.Row>
-                    </TableComp.AccordionGroup>
+                    </TableComp.Accordion>
                 </TableComp.Body>
             </TableComp>
 

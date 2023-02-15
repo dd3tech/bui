@@ -50,7 +50,6 @@ const Cell = ({ disabled = false, error = false, inputProps, stickyLeft, stickyT
                 inputProps!! && 'pt-0 pb-0',
                 props.className
             )}
-            style={{ ...props.style, height: '30px' }}
         >
             {inputProps!! ? <Input {...inputProps}></Input> : props.children}
         </td>
