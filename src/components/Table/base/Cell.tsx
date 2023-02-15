@@ -1,5 +1,4 @@
-import Input from '../../Form/Input/Input'
-import { InputProps } from 'components/Form/Input/BaseInput'
+import Input, { GenericInputProps } from '../../Form/Input/Input'
 import { composeClasses } from 'lib/classes'
 
 type unit = `${number}${'px' | 'rem'}`
@@ -20,7 +19,7 @@ interface CellProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
     /**
      * Props for the input component
      */
-    inputProps?: InputProps
+    inputProps?: GenericInputProps
     /**
      * Set the left sticky distance of the cell
      */
@@ -50,6 +49,13 @@ const Cell = ({ disabled = false, error = false, inputProps, stickyLeft, stickyT
                 inputProps!! && 'pt-0 pb-0',
                 props.className
             )}
+            style={{
+                left: stickyLeft,
+                top: stickyTop,
+                right: stickyRight,
+                bottom: stickyBottom,
+                ...props.style
+            }}
         >
             {inputProps!! ? <Input {...inputProps}></Input> : props.children}
         </td>

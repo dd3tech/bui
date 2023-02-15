@@ -1,4 +1,4 @@
-import { composeClasses } from "lib/classes"
+import { composeClasses } from 'lib/classes'
 
 interface BodyProps extends React.HTMLAttributes<HTMLTableSectionElement> {
     /**

@@ -1,5 +1,3 @@
-export { default as GeneralTable } from './GeneralTable'
-
 import { default as Table } from './Table'
 import { Cell, Row, Header, Body, HeaderCell, HeaderRow, Accordion } from './base'
 

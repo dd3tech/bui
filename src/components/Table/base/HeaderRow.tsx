@@ -19,7 +19,11 @@ const headerRowVariant: { [key: string]: string } = {
 }
 
 const HeaderRow = ({ variant = 'primary', children, ...props }: HeaderRowProps) => {
-    return <tr {...props} className={composeClasses(props.className, fontWeight.bold, headerRowVariant[variant])}>{children}</tr>
+    return (
+        <tr {...props} className={composeClasses(props.className, fontWeight.bold, headerRowVariant[variant])}>
+            {children}
+        </tr>
+    )
 }
 
 export default HeaderRow

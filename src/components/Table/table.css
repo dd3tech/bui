@@ -31,6 +31,10 @@ thead tr {
     background-color: #f9fcff;
 }
 
+tbody tr {
+    background-color: #fff;
+}
+
 .vertical-borders thead tr th::after,
 .vertical-borders tbody tr td::after {
     content: '';

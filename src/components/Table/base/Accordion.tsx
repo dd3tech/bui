@@ -15,10 +15,7 @@ interface AccordionProps {
     iconPosition?: number
 }
 
-const Accordion = ({
-    children,
-    iconPosition = 0
-}: AccordionProps) => {
+const Accordion = ({ children, iconPosition = 0 }: AccordionProps) => {
     const [toggle, setToggle] = useState(false)
 
     const onClick = () => {
@@ -33,7 +30,7 @@ const Accordion = ({
                 children: (
                     <div className="flex items-center">
                         {cell.props.children}
-                        <ChevronUpIcon className={composeClasses('h-4 w-4 duration-300 ease-in ml-3', toggle ? '' : 'transform rotate-180')} />
+                        <ChevronUpIcon className={composeClasses('h-4 w-4 duration-300 ease-in ml-3', !toggle && 'transform rotate-180')} />
                     </div>
                 )
             })
