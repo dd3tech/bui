@@ -1,3 +1,10 @@
+## [4.4.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.0...v4.4.1) (2023-02-16)
+
+
+### Bug Fixes
+
+* the update of the value was added in the inputs of type currency and date ([d80d740](https://gitlab.com/dd3tech/dd360/dd360-components/commit/d80d7402758d6cf31e9d83994542ce45d972a7c7))
+
 # [4.4.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.3.0...v4.4.0) (2023-02-16)
 
 
