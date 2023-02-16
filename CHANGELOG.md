@@ -1,3 +1,10 @@
+# [4.4.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.3.0...v4.4.0) (2023-02-16)
+
+
+### Features
+
+* add new prop called customIcon for switch, add test for customIcon prop and doc in stories ([b60bab7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/b60bab7745b4ca385f3f33c0eea876b22ddadb69))
+
 # [4.3.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.2.0...v4.3.0) (2023-02-16)
 
 
