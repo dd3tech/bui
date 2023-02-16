@@ -2,6 +2,7 @@ import { it, describe, expect, vi } from 'vitest'
 import { cleanup, fireEvent, render } from '@testing-library/react'
 
 import Switch from './Switch'
+import { HomeIcon } from '@heroicons/react/outline'
 
 const defaultProps = {
     text: 'Example',
@@ -60,5 +61,11 @@ describe('<Switch/>', () => {
             expect(switchFather.className).toContain('bg-blue-100')
             expect(switchChildren.className).toContain('bg-blue')
         })
+    })
+
+    it('Should be render Switch with customIcon', () => {
+        const { getByTestId } = render(<Switch {...defaultProps} customIcon={<HomeIcon data-testid="homeIcon" />} />)
+
+        expect(getByTestId('homeIcon')).toBeDefined()
     })
 })
