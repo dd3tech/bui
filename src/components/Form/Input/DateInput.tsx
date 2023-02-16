@@ -1,4 +1,4 @@
-import { useState, useMemo, ChangeEvent, useCallback } from 'react'
+import { useState, useMemo, ChangeEvent, useCallback, useEffect } from 'react'
 import BaseInput, { InputProps } from './BaseInput'
 import DatePicker from '../../DatePicker/DatePicker'
 import { CalendarIcon } from '@heroicons/react/outline'
@@ -73,6 +73,10 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
         if (!currentDate) return 'error'
         return 'active'
     }, [currentDate, variant])
+
+    useEffect(() => {
+        if (value) setDate(getDateFormat(String(value)))
+    }, [value])
 
     return (
         <BaseInput
