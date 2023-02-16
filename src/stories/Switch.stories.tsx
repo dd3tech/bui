@@ -21,5 +21,5 @@ export const WithCustomIcon = Template.bind({})
 WithCustomIcon.args = {
     toggle: false,
     setToggle: () => {},
-    customIcon: <HomeIcon className={`text-gray-400 p-0.5`} />
+    customIcon: <HomeIcon className="text-gray-400 p-0.5" />
 }
