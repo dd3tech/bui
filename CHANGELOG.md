@@ -1,3 +1,10 @@
+# [4.3.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.2.0...v4.3.0) (2023-02-16)
+
+
+### Features
+
+* **components:** Added Table component ([b3f830f](https://gitlab.com/dd3tech/dd360/dd360-components/commit/b3f830f0f1db038901859e57b8170bf705fee8bf))
+
 # [4.2.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.1.4...v4.2.0) (2023-02-14)
 
 
