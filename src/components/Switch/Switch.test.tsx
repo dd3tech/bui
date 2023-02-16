@@ -63,7 +63,7 @@ describe('<Switch/>', () => {
         })
     })
 
-    it('Should be render Switch with customIcon', () => {
+    it('should be render with custom icon', () => {
         const { getByTestId } = render(<Switch {...defaultProps} customIcon={<HomeIcon data-testid="homeIcon" />} />)
 
         expect(getByTestId('homeIcon')).toBeDefined()
