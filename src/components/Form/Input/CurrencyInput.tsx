@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { getValueWithDecimalFormat } from 'dd360-utils'
 import BaseInput, { InputProps } from './BaseInput'
 
@@ -14,6 +14,10 @@ function CurrencyInput(props: InputProps) {
         },
         [onChange, localValue]
     )
+
+    useEffect(() => {
+        if (value) setLocalValue(getValueWithDecimalFormat(String(value)))
+    }, [value])
 
     return <BaseInput {...props} onChange={handleChange} value={localValue} />
 }
