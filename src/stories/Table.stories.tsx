@@ -110,8 +110,6 @@ const Template: ComponentStory<typeof TableComp> = (args) => {
                     </TableComp.Accordion>
                 </TableComp.Body>
             </TableComp>
-
-            <table></table>
         </div>
     )
 }

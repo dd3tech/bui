@@ -11,32 +11,28 @@
     border-top: 1px solid #d1d5db;
 }
 
-thead tr th,
-tbody tr td {
+.table-container-cmpnt thead tr th,
+.table-container-cmpnt tbody tr td {
     position: relative;
     padding-left: 15px;
     padding-right: 15px;
     text-align: left;
 }
 
-tbody tr {
+.table-container-cmpnt tbody tr {
     height: 2rem;
 }
 
-.bordered {
+.table-container-cmpnt.bordered {
     border: 1px solid #d1d5db;
 }
 
-thead tr {
+.table-container-cmpnt thead tr:not([class*='bg-']) {
     background-color: #f9fcff;
 }
 
-tbody tr {
-    background-color: #fff;
-}
-
-.vertical-borders thead tr th::after,
-.vertical-borders tbody tr td::after {
+.table-container-cmpnt.vertical-borders thead tr th::after,
+.table-container-cmpnt.vertical-borders tbody tr td::after {
     content: '';
     position: absolute;
     bottom: 0px;
@@ -46,20 +42,20 @@ tbody tr {
     background-color: #8f969a;
 }
 
-.vertical-borders thead tr th:last-child::after,
-.vertical-borders tbody tr td:last-child::after {
+.table-container-cmpnt.vertical-borders thead tr th:last-child::after,
+.table-container-cmpnt.vertical-borders tbody tr td:last-child::after {
     width: 0;
 }
 
-.vertical-borders thead tr.tertiary th::after {
+.table-container-cmpnt.vertical-borders thead tr.tertiary th::after {
     height: calc(100% - 8px);
     margin-bottom: 4px;
     margin-top: 4px;
     background-color: #d1d5db;
 }
 
-.horizontal-borders thead tr th::before,
-.horizontal-borders tbody tr td::before {
+.table-container-cmpnt.horizontal-borders thead tr th::before,
+.table-container-cmpnt.horizontal-borders tbody tr td::before {
     content: '';
     position: absolute;
     bottom: 0px;
@@ -69,15 +65,15 @@ tbody tr {
     background-color: #d1d5db;
 }
 
-.horizontal-borders tbody tr:last-child td::before {
+.table-container-cmpnt.horizontal-borders tbody tr:last-child td::before {
     height: 0;
 }
 
-.tertiary {
+.table-container-cmpnt .tertiary {
     color: #8f969a;
 }
 
-[role='input-container'] {
+.table-container-cmpnt [role='input-container'] {
     height: 30px;
     width: 100%;
     padding: 0;
@@ -85,11 +81,11 @@ tbody tr {
     border: 0;
 }
 
-input {
+.table-container-cmpnt input {
     background-color: inherit;
 }
 
-.sticky {
+.table-container-cmpnt .sticky {
     position: sticky;
     z-index: 1;
     background-color: inherit;

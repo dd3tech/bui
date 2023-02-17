@@ -16,7 +16,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
 }
 
 const rowVariant: { [key: string]: string } = {
-    default: `${fontSize.xs} text-gray-600`,
+    default: `${fontSize.xs} text-gray-600 bg-white`,
     header: `${fontSize.sm} ${fontWeight.bold} text-gray-900 bg-gray-100`,
     result: `${fontSize.xs} ${fontWeight.bold} text-gray-700 bg-gray-50`
 }
