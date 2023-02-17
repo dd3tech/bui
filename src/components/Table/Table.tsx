@@ -42,6 +42,7 @@ const Table = ({ children, bordered = true, horizontalBorders = true, verticalBo
     return (
         <div
             className={composeClasses(
+                'table-container-cmpnt',
                 className,
                 bordered && 'bordered',
                 horizontalBorders && 'horizontal-borders',
