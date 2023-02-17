@@ -50,4 +50,27 @@ describe('<Modal/>', () => {
         fireEvent.click(btnCancel)
         expect(renderResult.container.firstChild).toBeNull()
     })
+
+    it('When passing the blur prop the modal must have the class "blur"', () => {
+        renderResult.rerender(<Modal active={true} setCloseModal={setCloseModal} blur />)
+
+        const modal = renderResult.getByRole('modal-custom')
+        expect(modal.className).toContain('blur')
+    })
+
+    it('When passing the preventClose prop when clicking outside the modal it does not close.', () => {
+        renderResult.rerender(<Modal active={true} setCloseModal={setCloseModal} preventClose />)
+
+        const fatherModal = renderResult.getByRole('father-of-modal')
+        fireEvent.click(fatherModal)
+        expect(fatherModal.children).toBeDefined()
+    })
+
+    it('When passing the prop fullScreen the width and height of the modal container must be "100%".', () => {
+        renderResult.rerender(<Modal active={true} setCloseModal={setCloseModal} fullScreen />)
+
+        const modalContain = renderResult.getByTestId('modal-contain')
+        expect(modalContain.style.width).toEqual('100%')
+        expect(modalContain.style.height).toEqual('100%')
+    })
 })
