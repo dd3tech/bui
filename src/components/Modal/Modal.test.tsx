@@ -61,9 +61,9 @@ describe('<Modal/>', () => {
     it('When passing the preventClose prop when clicking outside the modal it does not close.', () => {
         renderResult.rerender(<Modal active={true} setCloseModal={setCloseModal} preventClose />)
 
-        const fatherModal = renderResult.getByRole('father-of-modal')
-        fireEvent.click(fatherModal)
-        expect(fatherModal.children).toBeDefined()
+        const containerModal = renderResult.getByRole('container-modal')
+        fireEvent.click(containerModal)
+        expect(containerModal.children).toBeDefined()
     })
 
     it('When passing the prop fullScreen the width and height of the modal container must be "100%".', () => {

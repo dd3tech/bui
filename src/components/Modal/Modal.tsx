@@ -77,7 +77,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         if (!isClose) return null
 
         return (
-            <div role="father-of-modal">
+            <div role="container-modal">
                 <div
                     ref={ref}
                     role="modal-custom"
