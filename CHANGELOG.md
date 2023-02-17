@@ -1,3 +1,10 @@
+## [4.4.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.2...v4.4.3) (2023-02-17)
+
+
+### Bug Fixes
+
+* set buttons explicitly as button type in datePicker ([e2412b7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/e2412b7aed0033cd987b39bba04037a7437be5b9))
+
 ## [4.4.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.1...v4.4.2) (2023-02-17)
 
 
