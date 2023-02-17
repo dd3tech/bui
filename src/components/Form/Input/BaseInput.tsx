@@ -2,7 +2,7 @@ import { HTMLProps, ReactNode, useCallback, useState } from 'react'
 import { CheckCircleIcon, XCircleIcon, InformationCircleIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 
-import { inputVariants, InputVariant as InputVariantType, InputType } from '../shared'
+import { inputVariants, InputVariant as InputVariantType, InputType, getClassesByPseudoClass } from '../shared'
 
 export type InputVariant = InputVariantType
 
@@ -39,6 +39,7 @@ function BaseInput({
 }: InputProps) {
     const [focused, setFocused] = useState(false)
     const { input, text } = inputVariants[variant]
+    const { disabled } = otherProps
 
     const handleFocus = useCallback(
         (event: React.FocusEvent<HTMLInputElement>) => {
@@ -61,6 +62,7 @@ function BaseInput({
         container: composeClasses(
             'mt-1 flex items-center justify-between bg-transparent border-solid border border-black font-medium',
             'transition duration-500 ease-out focus:ease-in',
+            className && disabled && getClassesByPseudoClass(className, 'disabled'),
             inputBlank && 'border-none',
             rounded && `rounded-${rounded}`,
             variant === 'active' && focused && 'border-blue-500',
