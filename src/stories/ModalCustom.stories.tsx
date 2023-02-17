@@ -19,6 +19,10 @@ Modal.args = {
         </>
     ),
     active: true,
-    width: '500px',
-    height: '500px'
+    blur: false,
+    fullScreen: false,
+    height: '500px',
+    preventClose: false,
+    setCloseModal: () => {},
+    width: '500px'
 }
