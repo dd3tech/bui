@@ -136,15 +136,15 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
 
     const getControlsMonth = () => (
         <>
-            <button role="prevYear" onClick={handlePrevYear}>
+            <button role="prevYear" type="button" onClick={handlePrevYear}>
                 <ChevronLeftIcon className="w-4 h-4" />
             </button>
-            <button role="select-year" onClick={updateCurrentOption}>
+            <button role="select-year" type="button" onClick={updateCurrentOption}>
                 <Text bold size="sm">
                     {currentDate.getFullYear()}
                 </Text>
             </button>
-            <button role="nextYear" onClick={handleNextYear}>
+            <button role="nextYear" type="button" onClick={handleNextYear}>
                 <ChevronRightIcon className="w-4 h-4" />
             </button>
         </>
@@ -161,15 +161,15 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
         return (
             <>
                 <div className="flex flex-1 justify-between items-center mb-5 text-gray-700">
-                    <button role="pevRangeYear" onClick={handlePrevRangeYears}>
+                    <button type="button" role="pevRangeYear" onClick={handlePrevRangeYears}>
                         <ChevronLeftIcon className="w-4 h-4" />
                     </button>
-                    <button disabled={onlyOf === 'year'} role="range-years" onClick={updateCurrentOption}>
+                    <button type="button" disabled={onlyOf === 'year'} role="range-years" onClick={updateCurrentOption}>
                         <Text bold size="sm">
                             {yearList[yearList.length - 1]} - {yearList[0]}
                         </Text>
                     </button>
-                    <button role="nextRangeYear" onClick={handleNextRangeYears}>
+                    <button role="nextRangeYear" type="button" onClick={handleNextRangeYears}>
                         <ChevronRightIcon className="w-4 h-4" />
                     </button>
                 </div>
@@ -181,7 +181,7 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
                         const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
 
                         return (
-                            <button role={year.toString()} key={year} onClick={() => handleSelectYear(year)} className={btnClassName(bgColor)}>
+                            <button role={year.toString()} type="button" key={year} onClick={() => handleSelectYear(year)} className={btnClassName(bgColor)}>
                                 {year}
                             </button>
                         )
@@ -218,7 +218,7 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
                         const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
 
                         return (
-                            <button role="month" key={month} onClick={() => handleSelectMonth(index)} className={btnClassName(bgColor)}>
+                            <button role="month" type="button" key={month} onClick={() => handleSelectMonth(index)} className={btnClassName(bgColor)}>
                                 {format === 'long' ? month : month.substring(0, 3)}
                             </button>
                         )
@@ -231,15 +231,15 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
     return (
         <>
             <div className="flex flex-1 justify-between items-center mb-5 text-gray-700">
-                <button role="prevMonth" onClick={handlePrevMonth}>
+                <button role="prevMonth" type="button" onClick={handlePrevMonth}>
                     <ChevronLeftIcon className="w-4 h-4" />
                 </button>
-                <button disabled={!!onlyOf} role="select-month" onClick={updateCurrentOption}>
+                <button role="select-month" type="button" disabled={!!onlyOf} onClick={updateCurrentOption}>
                     <Text bold size="sm">
                         {monthNames[language][currentDate.getMonth()]} {currentDate.getFullYear()}
                     </Text>
                 </button>
-                <button role="nextMonth" onClick={handleNextMonth}>
+                <button role="nextMonth" type="button" onClick={handleNextMonth}>
                     <ChevronRightIcon className="w-4 h-4" />
                 </button>
             </div>
@@ -263,6 +263,7 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
                     return (
                         <button
                             role="numberDay"
+                            type="button"
                             key={day}
                             onClick={() => handleSelectDay(day)}
                             className={composeClasses(
