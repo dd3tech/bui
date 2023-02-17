@@ -31,6 +31,8 @@
 
 * a validation in the onChange of Input Number and InputPercentage is corrected ([8642b69](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8642b692c8f89c510f6038a198ab34aed2244308))
 
+=======
+>>>>>>> dbd7608f (chore(release): 4.4.3 [skip ci])
 ## [4.4.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.2...v4.4.3) (2023-02-17)
 
 
