@@ -1,3 +1,10 @@
+## [4.4.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.1...v4.4.2) (2023-02-17)
+
+
+### Bug Fixes
+
+* classes of the Table component are encapsulated ([9b49633](https://gitlab.com/dd3tech/dd360/dd360-components/commit/9b496337885c422d3996d239c021e47aad855520))
+
 ## [4.4.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.0...v4.4.1) (2023-02-16)
 
 
