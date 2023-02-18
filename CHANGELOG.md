@@ -1,3 +1,10 @@
+## [4.4.5](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.4...v4.4.5) (2023-02-18)
+
+
+### Bug Fixes
+
+* fix get the disabled classes from input and pass them to the container only when the input is in disabled ([dbe646d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/dbe646da136f8f459ed3c341a7f6e27a2c5839a3))
+
 ## [4.4.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.3...v4.4.4) (2023-02-17)
 
 
