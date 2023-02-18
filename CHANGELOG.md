@@ -1,3 +1,10 @@
+## [4.4.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.3...v4.4.4) (2023-02-17)
+
+
+### Bug Fixes
+
+* a validation in the onChange of Input Number and InputPercentage is corrected ([8642b69](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8642b692c8f89c510f6038a198ab34aed2244308))
+
 ## [4.4.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.2...v4.4.3) (2023-02-17)
 
 
