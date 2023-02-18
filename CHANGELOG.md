@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## [4.5.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.5.0...v4.5.1) (2023-02-20)
 
 
@@ -17,6 +18,11 @@
 
 * Component <FileViewer /> using the component composition pattern to be able to move and show or not certain components ([e83dd0a](https://gitlab.com/dd3tech/dd360/dd360-components/commit/e83dd0a423606121b1b105093aae0ecf48ca8dd0))
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70f6e1de (chore(release): 4.4.5 [skip ci])
 ## [4.4.5](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.4...v4.4.5) (2023-02-18)
 
 
@@ -24,6 +30,10 @@
 
 * fix get the disabled classes from input and pass them to the container only when the input is in disabled ([dbe646d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/dbe646da136f8f459ed3c341a7f6e27a2c5839a3))
 
+<<<<<<< HEAD
+=======
+>>>>>>> 51d247d6 (chore(release): 4.4.5 [skip ci])
+>>>>>>> 70f6e1de (chore(release): 4.4.5 [skip ci])
 ## [4.4.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.3...v4.4.4) (2023-02-17)
 
 
