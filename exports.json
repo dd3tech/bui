@@ -36,6 +36,11 @@
             "module": "./dist/esm/components/Buttons/index.js",
             "default": "./dist/esm/components/Buttons/index.js"
         },
+        "./FileViewer": {
+            "require": "./dist/cjs/components/FileViewer/index.js",
+            "module": "./dist/esm/components/FileViewer/index.js",
+            "default": "./dist/esm/components/FileViewer/index.js"
+        },
         "./Breadcrumbs": {
             "require": "./dist/cjs/components/Breadcrumbs/index.js",
             "module": "./dist/esm/components/Breadcrumbs/index.js",
