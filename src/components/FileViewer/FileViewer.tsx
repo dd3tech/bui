@@ -70,7 +70,7 @@ function BtnAction({ onClick, className, children, icon, classNameIcon, variant,
 
 function ViewerActions({ children, fileName, status, role, classNameContainer, className }: ActionsProps) {
     return (
-        <div role={role} className={composeClasses(classNameContainer, 'mb-6 flex justify-between items-center')}>
+        <div role={role} onClick={(e) => e.stopPropagation()} className={composeClasses(classNameContainer, 'mb-6 flex justify-between items-center')}>
             <div className="flex items-center gap-6">
                 <Text size="sm" className="text-white font-medium">
                     {fileName}
@@ -90,6 +90,7 @@ const FileContent = ({ url, fileType, className, role }: FileContentProps) => {
                 <div
                     role={role ?? 'viewer-file-container'}
                     className={composeClasses(className, 'w-full h-full flex justify-center items-center rounded-lg overflow-hidden z-50')}
+                    onClick={(e) => e.stopPropagation()}
                 >
                     {fileType && IMG_TYPE_LIST.includes(fileType) ? (
                         <div className="w-full h-full md:w-3/4 md:h-3/4">

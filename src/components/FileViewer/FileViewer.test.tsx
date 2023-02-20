@@ -117,6 +117,7 @@ describe('<FileViewer/>', () => {
         )
 
         expect(getByRole('viewer-file-container')).toBeDefined()
+        fireEvent.click(getByRole('viewer-file-container'))
         expect(queryByRole('viewer-spinner')).toBeNull()
     })
 
