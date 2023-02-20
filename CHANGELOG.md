@@ -21,8 +21,26 @@
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+<<<<<<< HEAD
 >>>>>>> 70f6e1de (chore(release): 4.4.5 [skip ci])
+=======
+=======
+# [4.5.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.5...v4.5.0) (2023-02-20)
+
+
+### Bug Fixes
+
+* solving small comments ([be0f1d1](https://gitlab.com/dd3tech/dd360/dd360-components/commit/be0f1d11298065b38b4e664eb6e9c2b217f761e6))
+
+
+### Features
+
+* Component <FileViewer /> using the component composition pattern to be able to move and show or not certain components ([e83dd0a](https://gitlab.com/dd3tech/dd360/dd360-components/commit/e83dd0a423606121b1b105093aae0ecf48ca8dd0))
+
+>>>>>>> 20afc1f1 (chore(release): 4.5.0 [skip ci])
+>>>>>>> 5ac6444a (chore(release): 4.5.0 [skip ci])
 ## [4.4.5](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.4...v4.4.5) (2023-02-18)
 
 
