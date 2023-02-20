@@ -9,7 +9,7 @@ export type renderLoading = {
     textLoading?: string
 }
 
-interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariant
     size?: 'small' | 'medium' | 'large' | 'extraLarge'
     disabled?: boolean

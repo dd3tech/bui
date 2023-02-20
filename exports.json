@@ -36,6 +36,11 @@
             "module": "./dist/esm/components/Buttons/index.js",
             "default": "./dist/esm/components/Buttons/index.js"
         },
+        "./FileViewer": {
+            "require": "./dist/cjs/components/FileViewer/index.js",
+            "module": "./dist/esm/components/FileViewer/index.js",
+            "default": "./dist/esm/components/FileViewer/index.js"
+        },
         "./Breadcrumbs": {
             "require": "./dist/cjs/components/Breadcrumbs/index.js",
             "module": "./dist/esm/components/Breadcrumbs/index.js",
@@ -70,6 +75,7 @@
             "Portal": ["./dist/esm/common/Portal/index.d.ts"],
             "Spinner": ["./dist/esm/components/Spinner/index.d.ts"],
             "Buttons": ["./dist/esm/components/Buttons/index.d.ts"],
+            "FileViewer": ["./dist/esm/components/FileViewer/index.d.ts"],
             "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
             "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
             "DatePicker": ["./dist/esm/components/DatePicker/index.d.ts"],
