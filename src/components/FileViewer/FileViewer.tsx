@@ -83,7 +83,7 @@ function ViewerActions({ children, fileName, status, role, classNameContainer, c
 }
 
 const FileContent = ({ url, fileType, className, role }: FileContentProps) => {
-    const encodedUrl = encodeURIComponent(url ?? '')
+    const encodedUrl = encodeURIComponent(url || '')
     return (
         <>
             {url ? (

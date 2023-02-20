@@ -20,7 +20,7 @@ describe('<FileViewer/>', () => {
     it('should display the file name', () => {
         const { getByText } = render(
             <FileViewer>
-                <FileViewer.ViewerActions fileName="test.pdf"></FileViewer.ViewerActions>
+                <FileViewer.ViewerActions fileName="test.pdf" />
             </FileViewer>
         )
 
