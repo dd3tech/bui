@@ -24,8 +24,8 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
             animation,
             bgHeight,
             blur,
-            className,
             children,
+            className,
             fullScreen,
             height,
             maxHeight,
@@ -39,18 +39,18 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
     ) => {
         const [isClose, setClose] = useState(false)
 
-        const containerClasses: () => string = useCallback(() => {
-            return composeClasses('top-0 w-full z-50 transition duration-1000 ease-in delay-1500 h-screen', blur && 'blur-sm', !isClose ? 'hidden' : 'fixed')
-        }, [blur, isClose])
+        const containerClasses = composeClasses(
+            'top-0 w-full z-50 transition duration-1000 ease-in delay-1500 h-screen',
+            blur && 'blur-sm',
+            !isClose ? 'hidden' : 'fixed'
+        )
 
-        const dynamicClassName: () => string = useCallback(() => {
-            return composeClasses(
-                'absolute z-50 flex-wrap text-center flex drop-shadow-lg bg-white bottom-0 rounded-t-2xl',
-                'md:bottom-auto md:w-auto md:rounded-2xl md:mb-6 md:mt-6',
-                animation && 'animation-modal',
-                className
-            )
-        }, [className, animation])
+        const dynamicClassName = composeClasses(
+            'absolute z-50 flex-wrap text-center flex drop-shadow-lg bg-white bottom-0 rounded-t-2xl',
+            'md:bottom-auto md:w-auto md:rounded-2xl md:mb-6 md:mt-6',
+            animation && 'animation-modal',
+            className
+        )
 
         const handleClose = useCallback(() => {
             setClose(false)
@@ -81,7 +81,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
                 <div
                     ref={ref}
                     role="modal-custom"
-                    className={containerClasses()}
+                    className={containerClasses}
                     style={{ backgroundColor: overlay && !blur ? 'rgba(17, 24, 39, 0.75)' : '' }}
                     onClick={() => !preventClose && handleClose()}
                     {...props}
@@ -89,7 +89,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     <div className="flex items-center justify-center h-full">
                         <div
                             onClick={(e) => e.stopPropagation()}
-                            className={dynamicClassName()}
+                            className={dynamicClassName}
                             data-testid="modal-content"
                             style={{ width: !fullScreen ? width : '100%', height: !fullScreen ? height : '100%' }}
                         >
@@ -113,7 +113,7 @@ Modal.defaultProps = {
     animation: true,
     children: undefined,
     className: undefined,
-    overlay: true,
+    overlay: true
 }
 
 export default Modal
