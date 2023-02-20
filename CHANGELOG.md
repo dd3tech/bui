@@ -1,3 +1,10 @@
+## [4.5.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.5.0...v4.5.1) (2023-02-20)
+
+
+### Bug Fixes
+
+* add stop propagation on fileviewer ([e377371](https://gitlab.com/dd3tech/dd360/dd360-components/commit/e37737195dda867a2f18d52183e6d9903afd5cd3))
+
 # [4.5.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.4.5...v4.5.0) (2023-02-20)
 
 
