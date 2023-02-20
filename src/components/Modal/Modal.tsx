@@ -77,7 +77,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         if (!isClose) return null
 
         return (
-            <div role="container-modal">
+            <>
                 <div
                     ref={ref}
                     role="modal-custom"
@@ -90,7 +90,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
                         <div
                             onClick={(e) => e.stopPropagation()}
                             className={dynamicClassName()}
-                            data-testid="modal-contain"
+                            data-testid="modal-content"
                             style={{ width: !fullScreen ? width : '100%', height: !fullScreen ? height : '100%' }}
                         >
                             <div role="btn-close" onClick={handleClose} className="absolute top-0 right-0  mr-6 cursor-pointer mt-6">
@@ -102,7 +102,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
                         </div>
                     </div>
                 </div>
-            </div>
+            </>
         )
     }
 )
@@ -111,12 +111,9 @@ Modal.displayName = 'Modal'
 Modal.defaultProps = {
     active: false,
     animation: true,
-    blur: false,
     children: undefined,
     className: undefined,
-    fullScreen: false,
     overlay: true,
-    preventClose: false
 }
 
 export default Modal
