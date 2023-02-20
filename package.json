@@ -1,32 +1,6 @@
 {
     "name": "dd360-ds",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     "version": "4.5.1",
-=======
-=======
->>>>>>> 70f6e1de (chore(release): 4.4.5 [skip ci])
-=======
->>>>>>> 5ac6444a (chore(release): 4.5.0 [skip ci])
-<<<<<<< HEAD
-    "version": "4.4.4",
-=======
-    "version": "4.4.3",
->>>>>>> dbd7608f (chore(release): 4.4.3 [skip ci])
-<<<<<<< HEAD
->>>>>>> 1f91db37 (chore(release): 4.4.3 [skip ci])
-=======
-=======
-    "version": "4.4.5",
->>>>>>> 51d247d6 (chore(release): 4.4.5 [skip ci])
-<<<<<<< HEAD
->>>>>>> 70f6e1de (chore(release): 4.4.5 [skip ci])
-=======
-=======
-    "version": "4.5.0",
->>>>>>> 20afc1f1 (chore(release): 4.5.0 [skip ci])
->>>>>>> 5ac6444a (chore(release): 4.5.0 [skip ci])
     "description": "DD360 Components is a tailwind based React component library",
     "license": "MIT",
     "repository": {
