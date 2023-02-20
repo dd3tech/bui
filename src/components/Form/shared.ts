@@ -77,3 +77,23 @@ export function variantIs({ variant, error, success }: { variant: string; error?
 
     return variant
 }
+
+/**
+ * This function receives a `className` string and a `pseudoclass` string, and returns a string with the classes corresponding to the specified pseudoclass.
+ * @param className A string with classes separated by spaces, for example: 'text-sm border disabled:bg-red-500 disabled:text-gray-300'
+ * @param pseudoclass A string with the name of the pseudoclass to search for, for example: 'disabled'
+ * @returns A string with the classes that contain the specified pseudoclass, without including the pseudoclass, separated by spaces, for example: 'bg-red-500 text-gray-300'
+ */
+export function getClassesByPseudoClass(className: string, pseudoclass: string): string {
+    // Split each class in the className string into an array using the split method with the ' ' separator.
+    const classes = className.split(' ')
+
+    // Select only the classes that contain the specified pseudoclass, using the filter method and the includes method of strings.
+    const selectedClasses = classes.filter((c) => c.includes(`${pseudoclass}`))
+
+    // Transform each selected class into its corresponding class without the specified pseudoclass, using the map method and the replace method with a regular expression that searches for the pseudoclass and replaces it with an empty string.
+    const transformedClasses = selectedClasses.map((c) => c.replace(`${pseudoclass}:`, ''))
+
+    // Join the resulting classes into a single string using the join method with the ' ' separator.
+    return transformedClasses.join(' ')
+}
