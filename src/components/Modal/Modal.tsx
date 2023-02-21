@@ -37,7 +37,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         }: ModalProps,
         ref
     ) => {
-        const [isClose, setClose] = useState(false)
+        const [isClose, setClose] = useState<boolean>(false)
 
         const containerClasses = composeClasses(
             'top-0 w-full z-50 transition duration-1000 ease-in delay-1500 h-screen',
@@ -113,7 +113,10 @@ Modal.defaultProps = {
     animation: true,
     children: undefined,
     className: undefined,
-    overlay: true
+    overlay: true,
+    blur: false,
+    preventClose: false,
+    fullScreen: false
 }
 
 export default Modal
