@@ -32,7 +32,7 @@ describe('<Modal/>', () => {
 
     it('modal widht and height props is working', () => {
         renderResult.rerender(<Modal active={true} setCloseModal={setCloseModal} width="50%" height="30%" />)
-        const modal = renderResult.getByTestId('modal-contain')
+        const modal = renderResult.getByTestId('modal-content')
         expect(modal.style.width).toBe('50%')
         expect(modal.style.height).toBe('30%')
     })
@@ -49,5 +49,32 @@ describe('<Modal/>', () => {
         const btnCancel = renderResult.getByRole('btn-close')
         fireEvent.click(btnCancel)
         expect(renderResult.container.firstChild).toBeNull()
+    })
+
+    it('when passing the blur prop the modal must have the class "blur"', () => {
+        renderResult.rerender(<Modal active={true} setCloseModal={setCloseModal} blur />)
+
+        const modal = renderResult.getByRole('modal-custom')
+        expect(modal.className).toContain('blur')
+    })
+
+    it('when passing the preventClose prop when clicking outside the modal it does not close.', () => {
+        renderResult.rerender(
+            <div role="modal-container">
+                <Modal active={true} setCloseModal={setCloseModal} preventClose />
+            </div>
+        )
+
+        const containerModal = renderResult.getByRole('modal-container')
+        fireEvent.click(containerModal)
+        expect(containerModal.children).toBeDefined()
+    })
+
+    it('when passing the prop fullScreen the width and height of the modal container must be "100%".', () => {
+        renderResult.rerender(<Modal active={true} setCloseModal={setCloseModal} fullScreen />)
+
+        const modalContain = renderResult.getByTestId('modal-content')
+        expect(modalContain.style.width).toEqual('100%')
+        expect(modalContain.style.height).toEqual('100%')
     })
 })

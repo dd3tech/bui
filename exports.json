@@ -31,6 +31,11 @@
             "module": "./dist/esm/components/Spinner/index.js",
             "default": "./dist/esm/components/Spinner/index.js"
         },
+        "./Modal": {
+            "require": "./dist/cjs/components/Modal/index.js",
+            "module": "./dist/esm/components/Modal/index.js",
+            "default": "./dist/esm/components/Modal/index.js"
+        },
         "./Buttons": {
             "require": "./dist/cjs/components/Buttons/index.js",
             "module": "./dist/esm/components/Buttons/index.js",
@@ -71,16 +76,17 @@
         "*": {
             ".": ["./dist/esm/index.d.ts"],
             "lib": ["./dist/esm/lib/index.d.ts"],
-            "DynamicHeroIcon": ["./dist/esm/common/DynamicHeroIcon/index.d.ts"],
-            "Portal": ["./dist/esm/common/Portal/index.d.ts"],
-            "Spinner": ["./dist/esm/components/Spinner/index.d.ts"],
-            "Buttons": ["./dist/esm/components/Buttons/index.d.ts"],
-            "FileViewer": ["./dist/esm/components/FileViewer/index.d.ts"],
             "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
-            "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
+            "Buttons": ["./dist/esm/components/Buttons/index.d.ts"],
             "DatePicker": ["./dist/esm/components/DatePicker/index.d.ts"],
+            "DynamicHeroIcon": ["./dist/esm/common/DynamicHeroIcon/index.d.ts"],
+            "FileViewer": ["./dist/esm/components/FileViewer/index.d.ts"],
             "Input": ["./dist/esm/components/Input/index.d.ts"],
-            "InputFile": ["./dist/esm/components/Input/InputFile.d.ts"]
+            "InputFile": ["./dist/esm/components/Input/InputFile.d.ts"],
+            "Modal": ["./dist/esm/components/Modal/index.js"],
+            "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
+            "Portal": ["./dist/esm/common/Portal/index.d.ts"],
+            "Spinner": ["./dist/esm/components/Spinner/index.d.ts"]
         }
     }
 }

@@ -11,6 +11,8 @@ const Template: ComponentStory<typeof ModalCustomComponent> = (args) => <ModalCu
 
 export const Modal = Template.bind({})
 Modal.args = {
+    active: true,
+    blur: false,
     children: (
         <>
             <div className="flex items-center justify-center h-full">
@@ -18,7 +20,9 @@ Modal.args = {
             </div>
         </>
     ),
-    active: true,
-    width: '500px',
-    height: '500px'
+    fullScreen: false,
+    height: '500px',
+    preventClose: false,
+    setCloseModal: () => {},
+    width: '500px'
 }
