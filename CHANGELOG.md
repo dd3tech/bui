@@ -1,3 +1,17 @@
+# [4.6.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.5.2...v4.6.0) (2023-02-21)
+
+
+### Bug Fixes
+
+* **Modal:** add values to defaultProps ([9d75ba2](https://gitlab.com/dd3tech/dd360/dd360-components/commit/9d75ba2cb3d594cb73842219cd96e5a012d6e4cf))
+
+
+### Features
+
+* In the modal I added the blur, preventClose and fullScreen props with the requested requirements, documented, and performed the tests ([3e478d7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/3e478d76c020fdee60272e243f4dab5a6a5e183d))
+* In the modal I added the blur, preventClose and fullScreen props with the requested requirements, documented, and performed the tests ([3a35127](https://gitlab.com/dd3tech/dd360/dd360-components/commit/3a35127308947874dce1dd04e4fbc8c4a2772fde))
+* In the modal I added the blur, preventClose and fullScreen props with the requested requirements, documented, and performed the tests ([acc4d7b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/acc4d7badf28599f93da479e69befd58b6ccee0f))
+
 ## [4.5.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.5.1...v4.5.2) (2023-02-21)
 
 
@@ -698,4 +712,3 @@ selected
 ### Features
 
 * 🎸 Add more configuration for the semantic-release ([b54ac44](https://gitlab.com/dd3tech/dd360/dd360-components/commit/b54ac44e0ea480b9196ed6a9ba7f168c698b9fba))
-
