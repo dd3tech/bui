@@ -1,3 +1,10 @@
+## [4.5.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.5.1...v4.5.2) (2023-02-21)
+
+
+### Bug Fixes
+
+* change in validation input percentage ([4018e8b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/4018e8bf1e857b7589d912311a1ca902a6a91e17))
+
 ## [4.5.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.5.0...v4.5.1) (2023-02-20)
 
 
