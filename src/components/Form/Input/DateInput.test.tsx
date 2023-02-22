@@ -19,6 +19,35 @@ describe('<DateInput />', () => {
         expect(input.value).toBe('10/02/2025')
     })
 
+    it('if the value passed by prop contains 4 characters you must format it correctly', () => {
+        const { getByTestId } = render(<DateInput onChange={mockOnChange} value="1002" data-testid="date-input" />)
+        const input = getByTestId('date-input') as HTMLInputElement
+
+        expect(input.value).toBe('10/02/')
+    })
+
+    it('if the value passed by prop contains 6 characters you must format it correctly', () => {
+        const { getByTestId } = render(<DateInput onChange={mockOnChange} value="10/02/20" data-testid="date-input" />)
+        const input = getByTestId('date-input') as HTMLInputElement
+
+        expect(input.value).toBe('10/02/20')
+    })
+
+    it('if the value passed by prop contains 9 or more characters you must format it correctly', () => {
+        const { getByTestId } = render(<DateInput onChange={mockOnChange} value="10/02/202522" data-testid="date-input" />)
+        const input = getByTestId('date-input') as HTMLInputElement
+
+        expect(input.value).toBe('10/02/2025')
+    })
+
+    it('should render red border when entering a year less than 1000', () => {
+        const { getByTestId, container } = render(<DateInput onChange={mockOnChange} data-testid="date-input" />)
+        const input = getByTestId('date-input') as HTMLInputElement
+
+        fireEvent.change(input, { target: { value: '1001500' } })
+        expect(container.firstChild).toHaveClass('border-red-500')
+    })
+
     describe('checking variant types', () => {
         it('it should display the "active" variant correctly', () => {
             const { container } = render(<DateInput variant="active" data-testid="date-input" />)
