@@ -34,7 +34,7 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
             inputText = inputText.replace(/\/{2,}/g, '/')
             if (inputText.length > 2 && inputText.charAt(2) !== '/') inputText = inputText.slice(0, 2) + '/' + inputText.slice(2, inputText.length)
             if (inputText.length > 5 && inputText.charAt(5) !== '/') inputText = inputText.slice(0, 5) + '/' + inputText.slice(5, inputText.length)
-            if (inputText.length > 10) return
+            inputText = inputText.slice(0, 10)
             setDate(inputText)
             onChange && onChange(event)
         },
