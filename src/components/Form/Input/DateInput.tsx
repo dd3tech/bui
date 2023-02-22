@@ -29,8 +29,13 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
 
     const handleChange = useCallback(
         (event: React.ChangeEvent<HTMLInputElement>) => {
-            event.target.value = getDateFormat(event.target.value)
-            setDate(event.target.value)
+            let inputText = event.target.value
+            inputText = inputText.replace(/[^\d/]/g, '')
+            inputText = inputText.replace(/\/{2,}/g, '/')
+            if (inputText.length > 2 && inputText.charAt(2) !== '/') inputText = inputText.slice(0, 2) + '/' + inputText.slice(2, inputText.length)
+            if (inputText.length > 5 && inputText.charAt(5) !== '/') inputText = inputText.slice(0, 5) + '/' + inputText.slice(5, inputText.length)
+            if (inputText.length > 10) return
+            setDate(inputText)
             onChange && onChange(event)
         },
         [onChange, date]
@@ -71,6 +76,7 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
         if (variant) return variant
         if (!date.length) return 'active'
         if (!currentDate) return 'error'
+        if (currentDate.getFullYear() < 1000) return 'error'
         return 'active'
     }, [currentDate, variant])
 
@@ -89,7 +95,7 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
             className={composeClasses('relative', className)}
             endAdornment={
                 <>
-                    <button role="active-calendar" type="button" disabled={disabled} onClick={handleToggleDatePicker}>
+                    <button className="ml-2" role="active-calendar" type="button" disabled={disabled} onClick={handleToggleDatePicker}>
                         <CalendarIcon width={24} />
                     </button>
                     {showDatePicker && (
