@@ -180,9 +180,13 @@ export type Rounded = typeof roundedValues[number]
 
 /* --------------------------------- Shadow --------------------------------- */
 
-const shadowValues = ['sm', 'md', 'lg', 'xl', '2xl', 'inner', 'none'] as const
+const shadowValues = ['sm', 'base', 'md', 'lg', 'xl', '2xl', 'inner', 'none'] as const
 
 export type ShadowVariants = typeof shadowValues[number]
+
+/* ----------------------------------- GAP ---------------------------------- */
+
+export type Gap = typeof twGlobalUnits[number]
 
 /* -------------------------------- Positions ------------------------------- */
 

@@ -8,7 +8,7 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
 export function Anchor({ children, to, className, LinkComponent, ...props }: LinkProps) {
     if (LinkComponent) {
         return (
-            <LinkComponent to={to} className={className}>
+            <LinkComponent to={to} className={className} {...props}>
                 {children}
             </LinkComponent>
         )

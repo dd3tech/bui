@@ -1,5 +1,5 @@
-import { GlobeAltIcon } from '@heroicons/react/outline'
 import { useState } from 'react'
+import GlobeAltIcon from '@heroicons/react/outline/GlobeAltIcon'
 
 const langs = [
     {
@@ -12,14 +12,15 @@ const langs = [
     }
 ]
 
-interface Props {
+export interface LanguageProps extends React.HTMLAttributes<HTMLDivElement> {
     isNavbar?: boolean
     changeLanguage?: (lang: string) => void
     getLangName?: (lang: string) => string
+    defaultLanguage?: 'en' | 'es'
 }
 
-export function Language({ isNavbar, changeLanguage, getLangName }: Props) {
-    const [language, setLanguage] = useState(localStorage.getItem('language') ?? 'es')
+export function Language({ isNavbar, defaultLanguage, changeLanguage, getLangName, ...props }: LanguageProps) {
+    const [language, setLanguage] = useState(defaultLanguage ?? 'es')
     const langName: { [key: string]: string } = {
         English: 'ENG',
         Spanish: 'ESP'
@@ -27,13 +28,12 @@ export function Language({ isNavbar, changeLanguage, getLangName }: Props) {
 
     const toggleLanguage = () => {
         const lang = language === 'es' ? 'en' : 'es'
-        localStorage.setItem('language', lang)
         changeLanguage && changeLanguage(lang)
         setLanguage(lang)
     }
 
     return (
-        <div onClick={toggleLanguage} className="select-none flex items-center font-semibold cursor-pointer">
+        <div {...props} onClick={toggleLanguage} className="select-none flex items-center font-semibold cursor-pointer">
             <GlobeAltIcon className={`${isNavbar ? 'ml-1 mr-1' : 'mr-2'} text-blue-700`} width={isNavbar ? 20 : 25} height={isNavbar ? 20 : 25} />
             {langs.map(({ name, code }, index) => {
                 return (
