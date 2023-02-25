@@ -1,10 +1,10 @@
 import { HTMLProps, ReactNode, useMemo } from 'react'
-import { Portal } from '../../common/Portal'
-import { composeClasses } from '../../lib/classes'
-import DynamicHeroIcon, { IconName } from '../../common/DynamicHeroIcon/DynamicHeroIcon'
-import { IButtonProps } from '../Buttons/Button'
+import { composeClasses } from 'lib/classes'
+import { Portal } from 'common/Portal'
+
+import { DownloadIcon } from '@heroicons/react/outline'
+import Button, { IButtonProps } from '../Buttons/Button'
 import Text from '../Typography/Text'
-import Button from '../Buttons'
 import Spinner from '../Spinner'
 
 /** Interfaces */
@@ -22,7 +22,7 @@ export interface ActionsProps {
 }
 
 export interface BtnActionProps extends IButtonProps {
-    icon?: IconName
+    icon?: ReactNode
     classNameIcon?: string
 }
 
@@ -52,7 +52,7 @@ function FileViewer({ children, className, ...otherProps }: FileViewerProps) {
     )
 }
 
-function BtnAction({ onClick, className, children, icon, classNameIcon, variant, ...otherProps }: BtnActionProps) {
+function BtnAction({ onClick, className, children, icon, classNameIcon, variant = 'ghost', ...otherProps }: BtnActionProps) {
     return (
         <Button
             {...otherProps}
@@ -61,9 +61,11 @@ function BtnAction({ onClick, className, children, icon, classNameIcon, variant,
                 'w-8 h-8 border border-white hover:bg-white rounded-full flex justify-center items-center text-white hover:text-black'
             )}
             onClick={onClick}
-            variant={variant ?? 'ghost'}
+            variant={variant}
         >
-            {children ? children : <DynamicHeroIcon icon={icon ?? 'DownloadIcon'} className={classNameIcon ?? 'w-5 h-5'} />}
+            {children && children}
+            {!children && icon && icon}
+            {!children && !icon && <DownloadIcon id="DownloadIcon" className={classNameIcon || 'w-5 h-5'} />}
         </Button>
     )
 }
@@ -82,13 +84,13 @@ function ViewerActions({ children, fileName, status, role, classNameContainer, c
     )
 }
 
-const FileContent = ({ url, fileType, className, role }: FileContentProps) => {
+const FileContent = ({ url, fileType, className, role = 'viewer-file-container' }: FileContentProps) => {
     const encodedUrl = encodeURIComponent(url || '')
     return (
         <>
             {url ? (
                 <div
-                    role={role ?? 'viewer-file-container'}
+                    role={role}
                     className={composeClasses(className, 'w-full h-full flex justify-center items-center rounded-lg overflow-hidden z-50')}
                     onClick={(e) => e.stopPropagation()}
                 >
