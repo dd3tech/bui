@@ -17,6 +17,7 @@
         "baseUrl": "src/",
         "paths": {
             "components/*": ["components/*"],
+            "common/*": ["common/*"],
             "hooks/*": ["hooks/*"],
             "lib/*": ["lib/*"]
         }
