@@ -1,3 +1,10 @@
+## [4.6.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.0...v4.6.1) (2023-02-25)
+
+
+### Bug Fixes
+
+* remove DynamicHeroIcon to avoid size of that ([5384d1b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/5384d1ba5a7bc94cbd65a3c75e5a70f825d052a9))
+
 # [4.6.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.5.2...v4.6.0) (2023-02-21)
 
 
