@@ -1,6 +1,8 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, prettyDOM, render } from '@testing-library/react'
 import { it, describe, expect, vi } from 'vitest'
+
 import FileViewer from './FileViewer'
+import { DownloadIcon, TrashIcon, ArrowsExpandIcon, XIcon } from '@heroicons/react/outline'
 
 describe('<FileViewer/>', () => {
     const mockClick = vi.fn()
@@ -67,7 +69,8 @@ describe('<FileViewer/>', () => {
             </FileViewer>
         )
 
-        expect(getByRole('btnDownload').children[0].getAttribute('id')).toBe('DownloadIcon')
+        const btn = getByRole('btnDownload').firstChild as HTMLElement
+        expect(btn.getAttribute('id')).toBe('DownloadIcon')
     })
 
     it('should show the children that happened to it instead of an svg icon', () => {
@@ -86,10 +89,10 @@ describe('<FileViewer/>', () => {
         const { getByRole } = render(
             <FileViewer role="file-viewer">
                 <FileViewer.ViewerActions>
-                    <FileViewer.BtnAction role="btnDownload" icon="DownloadIcon" onClick={mockClick} />
-                    <FileViewer.BtnAction role="deleteIcon" icon="TrashIcon" onClick={mockClick} />
-                    <FileViewer.BtnAction role="expandIcon" icon="ArrowsExpandIcon" onClick={mockClick} />
-                    <FileViewer.BtnAction role="closeModal" icon="XIcon" onClick={mockClick} />
+                    <FileViewer.BtnAction role="btnDownload" icon={<DownloadIcon className="h-5 w-5" />} onClick={mockClick} />
+                    <FileViewer.BtnAction role="deleteIcon" icon={<TrashIcon className="h-5 w-5" />} onClick={mockClick} />
+                    <FileViewer.BtnAction role="expandIcon" icon={<ArrowsExpandIcon className="h-5 w-5" />} onClick={mockClick} />
+                    <FileViewer.BtnAction role="closeModal" icon={<XIcon className="h-5 w-5" />} onClick={mockClick} />
                 </FileViewer.ViewerActions>
             </FileViewer>
         )
