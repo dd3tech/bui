@@ -1,3 +1,11 @@
+## [4.6.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.1...v4.6.2) (2023-02-27)
+
+
+### Bug Fixes
+
+* added the possibility of hiding an element in the sidebar ([4762929](https://gitlab.com/dd3tech/dd360/dd360-components/commit/4762929d343b8a0f3c475c67346c9c79c1fe1adc))
+* remove prettyDOM ([a282247](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a28224775905eb26b9505a0d7e1120eb653e97b2))
+
 ## [4.6.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.0...v4.6.1) (2023-02-25)
 
 
