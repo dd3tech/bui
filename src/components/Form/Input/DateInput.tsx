@@ -99,6 +99,8 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
                             onDaySelected={onDaySelected}
                             value={currentDate}
                             className="absolute top-14 right-0 text-black"
+                            minDate={props.min ? new Date(props.min) : undefined}
+                            maxDate={props.max ? new Date(props.max) : undefined}
                         />
                     )}
                 </>
