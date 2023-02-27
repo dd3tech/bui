@@ -1,3 +1,10 @@
+## [4.6.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.2...v4.6.3) (2023-02-27)
+
+
+### Bug Fixes
+
+* add Table to exports ([237284a](https://gitlab.com/dd3tech/dd360/dd360-components/commit/237284a2d22d9af4b042312788e0a1c990105976))
+
 ## [4.6.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.1...v4.6.2) (2023-02-27)
 
 
