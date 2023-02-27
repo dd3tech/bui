@@ -1,3 +1,10 @@
+## [4.6.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.3...v4.6.4) (2023-02-27)
+
+
+### Bug Fixes
+
+* change default import Table component ([53018e5](https://gitlab.com/dd3tech/dd360/dd360-components/commit/53018e5914b36a212a716d7b42abaaeb1a06915f))
+
 ## [4.6.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.2...v4.6.3) (2023-02-27)
 
 
