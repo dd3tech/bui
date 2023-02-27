@@ -28,6 +28,12 @@ const props = {
             active: false,
             to: push,
             disabled: true
+        },
+        {
+            title: 'Sales',
+            active: false,
+            to: push,
+            hidden: true
         }
     ],
     disabledOptionsTag: 'Próximamente',
@@ -179,5 +185,11 @@ describe('<SideBar/>', () => {
 
         expect(dangerZone.className.includes('bg-red-600')).toBeTruthy()
         expect(dangerZoneText.className.includes('text-white')).toBeTruthy()
+    })
+
+    it('SideBar, element should not be displayed when it has the hidden property', () => {
+        renderResult.rerender(<SideBar {...props} dangerZone={{ ...props.dangerZone, active: true }} />)
+
+        expect(renderResult.getByRole('list-options').children).toHaveLength(3)
     })
 })
