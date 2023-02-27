@@ -1,5 +1,5 @@
 import { it, describe, vi } from 'vitest'
-import { render, RenderResult, fireEvent, prettyDOM } from '@testing-library/react'
+import { render, RenderResult, fireEvent } from '@testing-library/react'
 
 import SideBar from './SideBar'
 import { HomeIcon } from '@heroicons/react/outline'
