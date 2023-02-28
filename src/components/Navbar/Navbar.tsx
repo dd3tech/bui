@@ -39,15 +39,13 @@ const Navbar = ({ children, paddingX = '10', paddingY = '0', variant = 'sticky',
     return <nav className={classes}>{children}</nav>
 }
 
-type NavbarComponent<T, P = {}> = React.ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> & {
-    Collapse: typeof NavbarCollapse
-    CollapseToggle: typeof NavbarCollapseToggle
-    CollapseContent: typeof NavbarCollapseContent
-    Brand: typeof NavbarBrand
-    Content: typeof NavbarContent
-    Link: typeof NavbarLink
-    Item: typeof NavbarItem
-    Group: typeof NavbarGroup
-}
+Navbar.Collapse = NavbarCollapse
+Navbar.CollapseToggle = NavbarCollapseToggle
+Navbar.CollapseContent = NavbarCollapseContent
+Navbar.Brand = NavbarBrand
+Navbar.Content = NavbarContent
+Navbar.Link = NavbarLink
+Navbar.Item = NavbarItem
+Navbar.Group = NavbarGroup
 
-export default Navbar as NavbarComponent<HTMLDivElement, NavbarProps>
+export default Navbar

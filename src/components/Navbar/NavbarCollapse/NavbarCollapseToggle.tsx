@@ -2,12 +2,12 @@ import { composeClasses } from 'lib/classes'
 import { SquareMenu } from '../SquareMenu'
 import { useNavbarCollapseContext } from './NavbarCollapseContext'
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface NavbarCollapseToggleProps extends React.HTMLAttributes<HTMLDivElement> {
     showIn: string
     children?: React.ReactNode
 }
 
-const NavbarCollapseToggle = ({ showIn, children, className, ...props }: Props) => {
+const NavbarCollapseToggle = ({ showIn, children, className, ...props }: NavbarCollapseToggleProps) => {
     const collapseContext = useNavbarCollapseContext()
 
     return (

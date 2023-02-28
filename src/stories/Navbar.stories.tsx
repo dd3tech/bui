@@ -24,8 +24,6 @@ const Avatar = () => (
         <img
             src="https://s.gravatar.com/avatar/ab077ce146c5bf3e8e17ce48cdb9b089?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Faf.png"
             className="rounded-full w-full object-cover"
-            width={36}
-            height={36}
         />
     </figure>
 )
@@ -53,12 +51,11 @@ const Template: ComponentStory<typeof Navbar> = (args) => (
                 </Navbar.CollapseContent>
             </Navbar.Collapse>
 
-            <Navbar.Brand hiddenIn="sm">
-                <Lendd3rLogo />
-            </Navbar.Brand>
+            <Navbar.Brand hiddenIn="sm" imgSrc='http://lendd3r-frontend-develop.s3-website-us-west-1.amazonaws.com/assets/lendder.53f51ab2.png' />
+
         </Navbar.Group>
 
-        <Navbar.Content hiddenIn="sm" activeColor="primary" variant="highlight">
+        <Navbar.Content hiddenIn="sm" activeColor="primary" variant="underline">
             <Navbar.Link to="#" isActive>
                 Créditos
             </Navbar.Link>
@@ -100,9 +97,9 @@ const Template: ComponentStory<typeof Navbar> = (args) => (
                             <UserCircleIcon height={20} width={20} className="text-gray-400" />
                             Mi perfil
                         </div>
-                        <span onClick={() => {}} className="flex rounded-lg gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+                        <span onClick={() => { }} className="flex rounded-lg gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
                             <LockClosedIcon className="text-gray-400" height={20} width={20} />
-                            Cerra sesion
+                            Cerrar sesión
                         </span>
                     </div>
                 </Dropdown.Menu>
