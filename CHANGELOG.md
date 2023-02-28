@@ -1,3 +1,10 @@
+# [4.7.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.4...v4.7.0) (2023-02-28)
+
+
+### Features
+
+* **Datepicker:** added min and max props to disallow selecting a date outside of the given range ([899f66e](https://gitlab.com/dd3tech/dd360/dd360-components/commit/899f66e42210ce2b789ac16ecd291b8399ead541))
+
 ## [4.6.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.3...v4.6.4) (2023-02-27)
 
 
