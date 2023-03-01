@@ -1,3 +1,10 @@
+## [4.7.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.7.0...v4.7.1) (2023-03-01)
+
+
+### Bug Fixes
+
+* ToolTipHover blinking and sidebar test interacting with toolkit ([dc102e3](https://gitlab.com/dd3tech/dd360/dd360-components/commit/dc102e33e421f032b85ec58a048f6c478915eb46))
+
 # [4.7.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.4...v4.7.0) (2023-02-28)
 
 

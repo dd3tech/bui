@@ -54,15 +54,9 @@ const ToolTipHover = ({
     }, [disabled])
 
     return (
-        <>
+        <div onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseOver} className="inline-block">
             {/* Element Hover */}
-            <div
-                role="element-tooltip"
-                className={composeClasses('flex item-center justify-center', classNameElement)}
-                style={styleElement}
-                onMouseEnter={handleMouseOver}
-                onMouseLeave={handleMouseLeave}
-            >
+            <div role="element-tooltip" className={composeClasses('flex item-center justify-center', classNameElement)} style={styleElement}>
                 {element}
             </div>
             {/* Popup */}
@@ -82,7 +76,7 @@ const ToolTipHover = ({
                     </div>
                 </Portal>
             )}
-        </>
+        </div>
     )
 }
 
