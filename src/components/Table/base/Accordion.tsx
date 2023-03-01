@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import ChevronUpIcon from '@heroicons/react/outline/ChevronUpIcon'
 
-interface AccordionProps {
+export interface AccordionProps {
     /**
      * Row list
      * The first child is the header
