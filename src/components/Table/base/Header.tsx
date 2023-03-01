@@ -1,4 +1,4 @@
-interface HeaderProps extends React.HTMLAttributes<HTMLTableSectionElement> {
+export interface HeaderProps extends React.HTMLAttributes<HTMLTableSectionElement> {
     /**
      *  Header content
      */
