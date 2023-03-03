@@ -9,7 +9,7 @@ import Cell from './base/Cell'
 import Accordion from './base/Accordion'
 import './table.css'
 
-interface TableProps {
+interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
     /**
      * Table content
      */
@@ -37,7 +37,7 @@ interface TableProps {
     className?: string
 }
 
-const Table = ({ children, bordered = true, horizontalBorders = true, verticalBorders = true, rounded = 'lg', className }: TableProps) => {
+const Table = ({ children, bordered = true, horizontalBorders = true, verticalBorders = true, rounded = 'lg', className, ...props }: TableProps) => {
     return (
         <div
             className={composeClasses(
@@ -50,7 +50,9 @@ const Table = ({ children, bordered = true, horizontalBorders = true, verticalBo
                 'border-gray-400 overflow-auto'
             )}
         >
-            <table className="w-full border-collapse">{children}</table>
+            <table {...props} className="w-full border-collapse">
+                {children}
+            </table>
         </div>
     )
 }
