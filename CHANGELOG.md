@@ -1,3 +1,10 @@
+# [4.8.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.7.1...v4.8.0) (2023-03-03)
+
+
+### Features
+
+* the TableProps extends to HTMLTableElement ([c7e256d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c7e256d7b9c3a2bfc1279afcc79fb4e27cbe4f1f))
+
 ## [4.7.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.7.0...v4.7.1) (2023-03-01)
 
 
