@@ -1,4 +1,4 @@
-import { ExclamationCircleIcon, TagIcon, CheckCircleIcon, ExclamationIcon, ClipboardCopyIcon, HomeIcon, ClockIcon } from '@heroicons/react/outline'
+import { ExclamationCircleIcon, TagIcon, CheckCircleIcon, ExclamationIcon, ClipboardCopyIcon, HomeIcon, ClockIcon, RefreshIcon } from '@heroicons/react/outline'
 import { borderRadius } from 'lib/shape'
 import { composeClasses } from 'lib/classes'
 import { fontSize } from 'lib/font'
@@ -8,7 +8,7 @@ export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
     className?: string
     variant: 'warning' | 'infoPrimary' | 'infoSecondary' | 'success' | 'primary' | 'secondary' | 'error'
     classNameIcon?: string
-    icon?: 'tag' | 'clock' | 'warning' | 'check' | 'success' | 'exclamation' | 'clipboard-copy' | 'HomeIcon' | 'none'
+    icon?: 'tag' | 'clock' | 'warning' | 'check' | 'success' | 'exclamation' | 'clipboard-copy' | 'HomeIcon' | 'RefreshIcon' | 'none'
 }
 
 const badgeVariants: { [key: string]: string } = {
@@ -39,6 +39,8 @@ const iconsSwitch = (iconType: IBadgeProps['icon'], classNameIcon: string = '') 
             return <ClipboardCopyIcon className={classNameIcon} />
         case 'HomeIcon':
             return <HomeIcon className={classNameIcon} />
+        case 'RefreshIcon':
+            return <RefreshIcon className={classNameIcon} />
         case 'none':
         default:
             return <></>
