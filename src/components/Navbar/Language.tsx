@@ -40,7 +40,9 @@ export function Language({ isNavbar, defaultLanguage, changeLanguage, getLangNam
             {langs.map(({ name, code }, index) => {
                 return (
                     <div key={`lenguage-${code}`} className={composeClasses(isNavbar ? 'text-sm' : 'text-base')}>
-                        <span className={composeClasses('uppercase mr-1', language === code && 'text-blue-700')}>{getLangName ? getLangName(name) : langName[name]}</span>
+                        <span className={composeClasses('uppercase mr-1', language === code && 'text-blue-700')}>
+                            {getLangName ? getLangName(name) : langName[name]}
+                        </span>
                         {index !== langs.length - 1 ? <span className="mr-1">/</span> : null}
                     </div>
                 )
