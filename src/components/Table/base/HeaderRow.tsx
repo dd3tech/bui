@@ -1,7 +1,7 @@
 import { composeClasses } from 'lib/classes'
 import { fontSize, fontWeight } from 'lib/font'
 
-interface HeaderRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
+export interface HeaderRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
     /**
      *  Row content
      */

@@ -53,6 +53,8 @@ export interface DatePickerProps {
     format?: 'long' | 'short'
     language?: 'es' | 'en'
     value?: Date
+    minDate?: Date
+    maxDate?: Date
     onChange?: (newDate: Date) => void
     onlyOf?: OptionType
     onDaySelected?: () => void
@@ -61,7 +63,28 @@ export interface DatePickerProps {
 const TOTAL_YEARS = 11
 const TODAY = new Date()
 
-function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, onDaySelected }: DatePickerProps) {
+const disabledBtnMonth = ({ currentDate, minDate, maxDate }: { currentDate: Date; minDate?: Date; maxDate?: Date }) => {
+    let disabled = false
+
+    if (!!maxDate) {
+        const date = new Date(currentDate.getFullYear(), currentDate.getMonth())
+        const maxMonth = new Date(maxDate.getFullYear(), maxDate.getMonth())
+        disabled = date.getTime() >= maxMonth.getTime()
+    }
+
+    if (!!minDate) {
+        const date = new Date(currentDate.getFullYear(), currentDate.getMonth())
+        const minMonth = new Date(minDate.getFullYear(), minDate.getMonth())
+        disabled = date.getTime() <= minMonth.getTime()
+    }
+
+    return {
+        disabled,
+        className: disabled ? 'text-gray-300' : 'text-gray-800'
+    }
+}
+
+function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, onDaySelected, minDate, maxDate }: DatePickerProps) {
     const [currentDate, setCurrentDate] = useState(TODAY)
     const [selectedDate, setSelectedDate] = useState<Date | null>(null)
     const [currentOption, setCurrentOption] = useState<OptionType>(getInitialOption(onlyOf))
@@ -215,10 +238,17 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
                         const isActive = selectedDate?.getMonth() === index && selectedDate?.getFullYear() === currentDate.getFullYear()
                         const isToday = TODAY.getMonth() === index && TODAY.getFullYear() === currentDate.getFullYear()
                         const todayBorder = isToday ? 'border border-blue-500' : ''
-                        const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
+                        const bgColor = isActive ? 'bg-blue-500 text-white' : todayBorder
 
                         return (
-                            <button role="month" type="button" key={month} onClick={() => handleSelectMonth(index)} className={btnClassName(bgColor)}>
+                            <button
+                                disabled={disabledBtnMonth({ currentDate, minDate }).disabled}
+                                role="month"
+                                type="button"
+                                key={month}
+                                onClick={() => handleSelectMonth(index)}
+                                className={composeClasses(btnClassName(bgColor), disabledBtnMonth({ currentDate, maxDate }).className)}
+                            >
                                 {format === 'long' ? month : month.substring(0, 3)}
                             </button>
                         )
@@ -231,7 +261,7 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
     return (
         <>
             <div className="flex flex-1 justify-between items-center mb-5 text-gray-700">
-                <button role="prevMonth" type="button" onClick={handlePrevMonth}>
+                <button role="prevMonth" type="button" onClick={handlePrevMonth} {...disabledBtnMonth({ currentDate, minDate })}>
                     <ChevronLeftIcon className="w-4 h-4" />
                 </button>
                 <button role="select-month" type="button" disabled={!!onlyOf} onClick={updateCurrentOption}>
@@ -239,7 +269,7 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
                         {monthNames[language][currentDate.getMonth()]} {currentDate.getFullYear()}
                     </Text>
                 </button>
-                <button role="nextMonth" type="button" onClick={handleNextMonth}>
+                <button role="nextMonth" type="button" onClick={handleNextMonth} {...disabledBtnMonth({ currentDate, maxDate })}>
                     <ChevronRightIcon className="w-4 h-4" />
                 </button>
             </div>
@@ -257,9 +287,13 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
                         day === selectedDate?.getDate() &&
                         selectedDate.getMonth() === currentDate.getMonth() &&
                         currentDate?.getFullYear() === currentDate.getFullYear()
+                    const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), day)
+                    const isDisabled = (minDate && date.getTime() < minDate.getTime()) || (maxDate && date.getTime() > maxDate.getTime())
                     const isToday = day === TODAY.getDate() && TODAY.getMonth() == currentDate.getMonth() && TODAY.getFullYear() === currentDate.getFullYear()
-                    const todayBorder = isToday ? 'border border-blue-500' : ''
-                    const bgColor = isActive ? 'bg-blue-500 text-white' : `text-gray-800 ${todayBorder}`
+                    const todayBorder = isToday && 'border border-blue-500'
+                    const bgColor = isActive && 'bg-blue-500'
+                    const textColor = isDisabled ? 'text-gray-300' : isActive ? 'text-white' : 'text-gray-800'
+
                     return (
                         <button
                             role="numberDay"
@@ -270,8 +304,11 @@ function Calendar({ format = 'short', language = 'es', value, onlyOf, onChange, 
                                 'w-6 h-6 select-none font-semibold rounded-full box-content border  border-transparent',
                                 'hover:border-blue-500',
                                 bgColor,
+                                textColor,
+                                todayBorder,
                                 format === 'long' && 'justify-self-center'
                             )}
+                            disabled={isDisabled}
                         >
                             {day}
                         </button>

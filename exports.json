@@ -70,6 +70,11 @@
             "require": "./dist/cjs/components/Form/Input/InputFile.js",
             "module": "./dist/esm/components/Form/Input/InputFile.js",
             "default": "./dist/esm/components/Form/Input/InputFile.js"
+        },
+        "./Table": {
+            "require": "./dist/cjs/components/Table/index.js",
+            "module": "./dist/esm/components/Table/index.js",
+            "default": "./dist/esm/components/Table/index.js"
         }
     },
     "typesVersions": {
@@ -86,7 +91,8 @@
             "Modal": ["./dist/esm/components/Modal/index.js"],
             "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
             "Portal": ["./dist/esm/common/Portal/index.d.ts"],
-            "Spinner": ["./dist/esm/components/Spinner/index.d.ts"]
+            "Spinner": ["./dist/esm/components/Spinner/index.d.ts"],
+            "Table": ["./dist/esm/components/Table/index.d.ts"]
         }
     }
 }

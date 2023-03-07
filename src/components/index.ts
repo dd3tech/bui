@@ -82,6 +82,9 @@ export * from './AutoComplete'
 export { default as SideBar } from './SideBar'
 export * from './SideBar'
 
+export { default as Table } from './Table'
+export * from './Table'
+
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
@@ -91,6 +94,6 @@ export * from './Navigation'
 export * from './FeedBackBox'
 export * from './Layout'
 export * from './Navbar'
-export * from './Table'
+
 export * from './FileViewer'
 export * from './Dropdown'

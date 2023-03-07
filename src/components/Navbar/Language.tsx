@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import GlobeAltIcon from '@heroicons/react/outline/GlobeAltIcon'
+import { composeClasses } from 'lib/classes'
 
 const langs = [
     {
@@ -25,7 +26,7 @@ const langName: { [key: string]: string } = {
 }
 
 export function Language({ isNavbar, defaultLanguage, changeLanguage, getLangName, ...props }: LanguageProps) {
-    const [language, setLanguage] = useState(defaultLanguage ?? 'es')
+    const [language, setLanguage] = useState(defaultLanguage || 'es')
 
     const toggleLanguage = () => {
         const lang = language === 'es' ? 'en' : 'es'
@@ -35,11 +36,11 @@ export function Language({ isNavbar, defaultLanguage, changeLanguage, getLangNam
 
     return (
         <div {...props} onClick={toggleLanguage} className="select-none flex items-center font-semibold cursor-pointer">
-            <GlobeAltIcon className={`${isNavbar ? 'ml-1 mr-1' : 'mr-2'} text-blue-700`} width={isNavbar ? 20 : 25} height={isNavbar ? 20 : 25} />
+            <GlobeAltIcon className={composeClasses(isNavbar ? 'ml-1 mr-1' : 'mr-2', 'text-blue-700')} width={isNavbar ? 20 : 25} height={isNavbar ? 20 : 25} />
             {langs.map(({ name, code }, index) => {
                 return (
-                    <div key={`lenguage-${code}`} className={`${isNavbar ? 'text-sm' : 'text-base'}`}>
-                        <span className={`${language === code ? 'text-blue-700' : ''} uppercase mr-1`}>{getLangName ? getLangName(name) : langName[name]}</span>
+                    <div key={`lenguage-${code}`} className={composeClasses(isNavbar ? 'text-sm' : 'text-base')}>
+                        <span className={composeClasses('uppercase mr-1', language === code && 'text-blue-700')}>{getLangName ? getLangName(name) : langName[name]}</span>
                         {index !== langs.length - 1 ? <span className="mr-1">/</span> : null}
                     </div>
                 )

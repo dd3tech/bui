@@ -1,13 +1,6 @@
 import { it, describe } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
 import Table from './Table'
-import Header from './base/Header'
-import HeaderRow from './base/HeaderRow'
-import HeaderCell from './base/HeaderCell'
-import Body from './base/Body'
-import Row from './base/Row'
-import Cell from './base/Cell'
-import Accordion from './base/Accordion'
 
 describe('<Table />', () => {
     let renderResult: RenderResult
@@ -15,42 +8,42 @@ describe('<Table />', () => {
     beforeEach(() => {
         renderResult = render(
             <Table>
-                <Header>
-                    <HeaderRow>
-                        <HeaderCell data-testid="headercell-sticky" stickyLeft="0px">
+                <Table.Header>
+                    <Table.HeaderRow>
+                        <Table.HeaderCell data-testid="headercell-sticky" stickyLeft="0px">
                             Header
-                        </HeaderCell>
-                        <HeaderCell>Header</HeaderCell>
-                        <HeaderCell>Header</HeaderCell>
-                    </HeaderRow>
-                </Header>
-                <Body>
-                    <Row>
-                        <Cell data-testid="cell-sticky" stickyLeft="0px">
+                        </Table.HeaderCell>
+                        <Table.HeaderCell>Header</Table.HeaderCell>
+                        <Table.HeaderCell>Header</Table.HeaderCell>
+                    </Table.HeaderRow>
+                </Table.Header>
+                <Table.Body>
+                    <Table.Row>
+                        <Table.Cell data-testid="cell-sticky" stickyLeft="0px">
                             Cell
-                        </Cell>
-                        <Cell data-testid="cell-disabled" disabled>
+                        </Table.Cell>
+                        <Table.Cell data-testid="cell-disabled" disabled>
                             Cell
-                        </Cell>
-                        <Cell data-testid="cell-error" error>
+                        </Table.Cell>
+                        <Table.Cell data-testid="cell-error" error>
                             Cell
-                        </Cell>
-                    </Row>
-                    <Accordion iconPosition={1}>
-                        <Row data-testid="row-accordion">
-                            <Cell data-testid="cell-input" inputProps={{}}>
+                        </Table.Cell>
+                    </Table.Row>
+                    <Table.Accordion iconPosition={1}>
+                        <Table.Row data-testid="row-accordion">
+                            <Table.Cell data-testid="cell-input" inputProps={{}}>
                                 data accordion
-                            </Cell>
-                            <Cell data-testid="cell-icon">data accordion</Cell>
-                            <Cell>data accordion</Cell>
-                        </Row>
-                        <Row data-testid="row-accordion">
-                            <Cell>data accordion</Cell>
-                            <Cell>data accordion</Cell>
-                            <Cell>data accordion</Cell>
-                        </Row>
-                    </Accordion>
-                </Body>
+                            </Table.Cell>
+                            <Table.Cell data-testid="cell-icon">data accordion</Table.Cell>
+                            <Table.Cell>data accordion</Table.Cell>
+                        </Table.Row>
+                        <Table.Row data-testid="row-accordion">
+                            <Table.Cell>data accordion</Table.Cell>
+                            <Table.Cell>data accordion</Table.Cell>
+                            <Table.Cell>data accordion</Table.Cell>
+                        </Table.Row>
+                    </Table.Accordion>
+                </Table.Body>
             </Table>
         )
     })

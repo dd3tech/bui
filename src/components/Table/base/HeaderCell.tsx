@@ -2,7 +2,7 @@ import { composeClasses } from 'lib/classes'
 
 type unit = `${number}${'px' | 'rem'}`
 
-interface HeaderCellProps extends React.ThHTMLAttributes<HTMLTableHeaderCellElement> {
+export interface HeaderCellProps extends React.ThHTMLAttributes<HTMLTableHeaderCellElement> {
     /**
      *  Cell content
      */

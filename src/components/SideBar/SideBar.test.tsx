@@ -28,6 +28,12 @@ const props = {
             active: false,
             to: push,
             disabled: true
+        },
+        {
+            title: 'Sales',
+            active: false,
+            to: push,
+            hidden: true
         }
     ],
     disabledOptionsTag: 'Próximamente',
@@ -124,7 +130,7 @@ describe('<SideBar/>', () => {
     it('SideBar, option is blue when is selected', () => {
         const adornment = renderResult.getByRole('option-icon-0').firstChild as HTMLDivElement
         const icon = renderResult.getByRole('option-icon-0').lastChild as HTMLDivElement
-        const option = renderResult.getByRole('option-icon-0').parentElement?.parentElement as HTMLDivElement
+        const option = renderResult.getByRole('option-icon-0').parentElement?.parentElement?.parentElement as HTMLDivElement
 
         expect(adornment.style.backgroundColor).toBe('rgb(29, 78, 216)')
         expect(icon.className.includes('text-blue-700')).toBeTruthy()
@@ -179,5 +185,11 @@ describe('<SideBar/>', () => {
 
         expect(dangerZone.className.includes('bg-red-600')).toBeTruthy()
         expect(dangerZoneText.className.includes('text-white')).toBeTruthy()
+    })
+
+    it('SideBar, element should not be displayed when it has the hidden property', () => {
+        renderResult.rerender(<SideBar {...props} dangerZone={{ ...props.dangerZone, active: true }} />)
+
+        expect(renderResult.getByRole('list-options').children).toHaveLength(3)
     })
 })

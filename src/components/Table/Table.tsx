@@ -1,4 +1,3 @@
-import { PropsWithoutRef, RefAttributes } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Rounded } from '../../interfaces/types'
 import Header from './base/Header'
@@ -51,21 +50,21 @@ const Table = ({ children, bordered = true, horizontalBorders = true, verticalBo
                 'border-gray-400 overflow-auto'
             )}
         >
-            <table {...props} className="w-full border-collapse">{children}</table>
+            <table {...props} className="w-full border-collapse">
+                {children}
+            </table>
         </div>
     )
 }
 
-type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> & {
-    Header: typeof Header
-    HeaderRow: typeof HeaderRow
-    HeaderCell: typeof HeaderCell
-    Body: typeof Body
-    Row: typeof Row
-    Cell: typeof Cell
-    Accordion: typeof Accordion
-}
+Table.Header = Header
+Table.HeaderRow = HeaderRow
+Table.HeaderCell = HeaderCell
+Table.Body = Body
+Table.Row = Row
+Table.Cell = Cell
+Table.Accordion = Accordion
 
 Table.displayName = 'Table'
 
-export default Table as TableComponent<HTMLTableElement, TableProps>
+export default Table

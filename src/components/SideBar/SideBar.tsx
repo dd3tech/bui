@@ -7,7 +7,7 @@ import './sideBar.css'
 import { composeClasses } from 'lib/classes'
 
 export interface SideBarProps {
-    sideBarList?: Array<{ title: string; active: boolean; to: () => void; icon?: JSX.Element; disabled?: boolean }>
+    sideBarList?: Array<{ title: string; active: boolean; to: () => void; icon?: JSX.Element; disabled?: boolean; hidden?: boolean }>
     sideBarName: string
     sideBarSubTitle?: string | React.ReactElement
     defaultExpand?: boolean
@@ -116,65 +116,68 @@ const SideBar = ({ sideBarList, sideBarName, sideBarSubTitle, defaultExpand, dis
                             )}
                         </div>
                     </div>
-                    <div className={`${!expand ? 'hide-scroll' : ''} overflow-y-auto overflow-x-hidden flex-grow`}>
-                        {sideBarList?.map(({ title, active, to, icon, disabled }, index: number) => (
-                            <div
-                                key={index.toString()}
-                                className={composeClasses(
-                                    'w-72 h-16 transition-all duration-300 ease-out letter-spacing-negative flex items-center justify-start gap-1',
-                                    'hover:text-red-500',
-                                    disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100',
-                                    active && 'bg-blue-50'
-                                )}
-                                onClick={() => {
-                                    if (disabled || active) return
-                                    flushSync ? flushSync(() => setIsOptionClicked(true)) : setIsOptionClicked(true)
-                                    to()
-                                }}
-                            >
-                                <ToolTipHover
-                                    element={
-                                        <div role={`option-icon-${index}`} className="w-16 flex items-center">
-                                            <div style={activeStyle(active)}></div>
-                                            <div
-                                                className={composeClasses(
-                                                    'w-6 h-6 ml-3.5 flex items-center',
-                                                    disabled ? 'text-gray-300' : 'text-gray-400',
-                                                    active && 'text-blue-700'
-                                                )}
-                                            >
-                                                {icon ? icon : <ExclamationCircleIcon />}
-                                            </div>
-                                        </div>
-                                    }
-                                    variantPopup="dark"
-                                    disabled={expand || isOptionClicked}
-                                    complementPosition={{ top: 55, left: 85 }}
-                                >
-                                    {!disabled ? (
-                                        title
-                                    ) : (
-                                        <span className="flex items-center gap-1">
-                                            <ClockIcon width={15} />
+                    <div role="list-options" className={`${!expand ? 'hide-scroll' : ''} overflow-y-auto overflow-x-hidden flex-grow`}>
+                        {sideBarList?.map(
+                            ({ title, active, to, icon, disabled, hidden }, index: number) =>
+                                !hidden && (
+                                    <div
+                                        key={index.toString()}
+                                        className={composeClasses(
+                                            'w-72 h-16 transition-all duration-300 ease-out letter-spacing-negative flex items-center justify-start gap-1',
+                                            'hover:text-red-500',
+                                            disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100',
+                                            active && 'bg-blue-50'
+                                        )}
+                                        onClick={() => {
+                                            if (disabled || active) return
+                                            flushSync ? flushSync(() => setIsOptionClicked(true)) : setIsOptionClicked(true)
+                                            to()
+                                        }}
+                                    >
+                                        <ToolTipHover
+                                            element={
+                                                <div role={`option-icon-${index}`} className="w-16 flex items-center">
+                                                    <div style={activeStyle(active)}></div>
+                                                    <div
+                                                        className={composeClasses(
+                                                            'w-6 h-6 ml-3.5 flex items-center',
+                                                            disabled ? 'text-gray-300' : 'text-gray-400',
+                                                            active && 'text-blue-700'
+                                                        )}
+                                                    >
+                                                        {icon ? icon : <ExclamationCircleIcon />}
+                                                    </div>
+                                                </div>
+                                            }
+                                            variantPopup="dark"
+                                            disabled={expand || isOptionClicked}
+                                            complementPosition={{ top: 55, left: 85 }}
+                                        >
+                                            {!disabled ? (
+                                                title
+                                            ) : (
+                                                <span className="flex items-center gap-1">
+                                                    <ClockIcon width={15} />
+                                                    {title}
+                                                </span>
+                                            )}
+                                        </ToolTipHover>
+                                        <Text
+                                            role={`option-${index}`}
+                                            variant="span"
+                                            className={`${disabled ? 'text-gray-300' : 'text-gray-500'} w-56 whitespace-nowrap font-semibold`}
+                                        >
+                                            {disabled && (
+                                                <span className="mr-10 flex items-center gap-1 italic" style={{ fontSize: '10px' }}>
+                                                    <ClockIcon width={15} />
+                                                    {disabledOptionsTag}
+                                                </span>
+                                            )}
                                             {title}
-                                        </span>
-                                    )}
-                                </ToolTipHover>
-                                <Text
-                                    role={`option-${index}`}
-                                    variant="span"
-                                    className={`${disabled ? 'text-gray-300' : 'text-gray-500'} w-56 whitespace-nowrap font-semibold`}
-                                >
-                                    {disabled && (
-                                        <span className="mr-10 flex items-center gap-1 italic" style={{ fontSize: '10px' }}>
-                                            <ClockIcon width={15} />
-                                            {disabledOptionsTag}
-                                        </span>
-                                    )}
-                                    {title}
-                                </Text>
-                            </div>
-                        ))}
+                                        </Text>
+                                    </div>
+                                )
+                        )}
                     </div>
                     {props.dangerZone?.show && (
                         <div

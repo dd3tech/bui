@@ -7,6 +7,8 @@ import NavbarCollapseContent from './NavbarCollapse/NavbarCollapseContent'
 import NavbarLink, { getActiveVariants } from './NavbarLink'
 import NavbarContent from './NavbarContent'
 import NavbarBrand from './NavbarBrand'
+import NavbarGroup from './NavbarGroup'
+import NavbarItem, { getActiveItemVariants } from './NavbarItem'
 
 describe('<Navbar/>', () => {
     let renderResult: RenderResult
@@ -22,9 +24,7 @@ describe('<Navbar/>', () => {
                     </NavbarCollapseContent>
                 </NavbarCollapse>
 
-                <NavbarBrand data-testid="brand-hidden" hiddenIn="sm">
-                    Logo
-                </NavbarBrand>
+                <NavbarBrand data-testid="brand-hidden" hiddenIn="sm" imgSrc='http://lendd3r-frontend-develop.s3-website-us-west-1.amazonaws.com/assets/lendder.53f51ab2.png' name='Company' />
 
                 <NavbarBrand data-testid="brand">Logo</NavbarBrand>
 
@@ -32,6 +32,9 @@ describe('<Navbar/>', () => {
                     <NavbarLink to="#" isActive>
                         Créditos
                     </NavbarLink>
+                    <NavbarItem data-testid="item-underline" isActive>
+                        Créditos
+                    </NavbarItem>
                 </NavbarContent>
 
                 <NavbarContent data-testid="content">
@@ -41,13 +44,30 @@ describe('<Navbar/>', () => {
                     <NavbarLink data-testid="link-noactive" to="#">
                         Créditos
                     </NavbarLink>
+                    <NavbarItem data-testid="item-noactive">
+                        Créditos
+                    </NavbarItem>
                 </NavbarContent>
 
                 <NavbarContent activeColor="danger" variant="highlight">
                     <NavbarLink data-testid="link-highlight" to="#" isActive>
                         Créditos
                     </NavbarLink>
+                    <NavbarItem data-testid="item-highlight" isActive>
+                        Créditos
+                    </NavbarItem>
                 </NavbarContent>
+
+                <NavbarGroup data-testid="group" gap="1" hiddenIn="sm">
+                    <NavbarItem isActive>
+                        Créditos
+                    </NavbarItem>
+                    <NavbarGroup data-testid="sub-group">
+                        <NavbarItem >
+                            Example
+                        </NavbarItem>
+                    </NavbarGroup>
+                </NavbarGroup>
             </Navbar>
         )
     })
@@ -62,6 +82,15 @@ describe('<Navbar/>', () => {
     it('should be render a brand with breakpoint sm', () => {
         const { getByTestId } = renderResult
         expect(getByTestId('brand-hidden').className).toContain('sm:flex')
+    })
+
+    it('should be render a brand with image and title', () => {
+        const { getByTestId } = renderResult
+        const brand = getByTestId('brand-hidden')
+        const img = brand.firstChild?.firstChild
+        expect(img).not.toBeNull()
+        expect(img).toHaveProperty('src', 'http://lendd3r-frontend-develop.s3-website-us-west-1.amazonaws.com/assets/lendder.53f51ab2.png')
+        expect(brand).toContainHTML('Company')
     })
 
     it('should be render a brand without breakpoint', () => {
@@ -81,12 +110,22 @@ describe('<Navbar/>', () => {
 
     it('should be render a link highlight', () => {
         const { getByTestId } = renderResult
-        expect(getByTestId('link-highlight').className).not.toContain(getActiveVariants('highlight', 'danger'))
+        expect(getByTestId('link-highlight').className).toContain(getActiveVariants('highlight', 'red'))
     })
 
     it('should be render a link no active', () => {
         const { getByTestId } = renderResult
         expect(getByTestId('link-noactive').className).toContain('text-base')
+    })
+
+    it('should be render a item highlight', () => {
+        const { getByTestId } = renderResult
+        expect(getByTestId('item-highlight').className).toContain(getActiveItemVariants('highlight', 'red'))
+    })
+
+    it('should be render a item no active', () => {
+        const { getByTestId } = renderResult
+        expect(getByTestId('item-noactive').className).toContain('text-base')
     })
 
     it('should show or hide correctly', () => {
@@ -98,4 +137,22 @@ describe('<Navbar/>', () => {
         fireEvent.click(getByRole('close'))
         expect(getByTestId('collapse-content').className).toContain('-translate-x-full')
     })
+
+    describe('props gap and hiddenIn', () => {
+        it('should be render a group with gap and hiddenIn', () => {
+            const { getByTestId } = renderResult
+            const group = getByTestId('group')
+            expect(group.className).toContain('gap-1')
+            expect(group.className).toContain('sm:flex')
+        })
+
+        it('should be not render a group with gap and hiddenIn', () => {
+            const { getByTestId } = renderResult
+            const group = getByTestId('sub-group')
+            expect(group.className).not.toContain('gap-1')
+            expect(group.className).not.toContain('sm:flex')
+        })
+
+    })
+
 })

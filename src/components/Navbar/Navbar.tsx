@@ -1,4 +1,3 @@
-import { PropsWithoutRef, RefAttributes } from 'react'
 import { Padding, Rounded, ShadowVariants } from 'interfaces/types'
 import { composeClasses } from 'lib/classes'
 import NavbarBrand from './NavbarBrand'

@@ -227,4 +227,13 @@ describe('<DatePicker /> ', () => {
         fireEvent.click(getByRole('range-years'))
         expect(monthList[2].innerHTML).toBe('Mar')
     })
+
+    it('should be render with prop minDate and maxDate', () => {
+        const date = new Date('02-25-2023')
+        const prevDate = new Date('02-17-2023')
+        const nextDate = new Date('02-27-2023')
+        const { getAllByRole } = render(<DatePicker value={date} minDate={prevDate} maxDate={nextDate} />)
+        expect(getAllByRole('numberDay')[prevDate.getDate() - 2].className).toContain('text-gray-300')
+        expect(getAllByRole('numberDay')[nextDate.getDate()].className).toContain('text-gray-300')
+    })
 })

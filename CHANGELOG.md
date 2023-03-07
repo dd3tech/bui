@@ -1,3 +1,53 @@
+# [4.8.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.7.1...v4.8.0) (2023-03-03)
+
+
+### Features
+
+* the TableProps extends to HTMLTableElement ([c7e256d](https://gitlab.com/dd3tech/dd360/dd360-components/commit/c7e256d7b9c3a2bfc1279afcc79fb4e27cbe4f1f))
+
+## [4.7.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.7.0...v4.7.1) (2023-03-01)
+
+
+### Bug Fixes
+
+* ToolTipHover blinking and sidebar test interacting with toolkit ([dc102e3](https://gitlab.com/dd3tech/dd360/dd360-components/commit/dc102e33e421f032b85ec58a048f6c478915eb46))
+
+# [4.7.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.4...v4.7.0) (2023-02-28)
+
+
+### Features
+
+* **Datepicker:** added min and max props to disallow selecting a date outside of the given range ([899f66e](https://gitlab.com/dd3tech/dd360/dd360-components/commit/899f66e42210ce2b789ac16ecd291b8399ead541))
+
+## [4.6.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.3...v4.6.4) (2023-02-27)
+
+
+### Bug Fixes
+
+* change default import Table component ([53018e5](https://gitlab.com/dd3tech/dd360/dd360-components/commit/53018e5914b36a212a716d7b42abaaeb1a06915f))
+
+## [4.6.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.2...v4.6.3) (2023-02-27)
+
+
+### Bug Fixes
+
+* add Table to exports ([237284a](https://gitlab.com/dd3tech/dd360/dd360-components/commit/237284a2d22d9af4b042312788e0a1c990105976))
+
+## [4.6.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.1...v4.6.2) (2023-02-27)
+
+
+### Bug Fixes
+
+* added the possibility of hiding an element in the sidebar ([4762929](https://gitlab.com/dd3tech/dd360/dd360-components/commit/4762929d343b8a0f3c475c67346c9c79c1fe1adc))
+* remove prettyDOM ([a282247](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a28224775905eb26b9505a0d7e1120eb653e97b2))
+
+## [4.6.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.6.0...v4.6.1) (2023-02-25)
+
+
+### Bug Fixes
+
+* remove DynamicHeroIcon to avoid size of that ([5384d1b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/5384d1ba5a7bc94cbd65a3c75e5a70f825d052a9))
+
 # [4.6.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.5.2...v4.6.0) (2023-02-21)
 
 
