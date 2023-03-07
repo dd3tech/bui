@@ -1,3 +1,10 @@
+# [4.9.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.8.0...v4.9.0) (2023-03-07)
+
+
+### Features
+
+* added RefreshIcon to Badge and create stories the Badge ([a961df7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a961df7fccfadd03de878b5275ee45eb14f943a0))
+
 # [4.8.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.7.1...v4.8.0) (2023-03-03)
 
 
