@@ -1,16 +1,16 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import ProgressCircularComponent from '../components/ProgressCircular'
+import ProgressCircleComponent from '../components/ProgressCircle'
 
 export default {
     title: 'Controls/ProgressCircular',
-    component: ProgressCircularComponent
+    component: ProgressCircleComponent
 } as ComponentMeta<typeof ProgressCircular>
 
-const Template: ComponentStory<typeof ProgressCircularComponent> = (args) => <ProgressCircularComponent {...args} />
+const Template: ComponentStory<typeof ProgressCircleComponent> = (args) => <ProgressCircleComponent {...args} />
 
-export const ProgressCircular = Template.bind({})
-ProgressCircular.args = {
+export const ProgressCircle = Template.bind({})
+ProgressCircle.args = {
     value: 30,
     colorComplete: '#34D399',
     colorProgress: '#1D4ED8',
