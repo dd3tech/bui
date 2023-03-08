@@ -66,6 +66,6 @@ describe('ProgressCircle', () => {
         const { getByText, getByRole } = render(<ProgressCircle {...defaultProps} children={<div className="text-green-600">Test</div>} />)
 
         expect(getByText('Test')).toBeInTheDocument()
-        expect(getByRole('children-circular').children[0].className).toContain('text-green-600')
+        expect(getByRole('children-progress-circle').children[0].className).toContain('text-green-600')
     })
 })

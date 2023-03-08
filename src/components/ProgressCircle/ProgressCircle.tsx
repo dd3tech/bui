@@ -22,12 +22,9 @@ const ProgressCircle = ({ value, colorComplete, colorProgress, colorBackground, 
                     })}
                     strokeWidth={strokeWidth}
                     value={value}
-                    data-testid="progressbar"
                 >
-                    <div role="value-circular" className={classNamePercentage}>
-                        {Math.min(value, 100).toFixed(0)}%
-                    </div>
-                    <div role="children-circular">{children}</div>
+                    <div className={classNamePercentage}>{Math.min(value, 100).toFixed(0)}%</div>
+                    <div role="children-progress-circle">{children}</div>
                 </CircularProgressbarWithChildren>
             </div>
         </>
