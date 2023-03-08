@@ -1,22 +1,28 @@
 export type InputType = 'text' | 'currency' | 'password' | 'email' | 'date' | 'year' | 'month' | 'number' | 'percentage' | 'file'
 
-export type InputVariant = 'active' | 'focus' | 'success' | 'warning' | 'error'
+export type InputVariant = 'default' | 'active' | 'success' | 'warning' | 'error' | 'disabled'
 
-export const inputVariants: { [key in InputVariant]: { input: { borderColor: string; color?: string }; text: { color: string } } } = {
-    active: {
+interface IInputVariants {
+    input: { borderColor: string; color?: string }
+    text: { color: string }
+    bgIcon?: { color: string }
+}
+
+export const inputVariants: { [key in InputVariant]: IInputVariants } = {
+    default: {
         input: {
-            borderColor: 'border-black'
+            borderColor: 'border-gray-300'
         },
         text: {
-            color: 'text-black'
+            color: 'text-gray-900'
         }
     },
-    focus: {
+    active: {
         input: {
             borderColor: 'border-blue-500'
         },
         text: {
-            color: 'text-blue-500'
+            color: 'text-gray-500'
         }
     },
     success: {
@@ -25,6 +31,9 @@ export const inputVariants: { [key in InputVariant]: { input: { borderColor: str
         },
         text: {
             color: 'text-green-500'
+        },
+        bgIcon: {
+            color: 'bg-green-50'
         }
     },
     warning: {
@@ -33,15 +42,29 @@ export const inputVariants: { [key in InputVariant]: { input: { borderColor: str
         },
         text: {
             color: 'text-yellow-500'
+        },
+        bgIcon: {
+            color: 'bg-yellow-50'
         }
     },
     error: {
         input: {
-            borderColor: 'border-red-500',
+            borderColor: 'border-red-600',
             color: ''
         },
         text: {
-            color: 'text-red-500'
+            color: 'text-red-600'
+        },
+        bgIcon: {
+            color: 'bg-red-50'
+        }
+    },
+    disabled: {
+        input: {
+            borderColor: 'border-gray-300'
+        },
+        text: {
+            color: 'text-gray-500'
         }
     }
 }
