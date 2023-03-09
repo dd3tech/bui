@@ -97,7 +97,8 @@
             "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
             "Portal": ["./dist/esm/common/Portal/index.d.ts"],
             "Spinner": ["./dist/esm/components/Spinner/index.d.ts"],
-            "Table": ["./dist/esm/components/Table/index.d.ts"]
+            "Table": ["./dist/esm/components/Table/index.d.ts"],
+            "ProgressCircle": ["./dist/esm/components/ProgressCircle/index.d.ts"]
         }
     }
 }
