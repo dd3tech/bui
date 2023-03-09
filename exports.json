@@ -75,6 +75,11 @@
             "require": "./dist/cjs/components/Table/index.js",
             "module": "./dist/esm/components/Table/index.js",
             "default": "./dist/esm/components/Table/index.js"
+        },
+        "./ProgressCircle": {
+            "require": "./dist/cjs/components/ProgressCircle/index.js",
+            "module": "./dist/esm/components/ProgressCircle/index.js",
+            "default": "./dist/esm/components/ProgressCircle/index.js"
         }
     },
     "typesVersions": {
