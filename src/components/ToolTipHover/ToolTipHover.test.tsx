@@ -74,4 +74,9 @@ describe('<ToolTipHover/>', () => {
         renderResult.rerender(<ToolTipHover children={''} variantPopup={'blue'} element={''} classNameElement={'bg-green-600'} />)
         expect(renderResult.getByRole('element-tooltip').className).toContain('bg-green-600')
     })
+
+    it('if passed through props classNameContainer it should render correctly in the className of the element', () => {
+        renderResult.rerender(<ToolTipHover children={''} variantPopup={'blue'} element={''} classNameContainer={'flex'} />)
+        expect(renderResult.getByRole('container-tooltip').className).toContain('flex')
+    })
 })
