@@ -1,3 +1,11 @@
+## [4.11.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.11.0...v4.11.1) (2023-03-09)
+
+
+### Bug Fixes
+
+* add exports progress-circle ([855d623](https://gitlab.com/dd3tech/dd360/dd360-components/commit/855d62390711befeed52f4a5516e10a41b6ed2cb))
+* add types-version ([b98ac8f](https://gitlab.com/dd3tech/dd360/dd360-components/commit/b98ac8f7a2080713488e7dd11f53cbdd5e6c6a00))
+
 # [4.11.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.10.0...v4.11.0) (2023-03-09)
 
 
