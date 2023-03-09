@@ -1,3 +1,16 @@
+# [4.11.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.10.0...v4.11.0) (2023-03-09)
+
+
+### Bug Fixes
+
+* change in import ([5d31c8c](https://gitlab.com/dd3tech/dd360/dd360-components/commit/5d31c8c81fcd2bef034c181f4a01066367b2624d))
+* change name role ([08d2939](https://gitlab.com/dd3tech/dd360/dd360-components/commit/08d2939544c7ff641631d9050f1d7d8bfb53a953))
+
+
+### Features
+
+* ProgressCircle ([bd5e9ae](https://gitlab.com/dd3tech/dd360/dd360-components/commit/bd5e9ae4b4ec05b15c9c4a54749c93a8b7ad9030))
+
 # [4.10.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.9.0...v4.10.0) (2023-03-09)
 
 
