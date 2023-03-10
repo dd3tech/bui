@@ -83,12 +83,13 @@ const Select = ({
     optionsList,
     disabled,
     width = 'full',
+    className,
     ...props
 }: ISelectProps) => {
     const { input, text } = getSelectStates({ error, warning, success, disabled })
     const [paddingLeft, setPaddingLeft] = useState('')
 
-    const className = composeClasses(
+    const classes = composeClasses(
         'absolute w-full h-full appearance-none bg-transparent px-4 left-0',
         'focus:outline-none',
         `rounded-${rounded}`,
@@ -98,7 +99,8 @@ const Select = ({
         input?.color,
         fontSize && `text-${fontSize}`,
         fontWeight && `font-${fontWeight}`,
-        disabled ? 'cursor-not-allowed' : 'cursor-pointer'
+        disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+        className
     )
 
     useEffect(() => {
@@ -122,7 +124,7 @@ const Select = ({
                         {startAdornment}
                     </div>
                 )}
-                <select {...props} className={className} style={{ paddingLeft: paddingLeft }} disabled={disabled}>
+                <select {...props} className={classes} style={{ paddingLeft: paddingLeft, ...props.style }} disabled={disabled}>
                     {Object.entries(optionsList).map(([key, { label, disabled }]) => (
                         <option key={key} disabled={disabled} value={key}>
                             {label}
