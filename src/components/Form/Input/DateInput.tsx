@@ -22,6 +22,15 @@ function getDateFormat(value: string) {
     return newValue
 }
 
+function formatInput(date: string) {
+    let inputText = date
+    inputText = inputText.replace(/[^\d/]/g, '')
+    inputText = inputText.replace(/\/{2,}/g, '/')
+    if (inputText.length > 2 && inputText.charAt(2) !== '/') inputText = inputText.slice(0, 2) + '/' + inputText.slice(2, inputText.length)
+    if (inputText.length > 5 && inputText.charAt(5) !== '/') inputText = inputText.slice(0, 5) + '/' + inputText.slice(5, inputText.length)
+    return inputText.slice(0, 10)
+}
+
 function DateInput({ className, value, onChange, language, disabled, variant, ...props }: InputProps) {
     const [showDatePicker, setShowDatePicker] = useState(false)
     const [date, setDate] = useState(getDateFormat(String(value ?? '')))
@@ -29,13 +38,8 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
 
     const handleChange = useCallback(
         (event: React.ChangeEvent<HTMLInputElement>) => {
-            let inputText = event.target.value
-            inputText = inputText.replace(/[^\d/]/g, '')
-            inputText = inputText.replace(/\/{2,}/g, '/')
-            if (inputText.length > 2 && inputText.charAt(2) !== '/') inputText = inputText.slice(0, 2) + '/' + inputText.slice(2, inputText.length)
-            if (inputText.length > 5 && inputText.charAt(5) !== '/') inputText = inputText.slice(0, 5) + '/' + inputText.slice(5, inputText.length)
-            inputText = inputText.slice(0, 10)
-            setDate(inputText)
+            const value = formatInput(event.target.value)
+            setDate(value)
             onChange && onChange(event)
         },
         [onChange, date]
@@ -59,23 +63,20 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
 
     const currentDate = useMemo(() => {
         const dateArray = date.split('/')
-        let newDate = undefined
-        if (dateArray.length) {
-            const day = dateArray[0]
-            const month = dateArray[1]
-            const year = dateArray[2]
-            const format = `${year}/${month}/${day}`
-            if (!isNaN(Date.parse(format))) {
-                newDate = new Date(format)
-            }
-        }
-        return newDate
+        const day = dateArray[0] || 1
+        const month = dateArray[1] || 1
+        const year = dateArray[2] || new Date().getFullYear()
+        const format = `${year}/${month}/${day}`
+
+        if (!isNaN(Date.parse(format))) return new Date(format)
+
+        return new Date()
     }, [date])
 
     const showVariant = useMemo(() => {
         if (variant) return variant
         if (!date.length) return 'active'
-        if (!currentDate) return 'error'
+        if (date.length < 10) return 'error'
         if (currentDate.getFullYear() < 1000) return 'error'
         return 'active'
     }, [currentDate, variant])
