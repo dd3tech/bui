@@ -84,13 +84,13 @@ const FilterDate = ({ title, textApplyBtn, textResetBtn, position, className, wi
                     <Text className="mb-1 text-xxs" fontBold="medium">
                         {language === 'en' ? 'Month' : 'Mes'}
                     </Text>
-                    <MonthInput name="month" onChange={handleChange} value={date.month} padding={1} language={language} />
+                    <MonthInput name="month" onChange={handleChange} value={date.month} padding="1" language={language} />
                 </div>
                 <div className="grid pb-2">
                     <Text className="mb-1 text-xxs" fontBold="medium">
                         {language === 'en' ? 'Year' : 'Año'}
                     </Text>
-                    <YearInput name="year" onChange={handleChange} value={date.year} padding={1} language={language} />
+                    <YearInput name="year" onChange={handleChange} value={date.year} padding="1" language={language} />
                 </div>
             </div>
         </ConfirmDialog>

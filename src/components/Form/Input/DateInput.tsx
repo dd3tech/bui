@@ -1,7 +1,7 @@
 import { useState, useMemo, ChangeEvent, useCallback, useEffect } from 'react'
 import BaseInput, { InputProps } from './BaseInput'
 import DatePicker from '../../DatePicker/DatePicker'
-import { CalendarIcon } from '@heroicons/react/outline'
+import CalendarIcon from '@heroicons/react/outline/CalendarIcon'
 import { composeClasses } from 'lib/classes'
 
 const dateRegex = /^(0[1-9]|[12][0-9]|3[01])[\/](0[1-9]|1[012])[\/](19|20)\d\d$/

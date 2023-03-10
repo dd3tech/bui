@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { TextArea as TextAreaComponent } from '../components/Form'
+import TextAreaComponent from '../components/Form/TextArea'
+import { SearchCircleIcon } from '@heroicons/react/outline'
 
 export default {
     title: 'Form/TextArea',
@@ -11,5 +12,10 @@ const Template: ComponentStory<typeof TextAreaComponent> = (args) => <TextAreaCo
 
 export const TextArea = Template.bind({})
 TextArea.args = {
-    label: 'Text area'
+    label: 'Text area',
+    endAdornment: <SearchCircleIcon className="w-5" />,
+    message: 'Texto de ayuda',
+    placeholder: 'Ejemplo',
+    className: 'w-60',
+    disabled: true
 }

@@ -1,7 +1,9 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import InputComponent from '../components/Form/Input'
-import { SearchCircleIcon } from '@heroicons/react/outline'
+import { SearchCircleIcon, PhoneIcon } from '@heroicons/react/outline'
+import Select from '../components/Form/Select'
+import Divider from '../components/Divider/Divider'
 
 export default {
     title: 'Form/Input',
@@ -14,15 +16,34 @@ export const Input = Template.bind({})
 Input.args = {
     label: 'Ejemplo',
     type: 'text',
-    variant: 'success'
+    variant: 'default',
+    disabled: false
 }
 export const InputWithIcon = Template.bind({})
 InputWithIcon.args = {
     label: 'Con Icono',
-    endAdornment: <SearchCircleIcon className="w-5 text-gray-500" />,
-    startAdornment: <SearchCircleIcon className="w-5 text-gray-500" />,
+    startAdornment: (
+        <div className="flex w-24 h-12">
+            <Select
+                optionsList={{
+                    A: { label: '+50' },
+                    B: { label: '+52' }
+                }}
+                startAdornment={<PhoneIcon className="w-5" color="#ac62ac" />}
+                padding="0"
+                rounded="lg"
+                variant="none"
+                className="w-full"
+            />
+            <Divider vertical className="ml-2" />
+        </div>
+    ),
+    endAdornment: <SearchCircleIcon className="w-5" />,
+    message: 'Mensaje de ayuda',
     className: 'w-60',
-    variant: 'active'
+    variant: 'default',
+    large: true,
+    value: 'Valor'
 }
 export const InputCurrency = Template.bind({})
 InputCurrency.args = {

@@ -85,6 +85,9 @@ export * from './SideBar'
 export { default as Table } from './Table'
 export * from './Table'
 
+export { default as ProgressCircle } from './ProgressCircle'
+export * from './ProgressCircle'
+
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
