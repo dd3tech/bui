@@ -1,3 +1,10 @@
+# [4.12.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.11.1...v4.12.0) (2023-03-10)
+
+
+### Features
+
+* new styles for textarea and inputs ([34777b0](https://gitlab.com/dd3tech/dd360/dd360-components/commit/34777b0a8efe9cec641381040b5831b1e8bc3dbc))
+
 ## [4.11.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.11.0...v4.11.1) (2023-03-09)
 
 
