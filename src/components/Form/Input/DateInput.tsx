@@ -38,8 +38,8 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
 
     const handleChange = useCallback(
         (event: React.ChangeEvent<HTMLInputElement>) => {
-            const value = formatInput(event.target.value)
-            setDate(value)
+            event.target.value = formatInput(event.target.value)
+            setDate(event.target.value)
             onChange && onChange(event)
         },
         [onChange, date]
@@ -77,7 +77,6 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
         if (variant) return variant
         if (!date.length) return 'active'
         if (date.length < 10) return 'error'
-        if (currentDate.getFullYear() < 1000) return 'error'
         return 'active'
     }, [currentDate, variant])
 

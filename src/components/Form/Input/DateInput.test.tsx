@@ -1,4 +1,4 @@
-import { fireEvent, getByRole, getByTestId, render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { describe, it, vi } from 'vitest'
 import DateInput from './DateInput'
 
@@ -45,7 +45,8 @@ describe('<DateInput />', () => {
         const input = getByTestId('date-input') as HTMLInputElement
 
         fireEvent.change(input, { target: { value: '1001500' } })
-        expect(container.firstChild).toHaveClass('border-red-500')
+
+        expect(container.firstChild).toHaveClass('border-red-600')
     })
 
     describe('checking variant types', () => {
