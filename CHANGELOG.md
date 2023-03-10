@@ -1,3 +1,39 @@
+## [4.11.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.11.0...v4.11.1) (2023-03-09)
+
+
+### Bug Fixes
+
+* add exports progress-circle ([855d623](https://gitlab.com/dd3tech/dd360/dd360-components/commit/855d62390711befeed52f4a5516e10a41b6ed2cb))
+* add types-version ([b98ac8f](https://gitlab.com/dd3tech/dd360/dd360-components/commit/b98ac8f7a2080713488e7dd11f53cbdd5e6c6a00))
+
+# [4.11.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.10.0...v4.11.0) (2023-03-09)
+
+
+### Bug Fixes
+
+* change in import ([5d31c8c](https://gitlab.com/dd3tech/dd360/dd360-components/commit/5d31c8c81fcd2bef034c181f4a01066367b2624d))
+* change name role ([08d2939](https://gitlab.com/dd3tech/dd360/dd360-components/commit/08d2939544c7ff641631d9050f1d7d8bfb53a953))
+
+
+### Features
+
+* ProgressCircle ([bd5e9ae](https://gitlab.com/dd3tech/dd360/dd360-components/commit/bd5e9ae4b4ec05b15c9c4a54749c93a8b7ad9030))
+
+# [4.10.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.9.0...v4.10.0) (2023-03-09)
+
+
+### Features
+
+* add prop classNameContainer and add test for classNameContainer ([4483b94](https://gitlab.com/dd3tech/dd360/dd360-components/commit/4483b947f3eac91fba670e97cc9fb0ac07ccad92))
+* added stories of ToolTipHover and fixed the tooltip blinking error on element ([7ffdea6](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7ffdea63f6e48f46c8e2e3d044ba7886b7bbeea3))
+
+# [4.9.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.8.0...v4.9.0) (2023-03-07)
+
+
+### Features
+
+* added RefreshIcon to Badge and create stories the Badge ([a961df7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/a961df7fccfadd03de878b5275ee45eb14f943a0))
+
 # [4.8.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.7.1...v4.8.0) (2023-03-03)
 
 

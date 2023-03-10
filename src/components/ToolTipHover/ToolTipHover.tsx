@@ -15,6 +15,7 @@ interface IToolTipHover {
     disabled?: boolean
     styleElement?: any
     classNameElement?: string
+    classNameContainer?: string
 }
 
 const displayVariant: { [key: string]: string } = {
@@ -33,7 +34,8 @@ const ToolTipHover = ({
     complementPosition = { top: 0, left: 0 },
     disabled,
     styleElement,
-    classNameElement
+    classNameElement,
+    classNameContainer
 }: IToolTipHover) => {
     const [position, setPosition] = useState({ show: false, left: 0, top: 0 })
 
@@ -54,7 +56,7 @@ const ToolTipHover = ({
     }, [disabled])
 
     return (
-        <div onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseOver} className="inline-block">
+        <div onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseOver} className={classNameContainer || 'inline-block'} role="container-tooltip">
             {/* Element Hover */}
             <div role="element-tooltip" className={composeClasses('flex item-center justify-center', classNameElement)} style={styleElement}>
                 {element}
