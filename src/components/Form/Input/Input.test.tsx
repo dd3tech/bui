@@ -51,8 +51,14 @@ describe('<Input />', () => {
         expect(inputElement).toBeInTheDocument()
     })
 
-    it('renders BaseInput when type is not specified or is not a valid value', () => {
+    it('renders BaseInput when type is not specified', () => {
         const { getByTestId } = render(<Input data-testid="base-input" />)
+        const inputElement = getByTestId('base-input')
+        expect(inputElement).toBeInTheDocument()
+    })
+
+    it('renders BaseInput when when there is no custom input with the type', () => {
+        const { getByTestId } = render(<Input data-testid="base-input" type="file" />)
         const inputElement = getByTestId('base-input')
         expect(inputElement).toBeInTheDocument()
     })

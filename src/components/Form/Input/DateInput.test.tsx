@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, getByRole, getByTestId, render } from '@testing-library/react'
 import { describe, it, vi } from 'vitest'
 import DateInput from './DateInput'
 
@@ -22,11 +22,6 @@ describe('<DateInput />', () => {
     describe('checking variant types', () => {
         it('it should display the "active" variant correctly', () => {
             const { container } = render(<DateInput variant="active" data-testid="date-input" />)
-            expect(container.firstChild).toHaveClass('border-black')
-        })
-
-        it('it should display the "focus" variant correctly', () => {
-            const { container } = render(<DateInput variant="focus" data-testid="date-input" />)
             expect(container.firstChild).toHaveClass('border-blue-500')
         })
 
@@ -66,7 +61,7 @@ describe('<DateInput />', () => {
 
         fireEvent.change(input, { target: { value: '000' } })
         fireEvent.blur(input)
-        expect(container.firstChild).toHaveClass('border-red-500')
+        expect(container.firstChild).toHaveClass('border-red-600')
     })
 
     it('input onDateChange callback', () => {
@@ -88,5 +83,12 @@ describe('<DateInput />', () => {
 
         const month = `${TODAY.getMonth() + 1}`.padStart(2, '0')
         expect(input.value).toBe(`${TODAY.getDate().toString().padStart(2, '0')}/${month}/${TODAY.getFullYear() - 10}`)
+    })
+
+    it('props min and max', () => {
+        const { getByTestId } = render(<DateInput min="02/02/2023" max="27/02/2023" data-testid="date-input" />)
+
+        expect(getByTestId('date-input').getAttribute('min')).toBe('02/02/2023')
+        expect(getByTestId('date-input').getAttribute('max')).toBe('27/02/2023')
     })
 })

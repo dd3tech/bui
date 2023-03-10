@@ -1,6 +1,7 @@
-import { CheckCircleIcon, UserCircleIcon } from '@heroicons/react/outline'
 import { fireEvent, render } from '@testing-library/react'
 import { vi, describe, it } from 'vitest'
+import UserCircleIcon from '@heroicons/react/outline/UserCircleIcon'
+import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
 import BaseInput from './BaseInput'
 
 describe('<BaseInput />', () => {
@@ -59,14 +60,22 @@ describe('<BaseInput />', () => {
         expect(input.value).toBe('')
     })
 
+    it('should render the correct padding', () => {
+        const { getByRole } = render(<BaseInput data-testid="input" paddingX="3" paddingY="2" />)
+        const inputContainer = getByRole('input-container')
+        expect(inputContainer.className).toContain('px-3')
+        expect(inputContainer.className).toContain('py-2')
+    })
+
+    it('should render a large input', () => {
+        const { getByRole } = render(<BaseInput data-testid="input" large />)
+        const inputContainer = getByRole('input-container')
+        expect(inputContainer.className).toContain('h-13')
+    })
+
     describe('checking variant types', () => {
         it('it should display the "active" variant correctly', () => {
             const { container } = render(<BaseInput variant="active" />)
-            expect(container.firstChild).toHaveClass('border-black')
-        })
-
-        it('it should display the "focus" variant correctly', () => {
-            const { container } = render(<BaseInput variant="focus" />)
             expect(container.firstChild).toHaveClass('border-blue-500')
         })
 

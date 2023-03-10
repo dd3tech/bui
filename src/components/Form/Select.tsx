@@ -1,5 +1,5 @@
 import { HTMLProps, ReactNode, useEffect, useState } from 'react'
-import { Padding, Rounded, Size, Weight } from '../../interfaces/types'
+import { Padding, Rounded, Size, Weight, Width } from '../../interfaces/types'
 
 import { fontSize as textSize, fontWeight as textWeight } from 'lib/font'
 import { composeClasses } from 'lib/classes'
@@ -29,6 +29,7 @@ export interface ISelectProps extends HTMLProps<HTMLSelectElement> {
     fontSize?: Size
     fontWeight?: Weight
     optionsList: ISelectOptions
+    width?: Width
 }
 
 export const getSelectStates = (state: { error?: boolean; warning?: boolean; success?: boolean; disabled?: boolean }) => {
@@ -81,12 +82,14 @@ const Select = ({
     fontWeight = 'medium',
     optionsList,
     disabled,
+    width = 'full',
+    className,
     ...props
 }: ISelectProps) => {
     const { input, text } = getSelectStates({ error, warning, success, disabled })
     const [paddingLeft, setPaddingLeft] = useState('')
 
-    const className = composeClasses(
+    const classes = composeClasses(
         'absolute w-full h-full appearance-none bg-transparent px-4 left-0',
         'focus:outline-none',
         `rounded-${rounded}`,
@@ -96,7 +99,8 @@ const Select = ({
         input?.color,
         fontSize && `text-${fontSize}`,
         fontWeight && `font-${fontWeight}`,
-        disabled ? 'cursor-not-allowed' : 'cursor-pointer'
+        disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+        className
     )
 
     useEffect(() => {
@@ -109,32 +113,32 @@ const Select = ({
     }, [padding])
 
     return (
-        <div>
+        <>
             {label && <label className={composeClasses('block leading-none', spacing.sm.marginBottom, textSize.sm, textWeight.medium)}>{label}</label>}
             <div
                 role="group-select"
-                className={composeClasses('relative flex items-center', `p-${padding}`, startAdornment ? 'justify-between' : 'justify-end')}
+                className={composeClasses('w-full relative flex items-center', `p-${padding}`, startAdornment ? 'justify-between' : 'justify-end')}
             >
                 {startAdornment && (
                     <div data-testid="startAdornment" className={` ${text.color}`}>
                         {startAdornment}
                     </div>
                 )}
-                <select {...props} className={className} style={{ paddingLeft: paddingLeft }} disabled={disabled}>
+                <select {...props} className={classes} style={{ paddingLeft: paddingLeft, ...props.style }} disabled={disabled}>
                     {Object.entries(optionsList).map(([key, { label, disabled }]) => (
                         <option key={key} disabled={disabled} value={key}>
                             {label}
                         </option>
                     ))}
                 </select>
-                <div className={spacing.xxl.paddingRight}>
+                <div className={composeClasses(variant !== 'none' && spacing.xxl.paddingRight)}>
                     <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
                 </div>
             </div>
             {message && <p className={composeClasses(textSize.xs, spacing.sm.marginTop, spacing.sm.marginLeft, textWeight.medium, text.color)}>{message}</p>}
-        </div>
+        </>
     )
 }
 
