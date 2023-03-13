@@ -98,13 +98,14 @@ function BaseInput({
             !padding && paddingY && `py-${paddingY}`,
             input.color,
             large ? 'h-13' : 'h-12',
-            classNameAdornment
+            classNameAdornment,
+            className
         )
     }
 
     return (
         <>
-            <div role="input-container" className={styles.container}>
+            <div role="input-container" className={styles.container} style={otherProps.style}>
                 {startAdornment && (
                     <div data-testid="startAdornment" className={styles.adornment}>
                         {startAdornment}
