@@ -63,14 +63,17 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
 
     const currentDate = useMemo(() => {
         const dateArray = date.split('/')
-        const day = dateArray[0] || 1
-        const month = dateArray[1] || 1
-        const year = dateArray[2] || new Date().getFullYear()
-        const format = `${year}/${month}/${day}`
-
-        if (!isNaN(Date.parse(format))) return new Date(format)
-
-        return new Date()
+        let newDate = undefined
+        if (dateArray.length) {
+            const day = dateArray[0]
+            const month = dateArray[1]
+            const year = dateArray[2]
+            const format = `${year}/${month}/${day}`
+            if (!isNaN(Date.parse(format))) {
+                newDate = new Date(format)
+            }
+        }
+        return newDate
     }, [date])
 
     const showVariant = useMemo(() => {
