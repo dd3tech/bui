@@ -1,3 +1,10 @@
+## [4.12.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.0...v4.12.1) (2023-03-13)
+
+
+### Bug Fixes
+
+* className is added to the composeClasses of the input-container ([8d7fa3b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8d7fa3b4f9909b8774ab5619a0e1d6077e065e59))
+
 # [4.12.0](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.11.1...v4.12.0) (2023-03-10)
 
 
