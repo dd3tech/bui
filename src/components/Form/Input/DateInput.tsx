@@ -24,10 +24,10 @@ function getDateFormat(value: string) {
 
 function formatInput(date: string) {
     let inputText = date
-    inputText = inputText.replace(/[^\d/]/g, '')
-    inputText = inputText.replace(/\/{2,}/g, '/')
+    inputText = inputText.replace(/\D/g, '')
     if (inputText.length > 2 && inputText.charAt(2) !== '/') inputText = inputText.slice(0, 2) + '/' + inputText.slice(2, inputText.length)
     if (inputText.length > 5 && inputText.charAt(5) !== '/') inputText = inputText.slice(0, 5) + '/' + inputText.slice(5, inputText.length)
+
     return inputText.slice(0, 10)
 }
 
@@ -79,7 +79,9 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
     const showVariant = useMemo(() => {
         if (variant) return variant
         if (!date.length) return 'active'
-        if (date.length < 10) return 'error'
+        if (!currentDate) return 'error'
+        if (date?.length !== 10) return 'error'
+
         return 'active'
     }, [currentDate, variant])
 
@@ -98,7 +100,7 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
             className={composeClasses('relative', className)}
             endAdornment={
                 <>
-                    <button className="ml-2" role="active-calendar" type="button" disabled={disabled} onClick={handleToggleDatePicker}>
+                    <button role="active-calendar" type="button" disabled={disabled} onClick={handleToggleDatePicker}>
                         <CalendarIcon width={24} />
                     </button>
                     {showDatePicker && (
