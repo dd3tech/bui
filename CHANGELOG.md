@@ -1,3 +1,15 @@
+## [4.12.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.1...v4.12.2) (2023-03-13)
+
+
+### Bug Fixes
+
+* add function and change in validation ([8be5ae4](https://gitlab.com/dd3tech/dd360/dd360-components/commit/8be5ae48b68a038594d32774ede3a5fdc96230fe))
+* chage in validations ([cc2fec7](https://gitlab.com/dd3tech/dd360/dd360-components/commit/cc2fec75b2cdaaa3524a06af5de137313c35d37a))
+* change in test and resolve comments ([b02db16](https://gitlab.com/dd3tech/dd360/dd360-components/commit/b02db16d9d61c326c248e2168860f7638ffcda4c))
+* Component DateInput ([05be0ac](https://gitlab.com/dd3tech/dd360/dd360-components/commit/05be0acda24a1e04b64489e83ecbada4c064ea3f))
+* fix/date-input ([da56602](https://gitlab.com/dd3tech/dd360/dd360-components/commit/da56602663afc8eff9273140687cc8972ec5809d))
+* restored function date input ([6989d16](https://gitlab.com/dd3tech/dd360/dd360-components/commit/6989d16f49233539b9b8be304870698e9ed54d6a))
+
 ## [4.12.1](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.0...v4.12.1) (2023-03-13)
 
 
