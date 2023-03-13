@@ -22,6 +22,15 @@ function getDateFormat(value: string) {
     return newValue
 }
 
+function formatInput(date: string) {
+    let inputText = date
+    inputText = inputText.replace(/\D/g, '')
+    if (inputText.length > 2 && inputText.charAt(2) !== '/') inputText = inputText.slice(0, 2) + '/' + inputText.slice(2, inputText.length)
+    if (inputText.length > 5 && inputText.charAt(5) !== '/') inputText = inputText.slice(0, 5) + '/' + inputText.slice(5, inputText.length)
+
+    return inputText.slice(0, 10)
+}
+
 function DateInput({ className, value, onChange, language, disabled, variant, ...props }: InputProps) {
     const [showDatePicker, setShowDatePicker] = useState(false)
     const [date, setDate] = useState(getDateFormat(String(value ?? '')))
@@ -29,7 +38,7 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
 
     const handleChange = useCallback(
         (event: React.ChangeEvent<HTMLInputElement>) => {
-            event.target.value = getDateFormat(event.target.value)
+            event.target.value = formatInput(event.target.value)
             setDate(event.target.value)
             onChange && onChange(event)
         },
@@ -71,6 +80,8 @@ function DateInput({ className, value, onChange, language, disabled, variant, ..
         if (variant) return variant
         if (!date.length) return 'active'
         if (!currentDate) return 'error'
+        if (date?.length !== 10) return 'error'
+
         return 'active'
     }, [currentDate, variant])
 
