@@ -57,6 +57,7 @@ function BaseInput({
     size,
     large,
     boxShadow = 'lg',
+    style,
     ...otherProps
 }: InputProps) {
     const [focused, setFocused] = useState(false)
@@ -105,7 +106,7 @@ function BaseInput({
 
     return (
         <>
-            <div role="input-container" className={styles.container} style={otherProps.style}>
+            <div role="input-container" className={styles.container} style={style}>
                 {startAdornment && (
                     <div data-testid="startAdornment" className={styles.adornment}>
                         {startAdornment}
