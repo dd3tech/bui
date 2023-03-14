@@ -1,4 +1,4 @@
-import { HTMLProps, ReactNode, useEffect, useState } from 'react'
+import { SelectHTMLAttributes, ReactNode, useEffect, useState } from 'react'
 import { Padding, Rounded, Size, Weight, Width } from '../../interfaces/types'
 
 import { fontSize as textSize, fontWeight as textWeight } from 'lib/font'
@@ -15,7 +15,7 @@ export interface ISelectOptions {
     }
 }
 
-export interface ISelectProps extends HTMLProps<HTMLSelectElement> {
+export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     label?: string
     variant?: SelectVariant
     startAdornment?: ReactNode

@@ -1,9 +1,9 @@
-import { HTMLProps, ReactNode } from 'react'
+import { TextareaHTMLAttributes, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import { inputVariants, InputVariant as InputVariantType } from './shared'
 import { Padding, ShadowVariants } from '../../interfaces/types'
 
-export interface TextAreaProps extends HTMLProps<HTMLTextAreaElement> {
+export interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     variant?: InputVariantType
     label?: string
     message?: string
@@ -28,7 +28,6 @@ function TextArea({
     endAdornment,
     message,
     inputBlank,
-    size,
     large,
     boxShadow = 'lg',
     ...otherProps
@@ -38,7 +37,7 @@ function TextArea({
     const { input, text } = inputVariants[variant]
 
     const styles = {
-        adornment: composeClasses('text-gray-400 transition duration-500 ease-out max-h-6 focus:ease-in'),
+        adornment: composeClasses('text-gray-400 transition duration-500 ease-out max-h-6 focus:ease-in', classNameAdornment),
         container: composeClasses(
             'placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium relative',
             'border-solid border',
@@ -51,8 +50,7 @@ function TextArea({
             `py-${paddingY}`,
             input.borderColor,
             input.color,
-            variant === 'disabled' && 'bg-gray-100 text-gray-400 cursor-not-allowed',
-            classNameAdornment
+            variant === 'disabled' && 'bg-gray-100 text-gray-400 cursor-not-allowed'
         )
     }
 
