@@ -22,7 +22,6 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     language?: 'es' | 'en'
     large?: boolean
     boxShadow?: ShadowVariants
-    testId?: string
 }
 
 const IconStatus = ({ variant }: { variant: InputVariantType }) => {
@@ -58,7 +57,6 @@ function BaseInput({
     large,
     boxShadow = 'lg',
     style,
-    testId,
     ...otherProps
 }: InputProps) {
     const [focused, setFocused] = useState(false)
@@ -106,7 +104,7 @@ function BaseInput({
 
     return (
         <>
-            <div role="input-container" className={styles.container} style={style} data-testid={testId}>
+            <div role="input-container" className={styles.container} style={style}>
                 {startAdornment && (
                     <div data-testid="startAdornment" className={styles.adornment}>
                         {startAdornment}
