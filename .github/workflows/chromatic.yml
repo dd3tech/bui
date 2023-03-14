@@ -1,14 +1,13 @@
-name: 'Chromatic publish'
+name: Chromatic publish
 
 on:
-    workflow_run:
-        workflows: [Tests]
-        branches: [main]
-        types:
-            - completed
     push:
         branches:
             - main
+    paths:
+        - src/components/**/*
+        - src/stories/**/*
+        - .storybook/**/*
 
 jobs:
     chromatic-deployment:
