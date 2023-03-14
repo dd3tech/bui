@@ -1,0 +1,33 @@
+name: Release
+
+on:
+    workflow_run:
+        workflows: [Tests]
+        types: [completed]
+        branches: ['main']
+
+jobs:
+    release:
+        name: Release
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: '16'
+                  cache: npm
+                  registry-url: https://registry.npmjs.org
+            - name: install deps
+              run: npm i
+
+            - name: generate exports
+              run: npm run generate-exports
+
+            - name: build
+              run: npm run build-lib
+
+            - name: release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: npx semantic-release
