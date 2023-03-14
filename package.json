@@ -5,10 +5,10 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://gitlab.com/dd3tech/dd360/dd360-components"
+        "url": "https://github.com/dd3tech/dd360-components"
     },
     "bugs": {
-        "url": "https://gitlab.com/dd3tech/dd360/dd360-components/-/issues"
+        "url": "https://github.com/dd3tech/dd360-components/issues"
     },
     "keywords": [
         "tailwind components",
