@@ -1,4 +1,4 @@
-import { Gap } from 'interfaces/types'
+import { Gap } from '../../interfaces/types'
 import { composeClasses } from 'lib/classes'
 
 export interface NavbarGroupProps extends React.HTMLAttributes<HTMLDivElement> {

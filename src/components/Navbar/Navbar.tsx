@@ -1,4 +1,4 @@
-import { Padding, Rounded, ShadowVariants } from 'interfaces/types'
+import { Padding, Rounded, ShadowVariants } from '../../interfaces/types'
 import { composeClasses } from 'lib/classes'
 import NavbarBrand from './NavbarBrand'
 import NavbarCollapse from './NavbarCollapse/NavbarCollapse'

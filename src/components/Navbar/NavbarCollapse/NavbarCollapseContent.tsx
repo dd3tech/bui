@@ -1,5 +1,5 @@
 import { composeClasses } from 'lib/classes'
-import { AlignItems, Gap } from 'interfaces/types'
+import { AlignItems, Gap } from '../../../interfaces/types'
 import { NavbarContentActiveColor, NavbarContentVariants } from '../NavbarContent'
 import { NavbarContentProvider } from '../NavbarContentContext'
 import { useNavbarCollapseContext } from './NavbarCollapseContext'
