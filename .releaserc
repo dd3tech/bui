@@ -12,9 +12,9 @@
             }
         ],
         [
-            "@semantic-release/gitlab",
+            "@semantic-release/github",
             {
-                "gitlabUrl": "https://gitlab.com/dd3tech/dd360/dd360-components"
+                "githubUrl": "https://github.com/dd3tech/dd360-components"
             }
         ],
         "@semantic-release/npm",
