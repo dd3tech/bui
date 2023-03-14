@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, getByTestId, render } from '@testing-library/react'
 import { describe, it, vi } from 'vitest'
 import AutoComplete from './AutoComplete'
 
@@ -23,10 +23,10 @@ describe('<AutoComplete />', () => {
 
     describe('disabled', () => {
         it('should have the disabled class', () => {
-            const { getByRole } = render(<AutoComplete items={[]} disabled />)
+            const { getByRole, getByTestId } = render(<AutoComplete items={[]} disabled testId="autocomplete-id" />)
 
-            expect(getByRole('autocomplete').className).toContain('bg-gray-100')
-            expect(getByRole('autocomplete').className).toContain('opacity-30')
+            expect(getByTestId('autocomplete-id').className).toContain('bg-gray-100')
+            expect(getByTestId('autocomplete-id').className).toContain('opacity-30')
             expect(getByRole('autocomplete')).toHaveAttribute('disabled')
         })
 
