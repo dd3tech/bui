@@ -121,7 +121,7 @@ function BaseInput({
                     )}
                     <input
                         {...otherProps}
-                        className={composeClasses('outline-none w-full font-medium bg-transparent', className)}
+                        className={composeClasses('outline-none w-full font-medium bg-transparent')}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
                         style={{ cursor: 'inherit' }}
