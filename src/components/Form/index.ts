@@ -2,7 +2,7 @@ import Input from './Input'
 export default Input
 export * from './Input'
 
-export { default as TextArea } from './Select'
+export { default as TextArea } from './TextArea'
 export * from './TextArea'
 
 export { default as InputCurrency } from './InputCurrency'
