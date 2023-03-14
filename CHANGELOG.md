@@ -1,3 +1,10 @@
+## [4.12.5](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.4...v4.12.5) (2023-03-14)
+
+
+### Bug Fixes
+
+* the class passed by props for the input is removed ([7a9816c](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7a9816c7af648fcafee9da669fad5db0ded0846d))
+
 ## [4.12.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.3...v4.12.4) (2023-03-14)
 
 
