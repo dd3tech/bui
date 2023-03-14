@@ -1,3 +1,10 @@
+## [4.12.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.2...v4.12.3) (2023-03-14)
+
+
+### Bug Fixes
+
+* exports TextArea ([5ee8677](https://gitlab.com/dd3tech/dd360/dd360-components/commit/5ee8677f8e9df80eba4ebae1a951839dd1e0cb76))
+
 ## [4.12.2](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.1...v4.12.2) (2023-03-13)
 
 
