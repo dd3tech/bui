@@ -1,44 +1,13 @@
 image: node:16.15.1
 
 stages:
-    # - install
     - build
     - test
     - chromatic
     - release
 
-###############################################################################
-#     install                                                         #
-###############################################################################
-
-# install:
-#     stage: install
-#     only:
-#         - merge_requests
-#         - main
-#     before_script:
-#         - echo -e 'Warming up the cache'
-#     script:
-#         - npm i
-#     cache:
-#         key: $CI_PROJECT_ID
-#         policy: pull-push
-#         paths:
-#             - node_modules
-
-###############################################################################
-#     build                                                         #
-###############################################################################
-
 build:
     stage: build
-    # needs:
-    #     - install
-    # cache:
-    #     key: $CI_PROJECT_ID
-    #     policy: pull
-    #     paths:
-    #         - node_modules
     only:
         - merge_requests
         - main
@@ -46,8 +15,6 @@ build:
         - npm i
     script:
         - npm run build-lib
-    # dependencies:
-    #     - install
 
 ###############################################################################
 #     test                                                         #
@@ -56,13 +23,7 @@ build:
 test:
     stage: test
     needs:
-        # - install
         - build
-    # cache:
-    #     key: $CI_PROJECT_ID
-    #     policy: pull
-    #     paths:
-    #         - node_modules
     before_script:
         - npm i
     script:
@@ -81,24 +42,17 @@ test:
         - merge_requests
         - main
     dependencies:
-        # - install
         - build
 
-        ###############################################################################
+###############################################################################
 #     chromatic                                                         #
 ###############################################################################
 
 chromatic_publish:
     stage: chromatic
     needs:
-        # - install
         - build
         - test
-    # cache:
-    #     key: $CI_PROJECT_ID
-    #     policy: pull
-    #     paths:
-    #         - node_modules
     only:
         refs:
             - main
@@ -112,7 +66,6 @@ chromatic_publish:
         - npm run build-storybook
         - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-once-uploaded --exit-zero-on-changes
     dependencies:
-        # - install
         - build
         - test
 
