@@ -40,7 +40,7 @@ InputWithIcon.args = {
     ),
     endAdornment: <SearchCircleIcon className="w-5" />,
     message: 'Mensaje de ayuda',
-    className: 'w-60',
+    className: 'w-80',
     variant: 'default',
     large: true,
     value: 'Valor'
