@@ -1,3 +1,10 @@
+## [4.12.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.3...v4.12.4) (2023-03-14)
+
+
+### Bug Fixes
+
+* extends the specific interface for each element ([debac8b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/debac8bd1e4d86738cd4c8e84b51c12bcc17587b))
+
 ## [4.12.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.2...v4.12.3) (2023-03-14)
 
 
