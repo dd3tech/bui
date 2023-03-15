@@ -11,13 +11,8 @@
                 "changelogFile": "CHANGELOG.md"
             }
         ],
-        [
-            "@semantic-release/github",
-            {
-                "githubUrl": "https://github.com/dd3tech/dd360-components"
-            }
-        ],
         "@semantic-release/npm",
-        "@semantic-release/git"
+        "@semantic-release/git",
+        "@semantic-release/github"
     ]
 }
