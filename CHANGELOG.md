@@ -1,3 +1,10 @@
+## [4.12.7](https://github.com/dd3tech/dd360-components/compare/v4.12.6...v4.12.7) (2023-03-15)
+
+
+### Bug Fixes
+
+* add gh url on env ([0c14611](https://github.com/dd3tech/dd360-components/commit/0c146113ec1ddb210973143a2913bda134c7e819))
+
 ## [4.12.6](https://github.com/dd3tech/dd360-components/compare/v4.12.5...v4.12.6) (2023-03-15)
 
 
