@@ -1,3 +1,11 @@
+## [4.12.6](https://github.com/dd3tech/dd360-components/compare/v4.12.5...v4.12.6) (2023-03-15)
+
+
+### Bug Fixes
+
+* change file name ([a87fa67](https://github.com/dd3tech/dd360-components/commit/a87fa6770f69050d84b97e825f24bd49e54c9d0a))
+* change name of folder ([7a97876](https://github.com/dd3tech/dd360-components/commit/7a97876131e2a0bbd4da06ee100d1ef11870a1cf))
+
 ## [4.12.5](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.4...v4.12.5) (2023-03-14)
 
 
