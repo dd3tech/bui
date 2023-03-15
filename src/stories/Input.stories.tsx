@@ -43,7 +43,8 @@ InputWithIcon.args = {
     className: 'w-80',
     variant: 'default',
     large: true,
-    value: 'Valor'
+    value: 'Valor',
+    disabled: false
 }
 export const InputCurrency = Template.bind({})
 InputCurrency.args = {

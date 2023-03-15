@@ -1,3 +1,39 @@
+## [4.12.8](https://github.com/dd3tech/dd360-components/compare/v4.12.7...v4.12.8) (2023-03-15)
+
+
+### Bug Fixes
+
+* update semantic release ([419e2b5](https://github.com/dd3tech/dd360-components/commit/419e2b5fab86801ed584fda342a760f02435b38d))
+
+## [4.12.7](https://github.com/dd3tech/dd360-components/compare/v4.12.6...v4.12.7) (2023-03-15)
+
+
+### Bug Fixes
+
+* add gh url on env ([0c14611](https://github.com/dd3tech/dd360-components/commit/0c146113ec1ddb210973143a2913bda134c7e819))
+
+## [4.12.6](https://github.com/dd3tech/dd360-components/compare/v4.12.5...v4.12.6) (2023-03-15)
+
+
+### Bug Fixes
+
+* change file name ([a87fa67](https://github.com/dd3tech/dd360-components/commit/a87fa6770f69050d84b97e825f24bd49e54c9d0a))
+* change name of folder ([7a97876](https://github.com/dd3tech/dd360-components/commit/7a97876131e2a0bbd4da06ee100d1ef11870a1cf))
+
+## [4.12.5](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.4...v4.12.5) (2023-03-14)
+
+
+### Bug Fixes
+
+* the class passed by props for the input is removed ([7a9816c](https://gitlab.com/dd3tech/dd360/dd360-components/commit/7a9816c7af648fcafee9da669fad5db0ded0846d))
+
+## [4.12.4](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.3...v4.12.4) (2023-03-14)
+
+
+### Bug Fixes
+
+* extends the specific interface for each element ([debac8b](https://gitlab.com/dd3tech/dd360/dd360-components/commit/debac8bd1e4d86738cd4c8e84b51c12bcc17587b))
+
 ## [4.12.3](https://gitlab.com/dd3tech/dd360/dd360-components/compare/v4.12.2...v4.12.3) (2023-03-14)
 
 

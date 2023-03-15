@@ -1,4 +1,4 @@
-import { HTMLProps, ReactNode, useCallback, useState } from 'react'
+import { InputHTMLAttributes, ReactNode, useCallback, useState } from 'react'
 import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
 import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
 import InformationCircleIcon from '@heroicons/react/outline/InformationCircleIcon'
@@ -6,7 +6,7 @@ import { composeClasses } from 'lib/classes'
 import { inputVariants, InputVariant as InputVariantType, InputType, getClassesByPseudoClass } from '../shared'
 import { Padding, ShadowVariants } from '../../../interfaces/types'
 
-export interface InputProps extends HTMLProps<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     type?: InputType
     variant?: InputVariantType
     label?: string
@@ -54,7 +54,6 @@ function BaseInput({
     inputBlank,
     onFocus,
     onBlur,
-    size,
     large,
     boxShadow = 'lg',
     style,
@@ -82,7 +81,7 @@ function BaseInput({
     )
 
     const styles = {
-        adornment: composeClasses('text-gray-400 transition duration-500 ease-out focus:ease-in'),
+        adornment: composeClasses('text-gray-400 transition duration-500 ease-out focus:ease-in', classNameAdornment),
         container: composeClasses(
             'placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium',
             'border-solid border',
@@ -99,7 +98,6 @@ function BaseInput({
             !padding && paddingY && `py-${paddingY}`,
             input.color,
             large ? 'h-13' : 'h-12',
-            classNameAdornment,
             className
         )
     }
@@ -123,7 +121,7 @@ function BaseInput({
                     )}
                     <input
                         {...otherProps}
-                        className={composeClasses('outline-none w-full font-medium bg-transparent', className)}
+                        className={composeClasses('outline-none w-full font-medium bg-transparent')}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
                         style={{ cursor: 'inherit' }}

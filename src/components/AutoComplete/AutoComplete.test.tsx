@@ -25,8 +25,8 @@ describe('<AutoComplete />', () => {
         it('should have the disabled class', () => {
             const { getByRole } = render(<AutoComplete items={[]} disabled />)
 
-            expect(getByRole('autocomplete').className).toContain('bg-gray-100')
-            expect(getByRole('autocomplete').className).toContain('opacity-30')
+            expect(getByRole('input-container').className).toContain('bg-gray-100')
+            expect(getByRole('input-container').className).toContain('opacity-30')
             expect(getByRole('autocomplete')).toHaveAttribute('disabled')
         })
 

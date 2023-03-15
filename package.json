@@ -1,14 +1,14 @@
 {
     "name": "dd360-ds",
-    "version": "4.12.3",
+    "version": "4.12.8",
     "description": "DD360 Components is a tailwind based React component library",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://gitlab.com/dd3tech/dd360/dd360-components"
+        "url": "https://github.com/dd3tech/dd360-components"
     },
     "bugs": {
-        "url": "https://gitlab.com/dd3tech/dd360/dd360-components/-/issues"
+        "url": "https://github.com/dd3tech/dd360-components/issues"
     },
     "keywords": [
         "tailwind components",
@@ -73,7 +73,7 @@
         "@semantic-release/changelog": "^6.0.1",
         "@semantic-release/commit-analyzer": "^9.0.2",
         "@semantic-release/git": "^10.0.1",
-        "@semantic-release/gitlab": "^9.4.2",
+        "@semantic-release/github": "^8.0.7",
         "@semantic-release/npm": "^9.0.1",
         "@semantic-release/release-notes-generator": "^10.0.3",
         "@storybook/addon-actions": "6.5.10",
