@@ -1,3 +1,10 @@
+## [4.12.8](https://github.com/dd3tech/dd360-components/compare/v4.12.7...v4.12.8) (2023-03-15)
+
+
+### Bug Fixes
+
+* update semantic release ([419e2b5](https://github.com/dd3tech/dd360-components/commit/419e2b5fab86801ed584fda342a760f02435b38d))
+
 ## [4.12.7](https://github.com/dd3tech/dd360-components/compare/v4.12.6...v4.12.7) (2023-03-15)
 
 
