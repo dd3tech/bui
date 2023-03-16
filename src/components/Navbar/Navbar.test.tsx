@@ -4,7 +4,7 @@ import { getActiveVariants } from './NavbarLink'
 import { getActiveItemVariants } from './NavbarItem'
 import NavbarWrapper from './NavbarWrapper.mock'
 
-describe('<Navbar/>', () => {
+describe('<Navbar />', () => {
     let renderResult: RenderResult
 
     beforeEach(() => {

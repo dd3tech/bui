@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import GlobeAltIcon from '@heroicons/react/outline/GlobeAltIcon'
 import { composeClasses } from 'lib/classes'
 
@@ -28,11 +28,11 @@ const langName: { [key: string]: string } = {
 export function Language({ isNavbar, defaultLanguage, changeLanguage, getLangName, ...props }: LanguageProps) {
     const [language, setLanguage] = useState(defaultLanguage || 'es')
 
-    const toggleLanguage = () => {
+    const toggleLanguage = useCallback(() => {
         const lang = language === 'es' ? 'en' : 'es'
         changeLanguage && changeLanguage(lang)
         setLanguage(lang)
-    }
+    }, [changeLanguage, language])
 
     return (
         <div {...props} onClick={toggleLanguage} className="select-none flex items-center font-semibold cursor-pointer">

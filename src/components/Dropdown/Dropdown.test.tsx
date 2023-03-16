@@ -23,7 +23,7 @@ describe('<Navbar/>', () => {
         expect(container).toBeDefined()
     })
 
-    it('porps: disableAnimation', () => {
+    it('props: disableAnimation', () => {
         const { getByTestId } = renderResult
         const content = getByTestId('menu')
 
