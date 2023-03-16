@@ -1,3 +1,10 @@
+# [4.13.0](https://github.com/dd3tech/dd360-components/compare/v4.12.8...v4.13.0) (2023-03-16)
+
+
+### Features
+
+* add missing exports of components ([728d099](https://github.com/dd3tech/dd360-components/commit/728d099f9a94a5f378fab5560a04d5cf892cbec0))
+
 ## [4.12.8](https://github.com/dd3tech/dd360-components/compare/v4.12.7...v4.12.8) (2023-03-15)
 
 
