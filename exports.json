@@ -150,6 +150,11 @@
             "require": "./dist/cjs/components/Filters/index.js",
             "module": "./dist/esm/components/Filters/index.js",
             "default": "./dist/esm/components/Filters/index.js"
+        },
+        "./Select": {
+            "require": "./dist/cjs/components/Form/Select.js",
+            "module": "./dist/esm/components/Form/Select.js",
+            "default": "./dist/esm/components/Form/Select.js"
         }
     },
     "typesVersions": {
@@ -182,7 +187,8 @@
             "Radio": ["./dist/esm/components/Radio/index.d.ts"],
             "ProgressBar": ["./dist/esm/components/ProgressBar/index.d.ts"],
             "Kbd": ["./dist/esm/components/Kbd/index.d.ts"],
-            "Filters": ["./dist/esm/components/Filters/index.d.ts"]
+            "Filters": ["./dist/esm/components/Filters/index.d.ts"],
+            "Select": ["./dist/esm/components/Form/Select.d.ts"]
         }
     }
 }

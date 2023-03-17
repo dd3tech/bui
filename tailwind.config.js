@@ -17,6 +17,9 @@ module.exports = {
             height: {
                 13: '3.375rem'
             },
+            inset: {
+                13: '3.375rem'
+            },
             boxShadow: {
                 base: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)'
             }

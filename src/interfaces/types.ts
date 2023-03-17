@@ -178,6 +178,10 @@ const roundedValues = [
 
 export type Rounded = typeof roundedValues[number]
 
+const borderValues = ['0' /* 0px */, '2' /* 2px */, '4' /* 4px */, '8' /* 8px */] as const
+
+export type Border = typeof borderValues[number]
+
 /* --------------------------------- Shadow --------------------------------- */
 
 const shadowValues = ['sm', 'base', 'md', 'lg', 'xl', '2xl', 'inner', 'none'] as const

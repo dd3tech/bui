@@ -22,22 +22,7 @@ Input.args = {
 export const InputWithIcon = Template.bind({})
 InputWithIcon.args = {
     label: 'Con Icono',
-    startAdornment: (
-        <div className="flex w-24 h-12">
-            <Select
-                optionsList={{
-                    A: { label: '+50' },
-                    B: { label: '+52' }
-                }}
-                startAdornment={<PhoneIcon className="w-5" color="#ac62ac" />}
-                padding="0"
-                rounded="lg"
-                variant="none"
-                className="w-full"
-            />
-            <Divider vertical className="ml-2" />
-        </div>
-    ),
+    startAdornment: <SearchCircleIcon className="w-5" />,
     endAdornment: <SearchCircleIcon className="w-5" />,
     message: 'Mensaje de ayuda',
     className: 'w-80',
