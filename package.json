@@ -1,6 +1,6 @@
 {
     "name": "dd360-ds",
-    "version": "4.12.8",
+    "version": "4.13.0",
     "description": "DD360 Components is a tailwind based React component library",
     "license": "MIT",
     "repository": {
@@ -204,6 +204,76 @@
             "require": "./dist/cjs/components/ProgressCircle/index.js",
             "module": "./dist/esm/components/ProgressCircle/index.js",
             "default": "./dist/esm/components/ProgressCircle/index.js"
+        },
+        "./Avatar": {
+            "require": "./dist/cjs/components/Avatar/index.js",
+            "module": "./dist/esm/components/Avatar/index.js",
+            "default": "./dist/esm/components/Avatar/index.js"
+        },
+        "./Badge": {
+            "require": "./dist/cjs/components/Badge/index.js",
+            "module": "./dist/esm/components/Badge/index.js",
+            "default": "./dist/esm/components/Badge/index.js"
+        },
+        "./ConfirmDialog": {
+            "require": "./dist/cjs/components/ConfirmDialog/index.js",
+            "module": "./dist/esm/components/ConfirmDialog/index.js",
+            "default": "./dist/esm/components/ConfirmDialog/index.js"
+        },
+        "./Divider": {
+            "require": "./dist/cjs/components/Divider/index.js",
+            "module": "./dist/esm/components/Divider/index.js",
+            "default": "./dist/esm/components/Divider/index.js"
+        },
+        "./SideBar": {
+            "require": "./dist/cjs/components/SideBar/index.js",
+            "module": "./dist/esm/components/SideBar/index.js",
+            "default": "./dist/esm/components/SideBar/index.js"
+        },
+        "./Stepper": {
+            "require": "./dist/cjs/components/Stepper/index.js",
+            "module": "./dist/esm/components/Stepper/index.js",
+            "default": "./dist/esm/components/Stepper/index.js"
+        },
+        "./Switch": {
+            "require": "./dist/cjs/components/Switch/index.js",
+            "module": "./dist/esm/components/Switch/index.js",
+            "default": "./dist/esm/components/Switch/index.js"
+        },
+        "./Text": {
+            "require": "./dist/cjs/components/Typography/index.js",
+            "module": "./dist/esm/components/Typography/index.js",
+            "default": "./dist/esm/components/Typography/index.js"
+        },
+        "./Wrapper": {
+            "require": "./dist/cjs/components/Wrapper/index.js",
+            "module": "./dist/esm/components/Wrapper/index.js",
+            "default": "./dist/esm/components/Wrapper/index.js"
+        },
+        "./ToolTipHover": {
+            "require": "./dist/cjs/components/ToolTipHover/index.js",
+            "module": "./dist/esm/components/ToolTipHover/index.js",
+            "default": "./dist/esm/components/ToolTipHover/index.js"
+        },
+        "./Radio": {
+            "require": "./dist/cjs/components/Radio/index.js",
+            "module": "./dist/esm/components/Radio/index.js",
+            "default": "./dist/esm/components/Radio/index.js"
+        },
+        "./ProgressBar": {
+            "require": "./dist/cjs/components/ProgressBar/index.js",
+            "module": "./dist/esm/components/ProgressBar/index.js",
+            "default": "./dist/esm/components/ProgressBar/index.js"
+        },
+        "./Kbd": {
+            "require": "./dist/cjs/components/Kbd/index.js",
+            "module": "./dist/esm/components/Kbd/index.js",
+            "default": "./dist/esm/components/Kbd/index.js"
+        },
+        "./Filters": {
+            "require": "./dist/cjs/components/Filters/index.js",
+            "module": "./dist/esm/components/Filters/index.js",
+            "default": "./dist/esm/components/Filters/index.js"
         }
     },
     "typesVersions": {
@@ -252,6 +322,48 @@
             ],
             "ProgressCircle": [
                 "./dist/esm/components/ProgressCircle/index.d.ts"
+            ],
+            "Avatar": [
+                "./dist/esm/components/Avatar/index.d.ts"
+            ],
+            "Badge": [
+                "./dist/esm/components/Badge/index.d.ts"
+            ],
+            "ConfirmDialog": [
+                "./dist/esm/components/ConfirmDialog/index.d.ts"
+            ],
+            "Divider": [
+                "./dist/esm/components/Divider/index.d.ts"
+            ],
+            "SideBar": [
+                "./dist/esm/components/SideBar/index.d.ts"
+            ],
+            "Stepper": [
+                "./dist/esm/components/Stepper/index.d.ts"
+            ],
+            "Switch": [
+                "./dist/esm/components/Switch/index.d.ts"
+            ],
+            "Text": [
+                "./dist/esm/components/Typography/index.d.ts"
+            ],
+            "Wrapper": [
+                "./dist/esm/components/Wrapper/index.d.ts"
+            ],
+            "ToolTipHover": [
+                "./dist/esm/components/ToolTipHover/index.d.ts"
+            ],
+            "Radio": [
+                "./dist/esm/components/Radio/index.d.ts"
+            ],
+            "ProgressBar": [
+                "./dist/esm/components/ProgressBar/index.d.ts"
+            ],
+            "Kbd": [
+                "./dist/esm/components/Kbd/index.d.ts"
+            ],
+            "Filters": [
+                "./dist/esm/components/Filters/index.d.ts"
             ]
         }
     }

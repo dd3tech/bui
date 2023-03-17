@@ -83,17 +83,18 @@ function BaseInput({
     const styles = {
         adornment: composeClasses('text-gray-400 transition duration-500 ease-out focus:ease-in', classNameAdornment),
         container: composeClasses(
-            'placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium',
+            'gap-3 placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium',
             'border-solid border',
             'transition duration-500 ease-out focus:ease-in',
-            `hover:shadow-${boxShadow} hover:border-gray-500`,
+            `hover:shadow-${boxShadow} hover:border-gray-500 hover:bg-white`,
             className && disabled && getClassesByPseudoClass(className, 'disabled'),
             inputBlank && 'border-none',
             rounded && `rounded-${rounded}`,
             !['error', 'success', 'warning'].includes(variant) && focused && 'border-blue-500',
+            ['error', 'success', 'warning'].includes(variant) ? 'bg-white' : 'bg-gray-50',
             variant === 'disabled' && 'bg-gray-100 text-gray-400 cursor-not-allowed',
             input.borderColor,
-            padding,
+            padding && `p-${padding}`,
             !padding && paddingX && `px-${paddingX}`,
             !padding && paddingY && `py-${paddingY}`,
             input.color,
@@ -110,7 +111,7 @@ function BaseInput({
                         {startAdornment}
                     </div>
                 )}
-                <div className="flex flex-col mx-3.5 w-full">
+                <div className="flex flex-col w-full">
                     {label && (
                         <label
                             style={{ cursor: 'inherit' }}

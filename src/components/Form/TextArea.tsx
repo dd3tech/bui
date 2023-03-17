@@ -59,9 +59,9 @@ function TextArea({
             <div className="relative">
                 {label && (
                     <label
-                        style={{ cursor: 'inherit' }}
+                        style={{ cursor: 'inherit', zIndex: 1 }}
                         className={composeClasses(
-                            'z-10 w-full block text-xxs  font-medium leading-none absolute px-4 py-2',
+                            'w-full block text-xxs  font-medium leading-none absolute px-4 py-2',
                             variant !== 'disabled' ? 'text-gray-500' : 'text-gray-400',
                             `px-${paddingX}`,
                             `pt-${paddingY}`
