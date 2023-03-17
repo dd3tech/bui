@@ -1,3 +1,10 @@
+# [4.14.0](https://github.com/dd3tech/dd360-components/compare/v4.13.0...v4.14.0) (2023-03-17)
+
+
+### Features
+
+* the Select component is refactored ([657bdfd](https://github.com/dd3tech/dd360-components/commit/657bdfd39edc401c79680f8277c012ffbbea9bbb))
+
 # [4.13.0](https://github.com/dd3tech/dd360-components/compare/v4.12.8...v4.13.0) (2023-03-16)
 
 
