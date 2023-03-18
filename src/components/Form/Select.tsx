@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode, useCallback, useRef, useState } from 'react'
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react'
 import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
 import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
 import InformationCircleIcon from '@heroicons/react/outline/InformationCircleIcon'
@@ -7,7 +7,7 @@ import ChevronUpIcon from '@heroicons/react/outline/ChevronUpIcon'
 import { StyleObject } from 'lib/styles'
 import { composeClasses } from 'lib/classes'
 import { Padding, ShadowVariants } from '../../interfaces/types'
-import { inputVariants, InputVariant as SelectVariantType } from './shared'
+import { inputVariants, InputVariant as SelectVariantType, getAnimationLabel, getPaddingInput } from './shared'
 
 type ItemObj = {
     label?: string
@@ -56,7 +56,8 @@ const getAnimationStyle = (isOpen: boolean): StyleObject => {
         transition: 'opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
         transform: isOpen ? 'scaleY(1) translateY(0)' : 'scaleY(0.4) translateY(-5px)',
         opacity: isOpen ? 1 : 0,
-        transformOrigin: '100% 0%'
+        transformOrigin: '100% 0%',
+        maxHeight: '450px'
     }
 }
 
@@ -102,6 +103,7 @@ function Select({
     optionsList,
     name,
     value: selectedValue,
+    placeholder,
     ...otherProps
 }: SelectProps) {
     const [focused, setFocused] = useState(false)
@@ -119,10 +121,10 @@ function Select({
     const styles = {
         adornment: composeClasses('text-gray-400 transition duration-500 ease-out focus:ease-in', classNameAdornment),
         container: composeClasses(
-            'relative placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium gap-3',
+            'relative placeholder-gray-400 mt-1 flex items-center justify-between font-medium gap-3 cursor-pointer',
             'border-solid border',
             'transition duration-500 ease-out focus:ease-in',
-            `hover:shadow-${boxShadow} hover:border-gray-500`,
+            !isDisabled && `hover:shadow-${boxShadow} hover:border-gray-500`,
             noBorders && 'border-none',
             `rounded-${rounded}`,
             !['error', 'success', 'warning'].includes(variant) && focused && 'border-blue-500',
@@ -137,6 +139,8 @@ function Select({
             className
         )
     }
+
+    const isLabelScalded = !label || focused || selectedOpt.value !== ''
 
     const handleFocus = useCallback(
         (event: FocusEvent<HTMLInputElement>) => {
@@ -175,11 +179,14 @@ function Select({
                         {startAdornment}
                     </div>
                 )}
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full relative h-11">
                     {label && (
                         <label
-                            style={{ cursor: 'inherit' }}
-                            className={composeClasses('w-full block text-xxs  font-medium leading-none text-left', !isDisabled && 'text-gray-500')}
+                            style={getAnimationLabel(isLabelScalded)}
+                            className={composeClasses(
+                                'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis',
+                                !isDisabled && 'text-gray-500'
+                            )}
                         >
                             {label}
                         </label>
@@ -188,16 +195,21 @@ function Select({
                         <input
                             {...otherProps}
                             className={composeClasses('outline-none w-full font-medium bg-transparent text-transparent')}
+                            placeholder={isLabelScalded ? placeholder : ''}
                             onFocus={handleFocus}
                             onBlur={handleBlur}
-                            style={{
-                                cursor: 'inherit'
-                            }}
                             onChange={handleChange}
                             value={selectedOpt.value}
                             readOnly
+                            style={{
+                                cursor: 'inherit',
+                                ...getPaddingInput(!!label)
+                            }}
                         />
-                        <div className="absolute w-full h-full whitespace-nowrap overflow-hidden top-0 left-0 bg-transparent text-left" style={{ zIndex: -1 }}>
+                        <div
+                            className="absolute w-full h-full whitespace-nowrap overflow-hidden top-0 left-0 bg-transparent text-left"
+                            style={{ zIndex: -1, ...getPaddingInput(!!label) }}
+                        >
                             {selectedOpt.label}
                         </div>
                     </div>
@@ -208,7 +220,9 @@ function Select({
                 {['warning', 'error', 'success'].includes(variant) && <IconStatus variant={variant} />}
 
                 <div
-                    className={`absolute min-w-max left-0 top-${large ? '13' : '12'} z-10 w-full py-1 mt-1 bg-white rounded-${rounded} shadow-${boxShadow}`}
+                    className={`absolute min-w-max left-0 top-${
+                        large ? '13' : '12'
+                    } z-10 w-full py-1 mt-1 bg-white overflow-y-auto rounded-${rounded} shadow-${boxShadow}`}
                     style={getAnimationStyle(isOpen)}
                 >
                     {Object.entries(optionsList).map(([key, option]) => {

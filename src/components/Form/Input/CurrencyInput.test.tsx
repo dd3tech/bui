@@ -5,7 +5,7 @@ import CurrencyInput from './CurrencyInput'
 describe('<CurrencyInput />', () => {
     it('formats input value as currency', () => {
         const onChange = vi.fn()
-        const { getByTestId } = render(<CurrencyInput data-testid="input" onChange={onChange} value={0} />)
+        const { getByTestId } = render(<CurrencyInput data-testid="input" onChange={onChange} />)
         const input = getByTestId('input') as HTMLInputElement
 
         fireEvent.change(input, { target: { value: '12345.5' } })

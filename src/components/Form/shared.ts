@@ -1,3 +1,5 @@
+import { StyleObject } from 'lib/styles'
+
 export type InputType = 'text' | 'currency' | 'password' | 'email' | 'date' | 'year' | 'month' | 'number' | 'percentage' | 'file'
 
 export type InputVariant = 'default' | 'active' | 'success' | 'warning' | 'error' | 'disabled'
@@ -119,4 +121,22 @@ export function getClassesByPseudoClass(className: string, pseudoclass: string):
 
     // Join the resulting classes into a single string using the join method with the ' ' separator.
     return transformedClasses.join(' ')
+}
+
+export const getAnimationLabel = (isLabelScalded: boolean): StyleObject => {
+    return {
+        top: isLabelScalded ? 0 : 10,
+        fontSize: isLabelScalded ? 10 : 14,
+        fontWeight: isLabelScalded ? 400 : 700,
+        transformOrigin: 'left top',
+        transform: 'translate(0, 5px) scale(1)',
+        transition: 'all 300ms cubic-bezier(0.25, 0.8, 0.5, 1) 0s'
+    }
+}
+
+export const getPaddingInput = (hasLabel: boolean): StyleObject => {
+    return {
+        paddingTop: hasLabel ? 15 : 10,
+        paddingBottom: hasLabel ? 5 : 10
+    }
 }
