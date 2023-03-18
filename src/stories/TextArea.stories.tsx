@@ -16,6 +16,5 @@ TextArea.args = {
     endAdornment: <SearchCircleIcon className="w-5" />,
     message: 'Texto de ayuda',
     placeholder: 'Ejemplo',
-    className: 'w-60',
-    disabled: true
+    disabled: false
 }
