@@ -172,8 +172,8 @@ function Select({
     }, [variant])
 
     return (
-        <>
-            <div role="select-container" className={styles.container} style={{ zIndex: 2, ...style }} onClick={handleSelect}>
+        <div role="select-container-group" className="relative" onClick={handleSelect}>
+            <div role="select-container" className={styles.container} style={{ zIndex: 2, ...style }}>
                 {startAdornment && (
                     <div data-testid="startAdornment" className={styles.adornment}>
                         {startAdornment}
@@ -218,37 +218,36 @@ function Select({
                 <div>{isOpen ? <ChevronUpIcon className="text-gray-400" width={18} /> : <ChevronDownIcon className="text-gray-400" width={18} />}</div>
 
                 {['warning', 'error', 'success'].includes(variant) && <IconStatus variant={variant} />}
+            </div>
+            <div
+                className={`absolute min-w-max left-0 top-${
+                    large ? '13' : '12'
+                } z-10 w-full py-1 mt-1 bg-white overflow-y-auto rounded-${rounded} shadow-${boxShadow}`}
+                style={getAnimationStyle(isOpen)}
+            >
+                {Object.entries(optionsList).map(([key, option]) => {
+                    const txtLabel = getLabel(key, optionsList)
+                    const disabled = typeof option !== 'string' ? option.disabled : false
 
-                <div
-                    className={`absolute min-w-max left-0 top-${
-                        large ? '13' : '12'
-                    } z-10 w-full py-1 mt-1 bg-white overflow-y-auto rounded-${rounded} shadow-${boxShadow}`}
-                    style={getAnimationStyle(isOpen)}
-                >
-                    {Object.entries(optionsList).map(([key, option]) => {
-                        const txtLabel = getLabel(key, optionsList)
-                        const disabled = typeof option !== 'string' ? option.disabled : false
-
-                        return (
-                            <button
-                                key={key}
-                                type="button"
-                                className={composeClasses(
-                                    'block w-full px-3 py-2 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-100',
-                                    typeof option !== 'string' && disabled && 'cursor-not-allowed opacity-50',
-                                    key === selectedOpt.value && 'bg-blue-50'
-                                )}
-                                onClick={() => handleChange({ target: { value: key } } as ChangeEvent<HTMLInputElement>)}
-                                disabled={disabled}
-                            >
-                                {txtLabel}
-                            </button>
-                        )
-                    })}
-                </div>
+                    return (
+                        <button
+                            key={key}
+                            type="button"
+                            className={composeClasses(
+                                'block w-full px-3 py-2 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-100',
+                                typeof option !== 'string' && disabled && 'cursor-not-allowed opacity-50',
+                                key === selectedOpt.value && 'bg-blue-50'
+                            )}
+                            onClick={() => handleChange({ target: { value: key } } as ChangeEvent<HTMLInputElement>)}
+                            disabled={disabled}
+                        >
+                            {txtLabel}
+                        </button>
+                    )
+                })}
             </div>
             {message && <p className={composeClasses('text-xs mt-1 ml-2', text.color)}>{message}</p>}
-        </>
+        </div>
     )
 }
 

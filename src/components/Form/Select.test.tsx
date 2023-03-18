@@ -43,28 +43,28 @@ describe('<Select />', () => {
 
     it('should be applied success styles when success prop is passed', () => {
         const { container } = render(<Select variant="success" optionsList={optionsList} />)
-        expect(container.firstChild).toHaveClass('border-green-500')
+        expect(container.firstChild?.firstChild).toHaveClass('border-green-500')
     })
 
     it('should be applied error styles when error prop is passed', () => {
         const { container } = render(<Select variant="error" optionsList={optionsList} />)
-        expect(container.firstChild).toHaveClass('border-red-600')
+        expect(container.firstChild?.firstChild).toHaveClass('border-red-600')
     })
 
     it('should be applied warning styles when warning prop is passed', () => {
         const { container } = render(<Select variant="warning" optionsList={optionsList} />)
-        expect(container.firstChild).toHaveClass('border-yellow-500')
+        expect(container.firstChild?.firstChild).toHaveClass('border-yellow-500')
     })
 
     describe('prop disabled', () => {
         it('should be applied disabled styles when disabled prop is passed', () => {
             const { container } = render(<Select disabled optionsList={optionsList} />)
-            expect(container.firstChild).toHaveClass('border-gray-300')
+            expect(container.firstChild?.firstChild).toHaveClass('border-gray-300')
         })
 
         it('should be applied disabled styles when the variant is disabled', () => {
             const { container } = render(<Select variant="disabled" optionsList={optionsList} />)
-            expect(container.firstChild).toHaveClass('border-gray-300')
+            expect(container.firstChild?.firstChild).toHaveClass('border-gray-300')
         })
     })
 
