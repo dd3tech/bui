@@ -1,3 +1,10 @@
+## [4.14.1](https://github.com/dd3tech/dd360-components/compare/v4.14.0...v4.14.1) (2023-03-18)
+
+
+### Bug Fixes
+
+* animation is added to the select, inputs and textarea ([55518aa](https://github.com/dd3tech/dd360-components/commit/55518aabfe9439b41d877485a70d8adffed9e927))
+
 # [4.14.0](https://github.com/dd3tech/dd360-components/compare/v4.13.0...v4.14.0) (2023-03-17)
 
 
