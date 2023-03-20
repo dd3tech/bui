@@ -1,3 +1,10 @@
+## [4.14.2](https://github.com/dd3tech/dd360-components/compare/v4.14.1...v4.14.2) (2023-03-20)
+
+
+### Bug Fixes
+
+* dropdown was not overlapping certain items ([c88feff](https://github.com/dd3tech/dd360-components/commit/c88feff78f9dc1b05d9bab6e225c6868e80b6b1f))
+
 ## [4.14.1](https://github.com/dd3tech/dd360-components/compare/v4.14.0...v4.14.1) (2023-03-18)
 
 
