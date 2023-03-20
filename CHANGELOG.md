@@ -1,3 +1,11 @@
+## [4.14.4](https://github.com/dd3tech/dd360-components/compare/v4.14.3...v4.14.4) (2023-03-20)
+
+
+### Bug Fixes
+
+* a validation was added for the scroll of the tabs ([e575127](https://github.com/dd3tech/dd360-components/commit/e57512763148db3b9ccbc9c5b135c8823eb47961))
+* **TabGroup:** validation was added for the scroll of the tabs ([2d49883](https://github.com/dd3tech/dd360-components/commit/2d498832fbe313b22e417d78a59ae6b7b68a90bc))
+
 ## [4.14.3](https://github.com/dd3tech/dd360-components/compare/v4.14.2...v4.14.3) (2023-03-20)
 
 
