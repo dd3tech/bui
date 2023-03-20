@@ -103,6 +103,9 @@ function TabGroup({
             const newValue = nodes.indexOf(event.target) ?? 0
             handleChangeIndicator(newValue)
             onChange && onChange(newValue)
+
+            const tabElement = nodes[newValue] as HTMLElement
+            if (tabElement) tabElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
         },
         [refContainer, handleChangeIndicator]
     )
@@ -130,7 +133,7 @@ function TabGroup({
     }, [orientation, variant, wideLine])
 
     return (
-        <div style={{ width }} className="relative overflow-auto">
+        <div style={{ width, scrollbarWidth: 'none' }} className="relative overflow-scroll">
             <div
                 {...otherProps}
                 ref={refContainer}
