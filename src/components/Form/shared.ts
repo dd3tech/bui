@@ -1,4 +1,4 @@
-import { StyleObject } from 'lib/styles'
+import { StyleObject } from '../../lib/styles'
 
 export type InputType = 'text' | 'currency' | 'password' | 'email' | 'date' | 'year' | 'month' | 'number' | 'percentage' | 'file'
 
