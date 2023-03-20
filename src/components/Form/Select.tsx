@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode, useCallback, useState } from 'react'
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react'
 import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
 import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
 import InformationCircleIcon from '@heroicons/react/outline/InformationCircleIcon'
@@ -64,7 +64,7 @@ const getAnimationStyle = (isOpen: boolean): StyleObject => {
 export const getLabel = (key: HTMLInputElement['value'], optionsList: ISelectOptions) => {
     if (!optionsList[key]) return ''
 
-    if (typeof optionsList[key] === 'string') return optionsList[key]
+    if (typeof optionsList[key] === 'string') return optionsList[key] as string
 
     const item = optionsList[key] as ItemObj
     if (item.label) return item.label
@@ -106,17 +106,17 @@ function Select({
     placeholder,
     ...otherProps
 }: SelectProps) {
-    const [focused, setFocused] = useState(false)
-    const [isOpen, setIsOpen] = useState(false)
-    selectedValue = selectedValue || getSelectedKey(optionsList)
-    const [selectedOpt, setSelectedOpt] = useState({
-        value: optionsList[`${selectedValue}`] ? selectedValue : '',
-        label: selectedValue ? getLabel(selectedValue.toString(), optionsList) : ''
-    })
     const { disabled } = otherProps
     variant = disabled ? 'disabled' : variant
     const isDisabled = variant === 'disabled'
     const { input, text } = inputVariants[variant]
+
+    const [focused, setFocused] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
+    const [selectedOpt, setSelectedOpt] = useState<{ value: string; label: string }>({
+        value: '',
+        label: ''
+    })
 
     const styles = {
         adornment: composeClasses('text-gray-400 transition duration-500 ease-out focus:ease-in', classNameAdornment),
@@ -160,7 +160,7 @@ function Select({
 
     const handleChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
-            const label = getLabel(event.target.value, optionsList)
+            const label = getLabel(event.target.value, optionsList) as string
             setSelectedOpt({ value: event.target.value, label })
             onChange && onChange({ target: { value: event.target.value, name } } as ChangeEvent<HTMLInputElement>)
         },
@@ -170,6 +170,17 @@ function Select({
     const handleSelect = useCallback(() => {
         !isDisabled && setIsOpen((prev) => !prev)
     }, [variant])
+
+    useEffect(() => {
+        const keyValue = selectedValue || getSelectedKey(optionsList)
+        const value = (optionsList[`${keyValue}`] ? keyValue : '') as string
+        const label = keyValue ? getLabel(keyValue.toString(), optionsList) : ''
+
+        setSelectedOpt({
+            value,
+            label
+        })
+    }, [selectedValue, optionsList])
 
     return (
         <div role="select-container-group" className="relative" onClick={handleSelect}>
