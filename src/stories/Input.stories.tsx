@@ -1,16 +1,22 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import InputComponent from '../components/Form/Input'
-import { SearchCircleIcon, PhoneIcon } from '@heroicons/react/outline'
-import Select from '../components/Form/Select'
-import Divider from '../components/Divider/Divider'
+import { SearchCircleIcon } from '@heroicons/react/outline'
 
 export default {
     title: 'Form/Input',
     component: InputComponent
 } as ComponentMeta<typeof InputComponent>
 
-const Template: ComponentStory<typeof InputComponent> = (args) => <InputComponent {...args} />
+const Template: ComponentStory<typeof InputComponent> = (args) => {
+    const [value, setValue] = React.useState('')
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value)
+    }
+
+    return <InputComponent {...args} value={value} onChange={handleChange} />
+}
 
 export const Input = Template.bind({})
 Input.args = {
@@ -29,7 +35,8 @@ InputWithIcon.args = {
     variant: 'default',
     large: true,
     value: 'Valor',
-    disabled: false
+    disabled: false,
+    placeholder: 'Placeholder'
 }
 export const InputCurrency = Template.bind({})
 InputCurrency.args = {
