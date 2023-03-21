@@ -1,194 +1,224 @@
 {
-    "exports": {
-        ".": {
-            "require": "./dist/cjs/index.js",
-            "module": "./dist/esm/index.js",
-            "default": "./dist/esm/index.js"
-        },
-        "./lib": {
-            "require": "./dist/cjs/lib/index.js",
-            "module": "./dist/esm/lib/index.js",
-            "default": "./dist/esm/lib/index.js"
-        },
-        "./DynamicHeroIcon": {
-            "require": "./dist/cjs/common/DynamicHeroIcon/index.js",
-            "module": "./dist/esm/common/DynamicHeroIcon/index.js",
-            "default": "./dist/esm/common/DynamicHeroIcon/index.js"
-        },
-        "./Portal": {
-            "require": "./dist/cjs/common/Portal/index.js",
-            "module": "./dist/esm/common/Portal/index.js",
-            "default": "./dist/esm/common/Portal/index.js"
-        },
-        "./dd360.css": {
-            "require": "./dist/cjs/dd360.css",
-            "module": "./dist/esm/dd360.css",
-            "default": "./dist/esm/dd360.css",
-            "css": "./dist/esm/dd360.css"
-        },
-        "./Spinner": {
-            "require": "./dist/cjs/components/Spinner/index.js",
-            "module": "./dist/esm/components/Spinner/index.js",
-            "default": "./dist/esm/components/Spinner/index.js"
-        },
-        "./Modal": {
-            "require": "./dist/cjs/components/Modal/index.js",
-            "module": "./dist/esm/components/Modal/index.js",
-            "default": "./dist/esm/components/Modal/index.js"
-        },
-        "./Buttons": {
-            "require": "./dist/cjs/components/Buttons/index.js",
-            "module": "./dist/esm/components/Buttons/index.js",
-            "default": "./dist/esm/components/Buttons/index.js"
-        },
-        "./FileViewer": {
-            "require": "./dist/cjs/components/FileViewer/index.js",
-            "module": "./dist/esm/components/FileViewer/index.js",
-            "default": "./dist/esm/components/FileViewer/index.js"
-        },
-        "./Breadcrumbs": {
-            "require": "./dist/cjs/components/Breadcrumbs/index.js",
-            "module": "./dist/esm/components/Breadcrumbs/index.js",
-            "default": "./dist/esm/components/Breadcrumbs/index.js"
-        },
-        "./Pagination": {
-            "require": "./dist/cjs/components/Pagination/index.js",
-            "module": "./dist/esm/components/Pagination/index.js",
-            "default": "./dist/esm/components/Pagination/index.js"
-        },
-        "./DatePicker": {
-            "require": "./dist/cjs/components/DatePicker/index.js",
-            "module": "./dist/esm/components/DatePicker/index.js",
-            "default": "./dist/esm/components/DatePicker/index.js"
-        },
-        "./Input": {
-            "require": "./dist/cjs/components/Form/Input/index.js",
-            "module": "./dist/esm/components/Form/Input/index.js",
-            "default": "./dist/esm/components/Form/Input/index.js"
-        },
-        "./InputFile": {
-            "require": "./dist/cjs/components/Form/Input/InputFile.js",
-            "module": "./dist/esm/components/Form/Input/InputFile.js",
-            "default": "./dist/esm/components/Form/Input/InputFile.js"
-        },
-        "./Table": {
-            "require": "./dist/cjs/components/Table/index.js",
-            "module": "./dist/esm/components/Table/index.js",
-            "default": "./dist/esm/components/Table/index.js"
-        },
-        "./ProgressCircle": {
-            "require": "./dist/cjs/components/ProgressCircle/index.js",
-            "module": "./dist/esm/components/ProgressCircle/index.js",
-            "default": "./dist/esm/components/ProgressCircle/index.js"
-        },
-        "./Avatar": {
-            "require": "./dist/cjs/components/Avatar/index.js",
-            "module": "./dist/esm/components/Avatar/index.js",
-            "default": "./dist/esm/components/Avatar/index.js"
-        },
-        "./Badge": {
-            "require": "./dist/cjs/components/Badge/index.js",
-            "module": "./dist/esm/components/Badge/index.js",
-            "default": "./dist/esm/components/Badge/index.js"
-        },
-        "./ConfirmDialog": {
-            "require": "./dist/cjs/components/ConfirmDialog/index.js",
-            "module": "./dist/esm/components/ConfirmDialog/index.js",
-            "default": "./dist/esm/components/ConfirmDialog/index.js"
-        },
-        "./Divider": {
-            "require": "./dist/cjs/components/Divider/index.js",
-            "module": "./dist/esm/components/Divider/index.js",
-            "default": "./dist/esm/components/Divider/index.js"
-        },
-        "./SideBar": {
-            "require": "./dist/cjs/components/SideBar/index.js",
-            "module": "./dist/esm/components/SideBar/index.js",
-            "default": "./dist/esm/components/SideBar/index.js"
-        },
-        "./Stepper": {
-            "require": "./dist/cjs/components/Stepper/index.js",
-            "module": "./dist/esm/components/Stepper/index.js",
-            "default": "./dist/esm/components/Stepper/index.js"
-        },
-        "./Switch": {
-            "require": "./dist/cjs/components/Switch/index.js",
-            "module": "./dist/esm/components/Switch/index.js",
-            "default": "./dist/esm/components/Switch/index.js"
-        },
-        "./Text": {
-            "require": "./dist/cjs/components/Typography/index.js",
-            "module": "./dist/esm/components/Typography/index.js",
-            "default": "./dist/esm/components/Typography/index.js"
-        },
-        "./Wrapper": {
-            "require": "./dist/cjs/components/Wrapper/index.js",
-            "module": "./dist/esm/components/Wrapper/index.js",
-            "default": "./dist/esm/components/Wrapper/index.js"
-        },
-        "./ToolTipHover": {
-            "require": "./dist/cjs/components/ToolTipHover/index.js",
-            "module": "./dist/esm/components/ToolTipHover/index.js",
-            "default": "./dist/esm/components/ToolTipHover/index.js"
-        },
-        "./Radio": {
-            "require": "./dist/cjs/components/Radio/index.js",
-            "module": "./dist/esm/components/Radio/index.js",
-            "default": "./dist/esm/components/Radio/index.js"
-        },
-        "./ProgressBar": {
-            "require": "./dist/cjs/components/ProgressBar/index.js",
-            "module": "./dist/esm/components/ProgressBar/index.js",
-            "default": "./dist/esm/components/ProgressBar/index.js"
-        },
-        "./Kbd": {
-            "require": "./dist/cjs/components/Kbd/index.js",
-            "module": "./dist/esm/components/Kbd/index.js",
-            "default": "./dist/esm/components/Kbd/index.js"
-        },
-        "./Filters": {
-            "require": "./dist/cjs/components/Filters/index.js",
-            "module": "./dist/esm/components/Filters/index.js",
-            "default": "./dist/esm/components/Filters/index.js"
-        },
-        "./Select": {
-            "require": "./dist/cjs/components/Form/Select.js",
-            "module": "./dist/esm/components/Form/Select.js",
-            "default": "./dist/esm/components/Form/Select.js"
-        }
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "module": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
     },
-    "typesVersions": {
-        "*": {
-            ".": ["./dist/esm/index.d.ts"],
-            "lib": ["./dist/esm/lib/index.d.ts"],
-            "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
-            "Buttons": ["./dist/esm/components/Buttons/index.d.ts"],
-            "DatePicker": ["./dist/esm/components/DatePicker/index.d.ts"],
-            "DynamicHeroIcon": ["./dist/esm/common/DynamicHeroIcon/index.d.ts"],
-            "FileViewer": ["./dist/esm/components/FileViewer/index.d.ts"],
-            "Input": ["./dist/esm/components/Input/index.d.ts"],
-            "InputFile": ["./dist/esm/components/Input/InputFile.d.ts"],
-            "Modal": ["./dist/esm/components/Modal/index.js"],
-            "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
-            "Portal": ["./dist/esm/common/Portal/index.d.ts"],
-            "Spinner": ["./dist/esm/components/Spinner/index.d.ts"],
-            "Table": ["./dist/esm/components/Table/index.d.ts"],
-            "ProgressCircle": ["./dist/esm/components/ProgressCircle/index.d.ts"],
-            "Avatar": ["./dist/esm/components/Avatar/index.d.ts"],
-            "Badge": ["./dist/esm/components/Badge/index.d.ts"],
-            "ConfirmDialog": ["./dist/esm/components/ConfirmDialog/index.d.ts"],
-            "Divider": ["./dist/esm/components/Divider/index.d.ts"],
-            "SideBar": ["./dist/esm/components/SideBar/index.d.ts"],
-            "Stepper": ["./dist/esm/components/Stepper/index.d.ts"],
-            "Switch": ["./dist/esm/components/Switch/index.d.ts"],
-            "Text": ["./dist/esm/components/Typography/index.d.ts"],
-            "Wrapper": ["./dist/esm/components/Wrapper/index.d.ts"],
-            "ToolTipHover": ["./dist/esm/components/ToolTipHover/index.d.ts"],
-            "Radio": ["./dist/esm/components/Radio/index.d.ts"],
-            "ProgressBar": ["./dist/esm/components/ProgressBar/index.d.ts"],
-            "Kbd": ["./dist/esm/components/Kbd/index.d.ts"],
-            "Filters": ["./dist/esm/components/Filters/index.d.ts"],
-            "Select": ["./dist/esm/components/Form/Select.d.ts"]
-        }
+    "./lib": {
+      "require": "./dist/cjs/lib/index.js",
+      "module": "./dist/esm/lib/index.js",
+      "default": "./dist/esm/lib/index.js"
+    },
+    "./DynamicHeroIcon": {
+      "require": "./dist/cjs/common/DynamicHeroIcon/index.js",
+      "module": "./dist/esm/common/DynamicHeroIcon/index.js",
+      "default": "./dist/esm/common/DynamicHeroIcon/index.js"
+    },
+    "./Portal": {
+      "require": "./dist/cjs/common/Portal/index.js",
+      "module": "./dist/esm/common/Portal/index.js",
+      "default": "./dist/esm/common/Portal/index.js"
+    },
+    "./dd360.css": {
+      "require": "./dist/cjs/dd360.css",
+      "module": "./dist/esm/dd360.css",
+      "default": "./dist/esm/dd360.css",
+      "css": "./dist/esm/dd360.css"
+    },
+    "./Spinner": {
+      "require": "./dist/cjs/components/Spinner/index.js",
+      "module": "./dist/esm/components/Spinner/index.js",
+      "default": "./dist/esm/components/Spinner/index.js"
+    },
+    "./Modal": {
+      "require": "./dist/cjs/components/Modal/index.js",
+      "module": "./dist/esm/components/Modal/index.js",
+      "default": "./dist/esm/components/Modal/index.js"
+    },
+    "./Buttons": {
+      "require": "./dist/cjs/components/Buttons/index.js",
+      "module": "./dist/esm/components/Buttons/index.js",
+      "default": "./dist/esm/components/Buttons/index.js"
+    },
+    "./Button": {
+      "require": "./dist/cjs/components/Buttons/Button.js",
+      "module": "./dist/esm/components/Buttons/Button.js",
+      "default": "./dist/esm/components/Buttons/Button.js"
+    },
+    "./ButtonGroup": {
+      "require": "./dist/cjs/components/Buttons/ButtonGroup.js",
+      "module": "./dist/esm/components/Buttons/ButtonGroup.js",
+      "default": "./dist/esm/components/Buttons/ButtonGroup.js"
+    },
+    "./ActiveButton": {
+      "require": "./dist/cjs/components/Buttons/ActiveButton.js",
+      "module": "./dist/esm/components/Buttons/ActiveButton.js",
+      "default": "./dist/esm/components/Buttons/ActiveButton.js"
+    },
+    "./ShapeButton": {
+      "require": "./dist/cjs/components/Buttons/ShapeButton.js",
+      "module": "./dist/esm/components/Buttons/ShapeButton.js",
+      "default": "./dist/esm/components/Buttons/ShapeButton.js"
+    },
+    "./FileViewer": {
+      "require": "./dist/cjs/components/FileViewer/index.js",
+      "module": "./dist/esm/components/FileViewer/index.js",
+      "default": "./dist/esm/components/FileViewer/index.js"
+    },
+    "./Breadcrumbs": {
+      "require": "./dist/cjs/components/Breadcrumbs/index.js",
+      "module": "./dist/esm/components/Breadcrumbs/index.js",
+      "default": "./dist/esm/components/Breadcrumbs/index.js"
+    },
+    "./Pagination": {
+      "require": "./dist/cjs/components/Pagination/index.js",
+      "module": "./dist/esm/components/Pagination/index.js",
+      "default": "./dist/esm/components/Pagination/index.js"
+    },
+    "./DatePicker": {
+      "require": "./dist/cjs/components/DatePicker/index.js",
+      "module": "./dist/esm/components/DatePicker/index.js",
+      "default": "./dist/esm/components/DatePicker/index.js"
+    },
+    "./Input": {
+      "require": "./dist/cjs/components/Form/Input/index.js",
+      "module": "./dist/esm/components/Form/Input/index.js",
+      "default": "./dist/esm/components/Form/Input/index.js"
+    },
+    "./InputFile": {
+      "require": "./dist/cjs/components/Form/Input/InputFile.js",
+      "module": "./dist/esm/components/Form/Input/InputFile.js",
+      "default": "./dist/esm/components/Form/Input/InputFile.js"
+    },
+    "./Table": {
+      "require": "./dist/cjs/components/Table/index.js",
+      "module": "./dist/esm/components/Table/index.js",
+      "default": "./dist/esm/components/Table/index.js"
+    },
+    "./ProgressCircle": {
+      "require": "./dist/cjs/components/ProgressCircle/index.js",
+      "module": "./dist/esm/components/ProgressCircle/index.js",
+      "default": "./dist/esm/components/ProgressCircle/index.js"
+    },
+    "./Avatar": {
+      "require": "./dist/cjs/components/Avatar/index.js",
+      "module": "./dist/esm/components/Avatar/index.js",
+      "default": "./dist/esm/components/Avatar/index.js"
+    },
+    "./Badge": {
+      "require": "./dist/cjs/components/Badge/index.js",
+      "module": "./dist/esm/components/Badge/index.js",
+      "default": "./dist/esm/components/Badge/index.js"
+    },
+    "./ConfirmDialog": {
+      "require": "./dist/cjs/components/ConfirmDialog/index.js",
+      "module": "./dist/esm/components/ConfirmDialog/index.js",
+      "default": "./dist/esm/components/ConfirmDialog/index.js"
+    },
+    "./Divider": {
+      "require": "./dist/cjs/components/Divider/index.js",
+      "module": "./dist/esm/components/Divider/index.js",
+      "default": "./dist/esm/components/Divider/index.js"
+    },
+    "./SideBar": {
+      "require": "./dist/cjs/components/SideBar/index.js",
+      "module": "./dist/esm/components/SideBar/index.js",
+      "default": "./dist/esm/components/SideBar/index.js"
+    },
+    "./Stepper": {
+      "require": "./dist/cjs/components/Stepper/index.js",
+      "module": "./dist/esm/components/Stepper/index.js",
+      "default": "./dist/esm/components/Stepper/index.js"
+    },
+    "./Switch": {
+      "require": "./dist/cjs/components/Switch/index.js",
+      "module": "./dist/esm/components/Switch/index.js",
+      "default": "./dist/esm/components/Switch/index.js"
+    },
+    "./Text": {
+      "require": "./dist/cjs/components/Typography/index.js",
+      "module": "./dist/esm/components/Typography/index.js",
+      "default": "./dist/esm/components/Typography/index.js"
+    },
+    "./Wrapper": {
+      "require": "./dist/cjs/components/Wrapper/index.js",
+      "module": "./dist/esm/components/Wrapper/index.js",
+      "default": "./dist/esm/components/Wrapper/index.js"
+    },
+    "./ToolTipHover": {
+      "require": "./dist/cjs/components/ToolTipHover/index.js",
+      "module": "./dist/esm/components/ToolTipHover/index.js",
+      "default": "./dist/esm/components/ToolTipHover/index.js"
+    },
+    "./Radio": {
+      "require": "./dist/cjs/components/Radio/index.js",
+      "module": "./dist/esm/components/Radio/index.js",
+      "default": "./dist/esm/components/Radio/index.js"
+    },
+    "./ProgressBar": {
+      "require": "./dist/cjs/components/ProgressBar/index.js",
+      "module": "./dist/esm/components/ProgressBar/index.js",
+      "default": "./dist/esm/components/ProgressBar/index.js"
+    },
+    "./Kbd": {
+      "require": "./dist/cjs/components/Kbd/index.js",
+      "module": "./dist/esm/components/Kbd/index.js",
+      "default": "./dist/esm/components/Kbd/index.js"
+    },
+    "./Filters": {
+      "require": "./dist/cjs/components/Filters/index.js",
+      "module": "./dist/esm/components/Filters/index.js",
+      "default": "./dist/esm/components/Filters/index.js"
+    },
+    "./Select": {
+      "require": "./dist/cjs/components/Form/Select.js",
+      "module": "./dist/esm/components/Form/Select.js",
+      "default": "./dist/esm/components/Form/Select.js"
+    },
+    "./TextArea": {
+      "require": "./dist/cjs/components/Form/TextArea.js",
+      "module": "./dist/esm/components/Form/TextArea.js",
+      "default": "./dist/esm/components/Form/TextArea.js"
     }
+  },
+  "typesVersions": {
+    "*": {
+      ".": ["./dist/esm/index.d.ts"],
+      "lib": ["./dist/esm/lib/index.d.ts"],
+      "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
+      "Buttons": ["./dist/esm/components/Buttons/index.d.ts"],
+      "Button": ["./dist/esm/components/Buttons/Button.d.ts"],
+      "ButtonGroup": ["./dist/esm/components/Buttons/ButtonGroup.d.ts"],
+      "ActiveButton": ["./dist/esm/components/Buttons/ActiveButton.d.ts"],
+      "ShapeButton": ["./dist/esm/components/Buttons/ShapeButton.d.ts"],
+      "DatePicker": ["./dist/esm/components/DatePicker/index.d.ts"],
+      "DynamicHeroIcon": ["./dist/esm/common/DynamicHeroIcon/index.d.ts"],
+      "FileViewer": ["./dist/esm/components/FileViewer/index.d.ts"],
+      "Input": ["./dist/esm/components/Input/index.d.ts"],
+      "InputFile": ["./dist/esm/components/Input/InputFile.d.ts"],
+      "Modal": ["./dist/esm/components/Modal/index.js"],
+      "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
+      "Portal": ["./dist/esm/common/Portal/index.d.ts"],
+      "Spinner": ["./dist/esm/components/Spinner/index.d.ts"],
+      "Table": ["./dist/esm/components/Table/index.d.ts"],
+      "ProgressCircle": ["./dist/esm/components/ProgressCircle/index.d.ts"],
+      "Avatar": ["./dist/esm/components/Avatar/index.d.ts"],
+      "Badge": ["./dist/esm/components/Badge/index.d.ts"],
+      "ConfirmDialog": ["./dist/esm/components/ConfirmDialog/index.d.ts"],
+      "Divider": ["./dist/esm/components/Divider/index.d.ts"],
+      "SideBar": ["./dist/esm/components/SideBar/index.d.ts"],
+      "Stepper": ["./dist/esm/components/Stepper/index.d.ts"],
+      "Switch": ["./dist/esm/components/Switch/index.d.ts"],
+      "Text": ["./dist/esm/components/Typography/index.d.ts"],
+      "Wrapper": ["./dist/esm/components/Wrapper/index.d.ts"],
+      "ToolTipHover": ["./dist/esm/components/ToolTipHover/index.d.ts"],
+      "Radio": ["./dist/esm/components/Radio/index.d.ts"],
+      "ProgressBar": ["./dist/esm/components/ProgressBar/index.d.ts"],
+      "Kbd": ["./dist/esm/components/Kbd/index.d.ts"],
+      "Filters": ["./dist/esm/components/Filters/index.d.ts"],
+      "Select": ["./dist/esm/components/Form/Select.d.ts"],
+      "TextArea": ["./dist/esm/components/Form/TextArea.d.ts"]
+    }
+  }
 }

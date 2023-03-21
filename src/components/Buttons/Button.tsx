@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react'
-import Spinner from '../Spinner/Spinner'
+import Spinner from '../Spinner'
 import { composeClasses } from 'lib/classes'
-import { ButtonVariant, Padding, Weight, Rounded } from '../../interfaces/types'
 import { fontSize } from 'lib/font'
+import { ButtonVariant, Padding, Weight, Rounded } from '../../interfaces/types'
 
 export type renderLoading = {
   component?: React.ReactElement
