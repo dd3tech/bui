@@ -4,14 +4,14 @@ import BaseInput, { InputProps } from './BaseInput'
 
 function PasswordInput(props: InputProps) {
     const [showText, setShowText] = useState(false)
-    const onClick = useCallback(() => setShowText(!showText), [showText])
+    const onHandleShow = useCallback(() => setShowText((prevShow) => !prevShow), [])
 
     return (
         <BaseInput
             {...props}
             type={showText ? 'text' : 'password'}
             endAdornment={
-                <button type="button" role="showText" onClick={onClick}>
+                <button className="flex items-center justify-center" type="button" role="showText" onClick={onHandleShow}>
                     {showText ? <EyeIcon aria-label="eyeOn" width={23} /> : <EyeOffIcon aria-label="eyeOff" width={23} />}
                 </button>
             }
