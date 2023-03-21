@@ -1,3 +1,11 @@
+## [4.14.5](https://github.com/dd3tech/dd360-components/compare/v4.14.4...v4.14.5) (2023-03-21)
+
+
+### Bug Fixes
+
+* **Select:** switched to useEffect to improve reactivity when set state ([96a6a8e](https://github.com/dd3tech/dd360-components/commit/96a6a8ec2976f6597f0d9ddc699a4389c27703c3))
+* switched to useEffect to improve reactivity when set state ([d8da4c9](https://github.com/dd3tech/dd360-components/commit/d8da4c9de0e4fd85b7af779464a7f4f6d83c0985))
+
 ## [4.14.4](https://github.com/dd3tech/dd360-components/compare/v4.14.3...v4.14.4) (2023-03-20)
 
 
