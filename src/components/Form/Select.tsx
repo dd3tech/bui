@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react'
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
 import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
 import InformationCircleIcon from '@heroicons/react/outline/InformationCircleIcon'
@@ -33,6 +33,7 @@ export interface SelectProps extends InputHTMLAttributes<HTMLInputElement> {
     large?: boolean
     boxShadow?: ShadowVariants
     optionsList: ISelectOptions
+    itemWidth?: 'trimWithEllipsis' | 'fullWidth' | 'textWrap'
 }
 
 const IconStatus = ({ variant }: { variant: SelectVariantType }) => {
@@ -104,13 +105,14 @@ function Select({
     name,
     value: selectedValue,
     placeholder,
+    itemWidth = 'trimWithEllipsis',
     ...otherProps
 }: SelectProps) {
     const { disabled } = otherProps
     variant = disabled ? 'disabled' : variant
     const isDisabled = variant === 'disabled'
     const { input, text } = inputVariants[variant]
-
+    const selectRef = useRef<HTMLInputElement>(null)
     const [focused, setFocused] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [selectedOpt, setSelectedOpt] = useState<{ value: string; label: string }>({
@@ -171,6 +173,20 @@ function Select({
         !isDisabled && setIsOpen((prev) => !prev)
     }, [variant])
 
+    const handleClickOutside = (e: globalThis.MouseEvent) => {
+        if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
+            setIsOpen(false)
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside)
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside)
+        }
+    }, [])
+
     useEffect(() => {
         const keyValue = selectedValue || getSelectedKey(optionsList)
         const value = (optionsList[`${keyValue}`] ? keyValue : '') as string
@@ -183,7 +199,7 @@ function Select({
     }, [selectedValue, optionsList])
 
     return (
-        <div role="select-container-group" className="relative" onClick={handleSelect}>
+        <div ref={selectRef} role="select-container-group" className="relative" onClick={handleSelect}>
             <div role="select-container" className={styles.container} style={{ zIndex: 2, ...style }}>
                 {startAdornment && (
                     <div data-testid="startAdornment" className={styles.adornment}>
@@ -195,6 +211,7 @@ function Select({
                         <label
                             style={getAnimationLabel(isLabelScalded)}
                             className={composeClasses(
+                                'whitespace-pre-wrap',
                                 'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis',
                                 !isDisabled && 'text-gray-500'
                             )}
@@ -231,9 +248,12 @@ function Select({
                 {['warning', 'error', 'success'].includes(variant) && <IconStatus variant={variant} />}
             </div>
             <div
-                className={`absolute min-w-max left-0 top-${
-                    large ? '13' : '12'
-                } z-10 w-full py-1 mt-1 bg-white overflow-y-auto rounded-${rounded} shadow-${boxShadow}`}
+                role="dropdown"
+                className={composeClasses(
+                    'absolute left-0 z-10 w-full py-1 mt-1 bg-white overflow-y-auto',
+                    `top-${large ? '13' : '12'}  rounded-${rounded} shadow-${boxShadow}`,
+                    itemWidth === 'fullWidth' && 'min-w-max'
+                )}
                 style={getAnimationStyle(isOpen)}
             >
                 {Object.entries(optionsList).map(([key, option]) => {
@@ -247,7 +267,8 @@ function Select({
                             className={composeClasses(
                                 'block w-full px-3 py-2 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-100',
                                 typeof option !== 'string' && disabled && 'cursor-not-allowed opacity-50',
-                                key === selectedOpt.value && 'bg-blue-50'
+                                key === selectedOpt.value && 'bg-blue-50',
+                                itemWidth === 'trimWithEllipsis' && 'whitespace-nowrap overflow-hidden overflow-ellipsis'
                             )}
                             onClick={() => handleChange({ target: { value: key } } as ChangeEvent<HTMLInputElement>)}
                             disabled={disabled}
