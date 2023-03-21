@@ -20,8 +20,8 @@ Pagination.args = {
   sliceSize: '5' as any,
   firstText: 'Show',
   secondText: 'of 30 projects',
-  goToPreviousPage: mockFn('Go to previous page'),
-  goToNextPage: mockFn('Go to next page'),
-  goToPage: mockFn('Go to x page'),
-  setSize: mockFn('Set size of table')
+  goToPreviousPage: () => mockFn('Go to previous page'),
+  goToNextPage: () => mockFn('Go to next page'),
+  goToPage: () => mockFn('Go to x page'),
+  setSize: () => mockFn('Set size of table')
 }

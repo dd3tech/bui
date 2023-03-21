@@ -1,3 +1,16 @@
+# [4.15.0](https://github.com/dd3tech/dd360-components/compare/v4.14.7...v4.15.0) (2023-03-21)
+
+
+### Bug Fixes
+
+* moved handleClickOutside inside of the useEffect ([61d5d06](https://github.com/dd3tech/dd360-components/commit/61d5d068e1c9217593a131967418918c0228ef2d))
+* the select story is simplified ([f253f15](https://github.com/dd3tech/dd360-components/commit/f253f15e8da2bda80b9ab37e7719d1feea4f5344))
+
+
+### Features
+
+* The dropdown is closed by clicking outside the component. Props are added to control the width of the items ([24b52f4](https://github.com/dd3tech/dd360-components/commit/24b52f4db7380f40289816fa2763c1f763d9a66a))
+
 ## [4.14.7](https://github.com/dd3tech/dd360-components/compare/v4.14.6...v4.14.7) (2023-03-21)
 
 
