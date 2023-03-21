@@ -8,15 +8,7 @@ export default {
     component: SelectComponent
 } as ComponentMeta<typeof SelectComponent>
 
-const Template: ComponentStory<typeof SelectComponent> = (args) => (
-    <>
-        <div className="flex">
-            <SelectComponent {...args} />
-            <SelectComponent {...args} />
-        </div>
-        <SelectComponent {...args} />
-    </>
-)
+const Template: ComponentStory<typeof SelectComponent> = (args) => <SelectComponent {...args} />
 
 const optionsList = {
     A: {
