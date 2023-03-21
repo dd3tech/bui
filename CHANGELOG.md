@@ -1,3 +1,11 @@
+## [4.14.6](https://github.com/dd3tech/dd360-components/compare/v4.14.5...v4.14.6) (2023-03-21)
+
+
+### Bug Fixes
+
+* align button password when variant exist ([3727a6d](https://github.com/dd3tech/dd360-components/commit/3727a6d13cab8268311ad223e5231454478edc93))
+* align button password when variant exist and refactor handle to avoid a dependency ([7920691](https://github.com/dd3tech/dd360-components/commit/792069174ab8dc0f86c73f7f004ef9bdb9c6d01f))
+
 ## [4.14.5](https://github.com/dd3tech/dd360-components/compare/v4.14.4...v4.14.5) (2023-03-21)
 
 
