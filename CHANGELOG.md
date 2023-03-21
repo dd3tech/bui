@@ -1,3 +1,11 @@
+## [4.15.2](https://github.com/dd3tech/dd360-components/compare/v4.15.1...v4.15.2) (2023-03-21)
+
+
+### Bug Fixes
+
+* change test select ([08046ae](https://github.com/dd3tech/dd360-components/commit/08046ae2e4e191c93849f93b15f7eb7ccfa2489a))
+* remove padding textarea ([c55c5d2](https://github.com/dd3tech/dd360-components/commit/c55c5d247b7234ff5346aabfd8ed97c4b311493a))
+
 ## [4.15.1](https://github.com/dd3tech/dd360-components/compare/v4.15.0...v4.15.1) (2023-03-21)
 
 
