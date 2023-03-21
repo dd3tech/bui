@@ -3,7 +3,7 @@ import {
   ExclamationCircleIcon,
   AcademicCapIcon
 } from '@heroicons/react/outline'
-import Select from './Select'
+import Select, { getLabel, getSelectedKey } from './Select'
 import { vi } from 'vitest'
 
 describe('<Select />', () => {
@@ -208,11 +208,186 @@ describe('<Select />', () => {
 
     fireEvent.blur(select)
     expect(onBlur).toHaveBeenCalled()
+    it('the options must be displayed when clicking on the select-container and when selecting an option an onChange event must occur', () => {
+      const onChange = vi.fn()
+      const onBlur = vi.fn()
+      const onFocus = vi.fn()
+      const { getByRole, getByText } = render(
+        <Select
+          role="select"
+          optionsList={optionsList}
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+        />
+      )
+      const selectContainer = getByRole('select-container')
+      const select = getByRole('select') as HTMLSelectElement
+      fireEvent.click(select)
+
+      fireEvent.focus(select)
+      expect(onFocus).toHaveBeenCalled()
+
+      fireEvent.blur(select)
+      expect(onBlur).toHaveBeenCalled()
+
+      fireEvent.focus(select)
+      expect(selectContainer).toHaveClass('border-blue-500')
+      fireEvent.click(getByText('Option 1'))
+      expect(select.value).toBe('1')
+      expect(onChange).toHaveBeenCalled()
+    })
+  })
+
+  it('should render a message', () => {
+    const message = 'Lorem ipsum dolor'
+    const { getByText } = render(
+      <Select message={message} optionsList={optionsList} />
+    )
+    const labelElement = getByText(message)
+
+    expect(labelElement).toBeInTheDocument()
+  })
+
+  it('should change the selected element in the onChange', () => {
+    const { getByRole } = render(
+      <Select role="select" optionsList={optionsList} value="H" />
+    )
+    const select = getByRole('select') as HTMLSelectElement
+    fireEvent.change(select, { target: { value: 1 } })
+
+    expect(select.value).toBe('1')
+  })
+
+  describe('should have a value selected by default', () => {
+    it('when passing value as prop', () => {
+      const { getByRole } = render(
+        <Select role="select" optionsList={optionsList} value="Option 4" />
+      )
+      const select = getByRole('select') as HTMLSelectElement
+      expect(select.value).toBe('Option 4')
+    })
+
+    it('when passing value as prop', () => {
+      const { getByRole } = render(
+        <Select role="select" optionsList={optionsList} />
+      )
+      const select = getByRole('select') as HTMLSelectElement
+      expect(select.value).toBe('3')
+    })
+  })
+
+  it('should be rendered without borders', () => {
+    const { getByRole } = render(
+      <Select role="select" optionsList={optionsList} noBorders />
+    )
+    const select = getByRole('select-container') as HTMLDivElement
+    expect(select.className).toContain('border-none')
+  })
+
+  it('should render a large select', () => {
+    const { getByRole } = render(<Select optionsList={optionsList} large />)
+    const inputContainer = getByRole('select-container')
+    expect(inputContainer.className).toContain('h-13')
+  })
+
+  it('handles focus and blur events correctly', () => {
+    const { getByTestId, getByRole } = render(
+      <Select data-testid="select" optionsList={optionsList} />
+    )
+    const selectContainer = getByRole('select-container')
+    const select = getByTestId('select')
+    fireEvent.focus(select)
+    expect(selectContainer).toHaveClass('border-blue-500')
+    fireEvent.blur(select)
+    expect(selectContainer).not.toHaveClass('border-blue-500')
+  })
+
+  it('the options must be displayed when clicking on the select-container and when selecting an option an onChange event must occur', () => {
+    const onChange = vi.fn()
+    const onBlur = vi.fn()
+    const onFocus = vi.fn()
+    const { getByRole, getByText } = render(
+      <Select
+        role="select"
+        optionsList={optionsList}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
+    )
+    const selectContainer = getByRole('select-container')
+    const select = getByRole('select') as HTMLSelectElement
+    fireEvent.click(select)
+
+    fireEvent.focus(select)
+    expect(onFocus).toHaveBeenCalled()
+
+    fireEvent.blur(select)
+    expect(onBlur).toHaveBeenCalled()
 
     fireEvent.focus(select)
     expect(selectContainer).toHaveClass('border-blue-500')
     fireEvent.click(getByText('Option 1'))
     expect(select.value).toBe('1')
     expect(onChange).toHaveBeenCalled()
+  })
+
+  it('when clicked outside the component, the dropdown should close', () => {
+    const { getByRole, getByText } = render(
+      <Select role="select" optionsList={optionsList} />
+    )
+    const select = getByRole('select') as HTMLSelectElement
+    fireEvent.click(select)
+    fireEvent.click(document.body)
+    expect(getByText('Option 1')).not.toBeVisible()
+  })
+
+  describe('prop itemWidth', () => {
+    it('the item must have the full width of the text when fullWidth is passed', () => {
+      const { getByRole } = render(
+        <Select role="select" optionsList={optionsList} itemWidth="fullWidth" />
+      )
+      const select = getByRole('select') as HTMLSelectElement
+      fireEvent.click(select)
+      expect(getByRole('dropdown').className).toContain('min-w-max')
+    })
+
+    it('the text of the item must fit the width of the dropdown when textWrap is passed', () => {
+      const { getByRole } = render(
+        <Select role="select" optionsList={optionsList} itemWidth="textWrap" />
+      )
+      const select = getByRole('select') as HTMLSelectElement
+      fireEvent.click(select)
+      expect(getByRole('dropdown').className).not.toContain('min-w-max')
+    })
+
+    it('the item must cut the text with ellipsis when trimWithEllipsis is passed', () => {
+      const { getByRole, getByText } = render(
+        <Select
+          role="select"
+          optionsList={optionsList}
+          itemWidth="trimWithEllipsis"
+        />
+      )
+      const select = getByRole('select') as HTMLSelectElement
+      fireEvent.click(select)
+      expect(getByText('Option 1').className).toContain(
+        'whitespace-nowrap overflow-hidden overflow-ellipsis'
+      )
+    })
+  })
+
+  it('the function getLabel should return the correct label', () => {
+    let label = getLabel('1', optionsList)
+    expect(label).toBe('Option 1')
+
+    label = getLabel('Option 4', optionsList)
+    expect(label).toBe('Option 4')
+  })
+
+  it('the function getSelectedKey should return the selected item', () => {
+    const selectedKey = getSelectedKey(optionsList)
+    expect(selectedKey).toBe('3')
   })
 })

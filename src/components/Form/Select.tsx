@@ -5,6 +5,7 @@ import {
   ReactNode,
   useCallback,
   useEffect,
+  useRef,
   useState
 } from 'react'
 import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
@@ -46,6 +47,7 @@ export interface SelectProps extends InputHTMLAttributes<HTMLInputElement> {
   large?: boolean
   boxShadow?: ShadowVariants
   optionsList: ISelectOptions
+  itemWidth?: 'trimWithEllipsis' | 'fullWidth' | 'textWrap'
 }
 
 const IconStatus = ({ variant }: { variant: SelectVariantType }) => {
@@ -132,13 +134,14 @@ function Select({
   name,
   value: selectedValue,
   placeholder,
+  itemWidth = 'trimWithEllipsis',
   ...otherProps
 }: SelectProps) {
   const { disabled } = otherProps
   variant = disabled ? 'disabled' : variant
   const isDisabled = variant === 'disabled'
   const { input, text } = inputVariants[variant]
-
+  const selectRef = useRef<HTMLInputElement>(null)
   const [focused, setFocused] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOpt, setSelectedOpt] = useState<{
@@ -218,6 +221,19 @@ function Select({
   }, [variant])
 
   useEffect(() => {
+    const handleClickOutside = (e: globalThis.MouseEvent) => {
+      if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [])
+
+  useEffect(() => {
     const keyValue = selectedValue || getSelectedKey(optionsList)
     const value = (optionsList[`${keyValue}`] ? keyValue : '') as string
     const label = keyValue ? getLabel(keyValue.toString(), optionsList) : ''
@@ -230,6 +246,7 @@ function Select({
 
   return (
     <div
+      ref={selectRef}
       role="select-container-group"
       className="relative"
       onClick={handleSelect}
@@ -301,9 +318,12 @@ function Select({
         )}
       </div>
       <div
-        className={`absolute min-w-max left-0 top-${
-          large ? '13' : '12'
-        } z-10 w-full py-1 mt-1 bg-white overflow-y-auto rounded-${rounded} shadow-${boxShadow}`}
+        role="dropdown"
+        className={composeClasses(
+          'absolute left-0 z-10 w-full py-1 mt-1 bg-white overflow-y-auto',
+          `top-${large ? '13' : '12'}  rounded-${rounded} shadow-${boxShadow}`,
+          itemWidth === 'fullWidth' && 'min-w-max'
+        )}
         style={getAnimationStyle(isOpen)}
       >
         {Object.entries(optionsList).map(([key, option]) => {
@@ -319,7 +339,9 @@ function Select({
                 typeof option !== 'string' &&
                   disabled &&
                   'cursor-not-allowed opacity-50',
-                key === selectedOpt.value && 'bg-blue-50'
+                key === selectedOpt.value && 'bg-blue-50',
+                itemWidth === 'trimWithEllipsis' &&
+                  'whitespace-nowrap overflow-hidden overflow-ellipsis'
               )}
               onClick={() =>
                 handleChange({
