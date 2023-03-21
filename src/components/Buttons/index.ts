@@ -1,9 +1,11 @@
-import Button from './Button'
-export default Button
+export { default as Button } from './Button'
 export * from './Button'
 
 export { default as ActiveButton } from './ActiveButton'
-export { default as CircleButton } from './CircleButtons'
+export * from './ActiveButton'
 
 export { default as ButtonGroup } from './ButtonGroup'
 export * from './ButtonGroup'
+
+export { default as ShapeButton } from './ShapeButton'
+export * from './ShapeButton'

@@ -1,6 +1,3 @@
-export { default as Button } from './Buttons'
-export * from './Buttons'
-
 export { default as Input } from './Form'
 export * from './Form'
 
@@ -92,7 +89,7 @@ export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
 export * from './Radio'
-
+export * from './Buttons'
 export * from './Navigation'
 export * from './FeedBackBox'
 export * from './Layout'
