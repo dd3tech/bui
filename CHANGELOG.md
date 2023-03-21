@@ -1,3 +1,11 @@
+## [4.15.1](https://github.com/dd3tech/dd360-components/compare/v4.15.0...v4.15.1) (2023-03-21)
+
+
+### Bug Fixes
+
+* exports of Buttons and TextArea ([2b9d181](https://github.com/dd3tech/dd360-components/commit/2b9d181d1cc1a757a6a355afe9fd4946272f40fb))
+* exports of Buttons and TextArea ([1c34d36](https://github.com/dd3tech/dd360-components/commit/1c34d36ceb7b0d0b1b248cf585481a6b7457b217))
+
 # [4.15.0](https://github.com/dd3tech/dd360-components/compare/v4.14.7...v4.15.0) (2023-03-21)
 
 
