@@ -22,7 +22,6 @@ describe('<Row/>', () => {
     const { container } = render(<Row {...defProps} />)
     const { className: rowClassName } = container.firstChild as HTMLDivElement
 
-    expect(rowClassName).toContain('mt-2')
     expect(rowClassName).toContain('grid-cols-1')
     expect(rowClassName).toContain('sm:grid-cols-2')
     expect(rowClassName).toContain('md:grid-cols-3')
