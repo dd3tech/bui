@@ -173,13 +173,14 @@ function Select({
         !isDisabled && setIsOpen((prev) => !prev)
     }, [variant])
 
-    const handleClickOutside = (e: globalThis.MouseEvent) => {
-        if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
-            setIsOpen(false)
-        }
-    }
 
     useEffect(() => {
+        const handleClickOutside = (e: globalThis.MouseEvent) => {
+            if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
+                setIsOpen(false)
+            }
+        }
+
         document.addEventListener('click', handleClickOutside)
 
         return () => {
