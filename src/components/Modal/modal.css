@@ -1,28 +1,28 @@
 .animation-modal {
-    animation: up 0.5s;
-    transition: all 0.08s ease-out;
+  animation: up 0.5s;
+  transition: all 0.08s ease-out;
 }
 
 @media (min-width: 768px) {
-    .animation-modal {
-        animation: popup 0.5s;
-    }
+  .animation-modal {
+    animation: popup 0.5s;
+  }
 }
 
 @keyframes up {
-    from {
-        transform: translateY(100%);
-    }
-    to {
-        transform: translateY(0);
-    }
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 @keyframes popup {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }

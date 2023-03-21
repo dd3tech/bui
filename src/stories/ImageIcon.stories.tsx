@@ -3,37 +3,43 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import ImageIconComponent from '../components/ImageIcon'
 
 export default {
-    title: 'Images/imageIcon',
-    component: ImageIconComponent
+  title: 'Images/imageIcon',
+  component: ImageIconComponent
 } as ComponentMeta<typeof ImageIconComponent>
 
-const Template: ComponentStory<typeof ImageIconComponent> = (args) => <ImageIconComponent {...args} />
+const Template: ComponentStory<typeof ImageIconComponent> = (args) => (
+  <ImageIconComponent {...args} />
+)
 
 export const Example = () => {
-    return (
-        <>
-            <div className="flex">
-                <div className="mr-5">
-                    <h2>Image Icon</h2>
-                    <ImageIconComponent src="https://picsum.photos/200/300?grayscale" />
-                </div>
-                <div className="mr-5">
-                    <h2>Button Image Icon</h2>
-                    <ImageIconComponent src="https://picsum.photos/200/300?grayscale" button buttonOnClick={() => alert('Button')} />
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="flex">
+        <div className="mr-5">
+          <h2>Image Icon</h2>
+          <ImageIconComponent src="https://picsum.photos/200/300?grayscale" />
+        </div>
+        <div className="mr-5">
+          <h2>Button Image Icon</h2>
+          <ImageIconComponent
+            src="https://picsum.photos/200/300?grayscale"
+            button
+            buttonOnClick={() => alert('Button')}
+          />
+        </div>
+      </div>
+    </>
+  )
 }
 
 export const ImageIcon = Template.bind({})
 ImageIcon.args = {
-    src: 'https://picsum.photos/200/300?grayscale'
+  src: 'https://picsum.photos/200/300?grayscale'
 }
 
 export const ButtonImageIcon = Template.bind({})
 ButtonImageIcon.args = {
-    src: 'https://picsum.photos/200/300?grayscale',
-    button: true,
-    buttonOnClick: () => alert('Button')
+  src: 'https://picsum.photos/200/300?grayscale',
+  button: true,
+  buttonOnClick: () => alert('Button')
 }

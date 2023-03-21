@@ -10,51 +10,59 @@ import Accordion from './base/Accordion'
 import './table.css'
 
 interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
-    /**
-     * Table content
-     */
-    children?: React.ReactNode
-    /**
-     * Set border around table
-     */
-    bordered?: boolean
-    /**
-     * Rounding of the edges
-     */
-    rounded?: Rounded
-    /**
-     * set horizontal borders
-     */
-    horizontalBorders?: boolean
-    /**
-     * set vertial borders
-     */
-    verticalBorders?: boolean
-    /**
-     * The class name to apply to
-     * the container element of the table
-     */
-    className?: string
+  /**
+   * Table content
+   */
+  children?: React.ReactNode
+  /**
+   * Set border around table
+   */
+  bordered?: boolean
+  /**
+   * Rounding of the edges
+   */
+  rounded?: Rounded
+  /**
+   * set horizontal borders
+   */
+  horizontalBorders?: boolean
+  /**
+   * set vertial borders
+   */
+  verticalBorders?: boolean
+  /**
+   * The class name to apply to
+   * the container element of the table
+   */
+  className?: string
 }
 
-const Table = ({ children, bordered = true, horizontalBorders = true, verticalBorders = true, rounded = 'lg', className, ...props }: TableProps) => {
-    return (
-        <div
-            className={composeClasses(
-                'table-container-cmpnt',
-                className,
-                bordered && 'bordered',
-                horizontalBorders && 'horizontal-borders',
-                verticalBorders && 'vertical-borders',
-                `rounded-${rounded}`,
-                'border-gray-400 overflow-auto'
-            )}
-        >
-            <table {...props} className="w-full border-collapse">
-                {children}
-            </table>
-        </div>
-    )
+const Table = ({
+  children,
+  bordered = true,
+  horizontalBorders = true,
+  verticalBorders = true,
+  rounded = 'lg',
+  className,
+  ...props
+}: TableProps) => {
+  return (
+    <div
+      className={composeClasses(
+        'table-container-cmpnt',
+        className,
+        bordered && 'bordered',
+        horizontalBorders && 'horizontal-borders',
+        verticalBorders && 'vertical-borders',
+        `rounded-${rounded}`,
+        'border-gray-400 overflow-auto'
+      )}
+    >
+      <table {...props} className="w-full border-collapse">
+        {children}
+      </table>
+    </div>
+  )
 }
 
 Table.Header = Header

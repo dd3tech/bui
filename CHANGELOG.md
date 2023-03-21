@@ -1,3 +1,10 @@
+## [4.14.7](https://github.com/dd3tech/dd360-components/compare/v4.14.6...v4.14.7) (2023-03-21)
+
+
+### Bug Fixes
+
+* **Select:** add missing endAdornment ([8f0eb71](https://github.com/dd3tech/dd360-components/commit/8f0eb7164f3568de1e87d71f3f519272a3cff035))
+
 ## [4.14.6](https://github.com/dd3tech/dd360-components/compare/v4.14.5...v4.14.6) (2023-03-21)
 
 
