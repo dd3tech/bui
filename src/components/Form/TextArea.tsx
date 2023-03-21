@@ -1,6 +1,6 @@
-import { TextareaHTMLAttributes, ReactNode } from 'react'
+import { TextareaHTMLAttributes, ReactNode, useCallback, useState, useRef } from 'react'
 import { composeClasses } from 'lib/classes'
-import { inputVariants, InputVariant as InputVariantType } from './shared'
+import { inputVariants, InputVariant as InputVariantType, getAnimationLabel } from './shared'
 import { Padding, ShadowVariants } from '../../interfaces/types'
 
 export interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -30,47 +30,77 @@ function TextArea({
     inputBlank,
     large,
     boxShadow = 'lg',
+    placeholder,
+    onFocus,
+    onBlur,
     ...otherProps
 }: TextAreaProps) {
     const { disabled } = otherProps
     variant = disabled ? 'disabled' : variant
+    const isDisabled = variant === 'disabled'
     const { input, text } = inputVariants[variant]
+    const [focused, setFocused] = useState(false)
+    const textareaRef = useRef<HTMLTextAreaElement>(null)
+    const isLabelScalded = !label || focused || textareaRef.current?.value.length
 
     const styles = {
         adornment: composeClasses('text-gray-400 transition duration-500 ease-out max-h-6 focus:ease-in', classNameAdornment),
         container: composeClasses(
-            'placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium relative',
+            'w-full placeholder-gray-400 mt-1 flex items-center justify-between font-medium relative',
             'border-solid border',
             'transition duration-500 ease-out focus:ease-in',
-            `hover:shadow-${boxShadow} hover:border-gray-500`,
+            !isDisabled && `hover:shadow-${boxShadow} hover:border-gray-500`,
             inputBlank && 'border-none',
             rounded && `rounded-${rounded}`,
-            !['error', 'success', 'warning'].includes(variant) && 'focus:border-blue-500',
-            `px-${paddingX}`,
-            `py-${paddingY}`,
+            !['error', 'success', 'warning'].includes(variant) && focused && 'border-blue-500',
+            ['error', 'success', 'warning'].includes(variant) ? 'bg-white' : 'bg-gray-50',
+            isDisabled ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'hover:bg-white',
             input.borderColor,
             input.color,
-            variant === 'disabled' && 'bg-gray-100 text-gray-400 cursor-not-allowed'
+            className
         )
     }
 
+    const handleFocus = useCallback(
+        (event: React.FocusEvent<HTMLTextAreaElement>) => {
+            setFocused(true)
+            onFocus && onFocus(event)
+        },
+        [onFocus]
+    )
+
+    const handleBlur = useCallback(
+        (event: React.FocusEvent<HTMLTextAreaElement>) => {
+            setFocused(false)
+            onBlur && onBlur(event)
+        },
+        [onBlur]
+    )
+
     return (
         <>
-            <div className="relative">
+            <div role="textarea-container" className={styles.container}>
                 {label && (
                     <label
-                        style={{ cursor: 'inherit' }}
+                        style={{ cursor: 'inherit', zIndex: 1, ...getAnimationLabel(!!isLabelScalded) }}
                         className={composeClasses(
-                            'z-10 w-full block text-xxs  font-medium leading-none absolute px-4 py-2',
-                            variant !== 'disabled' ? 'text-gray-500' : 'text-gray-400',
-                            `px-${paddingX}`,
-                            `pt-${paddingY}`
+                            'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis pl-4',
+                            !isDisabled ? 'text-gray-500' : 'text-gray-400'
                         )}
                     >
                         {label}
                     </label>
                 )}
-                <textarea {...otherProps} className={'w-full px-4 py-5 focus:outline-none ' + styles.container} disabled={variant === 'disabled'} />
+                <textarea
+                    ref={textareaRef}
+                    {...otherProps}
+                    className={composeClasses('w-full h-full bg-transparent focus:outline-none p-4', isDisabled && 'cursor-not-allowed')}
+                    placeholder={isLabelScalded ? placeholder : ''}
+                    disabled={isDisabled}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    style={{ zIndex: 1, paddingTop: 15 }}
+                />
                 {endAdornment && (
                     <div data-testid="endAdornment" className={'absolute bottom-3 right-2.5 ' + styles.adornment}>
                         {endAdornment}

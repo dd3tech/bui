@@ -14,42 +14,40 @@ const optionsList = {
     A: {
         label: 'Option A'
     },
-    B: {
-        label: 'Option B'
-    },
+    B: 'Label',
     C: {
         label: 'Option C',
         disabled: true
+    },
+    D: {
+        label: 'Option D',
+        disabled: false,
+        selected: false
+    },
+    'Option E': {
+        disabled: false
     }
 }
 
-export const SelectOutlined = Template.bind({})
-SelectOutlined.args = {
+export const SelectWithIcon = Template.bind({})
+SelectWithIcon.args = {
     label: 'Example',
     startAdornment: <ExclamationCircleIcon className="w-5" />,
     disabled: false,
-    variant: 'outlined',
+    variant: 'default',
     rounded: 'lg',
     message: 'Lorem ipsum dolor',
     onChange: (event) => console.log({ onChange: event.target.value }),
     onFocus: (event) => console.log({ onFocus: event.target.value }),
     onBlur: (event) => console.log({ onBlur: event.target.value }),
-    optionsList
-}
-
-export const SelectStandard = Template.bind({})
-SelectStandard.args = {
-    label: 'Example',
-    disabled: false,
-    variant: 'standard',
-    message: 'Lorem ipsum dolor',
-    error: true,
-    optionsList
+    optionsList,
+    name: 'example',
+    placeholder: 'Select an option'
 }
 
 export const Select = Template.bind({})
 Select.args = {
-    disabled: false,
-    variant: 'none',
-    optionsList
+    variant: 'disabled',
+    optionsList,
+    value: 'A'
 }

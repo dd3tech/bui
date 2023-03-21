@@ -1,16 +1,22 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import InputComponent from '../components/Form/Input'
-import { SearchCircleIcon, PhoneIcon } from '@heroicons/react/outline'
-import Select from '../components/Form/Select'
-import Divider from '../components/Divider/Divider'
+import { SearchCircleIcon } from '@heroicons/react/outline'
 
 export default {
     title: 'Form/Input',
     component: InputComponent
 } as ComponentMeta<typeof InputComponent>
 
-const Template: ComponentStory<typeof InputComponent> = (args) => <InputComponent {...args} />
+const Template: ComponentStory<typeof InputComponent> = (args) => {
+    const [value, setValue] = React.useState('')
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value)
+    }
+
+    return <InputComponent {...args} value={value} onChange={handleChange} />
+}
 
 export const Input = Template.bind({})
 Input.args = {
@@ -22,29 +28,15 @@ Input.args = {
 export const InputWithIcon = Template.bind({})
 InputWithIcon.args = {
     label: 'Con Icono',
-    startAdornment: (
-        <div className="flex w-24 h-12">
-            <Select
-                optionsList={{
-                    A: { label: '+50' },
-                    B: { label: '+52' }
-                }}
-                startAdornment={<PhoneIcon className="w-5" color="#ac62ac" />}
-                padding="0"
-                rounded="lg"
-                variant="none"
-                className="w-full"
-            />
-            <Divider vertical className="ml-2" />
-        </div>
-    ),
+    startAdornment: <SearchCircleIcon className="w-5" />,
     endAdornment: <SearchCircleIcon className="w-5" />,
     message: 'Mensaje de ayuda',
     className: 'w-80',
     variant: 'default',
     large: true,
     value: 'Valor',
-    disabled: false
+    disabled: false,
+    placeholder: 'Placeholder'
 }
 export const InputCurrency = Template.bind({})
 InputCurrency.args = {

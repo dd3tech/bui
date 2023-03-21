@@ -1,3 +1,62 @@
+## [4.14.6](https://github.com/dd3tech/dd360-components/compare/v4.14.5...v4.14.6) (2023-03-21)
+
+
+### Bug Fixes
+
+* align button password when variant exist ([3727a6d](https://github.com/dd3tech/dd360-components/commit/3727a6d13cab8268311ad223e5231454478edc93))
+* align button password when variant exist and refactor handle to avoid a dependency ([7920691](https://github.com/dd3tech/dd360-components/commit/792069174ab8dc0f86c73f7f004ef9bdb9c6d01f))
+
+## [4.14.5](https://github.com/dd3tech/dd360-components/compare/v4.14.4...v4.14.5) (2023-03-21)
+
+
+### Bug Fixes
+
+* **Select:** switched to useEffect to improve reactivity when set state ([96a6a8e](https://github.com/dd3tech/dd360-components/commit/96a6a8ec2976f6597f0d9ddc699a4389c27703c3))
+* switched to useEffect to improve reactivity when set state ([d8da4c9](https://github.com/dd3tech/dd360-components/commit/d8da4c9de0e4fd85b7af779464a7f4f6d83c0985))
+
+## [4.14.4](https://github.com/dd3tech/dd360-components/compare/v4.14.3...v4.14.4) (2023-03-20)
+
+
+### Bug Fixes
+
+* a validation was added for the scroll of the tabs ([e575127](https://github.com/dd3tech/dd360-components/commit/e57512763148db3b9ccbc9c5b135c8823eb47961))
+* **TabGroup:** validation was added for the scroll of the tabs ([2d49883](https://github.com/dd3tech/dd360-components/commit/2d498832fbe313b22e417d78a59ae6b7b68a90bc))
+
+## [4.14.3](https://github.com/dd3tech/dd360-components/compare/v4.14.2...v4.14.3) (2023-03-20)
+
+
+### Bug Fixes
+
+* Add scroll TabGroup ([cef7a5c](https://github.com/dd3tech/dd360-components/commit/cef7a5c44f99a0d5e228bb58e177d57dd387ca6e))
+
+## [4.14.2](https://github.com/dd3tech/dd360-components/compare/v4.14.1...v4.14.2) (2023-03-20)
+
+
+### Bug Fixes
+
+* dropdown was not overlapping certain items ([c88feff](https://github.com/dd3tech/dd360-components/commit/c88feff78f9dc1b05d9bab6e225c6868e80b6b1f))
+
+## [4.14.1](https://github.com/dd3tech/dd360-components/compare/v4.14.0...v4.14.1) (2023-03-18)
+
+
+### Bug Fixes
+
+* animation is added to the select, inputs and textarea ([55518aa](https://github.com/dd3tech/dd360-components/commit/55518aabfe9439b41d877485a70d8adffed9e927))
+
+# [4.14.0](https://github.com/dd3tech/dd360-components/compare/v4.13.0...v4.14.0) (2023-03-17)
+
+
+### Features
+
+* the Select component is refactored ([657bdfd](https://github.com/dd3tech/dd360-components/commit/657bdfd39edc401c79680f8277c012ffbbea9bbb))
+
+# [4.13.0](https://github.com/dd3tech/dd360-components/compare/v4.12.8...v4.13.0) (2023-03-16)
+
+
+### Features
+
+* add missing exports of components ([728d099](https://github.com/dd3tech/dd360-components/commit/728d099f9a94a5f378fab5560a04d5cf892cbec0))
+
 ## [4.12.8](https://github.com/dd3tech/dd360-components/compare/v4.12.7...v4.12.8) (2023-03-15)
 
 

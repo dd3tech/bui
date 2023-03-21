@@ -1,144 +1,264 @@
-import { SelectHTMLAttributes, ReactNode, useEffect, useState } from 'react'
-import { Padding, Rounded, Size, Weight, Width } from '../../interfaces/types'
-
-import { fontSize as textSize, fontWeight as textWeight } from 'lib/font'
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react'
+import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
+import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
+import InformationCircleIcon from '@heroicons/react/outline/InformationCircleIcon'
+import ChevronDownIcon from '@heroicons/react/outline/ChevronDownIcon'
+import ChevronUpIcon from '@heroicons/react/outline/ChevronUpIcon'
+import { StyleObject } from 'lib/styles'
 import { composeClasses } from 'lib/classes'
-import { borderRadius } from 'lib/shape'
-import { spacing } from 'lib/spacing'
+import { Padding, ShadowVariants } from '../../interfaces/types'
+import { inputVariants, InputVariant as SelectVariantType, getAnimationLabel, getPaddingInput } from './shared'
 
-export type SelectVariant = 'none' | 'standard' | 'outlined'
-
-export interface ISelectOptions {
-    [key: string]: {
-        label?: string
-        disabled?: boolean
-    }
-}
-
-export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+type ItemObj = {
     label?: string
-    variant?: SelectVariant
-    startAdornment?: ReactNode
-    rounded?: Rounded
-    active?: boolean
-    success?: boolean
-    warning?: boolean
-    error?: boolean
+    disabled?: boolean
+    selected?: boolean
+}
+export interface ISelectOptions {
+    [key: string]: ItemObj | string
+}
+
+export interface SelectProps extends InputHTMLAttributes<HTMLInputElement> {
+    variant?: SelectVariantType
+    label?: string
     message?: string
+    noBorders?: boolean
     padding?: Padding
-    fontSize?: Size
-    fontWeight?: Weight
+    paddingX?: Padding
+    paddingY?: Padding
+    endAdornment?: ReactNode
+    startAdornment?: ReactNode
+    classNameAdornment?: string
+    rounded?: string
+    large?: boolean
+    boxShadow?: ShadowVariants
     optionsList: ISelectOptions
-    width?: Width
 }
 
-export const getSelectStates = (state: { error?: boolean; warning?: boolean; success?: boolean; disabled?: boolean }) => {
-    const classes = {
-        input: {
-            borderColor: 'border-gray-500 focus:border-blue-500',
-            color: 'text-gray-900'
-        },
-        text: {
-            color: 'text-gray-900'
-        }
-    }
-
-    if (state.success) {
-        classes.input.borderColor = 'border-green-500'
-        classes.text.color = 'text-green-500'
-    }
-
-    if (state.warning) {
-        classes.input.borderColor = 'border-yellow-500'
-        classes.text.color = 'text-yellow-500'
-    }
-
-    if (state.error) {
-        classes.input.borderColor = 'border-red-500'
-        classes.text.color = 'text-red-500'
-    }
-
-    if (state.disabled) {
-        classes.input.borderColor = 'border-gray-400 bg-gray-100'
-        classes.input.color = 'text-gray-400'
-        classes.text.color = 'text-gray-900'
-    }
-
-    return classes
+const IconStatus = ({ variant }: { variant: SelectVariantType }) => {
+    const { bgIcon, text } = inputVariants[variant]
+    return (
+        <div
+            className={composeClasses('flex justify-center items-center rounded-xl bg-red-50 text-red-500', text.color, bgIcon?.color)}
+            style={{ marginLeft: 11, marginRight: -10, minWidth: 36, minHeight: 36 }}
+            role="defaultIcon"
+        >
+            {variant === 'success' && <CheckCircleIcon aria-label="check" width={24} />}
+            {variant === 'warning' && <InformationCircleIcon aria-label="warning" width={24} />}
+            {variant === 'error' && <XCircleIcon aria-label="error" width={24} />}
+        </div>
+    )
 }
 
-const Select = ({
+const getAnimationStyle = (isOpen: boolean): StyleObject => {
+    return {
+        visibility: isOpen ? 'visible' : 'hidden',
+        transition: 'opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+        transform: isOpen ? 'scaleY(1) translateY(0)' : 'scaleY(0.4) translateY(-5px)',
+        opacity: isOpen ? 1 : 0,
+        transformOrigin: '100% 0%',
+        maxHeight: '450px'
+    }
+}
+
+export const getLabel = (key: HTMLInputElement['value'], optionsList: ISelectOptions) => {
+    if (!optionsList[key]) return ''
+
+    if (typeof optionsList[key] === 'string') return optionsList[key] as string
+
+    const item = optionsList[key] as ItemObj
+    if (item.label) return item.label
+
+    return key
+}
+
+export const getSelectedKey = (optionsList: ISelectOptions) => {
+    const selected = Object.entries(optionsList).filter(([_, option]) => {
+        if (typeof option === 'object') return option.selected
+        return ''
+    })
+
+    return selected[0]?.[0]
+}
+
+function Select({
+    variant = 'default',
     label,
-    variant = 'outlined',
-    startAdornment,
-    rounded = 'none',
-    error,
-    warning,
-    success,
-    active,
-    message,
-    padding = '3',
-    fontSize = 'sm',
-    fontWeight = 'medium',
-    optionsList,
-    disabled,
-    width = 'full',
+    rounded = 'lg',
     className,
-    ...props
-}: ISelectProps) => {
-    const { input, text } = getSelectStates({ error, warning, success, disabled })
-    const [paddingLeft, setPaddingLeft] = useState('')
+    classNameAdornment,
+    padding,
+    paddingX = '4',
+    paddingY,
+    startAdornment,
+    endAdornment,
+    message,
+    noBorders,
+    onFocus,
+    onBlur,
+    large,
+    boxShadow = 'lg',
+    style,
+    onChange,
+    optionsList,
+    name,
+    value: selectedValue,
+    placeholder,
+    ...otherProps
+}: SelectProps) {
+    const { disabled } = otherProps
+    variant = disabled ? 'disabled' : variant
+    const isDisabled = variant === 'disabled'
+    const { input, text } = inputVariants[variant]
 
-    const classes = composeClasses(
-        'absolute w-full h-full appearance-none bg-transparent px-4 left-0',
-        'focus:outline-none',
-        `rounded-${rounded}`,
-        variant === 'outlined' && `border ${borderRadius.sm.all}`,
-        variant === 'standard' && 'border-b-2',
-        input.borderColor,
-        input?.color,
-        fontSize && `text-${fontSize}`,
-        fontWeight && `font-${fontWeight}`,
-        disabled ? 'cursor-not-allowed' : 'cursor-pointer',
-        className
+    const [focused, setFocused] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
+    const [selectedOpt, setSelectedOpt] = useState<{ value: string; label: string }>({
+        value: '',
+        label: ''
+    })
+
+    const styles = {
+        adornment: composeClasses('text-gray-400 transition duration-500 ease-out focus:ease-in', classNameAdornment),
+        container: composeClasses(
+            'relative placeholder-gray-400 mt-1 flex items-center justify-between font-medium gap-3 cursor-pointer',
+            'border-solid border',
+            'transition duration-500 ease-out focus:ease-in',
+            !isDisabled && `hover:shadow-${boxShadow} hover:border-gray-500`,
+            noBorders && 'border-none',
+            `rounded-${rounded}`,
+            !['error', 'success', 'warning'].includes(variant) && focused && 'border-blue-500',
+            ['error', 'success', 'warning'].includes(variant) ? 'bg-white' : 'bg-gray-50',
+            isDisabled ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'hover:bg-white',
+            input.borderColor,
+            padding && `p-${padding}`,
+            !padding && paddingX && `px-${paddingX}`,
+            !padding && paddingY && `py-${paddingY}`,
+            input.color,
+            large ? 'h-13' : 'h-12',
+            className
+        )
+    }
+
+    const isLabelScalded = !label || focused || selectedOpt.value !== ''
+
+    const handleFocus = useCallback(
+        (event: FocusEvent<HTMLInputElement>) => {
+            setFocused(true)
+            onFocus && onFocus(event)
+        },
+        [onFocus]
     )
 
+    const handleBlur = useCallback(
+        (event: FocusEvent<HTMLInputElement>) => {
+            setFocused(false)
+            onBlur && onBlur({ target: { value: event.target.value, name } } as FocusEvent<HTMLInputElement>)
+        },
+        [onBlur]
+    )
+
+    const handleChange = useCallback(
+        (event: ChangeEvent<HTMLInputElement>) => {
+            const label = getLabel(event.target.value, optionsList) as string
+            setSelectedOpt({ value: event.target.value, label })
+            onChange && onChange({ target: { value: event.target.value, name } } as ChangeEvent<HTMLInputElement>)
+        },
+        [onChange]
+    )
+
+    const handleSelect = useCallback(() => {
+        !isDisabled && setIsOpen((prev) => !prev)
+    }, [variant])
+
     useEffect(() => {
-        const parent = document.querySelector('[role="group-select"]')
-        if (parent && startAdornment) {
-            const currentPadding = parseInt(getComputedStyle(parent).padding)
-            const select = document.querySelector('select')
-            select && setPaddingLeft(currentPadding + 28 + 'px')
-        }
-    }, [padding])
+        const keyValue = selectedValue || getSelectedKey(optionsList)
+        const value = (optionsList[`${keyValue}`] ? keyValue : '') as string
+        const label = keyValue ? getLabel(keyValue.toString(), optionsList) : ''
+
+        setSelectedOpt({
+            value,
+            label
+        })
+    }, [selectedValue, optionsList])
 
     return (
-        <>
-            {label && <label className={composeClasses('block leading-none', spacing.sm.marginBottom, textSize.sm, textWeight.medium)}>{label}</label>}
-            <div
-                role="group-select"
-                className={composeClasses('w-full relative flex items-center', `p-${padding}`, startAdornment ? 'justify-between' : 'justify-end')}
-            >
+        <div role="select-container-group" className="relative" onClick={handleSelect}>
+            <div role="select-container" className={styles.container} style={{ zIndex: 2, ...style }}>
                 {startAdornment && (
-                    <div data-testid="startAdornment" className={` ${text.color}`}>
+                    <div data-testid="startAdornment" className={styles.adornment}>
                         {startAdornment}
                     </div>
                 )}
-                <select {...props} className={classes} style={{ paddingLeft: paddingLeft, ...props.style }} disabled={disabled}>
-                    {Object.entries(optionsList).map(([key, { label, disabled }]) => (
-                        <option key={key} disabled={disabled} value={key}>
+                <div className="flex flex-col w-full relative h-11">
+                    {label && (
+                        <label
+                            style={getAnimationLabel(isLabelScalded)}
+                            className={composeClasses(
+                                'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis',
+                                !isDisabled && 'text-gray-500'
+                            )}
+                        >
                             {label}
-                        </option>
-                    ))}
-                </select>
-                <div className={composeClasses(variant !== 'none' && spacing.xxl.paddingRight)}>
-                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                    </svg>
+                        </label>
+                    )}
+                    <div className="relative">
+                        <input
+                            {...otherProps}
+                            className={composeClasses('outline-none w-full font-medium bg-transparent text-transparent')}
+                            placeholder={isLabelScalded ? placeholder : ''}
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={selectedOpt.value}
+                            readOnly
+                            style={{
+                                cursor: 'inherit',
+                                ...getPaddingInput(!!label)
+                            }}
+                        />
+                        <div
+                            className="absolute w-full h-full whitespace-nowrap overflow-hidden top-0 left-0 bg-transparent text-left"
+                            style={{ zIndex: -1, ...getPaddingInput(!!label) }}
+                        >
+                            {selectedOpt.label}
+                        </div>
+                    </div>
                 </div>
+
+                <div>{isOpen ? <ChevronUpIcon className="text-gray-400" width={18} /> : <ChevronDownIcon className="text-gray-400" width={18} />}</div>
+
+                {['warning', 'error', 'success'].includes(variant) && <IconStatus variant={variant} />}
             </div>
-            {message && <p className={composeClasses(textSize.xs, spacing.sm.marginTop, spacing.sm.marginLeft, textWeight.medium, text.color)}>{message}</p>}
-        </>
+            <div
+                className={`absolute min-w-max left-0 top-${
+                    large ? '13' : '12'
+                } z-10 w-full py-1 mt-1 bg-white overflow-y-auto rounded-${rounded} shadow-${boxShadow}`}
+                style={getAnimationStyle(isOpen)}
+            >
+                {Object.entries(optionsList).map(([key, option]) => {
+                    const txtLabel = getLabel(key, optionsList)
+                    const disabled = typeof option !== 'string' ? option.disabled : false
+
+                    return (
+                        <button
+                            key={key}
+                            type="button"
+                            className={composeClasses(
+                                'block w-full px-3 py-2 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-100',
+                                typeof option !== 'string' && disabled && 'cursor-not-allowed opacity-50',
+                                key === selectedOpt.value && 'bg-blue-50'
+                            )}
+                            onClick={() => handleChange({ target: { value: key } } as ChangeEvent<HTMLInputElement>)}
+                            disabled={disabled}
+                        >
+                            {txtLabel}
+                        </button>
+                    )
+                })}
+            </div>
+            {message && <p className={composeClasses('text-xs mt-1 ml-2', text.color)}>{message}</p>}
+        </div>
     )
 }
 
