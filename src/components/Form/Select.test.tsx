@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 import { ExclamationCircleIcon } from '@heroicons/react/outline'
-import Select from './Select'
+import Select, { getLabel, getSelectedKey } from './Select'
 import { vi } from 'vitest'
 
 describe('<Select />', () => {
@@ -157,5 +157,49 @@ describe('<Select />', () => {
         fireEvent.click(getByText('Option 1'))
         expect(select.value).toBe('1')
         expect(onChange).toHaveBeenCalled()
+    })
+
+    it('when clicked outside the component, the dropdown should close', () => {
+        const { getByRole, getByText } = render(<Select role="select" optionsList={optionsList} />)
+        const select = getByRole('select') as HTMLSelectElement
+        fireEvent.click(select)
+        fireEvent.click(document.body)
+        expect(getByText('Option 1')).not.toBeVisible()
+    })
+
+    describe('prop itemWidth', () => {
+        it('the item must have the full width of the text when fullWidth is passed', () => {
+            const { getByRole } = render(<Select role="select" optionsList={optionsList} itemWidth="fullWidth" />)
+            const select = getByRole('select') as HTMLSelectElement
+            fireEvent.click(select)
+            expect(getByRole('dropdown').className).toContain('min-w-max')
+        })
+
+        it('the text of the item must fit the width of the dropdown when textWrap is passed', () => {
+            const { getByRole } = render(<Select role="select" optionsList={optionsList} itemWidth="textWrap" />)
+            const select = getByRole('select') as HTMLSelectElement
+            fireEvent.click(select)
+            expect(getByRole('dropdown').className).not.toContain('min-w-max')
+        })
+
+        it('the item must cut the text with ellipsis when trimWithEllipsis is passed', () => {
+            const { getByRole, getByText } = render(<Select role="select" optionsList={optionsList} itemWidth="trimWithEllipsis" />)
+            const select = getByRole('select') as HTMLSelectElement
+            fireEvent.click(select)
+            expect(getByText('Option 1').className).toContain('whitespace-nowrap overflow-hidden overflow-ellipsis')
+        })
+    })
+
+    test('the function getLabel should return the correct label', () => {
+        let label = getLabel('1', optionsList)
+        expect(label).toBe('Option 1')
+
+        label = getLabel('Option 4', optionsList)
+        expect(label).toBe('Option 4')
+    })
+
+    test('the function getSelectedKey should return the selected item', () => {
+        const selectedKey = getSelectedKey(optionsList)
+        expect(selectedKey).toBe('3')
     })
 })
