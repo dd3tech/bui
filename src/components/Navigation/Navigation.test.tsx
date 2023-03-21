@@ -5,36 +5,38 @@ import Text from '../Typography/Text'
 import { Anchor } from './Navigation'
 
 describe('<Anchor/>', () => {
-    it('should be render correctly', () => {
-        const { container } = render(<Anchor />)
-        expect(container.firstChild).toBeDefined()
+  it('should be render correctly', () => {
+    const { container } = render(<Anchor />)
+    expect(container.firstChild).toBeDefined()
+  })
+
+  describe('anchor', () => {
+    it('by default should render with <a/>', () => {
+      const { container } = render(<Anchor />)
+      const anchor = container.firstChild as HTMLAnchorElement
+      expect(anchor.tagName).toBe('A')
     })
 
-    describe('anchor', () => {
-        it('by default should render with <a/>', () => {
-            const { container } = render(<Anchor />)
-            const anchor = container.firstChild as HTMLAnchorElement
-            expect(anchor.tagName).toBe('A')
-        })
+    it('prop to works correctly', () => {
+      const { container } = render(<Anchor to="google.com" />)
+      const anchor = container.firstChild as HTMLAnchorElement
+      expect(anchor.getAttribute('href')).toBe('google.com')
+    })
+  })
 
-        it('prop to works correctly', () => {
-            const { container } = render(<Anchor to="google.com" />)
-            const anchor = container.firstChild as HTMLAnchorElement
-            expect(anchor.getAttribute('href')).toBe('google.com')
-        })
+  describe('linkComponent', () => {
+    it('should be render with a custom component', () => {
+      const { container } = render(<Anchor LinkComponent={Text} />)
+      const anchor = container.firstChild as HTMLAnchorElement
+      expect(anchor.tagName).toBe('SPAN')
     })
 
-    describe('linkComponent', () => {
-        it('should be render with a custom component', () => {
-            const { container } = render(<Anchor LinkComponent={Text} />)
-            const anchor = container.firstChild as HTMLAnchorElement
-            expect(anchor.tagName).toBe('SPAN')
-        })
-
-        it('prop to should be works correctly with custom component', () => {
-            const { container } = render(<Anchor to="google.com" LinkComponent={Text} />)
-            const anchor = container.firstChild as HTMLAnchorElement
-            expect(anchor.getAttribute('to')).toBe('google.com')
-        })
+    it('prop to should be works correctly with custom component', () => {
+      const { container } = render(
+        <Anchor to="google.com" LinkComponent={Text} />
+      )
+      const anchor = container.firstChild as HTMLAnchorElement
+      expect(anchor.getAttribute('to')).toBe('google.com')
     })
+  })
 })

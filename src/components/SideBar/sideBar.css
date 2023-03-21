@@ -1,30 +1,30 @@
 .hide-scroll {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .hide-scroll::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .fade-in {
-    animation: fadeIn 300ms forwards;
+  animation: fadeIn 300ms forwards;
 }
 .fade-out {
-    animation: fadeOut 300ms forwards;
+  animation: fadeOut 300ms forwards;
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

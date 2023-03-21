@@ -1,92 +1,92 @@
 .border-table {
-    border: 0.5px solid #d1d5db;
-    border-radius: 20px !important;
+  border: 0.5px solid #d1d5db;
+  border-radius: 20px !important;
 }
 
 .border-table-bottom {
-    border-bottom: 1px solid #d1d5db;
+  border-bottom: 1px solid #d1d5db;
 }
 
 .border-table-top {
-    border-top: 1px solid #d1d5db;
+  border-top: 1px solid #d1d5db;
 }
 
 .table-container-cmpnt thead tr th,
 .table-container-cmpnt tbody tr td {
-    position: relative;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: left;
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: left;
 }
 
 .table-container-cmpnt tbody tr {
-    height: 2rem;
+  height: 2rem;
 }
 
 .table-container-cmpnt.bordered {
-    border: 1px solid #d1d5db;
+  border: 1px solid #d1d5db;
 }
 
 .table-container-cmpnt thead tr:not([class*='bg-']) {
-    background-color: #f9fcff;
+  background-color: #f9fcff;
 }
 
 .table-container-cmpnt.vertical-borders thead tr th::after,
 .table-container-cmpnt.vertical-borders tbody tr td::after {
-    content: '';
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    width: 1px;
-    height: 100%;
-    background-color: #8f969a;
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 1px;
+  height: 100%;
+  background-color: #8f969a;
 }
 
 .table-container-cmpnt.vertical-borders thead tr th:last-child::after,
 .table-container-cmpnt.vertical-borders tbody tr td:last-child::after {
-    width: 0;
+  width: 0;
 }
 
 .table-container-cmpnt.vertical-borders thead tr.tertiary th::after {
-    height: calc(100% - 8px);
-    margin-bottom: 4px;
-    margin-top: 4px;
-    background-color: #d1d5db;
+  height: calc(100% - 8px);
+  margin-bottom: 4px;
+  margin-top: 4px;
+  background-color: #d1d5db;
 }
 
 .table-container-cmpnt.horizontal-borders thead tr th::before,
 .table-container-cmpnt.horizontal-borders tbody tr td::before {
-    content: '';
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    height: 1px;
-    width: 100%;
-    background-color: #d1d5db;
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 1px;
+  width: 100%;
+  background-color: #d1d5db;
 }
 
 .table-container-cmpnt.horizontal-borders tbody tr:last-child td::before {
-    height: 0;
+  height: 0;
 }
 
 .table-container-cmpnt .tertiary {
-    color: #8f969a;
+  color: #8f969a;
 }
 
 .table-container-cmpnt [role='input-container'] {
-    height: 30px;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    border: 0;
+  height: 30px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
 .table-container-cmpnt input {
-    background-color: inherit;
+  background-color: inherit;
 }
 
 .table-container-cmpnt .sticky {
-    position: sticky;
-    z-index: 1;
-    background-color: inherit;
+  position: sticky;
+  z-index: 1;
+  background-color: inherit;
 }

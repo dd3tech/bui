@@ -3,62 +3,62 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import Button from '../components/Buttons/Button'
 
 export default {
-    title: 'Buttons/Button',
-    component: Button
+  title: 'Buttons/Button',
+  component: Button
 } as ComponentMeta<typeof Button>
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 export const BtnPrimary = Template.bind({})
 BtnPrimary.args = {
-    variant: 'primary',
-    children: 'Primary',
-    onClick: () => console.log('CLICK')
+  variant: 'primary',
+  children: 'Primary',
+  onClick: () => console.log('CLICK')
 }
 export const BtnPrimaryLoading = Template.bind({})
 BtnPrimaryLoading.args = {
-    variant: 'primary',
-    children: 'Primary',
-    isLoading: true,
-    disabled: true,
-    onclick: () => console.log('CLICK')
+  variant: 'primary',
+  children: 'Primary',
+  isLoading: true,
+  disabled: true,
+  onclick: () => console.log('CLICK')
 }
 
 export const BtnSecondary = Template.bind({})
 BtnSecondary.args = {
-    variant: 'secondary',
-    children: 'Secondary'
+  variant: 'secondary',
+  children: 'Secondary'
 }
 
 export const BtnSuccess = Template.bind({})
 BtnSuccess.args = {
-    variant: 'success',
-    children: 'Success'
+  variant: 'success',
+  children: 'Success'
 }
 
 export const BtnError = Template.bind({})
 BtnError.args = {
-    variant: 'error',
-    children: 'Error'
+  variant: 'error',
+  children: 'Error'
 }
 
 export const BtnDanger = Template.bind({})
 BtnDanger.args = {
-    variant: 'danger',
-    children: 'Danger'
+  variant: 'danger',
+  children: 'Danger'
 }
 
 export const BtnOutlineRed = Template.bind({})
 BtnOutlineRed.args = {
-    variant: 'outlineWhiteRed',
-    children: 'Danger'
+  variant: 'outlineWhiteRed',
+  children: 'Danger'
 }
 
 export const BtnOutlineWhite = Template.bind({})
 BtnOutlineWhite.args = {
-    variant: 'outlineWhite',
-    children: 'Contacto',
-    paddingX: 14,
-    paddingY: 3,
-    className: 'text-base rounded-lg px-'
+  variant: 'outlineWhite',
+  children: 'Contacto',
+  paddingX: 14,
+  paddingY: 3,
+  className: 'text-base rounded-lg px-'
 }
