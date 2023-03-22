@@ -1,4 +1,4 @@
-name: Format code
+name: Linter
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
       - run: npm install
 
       - name: Formatting code
-        run: npm run format
+        run: npm run lint:fix
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4

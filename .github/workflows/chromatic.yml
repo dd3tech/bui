@@ -4,23 +4,32 @@ on:
   push:
     branches:
       - main
-    paths:
-      - src/components/**
-      - src/stories/**
-      - .storybook/**
+    # paths:
+    #   - src/components/**
+    #   - src/stories/**
+    #   - .storybook/**
 
 jobs:
-  chromatic-deployment:
+  chromatic:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v2
         with:
           node-version: '16'
-          cache: npm
+
       - name: Install dependencies
-        run: npm i
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        run: npm install
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Publish on Chromatic
+        run:
+          npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN
+          --exit-once-uploaded --exit-zero-on-changes
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
