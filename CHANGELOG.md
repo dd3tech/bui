@@ -1,3 +1,12 @@
+## [4.15.6](https://github.com/dd3tech/dd360-components/compare/v4.15.5...v4.15.6) (2023-03-22)
+
+
+### Bug Fixes
+
+* $ is added inside the currency input value ([b94cf17](https://github.com/dd3tech/dd360-components/commit/b94cf17b12492ddf55c05913a77d92ca1cb23cbd))
+* commas are removed from the final value returned ([939e83b](https://github.com/dd3tech/dd360-components/commit/939e83b0a5217553d9260d1f94b23b5fd46c11a5))
+* format code ([c522827](https://github.com/dd3tech/dd360-components/commit/c522827ea0b1a30d930aaf07e344f8fff84db1c9))
+
 ## [4.15.5](https://github.com/dd3tech/dd360-components/compare/v4.15.4...v4.15.5) (2023-03-22)
 
 
