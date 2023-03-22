@@ -1,3 +1,10 @@
+# [4.17.0](https://github.com/dd3tech/dd360-components/compare/v4.16.1...v4.17.0) (2023-03-22)
+
+
+### Features
+
+* an (optional) prefix can be added to the inputCurrency variant ([a44c99b](https://github.com/dd3tech/dd360-components/commit/a44c99b675190a64b1992b8b97ed4e4a09a1f7ff))
+
 ## [4.16.1](https://github.com/dd3tech/dd360-components/compare/v4.16.0...v4.16.1) (2023-03-22)
 
 
