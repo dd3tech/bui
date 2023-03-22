@@ -1,3 +1,11 @@
+## [4.15.5](https://github.com/dd3tech/dd360-components/compare/v4.15.4...v4.15.5) (2023-03-22)
+
+
+### Bug Fixes
+
+* **ShapeButton:** change height for optional prop and change type of icon ([1905da9](https://github.com/dd3tech/dd360-components/commit/1905da99d662634340bdd425e7d076ad36d2504f))
+* **ShapeButton:** delete unnecesary iconProperties prop ([7df8c9b](https://github.com/dd3tech/dd360-components/commit/7df8c9b95bd4cadeda6877a1759d2aaf47ef0986))
+
 ## [4.15.4](https://github.com/dd3tech/dd360-components/compare/v4.15.3...v4.15.4) (2023-03-22)
 
 
