@@ -127,7 +127,7 @@ function TextArea({
           disabled={isDisabled}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          style={{ zIndex: 1, paddingTop: 15 }}
+          style={{ zIndex: 1, paddingTop: 10 }}
         />
         {endAdornment && (
           <div
