@@ -4,9 +4,9 @@ import Table from './Table'
 import Header from './base/Header'
 import HeaderRow from './base/HeaderRow'
 import HeaderCell from './base/HeaderCell'
-import Body from './base/Body'
-import Row from './base/Row'
-import Cell from './base/Cell'
+import Body from './base/TableBody'
+import Row from './base/TableRow'
+import Cell from './base/TableCell'
 import Accordion from './base/Accordion'
 
 describe('<Table />', () => {
