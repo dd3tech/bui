@@ -3,7 +3,7 @@ import { getValueWithDecimalFormat, unFormatCurrency } from 'dd360-utils'
 import BaseInput, { InputProps } from './BaseInput'
 
 function CurrencyInput(props: InputProps) {
-  const { onChange, value } = props
+  const { onChange, value, prefix = '' } = props
   const [localValue, setLocalValue] = useState(
     getValueWithDecimalFormat(String(value))
   )
@@ -23,7 +23,7 @@ function CurrencyInput(props: InputProps) {
   }, [value])
 
   return (
-    <BaseInput {...props} onChange={handleChange} value={'$' + localValue} />
+    <BaseInput {...props} onChange={handleChange} value={prefix + localValue} />
   )
 }
 
