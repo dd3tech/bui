@@ -190,7 +190,7 @@ describe('<Select />', () => {
     const onChange = vi.fn()
     const onBlur = vi.fn()
     const onFocus = vi.fn()
-    const { getByRole, getByText } = render(
+    const { getByRole } = render(
       <Select
         role="select"
         optionsList={optionsList}
@@ -199,7 +199,7 @@ describe('<Select />', () => {
         onBlur={onBlur}
       />
     )
-    const selectContainer = getByRole('select-container')
+
     const select = getByRole('select') as HTMLSelectElement
     fireEvent.click(select)
 

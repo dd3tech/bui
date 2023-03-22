@@ -151,10 +151,9 @@ function TabGroup({
   return (
     <div
       style={{
-        width,
-        scrollbarWidth: 'none'
+        width
       }}
-      className="relative overflow-scroll"
+      className="relative overflow-auto hide-scroll"
     >
       <div
         {...otherProps}
