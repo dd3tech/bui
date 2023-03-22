@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - src/components/**
-    #   - src/stories/**
-    #   - .storybook/**
+    paths:
+      - src/components/**
+      - src/stories/**
+      - .storybook/**
 
 jobs:
   chromatic:
