@@ -1,22 +1,22 @@
 import React from 'react'
 import HomeIcon from '@heroicons/react/outline/HomeIcon'
-import { ShadowVariants } from '../../interfaces/types'
 import { borderRadius } from 'lib/shape'
 import { composeClasses } from 'lib/classes'
+import { ShadowVariants } from '../../interfaces/types'
 
 interface BaseCircleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  Icon?: () => React.ReactNode
+  icon?: React.ReactNode
   disabled?: boolean
   selected?: boolean
   width?: string
-  height: string
+  height?: string
   shadow?: ShadowVariants
   variant?: 'square' | 'circle'
   iconProperties?: { width?: string; height?: string; padding?: string }
 }
 
-export type WithoutTypeButtonProps = Omit<BaseCircleButtonProps, 'variant'>
+export type WithouVariantButtonProps = Omit<BaseCircleButtonProps, 'variant'>
 
 const globalStyles = {
   default: 'text-blue-700 hover:bg-gray-50',
@@ -39,7 +39,7 @@ const buildClassName = (disabled?: boolean, selected?: boolean) => {
 }
 
 function BaseCircleButton({
-  Icon,
+  icon,
   width = '3rem',
   height = '3rem',
   disabled,
@@ -59,17 +59,16 @@ function BaseCircleButton({
         buildClassName(disabled, selected)
       )}
     >
-      {!Icon && <HomeIcon style={iconProperties} />}
-      {Icon && Icon()}
+      {icon ? icon : <HomeIcon style={iconProperties} />}
     </button>
   )
 }
 
-function SquareButton({ ...props }: WithoutTypeButtonProps) {
+function SquareButton({ ...props }: WithouVariantButtonProps) {
   return <BaseCircleButton variant="square" {...props} />
 }
 
-function CircleButton({ ...props }: WithoutTypeButtonProps) {
+function CircleButton({ ...props }: WithouVariantButtonProps) {
   return <BaseCircleButton variant="circle" {...props} />
 }
 
