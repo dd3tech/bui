@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'
+import { composeStyles } from 'lib/styles'
 
 interface CircleProps extends React.HTMLProps<HTMLDivElement> {
   children?: React.ReactNode
@@ -26,25 +27,23 @@ const Circle = forwardRef<HTMLDivElement, CircleProps>(
       ...props
     } = circleProps
 
-    const chooseClassNameCircle = React.useCallback(() => {
-      if (disabled)
-        return `disabled:text-gray-300 disabled:border disabled:border-gray-300 disabled:bg-white`
-      return className
-    }, [className, disabled])
-
     return (
       <div
         ref={ref}
         className={composeClasses(
           'items-center flex justify-center rounded-full',
-          chooseClassNameCircle()
+          disabled &&
+            'disabled:text-gray-300 disabled:border disabled:border-gray-300 disabled:bg-white',
+          className
         )}
-        style={{
-          backgroundColor: !useBackground ? '' : backgroundColor,
-          width,
-          height,
-          border
-        }}
+        style={composeStyles([
+          {
+            backgroundColor: useBackground && backgroundColor,
+            width,
+            height,
+            border
+          }
+        ])}
         {...props}
       >
         {children}

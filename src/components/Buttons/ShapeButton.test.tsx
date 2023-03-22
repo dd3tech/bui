@@ -22,7 +22,7 @@ describe('<BaseCircleButton />', () => {
     const { container } = render(
       <ShapeButton.CircleButton
         {...defaultProps}
-        Icon={() => <MailIcon id="MailIcon" />}
+        icon={<MailIcon id="MailIcon" />}
       />
     )
     const icon = container

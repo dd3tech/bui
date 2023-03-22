@@ -1,5 +1,6 @@
 import { HTMLProps, ReactNode, useMemo } from 'react'
 import { composeClasses } from 'lib/classes'
+import { composeStyles } from 'lib/styles'
 import { Portal } from 'common/Portal'
 
 import { DownloadIcon } from '@heroicons/react/outline'
@@ -56,10 +57,12 @@ function FileViewer({ children, className, ...otherProps }: FileViewerProps) {
             'fixed inset-0 w-full h-screen px-16 py-6 flex flex-col',
             className
           )}
-          style={{
-            backgroundColor: hasBgColor ? undefined : 'rgba(17, 24, 39, 0.75)',
-            zIndex: '51'
-          }}
+          style={composeStyles([
+            {
+              backgroundColor: !hasBgColor && 'rgba(17, 24, 39, 0.75)',
+              zIndex: '51'
+            }
+          ])}
         >
           {children}
         </div>
