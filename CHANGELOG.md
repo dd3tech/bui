@@ -1,3 +1,34 @@
+## [4.15.5](https://github.com/dd3tech/dd360-components/compare/v4.15.4...v4.15.5) (2023-03-22)
+
+
+### Bug Fixes
+
+* **ShapeButton:** change height for optional prop and change type of icon ([1905da9](https://github.com/dd3tech/dd360-components/commit/1905da99d662634340bdd425e7d076ad36d2504f))
+* **ShapeButton:** delete unnecesary iconProperties prop ([7df8c9b](https://github.com/dd3tech/dd360-components/commit/7df8c9b95bd4cadeda6877a1759d2aaf47ef0986))
+
+## [4.15.4](https://github.com/dd3tech/dd360-components/compare/v4.15.3...v4.15.4) (2023-03-22)
+
+
+### Bug Fixes
+
+* the default variant of DateInput is changed ([f3c457a](https://github.com/dd3tech/dd360-components/commit/f3c457a78872fcd23c8a5ff27ef5c7828674ea16))
+* the space between the label and the content is reduced ([6214f7b](https://github.com/dd3tech/dd360-components/commit/6214f7b6ba6426d4c5e2575783475175c57a64ef))
+
+## [4.15.3](https://github.com/dd3tech/dd360-components/compare/v4.15.2...v4.15.3) (2023-03-22)
+
+
+### Bug Fixes
+
+* fix scroll tabgroup ([33dcd07](https://github.com/dd3tech/dd360-components/commit/33dcd079243317bff124925712437db8ed95a06a))
+
+## [4.15.2](https://github.com/dd3tech/dd360-components/compare/v4.15.1...v4.15.2) (2023-03-21)
+
+
+### Bug Fixes
+
+* change test select ([08046ae](https://github.com/dd3tech/dd360-components/commit/08046ae2e4e191c93849f93b15f7eb7ccfa2489a))
+* remove padding textarea ([c55c5d2](https://github.com/dd3tech/dd360-components/commit/c55c5d247b7234ff5346aabfd8ed97c4b311493a))
+
 ## [4.15.1](https://github.com/dd3tech/dd360-components/compare/v4.15.0...v4.15.1) (2023-03-21)
 
 

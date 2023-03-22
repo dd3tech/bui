@@ -109,7 +109,7 @@ function TextArea({
               ...getAnimationLabel(!!isLabelScalded)
             }}
             className={composeClasses(
-              'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis pl-4',
+              'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis pb-0.5',
               !isDisabled ? 'text-gray-500' : 'text-gray-400'
             )}
           >
@@ -120,14 +120,14 @@ function TextArea({
           ref={textareaRef}
           {...otherProps}
           className={composeClasses(
-            'w-full h-full bg-transparent focus:outline-none p-4',
+            'w-full h-full bg-transparent focus:outline-none',
             isDisabled && 'cursor-not-allowed'
           )}
           placeholder={isLabelScalded ? placeholder : ''}
           disabled={isDisabled}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          style={{ zIndex: 1, paddingTop: 15 }}
+          style={{ zIndex: 1, paddingTop: 10 }}
         />
         {endAdornment && (
           <div
