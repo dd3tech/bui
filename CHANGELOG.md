@@ -1,3 +1,10 @@
+## [4.15.3](https://github.com/dd3tech/dd360-components/compare/v4.15.2...v4.15.3) (2023-03-22)
+
+
+### Bug Fixes
+
+* fix scroll tabgroup ([33dcd07](https://github.com/dd3tech/dd360-components/commit/33dcd079243317bff124925712437db8ed95a06a))
+
 ## [4.15.2](https://github.com/dd3tech/dd360-components/compare/v4.15.1...v4.15.2) (2023-03-21)
 
 
