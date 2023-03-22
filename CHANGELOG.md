@@ -1,3 +1,15 @@
+# [4.16.0](https://github.com/dd3tech/dd360-components/compare/v4.15.6...v4.16.0) (2023-03-22)
+
+
+### Bug Fixes
+
+* **Layout:** change export name of Row component ([5e43aa6](https://github.com/dd3tech/dd360-components/commit/5e43aa6542f93f56cb3c77f40233c7eccc055012))
+
+
+### Features
+
+* add Layout to exports ([3dafbe2](https://github.com/dd3tech/dd360-components/commit/3dafbe222335af03c5a4be02c68bcf19823bc352))
+
 ## [4.15.6](https://github.com/dd3tech/dd360-components/compare/v4.15.5...v4.15.6) (2023-03-22)
 
 
