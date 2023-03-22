@@ -1,36 +1,36 @@
 name: Release
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 jobs:
-    release:
-        name: Release
-        runs-on: ubuntu-latest
-        permissions:
-            packages: write
-            contents: write
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
-              with:
-                  node-version: '16'
-                  cache: npm
-                  registry-url: https://registry.npmjs.org
-            - name: install deps
-              run: npm i
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - name: install deps
+        run: npm i
 
-            - name: generate exports
-              run: npm run generate-exports
+      - name: generate exports
+        run: npm run generate-exports
 
-            - name: build
-              run: npm run build-lib
+      - name: build
+        run: npm run build-lib
 
-            - name: release
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  GH_URL: 'https://api.github.com'
-              run: npx semantic-release
+      - name: release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_URL: 'https://api.github.com'
+        run: npx semantic-release
