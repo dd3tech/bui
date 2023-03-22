@@ -222,6 +222,8 @@ function Select({
 
   useEffect(() => {
     const handleClickOutside = (e: globalThis.MouseEvent) => {
+      if ((e.target as HTMLElement).getAttribute('role') === 'chevron') return
+
       if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
         setIsOpen(false)
       }
@@ -307,9 +309,17 @@ function Select({
 
         <div>
           {isOpen ? (
-            <ChevronUpIcon className="text-gray-400" width={18} />
+            <ChevronUpIcon
+              role="chevron"
+              className="text-gray-400"
+              width={18}
+            />
           ) : (
-            <ChevronDownIcon className="text-gray-400" width={18} />
+            <ChevronDownIcon
+              role="chevron"
+              className="text-gray-400"
+              width={18}
+            />
           )}
         </div>
 
