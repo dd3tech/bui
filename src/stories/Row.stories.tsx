@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import RowComponent from '../components/Layout/Grid/Row'
+import RowComponent from '../components/Layout/Row'
 
 export default {
   title: 'Layout/Row',

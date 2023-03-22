@@ -180,6 +180,11 @@
       "require": "./dist/cjs/components/Form/TextArea.js",
       "module": "./dist/esm/components/Form/TextArea.js",
       "default": "./dist/esm/components/Form/TextArea.js"
+    },
+    "./Layout": {
+      "require": "./dist/cjs/components/Layout/index.js",
+      "module": "./dist/esm/components/Layout/index.js",
+      "default": "./dist/esm/components/Layout/index.js"
     }
   },
   "typesVersions": {
@@ -218,7 +223,8 @@
       "Kbd": ["./dist/esm/components/Kbd/index.d.ts"],
       "Filters": ["./dist/esm/components/Filters/index.d.ts"],
       "Select": ["./dist/esm/components/Form/Select.d.ts"],
-      "TextArea": ["./dist/esm/components/Form/TextArea.d.ts"]
+      "TextArea": ["./dist/esm/components/Form/TextArea.d.ts"],
+      "Layout": ["./dist/esm/components/Layout/index.d.ts"]
     }
   }
 }
