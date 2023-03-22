@@ -13,7 +13,6 @@ interface BaseCircleButtonProps
   height?: string
   shadow?: ShadowVariants
   variant?: 'square' | 'circle'
-  iconProperties?: { width?: string; height?: string; padding?: string }
 }
 
 export type WithouVariantButtonProps = Omit<BaseCircleButtonProps, 'variant'>
@@ -22,12 +21,6 @@ const globalStyles = {
   default: 'text-blue-700 hover:bg-gray-50',
   selected: 'bg-blue-700 text-white',
   disabled: 'text-gray-300'
-}
-
-const defaultIconProperties = {
-  width: '2.5rem',
-  height: '2.5rem',
-  padding: '0.5rem'
 }
 
 const buildClassName = (disabled?: boolean, selected?: boolean) => {
@@ -45,7 +38,6 @@ function BaseCircleButton({
   disabled,
   selected,
   shadow = 'sm',
-  iconProperties = defaultIconProperties,
   variant = 'circle',
   ...props
 }: BaseCircleButtonProps) {
@@ -59,7 +51,17 @@ function BaseCircleButton({
         buildClassName(disabled, selected)
       )}
     >
-      {icon ? icon : <HomeIcon style={iconProperties} />}
+      {icon ? (
+        icon
+      ) : (
+        <HomeIcon
+          style={{
+            width: '2.5rem',
+            height: '2.5rem',
+            padding: '0.5rem'
+          }}
+        />
+      )}
     </button>
   )
 }
