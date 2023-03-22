@@ -21,7 +21,9 @@ function CurrencyInput(props: InputProps) {
     if (value) setLocalValue(getValueWithDecimalFormat(String(value)))
   }, [value])
 
-  return <BaseInput {...props} onChange={handleChange} value={'$' + localValue} />
+  return (
+    <BaseInput {...props} onChange={handleChange} value={'$' + localValue} />
+  )
 }
 
 export default CurrencyInput
