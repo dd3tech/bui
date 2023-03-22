@@ -11,10 +11,10 @@ describe('<CurrencyInput />', () => {
     const input = getByTestId('input') as HTMLInputElement
 
     fireEvent.change(input, { target: { value: '12345.5' } })
-    expect(input.value).toBe('12,345.5')
+    expect(input.value).toBe('$12,345.5')
     fireEvent.change(input, { target: { value: '12345.58999' } })
-    expect(input.value).toBe('12,345.58')
+    expect(input.value).toBe('$12,345.58')
     fireEvent.change(input, { target: { value: '12345.' } })
-    expect(input.value).toBe('12,345.')
+    expect(input.value).toBe('$12,345.')
   })
 })
