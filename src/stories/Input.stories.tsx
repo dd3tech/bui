@@ -44,7 +44,8 @@ InputCurrency.args = {
   endAdornment: '$',
   startAdornment: '%',
   className: 'w-full',
-  type: 'currency'
+  type: 'currency',
+  prefix: '$'
 }
 export const InputPassword = Template.bind({})
 InputPassword.args = {

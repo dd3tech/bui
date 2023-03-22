@@ -6,7 +6,7 @@ describe('<CurrencyInput />', () => {
   it('formats input value as currency', () => {
     const onChange = vi.fn()
     const { getByTestId } = render(
-      <CurrencyInput data-testid="input" onChange={onChange} />
+      <CurrencyInput data-testid="input" onChange={onChange} prefix="$" />
     )
     const input = getByTestId('input') as HTMLInputElement
 
