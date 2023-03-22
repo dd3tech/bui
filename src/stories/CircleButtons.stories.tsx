@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import BaseCircleButtonComponent from '../components/Buttons/CircleButtons'
+import BaseCircleButtonComponent from '../components/Buttons/ShapeButton'
 import DynamicHeroIcon from '../common/DynamicHeroIcon'
 
 export default {
