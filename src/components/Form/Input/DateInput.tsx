@@ -93,11 +93,11 @@ function DateInput({
 
   const showVariant = useMemo(() => {
     if (variant) return variant
-    if (!date.length) return 'active'
+    if (!date.length) return 'default'
     if (!currentDate) return 'error'
     if (date?.length !== 10) return 'error'
 
-    return 'active'
+    return 'default'
   }, [currentDate, variant])
 
   useEffect(() => {

@@ -1,3 +1,11 @@
+## [4.15.4](https://github.com/dd3tech/dd360-components/compare/v4.15.3...v4.15.4) (2023-03-22)
+
+
+### Bug Fixes
+
+* the default variant of DateInput is changed ([f3c457a](https://github.com/dd3tech/dd360-components/commit/f3c457a78872fcd23c8a5ff27ef5c7828674ea16))
+* the space between the label and the content is reduced ([6214f7b](https://github.com/dd3tech/dd360-components/commit/6214f7b6ba6426d4c5e2575783475175c57a64ef))
+
 ## [4.15.3](https://github.com/dd3tech/dd360-components/compare/v4.15.2...v4.15.3) (2023-03-22)
 
 
