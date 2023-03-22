@@ -1,3 +1,11 @@
+## [4.16.1](https://github.com/dd3tech/dd360-components/compare/v4.16.0...v4.16.1) (2023-03-22)
+
+
+### Bug Fixes
+
+* pull down the dropdown menu ([c9df680](https://github.com/dd3tech/dd360-components/commit/c9df6806654ffc2c5cca17b99bb8e6ca8be865dc))
+* pull down the dropdown menu by clicking the chevron icons ([af2dd51](https://github.com/dd3tech/dd360-components/commit/af2dd512e40402e4b7c2bae8dce262ead30b98b4))
+
 # [4.16.0](https://github.com/dd3tech/dd360-components/compare/v4.15.6...v4.16.0) (2023-03-22)
 
 
