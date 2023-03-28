@@ -9,7 +9,11 @@ interface PrivateProps {
   variant?: 'primary' | 'secondary'
 }
 
-interface Props extends React.HTMLAttributes<HTMLButtonElement> {
+interface Props
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   textColor?: string
   disabledText?: string
   label: string
