@@ -1,3 +1,10 @@
+## [4.17.1](https://github.com/dd3tech/dd360-components/compare/v4.17.0...v4.17.1) (2023-03-28)
+
+
+### Bug Fixes
+
+* the state of the tabs will change when any of its properties change dynamically ([ce9e2cf](https://github.com/dd3tech/dd360-components/commit/ce9e2cf193e45c8cf858683ec1f814f39376b3f5))
+
 # [4.17.0](https://github.com/dd3tech/dd360-components/compare/v4.16.1...v4.17.0) (2023-03-22)
 
 
