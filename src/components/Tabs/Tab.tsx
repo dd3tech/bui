@@ -9,7 +9,11 @@ interface PrivateProps {
   variant?: 'primary' | 'secondary'
 }
 
-interface Props extends React.HTMLAttributes<HTMLButtonElement> {
+interface Props
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   textColor?: string
   disabledText?: string
   label: string
@@ -57,7 +61,7 @@ function Tab({
       list.push(disabled ? 'text-gray-300' : 'text-gray-500')
     }
     return list.join(' ')
-  }, [value, variant])
+  }, [value, variant, disabled])
 
   return (
     <button
