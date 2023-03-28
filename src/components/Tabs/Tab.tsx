@@ -57,7 +57,7 @@ function Tab({
       list.push(disabled ? 'text-gray-300' : 'text-gray-500')
     }
     return list.join(' ')
-  }, [value, variant])
+  }, [value, variant, disabled])
 
   return (
     <button

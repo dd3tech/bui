@@ -142,7 +142,15 @@ function TabGroup({
       }
       return child
     })
-  }, [value, onClick, disabledText, childClassName, textColor, variant])
+  }, [
+    value,
+    onClick,
+    disabledText,
+    childClassName,
+    textColor,
+    variant,
+    children
+  ])
 
   useEffect(() => {
     handleChangeIndicator(value)
