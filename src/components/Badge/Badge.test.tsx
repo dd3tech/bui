@@ -31,35 +31,35 @@ describe('<Badge/>', () => {
     it('Badge contains the className corresponding to the warning variant', () => {
       const { getByRole } = render(<Badge variant="warning" icon="success" />)
       expect(getByRole(badgeContainer).className).toContain(
-        'bg-yellow-100 border border-yellow-500 text-gray-500'
+        'bg-yellow-100 border border-warning text-info'
       )
     })
 
     it('Badge contains the className corresponding to the infoPrimary variant ', () => {
       const { getByRole } = render(<Badge variant="infoPrimary" />)
       expect(getByRole(badgeContainer).className).toContain(
-        'bg-blue-50 border border-blue-300 text-gray-500'
+        'bg-blue-50 border border-blue-300 text-info'
       )
     })
 
     it('Badge contains the className corresponding to the infoSecondary variant ', () => {
       const { getByRole } = render(<Badge variant="infoSecondary" />)
       expect(getByRole(badgeContainer).className).toContain(
-        'bg-transparent border border-blue-300 text-gray-500'
+        'bg-transparent border border-blue-300 text-info'
       )
     })
 
     it('Badge contains the className corresponding to the success variant ', () => {
       const { getByRole } = render(<Badge variant="success" />)
       expect(getByRole(badgeContainer).className).toContain(
-        'bg-green-50 border border-green-300 text-gray-500 font-medium'
+        'bg-green-50 border border-green-300 text-info font-medium'
       )
     })
 
     it('Badge contains the className corresponding to the primary variant ', () => {
       const { getByRole } = render(<Badge variant="primary" />)
       expect(getByRole(badgeContainer).className).toContain(
-        'bg-transparent border border-blue-700 text-blue-700'
+        'bg-transparent border border-primary text-primary'
       )
     })
 
@@ -73,7 +73,7 @@ describe('<Badge/>', () => {
     it('Badge contains the className corresponding to the error variant and the props text works correctly  ', () => {
       const { getByRole } = render(<Badge variant="error" text="Testing" />)
       expect(getByRole(badgeContainer).className).toContain(
-        'bg-red-50 border border-red-300 text-gray-500 font-medium'
+        'bg-error border border-red-300 text-info font-medium'
       )
       expect(getByRole(badgeContainer).textContent).contain('Testing')
     })

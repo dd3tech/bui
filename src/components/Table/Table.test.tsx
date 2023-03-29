@@ -75,7 +75,7 @@ describe('<Table />', () => {
 
   it('should be render a cell with error', () => {
     const { getByTestId } = renderResult
-    expect(getByTestId('cell-error').className).toContain('bg-red-100')
+    expect(getByTestId('cell-error').className).toContain('error-100')
   })
 
   it('should be render a cell with input', () => {

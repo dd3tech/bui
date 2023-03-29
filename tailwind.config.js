@@ -5,6 +5,14 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        error: 'var(--error)',
+        info: 'var(--info)',
+        success: 'var(--success)',
+        warning: 'var(--warning)'
+      },
       borderWidth: {
         3: '3px'
       },

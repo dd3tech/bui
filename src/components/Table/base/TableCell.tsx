@@ -55,7 +55,7 @@ const Cell = ({
       className={composeClasses(
         (stickyLeft || stickyTop || stickyRight || stickyBottom) && 'sticky',
         disabled && 'text-gray-200',
-        error && 'bg-red-100',
+        error && 'error-100',
         inputProps && 'pt-0 pb-0',
         props.className
       )}

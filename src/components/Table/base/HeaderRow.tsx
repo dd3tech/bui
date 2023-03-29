@@ -15,7 +15,7 @@ export interface HeaderRowProps
 
 const headerRowVariant: { [key: string]: string } = {
   primary: `${fontSize.sm} h-12 text-gray-600`,
-  secondary: `${fontSize.xxs} h-10 text-gray-500`,
+  secondary: `${fontSize.xxs} h-10 text-info`,
   tertiary: `tertiary ${fontSize.xs} h-8 bg-gray-50`
 }
 

@@ -21,7 +21,7 @@ const InsertSeparators: FC<InsertSeparatorsProps> = ({
   return (
     <ChevronRightIcon
       data-icon="ChevronRightIcon"
-      className="text-gray-500 bold"
+      className="text-info bold"
       width={15}
     />
   )
@@ -56,8 +56,8 @@ const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
               className={composeClasses(
                 'cursor-pointer text-sm',
                 isActiveLink(indexKey)
-                  ? 'text-blue-700 font-bold'
-                  : 'text-gray-500 font-medium'
+                  ? 'text-primary font-bold'
+                  : 'text-info font-medium'
               )}
             >
               {name && name.charAt(0).toLocaleUpperCase() + name.slice(1)}

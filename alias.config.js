@@ -8,5 +8,6 @@ module.exports.alias = {
   common: r('./src/common'),
   hooks: r('./src/hooks'),
   interfaces: r('./src/interfaces'),
-  lib: r('./src/lib')
+  lib: r('./src/lib'),
+  theme: r('./src/theme')
 }

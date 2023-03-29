@@ -73,7 +73,8 @@ export function createModule({ plugins, format = 'esm', ...otherProps }) {
       './src/index.ts',
       ...getFiles('./src/hooks'),
       ...getFiles('./src/common'),
-      ...getFiles('./src/lib')
+      ...getFiles('./src/lib'),
+      ...getFiles('./src/theme')
     ],
     output: {
       dir: `dist/${format}`,

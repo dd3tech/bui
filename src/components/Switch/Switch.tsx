@@ -21,7 +21,7 @@ const Switch: FC<ISwitchProps> = forwardRef<HTMLDivElement, ISwitchProps>(
       'h-5 w-5 rounded-full shadow-md transform transition-transform duration-500',
       'md:w-6 md:h-6',
       toggle && 'transform translate-x-8',
-      toggle ? 'bg-blue-700' : 'bg-white'
+      toggle ? 'bg-primary' : 'bg-white'
     )
 
     return (

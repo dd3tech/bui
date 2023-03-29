@@ -38,14 +38,14 @@ export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
 }
 
 const badgeVariants: { [key: string]: string } = {
-  warning: 'bg-yellow-100 border border-yellow-500 text-gray-500',
-  infoPrimary: 'bg-blue-50 border border-blue-300 text-gray-500',
-  infoSecondary: 'bg-transparent border border-blue-300 text-gray-500',
-  success: 'bg-green-50 border border-green-300 text-gray-500 font-medium',
-  primary: 'bg-transparent border border-blue-700 text-blue-700',
+  warning: 'bg-yellow-100 border border-warning text-info',
+  infoPrimary: 'bg-blue-50 border border-blue-300 text-info',
+  infoSecondary: 'bg-transparent border border-blue-300 text-info',
+  success: 'bg-green-50 border border-green-300 text-info font-medium',
+  primary: 'bg-transparent border border-primary text-primary',
   secondary:
     'bg-transparent border border-white text-white hover:bg-gray-50 hover:text-black',
-  error: 'bg-red-50 border border-red-300 text-gray-500 font-medium'
+  error: 'bg-error border border-red-300 text-info font-medium'
 }
 
 const iconsSwitch = (iconType: IBadgeProps['icon'], classNameIcon = '') => {

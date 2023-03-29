@@ -50,7 +50,7 @@ function NumberInput({
       value={localValue}
       endAdornment={
         controllers ? (
-          <div className="grid -mt-2.5 gap-y-0.5  text-gray-500">
+          <div className="grid -mt-2.5 gap-y-0.5  text-info">
             <button role="increment-number" onClick={increment} type="button">
               <ArrowCircleUpIcon aria-label="arrowUp" width={20} />
             </button>

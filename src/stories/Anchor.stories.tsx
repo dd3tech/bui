@@ -15,12 +15,12 @@ export const Anchor = Template.bind({})
 Anchor.args = {
   to: '/anchor',
   children: 'Click Anchor',
-  className: 'text-blue-700'
+  className: 'text-primary'
 }
 
 export const LinkAnchor = Template.bind({})
 LinkAnchor.args = {
   to: '/link',
   children: 'Click Link',
-  className: 'text-blue-700'
+  className: 'text-primary'
 }

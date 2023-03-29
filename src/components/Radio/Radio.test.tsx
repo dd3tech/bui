@@ -18,7 +18,7 @@ describe('<Radio/>', () => {
   })
 
   it('should be render with prop error=true', () => {
-    const classes = getClasses(true, false, true, 'bg-blue-700')
+    const classes = getClasses(true, false, true, 'bg-primary')
 
     const { container, getByRole } = render(
       <Radio value="a" checked error color="primary" onChange={onChangeMock} />

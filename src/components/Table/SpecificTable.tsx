@@ -37,7 +37,7 @@ function TableSpecific({ topHeader, header, data }: SpecificTableProps) {
           {data.map((item, index) => (
             <tr
               key={index}
-              className="divide-x divide-gray-400 border-b border-b-gray-400 h-8 text-xs text-left text-gray-500"
+              className="divide-x divide-gray-400 border-b border-b-gray-400 h-8 text-xs text-left text-info"
             >
               {header.map(({ key, withCurrencyFormat }, idx) => (
                 <th key={idx}>

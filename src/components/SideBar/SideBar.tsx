@@ -125,8 +125,8 @@ const SideBar = ({
             <div
               role="active-sidebar"
               className={composeClasses(
-                'fixed ml-6 lg:ml-3.5 border rounded-full bg-white text-blue-700 cursor-pointer transition-all duration-300 ease-in-out',
-                'focus:bg-blue-700 focus:text-white',
+                'fixed ml-6 lg:ml-3.5 border rounded-full bg-white text-primary cursor-pointer transition-all duration-300 ease-in-out',
+                'focus:bg-primary focus:text-white',
                 'hover:bg-blue-50'
               )}
               onClick={() => {
@@ -179,7 +179,7 @@ const SideBar = ({
                     key={index.toString()}
                     className={composeClasses(
                       'w-72 h-16 transition-all duration-300 ease-out letter-spacing-negative flex items-center justify-start gap-1',
-                      'hover:text-red-500',
+                      'hover:text-error',
                       disabled
                         ? 'cursor-not-allowed'
                         : 'cursor-pointer hover:bg-gray-100',
@@ -204,7 +204,7 @@ const SideBar = ({
                             className={composeClasses(
                               'w-6 h-6 ml-3.5 flex items-center',
                               disabled ? 'text-gray-300' : 'text-gray-400',
-                              active && 'text-blue-700'
+                              active && 'text-primary'
                             )}
                           >
                             {icon ? icon : <ExclamationCircleIcon />}
@@ -228,7 +228,7 @@ const SideBar = ({
                       role={`option-${index}`}
                       variant="span"
                       className={`${
-                        disabled ? 'text-gray-300' : 'text-gray-500'
+                        disabled ? 'text-gray-300' : 'text-info'
                       } w-56 whitespace-nowrap font-semibold`}
                     >
                       {disabled && (
@@ -250,8 +250,8 @@ const SideBar = ({
             <div
               role="danger-zone"
               className={`w-72 border-t ${
-                props.dangerZone?.active ? 'bg-red-600' : 'bg-gray-50'
-              } border-gray-300 hover:bg-red-200 transition ease-in duration-300`}
+                props.dangerZone?.active ? 'bg-error' : 'bg-gray-50'
+              } border-gray-300 hover:error-200 transition ease-in duration-300`}
             >
               <div
                 className="w-full h-20 lg:h-32 flex items-center cursor-pointer group"
@@ -288,7 +288,7 @@ const SideBar = ({
                 <Text
                   className={composeClasses(
                     'font-semibold',
-                    props.dangerZone?.active ? 'text-white' : 'text-gray-500'
+                    props.dangerZone?.active ? 'text-white' : 'text-info'
                   )}
                 >
                   {props?.dangerZone?.text}

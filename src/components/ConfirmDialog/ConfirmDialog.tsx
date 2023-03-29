@@ -40,10 +40,7 @@ const ConfirmDialog = ({
           style={{ left: position?.left, top: position?.top }}
         >
           {title && (
-            <Text
-              variant="p"
-              className="text-gray-500 mb-4 text-xxs font-semibold"
-            >
+            <Text variant="p" className="text-info mb-4 text-xxs font-semibold">
               {title}
             </Text>
           )}
