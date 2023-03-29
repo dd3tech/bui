@@ -89,14 +89,14 @@ describe('<DateInput />', () => {
       const { container } = render(
         <DateInput variant="success" data-testid="date-input" />
       )
-      expect(container.firstChild).toHaveClass('border-green-500')
+      expect(container.firstChild).toHaveClass('border-success')
     })
 
     it('it should display the "warning" variant correctly', () => {
       const { container } = render(
         <DateInput variant="warning" data-testid="date-input" />
       )
-      expect(container.firstChild).toHaveClass('border-yellow-500')
+      expect(container.firstChild).toHaveClass('border-warning')
     })
   })
 

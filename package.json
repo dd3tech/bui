@@ -142,6 +142,11 @@
       "module": "./dist/esm/lib/index.js",
       "default": "./dist/esm/lib/index.js"
     },
+    "./theme": {
+      "require": "./dist/cjs/lib/index.js",
+      "module": "./dist/esm/lib/index.js",
+      "default": "./dist/esm/lib/index.js"
+    },
     "./DynamicHeroIcon": {
       "require": "./dist/cjs/common/DynamicHeroIcon/index.js",
       "module": "./dist/esm/common/DynamicHeroIcon/index.js",

@@ -18,8 +18,8 @@ interface BaseCircleButtonProps
 export type WithouVariantButtonProps = Omit<BaseCircleButtonProps, 'variant'>
 
 const globalStyles = {
-  default: 'text-blue-700 hover:bg-gray-50',
-  selected: 'bg-blue-700 text-white',
+  default: 'text-primary hover:bg-gray-50',
+  selected: 'bg-primary text-white',
   disabled: 'text-gray-300'
 }
 

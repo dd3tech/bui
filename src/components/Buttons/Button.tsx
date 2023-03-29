@@ -42,19 +42,19 @@ const ContentLoading: React.FC<renderLoading> = ({
 }
 
 const buttonsVariants: { [key: string]: string } = {
-  primary: 'bg-blue-700 hover:bg-blue-800 text-white disabled:bg-gray-300',
+  primary: 'bg-primary text-white hover:bg-blue-800 disabled:bg-gray-300',
   secondary:
-    'bg-transparent border border-black hover:bg-white disabled:opacity-20',
+    'bg-secondary border border-black hover:bg-white disabled:opacity-20',
   cancel:
-    'bg-white text-black hover:text-white hover:bg-red-500 disabled:opacity-75',
-  error: 'text-white bg-red-500 hover:bg-red-600 disabled:opacity-75',
-  outlineBlue: 'bg-transparent border border-blue-700 text-blue-700',
-  success: 'bg-green-500 hover:bg-green-600 text-white',
+    'bg-white text-black hover:text-white hover:bg-error disabled:opacity-75',
+  error: 'text-white bg-error hover:bg-error disabled:opacity-75',
+  outlineBlue: 'bg-secondary border border-primary text-primary',
+  success: 'bg-success hover:bg-green-600 text-white',
   outlineWhite:
-    'bg-transparent border border-white text-white hover:bg-gray-50 hover:text-black',
-  danger: 'bg-red-600 hover:bg-red-700 text-white disabled:bg-red-300',
+    'bg-secondary border border-white text-white hover:bg-gray-50 hover:text-black',
+  danger: 'bg-error hover:error-700 text-white disabled:error-300',
   outlineWhiteRed:
-    'bg-white border border-red-600 text-red-600 hover:bg-red-600 hover:text-white'
+    'bg-white border border-red-600 text-red-600 hover:bg-error hover:text-white'
 }
 
 const sizeVariants: { [key: string]: string } = {

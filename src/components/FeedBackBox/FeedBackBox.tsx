@@ -48,9 +48,9 @@ function FeedBackBox({
     >
       <div className="flex mb-2">
         {type === 'error' ? (
-          <ExclamationIcon className="w-4 h-4 text-red-500 mr-2" />
+          <ExclamationIcon className="w-4 h-4 text-error mr-2" />
         ) : (
-          <CheckCircleIcon className="w-4 h-4 text-green-500 mr-2" />
+          <CheckCircleIcon className="w-4 h-4 text-success mr-2" />
         )}
         <Text
           variant="span"

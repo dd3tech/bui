@@ -57,6 +57,6 @@ describe('<BaseCircleButton />', () => {
     const { container } = render(
       <ShapeButton.BaseCircleButton {...defaultProps} selected={true} />
     )
-    expect(container.firstChild).toHaveClass('bg-blue-700 text-white')
+    expect(container.firstChild).toHaveClass('bg-primary text-white')
   })
 })

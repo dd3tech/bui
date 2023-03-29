@@ -14,6 +14,6 @@ const Template: ComponentStory<typeof DynamicHeroIconComponent> = (args) => (
 export const DynamicHeroIcon = Template.bind({})
 DynamicHeroIcon.args = {
   icon: 'CameraIcon',
-  className: 'text-gray-500 bold',
+  className: 'text-info bold',
   width: 30
 }

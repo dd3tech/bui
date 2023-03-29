@@ -42,7 +42,7 @@ const IconStatus = ({ variant }: { variant: InputVariantType }) => {
   return (
     <div
       className={composeClasses(
-        'flex justify-center items-center rounded-xl bg-red-50 text-red-500',
+        'flex justify-center items-center rounded-xl bg-error text-error',
         text.color,
         bgIcon?.color
       )}
@@ -119,7 +119,7 @@ function BaseInput({
       'gap-3 placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium',
       'border-solid border',
       'transition duration-500 ease-out focus:ease-in',
-      !isDisabled && `hover:shadow-${boxShadow} hover:border-gray-500`,
+      !isDisabled && `hover:shadow-${boxShadow} hover:border-info`,
       className && disabled && getClassesByPseudoClass(className, 'disabled'),
       inputBlank && 'border-none',
       rounded && `rounded-${rounded}`,
@@ -156,7 +156,7 @@ function BaseInput({
               style={getAnimationLabel(!!isLabelScalded)}
               className={composeClasses(
                 'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis',
-                !isDisabled && 'text-gray-500'
+                !isDisabled && 'text-info'
               )}
             >
               {label}

@@ -171,7 +171,7 @@ const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>(
       props.fontBold && `font-${props.fontBold}`,
       props.textColor,
       props.textMuted && 'text-gray-300',
-      props.textMuted500 && 'text-gray-500',
+      props.textMuted500 && 'text-info',
       getFontSizeBySize(props.size),
       props.variant && !props.size && getFontSizeByVariant(props.variant)
     )

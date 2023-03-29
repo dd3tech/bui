@@ -93,12 +93,12 @@ describe('<BaseInput />', () => {
 
     it('it should display the "success" variant correctly', () => {
       const { container } = render(<BaseInput variant="success" />)
-      expect(container.firstChild).toHaveClass('border-green-500')
+      expect(container.firstChild).toHaveClass('border-success')
     })
 
     it('it should display the "warning" variant correctly', () => {
       const { container } = render(<BaseInput variant="warning" />)
-      expect(container.firstChild).toHaveClass('border-yellow-500')
+      expect(container.firstChild).toHaveClass('border-warning')
     })
   })
 

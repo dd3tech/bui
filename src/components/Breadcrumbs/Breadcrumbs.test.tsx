@@ -76,8 +76,8 @@ describe('<Breadcumbs/>', () => {
 
   it('the last element of options should be render with active', () => {
     const { getByText } = render(<Breadcrumbs options={breadCrumbsOptions} />)
-    expect(getByText('Home').className).not.toContain('text-blue-700 font-bold')
-    expect(getByText('Projects').className).toContain('text-blue-700 font-bold')
+    expect(getByText('Home').className).not.toContain('text-primary font-bold')
+    expect(getByText('Projects').className).toContain('text-primary font-bold')
   })
 
   it('when we click on an option and the to function exists, it should be executed', () => {

@@ -20,7 +20,7 @@ const ActiveButton = ({
       variant={active ? 'outlineBlue' : 'outline'}
       className={composeClasses(
         !active &&
-          'bg-transparent border border-gray-300 text-gray-300 hover:border-blue-700 hover:text-blue-700',
+          'bg-transparent border border-gray-300 text-gray-300 hover:border-primary hover:text-primary',
         fontSize.sm
       )}
       paddingX="5"

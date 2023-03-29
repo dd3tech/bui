@@ -40,7 +40,7 @@ export function Language({ isNavbar, changeLanguage, getLangName }: Props) {
       className="select-none flex items-center font-semibold cursor-pointer"
     >
       <GlobeAltIcon
-        className={`${isNavbar ? 'ml-1 mr-1' : 'mr-2'} text-blue-700`}
+        className={`${isNavbar ? 'ml-1 mr-1' : 'mr-2'} text-primary`}
         width={isNavbar ? 20 : 25}
         height={isNavbar ? 20 : 25}
       />
@@ -52,7 +52,7 @@ export function Language({ isNavbar, changeLanguage, getLangName }: Props) {
           >
             <span
               className={`${
-                language === code ? 'text-blue-700' : ''
+                language === code ? 'text-primary' : ''
               } uppercase mr-1`}
             >
               {getLangName ? getLangName(name) : langName[name]}

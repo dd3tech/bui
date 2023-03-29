@@ -46,7 +46,7 @@ describe('<FeedBackBox/>', () => {
   describe('prop: type', () => {
     it('when type is success, should be render with a green color', () => {
       const { getByRole } = render(<FeedBackBox {...defaultProps} />)
-      expect(getByRole('feedback-box').className).toContain('border-green-500')
+      expect(getByRole('feedback-box').className).toContain('border-success')
     })
 
     it('when type is success, should be render with CheckCircleIcon', () => {
@@ -60,7 +60,7 @@ describe('<FeedBackBox/>', () => {
       const { getByRole } = render(
         <FeedBackBox {...defaultProps} type="error" />
       )
-      expect(getByRole('feedback-box').className).toContain('border-red-500')
+      expect(getByRole('feedback-box').className).toContain('border-error')
     })
 
     it('when type is success, should be render with ExclamationIcon', () => {

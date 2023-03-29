@@ -32,7 +32,7 @@ export const getClasses = (
   }
 
   if (error) {
-    classes.radio = 'border-red-500'
+    classes.radio = 'border-error'
   }
 
   if (disabled) {
@@ -45,9 +45,9 @@ export const getClasses = (
 }
 
 const colorsVariants: { [key: string]: string } = {
-  primary: 'bg-blue-700',
-  success: 'bg-green-500',
-  danger: 'bg-red-600'
+  primary: 'bg-primary',
+  success: 'bg-success',
+  danger: 'bg-error'
 }
 
 const Radio = forwardRef<HTMLLabelElement, IRadio>(

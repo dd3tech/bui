@@ -152,7 +152,7 @@ describe('<SideBar/>', () => {
     const option = renderResult.getByRole('option-icon-0').parentElement
       ?.parentElement?.parentElement as HTMLDivElement
     expect(adornment.style.backgroundColor).toBe('rgb(29, 78, 216)')
-    expect(icon.className.includes('text-blue-700')).toBeTruthy()
+    expect(icon.className.includes('text-primary')).toBeTruthy()
     expect(option.className.includes('bg-blue-50')).toBeTruthy()
   })
 
@@ -209,7 +209,7 @@ describe('<SideBar/>', () => {
     const dangerZoneText = renderResult.getByRole('danger-zone').firstChild
       ?.lastChild as HTMLDivElement
 
-    expect(dangerZone.className.includes('bg-red-600')).toBeTruthy()
+    expect(dangerZone.className.includes('bg-error')).toBeTruthy()
     expect(dangerZoneText.className.includes('text-white')).toBeTruthy()
   })
 

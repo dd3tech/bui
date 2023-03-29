@@ -44,7 +44,7 @@ describe('<Pagination/>', () => {
 
   it('should render with a currentPage selected', () => {
     const { getByText } = render(<Pagination {...defaultProps} />)
-    expect(getByText('1')?.parentElement?.className).toContain('bg-blue-700')
+    expect(getByText('1')?.parentElement?.className).toContain('bg-primary')
   })
 
   it('should render with three dots', () => {

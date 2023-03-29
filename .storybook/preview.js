@@ -1,4 +1,5 @@
 import '../src/dd360.css'
+import { ThemeProvider, createTheme } from '../src/theme'
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -9,3 +10,19 @@ export const parameters = {
         }
     }
 }
+
+const theme = createTheme({
+    palette: {
+      secondary: {
+        
+      }
+    }
+})
+
+export const decorators = [
+    (Story) => (
+        <ThemeProvider theme={theme}>
+            <Story />
+        </ThemeProvider>
+    ),
+]

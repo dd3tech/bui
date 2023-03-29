@@ -40,15 +40,15 @@ export const inputVariants: { [key in InputVariant]: IInputVariants } = {
       borderColor: 'border-blue-500'
     },
     text: {
-      color: 'text-gray-500'
+      color: 'text-info'
     }
   },
   success: {
     input: {
-      borderColor: 'border-green-500'
+      borderColor: 'border-success'
     },
     text: {
-      color: 'text-green-500'
+      color: 'text-success'
     },
     bgIcon: {
       color: 'bg-green-50'
@@ -56,10 +56,10 @@ export const inputVariants: { [key in InputVariant]: IInputVariants } = {
   },
   warning: {
     input: {
-      borderColor: 'border-yellow-500'
+      borderColor: 'border-warning'
     },
     text: {
-      color: 'text-yellow-500'
+      color: 'text-warning'
     },
     bgIcon: {
       color: 'bg-yellow-50'
@@ -74,7 +74,7 @@ export const inputVariants: { [key in InputVariant]: IInputVariants } = {
       color: 'text-red-600'
     },
     bgIcon: {
-      color: 'bg-red-50'
+      color: 'bg-error'
     }
   },
   disabled: {
@@ -82,7 +82,7 @@ export const inputVariants: { [key in InputVariant]: IInputVariants } = {
       borderColor: 'border-gray-300'
     },
     text: {
-      color: 'text-gray-500'
+      color: 'text-info'
     }
   }
 }
@@ -140,9 +140,9 @@ export function variantIs({
 
 /**
  * This function receives a `className` string and a `pseudoclass` string, and returns a string with the classes corresponding to the specified pseudoclass.
- * @param className A string with classes separated by spaces, for example: 'text-sm border disabled:bg-red-500 disabled:text-gray-300'
+ * @param className A string with classes separated by spaces, for example: 'text-sm border disabled:bg-error disabled:text-gray-300'
  * @param pseudoclass A string with the name of the pseudoclass to search for, for example: 'disabled'
- * @returns A string with the classes that contain the specified pseudoclass, without including the pseudoclass, separated by spaces, for example: 'bg-red-500 text-gray-300'
+ * @returns A string with the classes that contain the specified pseudoclass, without including the pseudoclass, separated by spaces, for example: 'bg-error text-gray-300'
  */
 export function getClassesByPseudoClass(
   className: string,

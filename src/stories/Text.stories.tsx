@@ -15,7 +15,7 @@ export const Default = Template.bind({})
 Default.args = {
   variant: 'p',
   children: 'Default',
-  className: 'text-blue-700',
+  className: 'text-primary',
   align: 'center',
   bold: true,
   textMuted: false,
@@ -27,7 +27,7 @@ export const h1 = Template.bind({})
 h1.args = {
   variant: 'h1',
   children: 'Heading 1',
-  className: 'text-blue-700',
+  className: 'text-primary',
   align: 'center',
   bold: true,
   textMuted: false,

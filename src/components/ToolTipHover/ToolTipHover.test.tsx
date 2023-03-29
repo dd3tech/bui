@@ -48,7 +48,7 @@ describe('<ToolTipHover/>', () => {
   it('if the variant is blue, the className must be rendered correctly', () => {
     fireEvent.mouseEnter(renderResult.getByRole('element-tooltip'))
     expect(renderResult.getByRole('children-tooltip').className).toContain(
-      'bg-white border-blue-700 p-2 text-slate-50'
+      'bg-white border-primary p-2 text-slate-50'
     )
   })
 
@@ -58,7 +58,7 @@ describe('<ToolTipHover/>', () => {
     )
     fireEvent.mouseEnter(renderResult.getByRole('element-tooltip'))
     expect(renderResult.getByRole('children-tooltip').className).toContain(
-      'ml-1 -mt-10 bg-white border-yellow-500 p-2 text-gray-500'
+      'ml-1 -mt-10 bg-white border-warning p-2 text-info'
     )
   })
 
@@ -68,7 +68,7 @@ describe('<ToolTipHover/>', () => {
     )
     fireEvent.mouseEnter(renderResult.getByRole('element-tooltip'))
     expect(renderResult.getByRole('children-tooltip').className).toContain(
-      'text-center -ml-2 -mt-14 bg-gray-500 py-2 px-4 text-white'
+      'text-center -ml-2 -mt-14 bg-info py-2 px-4 text-white'
     )
   })
 
@@ -88,12 +88,12 @@ describe('<ToolTipHover/>', () => {
         children={''}
         variantPopup={'blue'}
         element={''}
-        className="bg-red-600"
+        className="bg-error"
       />
     )
     fireEvent.mouseEnter(renderResult.getByRole('element-tooltip'))
     expect(renderResult.getByRole('children-tooltip').className).toContain(
-      'bg-red-600'
+      'bg-error'
     )
   })
 
