@@ -191,7 +191,7 @@
     "*": {
       ".": ["./dist/esm/index.d.ts"],
       "lib": ["./dist/esm/lib/index.d.ts"],
-      "theme": ["./dist/esm/lib/index.d.ts"],
+      "theme": ["./dist/esm/theme/index.d.ts"],
       "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
       "Buttons": ["./dist/esm/components/Buttons/index.d.ts"],
       "Button": ["./dist/esm/components/Buttons/Button.d.ts"],

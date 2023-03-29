@@ -52,7 +52,7 @@ const buttonsVariants: { [key: string]: string } = {
   success: 'bg-success hover:bg-green-600 text-white',
   outlineWhite:
     'bg-secondary border border-white text-white hover:bg-gray-50 hover:text-black',
-  danger: 'bg-error hover:error-700 text-white disabled:error-300',
+  danger: 'bg-error hover:bg-error text-white disabled:bg-red-300',
   outlineWhiteRed:
     'bg-white border border-red-600 text-red-600 hover:bg-error hover:text-white'
 }

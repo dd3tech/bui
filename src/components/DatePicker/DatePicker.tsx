@@ -97,7 +97,7 @@ const getYearList = (startYear: number, size: number) => {
 const btnClassName = (bgColor: string) =>
   composeClasses(
     'px-3 p-1.5 rounded-lg box-content border border-transparent min-w-min',
-    'hover:border-blue-500',
+    'hover:border-primary',
     bgColor
   )
 
@@ -123,7 +123,9 @@ export interface DatePickerProps {
 }
 
 const TOTAL_YEARS = 11
-const TODAY = new Date()
+const options = { timeZone: 'America/Mexico_City' }
+const dateString = new Date().toLocaleDateString('en-US', options)
+const TODAY = new Date(dateString)
 
 const disabledBtnMonth = ({
   currentDate,
@@ -308,9 +310,9 @@ function Calendar({
           {yearList.map((year) => {
             const isActive = selectedDate?.getFullYear() === year
             const isToday = TODAY.getFullYear() === year
-            const todayBorder = isToday ? 'border border-blue-500' : ''
+            const todayBorder = isToday ? 'border border-primary' : ''
             const bgColor = isActive
-              ? 'bg-blue-500 text-white'
+              ? 'bg-primary text-white'
               : `text-gray-800 ${todayBorder}`
 
             return (
@@ -361,8 +363,8 @@ function Calendar({
             const isToday =
               TODAY.getMonth() === index &&
               TODAY.getFullYear() === currentDate.getFullYear()
-            const todayBorder = isToday ? 'border border-blue-500' : ''
-            const bgColor = isActive ? 'bg-blue-500 text-white' : todayBorder
+            const todayBorder = isToday ? 'border border-primary' : ''
+            const bgColor = isActive ? 'bg-primary text-white' : todayBorder
 
             return (
               <button
@@ -442,8 +444,8 @@ function Calendar({
             day === TODAY.getDate() &&
             TODAY.getMonth() == currentDate.getMonth() &&
             TODAY.getFullYear() === currentDate.getFullYear()
-          const todayBorder = isToday && 'border border-blue-500'
-          const bgColor = isActive && 'bg-blue-500'
+          const todayBorder = isToday && 'border border-primary'
+          const bgColor = isActive && 'bg-primary'
           const textColor = isDisabled
             ? 'text-gray-300'
             : isActive
@@ -458,7 +460,7 @@ function Calendar({
               onClick={() => handleSelectDay(day)}
               className={composeClasses(
                 'w-6 h-6 select-none font-semibold rounded-full box-content border  border-transparent',
-                'hover:border-blue-500',
+                'hover:border-primary',
                 bgColor,
                 textColor,
                 todayBorder,

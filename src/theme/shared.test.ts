@@ -47,6 +47,6 @@ describe('createTheme', () => {
     const createdTheme = createTheme(theme)
 
     expect(createdTheme.palette.primary!.main).toEqual('#f00')
-    expect(createdTheme.palette.secondary!.main).toEqual('#f44336')
+    expect(createdTheme.palette.secondary!.main).toEqual('white')
   })
 })

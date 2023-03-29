@@ -39,7 +39,9 @@ const monthNames = {
 }
 
 describe('<DatePicker /> ', () => {
-  const today = new Date()
+  const options = { timeZone: 'America/Mexico_City' }
+  const dateString = new Date().toLocaleDateString('en-US', options)
+  const today = new Date(dateString)
 
   it('element is rendered', () => {
     const { getByRole } = render(<DatePicker />)
@@ -66,19 +68,19 @@ describe('<DatePicker /> ', () => {
       const btnSelectMonth = getByRole('select-month')
 
       expect(numberDayList[date.getDate() - 1].className).toContain(
-        'bg-blue-500 text-white'
+        'bg-primary text-white'
       )
       expect(btnSelectMonth.textContent).toContain(date.getFullYear())
       fireEvent.click(btnSelectMonth)
 
       const btnSelectYear = getByRole('select-year')
       expect(getByRole('list').children[date.getMonth()].className).toContain(
-        'bg-blue-500 text-white'
+        'bg-primary text-white'
       )
       fireEvent.click(btnSelectYear)
 
       const year = getByRole(date.getFullYear())
-      expect(year.className).toContain('bg-blue-500 text-white')
+      expect(year.className).toContain('bg-primary text-white')
     })
 
     it('language: should render the correct day and month for this language, either short or long', () => {
@@ -247,7 +249,7 @@ describe('<DatePicker /> ', () => {
       const { getAllByRole } = render(<DatePicker />)
       expect(
         getAllByRole('numberDay')[today.getDate() - 1].className
-      ).toContain('border border-blue-500')
+      ).toContain('border border-primary')
     })
 
     it('month is marked', () => {
@@ -255,7 +257,7 @@ describe('<DatePicker /> ', () => {
       fireEvent.click(getByRole('select-month'))
 
       const currentMonth = getAllByRole('month')[today.getMonth()]
-      expect(currentMonth.className).toContain('border border-blue-500')
+      expect(currentMonth.className).toContain('border border-primary')
     })
 
     it('year is marked', () => {
@@ -264,7 +266,7 @@ describe('<DatePicker /> ', () => {
       fireEvent.click(getByRole('select-month'))
       fireEvent.click(getByRole('select-year'))
       const currentYear = getByRole(today.getFullYear())
-      expect(currentYear.className).toContain('border border-blue-500')
+      expect(currentYear.className).toContain('border border-primary')
     })
   })
 
