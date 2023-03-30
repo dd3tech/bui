@@ -42,7 +42,10 @@ describe('<DatePicker /> ', () => {
   let today = new Date()
 
   /* Clearing date because otherwise can get an error between each test */
-  beforeEach(() => (today = new Date()))
+  beforeEach(() => {
+    today = new Date()
+  })
+
   afterEach(cleanup)
 
   it('element is rendered', () => {
