@@ -1,3 +1,10 @@
+## [4.17.2](https://github.com/dd3tech/dd360-components/compare/v4.17.1...v4.17.2) (2023-03-30)
+
+
+### Bug Fixes
+
+* **Row:** add missing grid class and type Cols ([33e2de2](https://github.com/dd3tech/dd360-components/commit/33e2de2ad4d796331cd585153689663a86878a9c))
+
 ## [4.17.1](https://github.com/dd3tech/dd360-components/compare/v4.17.0...v4.17.1) (2023-03-28)
 
 
