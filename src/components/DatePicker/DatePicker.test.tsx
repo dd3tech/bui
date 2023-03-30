@@ -39,7 +39,11 @@ const monthNames = {
 }
 
 describe('<DatePicker /> ', () => {
-  const today = new Date()
+  let today = new Date()
+
+  /* Clearing date because otherwise can get an error between each test */
+  beforeEach(() => (today = new Date()))
+  afterEach(cleanup)
 
   it('element is rendered', () => {
     const { getByRole } = render(<DatePicker />)
@@ -138,7 +142,7 @@ describe('<DatePicker /> ', () => {
       renderResult = render(<DatePicker />)
     })
 
-    afterEach(() => cleanup())
+    afterEach(cleanup)
 
     it('when the days appear, I must change the interface to the ui of months', () => {
       const { getByRole, getAllByRole } = renderResult
