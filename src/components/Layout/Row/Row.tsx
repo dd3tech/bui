@@ -1,12 +1,14 @@
 import React, { forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'
 
+type Cols = 1 | 2 | 3 | 4
+
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   className?: string
-  cols: 1 | 2 | 3 | 4
-  sm?: 1 | 2 | 3 | 4
-  md?: 1 | 2 | 3 | 4
+  cols: Cols
+  sm?: Cols
+  md?: Cols
   gap?: 1 | 2 | 3 | 4 | 5
 }
 
@@ -16,7 +18,7 @@ const Row = forwardRef<HTMLDivElement, RowProps>((rowProps: RowProps, ref) => {
   return (
     <div
       className={composeClasses(
-        `grid-cols-${cols}`,
+        `grid grid-cols-${cols}`,
         sm && `sm:grid-cols-${sm}`,
         md && `md:grid-cols-${md}`,
         gap && `gap-${gap}`,
@@ -36,7 +38,7 @@ Row.defaultProps = {
   md: 2,
   sm: 1,
   gap: 4,
-  className: ''
+  className: undefined
 }
 
 export default Row
