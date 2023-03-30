@@ -17,7 +17,7 @@ import {
   getAnimationLabel,
   getPaddingInput
 } from '../shared'
-import { Padding, ShadowVariants } from '../../../interfaces/types'
+import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type?: InputType
@@ -31,7 +31,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   endAdornment?: ReactNode
   startAdornment?: ReactNode
   classNameAdornment?: string
-  rounded?: string
+  rounded?: Rounded
   language?: 'es' | 'en'
   large?: boolean
   boxShadow?: ShadowVariants

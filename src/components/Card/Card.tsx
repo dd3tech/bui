@@ -1,21 +1,10 @@
 import { useCallback } from 'react'
 import { composeClasses } from 'lib/classes'
+import { Rounded } from '../../interfaces/types'
 
 export interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
-  rounded?:
-    | 'sm'
-    | 'md'
-    | 'full'
-    | 'lg'
-    | 'xl'
-    | '2x'
-    | '3x'
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | 'none'
+  rounded?: Rounded
   padding?: number
   paddingY?: number
   paddingX?: number
