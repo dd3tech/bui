@@ -1,17 +1,18 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { ThemeProvider } from './ThemeProvider'
-import { ThemeProps } from './shared'
+import { createTheme } from './shared'
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: 'red'
+    }
+  }
+})
 
 describe('ThemeProvider', () => {
   test('should render children', () => {
-    const theme: ThemeProps = {
-      palette: {
-        primary: {
-          main: 'red'
-        }
-      }
-    }
     const { getByText } = render(
       <ThemeProvider theme={theme}>
         <div>Child Component</div>

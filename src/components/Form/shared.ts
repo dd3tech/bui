@@ -67,14 +67,14 @@ export const inputVariants: { [key in InputVariant]: IInputVariants } = {
   },
   error: {
     input: {
-      borderColor: 'border-red-600',
+      borderColor: 'border-error',
       color: ''
     },
     text: {
-      color: 'text-red-600'
+      color: 'text-error'
     },
     bgIcon: {
-      color: 'bg-error'
+      color: 'bg-red-50'
     }
   },
   disabled: {

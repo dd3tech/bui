@@ -4,7 +4,7 @@ import { render, fireEvent } from '@testing-library/react'
 import InputCurrency from './InputCurrency'
 
 const defaultProps = {
-  className: 'text-red-600',
+  className: 'text-error',
   name: 'Test',
   placeholder: 'Placeholder test',
   onChange: vi.fn(),
@@ -34,7 +34,7 @@ describe('<InputCurrency/>', () => {
   describe('Props:should be render', () => {
     it('className', () => {
       const { getByRole } = render(<InputCurrency {...defaultProps} />)
-      expect(getByRole('role-input').className).toContain('text-red-600')
+      expect(getByRole('role-input').className).toContain('text-error')
     })
 
     it('value and prefix', () => {

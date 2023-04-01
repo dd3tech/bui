@@ -275,9 +275,7 @@ const SideBar = ({
                         width={25}
                         className={composeClasses(
                           'ml-5',
-                          props.dangerZone?.active
-                            ? 'text-white'
-                            : 'text-red-600'
+                          props.dangerZone?.active ? 'text-white' : 'text-error'
                         )}
                       />
                     </div>

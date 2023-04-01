@@ -13,18 +13,18 @@ describe('<Badge/>', () => {
 
   it('the prop className works correctly ', () => {
     const { getByRole } = render(
-      <Badge variant="primary" icon="tag" className="text-red-600" />
+      <Badge variant="primary" icon="tag" className="text-error" />
     )
-    expect(getByRole(badgeContainer).className).toContain('text-red-600')
+    expect(getByRole(badgeContainer).className).toContain('text-error')
   })
 
   it('the prop classNameIcon works correctly ', () => {
     const { getByRole } = render(
-      <Badge variant="primary" icon="tag" classNameIcon="text-red-600" />
+      <Badge variant="primary" icon="tag" classNameIcon="text-error" />
     )
     const classNameIconElement = getByRole(badgeContainer)
       .firstChild as HTMLDivElement
-    expect(classNameIconElement.getAttribute('class')).toBe('text-red-600')
+    expect(classNameIconElement.getAttribute('class')).toBe('text-error')
   })
 
   describe('render with different variants', () => {

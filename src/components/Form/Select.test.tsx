@@ -75,7 +75,7 @@ describe('<Select />', () => {
     const { container } = render(
       <Select variant="error" optionsList={optionsList} />
     )
-    expect(container.firstChild?.firstChild).toHaveClass('border-red-600')
+    expect(container.firstChild?.firstChild).toHaveClass('border-error')
   })
 
   it('should be applied warning styles when warning prop is passed', () => {

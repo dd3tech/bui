@@ -21,7 +21,7 @@
       "common/*": ["common/*"],
       "hooks/*": ["hooks/*"],
       "lib/*": ["lib/*"],
-      "theme/*": ["lib/*"],
+      "theme/*": ["theme/*"],
     }
   },
   "include": [

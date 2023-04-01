@@ -1,9 +1,14 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: {
     content: ['./src/**/*.{js,jsx,ts,tsx}']
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      sans: ['var(--fontFamily)', ...defaultTheme.fontFamily.sans]
+    },
     extend: {
       colors: {
         primary: 'var(--primary)',
@@ -17,6 +22,13 @@ module.exports = {
         3: '3px'
       },
       fontSize: {
+        h1: 'var(--h1)',
+        h2: 'var(--h2)',
+        h3: 'var(--h3)',
+        h4: 'var(--h4)',
+        h5: 'var(--h5)',
+        h6: 'var(--h6)',
+        paragraph: 'var(--base)',
         xxs: '0.625rem'
       },
       borderRadius: {

@@ -74,7 +74,7 @@ describe('<DateInput />', () => {
 
     fireEvent.change(input, { target: { value: '1001500' } })
 
-    expect(container.firstChild).toHaveClass('border-red-600')
+    expect(container.firstChild).toHaveClass('border-error')
   })
 
   describe('checking variant types', () => {
@@ -129,7 +129,7 @@ describe('<DateInput />', () => {
 
     fireEvent.change(input, { target: { value: '000' } })
     fireEvent.blur(input)
-    expect(container.firstChild).toHaveClass('border-red-600')
+    expect(container.firstChild).toHaveClass('border-error')
   })
 
   it('input onDateChange callback', () => {

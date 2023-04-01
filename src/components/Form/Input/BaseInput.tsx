@@ -42,7 +42,7 @@ const IconStatus = ({ variant }: { variant: InputVariantType }) => {
   return (
     <div
       className={composeClasses(
-        'flex justify-center items-center rounded-xl bg-error text-error',
+        'flex justify-center items-center rounded-xl bg-red-50 text-error',
         text.color,
         bgIcon?.color
       )}

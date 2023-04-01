@@ -10,6 +10,11 @@
       "module": "./dist/esm/lib/index.js",
       "default": "./dist/esm/lib/index.js"
     },
+    "./theme": {
+      "require": "./dist/cjs/theme/index.js",
+      "module": "./dist/esm/theme/index.js",
+      "default": "./dist/esm/theme/index.js"
+    },
     "./DynamicHeroIcon": {
       "require": "./dist/cjs/common/DynamicHeroIcon/index.js",
       "module": "./dist/esm/common/DynamicHeroIcon/index.js",
@@ -191,7 +196,7 @@
     "*": {
       ".": ["./dist/esm/index.d.ts"],
       "lib": ["./dist/esm/lib/index.d.ts"],
-      "theme": ["./dist/esm/lib/index.d.ts"],
+      "theme": ["./dist/esm/theme/index.d.ts"],
       "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
       "Buttons": ["./dist/esm/components/Buttons/index.d.ts"],
       "Button": ["./dist/esm/components/Buttons/Button.d.ts"],
