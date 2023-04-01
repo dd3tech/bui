@@ -20,7 +20,16 @@ class LoanTheme {
   }
 
   private loadVariables(theme: ThemeProps['palette']) {
-    const { error, info, primary, secondary, success, warning } = theme
+    const {
+      error,
+      info,
+      primary,
+      secondary,
+      success,
+      warning,
+      background,
+      textColor
+    } = theme
     const root = document.documentElement.style
     root.setProperty('--primary', primary!.main!)
     root.setProperty('--secondary', secondary!.main!)
@@ -28,6 +37,8 @@ class LoanTheme {
     root.setProperty('--info', info!.main!)
     root.setProperty('--success', success!.main!)
     root.setProperty('--warning', warning!.main!)
+    root.setProperty('--backgroundTheme', background!)
+    root.setProperty('--textColor', textColor!)
   }
 
   private loadTypography(typography: ThemeProps['typography']) {

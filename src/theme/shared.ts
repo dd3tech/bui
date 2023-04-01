@@ -26,6 +26,8 @@ interface Palette {
   warning?: PaletteOptions // The warning color options
   info?: PaletteOptions // The info color options
   success?: PaletteOptions // The success color options
+  background?: string
+  textColor?: string
 }
 
 interface TypographyStyles {
@@ -52,7 +54,8 @@ interface TypographyStyles {
 export interface ThemeProps {
   palette: Palette
   typography?: TypographyStyles
-  [key: string]: any
+
+  [key: string]: any // only to use in mergeData
 }
 
 // Defining the default light mode theme
@@ -77,7 +80,9 @@ const lightModeTheme: ThemeProps = {
     },
     error: {
       main: '#ef4444'
-    }
+    },
+    background: '#fff',
+    textColor: '#000'
   },
   typography: {
     h1: {

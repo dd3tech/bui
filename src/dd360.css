@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: var(--backgroundTheme);
+  color: var(--textColor);
+}
+
 input:-webkit-autofill {
   -webkit-background-clip: text;
 }
