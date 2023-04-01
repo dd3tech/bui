@@ -1,3 +1,17 @@
+# [4.18.0](https://github.com/dd3tech/dd360-components/compare/v4.17.3...v4.18.0) (2023-04-01)
+
+
+### Bug Fixes
+
+* add background and textColor in theme ([460ed68](https://github.com/dd3tech/dd360-components/commit/460ed6869d398550c4ab96d6185b90117a3d18da))
+* updating colors in hexadecimals by css variables ([c6beed2](https://github.com/dd3tech/dd360-components/commit/c6beed2ae84b05d02114fd873c336dadc80099cf))
+* updating styles and typography settings ([acea4dd](https://github.com/dd3tech/dd360-components/commit/acea4dd55b33b24d1029cf9d86e7f32b91e0ebf5))
+
+
+### Features
+
+* ThemeProvider integration to add custom colors to tailwindcss ([eafdf65](https://github.com/dd3tech/dd360-components/commit/eafdf65804393f18c15e679650e4b7ad3f9691d2))
+
 ## [4.17.3](https://github.com/dd3tech/dd360-components/compare/v4.17.2...v4.17.3) (2023-03-30)
 
 
