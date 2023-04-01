@@ -48,12 +48,12 @@ describe('<TextArea/>', () => {
 
     it('should be render the "success" variant correctly', () => {
       const { getByRole } = render(<TextArea {...defProps} variant="success" />)
-      expect(getByRole('textarea-container')).toHaveClass('border-green-500')
+      expect(getByRole('textarea-container')).toHaveClass('border-success')
     })
 
     it('should be render the "warning" variant correctly', () => {
       const { getByRole } = render(<TextArea {...defProps} variant="warning" />)
-      expect(getByRole('textarea-container')).toHaveClass('border-yellow-500')
+      expect(getByRole('textarea-container')).toHaveClass('border-warning')
     })
 
     it('should be render the "disabled" variant correctly', () => {

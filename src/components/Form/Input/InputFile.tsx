@@ -80,7 +80,7 @@ function InputFile({
         {label}{' '}
         <label
           htmlFor={id}
-          className="text-blue-700 underline underline-offset-1 cursor-pointer leading-6"
+          className="text-primary underline underline-offset-1 cursor-pointer leading-6"
         >
           {labelAction}
         </label>
@@ -97,7 +97,7 @@ function InputFile({
         <div
           className={composeClasses(
             'flex gap-3 items-center',
-            error?.show && 'text-red-500'
+            error?.show && 'text-error'
           )}
         >
           <input
@@ -119,7 +119,7 @@ function InputFile({
             {!error?.show && !isDrag && progressIndicator !== 0 && (
               <ProgressBar
                 value={progressIndicator}
-                backgroundColor="#1D4ED8"
+                backgroundColor="var(--primary)"
                 height="6px"
                 bgColorContainer="#EFF6FF"
               />
@@ -131,7 +131,7 @@ function InputFile({
         <Text
           style={{ fontSize: '10px' }}
           variant="p"
-          className="italic text-gray-500 font-semibold"
+          className="italic text-info font-semibold"
         >
           {hintText}
         </Text>

@@ -34,8 +34,6 @@ function FeedBackBox({
     }
   }, [])
 
-  const color = type === 'error' ? 'red' : 'green'
-
   if (isClose) {
     return <></>
   }
@@ -43,20 +41,16 @@ function FeedBackBox({
   return (
     <div
       role="feedback-box"
-      className={`w-max border border-${color}-500 p-4 rounded-lg`}
+      className={`w-max border border-${type}-500 p-4 rounded-lg`}
       {...props}
     >
       <div className="flex mb-2">
         {type === 'error' ? (
-          <ExclamationIcon className="w-4 h-4 text-red-500 mr-2" />
+          <ExclamationIcon className="w-4 h-4 text-error mr-2" />
         ) : (
-          <CheckCircleIcon className="w-4 h-4 text-green-500 mr-2" />
+          <CheckCircleIcon className="w-4 h-4 text-success mr-2" />
         )}
-        <Text
-          variant="span"
-          size="xs"
-          className={`text-${color}-500 font-bold`}
-        >
+        <Text variant="span" size="xs" className={`text-${type}-500 font-bold`}>
           {title}
         </Text>
         <Text

@@ -77,7 +77,7 @@ const Pagination = ({
         <select
           name="custom-pagination"
           value={selectSliceSize}
-          className="w-12 pl-2 mr-2 outline-none text-blue-700 bg-transparent"
+          className="w-12 pl-2 mr-2 outline-none text-primary bg-transparent"
           onChange={(e) => handleChange(e)}
         >
           <option value="5">5</option>
@@ -131,7 +131,7 @@ const Pagination = ({
                 className={composeClasses(
                   buttonStyle,
                   page === currentPage &&
-                    'bg-blue-700 text-white hover:bg-blue-700'
+                    'bg-primary text-white hover:bg-primary'
                 )}
                 onClick={() => goToPage(page)}
               >

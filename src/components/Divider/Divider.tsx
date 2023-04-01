@@ -26,7 +26,7 @@ export const getClassesDivider = ({
     variant: variant === 'full' ? '' : vertical ? 'mt-1 mb-1' : 'ml-1 mr-1',
     size: sizeVariants[size],
     color: light
-      ? 'border-gray-300 dark:border-blue-700'
+      ? 'border-gray-300 dark:border-primary'
       : 'border-gray-400 dark:border-blue-50'
   }
 }

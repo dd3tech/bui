@@ -3,7 +3,7 @@ import ProgressCircle from './ProgressCircle'
 
 const defaultProps = {
   colorComplete: '#34D399',
-  colorProgress: '#1D4ED8',
+  colorProgress: 'var(--primary)',
   colorBackground: '#DBEAFE',
   value: 100,
   strokeWidth: 11,
@@ -33,7 +33,9 @@ describe('ProgressCircle', () => {
     const testDiv = getByRole('container-circular-progress')
     const pathElement = testDiv.querySelector('.CircularProgressbar-path')
 
-    expect(pathElement?.getAttribute('style')).toContain('stroke: #1D4ED8')
+    expect(pathElement?.getAttribute('style')).toContain(
+      'stroke: var(--primary)'
+    )
   })
 
   it('should set progress color to the one passed as a prop', () => {

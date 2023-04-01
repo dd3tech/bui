@@ -54,7 +54,7 @@ const DownloadCard = ({
           <InformationCircleIcon className="w-4 h-4 text-blue-600" />
         </div>
         <div>
-          <Text className="text-gray-500" variant="span">
+          <Text className="text-info" variant="span">
             {description}
           </Text>
           <div className="flex gap-7 mt-3">
@@ -78,7 +78,7 @@ const DownloadCard = ({
                 role="anchor-download"
               >
                 <Text
-                  className="text-blue-700 underline flex gap-2 items-center cursor-pointer"
+                  className="text-primary underline flex gap-2 items-center cursor-pointer"
                   bold
                 >
                   {downloadText}

@@ -142,9 +142,9 @@ describe('<TabGroup /> navigation between elements', () => {
   it('navigates to the component that was clicked', () => {
     const tabs = renderResult.getAllByRole('tab')
     expect(tabs[0].className).toContain('font-semibold')
-    expect(tabs[0].className).toContain('text-gray-500')
+    expect(tabs[0].className).toContain('text-info')
     fireEvent.click(tabs[0])
-    expect(tabs[0].className).not.toContain('text-gray-500')
+    expect(tabs[0].className).not.toContain('text-info')
     expect(tabs[0].className).toContain('font-bold')
   })
 

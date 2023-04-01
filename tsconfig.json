@@ -20,7 +20,8 @@
       "components/*": ["components/*"],
       "common/*": ["common/*"],
       "hooks/*": ["hooks/*"],
-      "lib/*": ["lib/*"]
+      "lib/*": ["lib/*"],
+      "theme/*": ["theme/*"],
     }
   },
   "include": [

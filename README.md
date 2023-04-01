@@ -51,6 +51,47 @@ How to import components?
 import { Button } from 'dd360-ds'
 ```
 
+## 💅 Customize theme
+
+If you want to use a provider to configure the library's theme, you can do so using the ThemeProvider provided by dd360-ds. This will allow you to set your own settings for the theme.
+
+To use the ThemeProvider, you must import it as follows:
+
+```tsx
+import { createTheme, ThemeProvider } from "dd360-ds/theme";
+```
+
+You can then create your own theme configuration using the createTheme function, which accepts an object with different properties to customize the theme. For example, you can define the primary and secondary colors as shown below:
+
+```tsx
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "purple"
+    },
+    secondary: {
+      main: "#FFC107"
+    }
+  }
+});
+```
+
+After creating your theme configuration, you can use the ThemeProvider to wrap your React app. This can be done as follows:
+
+```tsx
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </StrictMode>
+);
+```
+
+Within the ThemeProvider, you can use the components provided by dd360-ds and the corresponding styles will be applied based on your theme settings.
+
+Remember that to use the ThemeProvider, you must import both the createTheme component and the ThemeProvider component from dd360-ds/theme.
+
 
 ## 🔫 Components
 

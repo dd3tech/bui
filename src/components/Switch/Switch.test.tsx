@@ -59,7 +59,7 @@ describe('<Switch/>', () => {
       const switchChildren = switchFather.firstChild as HTMLDivElement
 
       expect(switchFather.className).toContain('bg-blue-100')
-      expect(switchChildren.className).toContain('bg-blue')
+      expect(switchChildren.className).toContain('bg-primary')
     })
   })
 

@@ -20,6 +20,6 @@ export const WithCustomIcon = Template.bind({})
 WithCustomIcon.args = {
   variant: 'circle',
   Icon: () => (
-    <DynamicHeroIcon icon="AcademicCapIcon" className="text-blue-700 w-6" />
+    <DynamicHeroIcon icon="AcademicCapIcon" className="text-primary w-6" />
   )
 }

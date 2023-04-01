@@ -9,7 +9,7 @@ const defaultProps = {
   width: '150px',
   height: '150px',
   fontSize: '1rem',
-  textColor: '#1d4ed8'
+  textColor: 'var(--primary)'
 }
 
 describe('<Stepper/>', () => {
@@ -27,7 +27,7 @@ describe('<Stepper/>', () => {
 
   it('the component is working properly', () => {
     const circularProgressBar = renderResult.getByText('1/4')
-    expect(circularProgressBar.style.fill).toBe('#1d4ed8')
+    expect(circularProgressBar.style.fill).toBe('var(--primary)')
     expect(circularProgressBar.getAttribute('x')).toBe('50')
     expect(circularProgressBar.getAttribute('y')).toBe('50')
   })

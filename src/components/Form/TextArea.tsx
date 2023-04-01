@@ -62,7 +62,7 @@ function TextArea({
       'w-full placeholder-gray-400 mt-1 flex items-center justify-between font-medium relative',
       'border-solid border',
       'transition duration-500 ease-out focus:ease-in',
-      !isDisabled && `hover:shadow-${boxShadow} hover:border-gray-500`,
+      !isDisabled && `hover:shadow-${boxShadow} hover:border-info`,
       inputBlank && 'border-none',
       rounded && `rounded-${rounded}`,
       !['error', 'success', 'warning'].includes(variant) &&
@@ -110,7 +110,7 @@ function TextArea({
             }}
             className={composeClasses(
               'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis pb-0.5',
-              !isDisabled ? 'text-gray-500' : 'text-gray-400'
+              !isDisabled ? 'text-info' : 'text-gray-400'
             )}
           >
             {label}

@@ -113,16 +113,16 @@ const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
  * @returns A string
  */
 const getFontSizeByVariant = (variant: TextProps['variant']) => {
-  if (variant === 'h1') return 'text-4xl'
-  if (variant === 'h2') return 'text-3xl'
-  if (variant === 'h3') return 'text-2xl'
-  if (variant === 'h4') return 'text-xl'
-  if (variant === 'h5') return 'text-lg'
-  if (variant === 'h6') return 'text-base'
-  if (variant === 'p' || variant === 'span') return 'text-sm'
+  if (variant === 'h1') return 'text-h1'
+  if (variant === 'h2') return 'text-h2'
+  if (variant === 'h3') return 'text-h3'
+  if (variant === 'h4') return 'text-h4'
+  if (variant === 'h5') return 'text-h5'
+  if (variant === 'h6') return 'text-h6'
+  if (variant === 'p' || variant === 'span') return 'text-paragraph'
   if (variant === 'small' || variant === 'a') return 'text-xs'
 
-  return 'text-sm'
+  return 'text-paragraph'
 }
 
 const getFontSizeBySize = (size: TextProps['size']) => {
@@ -171,7 +171,7 @@ const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>(
       props.fontBold && `font-${props.fontBold}`,
       props.textColor,
       props.textMuted && 'text-gray-300',
-      props.textMuted500 && 'text-gray-500',
+      props.textMuted500 && 'text-info',
       getFontSizeBySize(props.size),
       props.variant && !props.size && getFontSizeByVariant(props.variant)
     )

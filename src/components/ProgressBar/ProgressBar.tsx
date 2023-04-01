@@ -59,7 +59,7 @@ ProgressBar.displayName = 'ProgressBar'
 ProgressBar.defaultProps = {
   value: 50,
   max: 100,
-  backgroundColor: '#1d4ed8',
+  backgroundColor: 'var(--primary)',
   className: undefined,
   label: undefined,
   height: '1rem',

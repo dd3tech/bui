@@ -74,7 +74,7 @@ describe('<DateInput />', () => {
 
     fireEvent.change(input, { target: { value: '1001500' } })
 
-    expect(container.firstChild).toHaveClass('border-red-600')
+    expect(container.firstChild).toHaveClass('border-error')
   })
 
   describe('checking variant types', () => {
@@ -89,14 +89,14 @@ describe('<DateInput />', () => {
       const { container } = render(
         <DateInput variant="success" data-testid="date-input" />
       )
-      expect(container.firstChild).toHaveClass('border-green-500')
+      expect(container.firstChild).toHaveClass('border-success')
     })
 
     it('it should display the "warning" variant correctly', () => {
       const { container } = render(
         <DateInput variant="warning" data-testid="date-input" />
       )
-      expect(container.firstChild).toHaveClass('border-yellow-500')
+      expect(container.firstChild).toHaveClass('border-warning')
     })
   })
 
@@ -129,7 +129,7 @@ describe('<DateInput />', () => {
 
     fireEvent.change(input, { target: { value: '000' } })
     fireEvent.blur(input)
-    expect(container.firstChild).toHaveClass('border-red-600')
+    expect(container.firstChild).toHaveClass('border-error')
   })
 
   it('input onDateChange callback', () => {

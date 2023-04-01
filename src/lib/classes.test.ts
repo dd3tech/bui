@@ -46,6 +46,6 @@ describe('composeClasses function', () => {
     expect(
       composeClasses('  ', mockWords.first, mockWords.second, '    ')
     ).toBe(`${mockWords.first} ${mockWords.second}`)
-    expect(composeClasses('   text-red-500   ')).toEqual('text-red-500')
+    expect(composeClasses('   text-error   ')).toEqual('text-error')
   })
 })

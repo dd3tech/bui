@@ -37,7 +37,7 @@ describe('<DynamicHeroicon/>', () => {
     renderResult.rerender(
       <DynamicHeroIcon
         icon="AcademicCapIcon"
-        className="text-blue-700"
+        className="text-primary"
         width={10}
         height={10}
       />
@@ -46,6 +46,6 @@ describe('<DynamicHeroicon/>', () => {
     expect(icon).not.toBeNull()
     expect(icon?.getAttribute('width')).toBe('10')
     expect(icon?.getAttribute('height')).toBe('10')
-    expect(icon?.getAttribute('class')).toContain('text-blue-700')
+    expect(icon?.getAttribute('class')).toContain('text-primary')
   })
 })

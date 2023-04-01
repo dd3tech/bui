@@ -58,7 +58,7 @@ function Tab({
         list.push('text-blue-500')
       }
     } else {
-      list.push(disabled ? 'text-gray-300' : 'text-gray-500')
+      list.push(disabled ? 'text-gray-300' : 'text-info')
     }
     return list.join(' ')
   }, [value, variant, disabled])

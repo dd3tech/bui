@@ -79,7 +79,7 @@ export const NavbarAuth = ({
                   {name}
                 </Anchor>
                 {active && (
-                  <div className="w-16 bottom-0 absolute border-b-2 border-blue-700 h-4"></div>
+                  <div className="w-16 bottom-0 absolute border-b-2 border-primary h-4"></div>
                 )}
               </div>
             ))}
@@ -106,7 +106,7 @@ export const NavbarAuth = ({
               type="button"
               className="p-1 rounded-full text-gray-400 hover:text-black focus:outline-none"
             >
-              <CogIcon className="w-6 h-6 text-blue-700" />
+              <CogIcon className="w-6 h-6 text-primary" />
             </button>
           </Circle>
           <Circle
@@ -118,7 +118,7 @@ export const NavbarAuth = ({
               type="button"
               className="p-1 rounded-full text-gray-400 hover:text-black focus:outline-none"
             >
-              <BellIcon className="w-6 h-6 text-blue-700" />
+              <BellIcon className="w-6 h-6 text-primary" />
             </button>
           </Circle>
           <div className="relative">

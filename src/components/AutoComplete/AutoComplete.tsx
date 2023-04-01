@@ -115,7 +115,7 @@ function AutoComplete({
               role="loader"
               className="flex items-center justify-between h-10 p-2 mt-1 cursor-pointer"
             >
-              <Text variant="small" className="text-blue-700" bold>
+              <Text variant="small" className="text-primary" bold>
                 {loadingText ?? 'Loading...'}
               </Text>
             </div>

@@ -24,7 +24,7 @@ const sizeByProp = {
 
 function Checkbox({
   checked,
-  color = '#3b82f6',
+  color = 'var(--primary)',
   fontSize = '2xl',
   disabled,
   padding,

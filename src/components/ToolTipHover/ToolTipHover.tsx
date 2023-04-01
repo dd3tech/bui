@@ -19,9 +19,9 @@ interface IToolTipHover {
 }
 
 const displayVariant: { [key: string]: string } = {
-  blue: 'bg-white border-blue-700 p-2 text-slate-50',
-  warning: 'ml-1 -mt-10 bg-white border-yellow-500 p-2 text-gray-500',
-  gray: 'text-center -ml-2 -mt-14 bg-gray-500 py-2 px-4 text-white',
+  blue: 'bg-white border-primary p-2 text-slate-50',
+  warning: 'ml-1 -mt-10 bg-white border-warning p-2 text-info',
+  gray: 'text-center -ml-2 -mt-14 bg-info py-2 px-4 text-white',
   dark: 'text-center -ml-11 -mt-10 bg-gray-900 opacity-80 py-2 px-4 text-white'
 }
 
