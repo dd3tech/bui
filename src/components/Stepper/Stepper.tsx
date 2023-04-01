@@ -50,8 +50,8 @@ function Stepper({
 
 Stepper.displayName = 'Stepper'
 Stepper.defaultProps = {
-  textColor: '#1d4ed8',
-  strokeColor: '#1d4ed8',
+  textColor: 'var(--primary)',
+  strokeColor: 'var(--primary)',
   fontSize: ''
 }
 

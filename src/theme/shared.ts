@@ -60,7 +60,7 @@ const lightModeTheme: ThemeProps = {
   palette: {
     primary: {
       contrastText: 'white',
-      main: '#1d4ed8'
+      main: 'var(--primary)'
     },
     secondary: {
       main: 'white',

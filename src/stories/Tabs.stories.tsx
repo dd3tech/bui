@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof TabGroupComponent> = (args) => {
     <div className="flex flex-wrap flex-grow">
       <TabGroupComponent
         variant="primary"
-        disabledText="Jasan"
+        disabledText="proximamente"
         {...args}
         value={value}
         onChange={onChange}
@@ -72,8 +72,8 @@ export const TabGroup = Template.bind({})
 
 TabGroup.args = {
   orientation: 'vertical',
-  indicatorColor: '#3B82F6',
+  indicatorColor: 'var(--primary)',
   variant: 'primary',
   wideLine: 3,
-  textColor: '#3B82F6'
+  textColor: 'var(--primary)'
 }

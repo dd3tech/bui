@@ -49,7 +49,7 @@ const ProgressCircle = ({
 ProgressCircle.displayName = 'ProgressCircle'
 ProgressCircle.defaultProps = {
   colorComplete: '#34D399',
-  colorProgress: '#1D4ED8',
+  colorProgress: 'var(--primary)',
   colorBackground: '#DBEAFE',
   value: 100,
   strokeWidth: 11,

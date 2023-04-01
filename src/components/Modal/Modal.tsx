@@ -117,7 +117,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
                 >
                   <path
                     d="M1 17L17 1M1 1L17 17"
-                    stroke="#1D4ED8"
+                    stroke="var(--primary)"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"

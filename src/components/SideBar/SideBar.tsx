@@ -58,7 +58,7 @@ const SideBar = ({
       width: '6px',
       minWidth: '6px',
       height: '64px',
-      backgroundColor: `${activeLink ? '#1d4ed8' : 'transparent'}`,
+      backgroundColor: `${activeLink ? 'var(--primary)' : 'transparent'}`,
       borderRadius: '0px 8px 8px 0px'
     }
   }, [])

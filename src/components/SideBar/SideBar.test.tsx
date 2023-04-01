@@ -151,7 +151,7 @@ describe('<SideBar/>', () => {
       .lastChild as HTMLDivElement
     const option = renderResult.getByRole('option-icon-0').parentElement
       ?.parentElement?.parentElement as HTMLDivElement
-    expect(adornment.style.backgroundColor).toBe('rgb(29, 78, 216)')
+    expect(adornment.style.backgroundColor).toBe('')
     expect(icon.className.includes('text-primary')).toBeTruthy()
     expect(option.className.includes('bg-blue-50')).toBeTruthy()
   })

@@ -119,7 +119,7 @@ function InputFile({
             {!error?.show && !isDrag && progressIndicator !== 0 && (
               <ProgressBar
                 value={progressIndicator}
-                backgroundColor="#1D4ED8"
+                backgroundColor="var(--primary)"
                 height="6px"
                 bgColorContainer="#EFF6FF"
               />

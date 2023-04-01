@@ -8,7 +8,7 @@ export interface SpinnerProps {
 }
 
 function Spinner({
-  color = '#1d4ed8',
+  color = 'var(--primary)',
   pageLoader = false,
   width = '2rem',
   height = '2rem',

@@ -26,7 +26,7 @@ describe('<Spinner/>', () => {
   })
   it('Spinner component default props are working', () => {
     renderResult.rerender(<Spinner />)
-    expect(spinnerStyle.borderTopColor).toBe('#1d4ed8')
+    expect(spinnerStyle.borderTopColor).toBe('#2d265d')
     expect(spinnerStyle.width).toBe('2rem')
     expect(spinnerStyle.height).toBe('2rem')
     expect(spinnerStyle.borderWidth).toBe('4px')
