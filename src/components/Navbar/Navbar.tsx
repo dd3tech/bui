@@ -1,5 +1,5 @@
 import Wrapper from '../Wrapper/Wrapper'
-import { Anchor } from '../Navigation'
+import Anchor from '../Anchor'
 import { Language } from './Language'
 
 interface Props {
@@ -24,7 +24,7 @@ export function Navbar({
         paddingY="6"
         maxWidth="full"
       >
-        <Anchor LinkComponent={LinkComponent} to="/">
+        <Anchor as={LinkComponent} to="/">
           <figure className="block">
             <img
               width={logoWidth}

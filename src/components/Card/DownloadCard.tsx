@@ -7,7 +7,7 @@ import {
 
 import Card from './Card'
 import Text from '../Typography'
-import { Anchor } from '../Navigation'
+import Anchor from '../Anchor'
 
 export interface IDownloadCardProps {
   onClose?: () => void
@@ -71,7 +71,7 @@ const DownloadCard = ({
             )}
             {!onDownload && (
               <Anchor
-                LinkComponent={LinkComponent}
+                as={LinkComponent}
                 to={downloadURL}
                 target="_blank"
                 download

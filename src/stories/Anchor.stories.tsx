@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Anchor as AnchorComponent } from '../components/Navigation'
+import AnchorComponent from '../components/Anchor'
 
 export default {
   title: 'Navigation/Anchor',
