@@ -6,7 +6,7 @@ import {
   BellIcon
 } from '@heroicons/react/outline'
 import Wrapper from '../Wrapper/Wrapper'
-import { Anchor } from '../Navigation'
+import Anchor from '../Anchor'
 import Text from '../Typography'
 import Circle from '../Circle'
 import Button from '../Buttons/Button'
@@ -58,7 +58,7 @@ export const NavbarAuth = ({
         maxWidth="full"
       >
         <div className="flex gap-16 items-center">
-          <Anchor LinkComponent={LinkComponent} to="/">
+          <Anchor as={LinkComponent} to="/">
             <figure className="block">
               <img
                 width={logoWidth}
@@ -72,7 +72,7 @@ export const NavbarAuth = ({
             {links.map(({ name, link, active }, index) => (
               <div key={index}>
                 <Anchor
-                  LinkComponent={LinkComponent}
+                  as={LinkComponent}
                   to={link}
                   className={active ? 'font-bold' : 'text-base'}
                 >

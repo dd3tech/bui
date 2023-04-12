@@ -2,7 +2,7 @@ import { it, describe } from 'vitest'
 import { render } from '@testing-library/react'
 
 import Text from '../Typography/Text'
-import { Anchor } from './Navigation'
+import Anchor from './Anchor'
 
 describe('<Anchor/>', () => {
   it('should be render correctly', () => {
@@ -26,15 +26,13 @@ describe('<Anchor/>', () => {
 
   describe('linkComponent', () => {
     it('should be render with a custom component', () => {
-      const { container } = render(<Anchor LinkComponent={Text} />)
+      const { container } = render(<Anchor as={Text} />)
       const anchor = container.firstChild as HTMLAnchorElement
       expect(anchor.tagName).toBe('SPAN')
     })
 
     it('prop to should be works correctly with custom component', () => {
-      const { container } = render(
-        <Anchor to="google.com" LinkComponent={Text} />
-      )
+      const { container } = render(<Anchor to="google.com" as={Text} />)
       const anchor = container.firstChild as HTMLAnchorElement
       expect(anchor.getAttribute('to')).toBe('google.com')
     })
