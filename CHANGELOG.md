@@ -1,3 +1,17 @@
+# [5.0.0](https://github.com/dd3tech/dd360-components/compare/v4.18.0...v5.0.0) (2023-04-12)
+
+
+### Bug Fixes
+
+* update property theme as optional, use light Theme by default ([637aa28](https://github.com/dd3tech/dd360-components/commit/637aa28479513b18aad8dbd7a07093d80a58ae60))
+
+
+### BREAKING CHANGES
+
+* 🧨 With this change we are achieving that the ThemeProvider does not depend
+on a mandatory theme property, this so that users have the flexibility
+to use the default theme of the library
+
 # [4.18.0](https://github.com/dd3tech/dd360-components/compare/v4.17.3...v4.18.0) (2023-04-01)
 
 
