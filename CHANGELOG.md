@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/dd3tech/dd360-components/compare/v5.0.0...v5.0.1) (2023-04-12)
+
+
+### Bug Fixes
+
+* **Anchor:** change some props and add missing exports ([4ab72a6](https://github.com/dd3tech/dd360-components/commit/4ab72a660bb3939f0cad0e50ca8c1347f7847b3a))
+
 # [5.0.0](https://github.com/dd3tech/dd360-components/compare/v4.18.0...v5.0.0) (2023-04-12)
 
 
