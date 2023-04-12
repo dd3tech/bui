@@ -4,7 +4,7 @@ import { DEFAULT_TAILWIND_TEXT_SIZE } from '../lib/font'
 // Define the props for the ThemeProvider component
 export interface ThemeProviderProps {
   children: ReactNode // The children that the ThemeProvider wraps
-  theme: ThemeProps // The theme object that provides styling for the children
+  theme?: ThemeProps // The theme object that provides styling for the children
 }
 
 // Define the optional properties for a color palette option
@@ -59,11 +59,11 @@ export interface ThemeProps {
 }
 
 // Defining the default light mode theme
-const lightModeTheme: ThemeProps = {
+export const lightModeTheme: ThemeProps = {
   palette: {
     primary: {
       contrastText: 'white',
-      main: 'var(--primary)'
+      main: '#1c4ed9'
     },
     secondary: {
       main: 'white',
@@ -85,6 +85,9 @@ const lightModeTheme: ThemeProps = {
     textColor: '#000'
   },
   typography: {
+    fontFamily: 'Archivo',
+    srcFont:
+      'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&display=swap',
     h1: {
       fontSize: DEFAULT_TAILWIND_TEXT_SIZE['4xl']
     },

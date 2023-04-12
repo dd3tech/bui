@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useEffect } from 'react'
 import { createContext } from 'react'
-import { generateCSSProperties, ThemeProps, ThemeProviderProps } from './shared'
+import { lightModeTheme, ThemeProps, ThemeProviderProps } from './shared'
 
 export const ThemeContext = createContext({} as ThemeProps)
 
-export function ThemeProvider({ children, theme }: ThemeProviderProps) {
+export function ThemeProvider({
+  children,
+  theme = lightModeTheme
+}: ThemeProviderProps) {
   useEffect(() => {
     new LoanTheme(theme)
   }, [theme])
@@ -14,9 +17,32 @@ export function ThemeProvider({ children, theme }: ThemeProviderProps) {
 }
 
 class LoanTheme {
+  private rootStyle: HTMLStyleElement | null = null
+  private rootProperties: { [key: string]: string } = {}
+  private fontFace = ''
+
   constructor(theme: ThemeProps) {
     this.loadVariables(theme.palette)
     this.loadTypography(theme.typography)
+
+    this.updateRootStyle()
+  }
+
+  private addRootCSS(newProperties: { [key: string]: string }) {
+    this.rootProperties = { ...this.rootProperties, ...newProperties }
+  }
+
+  private updateRootStyle() {
+    if (!this.rootStyle) {
+      this.rootStyle = document.createElement('style')
+      document.head.appendChild(this.rootStyle)
+    }
+
+    const cssProperties = Object.entries(this.rootProperties)
+      .map(([key, value]) => value && `--${key}: ${value};`)
+      .join('\n')
+
+    this.rootStyle.textContent += `${this.fontFace}\n:root {\n${cssProperties}\n}`
   }
 
   private loadVariables(theme: ThemeProps['palette']) {
@@ -30,43 +56,37 @@ class LoanTheme {
       background,
       textColor
     } = theme
-    const root = document.documentElement.style
-    root.setProperty('--primary', primary!.main!)
-    root.setProperty('--secondary', secondary!.main!)
-    root.setProperty('--error', error!.main!)
-    root.setProperty('--info', info!.main!)
-    root.setProperty('--success', success!.main!)
-    root.setProperty('--warning', warning!.main!)
-    root.setProperty('--backgroundTheme', background!)
-    root.setProperty('--textColor', textColor!)
+
+    this.addRootCSS({
+      primary: primary!.main!,
+      secondary: secondary!.main!,
+      error: error!.main!,
+      info: info!.main!,
+      success: success!.main!,
+      warning: warning!.main!,
+      backgroundTheme: background!,
+      textColor: textColor!
+    })
   }
 
   private loadTypography(typography: ThemeProps['typography']) {
-    const fontFace = {
-      'font-family': typography?.fontFamily,
-      src: typography?.srcFont
+    if (typography?.srcFont) {
+      const link = document.createElement('link')
+      link.href = typography.srcFont
+      link.rel = 'stylesheet'
+      document.head.appendChild(link)
     }
-    const fontFaceRule = `@font-face {
-      ${generateCSSProperties(fontFace)}
-    }`
 
-    const style = document.createElement('style')
-    style.appendChild(document.createTextNode(fontFaceRule))
-    document.head.appendChild(style)
-
-    const root = document.documentElement.style
-    const { fontFamily, fontSize, h1, h2, h3, h4, h5, h6, base } = typography!
-    root.setProperty('--fontFamily', fontFamily!)
-    root.setProperty(
-      '--fontSize',
-      typeof fontSize === 'number' ? `${fontSize}px` : String(fontSize)
-    )
-    root.setProperty('--h1', String(h1?.fontSize))
-    root.setProperty('--h2', String(h2?.fontSize))
-    root.setProperty('--h3', String(h3?.fontSize))
-    root.setProperty('--h4', String(h4?.fontSize))
-    root.setProperty('--h5', String(h5?.fontSize))
-    root.setProperty('--h6', String(h6?.fontSize))
-    root.setProperty('--base', String(base?.fontSize))
+    const { fontFamily, h1, h2, h3, h4, h5, h6, base } = typography!
+    this.addRootCSS({
+      fontFamily: fontFamily!,
+      h1: String(h1?.fontSize),
+      h2: String(h2?.fontSize),
+      h3: String(h3?.fontSize),
+      h4: String(h4?.fontSize),
+      h5: String(h5?.fontSize),
+      h6: String(h6?.fontSize),
+      base: String(base?.fontSize)
+    })
   }
 }
