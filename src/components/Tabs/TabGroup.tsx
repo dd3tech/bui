@@ -120,6 +120,7 @@ function TabGroup({
       const tabElement = nodes[
         newValue !== 0 ? newValue + 1 : newValue
       ] as HTMLElement
+
       if (tabElement)
         tabElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
     },
