@@ -49,7 +49,7 @@ describe('<Modal/>', () => {
   it('close modal if press esc key', () => {
     renderResult.rerender(<Modal active={true} setCloseModal={setCloseModal} />)
     const modal = renderResult.getByRole('modal-custom')
-    fireEvent.keyUp(modal, { key: 'Escape' })
+    fireEvent.keyDown(modal, { key: 'Escape' })
     expect(renderResult.container.firstChild).toBeNull()
   })
 
