@@ -1,3 +1,10 @@
+## [5.0.3](https://github.com/dd3tech/dd360-components/compare/v5.0.2...v5.0.3) (2023-04-14)
+
+
+### Bug Fixes
+
+* position modal ([daa09c6](https://github.com/dd3tech/dd360-components/commit/daa09c611bec34171e351918575494c4e6e519fc))
+
 ## [5.0.2](https://github.com/dd3tech/dd360-components/compare/v5.0.1...v5.0.2) (2023-04-13)
 
 
