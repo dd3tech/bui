@@ -195,6 +195,11 @@
       "require": "./dist/cjs/components/Anchor/index.js",
       "module": "./dist/esm/components/Anchor/index.js",
       "default": "./dist/esm/components/Anchor/index.js"
+    },
+    "./AsideModal": {
+      "require": "./dist/cjs/components/AsideModal/index.js",
+      "module": "./dist/esm/components/AsideModal/index.js",
+      "default": "./dist/esm/components/AsideModal/index.js"
     }
   },
   "typesVersions": {
@@ -236,7 +241,8 @@
       "Select": ["./dist/esm/components/Form/Select.d.ts"],
       "TextArea": ["./dist/esm/components/Form/TextArea.d.ts"],
       "Layout": ["./dist/esm/components/Layout/index.d.ts"],
-      "Anchor": ["./dist/esm/components/Anchor/index.d.ts"]
+      "Anchor": ["./dist/esm/components/Anchor/index.d.ts"],
+      "AsideModal": ["./dist/esm/components/AsideModal/index.d.ts"]
     }
   }
 }
