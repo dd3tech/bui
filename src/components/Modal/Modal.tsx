@@ -1,25 +1,68 @@
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useState,
-  forwardRef
-} from 'react'
+import { forwardRef } from 'react'
+import { useModalManager } from 'hooks'
 import { composeClasses } from 'lib/classes'
 import './modal.css'
 
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Required.
+   * This prop indicates if the modal is active or not.
+   */
   active: boolean
+  /**
+   * Optional.
+   * This prop indicates if an animation should be applied to the modal.
+   */
   animation?: boolean
+  /**
+   * Optional.
+   * This prop defines the height of the modal's background.
+   */
   bgHeight?: string
+  /**
+   * Optional.
+   * This prop indicates if a blur effect should be applied to the modal's background.
+   */
   blur?: boolean
+  /**
+   * Optional.
+   * Prop to assign additional CSS classes to the modal.
+   */
   className?: string
+  /**
+   * Optional.
+   * Prop to assign additional CSS classes to the modal.
+   */
   fullScreen?: boolean
+  /**
+   * Optional.
+   * This prop defines the height of the modal.
+   */
   height?: string
+  /**
+   * Optional.
+   * This prop defines the maxHeight of the modal.
+   */
   maxHeight?: string
+  /**
+   * Optional.
+   * This prop indicates if a dark overlay should be shown behind the modal.
+   */
   overlay?: boolean
+  /**
+   * Optional.
+   * This prop indicates if the modal should prevent closing.
+   */
   preventClose?: boolean
+  /**
+   * Required.
+   * This prop indicates callback that is executed when the modal is closed.
+   */
   setCloseModal: () => void
+  /**
+   * Optional.
+   * This prop defines the width of the modal.
+   */
   width?: string
 }
 
@@ -41,12 +84,16 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
     }: ModalProps,
     ref
   ) => {
-    const [isClose, setClose] = useState<boolean>(false)
+    const { isOpen, handleModalClose } = useModalManager({
+      open: active,
+      onClose: setCloseModal,
+      preventClose
+    })
 
     const containerClasses = composeClasses(
       'top-0 left-0 right-0 bottom-0 w-full z-50 transition duration-1000 ease-in delay-1500 h-screen',
       blur && 'blur-sm',
-      !isClose ? 'hidden' : 'fixed'
+      !isOpen ? 'hidden' : 'fixed'
     )
 
     const dynamicClassName = composeClasses(
@@ -56,29 +103,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
       className
     )
 
-    const handleClose = useCallback(() => {
-      setClose(false)
-      setCloseModal()
-    }, [])
-
-    const handleKeyUp = useCallback((event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        handleClose()
-      }
-    }, [])
-
-    useLayoutEffect(() => {
-      document.addEventListener('keyup', handleKeyUp)
-      return () => {
-        document.removeEventListener('keyup', handleKeyUp)
-      }
-    }, [])
-
-    useEffect(() => {
-      setClose(active)
-    }, [active])
-
-    if (!isClose) return null
+    if (!isOpen) return null
 
     return (
       <>
@@ -89,7 +114,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
           style={{
             backgroundColor: overlay && !blur ? 'rgba(17, 24, 39, 0.75)' : ''
           }}
-          onClick={() => !preventClose && handleClose()}
+          onClick={handleModalClose}
           {...props}
         >
           <div className="flex items-center justify-center h-full">
@@ -104,7 +129,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
             >
               <div
                 role="btn-close"
-                onClick={handleClose}
+                onClick={handleModalClose}
                 className="absolute top-0 right-0  mr-6 cursor-pointer mt-6"
               >
                 <svg
