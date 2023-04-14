@@ -1,7 +1,7 @@
 import { Rounded } from '../../interfaces/types'
 import React from 'react'
 
-export interface SkeletonProps {
+export interface SkeletonProps extends React.HTMLProps<HTMLDivElement> {
   /**
    * Optional class name for the Skeleton
    */
@@ -21,7 +21,8 @@ const Skeleton = ({
   className,
   style,
   inFlex,
-  rounded = 'none'
+  rounded = 'none',
+  ...props
 }: SkeletonProps) => {
   return (
     <div
@@ -35,6 +36,7 @@ const Skeleton = ({
           className ?? 'h-2.5 w-48 bg-gray-200'
         }`}
         style={style}
+        {...props}
       ></div>
     </div>
   )
