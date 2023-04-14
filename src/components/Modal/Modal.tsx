@@ -44,7 +44,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
     const [isClose, setClose] = useState<boolean>(false)
 
     const containerClasses = composeClasses(
-      'top-0 w-full z-50 transition duration-1000 ease-in delay-1500 h-screen',
+      'top-0 left-0 right-0 bottom-0 w-full z-50 transition duration-1000 ease-in delay-1500 h-screen',
       blur && 'blur-sm',
       !isClose ? 'hidden' : 'fixed'
     )
