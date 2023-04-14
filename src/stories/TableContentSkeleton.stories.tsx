@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import TableContentSkeletonComponent from '../components/TableContentSkeleton/TableContentSkeleton'
+import TableContentSkeletonComponent from '../components/Skeleton/TableContentSkeleton'
 import TableComp from '../components/Table'
 
 export default {

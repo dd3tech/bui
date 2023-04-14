@@ -88,9 +88,6 @@ export * from './Anchor'
 export { default as Skeleton } from './Skeleton'
 export * from './Skeleton'
 
-export { default as TableContentSkeleton } from './TableContentSkeleton'
-export * from './TableContentSkeleton'
-
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
