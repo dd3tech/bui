@@ -31,7 +31,7 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
   /**
    * Optional.
-   * Prop to assign additional CSS classes to the modal.
+   * Indicates if the modal should occupy the entire screen or not
    */
   fullScreen?: boolean
   /**
