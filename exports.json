@@ -195,6 +195,16 @@
       "require": "./dist/cjs/components/Anchor/index.js",
       "module": "./dist/esm/components/Anchor/index.js",
       "default": "./dist/esm/components/Anchor/index.js"
+    },
+    "./Skeleton": {
+      "require": "./dist/cjs/components/Skeleton/index.js",
+      "module": "./dist/esm/components/Skeleton/index.js",
+      "default": "./dist/esm/components/Skeleton/index.js"
+    },
+    "./TableContentSkeleton": {
+      "require": "./dist/cjs/components/TableContentSkeleton/index.js",
+      "module": "./dist/esm/components/TableContentSkeleton/index.js",
+      "default": "./dist/esm/components/TableContentSkeleton/index.js"
     }
   },
   "typesVersions": {

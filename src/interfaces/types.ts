@@ -1,3 +1,5 @@
+export type UnitCSS = `${number}${'px' | 'rem' | '%'}` | number
+
 const twGlobalUnits = [
   '0' /* 0px */,
   'px' /* 1px */,

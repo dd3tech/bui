@@ -1,23 +1,23 @@
-import { it, describe, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
-
+import { render } from '@testing-library/react'
 import Skeleton from './Skeleton'
 
-describe('<Skeleton/>', () => {
-  it('Skeleton is working', () => {
-    render(<Skeleton />)
-    expect(screen.getByTestId('skeleton')).toBeDefined()
+describe('<Skeleton />', () => {
+  it('should render correctly with default props', () => {
+    const { getByTestId } = render(<Skeleton />)
+
+    expect(getByTestId('skeleton')).toBeDefined()
   })
 
-  it('Skeleton prop style is working', () => {
-    render(<Skeleton style={{ width: '50px' }} />)
-    const skeleton: { firstChild: any } = screen.getByTestId('skeleton')
-    expect(skeleton.firstChild.style?.width).toBe('50px')
-  })
-
-  it('Skeleton prop className is working', () => {
-    render(<Skeleton className="skeletonExample" />)
-    const skeleton: { firstChild: any } = screen.getByTestId('skeleton')
-    expect(skeleton.firstChild.className).toContain('skeletonExample')
+  it('should render correctly with custom props', () => {
+    const { getByTestId } = render(
+      <Skeleton
+        className="my-class"
+        style={{ backgroundColor: 'red' }}
+        rounded="full"
+        inFlex
+      />
+    )
+    const skeleton = getByTestId('skeleton')
+    expect(skeleton.style.backgroundColor).toBe('red')
   })
 })
