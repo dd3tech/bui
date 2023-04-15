@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'
-import { AlignItems, JustifyContent, Gap } from 'interfaces/types'
+import { AlignItems, JustifyContent, Gap } from '../../../interfaces/types'
 
 export interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
   gap?: Gap
