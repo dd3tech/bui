@@ -1,14 +1,14 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import Button from '../components/Buttons/Button'
-import AsideModal from '../components/AsideModal'
+import AsideModalComponent from '../components/AsideModal'
 
 export default {
   title: 'Modals/AsideModal',
-  component: AsideModal
-} as ComponentMeta<typeof AsideModal>
+  component: AsideModalComponent
+} as ComponentMeta<typeof AsideModalComponent>
 
-const Template: ComponentStory<typeof AsideModal> = ({
+const Template: ComponentStory<typeof AsideModalComponent> = ({
   open: _open,
   onClose: _onClose,
   title,
@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof AsideModal> = ({
   return (
     <>
       <Button onClick={handleOpen}>Open Modal</Button>
-      <AsideModal
+      <AsideModalComponent
         open={open}
         onClose={handleClose}
         title={title}
@@ -33,8 +33,8 @@ const Template: ComponentStory<typeof AsideModal> = ({
   )
 }
 
-export const AsideModalTemplate = Template.bind({})
-AsideModalTemplate.args = {
+export const AsideModal = Template.bind({})
+AsideModal.args = {
   children: 'Aside modal children',
   title: 'Aside modal title'
 }
