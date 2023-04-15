@@ -1,12 +1,13 @@
 import { vi, describe, afterEach } from 'vitest'
 import { cleanup, fireEvent, render } from '@testing-library/react'
 
-import AsideModal from './AsideModal'
+import AsideModal, { IAsideModalProps } from './AsideModal'
 
-const props = {
+const props: IAsideModalProps = {
   title: 'Test Title',
   open: true,
   onClose: vi.fn(),
+  position: 'right',
   disableEscapeKeyDown: false,
   children: <div>Test Content</div>
 }
@@ -33,5 +34,17 @@ describe('AsideModal', () => {
     fireEvent.click(btnClose)
 
     expect(props.onClose).toHaveBeenCalled()
+  })
+
+  it('should be render with differents positions', () => {
+    const { getByRole, rerender } = renderComponent()
+    const asideModal = getByRole('aside-modal')
+
+    expect(asideModal.className).toContain('right-0')
+
+    props.position = 'left'
+    rerender(<AsideModal {...props} />)
+
+    expect(asideModal.className).toContain('left-0')
   })
 })

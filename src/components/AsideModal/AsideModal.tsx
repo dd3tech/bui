@@ -6,10 +6,13 @@ import {
   useEffect,
   useRef
 } from 'react'
-import { XCircleIcon } from '@heroicons/react/outline'
+import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
 import { composeClasses } from 'lib/classes'
 import { useModalManager } from 'hooks'
 import Text, { TextVariantType } from '../Typography'
+import Flex from '../Layout/Flex'
+
+export type TModalPosition = 'left' | 'right'
 
 export interface IAsideModalProps extends ComponentProps<'aside'> {
   /**
@@ -22,6 +25,11 @@ export interface IAsideModalProps extends ComponentProps<'aside'> {
    * It expects a value of TextVariantType type that represents the variant of the title displayed in the modal.
    */
   titleVariant?: TextVariantType
+  /**
+   * This prop is used to set the position of the modal.
+   * It expects a value (left or right)
+   */
+  position?: TModalPosition
   /**
    * This prop is used to control whether the modal is open or closed.
    * It expects a boolean value (true or false) that determines whether the modal is open (true) or closed (false).
@@ -46,12 +54,14 @@ export interface IAsideModalProps extends ComponentProps<'aside'> {
 const AsideModal: FC<IAsideModalProps> = ({
   title,
   titleVariant = 'h4',
+  position = 'right',
   open,
   onClose,
   disableEscapeKeyDown,
   children,
   ...otherProps
 }) => {
+  const isRightPosition = position === 'right'
   const { isOpen, handleModalClose } = useModalManager({
     open,
     onClose,
@@ -60,6 +70,10 @@ const AsideModal: FC<IAsideModalProps> = ({
 
   const asideModalRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
+
+  const translateByPosition = isRightPosition
+    ? { base: 'right-0', open: 'translate-x-0', close: 'translate-x-full' }
+    : { base: 'left-0', open: 'translate-x-0', close: '-translate-x-full' }
 
   useEffect(() => {
     if (!asideModalRef.current) return
@@ -70,14 +84,15 @@ const AsideModal: FC<IAsideModalProps> = ({
     <aside
       role="aside-modal"
       className={composeClasses(
-        isOpen ? 'translate-x-0' : 'translate-x-full',
-        'fixed top-20 right-0 w-full lg:w-8/12 max-w-5xl h-full px-10 py-7 border-t-0 shadow-lg',
+        translateByPosition.base,
+        isOpen ? translateByPosition.open : translateByPosition.close,
+        'fixed top-0 w-full lg:w-8/12 max-w-5xl h-full px-10 py-7 border-t-0 shadow-lg',
         'bg-white overflow-auto transform transition-all duration-300 ease-linear z-40'
       )}
       ref={asideModalRef}
       {...otherProps}
     >
-      <div className="flex justify-between items-center">
+      <Flex justifyContent="between" alignItems="center">
         <Text variant={titleVariant} bold>
           {title}
         </Text>
@@ -88,7 +103,7 @@ const AsideModal: FC<IAsideModalProps> = ({
         >
           <XCircleIcon className="w-6" />
         </div>
-      </div>
+      </Flex>
       {children}
     </aside>
   )
