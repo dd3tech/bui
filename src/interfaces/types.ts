@@ -133,6 +133,12 @@ export type Padding = typeof twGlobalUnits[number]
 
 export type Margin = typeof twGlobalUnits[number]
 
+/* --------------------------------- GAP --------------------------------- */
+
+export type GapSuffix = 'gap' | 'gap-x' | 'gap-y'
+export type GapWithSuffix = `${GapSuffix}-${typeof twGlobalUnits[number]}`
+export type Gap = typeof twGlobalUnits[number]
+
 /* --------------------------------- COLORS --------------------------------- */
 
 const baseColorValues = [
@@ -208,7 +214,7 @@ export type HorizontalPosition = 'left' | 'right'
 
 export type VerticalPosition = 'top' | 'bottom'
 
-const twJustifyContentValues = [
+export const twJustifyContentValues = [
   'start',
   'end',
   'center',
@@ -219,7 +225,7 @@ const twJustifyContentValues = [
 
 export type JustifyContent = typeof twJustifyContentValues[number]
 
-const twAlignItemsValues = [
+export const twAlignItemsValues = [
   'start',
   'end',
   'center',
