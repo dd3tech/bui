@@ -28,7 +28,10 @@ const Skeleton = ({
     <div
       data-testid="skeleton-content"
       className="animate-pulse"
-      style={{ width: inFlex ? '100%' : 'initial', height: inFlex ? '100%' : 'initial' }}
+      style={{
+        width: inFlex ? '100%' : 'initial',
+        height: inFlex ? '100%' : 'initial'
+      }}
     >
       <div
         data-testid="skeleton"
