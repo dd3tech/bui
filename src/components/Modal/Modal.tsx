@@ -97,7 +97,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
     )
 
     const dynamicClassName = composeClasses(
-      'absolute z-50 flex-wrap text-center flex drop-shadow-lg bg-white bottom-0 rounded-t-2xl',
+      'absolute z-50 flex-wrap text-center flex drop-shadow-lg bg-white rounded-t-2xl',
       'md:bottom-auto md:w-auto md:rounded-2xl md:mb-6 md:mt-6',
       animation && 'animation-modal',
       className
