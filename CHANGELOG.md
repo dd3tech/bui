@@ -1,3 +1,19 @@
+# [5.1.0](https://github.com/dd3tech/dd360-components/compare/v5.0.3...v5.1.0) (2023-04-17)
+
+
+### Bug Fixes
+
+* change import of interfaces ([849208f](https://github.com/dd3tech/dd360-components/commit/849208f7c8f3a0915b39b0423fb2c55ac82582f6))
+* expose variant of Text component ([3a32238](https://github.com/dd3tech/dd360-components/commit/3a32238e6d7170cab999fcffb3745793dc36a2c8))
+
+
+### Features
+
+* add gap variants ([46932e4](https://github.com/dd3tech/dd360-components/commit/46932e47fec4ce5564c0ed457a1604ea16feaa0e))
+* add position prop and use Flex component ([15c8fe9](https://github.com/dd3tech/dd360-components/commit/15c8fe9691dfc4095a955785ed3606fdd7075f03))
+* AsideModal component was added ([be63b40](https://github.com/dd3tech/dd360-components/commit/be63b40be8ab38bb83d50bc32c478188a874d818))
+* complement Flex component with more props ([f9b41b1](https://github.com/dd3tech/dd360-components/commit/f9b41b1b4a4308b8c18e59fbcdb8e5d7b476ff27))
+
 ## [5.0.3](https://github.com/dd3tech/dd360-components/compare/v5.0.2...v5.0.3) (2023-04-14)
 
 
