@@ -5,7 +5,7 @@ import ProgressCircleComponent from '../components/ProgressCircle'
 export default {
   title: 'Controls/ProgressCircular',
   component: ProgressCircleComponent
-} as ComponentMeta<typeof ProgressCircular>
+} as ComponentMeta<typeof ProgressCircleComponent>
 
 const Template: ComponentStory<typeof ProgressCircleComponent> = (args) => (
   <ProgressCircleComponent {...args} />

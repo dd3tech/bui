@@ -8,6 +8,21 @@ import React, {
 import { format } from 'dd360-utils'
 import { composeClasses } from 'lib'
 
+export type TextVariantType =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'p'
+  | 'span'
+  | 'small'
+  | 'label'
+  | 'a'
+  | 'currency'
+  | 'anchorSmall'
+
 export type TextSizeType =
   | '9xl'
   | '8xl'
@@ -34,20 +49,7 @@ type TResponsiveText = {
 export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
   children?: React.ReactNode
   className?: string
-  variant?:
-    | 'h1'
-    | 'h2'
-    | 'h3'
-    | 'h4'
-    | 'h5'
-    | 'h6'
-    | 'p'
-    | 'span'
-    | 'small'
-    | 'label'
-    | 'a'
-    | 'currency'
-    | 'anchorSmall'
+  variant?: TextVariantType
   align?: 'center' | 'left' | 'right' | 'justify'
   bold?: boolean
   fontBold?: 'bold' | 'medium'

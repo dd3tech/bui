@@ -1,5 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+
+import Button from '../components/Buttons/Button'
 import ModalCustomComponent from '../components/Modal'
 
 export default {
@@ -7,13 +9,33 @@ export default {
   component: ModalCustomComponent
 } as ComponentMeta<typeof ModalCustomComponent>
 
-const Template: ComponentStory<typeof ModalCustomComponent> = (args) => (
-  <ModalCustomComponent {...args} />
-)
+const Template: ComponentStory<typeof ModalCustomComponent> = ({
+  active: _open,
+  setCloseModal: _onClose,
+  title,
+  children,
+  ...otherArgs
+}) => {
+  const [open, setOpen] = React.useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
+  return (
+    <>
+      <Button onClick={handleOpen}>Open Modal</Button>
+      <ModalCustomComponent
+        active={open}
+        setCloseModal={handleClose}
+        title={title}
+        children={children}
+        {...otherArgs}
+      />
+    </>
+  )
+}
 
 export const Modal = Template.bind({})
 Modal.args = {
-  active: true,
   blur: false,
   children: (
     <>
