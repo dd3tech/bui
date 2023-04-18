@@ -1,6 +1,6 @@
 {
     "name": "dd360-ds",
-    "version": "5.1.0",
+    "version": "5.2.0",
     "description": "DD360 Components is a tailwind based React component library",
     "license": "MIT",
     "repository": {
@@ -328,6 +328,16 @@
             "module": "./dist/esm/components/Anchor/index.js",
             "default": "./dist/esm/components/Anchor/index.js"
         },
+        "./Skeleton": {
+            "require": "./dist/cjs/components/Skeleton/Skeleton.js",
+            "module": "./dist/esm/components/Skeleton/Skeleton.js",
+            "default": "./dist/esm/components/Skeleton/Skeleton.js"
+        },
+        "./TableContentSkeleton": {
+            "require": "./dist/cjs/components/Skeleton/TableContentSkeleton.js",
+            "module": "./dist/esm/components/Skeleton/TableContentSkeleton.js",
+            "default": "./dist/esm/components/Skeleton/TableContentSkeleton.js"
+        },
         "./AsideModal": {
             "require": "./dist/cjs/components/AsideModal/index.js",
             "module": "./dist/esm/components/AsideModal/index.js",
@@ -449,6 +459,12 @@
             ],
             "Anchor": [
                 "./dist/esm/components/Anchor/index.d.ts"
+            ],
+            "Skeleton": [
+                "./dist/esm/components/Skeleton/Skeleton.d.ts"
+            ],
+            "TableContentSkeleton": [
+                "./dist/esm/components/Skeleton/TableContentSkeleton.d.ts"
             ],
             "AsideModal": [
                 "./dist/esm/components/AsideModal/index.d.ts"

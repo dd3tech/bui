@@ -1,3 +1,19 @@
+# [5.2.0](https://github.com/dd3tech/dd360-components/compare/v5.1.0...v5.2.0) (2023-04-18)
+
+
+### Bug Fixes
+
+* added height when the props inFlex is true ([bde234a](https://github.com/dd3tech/dd360-components/commit/bde234a367aa9e9bb850d681140a57d2fa46c14c))
+* deleted display inline-block ([c2904b9](https://github.com/dd3tech/dd360-components/commit/c2904b9c08c7543d4780d49939f30ac2572087c5))
+* high by default is removed ([6d59873](https://github.com/dd3tech/dd360-components/commit/6d59873fafc2d5e7bd94e373d73dd18e6de53b04))
+* renames history of TableContentSkeleton component ([932726e](https://github.com/dd3tech/dd360-components/commit/932726e78ccd5a66d57538576e3ea63a36baa164))
+
+
+### Features
+
+* added component TableContentSkeleton and the Skeleton component is refactored ([c25202f](https://github.com/dd3tech/dd360-components/commit/c25202fdb3f146aa6c50f872a87140494eafb66c))
+* new features are added to the component ([e739106](https://github.com/dd3tech/dd360-components/commit/e739106e24202535f720318f5284029df2077922))
+
 # [5.1.0](https://github.com/dd3tech/dd360-components/compare/v5.0.3...v5.1.0) (2023-04-17)
 
 
