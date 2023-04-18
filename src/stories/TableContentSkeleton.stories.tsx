@@ -27,8 +27,8 @@ const Template: ComponentStory<typeof TableContentSkeletonComponent> = (
   </TableComp>
 )
 
-export const Skeleton = Template.bind({})
-Skeleton.args = {
+export const TableContentSkeleton = Template.bind({})
+TableContentSkeleton.args = {
   rows: 5,
   columns: 6,
   skeletonColor: '#e5e7eb',
