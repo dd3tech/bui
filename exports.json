@@ -200,6 +200,11 @@
       "require": "./dist/cjs/components/AsideModal/index.js",
       "module": "./dist/esm/components/AsideModal/index.js",
       "default": "./dist/esm/components/AsideModal/index.js"
+    },
+    "./Tooltip": {
+      "require": "./dist/cjs/components/Tooltip/index.js",
+      "module": "./dist/esm/components/Tooltip/index.js",
+      "default": "./dist/esm/components/Tooltip/index.js"
     }
   },
   "typesVersions": {
@@ -242,7 +247,8 @@
       "TextArea": ["./dist/esm/components/Form/TextArea.d.ts"],
       "Layout": ["./dist/esm/components/Layout/index.d.ts"],
       "Anchor": ["./dist/esm/components/Anchor/index.d.ts"],
-      "AsideModal": ["./dist/esm/components/AsideModal/index.d.ts"]
+      "AsideModal": ["./dist/esm/components/AsideModal/index.d.ts"],
+      "Tooltip": ["./dist/esm/components/Tooltip/index.d.ts"]
     }
   }
 }
