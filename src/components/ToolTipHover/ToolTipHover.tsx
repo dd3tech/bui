@@ -1,5 +1,3 @@
-// TODO: Create storie and test for this component
-
 import React, { ReactNode, useState, useCallback, useEffect } from 'react'
 import { getLeftAndTopScreen } from 'dd360-utils'
 import { composeClasses } from 'lib/classes'
