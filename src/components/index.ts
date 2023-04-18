@@ -91,6 +91,9 @@ export * from './ProgressCircle'
 export { default as Anchor } from './Anchor'
 export * from './Anchor'
 
+export { default as Tooltip } from './Tooltip'
+export * from './Tooltip'
+
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
