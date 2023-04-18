@@ -1,47 +1,72 @@
-import { Rounded } from '../../interfaces/types'
+import { Rounded, UnitCSS } from '../../interfaces/types'
 import React from 'react'
+import './skeleton.css'
+import { composeClasses } from 'lib/classes'
 
-export interface SkeletonProps extends React.HTMLProps<HTMLDivElement> {
+export interface SkeletonProps extends React.HTMLProps<HTMLSpanElement> {
   /**
    * Optional class name for the Skeleton
    */
   className?: string
+  /**
+   * Optional object for the styles of the Skeleton
+   */
   style?: React.CSSProperties
   /**
    * Optional value for the rounded of the Skeleton
    */
   rounded?: Rounded
   /**
-   * Optional value to indicate when the element is inside a container with the flex property
+   * Optional value for the height of the Skeleton
    */
-  inFlex?: boolean
+  height?: UnitCSS
+  /**
+   * Optional value for the width of the Skeleton
+   */
+  width?: UnitCSS
+  /**
+   * Optional children to infer width and height from
+   */
+  children?: React.ReactNode
+  /**
+   * Animation type. If false the animation effect is disabled.
+   */
+  animation?: 'pulse' | 'wave' | false
+  /**
+   * Optional value for the color of the Skeleton
+   */
+  color?: string
 }
 
 const Skeleton = ({
   className,
   style,
-  inFlex,
+  children,
+  height,
+  width,
+  color,
+  animation = 'pulse',
   rounded = 'none',
   ...props
 }: SkeletonProps) => {
+  const styleObj = children
+    ? { height: 'fit-content', width: 'fit-content' }
+    : { height, width }
+
   return (
-    <div
-      data-testid="skeleton-content"
-      className="animate-pulse"
-      style={{
-        width: inFlex ? '100%' : 'initial',
-        height: inFlex ? '100%' : 'initial'
-      }}
+    <span
+      data-testid="skeleton"
+      className={composeClasses(
+        'skeleton-cmpt bg-gray-200 block',
+        animation && `animate-${animation}`,
+        `rounded-${rounded}`,
+        className
+      )}
+      style={{ ...styleObj, backgroundColor: color, ...style }}
+      {...props}
     >
-      <div
-        data-testid="skeleton"
-        className={`rounded-${rounded} ${
-          className ?? 'h-2.5 w-48 bg-gray-200'
-        }`}
-        style={style}
-        {...props}
-      ></div>
-    </div>
+      {children}
+    </span>
   )
 }
 

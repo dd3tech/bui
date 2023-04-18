@@ -14,10 +14,19 @@ describe('<Skeleton />', () => {
         className="my-class"
         style={{ backgroundColor: 'red' }}
         rounded="full"
-        inFlex
       />
     )
     const skeleton = getByTestId('skeleton')
     expect(skeleton.style.backgroundColor).toBe('red')
+  })
+
+  it('should be rendered an element inside the skeleton', () => {
+    const { getByTestId } = render(
+      <Skeleton>
+        <div className="h-20 w-20"></div>
+      </Skeleton>
+    )
+    const skeleton = getByTestId('skeleton')
+    expect(skeleton.firstElementChild?.className).toBe('h-20 w-20')
   })
 })

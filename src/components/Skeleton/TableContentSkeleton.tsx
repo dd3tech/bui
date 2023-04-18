@@ -42,9 +42,20 @@ export interface PropsTableContentSkeleton {
    * Optional width for each table column
    * Can be specified as a string with a unit (px, rem, or %) or a number
    * - If an array is provided, the value for each column can be specified individually
-   * - if the length of the unit array is less than the number of cells, the remaining cells will take the last size in the unit array
+   * - If the length of the units array is less than the number of columns, the cells in the remaining columns take the last size in the units array
    */
   columnWidth?: UnitCSS[] | UnitCSS
+  /**
+   * Optional height for each table row
+   * Can be specified as a string with a unit (px, rem, or %) or a number
+   * - If an array is provided, the value for each row can be specified individually
+   * - If the length of the unit array is less than the number of rows, the cells in the remaining rows take the last size in the units array
+   */
+  columnHeight?: UnitCSS[] | UnitCSS
+  /**
+   * Animation type. If false the animation effect is disabled.
+   */
+  animation?: 'pulse' | 'wave' | false
 }
 
 const getWidth = (width: UnitCSS[] | UnitCSS, index: number) => {
@@ -60,6 +71,7 @@ function TableContentSkeleton({
   columns,
   rows,
   rounded,
+  animation,
   columnWidth,
   classNameCell,
   skeletonWidth,
@@ -88,9 +100,10 @@ function TableContentSkeleton({
               <Skeleton
                 className={skeletonClass ?? 'bg-gray-200'}
                 rounded={rounded}
+                animation={animation}
+                width={width}
+                height={skeletonHeight}
                 style={{
-                  width,
-                  height: skeletonHeight,
                   backgroundColor: skeletonColor
                 }}
               />
