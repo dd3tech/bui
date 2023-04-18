@@ -37,9 +37,6 @@ export * from './Pagination'
 export { default as Image } from './Image'
 export * from './Image'
 
-export { default as Skeleton } from './Skeleton'
-export * from './Skeleton'
-
 export { default as Wrapper } from './Wrapper'
 export * from './Wrapper'
 
@@ -90,6 +87,9 @@ export * from './ProgressCircle'
 
 export { default as Anchor } from './Anchor'
 export * from './Anchor'
+
+export { default as Skeleton } from './Skeleton'
+export * from './Skeleton'
 
 export { default as Tooltip } from './Tooltip'
 export * from './Tooltip'
