@@ -7,7 +7,7 @@ export interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 }
 
 const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
-  ({ children, src, alt, className, ...props }: AvatarProps, ref) => {
+  ({ children, src, alt, className, ...props }, ref) => {
     if (children) {
       return (
         <div

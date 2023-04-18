@@ -205,6 +205,11 @@
       "require": "./dist/cjs/components/Skeleton/TableContentSkeleton.js",
       "module": "./dist/esm/components/Skeleton/TableContentSkeleton.js",
       "default": "./dist/esm/components/Skeleton/TableContentSkeleton.js"
+    },
+    "./AsideModal": {
+      "require": "./dist/cjs/components/AsideModal/index.js",
+      "module": "./dist/esm/components/AsideModal/index.js",
+      "default": "./dist/esm/components/AsideModal/index.js"
     }
   },
   "typesVersions": {
@@ -248,7 +253,10 @@
       "Layout": ["./dist/esm/components/Layout/index.d.ts"],
       "Anchor": ["./dist/esm/components/Anchor/index.d.ts"],
       "Skeleton": ["./dist/esm/components/Skeleton/Skeleton.d.ts"],
-      "TableContentSkeleton": ["./dist/esm/components/Skeleton/TableContentSkeleton.d.ts"]
+      "TableContentSkeleton": [
+        "./dist/esm/components/Skeleton/TableContentSkeleton.d.ts"
+      ],
+      "AsideModal": ["./dist/esm/components/AsideModal/index.d.ts"]
     }
   }
 }

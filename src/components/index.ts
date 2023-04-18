@@ -13,6 +13,9 @@ export * from './Typography/Text'
 export { default as Modal } from './Modal'
 export * from './Modal'
 
+export { default as AsideModal } from './AsideModal'
+export * from './AsideModal'
+
 export { default as Breadcrumbs } from './Breadcrumbs'
 export * from './Breadcrumbs'
 

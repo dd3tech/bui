@@ -13,10 +13,15 @@ const Template: ComponentStory<typeof FlexComponent> = (args) => (
 
 export const Flex = Template.bind({})
 Flex.args = {
-  className: 'bg-gray-200 h-20',
+  className: 'bg-gray-300 h-20 rounded-md',
   children: (
     <>
-      <h2 className="text-center pt-2">This is a div flex</h2>
+      <div className="bg-red-500 text-white w-32 p-2 border rounded-sm">
+        1st Element
+      </div>
+      <div className="bg-blue-700 text-white w-32 p-2 border rounded-sm">
+        2nd Element
+      </div>
     </>
   )
 }
