@@ -1,8 +1,13 @@
 import { describe, it, afterEach, expect } from 'vitest'
-import { render, fireEvent, cleanup, waitFor } from '@testing-library/react'
+import {
+  render,
+  fireEvent,
+  cleanup,
+  waitFor,
+  act
+} from '@testing-library/react'
 import Tooltip from './Tooltip'
 import Button from '../Buttons/Button'
-import { act } from 'react-dom/test-utils'
 
 const defaultProps = {
   content: 'Im tooltip',
