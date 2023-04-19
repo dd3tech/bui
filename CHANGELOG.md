@@ -1,3 +1,10 @@
+# [5.4.0](https://github.com/dd3tech/dd360-components/compare/v5.3.0...v5.4.0) (2023-04-19)
+
+
+### Features
+
+* new Tooltip component was added ([#73](https://github.com/dd3tech/dd360-components/issues/73)) ([1399cd9](https://github.com/dd3tech/dd360-components/commit/1399cd920d984624fa5b36bd644d063c5d3abefe))
+
 # [5.3.0](https://github.com/dd3tech/dd360-components/compare/v5.2.0...v5.3.0) (2023-04-19)
 
 
