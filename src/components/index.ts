@@ -97,6 +97,9 @@ export * from './Anchor'
 export { default as Skeleton } from './Skeleton'
 export * from './Skeleton'
 
+export { default as Tooltip } from './Tooltip'
+export * from './Tooltip'
+
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'

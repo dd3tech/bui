@@ -220,6 +220,11 @@
       "require": "./dist/cjs/components/Navbar/index.js",
       "module": "./dist/esm/components/Navbar/index.js",
       "default": "./dist/esm/components/Navbar/index.js"
+    },
+    "./Tooltip": {
+      "require": "./dist/cjs/components/Tooltip/index.js",
+      "module": "./dist/esm/components/Tooltip/index.js",
+      "default": "./dist/esm/components/Tooltip/index.js"
     }
   },
   "typesVersions": {
@@ -268,7 +273,8 @@
       ],
       "AsideModal": ["./dist/esm/components/AsideModal/index.d.ts"],
       "Dropdown": ["./dist/esm/components/Dropdown/index.d.ts"],
-      "Navbar": ["./dist/esm/components/Navbar/index.d.ts"]
+      "Navbar": ["./dist/esm/components/Navbar/index.d.ts"],
+      "Tooltip": ["./dist/esm/components/Tooltip/index.d.ts"]
     }
   }
 }
