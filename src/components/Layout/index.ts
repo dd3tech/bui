@@ -4,8 +4,8 @@ export * from './Container'
 export { default as Flex } from './Flex'
 export * from './Flex'
 
-export { default as Grid } from './Grid'
-export * from './Grid'
+export { default as Row } from './Row'
+export * from './Row'
 
 export { default as Order } from './Order'
 export * from './Order'

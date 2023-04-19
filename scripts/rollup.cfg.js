@@ -10,26 +10,39 @@ import { babelConfig } from './babel.cfg'
  * @returns An array of file names
  */
 export const getFiles = (
-    entry,
-    extensions = ['.js', '.ts', '.tsx'],
-    excludeExtensions = ['.stories.tsx', '.stories', '.stories.tsx', '.test.tsx', '.test.ts', '.spec.tsx']
+  entry,
+  extensions = ['.js', '.ts', '.tsx'],
+  excludeExtensions = [
+    '.stories.tsx',
+    '.stories',
+    '.stories.tsx',
+    '.test.tsx',
+    '.test.ts',
+    '.spec.tsx'
+  ]
 ) => {
-    let fileNames = []
-    const dirs = fs.readdirSync(entry)
+  let fileNames = []
+  const dirs = fs.readdirSync(entry)
 
-    dirs.forEach((dir) => {
-        const path = `${entry}/${dir}`
-        if (fs.lstatSync(path).isDirectory()) {
-            fileNames = [...fileNames, ...getFiles(path, extensions, excludeExtensions)]
-            return
-        }
+  dirs.forEach((dir) => {
+    const path = `${entry}/${dir}`
+    if (fs.lstatSync(path).isDirectory()) {
+      fileNames = [
+        ...fileNames,
+        ...getFiles(path, extensions, excludeExtensions)
+      ]
+      return
+    }
 
-        if (!excludeExtensions.some((exclude) => dir.endsWith(exclude)) && extensions.some((ext) => dir.endsWith(ext))) {
-            fileNames.push(path)
-        }
-    })
+    if (
+      !excludeExtensions.some((exclude) => dir.endsWith(exclude)) &&
+      extensions.some((ext) => dir.endsWith(ext))
+    ) {
+      fileNames.push(path)
+    }
+  })
 
-    return fileNames
+  return fileNames
 }
 
 /**
@@ -37,13 +50,13 @@ export const getFiles = (
  * @param targets - The target browsers to support.
  */
 export function getBabelOptions(targets) {
-    const extensions = ['.js', '.ts', '.tsx']
-    return {
-        ...babelConfig({ env: (env) => env === 'build' }, targets),
-        extensions,
-        comments: false,
-        babelHelpers: 'bundled'
-    }
+  const extensions = ['.js', '.ts', '.tsx']
+  return {
+    ...babelConfig({ env: (env) => env === 'build' }, targets),
+    extensions,
+    comments: false,
+    babelHelpers: 'bundled'
+  }
 }
 
 /**
@@ -55,23 +68,29 @@ export function getBabelOptions(targets) {
  *     otherProps: any other properties that can be passed to the rollup config
  */
 export function createModule({ plugins, format = 'esm', ...otherProps }) {
-    const config = {
-        input: ['./src/index.ts', ...getFiles('./src/hooks'), ...getFiles('./src/common'), ...getFiles('./src/lib')],
-        output: {
-            dir: `dist/${format}`,
-            format: `${format}`,
-            preserveModules: true,
-            preserveModulesRoot: 'src',
-            sourcemap: true
-        },
-        plugins: plugins,
-        external: ['react', 'react-dom'],
-        ...otherProps
-    }
+  const config = {
+    input: [
+      './src/index.ts',
+      ...getFiles('./src/hooks'),
+      ...getFiles('./src/common'),
+      ...getFiles('./src/lib'),
+      ...getFiles('./src/theme')
+    ],
+    output: {
+      dir: `dist/${format}`,
+      format: `${format}`,
+      preserveModules: true,
+      preserveModulesRoot: 'src',
+      sourcemap: true
+    },
+    plugins: plugins,
+    external: ['react', 'react-dom'],
+    ...otherProps
+  }
 
-    if (format === 'cjs') {
-        config.output = { ...config.output, exports: 'named' }
-    }
+  if (format === 'cjs') {
+    config.output = { ...config.output, exports: 'named' }
+  }
 
-    return config
+  return config
 }

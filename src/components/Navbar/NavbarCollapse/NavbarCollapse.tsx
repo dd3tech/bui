@@ -7,19 +7,19 @@ type NavbarCollapseToggleElement = ReactElement<typeof NavbarCollapseToggle>
 type NavbarCollapseContentElement = ReactElement<typeof NavbarCollapseContent>
 
 export interface NavbarCollapseProps {
-    children: [NavbarCollapseToggleElement, NavbarCollapseContentElement]
+  children: [NavbarCollapseToggleElement, NavbarCollapseContentElement]
 }
 
 const NavbarCollapse = ({ children }: NavbarCollapseProps): JSX.Element => {
-    const [isCollapsed, setIsCollapsed] = useState(false)
-    const [toggle, content] = children
+  const [isCollapsed, setIsCollapsed] = useState(false)
+  const [toggle, content] = children
 
-    return (
-        <NavbarCollapseProvider value={{ isCollapsed, setIsCollapsed }}>
-            {toggle}
-            {content}
-        </NavbarCollapseProvider>
-    )
+  return (
+    <NavbarCollapseProvider value={{ isCollapsed, setIsCollapsed }}>
+      {toggle}
+      {content}
+    </NavbarCollapseProvider>
+  )
 }
 
 export default NavbarCollapse

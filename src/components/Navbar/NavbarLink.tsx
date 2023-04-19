@@ -3,46 +3,71 @@ import { Anchor } from '../Navigation/Navigation'
 import { NavbarContentVariants } from './NavbarContent'
 import { useNavbarContentContext } from './NavbarContentContext'
 
-export interface NavbarLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-    children?: React.ReactNode
-    to: string
-    isActive?: boolean
-    LinkComponent?: React.ComponentType<any>
+export interface NavbarLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  children?: React.ReactNode
+  to: string
+  isActive?: boolean
+  LinkComponent?: React.ComponentType<any>
 }
 
 const colorVariants: { [key: string]: string } = {
-    primary: 'blue',
-    success: 'green',
-    danger: 'red',
-    warning: 'yellow'
+  primary: 'var(--primary)',
+  success: 'var(--success)',
+  error: 'var(--error)',
+  warning: 'var(--warning)'
 }
 
-export const getActiveVariants = (navLinkVariant: NavbarContentVariants, activeColor: string) => {
-    switch (navLinkVariant) {
-        case 'underline':
-            return `h-16 border-b-3 border-${activeColor}-500`
-        case 'highlight':
-            return `rounded py-1.5 px-2.5 bg-${activeColor}-100 text-${activeColor}-600`
-        default:
-            return `text-${activeColor}-600`
-    }
+export const getActiveVariants = (
+  navItemVariant: NavbarContentVariants,
+  activeColor: string
+) => {
+  switch (navItemVariant) {
+    case 'underline':
+      return { class: `h-16 border-b-3`, borderColor: activeColor }
+    case 'highlight':
+      return {
+        class: `rounded py-1.5 px-2.5`,
+        backgroundColor: `color-mix(in srgb, ${activeColor} 10%, white)`,
+        color: activeColor
+      }
+    default:
+      return { color: activeColor }
+  }
 }
 
-const NavbarLink = ({ children, to, isActive, LinkComponent, ...props }: NavbarLinkProps) => {
-    const navbarContentContext = useNavbarContentContext()
+const NavbarLink = ({
+  children,
+  to,
+  isActive,
+  LinkComponent,
+  ...props
+}: NavbarLinkProps) => {
+  const navbarContentContext = useNavbarContentContext()
 
-    const classes = composeClasses(
-        'flex content-center items-center flex-nowrap',
-        isActive && getActiveVariants(navbarContentContext.variant, colorVariants[navbarContentContext.activeColor]),
-        isActive ? 'font-bold' : 'text-base',
-        props.className
-    )
+  const variant = getActiveVariants(
+    navbarContentContext.variant,
+    colorVariants[navbarContentContext.activeColor]
+  )
+  const style = isActive ? variant : {}
+  const classes = composeClasses(
+    'flex content-center items-center flex-nowrap',
+    isActive && variant.class,
+    isActive ? 'font-bold' : 'text-base',
+    props.className
+  )
 
-    return (
-        <Anchor LinkComponent={LinkComponent} to={to} className={classes} {...props}>
-            {children}
-        </Anchor>
-    )
+  return (
+    <Anchor
+      LinkComponent={LinkComponent}
+      to={to}
+      className={classes}
+      {...props}
+      style={style}
+    >
+      {children}
+    </Anchor>
+  )
 }
 
 export default NavbarLink

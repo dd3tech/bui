@@ -1,28 +1,37 @@
 {
-    "compilerOptions": {
-        "module": "esnext",
-        "target": "ESNext",
-        "lib": ["es6", "dom"],
-        "sourceMap": true,
-        "jsx": "react-jsx",
-        "moduleResolution": "Node",
-        "rootDir": "src",
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "esModuleInterop": true,
-        "declaration": true,
-        "declarationDir": "dist",
-        "baseUrl": "src/",
-        "paths": {
-            "components/*": ["components/*"],
-            "common/*": ["common/*"],
-            "hooks/*": ["hooks/*"],
-            "lib/*": ["lib/*"]
-        }
-    },
-    "include": ["src/common", "src/hooks", "src/interfaces", "src/index.ts", "src/components", "src/global.d.ts"],
-    "exclude": ["node_modules", "build", "dist", "scripts", "website"],
-    "types": ["typePatches"]
+  "compilerOptions": {
+    "module": "esnext",
+    "noUnusedParameters": true,
+    "target": "ESNext",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "Node",
+    "rootDir": "src",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "baseUrl": "src/",
+    "paths": {
+      "components/*": ["components/*"],
+      "common/*": ["common/*"],
+      "hooks/*": ["hooks/*"],
+      "lib/*": ["lib/*"],
+      "theme/*": ["theme/*"],
+    }
+  },
+  "include": [
+    "src/common",
+    "src/hooks",
+    "src/interfaces",
+    "src/index.ts",
+    "src/components",
+    "src/global.d.ts"
+  ],
+  "exclude": ["node_modules", "build", "dist", "scripts", "website"],
+  "types": ["typePatches"]
 }

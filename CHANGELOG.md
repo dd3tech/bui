@@ -1,3 +1,200 @@
+# [5.2.0](https://github.com/dd3tech/dd360-components/compare/v5.1.0...v5.2.0) (2023-04-18)
+
+
+### Bug Fixes
+
+* added height when the props inFlex is true ([bde234a](https://github.com/dd3tech/dd360-components/commit/bde234a367aa9e9bb850d681140a57d2fa46c14c))
+* deleted display inline-block ([c2904b9](https://github.com/dd3tech/dd360-components/commit/c2904b9c08c7543d4780d49939f30ac2572087c5))
+* high by default is removed ([6d59873](https://github.com/dd3tech/dd360-components/commit/6d59873fafc2d5e7bd94e373d73dd18e6de53b04))
+* renames history of TableContentSkeleton component ([932726e](https://github.com/dd3tech/dd360-components/commit/932726e78ccd5a66d57538576e3ea63a36baa164))
+
+
+### Features
+
+* added component TableContentSkeleton and the Skeleton component is refactored ([c25202f](https://github.com/dd3tech/dd360-components/commit/c25202fdb3f146aa6c50f872a87140494eafb66c))
+* new features are added to the component ([e739106](https://github.com/dd3tech/dd360-components/commit/e739106e24202535f720318f5284029df2077922))
+
+# [5.1.0](https://github.com/dd3tech/dd360-components/compare/v5.0.3...v5.1.0) (2023-04-17)
+
+
+### Bug Fixes
+
+* change import of interfaces ([849208f](https://github.com/dd3tech/dd360-components/commit/849208f7c8f3a0915b39b0423fb2c55ac82582f6))
+* expose variant of Text component ([3a32238](https://github.com/dd3tech/dd360-components/commit/3a32238e6d7170cab999fcffb3745793dc36a2c8))
+
+
+### Features
+
+* add gap variants ([46932e4](https://github.com/dd3tech/dd360-components/commit/46932e47fec4ce5564c0ed457a1604ea16feaa0e))
+* add position prop and use Flex component ([15c8fe9](https://github.com/dd3tech/dd360-components/commit/15c8fe9691dfc4095a955785ed3606fdd7075f03))
+* AsideModal component was added ([be63b40](https://github.com/dd3tech/dd360-components/commit/be63b40be8ab38bb83d50bc32c478188a874d818))
+* complement Flex component with more props ([f9b41b1](https://github.com/dd3tech/dd360-components/commit/f9b41b1b4a4308b8c18e59fbcdb8e5d7b476ff27))
+
+## [5.0.3](https://github.com/dd3tech/dd360-components/compare/v5.0.2...v5.0.3) (2023-04-14)
+
+
+### Bug Fixes
+
+* position modal ([daa09c6](https://github.com/dd3tech/dd360-components/commit/daa09c611bec34171e351918575494c4e6e519fc))
+
+## [5.0.2](https://github.com/dd3tech/dd360-components/compare/v5.0.1...v5.0.2) (2023-04-13)
+
+
+### Bug Fixes
+
+* fix scroll tabgroup ([01e476b](https://github.com/dd3tech/dd360-components/commit/01e476b0fb6665c84f286996532abc41cec2a83b))
+
+## [5.0.1](https://github.com/dd3tech/dd360-components/compare/v5.0.0...v5.0.1) (2023-04-12)
+
+
+### Bug Fixes
+
+* **Anchor:** change some props and add missing exports ([4ab72a6](https://github.com/dd3tech/dd360-components/commit/4ab72a660bb3939f0cad0e50ca8c1347f7847b3a))
+
+# [5.0.0](https://github.com/dd3tech/dd360-components/compare/v4.18.0...v5.0.0) (2023-04-12)
+
+
+### Bug Fixes
+
+* update property theme as optional, use light Theme by default ([637aa28](https://github.com/dd3tech/dd360-components/commit/637aa28479513b18aad8dbd7a07093d80a58ae60))
+
+
+### BREAKING CHANGES
+
+* 🧨 With this change we are achieving that the ThemeProvider does not depend
+on a mandatory theme property, this so that users have the flexibility
+to use the default theme of the library
+
+# [4.18.0](https://github.com/dd3tech/dd360-components/compare/v4.17.3...v4.18.0) (2023-04-01)
+
+
+### Bug Fixes
+
+* add background and textColor in theme ([460ed68](https://github.com/dd3tech/dd360-components/commit/460ed6869d398550c4ab96d6185b90117a3d18da))
+* updating colors in hexadecimals by css variables ([c6beed2](https://github.com/dd3tech/dd360-components/commit/c6beed2ae84b05d02114fd873c336dadc80099cf))
+* updating styles and typography settings ([acea4dd](https://github.com/dd3tech/dd360-components/commit/acea4dd55b33b24d1029cf9d86e7f32b91e0ebf5))
+
+
+### Features
+
+* ThemeProvider integration to add custom colors to tailwindcss ([eafdf65](https://github.com/dd3tech/dd360-components/commit/eafdf65804393f18c15e679650e4b7ad3f9691d2))
+
+## [4.17.3](https://github.com/dd3tech/dd360-components/compare/v4.17.2...v4.17.3) (2023-03-30)
+
+
+### Bug Fixes
+
+* add input background clip ([c81ce92](https://github.com/dd3tech/dd360-components/commit/c81ce92f5eb62c4599095ee4370539a936c8b50f))
+
+## [4.17.2](https://github.com/dd3tech/dd360-components/compare/v4.17.1...v4.17.2) (2023-03-30)
+
+
+### Bug Fixes
+
+* **Row:** add missing grid class and type Cols ([33e2de2](https://github.com/dd3tech/dd360-components/commit/33e2de2ad4d796331cd585153689663a86878a9c))
+
+## [4.17.1](https://github.com/dd3tech/dd360-components/compare/v4.17.0...v4.17.1) (2023-03-28)
+
+
+### Bug Fixes
+
+* the state of the tabs will change when any of its properties change dynamically ([ce9e2cf](https://github.com/dd3tech/dd360-components/commit/ce9e2cf193e45c8cf858683ec1f814f39376b3f5))
+
+# [4.17.0](https://github.com/dd3tech/dd360-components/compare/v4.16.1...v4.17.0) (2023-03-22)
+
+
+### Features
+
+* an (optional) prefix can be added to the inputCurrency variant ([a44c99b](https://github.com/dd3tech/dd360-components/commit/a44c99b675190a64b1992b8b97ed4e4a09a1f7ff))
+
+## [4.16.1](https://github.com/dd3tech/dd360-components/compare/v4.16.0...v4.16.1) (2023-03-22)
+
+
+### Bug Fixes
+
+* pull down the dropdown menu ([c9df680](https://github.com/dd3tech/dd360-components/commit/c9df6806654ffc2c5cca17b99bb8e6ca8be865dc))
+* pull down the dropdown menu by clicking the chevron icons ([af2dd51](https://github.com/dd3tech/dd360-components/commit/af2dd512e40402e4b7c2bae8dce262ead30b98b4))
+
+# [4.16.0](https://github.com/dd3tech/dd360-components/compare/v4.15.6...v4.16.0) (2023-03-22)
+
+
+### Bug Fixes
+
+* **Layout:** change export name of Row component ([5e43aa6](https://github.com/dd3tech/dd360-components/commit/5e43aa6542f93f56cb3c77f40233c7eccc055012))
+
+
+### Features
+
+* add Layout to exports ([3dafbe2](https://github.com/dd3tech/dd360-components/commit/3dafbe222335af03c5a4be02c68bcf19823bc352))
+
+## [4.15.6](https://github.com/dd3tech/dd360-components/compare/v4.15.5...v4.15.6) (2023-03-22)
+
+
+### Bug Fixes
+
+* $ is added inside the currency input value ([b94cf17](https://github.com/dd3tech/dd360-components/commit/b94cf17b12492ddf55c05913a77d92ca1cb23cbd))
+* commas are removed from the final value returned ([939e83b](https://github.com/dd3tech/dd360-components/commit/939e83b0a5217553d9260d1f94b23b5fd46c11a5))
+* format code ([c522827](https://github.com/dd3tech/dd360-components/commit/c522827ea0b1a30d930aaf07e344f8fff84db1c9))
+
+## [4.15.5](https://github.com/dd3tech/dd360-components/compare/v4.15.4...v4.15.5) (2023-03-22)
+
+
+### Bug Fixes
+
+* **ShapeButton:** change height for optional prop and change type of icon ([1905da9](https://github.com/dd3tech/dd360-components/commit/1905da99d662634340bdd425e7d076ad36d2504f))
+* **ShapeButton:** delete unnecesary iconProperties prop ([7df8c9b](https://github.com/dd3tech/dd360-components/commit/7df8c9b95bd4cadeda6877a1759d2aaf47ef0986))
+
+## [4.15.4](https://github.com/dd3tech/dd360-components/compare/v4.15.3...v4.15.4) (2023-03-22)
+
+
+### Bug Fixes
+
+* the default variant of DateInput is changed ([f3c457a](https://github.com/dd3tech/dd360-components/commit/f3c457a78872fcd23c8a5ff27ef5c7828674ea16))
+* the space between the label and the content is reduced ([6214f7b](https://github.com/dd3tech/dd360-components/commit/6214f7b6ba6426d4c5e2575783475175c57a64ef))
+
+## [4.15.3](https://github.com/dd3tech/dd360-components/compare/v4.15.2...v4.15.3) (2023-03-22)
+
+
+### Bug Fixes
+
+* fix scroll tabgroup ([33dcd07](https://github.com/dd3tech/dd360-components/commit/33dcd079243317bff124925712437db8ed95a06a))
+
+## [4.15.2](https://github.com/dd3tech/dd360-components/compare/v4.15.1...v4.15.2) (2023-03-21)
+
+
+### Bug Fixes
+
+* change test select ([08046ae](https://github.com/dd3tech/dd360-components/commit/08046ae2e4e191c93849f93b15f7eb7ccfa2489a))
+* remove padding textarea ([c55c5d2](https://github.com/dd3tech/dd360-components/commit/c55c5d247b7234ff5346aabfd8ed97c4b311493a))
+
+## [4.15.1](https://github.com/dd3tech/dd360-components/compare/v4.15.0...v4.15.1) (2023-03-21)
+
+
+### Bug Fixes
+
+* exports of Buttons and TextArea ([2b9d181](https://github.com/dd3tech/dd360-components/commit/2b9d181d1cc1a757a6a355afe9fd4946272f40fb))
+* exports of Buttons and TextArea ([1c34d36](https://github.com/dd3tech/dd360-components/commit/1c34d36ceb7b0d0b1b248cf585481a6b7457b217))
+
+# [4.15.0](https://github.com/dd3tech/dd360-components/compare/v4.14.7...v4.15.0) (2023-03-21)
+
+
+### Bug Fixes
+
+* moved handleClickOutside inside of the useEffect ([61d5d06](https://github.com/dd3tech/dd360-components/commit/61d5d068e1c9217593a131967418918c0228ef2d))
+* the select story is simplified ([f253f15](https://github.com/dd3tech/dd360-components/commit/f253f15e8da2bda80b9ab37e7719d1feea4f5344))
+
+
+### Features
+
+* The dropdown is closed by clicking outside the component. Props are added to control the width of the items ([24b52f4](https://github.com/dd3tech/dd360-components/commit/24b52f4db7380f40289816fa2763c1f763d9a66a))
+
+## [4.14.7](https://github.com/dd3tech/dd360-components/compare/v4.14.6...v4.14.7) (2023-03-21)
+
+
+### Bug Fixes
+
+* **Select:** add missing endAdornment ([8f0eb71](https://github.com/dd3tech/dd360-components/commit/8f0eb7164f3568de1e87d71f3f519272a3cff035))
+
 ## [4.14.6](https://github.com/dd3tech/dd360-components/compare/v4.14.5...v4.14.6) (2023-03-21)
 
 

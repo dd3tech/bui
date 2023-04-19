@@ -15,36 +15,39 @@ import { createModule, getBabelOptions } from './scripts/rollup.cfg'
 const extensions = ['.js', '.ts', '.tsx']
 
 const plugs = [
-    peerDepsExternal(),
-    postcss({
-        extract: 'dd360.css',
-        extensions: ['.css']
-    }),
-    resolve({ extensions }),
-    commonjs(),
-    ts({
-        tsconfig: './scripts/tsconfig.build.json',
-        declaration: true,
-        declarationDir: 'dist'
-    }),
-    svg(),
-    terser(),
-    visualizer({
-        filename: 'bundle-analysis.html'
-    })
+  peerDepsExternal(),
+  postcss({
+    extract: 'dd360.css',
+    extensions: ['.css']
+  }),
+  resolve({ extensions }),
+  commonjs(),
+  ts({
+    tsconfig: './scripts/tsconfig.build.json',
+    declaration: true,
+    declarationDir: 'dist'
+  }),
+  svg(),
+  terser(),
+  visualizer({
+    filename: 'bundle-analysis.html'
+  })
 ]
 
 const esmModule = createModule({ plugins: plugs, format: 'esm' })
 
-const cjsModule = createModule({ plugins: [...plugs, babelPlugin(getBabelOptions({ ie: 11 }))], format: 'cjs' })
+const cjsModule = createModule({
+  plugins: [...plugs, babelPlugin(getBabelOptions({ ie: 11 }))],
+  format: 'cjs'
+})
 
 export default [
-    esmModule,
-    cjsModule,
-    {
-        input: 'dist/esm/index.d.ts',
-        output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-        plugins: [dts()],
-        external: [/\.css$/]
-    }
+  esmModule,
+  cjsModule,
+  {
+    input: 'dist/esm/index.d.ts',
+    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    plugins: [dts()],
+    external: [/\.css$/]
+  }
 ]

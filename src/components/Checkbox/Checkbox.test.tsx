@@ -4,86 +4,105 @@ import { FormControlLabel } from '../FormControl'
 import Checkbox from './Checkbox'
 
 describe('<Checkbox /> ', () => {
-    it('renders an unchecked `checkbox` by default', () => {
-        const { getByRole } = render(<Checkbox />)
+  it('renders an unchecked `checkbox` by default', () => {
+    const { getByRole } = render(<Checkbox />)
 
-        expect(getByRole('checkbox')).toHaveProperty('checked', false)
-    })
+    expect(getByRole('checkbox')).toHaveProperty('checked', false)
+  })
 
-    it('renders an checked `checkbox` when `checked={true}`', () => {
-        const { getByRole } = render(<Checkbox checked />)
+  it('renders an checked `checkbox` when `checked={true}`', () => {
+    const { getByRole } = render(<Checkbox checked />)
 
-        expect(getByRole('checkbox')).toHaveProperty('checked', true)
-    })
+    expect(getByRole('checkbox')).toHaveProperty('checked', true)
+  })
 
-    it('flips the checked property when clicked and calls onchange with the checked state', () => {
-        const { getByRole } = render(<Checkbox />)
+  it('flips the checked property when clicked and calls onchange with the checked state', () => {
+    const { getByRole } = render(<Checkbox />)
 
-        fireEvent.click(getByRole('checkbox'))
-        expect(getByRole('checkbox')).toHaveProperty('checked', true)
+    fireEvent.click(getByRole('checkbox'))
+    expect(getByRole('checkbox')).toHaveProperty('checked', true)
 
-        fireEvent.click(getByRole('checkbox'))
-        expect(getByRole('checkbox')).toHaveProperty('checked', false)
-    })
+    fireEvent.click(getByRole('checkbox'))
+    expect(getByRole('checkbox')).toHaveProperty('checked', false)
+  })
 })
 
 describe('prop: indeterminate icon', () => {
-    it('should render an indeterminate icon', () => {
-        const { getByTestId } = render(<Checkbox indeterminate />)
-        expect(getByTestId('IndeterminateCheckBoxIcon')).toBeDefined()
-    })
+  it('should render an indeterminate icon', () => {
+    const { getByTestId } = render(<Checkbox indeterminate />)
+    expect(getByTestId('IndeterminateCheckBoxIcon')).toBeDefined()
+  })
 })
 
 describe('with FormControl', () => {
-    describe('enabled', () => {
-        it('should not have the disabled class', () => {
-            const { getByRole } = render(<FormControlLabel control={<Checkbox />} label="disabledEmpty" />)
+  describe('enabled', () => {
+    it('should not have the disabled class', () => {
+      const { getByRole } = render(
+        <FormControlLabel control={<Checkbox />} label="disabledEmpty" />
+      )
 
-            expect(getByRole('checkbox')).not.toHaveAttribute('disabled')
-        })
-
-        it('should be overridden by props', () => {
-            const { getByRole } = render(<FormControlLabel control={<Checkbox disabled />} label="CheckBox with Disabled" />)
-
-            expect(getByRole('checkbox')).toHaveAttribute('disabled')
-        })
+      expect(getByRole('checkbox')).not.toHaveAttribute('disabled')
     })
 
-    describe('disabled', () => {
-        it('should have the disabled class', () => {
-            const { getByRole } = render(<FormControlLabel disabled control={<Checkbox />} label="Control Disabled" />)
+    it('should be overridden by props', () => {
+      const { getByRole } = render(
+        <FormControlLabel
+          control={<Checkbox disabled />}
+          label="CheckBox with Disabled"
+        />
+      )
 
-            expect(getByRole('checkbox')).toHaveAttribute('disabled')
-        })
+      expect(getByRole('checkbox')).toHaveAttribute('disabled')
+    })
+  })
 
-        it('should be overridden by props', () => {
-            const { getByRole } = render(
-                <FormControlLabel disabled control={<Checkbox disabled={false} />} label="Control Disabled But Checkbook disabled='false'" />
-            )
+  describe('disabled', () => {
+    it('should have the disabled class', () => {
+      const { getByRole } = render(
+        <FormControlLabel
+          disabled
+          control={<Checkbox />}
+          label="Control Disabled"
+        />
+      )
 
-            expect(getByRole('checkbox')).not.toHaveAttribute('disabled')
-        })
+      expect(getByRole('checkbox')).toHaveAttribute('disabled')
     })
 
-    it('should allow custom icon font sizes', () => {
-        const { getByTestId, getByRole } = render(<Checkbox fontSize="4xl" />)
+    it('should be overridden by props', () => {
+      const { getByRole } = render(
+        <FormControlLabel
+          disabled
+          control={<Checkbox disabled={false} />}
+          label="Control Disabled But Checkbook disabled='false'"
+        />
+      )
 
-        expect(getByTestId('CheckBoxOutlineBlankIcon').getAttribute('class')).toContain('4xl')
-        fireEvent.click(getByRole('checkbox'))
-        expect(getByTestId('CheckBoxIcon').getAttribute('class')).toContain('4xl')
+      expect(getByRole('checkbox')).not.toHaveAttribute('disabled')
     })
+  })
 
-    it('should allow custom padding change', () => {
-        const { getByRole } = render(<Checkbox padding="p-2" />)
+  it('should allow custom icon font sizes', () => {
+    const { getByTestId, getByRole } = render(<Checkbox fontSize="4xl" />)
 
-        expect(getByRole('container').className).toContain('p-2')
-    })
+    expect(
+      getByTestId('CheckBoxOutlineBlankIcon').getAttribute('class')
+    ).toContain('4xl')
+    fireEvent.click(getByRole('checkbox'))
+    expect(getByTestId('CheckBoxIcon').getAttribute('class')).toContain('4xl')
+  })
 
-    it('should allow onChange event', () => {
-        const onChange = () => vi.mock
-        const { getByRole } = render(<Checkbox onChange={onChange} />)
+  it('should allow custom padding change', () => {
+    const { getByRole } = render(<Checkbox padding="p-2" />)
 
-        fireEvent.click(getByRole('checkbox'))
-        expect(getByRole('checkbox')).toHaveProperty('checked', true)
-    })
+    expect(getByRole('container').className).toContain('p-2')
+  })
+
+  it('should allow onChange event', () => {
+    const onChange = () => vi.mock
+    const { getByRole } = render(<Checkbox onChange={onChange} />)
+
+    fireEvent.click(getByRole('checkbox'))
+    expect(getByRole('checkbox')).toHaveProperty('checked', true)
+  })
 })

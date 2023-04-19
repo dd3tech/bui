@@ -1,15 +1,19 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import SkeletonComponent from '../components/Skeleton'
+import SkeletonComponent from '../components/Skeleton/Skeleton'
 
 export default {
-    title: 'Components/Skeleton',
-    component: SkeletonComponent
+  title: 'Components/Skeletons/Skeleton',
+  component: SkeletonComponent
 } as ComponentMeta<typeof SkeletonComponent>
 
-const Template: ComponentStory<typeof SkeletonComponent> = (args) => <SkeletonComponent {...args} />
+const Template: ComponentStory<typeof SkeletonComponent> = (args) => (
+  <SkeletonComponent {...args} />
+)
 
 export const Skeleton = Template.bind({})
 Skeleton.args = {
-    className: 'bg-gray-300 border-b block h-12 gap-12 w-32 mb-2'
+  animation: 'pulse',
+  className: 'bg-gray-300 h-12 w-32 mb-2',
+  rounded: 'lg'
 }

@@ -4,104 +4,96 @@ import InputComponent from '../components/Form/Input'
 import { SearchCircleIcon } from '@heroicons/react/outline'
 
 export default {
-    title: 'Form/Input',
-    component: InputComponent
+  title: 'Form/Input',
+  component: InputComponent
 } as ComponentMeta<typeof InputComponent>
 
 const Template: ComponentStory<typeof InputComponent> = (args) => {
-    const [value, setValue] = React.useState('')
+  const [value, setValue] = React.useState('')
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value)
-    }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value)
+  }
 
-    return <InputComponent {...args} value={value} onChange={handleChange} />
+  return <InputComponent {...args} value={value} onChange={handleChange} />
 }
 
 export const Input = Template.bind({})
 Input.args = {
-    label: 'Ejemplo',
-    type: 'text',
-    variant: 'default',
-    disabled: false
+  label: 'Ejemplo',
+  type: 'text',
+  variant: 'default',
+  disabled: false
 }
 export const InputWithIcon = Template.bind({})
 InputWithIcon.args = {
-    label: 'Con Icono',
-    startAdornment: <SearchCircleIcon className="w-5" />,
-    endAdornment: <SearchCircleIcon className="w-5" />,
-    message: 'Mensaje de ayuda',
-    className: 'w-80',
-    variant: 'default',
-    large: true,
-    value: 'Valor',
-    disabled: false,
-    placeholder: 'Placeholder'
+  label: 'Con Icono',
+  startAdornment: <SearchCircleIcon className="w-5" />,
+  endAdornment: <SearchCircleIcon className="w-5" />,
+  message: 'Mensaje de ayuda',
+  className: 'w-80',
+  variant: 'default',
+  large: true,
+  value: 'Valor',
+  disabled: false,
+  placeholder: 'Placeholder'
 }
 export const InputCurrency = Template.bind({})
 InputCurrency.args = {
-    label: 'Currency',
-    endAdornment: '$',
-    startAdornment: '%',
-    className: 'w-full',
-    variant: 'active',
-    type: 'currency'
+  label: 'Currency',
+  endAdornment: '$',
+  startAdornment: '%',
+  className: 'w-full',
+  type: 'currency',
+  prefix: '$'
 }
 export const InputPassword = Template.bind({})
 InputPassword.args = {
-    label: 'Password',
-    type: 'password',
-    className: 'w-full',
-    variant: 'active'
+  label: 'Password',
+  type: 'password',
+  className: 'w-full'
 }
 export const InputEmail = Template.bind({})
 InputEmail.args = {
-    label: 'Email',
-    type: 'email',
-    className: 'w-full',
-    variant: 'active'
+  label: 'Email',
+  type: 'email',
+  className: 'w-full'
 }
 export const InputDate = Template.bind({})
 InputDate.args = {
-    label: 'Date',
-    type: 'date',
-    className: 'w-full',
-    variant: 'active'
+  label: 'Date',
+  type: 'date',
+  className: 'w-full'
 }
 export const InputMonth = Template.bind({})
 InputMonth.args = {
-    label: 'Day',
-    type: 'month',
-    className: 'w-full',
-    variant: 'active'
+  label: 'Day',
+  type: 'month',
+  className: 'w-full'
 }
 export const InputYear = Template.bind({})
 InputYear.args = {
-    label: 'Year',
-    type: 'year',
-    className: 'w-full',
-    variant: 'active'
+  label: 'Year',
+  type: 'year',
+  className: 'w-full'
 }
 export const InputPercentage = Template.bind({})
 InputPercentage.args = {
-    label: 'Percentage',
-    type: 'percentage',
-    className: 'w-56',
-    variant: 'active'
+  label: 'Percentage',
+  type: 'percentage',
+  className: 'w-56'
 }
 
 export const InputNumber = Template.bind({})
 InputNumber.args = {
-    label: 'Number',
-    type: 'number',
-    className: 'w-56',
-    variant: 'active'
+  label: 'Number',
+  type: 'number',
+  className: 'w-56'
 }
 
 export const InputFile = Template.bind({})
 InputFile.args = {
-    label: 'Upload your documentation',
-    type: 'file',
-    className: 'w-80',
-    variant: 'active'
+  label: 'Upload your documentation',
+  type: 'file',
+  className: 'w-80'
 }

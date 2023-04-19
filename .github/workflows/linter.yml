@@ -1,0 +1,28 @@
+name: Linter
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: ['main']
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: npm
+      - run: npm install
+
+      - name: Run linter
+        run: npm run lint:fix
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'ci: run linter'
+          branch: ${{ github.head_ref }}

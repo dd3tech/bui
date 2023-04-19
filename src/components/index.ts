@@ -1,6 +1,3 @@
-export { default as Button } from './Buttons'
-export * from './Buttons'
-
 export { default as Input } from './Form'
 export * from './Form'
 
@@ -15,6 +12,9 @@ export * from './Typography/Text'
 
 export { default as Modal } from './Modal'
 export * from './Modal'
+
+export { default as AsideModal } from './AsideModal'
+export * from './AsideModal'
 
 export { default as Breadcrumbs } from './Breadcrumbs'
 export * from './Breadcrumbs'
@@ -36,9 +36,6 @@ export * from './Pagination'
 
 export { default as Image } from './Image'
 export * from './Image'
-
-export { default as Skeleton } from './Skeleton'
-export * from './Skeleton'
 
 export { default as Wrapper } from './Wrapper'
 export * from './Wrapper'
@@ -94,12 +91,17 @@ export * from './Dropdown'
 export { default as Navbar } from './Navbar'
 export * from './Navbar'
 
+export { default as Anchor } from './Anchor'
+export * from './Anchor'
+
+export { default as Skeleton } from './Skeleton'
+export * from './Skeleton'
+
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
 export * from './Radio'
-
-export * from './Navigation'
+export * from './Buttons'
 export * from './FeedBackBox'
 export * from './Layout'
 
