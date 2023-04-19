@@ -1,13 +1,8 @@
 import { describe, it, afterEach, expect } from 'vitest'
-import {
-  render,
-  fireEvent,
-  cleanup,
-  waitFor,
-  act
-} from '@testing-library/react'
-import Tooltip from './Tooltip'
+import { render, fireEvent, cleanup, waitFor } from '@testing-library/react'
+
 import Button from '../Buttons/Button'
+import Tooltip from './Tooltip'
 
 const defaultProps = {
   content: 'Im tooltip',
@@ -26,16 +21,19 @@ const renderComponent = (withAdornments?: boolean) => {
   return render(<Tooltip {...props} />)
 }
 
-describe('Tooltip Component', () => {
+describe('<Tooltip/>', () => {
   afterEach(cleanup)
+
+  it('should be render', async () => {
+    const { container } = renderComponent()
+    expect(container.firstChild).toBeDefined()
+  })
 
   it('should render tooltip on mouse enter', async () => {
     const { getByRole, getByText } = renderComponent()
 
     const button = getByRole('button')
-    act(() => {
-      fireEvent.mouseEnter(button)
-    })
+    fireEvent.mouseEnter(button)
 
     await waitFor(() => {
       const tooltip = getByRole('tooltip-content')
