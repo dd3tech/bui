@@ -1,5 +1,6 @@
-import { GlobeAltIcon } from '@heroicons/react/outline'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
+import GlobeAltIcon from '@heroicons/react/outline/GlobeAltIcon'
+import { composeClasses } from 'lib/classes'
 
 const langs = [
   {
@@ -12,48 +13,58 @@ const langs = [
   }
 ]
 
-interface Props {
+export interface LanguageProps extends React.HTMLAttributes<HTMLDivElement> {
   isNavbar?: boolean
   changeLanguage?: (lang: string) => void
   getLangName?: (lang: string) => string
+  defaultLanguage?: 'en' | 'es'
 }
 
-export function Language({ isNavbar, changeLanguage, getLangName }: Props) {
-  const [language, setLanguage] = useState(
-    localStorage.getItem('language') ?? 'es'
-  )
-  const langName: { [key: string]: string } = {
-    English: 'ENG',
-    Spanish: 'ESP'
-  }
+const langName: { [key: string]: string } = {
+  English: 'ENG',
+  Spanish: 'ESP'
+}
 
-  const toggleLanguage = () => {
+export function Language({
+  isNavbar,
+  defaultLanguage,
+  changeLanguage,
+  getLangName,
+  ...props
+}: LanguageProps) {
+  const [language, setLanguage] = useState(defaultLanguage || 'es')
+
+  const toggleLanguage = useCallback(() => {
     const lang = language === 'es' ? 'en' : 'es'
-    localStorage.setItem('language', lang)
     changeLanguage && changeLanguage(lang)
     setLanguage(lang)
-  }
+  }, [changeLanguage, language])
 
   return (
     <div
+      {...props}
       onClick={toggleLanguage}
       className="select-none flex items-center font-semibold cursor-pointer"
     >
       <GlobeAltIcon
-        className={`${isNavbar ? 'ml-1 mr-1' : 'mr-2'} text-primary`}
+        className={composeClasses(
+          isNavbar ? 'ml-1 mr-1' : 'mr-2',
+          'text-blue-700'
+        )}
         width={isNavbar ? 20 : 25}
         height={isNavbar ? 20 : 25}
       />
       {langs.map(({ name, code }, index) => {
         return (
           <div
-            key={`lenguage-${index}`}
-            className={`${isNavbar ? 'text-sm' : 'text-base'}`}
+            key={`lenguage-${code}`}
+            className={composeClasses(isNavbar ? 'text-sm' : 'text-base')}
           >
             <span
-              className={`${
-                language === code ? 'text-primary' : ''
-              } uppercase mr-1`}
+              className={composeClasses(
+                'uppercase mr-1',
+                language === code && 'text-blue-700'
+              )}
             >
               {getLangName ? getLangName(name) : langName[name]}
             </span>

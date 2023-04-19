@@ -85,6 +85,12 @@ export * from './Table'
 export { default as ProgressCircle } from './ProgressCircle'
 export * from './ProgressCircle'
 
+export { default as Dropdown } from './Dropdown'
+export * from './Dropdown'
+
+export { default as Navbar } from './Navbar'
+export * from './Navbar'
+
 export { default as Anchor } from './Anchor'
 export * from './Anchor'
 
@@ -98,6 +104,5 @@ export * from './Radio'
 export * from './Buttons'
 export * from './FeedBackBox'
 export * from './Layout'
-export * from './Navbar'
 
 export * from './FileViewer'
