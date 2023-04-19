@@ -1,7 +1,7 @@
 import { composeClasses } from 'lib/classes'
-import { Anchor } from '../Navigation/Navigation'
 import { NavbarContentVariants } from './NavbarContent'
 import { useNavbarContentContext } from './NavbarContentContext'
+import Anchor from 'components/Anchor'
 
 export interface NavbarLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -59,7 +59,7 @@ const NavbarLink = ({
 
   return (
     <Anchor
-      LinkComponent={LinkComponent}
+      as={LinkComponent}
       to={to}
       className={classes}
       {...props}
