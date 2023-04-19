@@ -209,7 +209,17 @@
     "./AsideModal": {
       "require": "./dist/cjs/components/AsideModal/index.js",
       "module": "./dist/esm/components/AsideModal/index.js",
-      "default": "./dist/esm/components/AsideModal/index.js"
+      "default": "./dist/esm/components/AsideModal/inde,x.js"
+    },
+    "./Dropdown": {
+      "require": "./dist/cjs/components/Dropdown/index.js",
+      "module": "./dist/esm/components/Dropdown/index.js",
+      "default": "./dist/esm/components/Dropdown/index.js"
+    },
+    "./Navbar": {
+      "require": "./dist/cjs/components/Navbar/index.js",
+      "module": "./dist/esm/components/Navbar/index.js",
+      "default": "./dist/esm/components/Navbar/index.js"
     },
     "./Tooltip": {
       "require": "./dist/cjs/components/Tooltip/index.js",
@@ -262,6 +272,8 @@
         "./dist/esm/components/Skeleton/TableContentSkeleton.d.ts"
       ],
       "AsideModal": ["./dist/esm/components/AsideModal/index.d.ts"],
+      "Dropdown": ["./dist/esm/components/Dropdown/index.d.ts"],
+      "Navbar": ["./dist/esm/components/Navbar/index.d.ts"],
       "Tooltip": ["./dist/esm/components/Tooltip/index.d.ts"]
     }
   }

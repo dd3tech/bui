@@ -1,4 +1,14 @@
-export * from './Navbar'
-export * from './Collapse'
-export * from './NavbarAuth'
 export * from './Language'
+
+export * from './Navbar'
+import Navbar from './Navbar'
+export * from './NavbarBrand'
+export * from './NavbarCollapse/NavbarCollapse'
+export * from './NavbarCollapse/NavbarCollapseContent'
+export * from './NavbarCollapse/NavbarCollapseToggle'
+export * from './NavbarContent'
+export * from './NavbarGroup'
+export * from './NavbarItem'
+export * from './NavbarLink'
+
+export default Navbar

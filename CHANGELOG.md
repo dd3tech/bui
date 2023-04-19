@@ -1,3 +1,15 @@
+# [5.3.0](https://github.com/dd3tech/dd360-components/compare/v5.2.0...v5.3.0) (2023-04-19)
+
+
+### Bug Fixes
+
+* duplicate Gab key removed ([0627d68](https://github.com/dd3tech/dd360-components/commit/0627d68a42d6847d6c05595abdf696d4e0e5127d))
+
+
+### Features
+
+* **components:** Added Navbar component ([e9cc163](https://github.com/dd3tech/dd360-components/commit/e9cc163bc04f0fb184fd6eb0c151acf737c6dae8))
+
 # [5.2.0](https://github.com/dd3tech/dd360-components/compare/v5.1.0...v5.2.0) (2023-04-18)
 
 
