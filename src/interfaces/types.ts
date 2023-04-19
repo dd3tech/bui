@@ -210,10 +210,6 @@ const shadowValues = [
 
 export type ShadowVariants = typeof shadowValues[number]
 
-/* ----------------------------------- GAP ---------------------------------- */
-
-export type Gap = typeof twGlobalUnits[number]
-
 /* -------------------------------- Positions ------------------------------- */
 
 export type HorizontalPosition = 'left' | 'right'
