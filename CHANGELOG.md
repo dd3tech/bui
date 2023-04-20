@@ -1,3 +1,16 @@
+# [6.0.0](https://github.com/dd3tech/dd360-components/compare/v5.4.1...v6.0.0) (2023-04-20)
+
+
+### Bug Fixes
+
+* enable darkMode in tailwindcss config ([ed5f5a6](https://github.com/dd3tech/dd360-components/commit/ed5f5a65feb07d2657ee22947e34b0973ab71b91))
+
+
+### BREAKING CHANGES
+
+* 🧨 Activating this configuration we can make use of the dark mode classes
+in our tailwind css classes
+
 ## [5.4.1](https://github.com/dd3tech/dd360-components/compare/v5.4.0...v5.4.1) (2023-04-20)
 
 
