@@ -24,14 +24,17 @@
       "theme/*": ["theme/*"]
     }
   },
-  "include": [
-    "src/common",
-    "src/hooks",
-    "src/interfaces",
-    "src/index.ts",
-    "src/components",
-    "src/global.d.ts"
+  "include": ["src/*"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "scripts",
+    "website",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
   ],
-  "exclude": ["node_modules", "build", "dist", "scripts", "website"],
   "types": ["typePatches"]
 }

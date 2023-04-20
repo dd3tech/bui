@@ -6,6 +6,10 @@
     "dist",
     "scripts",
     "tests",
-    "src/stories/**"
+    "src/stories/**",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
   ]
 }
