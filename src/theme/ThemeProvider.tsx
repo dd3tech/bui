@@ -10,13 +10,13 @@ export function ThemeProvider({
   theme = lightModeTheme
 }: ThemeProviderProps) {
   useEffect(() => {
-    new LoanTheme(theme)
+    new LoadTheme(theme)
   }, [theme])
 
   return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
 }
 
-class LoanTheme {
+class LoadTheme {
   private rootStyle: HTMLStyleElement | null = null
   private rootProperties: { [key: string]: string } = {}
   private fontFace = ''
