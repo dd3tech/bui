@@ -1,3 +1,10 @@
+## [6.0.1](https://github.com/dd3tech/dd360-components/compare/v6.0.0...v6.0.1) (2023-04-20)
+
+
+### Bug Fixes
+
+* **Select:** remove incorrect bg and text color on endAdornment  ([#78](https://github.com/dd3tech/dd360-components/issues/78)) ([f32dfe6](https://github.com/dd3tech/dd360-components/commit/f32dfe6bec8b2b061a324e36b036119fce3eab49))
+
 # [6.0.0](https://github.com/dd3tech/dd360-components/compare/v5.4.1...v6.0.0) (2023-04-20)
 
 
