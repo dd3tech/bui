@@ -84,7 +84,15 @@ export function createModule({ plugins, format = 'esm', ...otherProps }) {
       sourcemap: true
     },
     plugins: plugins,
+    cache: true,
+    treeshake: {
+      moduleSideEffects: false
+    },
     external: ['react', 'react-dom'],
+    onwarn: (warning, warn) => {
+      // if (warning.code === 'CIRCULAR_DEPENDENCY') return
+      warn(warning)
+    },
     ...otherProps
   }
 
