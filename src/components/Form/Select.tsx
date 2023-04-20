@@ -55,7 +55,7 @@ const IconStatus = ({ variant }: { variant: SelectVariantType }) => {
   return (
     <div
       className={composeClasses(
-        'flex justify-center items-center rounded-xl bg-error text-error',
+        'flex justify-center items-center rounded-xl',
         text.color,
         bgIcon?.color
       )}
@@ -206,11 +206,12 @@ function Select({
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      const label = getLabel(event.target.value, optionsList) as string
-      setSelectedOpt({ value: event.target.value, label })
+      const value = event.target.value
+      const label = getLabel(value, optionsList) as string
+      setSelectedOpt({ value, label })
       onChange &&
         onChange({
-          target: { value: event.target.value, name }
+          target: { value: value, name }
         } as ChangeEvent<HTMLInputElement>)
     },
     [onChange]
