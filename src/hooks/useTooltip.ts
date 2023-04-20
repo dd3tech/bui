@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { createPopper, Instance, preventOverflow, flip } from '@popperjs/core'
-
-export type PositionVariants = 'right' | 'left' | 'top' | 'bottom'
+import { PositionVariants } from '../interfaces/types'
 
 export interface TooltipParams {
   placement?: PositionVariants

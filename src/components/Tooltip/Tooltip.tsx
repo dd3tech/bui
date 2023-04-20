@@ -1,7 +1,8 @@
 import { ReactNode, cloneElement, ReactElement, FC } from 'react'
 import { composeClasses } from 'lib/classes'
 import { fontSize } from 'lib/font'
-import useTooltip, { PositionVariants } from 'hooks/useTooltip'
+import { useTooltip } from 'hooks'
+import { PositionVariants } from '../../interfaces/types'
 
 export type TooltipVariant = 'primary' | 'secondary'
 
