@@ -1,3 +1,4 @@
+import { composeClasses } from 'lib/classes'
 import { StyleObject } from '../../lib/styles'
 
 export type InputType =
@@ -107,14 +108,16 @@ export function getInputClassName({
   const { input, text } = inputVariants[variant]
 
   return {
-    input: `bg-white ${startAdorment ? 'pl-8' : ''} ${
-      endAdorment ? 'pr-8' : ''
-    } ${!border ? 'border-none' : ''} ${rounded ? `rounded-${rounded}` : ''} ${
-      padding ? `p-${padding}` : ''
-    } ${
+    input: composeClasses(
+      'bg-white mt-1 focus:border-blue-500 transition duration-500 ease-out focus:ease-in border-solid border font-medium w-full',
+      startAdorment && 'pl-8',
+      endAdorment && 'pr-8',
+      rounded && `rounded-${rounded}`,
+      !border && 'border-none',
+      padding && `p-${padding}`,
       input.borderColor
-    } mt-1 focus:border-blue-500 transition duration-500 ease-out focus:ease-in border-solid border font-medium w-full`,
-    message: `text-xs mt-2 ml-2 font-medium ${text.color}`
+    ),
+    message: composeClasses('text-xs mt-2 ml-2 font-medium', text.color)
   }
 }
 
