@@ -34,7 +34,7 @@
     "test": "vitest run",
     "build:lib": "rollup -c",
     "lint": "eslint . --ext=.ts,.tsx",
-    "lint:fix": "eslint . --ext=.ts,.tsx --fix",
+    "lint:fix": "eslint . --ext=.ts,.tsx,.js,.jsx,.json --fix",
     "storybook": "start-storybook -p 6006",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
