@@ -3,7 +3,7 @@ import { composeClasses } from 'lib/classes'
 import { composeStyles } from 'lib/styles'
 import { Portal } from 'common/Portal'
 
-import { DownloadIcon } from '@heroicons/react/outline'
+import DownloadIcon from '@heroicons/react/outline/DownloadIcon'
 import Button, { IButtonProps } from '../Buttons/Button'
 import Text from '../Typography/Text'
 import Spinner from '../Spinner'

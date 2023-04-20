@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import Divider from 'components/Divider'
-import Text from 'components/Typography'
-import Input, { InputProps } from '../Form/Input'
-
+import { useEffect, useState, ChangeEvent, useRef } from 'react'
 import { composeClasses } from 'lib/classes'
 
-type Item = {
+import Divider from '../Divider'
+import Text from '../Typography'
+import Input, { InputProps } from '../Form/Input'
+
+export type AutocompleteItem = {
   name: string
   id: string | number
 }
@@ -14,19 +14,19 @@ export interface AutoCompleteProps extends InputProps {
   label?: string
   canFindText?: string
   isLoading?: boolean
-  items: Array<Partial<Item>>
+  items: Array<Partial<AutocompleteItem>>
   loadingText?: string
-  onSelectItem?: (item: Partial<Item>) => void
+  onSelectItem?: (item: Partial<AutocompleteItem>) => void
   value?: string
   removeSelectedItem?: () => void
   role?: string
   isCloseOnBlur?: boolean
   className?: string
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
   disabled?: boolean
 }
 
-function AutoComplete({
+export default function AutoComplete({
   value,
   onSelectItem,
   role,
@@ -43,14 +43,14 @@ function AutoComplete({
   ...otherProps
 }: AutoCompleteProps) {
   const [isActiveAutoComplete, setIsActiveAutoComplete] = useState(false)
-  const [itemName, setItemName] = useState(value ?? '')
+  const [itemName, setItemName] = useState(value || '')
+
+  const timer = useRef<null | NodeJS.Timeout>()
 
   const onBlur = () => {
-    if (isCloseOnBlur) {
-      setTimeout(() => {
-        setIsActiveAutoComplete(false)
-      }, 300)
-    }
+    if (!isCloseOnBlur) return
+    if (timer.current) clearTimeout(timer.current)
+    timer.current = setTimeout(() => setIsActiveAutoComplete(false), 300)
   }
 
   const onFocus = () => {
@@ -67,7 +67,7 @@ function AutoComplete({
     }
   }
 
-  const handleSelectedItem = (item: Item) => {
+  const handleSelectedItem = (item: AutocompleteItem) => {
     onSelectItem && onSelectItem(item)
     setItemName(item.name)
     setIsActiveAutoComplete(false)
@@ -121,13 +121,13 @@ function AutoComplete({
             </div>
           )}
 
-          {!isLoading && items.length > 0 && (
+          {!isLoading && items?.length > 0 && (
             <ul role="list">
               {items.map((item, key) => (
                 <li
                   className="block"
                   role="row"
-                  onClick={() => handleSelectedItem(item as Item)}
+                  onClick={() => handleSelectedItem(item as AutocompleteItem)}
                   key={item.id || key}
                 >
                   <div className="flex items-center justify-between h-10 p-2 mt-1 cursor-pointer">
@@ -156,5 +156,3 @@ function AutoComplete({
     </div>
   )
 }
-
-export default AutoComplete

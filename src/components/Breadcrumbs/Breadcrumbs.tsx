@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactNode, FC } from 'react'
-import { ChevronRightIcon } from '@heroicons/react/outline'
+import ChevronRightIcon from '@heroicons/react/outline/ChevronRightIcon'
 import { composeClasses } from 'lib/classes'
 
 export interface BreadcrumbsProps extends React.HTMLProps<HTMLDivElement> {
