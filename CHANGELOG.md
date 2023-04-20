@@ -1,3 +1,10 @@
+## [5.4.1](https://github.com/dd3tech/dd360-components/compare/v5.4.0...v5.4.1) (2023-04-20)
+
+
+### Bug Fixes
+
+* resolve circular dependencies ([a1b85e8](https://github.com/dd3tech/dd360-components/commit/a1b85e820e95a042ead4d1ac77d579bedb57b743))
+
 # [5.4.0](https://github.com/dd3tech/dd360-components/compare/v5.3.0...v5.4.0) (2023-04-19)
 
 
