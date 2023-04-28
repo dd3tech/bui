@@ -1,3 +1,10 @@
+## [6.1.1](https://github.com/dd3tech/dd360-components/compare/v6.1.0...v6.1.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* remove default props ([ca5758e](https://github.com/dd3tech/dd360-components/commit/ca5758e267735af4714f0983b2df2aa9c338b04c))
+
 # [6.1.0](https://github.com/dd3tech/dd360-components/compare/v6.0.1...v6.1.0) (2023-04-27)
 
 
