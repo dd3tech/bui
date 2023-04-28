@@ -1,3 +1,10 @@
+# [6.1.0](https://github.com/dd3tech/dd360-components/compare/v6.0.1...v6.1.0) (2023-04-27)
+
+
+### Features
+
+* added ref to Tab component ([#81](https://github.com/dd3tech/dd360-components/issues/81)) ([d9d8e71](https://github.com/dd3tech/dd360-components/commit/d9d8e715e5f9b1e3372af4f7b73dfa1675b6cfa8))
+
 ## [6.0.1](https://github.com/dd3tech/dd360-components/compare/v6.0.0...v6.0.1) (2023-04-20)
 
 
