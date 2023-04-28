@@ -63,7 +63,8 @@ export const InputDate = Template.bind({})
 InputDate.args = {
   label: 'Date',
   type: 'date',
-  className: 'w-full'
+  className: 'w-full',
+  min: new Date().toDateString()
 }
 export const InputMonth = Template.bind({})
 InputMonth.args = {
