@@ -27,10 +27,9 @@ describe('<Flex/>', () => {
   })
 
   it('should be render with differents alignItems', () => {
-    const { getByRole, rerender } = render(<Flex />)
+    const { getByRole, rerender } = render(<Flex alignItems="center" />)
     const flex = getByRole('flex')
 
-    // check the default value
     expect(flex.className).toContain('items-center')
 
     twAlignItemsValues.forEach((key) => {
@@ -40,10 +39,9 @@ describe('<Flex/>', () => {
   })
 
   it('should be render with differents justifyContent', () => {
-    const { getByRole, rerender } = render(<Flex />)
+    const { getByRole, rerender } = render(<Flex justifyContent="between" />)
     const flex = getByRole('flex')
 
-    // check the default value
     expect(flex.className).toContain('justify-between')
 
     twJustifyContentValues.forEach((key) => {
