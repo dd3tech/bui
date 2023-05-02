@@ -1,3 +1,10 @@
+# [6.2.0](https://github.com/dd3tech/dd360-components/compare/v6.1.1...v6.2.0) (2023-05-02)
+
+
+### Features
+
+* the DateInput will be displayed with the error variant when an invalid date is entered ([#84](https://github.com/dd3tech/dd360-components/issues/84)) ([3265410](https://github.com/dd3tech/dd360-components/commit/32654104d7b585a0ed7c33d340a4b6d7bc5b721c))
+
 ## [6.1.1](https://github.com/dd3tech/dd360-components/compare/v6.1.0...v6.1.1) (2023-04-28)
 
 
