@@ -4,7 +4,7 @@ export * from './useResize'
 export { default as useModalManager } from './useModalManager'
 export * from './useModalManager'
 
-export { default as useTooltip } from './useTooltip'
-export * from './useTooltip'
+// export { default as useTooltip } from './useTooltip'
+// export * from './useTooltip'
 
 export { usePagination } from './usePagination'
