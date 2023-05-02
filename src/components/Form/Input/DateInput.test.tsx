@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { act, fireEvent, render } from '@testing-library/react'
 import { describe, it, vi } from 'vitest'
 import DateInput from './DateInput'
 
@@ -165,10 +165,29 @@ describe('<DateInput />', () => {
 
   it('props min and max', () => {
     const { getByTestId } = render(
-      <DateInput min="02/02/2023" max="27/02/2023" data-testid="date-input" />
+      <DateInput min="02/02/2023" max="02/27/2023" data-testid="date-input" />
     )
 
     expect(getByTestId('date-input').getAttribute('min')).toBe('02/02/2023')
-    expect(getByTestId('date-input').getAttribute('max')).toBe('27/02/2023')
+    expect(getByTestId('date-input').getAttribute('max')).toBe('02/27/2023')
+  })
+
+  it('should be displayed the error variant when a date greater or less than the allowed ones is provided', () => {
+    const { getByTestId, container } = render(
+      <DateInput min="02/02/2023" max="05/15/2023" data-testid="date-input" />
+    )
+    const input = getByTestId('date-input') as HTMLInputElement
+
+    act(() => {
+      fireEvent.change(input, { target: { value: '01/02/2023' } })
+      fireEvent.blur(input)
+    })
+    expect(container.firstChild).toHaveClass('border-error')
+
+    act(() => {
+      fireEvent.change(input, { target: { value: '16/05/2023' } })
+      fireEvent.blur(input)
+    })
+    expect(container.firstChild).toHaveClass('border-error')
   })
 })

@@ -35,6 +35,24 @@ function formatInput(date: string) {
   return inputText.slice(0, 10)
 }
 
+function validateDate(date: string, minDate?: string, maxDate?: string) {
+  const dateObj = new Date(date)
+  const minDateObj = minDate && new Date(minDate)
+  const maxDateObj = maxDate && new Date(maxDate)
+  if (
+    (minDateObj && dateObj.getTime() < minDateObj.getTime()) ||
+    (maxDateObj && dateObj.getTime() > maxDateObj.getTime())
+  ) {
+    return false
+  }
+  return true
+}
+
+function changeFormat(date: string) {
+  const sections = date.split('/')
+  return sections[1] + '/' + sections[0] + '/' + sections[2]
+}
+
 function DateInput({
   className,
   value,
@@ -96,6 +114,14 @@ function DateInput({
     if (!date.length) return 'default'
     if (!currentDate) return 'error'
     if (date?.length !== 10) return 'error'
+    if (
+      !validateDate(
+        changeFormat(date),
+        props.min as string,
+        props.max as string
+      )
+    )
+      return 'error'
 
     return 'default'
   }, [currentDate, variant])
@@ -113,6 +139,8 @@ function DateInput({
       onChange={handleChange}
       value={date}
       className={composeClasses('relative', className)}
+      min={props.min}
+      max={props.max}
       endAdornment={
         <>
           <button
