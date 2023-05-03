@@ -65,7 +65,7 @@ export default function useTooltip({
 
   const handleOnClick = useCallback(() => {
     if (isMounted.current) setIsVisible((prev) => !prev)
-  }, [isMounted, hideDelay])
+  }, [isMounted])
 
   useEffect(() => {
     if (!isVisible || !refElement.current || !popperElement.current) {
