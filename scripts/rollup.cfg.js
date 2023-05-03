@@ -88,7 +88,7 @@ export function createModule({ plugins, format = 'esm', ...otherProps }) {
     treeshake: {
       moduleSideEffects: false
     },
-    external: ['react', 'react-dom'],
+    external: ['react', 'react-dom', '@popperjs/core'],
     onwarn: (warning, warn) => {
       // if (warning.code === 'CIRCULAR_DEPENDENCY') return
       warn(warning)

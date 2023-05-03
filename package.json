@@ -1,6 +1,6 @@
 {
   "name": "dd360-ds",
-  "version": "6.0.1",
+  "version": "6.2.2",
   "description": "DD360 Components is a tailwind based React component library",
   "license": "MIT",
   "repository": {
@@ -33,7 +33,7 @@
   "scripts": {
     "test": "vitest run",
     "build:lib": "rollup -c",
-    "lint": "eslint . --ext=.ts,.tsx",
+    "lint": "eslint . --ext=.ts,.tsx,.js,.jsx,.json",
     "lint:fix": "eslint . --ext=.ts,.tsx,.js,.jsx,.json --fix",
     "storybook": "start-storybook -p 6006",
     "test:watch": "vitest",
@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
-    "@popperjs/core": "^2.11.7",
+    "@popperjs/core": "2.11.7",
     "dd360-utils": "^1.0.12",
     "react-circular-progressbar": "^2.1.0",
     "react-currency-input-field": "^3.6.5"

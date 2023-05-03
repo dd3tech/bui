@@ -1,3 +1,38 @@
+## [6.2.2](https://github.com/dd3tech/dd360-components/compare/v6.2.1...v6.2.2) (2023-05-03)
+
+
+### Bug Fixes
+
+* add popper to external dependencies ([#86](https://github.com/dd3tech/dd360-components/issues/86)) ([53437c4](https://github.com/dd3tech/dd360-components/commit/53437c446e02edc9bfab37ba672f9e290af9e223))
+
+## [6.2.1](https://github.com/dd3tech/dd360-components/compare/v6.2.0...v6.2.1) (2023-05-02)
+
+
+### Bug Fixes
+
+* comment Tooltip on entry point to prevent errors ([cfb775f](https://github.com/dd3tech/dd360-components/commit/cfb775f9f333ed797451d58463ceb66d9b15294c))
+
+# [6.2.0](https://github.com/dd3tech/dd360-components/compare/v6.1.1...v6.2.0) (2023-05-02)
+
+
+### Features
+
+* the DateInput will be displayed with the error variant when an invalid date is entered ([#84](https://github.com/dd3tech/dd360-components/issues/84)) ([3265410](https://github.com/dd3tech/dd360-components/commit/32654104d7b585a0ed7c33d340a4b6d7bc5b721c))
+
+## [6.1.1](https://github.com/dd3tech/dd360-components/compare/v6.1.0...v6.1.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* remove default props ([ca5758e](https://github.com/dd3tech/dd360-components/commit/ca5758e267735af4714f0983b2df2aa9c338b04c))
+
+# [6.1.0](https://github.com/dd3tech/dd360-components/compare/v6.0.1...v6.1.0) (2023-04-27)
+
+
+### Features
+
+* added ref to Tab component ([#81](https://github.com/dd3tech/dd360-components/issues/81)) ([d9d8e71](https://github.com/dd3tech/dd360-components/commit/d9d8e715e5f9b1e3372af4f7b73dfa1675b6cfa8))
+
 ## [6.0.1](https://github.com/dd3tech/dd360-components/compare/v6.0.0...v6.0.1) (2023-04-20)
 
 

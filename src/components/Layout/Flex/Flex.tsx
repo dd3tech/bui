@@ -14,8 +14,8 @@ const Flex = forwardRef<HTMLDivElement, FlexProps>(
   (
     {
       className,
-      alignItems = 'center',
-      justifyContent = 'between',
+      alignItems,
+      justifyContent,
       gap,
       children,
       ...props
