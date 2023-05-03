@@ -84,7 +84,7 @@ export function createModule({ plugins, format = 'esm', ...otherProps }) {
       sourcemap: true
     },
     plugins: plugins,
-    external: ['react', 'react-dom'],
+    external: ['react', 'react-dom', '@popperjs/core'],
     ...otherProps
   }
 
