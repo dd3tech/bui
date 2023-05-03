@@ -1,3 +1,10 @@
+## [6.2.1](https://github.com/dd3tech/dd360-components/compare/v6.2.0...v6.2.1) (2023-05-02)
+
+
+### Bug Fixes
+
+* comment Tooltip on entry point to prevent errors ([cfb775f](https://github.com/dd3tech/dd360-components/commit/cfb775f9f333ed797451d58463ceb66d9b15294c))
+
 # [6.2.0](https://github.com/dd3tech/dd360-components/compare/v6.1.1...v6.2.0) (2023-05-02)
 
 
