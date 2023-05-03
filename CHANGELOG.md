@@ -1,3 +1,10 @@
+## [6.2.2](https://github.com/dd3tech/dd360-components/compare/v6.2.1...v6.2.2) (2023-05-03)
+
+
+### Bug Fixes
+
+* add popper to external dependencies ([#86](https://github.com/dd3tech/dd360-components/issues/86)) ([53437c4](https://github.com/dd3tech/dd360-components/commit/53437c446e02edc9bfab37ba672f9e290af9e223))
+
 ## [6.2.1](https://github.com/dd3tech/dd360-components/compare/v6.2.0...v6.2.1) (2023-05-02)
 
 
