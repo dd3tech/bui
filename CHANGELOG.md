@@ -1,3 +1,10 @@
+# [6.3.0](https://github.com/dd3tech/dd360-components/compare/v6.2.2...v6.3.0) (2023-05-03)
+
+
+### Features
+
+* click event handler is added ([1c2f6d1](https://github.com/dd3tech/dd360-components/commit/1c2f6d18de4329e16d952aed18733789afeec62b))
+
 ## [6.2.2](https://github.com/dd3tech/dd360-components/compare/v6.2.1...v6.2.2) (2023-05-03)
 
 
