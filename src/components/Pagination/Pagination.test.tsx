@@ -5,6 +5,7 @@ import Pagination, { PaginationProps } from './Pagination'
 
 const defaultProps: PaginationProps = {
   totalPages: 10,
+  totalRows: 30,
   currentPage: 1,
   sliceSize: '5',
   firstText: 'Show',
@@ -150,6 +151,23 @@ describe('<Pagination/>', () => {
       )
       const items = getAllByRole('list-page') as HTMLDivElement[]
       expect(items).toHaveLength(4)
+    })
+  })
+
+  describe('options in the select element', () => {
+    it('should have a maximum option value equal to or less than totalRows', () => {
+      const { getByRole, getAllByRole } = render(
+        <Pagination {...defaultProps} />
+      )
+      const select = getByRole('select-slice-size') as HTMLSelectElement
+      const options = getAllByRole('option') as HTMLOptionElement[]
+      fireEvent.change(select, { target: { value: defaultProps.totalRows } })
+      const maxOptionValue = Math.max(
+        ...options.map((option) => parseInt(option.value, 10))
+      )
+      expect(select).toBeDefined()
+      expect(select.value).toBe(`${defaultProps.totalRows}`)
+      expect(maxOptionValue).toEqual(defaultProps.totalRows)
     })
   })
 })
