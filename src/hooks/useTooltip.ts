@@ -63,6 +63,10 @@ export default function useTooltip({
     }, hideDelay)
   }, [isMounted, hideDelay])
 
+  const handleOnClick = useCallback(() => {
+    if (isMounted.current) setIsVisible((prev) => !prev)
+  }, [isMounted, hideDelay])
+
   useEffect(() => {
     if (!isVisible || !refElement.current || !popperElement.current) {
       popperInstance.current?.destroy()
@@ -92,6 +96,7 @@ export default function useTooltip({
     isVisible,
     handleMouseEnter,
     handleMouseLeave,
+    handleOnClick,
     refs: { refElement, popperElement, popperInstance }
   }
 }
