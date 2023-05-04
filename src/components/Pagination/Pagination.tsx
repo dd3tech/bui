@@ -9,24 +9,26 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 
+type Pages =
+  | '5'
+  | '10'
+  | '15'
+  | '20'
+  | '25'
+  | '30'
+  | '35'
+  | '40'
+  | '45'
+  | '50'
+  | '55'
+  | '60'
+  | '65'
+
 export interface PaginationProps {
   totalPages: number
-  totalRows?: number
   currentPage: number
-  sliceSize?:
-    | '5'
-    | '10'
-    | '15'
-    | '20'
-    | '25'
-    | '30'
-    | '35'
-    | '40'
-    | '45'
-    | '50'
-    | '55'
-    | '60'
-    | '65'
+  sliceSize?: Pages
+  totalRows?: number
   firstText?: string
   secondText?: string
   goToPreviousPage: () => void
@@ -40,7 +42,7 @@ const buttonStyle =
 
 const Pagination = ({
   totalPages,
-  totalRows = 40,
+  totalRows,
   currentPage,
   sliceSize,
   firstText,
@@ -51,6 +53,10 @@ const Pagination = ({
   setSize
 }: PaginationProps) => {
   const [selectSliceSize, setSelectSliceSize] = useState(sliceSize)
+  const totalItems = useMemo(() => {
+    if (totalRows) return totalRows
+    return totalPages * Number(sliceSize)
+  }, [totalRows, totalPages, sliceSize])
 
   const pages = useMemo(() => {
     const pagesList = new Array(totalPages).fill(0).map((_, index) => index + 1)
@@ -66,22 +72,22 @@ const Pagination = ({
 
   const options = useMemo(() => {
     const optionList = []
-    for (let i = 5; i <= totalRows; i += 5) {
+    for (let i = 5; i <= totalItems; i += 5) {
       optionList.push(i)
     }
 
     // make sure the last value is in the option list
-    if (optionList[optionList.length - 1] !== totalRows) {
-      optionList.push(totalRows)
+    if (optionList[optionList.length - 1] !== totalItems) {
+      optionList.push(totalItems)
     }
 
     return optionList
-  }, [totalRows])
+  }, [totalItems])
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       setSize(Number(e.target.value))
-      setSelectSliceSize(e.target.value as any)
+      setSelectSliceSize(e.target.value as Pages)
     },
     []
   )
@@ -108,10 +114,10 @@ const Pagination = ({
           className="w-12 pl-2 mr-2 outline-none text-primary bg-transparent"
           onChange={(e) => handleChange(e)}
         >
-          {options.map((option) => {
+          {options.map((opt) => {
             return (
-              <option role="option" key={option} value={option}>
-                {option}
+              <option role="option" key={opt} value={opt}>
+                {opt}
               </option>
             )
           })}
