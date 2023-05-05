@@ -1,4 +1,4 @@
-import { act, fireEvent, render } from '@testing-library/react'
+import { act, fireEvent, render, waitFor } from '@testing-library/react'
 import { describe, it, vi } from 'vitest'
 import DateInput from './DateInput'
 
@@ -189,5 +189,23 @@ describe('<DateInput />', () => {
       fireEvent.blur(input)
     })
     expect(container.firstChild).toHaveClass('border-error')
+  })
+
+  it('the DatePicker should be hidden when clicking outside of it', () => {
+    const { getByTestId, getByRole } = render(
+      <DateInput data-testid="date-input" />
+    )
+    const input = getByTestId('date-input') as HTMLInputElement
+
+    fireEvent.click(getByRole('active-calendar'))
+    expect(getByRole('calendar-container')).toBeDefined()
+
+    fireEvent.click(input)
+    expect(getByRole('calendar-container')).toBeDefined()
+
+    fireEvent.click(document)
+    waitFor(() => {
+      expect(getByRole('calendar-container')).not.toBeDefined()
+    })
   })
 })

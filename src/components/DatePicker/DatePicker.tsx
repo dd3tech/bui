@@ -125,28 +125,55 @@ export interface DatePickerProps {
 const TOTAL_YEARS = 11
 const TODAY = new Date()
 
-const disabledBtnMonth = ({
+const disableMonthBtn = ({
   currentDate,
   minDate,
-  maxDate
+  maxDate,
+  includeDeadline = true
 }: {
   currentDate: Date
   minDate?: Date
   maxDate?: Date
+  includeDeadline?: boolean
 }) => {
   let disabled = false
 
   if (maxDate) {
     const date = new Date(currentDate.getFullYear(), currentDate.getMonth())
     const maxMonth = new Date(maxDate.getFullYear(), maxDate.getMonth())
-    disabled = date.getTime() >= maxMonth.getTime()
+    disabled = includeDeadline
+      ? date.getTime() >= maxMonth.getTime()
+      : date.getTime() > maxMonth.getTime()
   }
 
   if (minDate) {
     const date = new Date(currentDate.getFullYear(), currentDate.getMonth())
     const minMonth = new Date(minDate.getFullYear(), minDate.getMonth())
-    disabled = date.getTime() <= minMonth.getTime()
+    if (!disabled) {
+      disabled = includeDeadline
+        ? date.getTime() <= minMonth.getTime()
+        : date.getTime() < minMonth.getTime()
+    }
   }
+
+  return {
+    disabled,
+    className: disabled ? 'text-gray-300 border-white' : 'text-gray-800'
+  }
+}
+
+const disabledYearBtn = ({
+  year,
+  minDate,
+  maxDate
+}: {
+  year: number
+  minDate?: Date
+  maxDate?: Date
+}) => {
+  const disabled =
+    (minDate && year < minDate?.getFullYear()) ||
+    (maxDate && year > maxDate?.getFullYear())
 
   return {
     disabled,
@@ -309,17 +336,19 @@ function Calendar({
             const isActive = selectedDate?.getFullYear() === year
             const isToday = TODAY.getFullYear() === year
             const todayBorder = isToday ? 'border border-primary' : ''
-            const bgColor = isActive
-              ? 'bg-primary text-white'
-              : `text-gray-800 ${todayBorder}`
+            const bgColor = isActive ? 'bg-primary text-white' : todayBorder
 
             return (
               <button
+                disabled={disabledYearBtn({ year, minDate, maxDate }).disabled}
                 role={year.toString()}
                 type="button"
                 key={year}
                 onClick={() => handleSelectYear(year)}
-                className={btnClassName(bgColor)}
+                className={composeClasses(
+                  btnClassName(bgColor),
+                  disabledYearBtn({ year, minDate, maxDate }).className
+                )}
               >
                 {year}
               </button>
@@ -363,17 +392,29 @@ function Calendar({
               TODAY.getFullYear() === currentDate.getFullYear()
             const todayBorder = isToday ? 'border border-primary' : ''
             const bgColor = isActive ? 'bg-primary text-white' : todayBorder
-
+            const currentMonth = new Date(currentDate.getFullYear(), index, 1)
             return (
               <button
-                disabled={disabledBtnMonth({ currentDate, minDate }).disabled}
+                disabled={
+                  disableMonthBtn({
+                    currentDate: currentMonth,
+                    minDate,
+                    maxDate,
+                    includeDeadline: false
+                  }).disabled
+                }
                 role="month"
                 type="button"
                 key={month}
                 onClick={() => handleSelectMonth(index)}
                 className={composeClasses(
                   btnClassName(bgColor),
-                  disabledBtnMonth({ currentDate, maxDate }).className
+                  disableMonthBtn({
+                    currentDate: currentMonth,
+                    minDate,
+                    maxDate,
+                    includeDeadline: false
+                  }).className
                 )}
               >
                 {format === 'long' ? month : month.substring(0, 3)}
@@ -392,7 +433,7 @@ function Calendar({
           role="prevMonth"
           type="button"
           onClick={handlePrevMonth}
-          {...disabledBtnMonth({ currentDate, minDate })}
+          {...disableMonthBtn({ currentDate, minDate })}
         >
           <ChevronLeftIcon className="w-4 h-4" />
         </button>
@@ -411,7 +452,7 @@ function Calendar({
           role="nextMonth"
           type="button"
           onClick={handleNextMonth}
-          {...disabledBtnMonth({ currentDate, maxDate })}
+          {...disableMonthBtn({ currentDate, maxDate })}
         >
           <ChevronRightIcon className="w-4 h-4" />
         </button>
