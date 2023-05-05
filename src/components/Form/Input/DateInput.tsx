@@ -1,4 +1,11 @@
-import { useState, useMemo, ChangeEvent, useCallback, useEffect } from 'react'
+import {
+  useState,
+  useMemo,
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useRef
+} from 'react'
 import BaseInput, { InputProps } from './BaseInput'
 import DatePicker from '../../DatePicker/DatePicker'
 import CalendarIcon from '@heroicons/react/outline/CalendarIcon'
@@ -65,6 +72,7 @@ function DateInput({
   const [showDatePicker, setShowDatePicker] = useState(false)
   const [date, setDate] = useState(getDateFormat(String(value ?? '')))
   const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -130,8 +138,24 @@ function DateInput({
     if (value) setDate(getDateFormat(String(value)))
   }, [value])
 
+  useEffect(() => {
+    const handleClickOutside = (e: globalThis.MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
+        setShowDatePicker(false)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [])
+
   return (
     <BaseInput
+      ref={containerRef}
       {...props}
       type="text"
       disabled={disabled}
