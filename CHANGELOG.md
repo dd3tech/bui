@@ -1,3 +1,10 @@
+# [6.4.0](https://github.com/dd3tech/dd360-components/compare/v6.3.0...v6.4.0) (2023-05-05)
+
+
+### Features
+
+* date picker improvements ([b4e639e](https://github.com/dd3tech/dd360-components/commit/b4e639e8290c3e41d763fdf3167ceb2e523897ea))
+
 # [6.3.0](https://github.com/dd3tech/dd360-components/compare/v6.2.2...v6.3.0) (2023-05-03)
 
 
