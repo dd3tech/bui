@@ -15,6 +15,7 @@ const mockFn = (text: string) => alert(text)
 
 export const Pagination = Template.bind({})
 Pagination.args = {
+  totalRows: 30,
   totalPages: 10,
   currentPage: 1,
   sliceSize: '5' as any,

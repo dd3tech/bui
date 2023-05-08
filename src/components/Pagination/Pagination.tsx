@@ -1,25 +1,34 @@
-import { SetStateAction, useEffect, useState } from 'react'
+import {
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 
+type Pages =
+  | '5'
+  | '10'
+  | '15'
+  | '20'
+  | '25'
+  | '30'
+  | '35'
+  | '40'
+  | '45'
+  | '50'
+  | '55'
+  | '60'
+  | '65'
+
 export interface PaginationProps {
   totalPages: number
   currentPage: number
-  sliceSize?:
-    | '5'
-    | '10'
-    | '15'
-    | '20'
-    | '25'
-    | '30'
-    | '35'
-    | '40'
-    | '45'
-    | '50'
-    | '55'
-    | '60'
-    | '65'
+  sliceSize?: Pages
+  totalRows?: number
   firstText?: string
   secondText?: string
   goToPreviousPage: () => void
@@ -33,6 +42,7 @@ const buttonStyle =
 
 const Pagination = ({
   totalPages,
+  totalRows,
   currentPage,
   sliceSize,
   firstText,
@@ -42,22 +52,45 @@ const Pagination = ({
   goToPage,
   setSize
 }: PaginationProps) => {
-  const pages = new Array(totalPages).fill(0).map((_, index) => index + 1)
   const [selectSliceSize, setSelectSliceSize] = useState(sliceSize)
+  const totalItems = useMemo(() => {
+    if (totalRows) return totalRows
+    return totalPages * Number(sliceSize)
+  }, [totalRows, totalPages, sliceSize])
 
-  const getPages = () => {
-    if (totalPages > 5 && currentPage <= 5) return pages.slice(0, 5)
+  const pages = useMemo(() => {
+    const pagesList = new Array(totalPages).fill(0).map((_, index) => index + 1)
+
+    if (totalPages > 5 && currentPage <= 5) return pagesList.slice(0, 5)
     if (totalPages > 5 && currentPage + 5 > totalPages)
-      return pages.slice(totalPages - 5, totalPages)
+      return pagesList.slice(totalPages - 5, totalPages)
     if (totalPages > 5 && currentPage > 5)
-      return pages.slice(currentPage - 3, currentPage + 2)
-    return pages
-  }
+      return pagesList.slice(currentPage - 3, currentPage + 2)
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSize(Number(e.target.value))
-    setSelectSliceSize(e.target.value as any)
-  }
+    return pagesList
+  }, [totalPages, currentPage, selectSliceSize])
+
+  const options = useMemo(() => {
+    const optionList = []
+    for (let i = 5; i <= totalItems; i += 5) {
+      optionList.push(i)
+    }
+
+    // make sure the last value is in the option list
+    if (optionList[optionList.length - 1] !== totalItems) {
+      optionList.push(totalItems)
+    }
+
+    return optionList
+  }, [totalItems])
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      setSize(Number(e.target.value))
+      setSelectSliceSize(e.target.value as Pages)
+    },
+    []
+  )
 
   useEffect(() => {
     sliceSize && setSize(Number(sliceSize))
@@ -75,24 +108,19 @@ const Pagination = ({
       <div className="flex items-center">
         {firstText && <Text size="base">{firstText}</Text>}
         <select
+          role="select-slice-size"
           name="custom-pagination"
           value={selectSliceSize}
           className="w-12 pl-2 mr-2 outline-none text-primary bg-transparent"
           onChange={(e) => handleChange(e)}
         >
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="20">20</option>
-          <option value="25">25</option>
-          <option value="30">30</option>
-          <option value="35">35</option>
-          <option value="40">40</option>
-          <option value="45">45</option>
-          <option value="50">50</option>
-          <option value="55">55</option>
-          <option value="60">60</option>
-          <option value="65">65</option>
+          {options.map((opt) => {
+            return (
+              <option role="option" key={opt} value={opt}>
+                {opt}
+              </option>
+            )
+          })}
         </select>
         {secondText && <Text size="base">{secondText}</Text>}
       </div>
@@ -125,7 +153,7 @@ const Pagination = ({
               </li>
             </>
           )}
-          {getPages().map((page) => (
+          {pages.map((page) => (
             <li key={`${page}-page`} className="w-6 h-6" role="list-page">
               <button
                 className={composeClasses(
