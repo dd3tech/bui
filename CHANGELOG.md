@@ -1,3 +1,10 @@
+## [6.4.1](https://github.com/dd3tech/dd360-components/compare/v6.4.0...v6.4.1) (2023-05-09)
+
+
+### Bug Fixes
+
+* **Button:** remove unnecesary padding validations ([625ff53](https://github.com/dd3tech/dd360-components/commit/625ff53a0d59a56bce5b0af557059ff82d8cce2f))
+
 # [6.4.0](https://github.com/dd3tech/dd360-components/compare/v6.3.0...v6.4.0) (2023-05-05)
 
 
