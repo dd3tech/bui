@@ -1,10 +1,11 @@
 import React, { forwardRef } from 'react'
-import Spinner from '../Spinner'
 import { composeClasses } from 'lib/classes'
 import { fontSize } from 'lib/font'
 import { ButtonVariant, Padding, Weight, Rounded } from '../../interfaces/types'
 
-export type renderLoading = {
+import Spinner from '../Spinner'
+
+export type LoaderContentProps = {
   component?: React.ReactElement
   textLoading?: string
 }
@@ -22,16 +23,14 @@ export interface IButtonProps
   fontWeight?: Weight
   rounded?: Rounded
   role?: string
-  renderLoading?: renderLoading
+  renderLoading?: LoaderContentProps
 }
 
-const ContentLoading: React.FC<renderLoading> = ({
+const LoaderContent: React.FC<LoaderContentProps> = ({
   textLoading = 'Cargando...',
   component
-}: renderLoading) => {
-  if (component) {
-    return component
-  }
+}) => {
+  if (component) return component
 
   return (
     <div className="flex items-center justify-center gap-4">
@@ -72,8 +71,8 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
       onClick,
       children = 'Click Me!',
       isLoading,
-      className = '',
-      padding,
+      className,
+      padding = '2',
       paddingX,
       paddingY,
       renderLoading,
@@ -83,33 +82,15 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
     }: IButtonProps,
     ref
   ) => {
-    const buttonPadding = React.useCallback(() => {
-      if (paddingX && paddingY) {
-        return `px-${paddingX} py-${paddingY}`
-      }
-
-      if (paddingX) {
-        return `px-${paddingX}`
-      }
-
-      if (paddingY) {
-        return `py-${paddingY}`
-      }
-
-      if (padding) {
-        return `p-${padding}`
-      }
-
-      return 'p-2'
-    }, [padding, paddingX, paddingY])
-
     return (
       <button
         ref={ref}
         className={composeClasses(
           'transition duration-500 ease-out',
           'hover:ease-in',
-          buttonPadding(),
+          padding && `p-${padding}`,
+          paddingX && `px-${paddingX}`,
+          paddingY && `py-${paddingY}`,
           buttonsVariants[variant],
           (isLoading || props.disabled) && 'cursor-not-allowed',
           sizeVariants[size],
@@ -124,7 +105,7 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
         }}
         {...props}
       >
-        {isLoading ? <ContentLoading {...renderLoading} /> : children}
+        {isLoading ? <LoaderContent {...renderLoading} /> : children}
       </button>
     )
   }
