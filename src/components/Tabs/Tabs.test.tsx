@@ -5,7 +5,7 @@ import {
   render,
   RenderResult
 } from '@testing-library/react'
-import { beforeEach, describe, it } from 'vitest'
+import { beforeEach, describe, it, vi } from 'vitest'
 import { TabGroup, Tab, TabPanel, TabGroupProps } from './index'
 
 const defaultProps: TabGroupProps = {
@@ -48,6 +48,8 @@ const BasicTabs = (props: TabGroupProps) => {
     </div>
   )
 }
+
+window.HTMLElement.prototype.scrollIntoView = vi.fn()
 
 describe('<TabGroup /> variant="primary ', () => {
   it('Indication bar is renderer: orientation="horizontal"', () => {
