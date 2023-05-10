@@ -1,3 +1,10 @@
+## [6.4.3](https://github.com/dd3tech/dd360-components/compare/v6.4.2...v6.4.3) (2023-05-10)
+
+
+### Performance Improvements
+
+* change react imports for three-shake ([4a283b8](https://github.com/dd3tech/dd360-components/commit/4a283b8b47f32b39b0f1f6ad92e9b33e0ee87ed0))
+
 ## [6.4.2](https://github.com/dd3tech/dd360-components/compare/v6.4.1...v6.4.2) (2023-05-10)
 
 
