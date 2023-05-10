@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 export type SizeTypes = {
   width: undefined | number
@@ -11,24 +11,27 @@ export type useResizeReturnedTypes = {
 }
 
 /**
- * It returns an object with the current window size and a boolean value that indicates if the window
- * is mobile or not
- * @returns An object with two properties: size and isMobile.
+ * hook that returns an object containing the current window size and a
+ * boolean indicating if the window is in mobile view.
+ * @returns The function `useResize` returns an object with two properties: `size` and `isMobile`. The
+ * `size` property is an object with `width` and `height` properties, which are numbers representing
+ * the current width and height of the window. The `isMobile` property is a boolean value indicating
+ * whether the current window width is less than 768 pixels, which is commonly used as
  */
-function useResize(): useResizeReturnedTypes {
-  const [size, setSize] = React.useState<SizeTypes>({
+export default function useResize(): useResizeReturnedTypes {
+  const [size, setSize] = useState<SizeTypes>({
     width: undefined,
     height: undefined
   })
 
-  const handleChangeResize = React.useCallback(() => {
+  const handleChangeResize = useCallback(() => {
     setSize({
       width: window.innerWidth,
       height: window.innerHeight
     })
   }, [])
 
-  React.useLayoutEffect(() => {
+  useEffect(() => {
     if (!size.width || !size.height) {
       setSize({
         width: window.innerWidth,
@@ -41,5 +44,3 @@ function useResize(): useResizeReturnedTypes {
 
   return { size, isMobile: window.innerWidth < 768 }
 }
-
-export default useResize

@@ -1,8 +1,14 @@
-import React from 'react'
+import {
+  SetStateAction,
+  useState,
+  useCallback,
+  useEffect,
+  Dispatch
+} from 'react'
 
-type usePaginationReturn = {
+export interface usePaginationReturn {
   size: number
-  setSize: React.Dispatch<React.SetStateAction<number>>
+  setSize: Dispatch<SetStateAction<number>>
   currentPage: number
   goToPage: (page: number) => void
   goToNextPage(): void
@@ -11,16 +17,27 @@ type usePaginationReturn = {
   blockPaginationWithCount(t: number): { prev: boolean; next: boolean }
 }
 
-type PaginationProps = {
+export type PaginationParams = {
   abortSignal?(): void
   initialSize?: number
 }
 
-export function usePagination(opt: PaginationProps = {}): usePaginationReturn {
-  const [size, setSize] = React.useState<number>(opt?.initialSize ?? 5)
-  const [currentPage, setCurrentPage] = React.useState<number>(0)
+/**
+ * hook that provides pagination functionality with options for initial size
+ * and abort signal.
+ * @param {PaginationParams} opt - The `opt` parameter is an optional object that contains
+ * configuration options for the pagination. It has a default value of an empty object `{}`.
+ * @returns The function `usePagination` returns an object with properties `size`, `setSize`,
+ * `currentPage`, `goToPage`, `goToNextPage`, `goToPreviousPage`, `changePage`, and
+ * `blockPaginationWithCount`.
+ */
+export default function usePagination(
+  opt: PaginationParams = {}
+): usePaginationReturn {
+  const [size, setSize] = useState<number>(opt?.initialSize ?? 5)
+  const [currentPage, setCurrentPage] = useState<number>(0)
 
-  const changePage = React.useCallback((sum: boolean) => {
+  const changePage = useCallback((sum: boolean) => {
     setCurrentPage((prev) => prev + (sum ? +1 : -1))
   }, [])
 
@@ -28,12 +45,9 @@ export function usePagination(opt: PaginationProps = {}): usePaginationReturn {
 
   const goToPreviousPage = () => changePage(false)
 
-  const goToPage = React.useCallback(
-    (page: number) => setCurrentPage(page - 1),
-    []
-  )
+  const goToPage = useCallback((page: number) => setCurrentPage(page - 1), [])
 
-  const blockPaginationWithCount = React.useCallback(
+  const blockPaginationWithCount = useCallback(
     (total: number) => {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       return { prev: currentPage! <= 0, next: currentPage + 1 >= total }
@@ -41,7 +55,7 @@ export function usePagination(opt: PaginationProps = {}): usePaginationReturn {
     [currentPage]
   )
 
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       if (opt?.abortSignal) {
         opt?.abortSignal()
