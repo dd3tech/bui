@@ -35,11 +35,9 @@ const useIsMounted = () => {
  * - `handleClick`: A function to handle the click event on the tooltip trigger element
  * - `refs`: An object containing three references
  */
-export default function useTooltip({
-  placement = 'top',
-  showDelay = 100,
-  hideDelay = 100
-}: TooltipParams) {
+export default function useTooltip(params?: TooltipParams) {
+  const { placement = 'top', showDelay = 100, hideDelay = 100 } = params || {}
+
   const isMounted = useIsMounted()
   const [isVisible, setIsVisible] = useState<boolean>(false)
   const refElement = useRef<HTMLDivElement>(null)
