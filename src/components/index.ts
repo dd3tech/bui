@@ -100,6 +100,9 @@ export * from './Skeleton'
 export { default as Tooltip } from './Tooltip'
 export * from './Tooltip'
 
+export { default as Callout } from './Callout'
+export * from './Callout'
+
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
