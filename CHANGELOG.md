@@ -1,3 +1,10 @@
+## [6.4.2](https://github.com/dd3tech/dd360-components/compare/v6.4.1...v6.4.2) (2023-05-10)
+
+
+### Bug Fixes
+
+* add missing optional params on useTooltip ([#91](https://github.com/dd3tech/dd360-components/issues/91)) ([6579845](https://github.com/dd3tech/dd360-components/commit/6579845ae355b995893c689462349ae299ce3fbc))
+
 ## [6.4.1](https://github.com/dd3tech/dd360-components/compare/v6.4.0...v6.4.1) (2023-05-09)
 
 
