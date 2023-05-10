@@ -25,7 +25,9 @@ export const spacing = {
     right: 'right-0',
     top: 'top-0',
     bottom: 'bottom-0',
-    spaceX: 'space-x-0'
+    spaceX: 'space-x-0',
+    paddingX: 'px-0',
+    paddingY: 'py-0'
   },
   px: {
     paddingLeft: 'pl-px',
@@ -44,7 +46,9 @@ export const spacing = {
     right: 'right-px',
     top: 'top-px',
     bottom: 'bottom-px',
-    spaceX: 'space-x-px'
+    spaceX: 'space-x-px',
+    paddingX: 'px-px',
+    paddingY: 'py-px'
   },
   tiny: {
     paddingLeft: 'pl-0.5',
@@ -63,7 +67,9 @@ export const spacing = {
     right: 'right-0.5',
     top: 'top-0.5',
     bottom: 'bottom-0.5',
-    spaceX: 'space-x-0.5'
+    spaceX: 'space-x-0.5',
+    paddingX: 'px-0.5',
+    paddingY: 'py-0.5'
   },
   xxs: {
     paddingLeft: 'pl-1',
@@ -82,7 +88,9 @@ export const spacing = {
     right: 'right-1',
     top: 'top-1',
     bottom: 'bottom-1',
-    spaceX: 'space-x-1'
+    spaceX: 'space-x-1',
+    paddingX: 'px-1',
+    paddingY: 'py-1'
   },
   xs: {
     paddingLeft: 'pl-1.5',
@@ -101,7 +109,9 @@ export const spacing = {
     right: 'right-1.5',
     top: 'top-1.5',
     bottom: 'bottom-1.5',
-    spaceX: 'space-x-1.5'
+    spaceX: 'space-x-1.5',
+    paddingX: 'px-1.5',
+    paddingY: 'py-1.5'
   },
   sm: {
     paddingLeft: 'pl-2',
@@ -120,7 +130,9 @@ export const spacing = {
     right: 'right-2',
     top: 'top-2',
     bottom: 'bottom-2',
-    spaceX: 'space-x-2'
+    spaceX: 'space-x-2',
+    paddingX: 'px-2',
+    paddingY: 'py-2'
   },
   md: {
     paddingLeft: 'pl-2.5',
@@ -139,7 +151,9 @@ export const spacing = {
     right: 'right-2.5',
     top: 'top-2.5',
     bottom: 'bottom-2.5',
-    spaceX: 'space-x-2.5'
+    spaceX: 'space-x-2.5',
+    paddingX: 'px-2.5',
+    paddingY: 'py-2.5'
   },
   lg: {
     paddingLeft: 'pl-3',
@@ -158,7 +172,9 @@ export const spacing = {
     right: 'right-3',
     top: 'top-3',
     bottom: 'bottom-3',
-    spaceX: 'space-x-3'
+    spaceX: 'space-x-3',
+    paddingX: 'px-3',
+    paddingY: 'py-3'
   },
   xl: {
     paddingLeft: 'pl-3.5',
@@ -177,7 +193,9 @@ export const spacing = {
     right: 'right-3.5',
     top: 'top-3.5',
     bottom: 'bottom-3.5',
-    spaceX: 'space-x-3.5'
+    spaceX: 'space-x-3.5',
+    paddingX: 'px-3.5',
+    paddingY: 'py-3.5'
   },
   xxl: {
     paddingLeft: 'pl-4',
@@ -196,7 +214,9 @@ export const spacing = {
     right: 'right-4',
     top: 'top-4',
     bottom: 'bottom-4',
-    spaceX: 'space-x-4'
+    spaceX: 'space-x-4',
+    paddingX: 'px-4',
+    paddingY: 'py-4'
   },
   xxxl: {
     paddingLeft: 'pl-6',
@@ -215,7 +235,9 @@ export const spacing = {
     right: 'right-6',
     top: 'top-6',
     bottom: 'bottom-6',
-    spaceX: 'space-x-6'
+    spaceX: 'space-x-6',
+    paddingX: 'px-6',
+    paddingY: 'py-6'
   },
   jmb: {
     paddingLeft: 'pl-8',
@@ -234,6 +256,8 @@ export const spacing = {
     right: 'right-8',
     top: 'top-8',
     bottom: 'bottom-8',
-    spaceX: 'space-x-8'
+    spaceX: 'space-x-8',
+    paddingX: 'px-8',
+    paddingY: 'py-8'
   }
 }
