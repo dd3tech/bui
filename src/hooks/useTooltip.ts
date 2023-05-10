@@ -6,6 +6,7 @@ export interface TooltipParams {
   placement?: PositionVariants
   showDelay?: number
   hideDelay?: number
+  modifiers?: object[]
 }
 
 const useIsMounted = () => {
@@ -36,7 +37,12 @@ const useIsMounted = () => {
  * - `refs`: An object containing three references
  */
 export default function useTooltip(params?: TooltipParams) {
-  const { placement = 'top', showDelay = 100, hideDelay = 100 } = params || {}
+  const {
+    placement = 'top',
+    showDelay = 100,
+    hideDelay = 100,
+    modifiers = []
+  } = params || {}
 
   const isMounted = useIsMounted()
   const [isVisible, setIsVisible] = useState<boolean>(false)
@@ -72,8 +78,8 @@ export default function useTooltip(params?: TooltipParams) {
     }
 
     popperInstance.current = createPopper(
-      refElement.current as HTMLDivElement,
-      popperElement.current as HTMLDivElement,
+      refElement.current,
+      popperElement.current,
       {
         placement: placement,
         modifiers: [
@@ -84,7 +90,8 @@ export default function useTooltip(params?: TooltipParams) {
             }
           },
           preventOverflow,
-          flip
+          flip,
+          ...modifiers
         ]
       }
     )

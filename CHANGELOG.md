@@ -1,3 +1,17 @@
+# [6.5.0](https://github.com/dd3tech/dd360-components/compare/v6.4.3...v6.5.0) (2023-05-10)
+
+
+### Features
+
+* an array of modifiers can be received in the useTooltip ([#93](https://github.com/dd3tech/dd360-components/issues/93)) ([ef9017f](https://github.com/dd3tech/dd360-components/commit/ef9017fc6b2e405ef94cc523440ab51b39a4cab5))
+
+## [6.4.3](https://github.com/dd3tech/dd360-components/compare/v6.4.2...v6.4.3) (2023-05-10)
+
+
+### Performance Improvements
+
+* change react imports for three-shake ([4a283b8](https://github.com/dd3tech/dd360-components/commit/4a283b8b47f32b39b0f1f6ad92e9b33e0ee87ed0))
+
 ## [6.4.2](https://github.com/dd3tech/dd360-components/compare/v6.4.1...v6.4.2) (2023-05-10)
 
 
