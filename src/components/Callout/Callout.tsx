@@ -4,7 +4,9 @@ import { composeClasses, spacing, borderRadius, border } from 'lib'
 import Flex from '../Layout/Flex'
 import Text from '../Typography'
 
-export const calloutVariants: { [key: string]: string } = {
+type Variants = 'success' | 'info' | 'warning' | 'error'
+
+export const calloutVariants: { [Variants: string]: string } = {
   success: 'bg-green-50 border-green-500 text-green-700',
   info: 'bg-blue-50 border-blue-500 text-blue-700',
   warning: 'bg-yellow-50 border-yellow-500 text-yellow-700',
@@ -26,7 +28,7 @@ export interface CalloutProps extends HTMLAttributes<HTMLDivElement> {
    * It expects a value of 'info', 'warning', 'error' or 'success'
    * type that represents the variant of the Callout.
    */
-  variant?: 'info' | 'warning' | 'error' | 'success'
+  variant?: Variants
   /**
    * This prop is used to render a title in the Callout.
    * required.
