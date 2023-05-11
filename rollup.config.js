@@ -1,5 +1,6 @@
+/* eslint-disable camelcase */
 import babelPlugin from '@rollup/plugin-babel'
-import resolve from '@rollup/plugin-node-resolve'
+import nodeResolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 
 import dts from 'rollup-plugin-dts'
@@ -12,15 +13,16 @@ import { terser } from 'rollup-plugin-terser'
 
 import { createModule, getBabelOptions } from './scripts/rollup.cfg'
 
-const extensions = ['.js', '.ts', '.tsx']
-
 const plugs = [
   peerDepsExternal(),
   postcss({
     extract: 'dd360.css',
+    plugins: [require('cssnano')],
     extensions: ['.css']
   }),
-  resolve({ extensions }),
+  nodeResolve({
+    extensions: ['.js', '.ts', '.tsx']
+  }),
   commonjs(),
   ts({
     tsconfig: './scripts/tsconfig.build.json',
@@ -28,7 +30,27 @@ const plugs = [
     declarationDir: 'dist'
   }),
   svg(),
-  terser(),
+  terser({
+    compress: {
+      drop_console: true,
+      passes: 2,
+      unsafe: true,
+      unsafe_arrows: true,
+      unsafe_comps: true,
+      unsafe_Function: true,
+      unsafe_math: true,
+      unsafe_methods: true,
+      unsafe_proto: true,
+      unsafe_regexp: true,
+      unsafe_symbols: true,
+      unsafe_undefined: true,
+      warnings: false
+    },
+    format: {
+      comments: false
+    },
+    mangle: true
+  }),
   visualizer({
     filename: 'bundle-analysis.html'
   })

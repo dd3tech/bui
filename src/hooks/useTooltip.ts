@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { createPopper, Instance, preventOverflow, flip } from '@popperjs/core'
+import { createPopper, Instance } from '@popperjs/core/lib/popper-lite.js'
+import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow.js'
+import flip from '@popperjs/core/lib/modifiers/flip.js'
+
 import { PositionVariants } from '../interfaces/types'
 
 export interface TooltipParams {

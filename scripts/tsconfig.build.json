@@ -1,4 +1,15 @@
 {
-    "extends": "../tsconfig.json",
-    "exclude": ["node_modules", "build", "dist", "scripts", "tests", "src/stories/**"]
+  "extends": "../tsconfig.json",
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "scripts",
+    "tests",
+    "src/stories/**",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ]
 }

@@ -1,5 +1,5 @@
 {
-    "buildCommand": "build-lib",
-    "sandboxes": ["vanilla", "new"],
-    "node": "16"
+  "buildCommand": "build:lib",
+  "sandboxes": ["vanilla", "new"],
+  "node": "16"
 }
