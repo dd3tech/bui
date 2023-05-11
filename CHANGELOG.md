@@ -1,3 +1,10 @@
+# [6.6.0](https://github.com/dd3tech/dd360-components/compare/v6.5.0...v6.6.0) (2023-05-11)
+
+
+### Features
+
+* Callout component was added ([9a2c8cf](https://github.com/dd3tech/dd360-components/commit/9a2c8cf8953d76d409e7c1ed47c77259f0deda01))
+
 # [6.5.0](https://github.com/dd3tech/dd360-components/compare/v6.4.3...v6.5.0) (2023-05-10)
 
 
