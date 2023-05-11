@@ -2,7 +2,7 @@ import { describe, afterEach, it, expect } from 'vitest'
 import { cleanup, render } from '@testing-library/react'
 import { CheckCircleIcon } from '@heroicons/react/solid'
 
-import Callout, { CalloutProps } from './Callout'
+import Callout, { CalloutProps, calloutVariants } from './Callout'
 
 const props: CalloutProps = {
   title: 'All systems operational',
@@ -28,9 +28,22 @@ describe('<Callout/>', () => {
     expect(getByText(props.title)).toBeInTheDocument()
   })
 
-  it('should render the description', () => {
-    const { getByText } = renderComponent()
-    expect(getByText(props.description as string)).toBeInTheDocument()
+  describe('prop: description', () => {
+    it('should render the description', () => {
+      const { getByText } = renderComponent()
+      expect(getByText(props.description as string)).toBeInTheDocument()
+    })
+
+    it('should not render the description', () => {
+      const copyProps = Object.freeze({ ...props })
+      props.description = undefined
+
+      const { queryByText } = renderComponent()
+
+      expect(
+        queryByText(copyProps.description as string)
+      ).not.toBeInTheDocument()
+    })
   })
 
   describe('prop: icon', () => {
@@ -47,39 +60,22 @@ describe('<Callout/>', () => {
   })
 
   describe('prop: variant', () => {
-    it('should render the correct variant', () => {
+    it('should render the default variant', () => {
       const { container } = renderComponent()
 
-      // checking if the classes are being applied
-      expect(container.firstChild).toHaveClass('bg-green-50')
-      expect(container.firstChild).toHaveClass('border-green-500')
-      expect(container.firstChild).toHaveClass('text-green-700')
+      expect(container.firstChild).toHaveClass(calloutVariants.success)
     })
 
     it('should render with the differents variants', () => {
-      props.variant = 'info'
       const { container, rerender } = renderComponent()
 
-      // checking if the classes are being applied
-      expect(container.firstChild).toHaveClass('bg-blue-50')
-      expect(container.firstChild).toHaveClass('border-blue-500')
-      expect(container.firstChild).toHaveClass('text-blue-700')
-
-      props.variant = 'warning'
-      rerender(<Callout {...props} />)
-
-      // checking if the classes are being applied
-      expect(container.firstChild).toHaveClass('bg-yellow-50')
-      expect(container.firstChild).toHaveClass('border-yellow-500')
-      expect(container.firstChild).toHaveClass('text-yellow-700')
-
-      props.variant = 'error'
-      rerender(<Callout {...props} />)
-
-      // checking if the classes are being applied
-      expect(container.firstChild).toHaveClass('bg-red-50')
-      expect(container.firstChild).toHaveClass('border-red-500')
-      expect(container.firstChild).toHaveClass('text-red-700')
+      // checking if variant styles are being applied
+      const availableVariants = Object.keys(calloutVariants)
+      availableVariants.forEach((variant) => {
+        props.variant = variant as CalloutProps['variant']
+        rerender(<Callout {...props} />)
+        expect(container.firstChild).toHaveClass(calloutVariants[variant])
+      })
     })
   })
 })

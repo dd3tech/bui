@@ -4,7 +4,7 @@ import { composeClasses, spacing, borderRadius, border } from 'lib'
 import Flex from '../Layout/Flex'
 import Text from '../Typography'
 
-const calloutVariants: { [key: string]: string } = {
+export const calloutVariants: { [key: string]: string } = {
   success: 'bg-green-50 border-green-500 text-green-700',
   info: 'bg-blue-50 border-blue-500 text-blue-700',
   warning: 'bg-yellow-50 border-yellow-500 text-yellow-700',
