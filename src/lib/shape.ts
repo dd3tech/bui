@@ -35,3 +35,38 @@ export const borderRadius = {
     all: 'rounded-full'
   }
 }
+
+export const bShadow = {
+  none: 'shadow-none',
+  sm: 'shadow-sm',
+  md: 'shadow',
+  lg: 'shadow-lg',
+  xl: 'shadow-xl',
+  '2xl': 'shadow-2xl',
+  inner: 'shadow-inner',
+  outline: 'shadow-outline'
+}
+
+export const border = {
+  sm: {
+    left: 'border-l',
+    top: 'border-t',
+    right: 'border-r',
+    bottom: 'border-b',
+    all: 'border'
+  },
+  md: {
+    left: 'border-l-2',
+    top: 'border-t-2',
+    right: 'border-r-2',
+    bottom: 'border-b-2',
+    all: 'border-2'
+  },
+  lg: {
+    left: 'border-l-4',
+    top: 'border-t-4',
+    right: 'border-r-4',
+    bottom: 'border-b-4',
+    all: 'border-4'
+  }
+}
