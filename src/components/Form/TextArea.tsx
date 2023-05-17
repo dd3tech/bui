@@ -43,7 +43,6 @@ function TextArea({
   placeholder,
   onFocus,
   onBlur,
-  value,
   ...otherProps
 }: TextAreaProps) {
   const { disabled } = otherProps
@@ -51,12 +50,13 @@ function TextArea({
   const isDisabled = variant === 'disabled'
   const { input, text } = inputVariants[variant]
   const [focused, setFocused] = useState(false)
-  const textRef = useRef<HTMLTextAreaElement>(null)
+  const textAreaRef = useRef<HTMLTextAreaElement>(null)
+
   const isLabelScalded =
     !label ||
     focused ||
-    value?.toLocaleString().length ||
-    textRef.current?.value.length
+    textAreaRef?.current?.value?.length ||
+    otherProps?.value?.toLocaleString()?.length
 
   const styles = {
     adornment: composeClasses(
@@ -122,7 +122,7 @@ function TextArea({
           </label>
         )}
         <textarea
-          ref={textRef}
+          ref={textAreaRef}
           {...otherProps}
           className={composeClasses(
             'w-full h-full bg-transparent focus:outline-none',
@@ -133,7 +133,7 @@ function TextArea({
           onFocus={handleFocus}
           onBlur={handleBlur}
           style={{ zIndex: 1, paddingTop: 10 }}
-          value={value}
+          value={otherProps.value}
         />
         {endAdornment && (
           <div
