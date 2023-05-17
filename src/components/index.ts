@@ -66,6 +66,7 @@ export * from './DatePicker'
 
 /** @deprecated */
 export { default as MultiRangeSlider } from './RangeSlider/MultiRangeSlider'
+export * from './RangeSlider/MultiRangeSlider'
 
 export { default as RangeSlider } from './RangeSlider'
 export * from './RangeSlider'
