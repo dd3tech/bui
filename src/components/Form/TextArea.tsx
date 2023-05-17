@@ -1,4 +1,10 @@
-import { TextareaHTMLAttributes, ReactNode, useCallback, useState } from 'react'
+import {
+  TextareaHTMLAttributes,
+  ReactNode,
+  useCallback,
+  useState,
+  useRef
+} from 'react'
 import { composeClasses } from 'lib/classes'
 import {
   inputVariants,
@@ -45,7 +51,12 @@ function TextArea({
   const isDisabled = variant === 'disabled'
   const { input, text } = inputVariants[variant]
   const [focused, setFocused] = useState(false)
-  const isLabelScalded = !label || focused || value?.toLocaleString().length
+  const textRef = useRef<HTMLTextAreaElement>(null)
+  const isLabelScalded =
+    !label ||
+    focused ||
+    value?.toLocaleString().length ||
+    textRef.current?.value.length
 
   const styles = {
     adornment: composeClasses(
@@ -111,6 +122,7 @@ function TextArea({
           </label>
         )}
         <textarea
+          ref={textRef}
           {...otherProps}
           className={composeClasses(
             'w-full h-full bg-transparent focus:outline-none',
