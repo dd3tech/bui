@@ -138,7 +138,7 @@ const RangeSlider = ({
 
   const updateMax = (val: number) => {
     // We always obtain a value greater than the selected minimum, since the minimum is reserved for the input minVal
-    const maxValue = Math.max(val, minVal + 1)
+    const maxValue = Math.max(val, multi ? minVal + 1 : minVal)
     setMaxVal(maxValue)
     if (maxValRef.current) maxValRef.current.value = maxValue.toString()
     minValRef.current && updateBar(minValRef.current, range, maxValue, min, max)
