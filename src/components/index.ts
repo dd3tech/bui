@@ -64,8 +64,12 @@ export * from './Divider'
 export { default as DatePicker } from './DatePicker'
 export * from './DatePicker'
 
-export { default as MultiRangeSlider } from './MultiRangeSlider'
-export * from './MultiRangeSlider'
+/** @deprecated */
+export { default as MultiRangeSlider } from './RangeSlider/MultiRangeSlider'
+export * from './RangeSlider/MultiRangeSlider'
+
+export { default as RangeSlider } from './RangeSlider'
+export * from './RangeSlider'
 
 export { default as ConfirmDialog } from './ConfirmDialog'
 export * from './ConfirmDialog'

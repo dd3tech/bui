@@ -1,7 +1,7 @@
 import { RefObject } from 'react'
 import { fireEvent, render } from '@testing-library/react'
 import { vi } from 'vitest'
-import MultiRangeSlider, { updateBar } from './MultiRangeSlider'
+import RangeSlider, { updateBar } from './RangeSlider'
 
 const defaultProps = {
   min: 0,
@@ -9,16 +9,16 @@ const defaultProps = {
   onChange: vi.fn()
 }
 
-describe('<MultiRangeSlider/>', () => {
+describe('<RangeSlider/>', () => {
   it('should be render', () => {
-    const { container } = render(<MultiRangeSlider {...defaultProps} />)
+    const { container } = render(<RangeSlider {...defaultProps} />)
     expect(container).toBeDefined()
   })
 
   describe('prop: minValDisabled, maxValDisabled', () => {
-    it('should render a MultiRangeSlider with both controllers disabled', () => {
+    it('should render a RangeSlider with both controllers disabled', () => {
       const { container } = render(
-        <MultiRangeSlider {...defaultProps} minValDisabled maxValDisabled />
+        <RangeSlider {...defaultProps} minValDisabled maxValDisabled />
       )
       const minInput = container.querySelector(
         'input[name="min-val"]'
@@ -32,7 +32,7 @@ describe('<MultiRangeSlider/>', () => {
   })
 
   it('should call a function when the min or max value change', () => {
-    const { container } = render(<MultiRangeSlider {...defaultProps} />)
+    const { container } = render(<RangeSlider {...defaultProps} />)
     const minInput = container.querySelector(
       'input[name="min-val"]'
     ) as HTMLInputElement

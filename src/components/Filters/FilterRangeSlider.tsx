@@ -1,7 +1,5 @@
 import { useCallback, useState } from 'react'
-import MultiRangeSlider, {
-  IRangeSlider
-} from '../MultiRangeSlider/MultiRangeSlider'
+import RangeSlider, { RangeValues } from '../RangeSlider/RangeSlider'
 import ConfirmDialog from '../ConfirmDialog/ConfirmDialog'
 import Text from '../Typography/Text'
 
@@ -62,7 +60,7 @@ export interface FilterRangeSliderProps {
    * Callback fired when the apply button is clicked
    * @param {IRange} range
    */
-  onApply: (range: IRangeSlider) => void
+  onApply: (range: RangeValues) => void
   /**
    * Callback fired when the reset button is clicked
    */
@@ -87,9 +85,9 @@ const FilterRangeSlider = ({
   onReset
 }: FilterRangeSliderProps) => {
   const initValue = { min: initMinValue ?? min, max: initMaxValue ?? max }
-  const [range, setRange] = useState<IRangeSlider>(initValue)
+  const [range, setRange] = useState<RangeValues>(initValue)
   const [fireReset, setFireReset] = useState<boolean>(false)
-  const handleChange = useCallback((value: IRangeSlider) => setRange(value), [])
+  const handleChange = useCallback((value: RangeValues) => setRange(value), [])
 
   const apply = () => {
     onApply(range)
@@ -117,7 +115,8 @@ const FilterRangeSlider = ({
           {unitName} - {range.max}
           {unitName}
         </Text>
-        <MultiRangeSlider
+        <RangeSlider
+          multi
           max={max}
           min={min}
           initMinValue={initValue.min}
