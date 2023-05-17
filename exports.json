@@ -231,7 +231,7 @@
       "module": "./dist/esm/components/Callout/index.js",
       "default": "./dist/esm/components/Callout/index.js"
     },
-    "RangeSlider": {
+    "./RangeSlider": {
       "require": "./dist/cjs/components/RangeSlider/index.js",
       "module": "./dist/esm/components/RangeSlider/index.js",
       "default": "./dist/esm/components/RangeSlider/index.js"
