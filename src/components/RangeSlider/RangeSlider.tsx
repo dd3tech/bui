@@ -209,5 +209,5 @@ const RangeSlider = ({
   )
 }
 
-RangeSlider.defaultName = 'RangeSlider'
+RangeSlider.displayName = 'RangeSlider'
 export default RangeSlider
