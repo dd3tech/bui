@@ -1,3 +1,17 @@
+## [6.7.1](https://github.com/dd3tech/dd360-components/compare/v6.7.0...v6.7.1) (2023-05-17)
+
+
+### Bug Fixes
+
+* typo on export declaration of the ranger component ([#99](https://github.com/dd3tech/dd360-components/issues/99)) ([5992fc7](https://github.com/dd3tech/dd360-components/commit/5992fc773a1a94fc692411b1f9a1e8a767eb99ac))
+
+# [6.7.0](https://github.com/dd3tech/dd360-components/compare/v6.6.0...v6.7.0) (2023-05-17)
+
+
+### Features
+
+* **RangeSlider:** change MultiRangeSlider for RangeSlider ([#98](https://github.com/dd3tech/dd360-components/issues/98)) ([cb2f85d](https://github.com/dd3tech/dd360-components/commit/cb2f85db0bd1c44610abecf31427dd2c1a1f3359))
+
 # [6.6.0](https://github.com/dd3tech/dd360-components/compare/v6.5.0...v6.6.0) (2023-05-11)
 
 
