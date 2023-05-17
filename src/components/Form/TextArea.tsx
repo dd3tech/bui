@@ -133,7 +133,6 @@ function TextArea({
           onFocus={handleFocus}
           onBlur={handleBlur}
           style={{ zIndex: 1, paddingTop: 10 }}
-          value={otherProps.value}
         />
         {endAdornment && (
           <div
