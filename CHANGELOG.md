@@ -1,3 +1,10 @@
+# [6.7.0](https://github.com/dd3tech/dd360-components/compare/v6.6.0...v6.7.0) (2023-05-17)
+
+
+### Features
+
+* **RangeSlider:** change MultiRangeSlider for RangeSlider ([#98](https://github.com/dd3tech/dd360-components/issues/98)) ([cb2f85d](https://github.com/dd3tech/dd360-components/commit/cb2f85db0bd1c44610abecf31427dd2c1a1f3359))
+
 # [6.6.0](https://github.com/dd3tech/dd360-components/compare/v6.5.0...v6.6.0) (2023-05-11)
 
 
