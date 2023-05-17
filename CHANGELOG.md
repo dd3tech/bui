@@ -1,3 +1,10 @@
+## [6.7.2](https://github.com/dd3tech/dd360-components/compare/v6.7.1...v6.7.2) (2023-05-17)
+
+
+### Bug Fixes
+
+* **TextArea:** add value validation to avoid superposition ([#95](https://github.com/dd3tech/dd360-components/issues/95)) ([2d87830](https://github.com/dd3tech/dd360-components/commit/2d878309e68c4ca8122b7ee78a57344ac182834d))
+
 ## [6.7.1](https://github.com/dd3tech/dd360-components/compare/v6.7.0...v6.7.1) (2023-05-17)
 
 
