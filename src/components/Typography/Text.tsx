@@ -189,7 +189,7 @@ const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>(
 
 Text.displayName = 'Text'
 Text.defaultProps = {
-  children: undefined,
+  children: '',
   variant: undefined,
   size: undefined,
   align: undefined,
