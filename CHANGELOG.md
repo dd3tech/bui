@@ -1,3 +1,10 @@
+## [6.7.3](https://github.com/dd3tech/dd360-components/compare/v6.7.2...v6.7.3) (2023-05-18)
+
+
+### Bug Fixes
+
+* **Text:** add validation in variant currency([#100](https://github.com/dd3tech/dd360-components/issues/100)) ([d76372c](https://github.com/dd3tech/dd360-components/commit/d76372c0eed39c88ba41e4b6a1f0ce1165a3954d))
+
 ## [6.7.2](https://github.com/dd3tech/dd360-components/compare/v6.7.1...v6.7.2) (2023-05-17)
 
 
