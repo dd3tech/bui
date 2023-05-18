@@ -99,7 +99,7 @@ const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
     case 'currency':
       return (
         <p {...props} ref={ref}>
-          {format(props.children)}
+          {props.children && format(props.children)}
         </p>
       )
     case 'anchorSmall':
