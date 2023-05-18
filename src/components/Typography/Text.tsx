@@ -99,7 +99,7 @@ const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
     case 'currency':
       return (
         <p {...props} ref={ref}>
-          {format(props.children)}
+          {props.children && format(props.children)}
         </p>
       )
     case 'anchorSmall':
@@ -189,7 +189,7 @@ const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>(
 
 Text.displayName = 'Text'
 Text.defaultProps = {
-  children: '',
+  children: undefined,
   variant: undefined,
   size: undefined,
   align: undefined,
