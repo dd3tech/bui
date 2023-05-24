@@ -10,7 +10,8 @@ import ToolTipHover from '../ToolTipHover'
 import './sideBar.css'
 
 import { composeClasses } from 'lib/classes'
-import { Flex, Skeleton } from '..'
+import Flex from '../Layout/Flex/Flex'
+import Skeleton from '../Skeleton/Skeleton'
 
 export interface SideBarProps {
   sideBarList?: Array<{
