@@ -10,6 +10,8 @@ import ToolTipHover from '../ToolTipHover'
 import './sideBar.css'
 
 import { composeClasses } from 'lib/classes'
+import Flex from '../Layout/Flex/Flex'
+import Skeleton from '../Skeleton/Skeleton'
 
 export interface SideBarProps {
   sideBarList?: Array<{
@@ -33,6 +35,31 @@ export interface SideBarProps {
   top?: number
   left?: number
   flushSync?: <R>(fn: () => R) => R
+  isLoadingHeaderInfo?: boolean
+  isLoadingSideBarList?: boolean
+}
+
+const SkeletonSideBarList = () => {
+  return (
+    <>
+      {Array.from(Array(5).keys()).map((key) => (
+        <Flex
+          key={key}
+          alignItems="center"
+          justifyContent="start"
+          gap="1"
+          className="w-72 h-16"
+        >
+          <Flex alignItems="center" className="w-16">
+            <Flex alignItems="center" className="w-6 h-6 ml-5">
+              <Skeleton rounded="base" height={20} width={20} />
+            </Flex>
+          </Flex>
+          <Skeleton rounded="full" className="h-3 w-24" />
+        </Flex>
+      ))}
+    </>
+  )
 }
 
 const SideBar = ({
@@ -44,6 +71,8 @@ const SideBar = ({
   top,
   left,
   flushSync,
+  isLoadingHeaderInfo,
+  isLoadingSideBarList,
   ...props
 }: SideBarProps) => {
   const sidebarRef: React.MutableRefObject<HTMLDivElement | null> =
@@ -88,6 +117,15 @@ const SideBar = ({
     }, 20)
   }
 
+  const handleClickOption =
+    (disabled: boolean | undefined, active: boolean, to: () => void) => () => {
+      if (disabled || active) return
+      flushSync
+        ? flushSync(() => setIsOptionClicked(true))
+        : setIsOptionClicked(true)
+      to()
+    }
+
   React.useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => {
@@ -120,8 +158,12 @@ const SideBar = ({
           left: left ?? 0
         }}
       >
-        <div className="h-full flex flex-col transition-all delay-300 ease-out">
-          <div className="flex justify-between border-b items-center w-full h-16 lg:h-20">
+        <Flex className="h-full flex-col transition-all delay-300 ease-out">
+          <Flex
+            justifyContent="between"
+            alignItems="center"
+            className="border-b w-full h-16 lg:h-20"
+          >
             <div
               role="active-sidebar"
               className={composeClasses(
@@ -134,9 +176,11 @@ const SideBar = ({
                 shotTimer()
               }}
             >
-              <div
+              <Flex
+                justifyContent="center"
+                alignItems="center"
                 className={composeClasses(
-                  'w-9 h-9 flex justify-center items-center transform transition-all duration-200 ease-in-out',
+                  'w-9 h-9 transform transition-all duration-200 ease-in-out',
                   expand ? 'rotate-0' : 'rotate-180'
                 )}
               >
@@ -144,106 +188,127 @@ const SideBar = ({
                   className="transition-all duration-200 ease-in-out"
                   width={25}
                 />
-              </div>
+              </Flex>
             </div>
-            <div className="flex flex-col justify-center gap-1 col-span-2 p-3 ml-16 w-full h-24">
-              <Text
-                variant="span"
-                size="base"
-                bold
-                className="block w-52 letter-spacing-negative capitalize"
-              >
-                {sideBarName}
-              </Text>
-              {sideBarSubTitle && (
-                <Text
-                  variant="small"
-                  fontBold="medium"
-                  className="text-gray-400 whitespace-nowrap"
-                >
-                  {sideBarSubTitle}
-                </Text>
+            <Flex
+              justifyContent="center"
+              gap="1"
+              className="flex-col col-span-2 p-3 ml-16 w-full h-24"
+            >
+              {isLoadingHeaderInfo ? (
+                <>
+                  <Skeleton rounded="full" className="h-4 w-32" />
+                  <Skeleton rounded="full" className="h-3 w-24" />
+                </>
+              ) : (
+                <>
+                  <Text
+                    variant="span"
+                    size="base"
+                    bold
+                    className="block w-52 letter-spacing-negative capitalize"
+                  >
+                    {sideBarName}
+                  </Text>
+                  {sideBarSubTitle && (
+                    <Text
+                      variant="small"
+                      fontBold="medium"
+                      className="text-gray-400 whitespace-nowrap"
+                    >
+                      {sideBarSubTitle}
+                    </Text>
+                  )}
+                </>
               )}
-            </div>
-          </div>
+            </Flex>
+          </Flex>
           <div
             role="list-options"
             className={`${
               !expand ? 'hide-scroll' : ''
             } overflow-y-auto overflow-x-hidden flex-grow`}
           >
-            {sideBarList?.map(
-              ({ title, active, to, icon, disabled, hidden }, index: number) =>
-                !hidden && (
-                  <div
-                    key={index.toString()}
-                    className={composeClasses(
-                      'w-72 h-16 transition-all duration-300 ease-out letter-spacing-negative flex items-center justify-start gap-1',
-                      'hover:text-error',
-                      disabled
-                        ? 'cursor-not-allowed'
-                        : 'cursor-pointer hover:bg-gray-100',
-                      active && 'bg-blue-50'
-                    )}
-                    onClick={() => {
-                      if (disabled || active) return
-                      flushSync
-                        ? flushSync(() => setIsOptionClicked(true))
-                        : setIsOptionClicked(true)
-                      to()
-                    }}
-                  >
-                    <ToolTipHover
-                      element={
-                        <div
-                          role={`option-icon-${index}`}
-                          className="w-16 flex items-center"
-                        >
-                          <div style={activeStyle(active)}></div>
-                          <div
-                            className={composeClasses(
-                              'w-6 h-6 ml-3.5 flex items-center',
-                              disabled ? 'text-gray-300' : 'text-gray-400',
-                              active && 'text-primary'
-                            )}
+            {isLoadingSideBarList ? (
+              <SkeletonSideBarList />
+            ) : (
+              sideBarList?.map(
+                (
+                  { title, active, to, icon, disabled, hidden },
+                  index: number
+                ) =>
+                  !hidden && (
+                    <Flex
+                      key={`${title}-${index.toString()}`}
+                      alignItems="center"
+                      justifyContent="start"
+                      gap="1"
+                      className={composeClasses(
+                        'w-72 h-16 transition-all duration-300 ease-out letter-spacing-negative',
+                        'hover:text-error',
+                        disabled
+                          ? 'cursor-not-allowed'
+                          : 'cursor-pointer hover:bg-gray-100',
+                        active && 'bg-blue-50'
+                      )}
+                      onClick={handleClickOption(disabled, active, to)}
+                    >
+                      <ToolTipHover
+                        element={
+                          <Flex
+                            role={`option-icon-${index}`}
+                            alignItems="center"
+                            className="w-16 flex"
                           >
-                            {icon ? icon : <ExclamationCircleIcon />}
-                          </div>
-                        </div>
-                      }
-                      variantPopup="dark"
-                      disabled={expand || isOptionClicked}
-                      complementPosition={{ top: 55, left: 85 }}
-                    >
-                      {!disabled ? (
-                        title
-                      ) : (
-                        <span className="flex items-center gap-1">
-                          <ClockIcon width={15} />
-                          {title}
-                        </span>
-                      )}
-                    </ToolTipHover>
-                    <Text
-                      role={`option-${index}`}
-                      variant="span"
-                      className={`${
-                        disabled ? 'text-gray-300' : 'text-info'
-                      } w-56 whitespace-nowrap font-semibold`}
-                    >
-                      {disabled && (
-                        <span
-                          className="mr-10 flex items-center gap-1 italic"
-                          style={{ fontSize: '10px' }}
-                        >
-                          <ClockIcon width={15} />
-                          {disabledOptionsTag}
-                        </span>
-                      )}
-                      {title}
-                    </Text>
-                  </div>
-                )
+                            <div style={activeStyle(active)}></div>
+                            <Flex
+                              alignItems="center"
+                              className={composeClasses(
+                                'w-6 h-6 ml-3.5',
+                                disabled ? 'text-gray-300' : 'text-gray-400',
+                                active && 'text-primary'
+                              )}
+                            >
+                              {icon ? icon : <ExclamationCircleIcon />}
+                            </Flex>
+                          </Flex>
+                        }
+                        variantPopup="dark"
+                        disabled={expand || isOptionClicked}
+                        complementPosition={{ top: 55, left: 85 }}
+                      >
+                        {!disabled ? (
+                          title
+                        ) : (
+                          <Flex alignItems="center" gap="1">
+                            <ClockIcon width={15} />
+                            {title}
+                          </Flex>
+                        )}
+                      </ToolTipHover>
+                      <Text
+                        role={`option-${index}`}
+                        variant="span"
+                        className={`${
+                          disabled ? 'text-gray-300' : 'text-info'
+                        } w-56 whitespace-nowrap font-semibold`}
+                      >
+                        {disabled && (
+                          <Flex
+                            alignItems="center"
+                            gap="1"
+                            className="mr-10 italic"
+                            style={{ fontSize: '10px' }}
+                          >
+                            <ClockIcon width={15} />
+                            {disabledOptionsTag}
+                          </Flex>
+                        )}
+                        {title}
+                      </Text>
+                    </Flex>
+                  )
+              )
             )}
           </div>
           {props.dangerZone?.show && (
@@ -294,7 +359,7 @@ const SideBar = ({
               </div>
             </div>
           )}
-        </div>
+        </Flex>
       </div>
     </>
   )
