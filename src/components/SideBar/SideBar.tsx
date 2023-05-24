@@ -34,7 +34,7 @@ export interface SideBarProps {
   top?: number
   left?: number
   flushSync?: <R>(fn: () => R) => R
-  isLoadingHeaderInfor?: boolean
+  isLoadingHeaderInfo?: boolean
   isLoadingSideBarList?: boolean
 }
 
@@ -70,7 +70,7 @@ const SideBar = ({
   top,
   left,
   flushSync,
-  isLoadingHeaderInfor,
+  isLoadingHeaderInfo,
   isLoadingSideBarList,
   ...props
 }: SideBarProps) => {
@@ -194,7 +194,7 @@ const SideBar = ({
               gap="1"
               className="flex-col col-span-2 p-3 ml-16 w-full h-24"
             >
-              {isLoadingHeaderInfor ? (
+              {isLoadingHeaderInfo ? (
                 <>
                   <Skeleton rounded="full" className="h-4 w-32" />
                   <Skeleton rounded="full" className="h-3 w-24" />

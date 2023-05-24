@@ -43,6 +43,6 @@ SideBar.args = {
   disabledOptionsTag: 'Próximamente',
   dangerZone: { show: true, text: 'Eliminar proyecto', active: false },
   flushSync: () => console.log('Hola 5'),
-  isLoadingHeaderInfor: false,
+  isLoadingHeaderInfo: false,
   isLoadingSideBarList: false
 }
