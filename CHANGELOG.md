@@ -1,3 +1,10 @@
+# [6.8.0](https://github.com/dd3tech/dd360-components/compare/v6.7.3...v6.8.0) (2023-05-24)
+
+
+### Features
+
+* skeleton is added to the sidebar ([52d5485](https://github.com/dd3tech/dd360-components/commit/52d548590efccd1d8a05157a0152b887c252ae51))
+
 ## [6.7.3](https://github.com/dd3tech/dd360-components/compare/v6.7.2...v6.7.3) (2023-05-18)
 
 
