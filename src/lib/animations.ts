@@ -55,5 +55,3 @@ export const ANIMATION_LIST = {
   spin: 'spin',
   blink: 'blink'
 }
-
-export type AnimationsTypes = keyof typeof ANIMATION_LIST
