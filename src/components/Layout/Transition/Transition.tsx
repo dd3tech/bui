@@ -1,9 +1,7 @@
 import { useState, useEffect, useRef, forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'
-import { ANIMATION_LIST } from 'lib/animations'
+import { ANIMATION_LIST, AnimationsTypes } from 'lib/animations'
 import './transition.css'
-
-export type AnimationsTypes = keyof typeof ANIMATION_LIST
 
 interface TransitionProps extends React.HTMLAttributes<HTMLDivElement> {
   show?: boolean
