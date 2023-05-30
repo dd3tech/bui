@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'
 import { ANIMATION_LIST } from 'lib/animations'
-import { AnimationsTypes } from '../../../interfaces'
+import { AnimationsTypes } from 'interfaces'
 import './transition.css'
 
 interface TransitionProps extends React.HTMLAttributes<HTMLDivElement> {
