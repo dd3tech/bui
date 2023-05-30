@@ -1,3 +1,38 @@
+# [6.8.0](https://github.com/dd3tech/dd360-components/compare/v6.7.3...v6.8.0) (2023-05-24)
+
+
+### Features
+
+* skeleton is added to the sidebar ([52d5485](https://github.com/dd3tech/dd360-components/commit/52d548590efccd1d8a05157a0152b887c252ae51))
+
+## [6.7.3](https://github.com/dd3tech/dd360-components/compare/v6.7.2...v6.7.3) (2023-05-18)
+
+
+### Bug Fixes
+
+* **Text:** add validation in variant currency([#100](https://github.com/dd3tech/dd360-components/issues/100)) ([d76372c](https://github.com/dd3tech/dd360-components/commit/d76372c0eed39c88ba41e4b6a1f0ce1165a3954d))
+
+## [6.7.2](https://github.com/dd3tech/dd360-components/compare/v6.7.1...v6.7.2) (2023-05-17)
+
+
+### Bug Fixes
+
+* **TextArea:** add value validation to avoid superposition ([#95](https://github.com/dd3tech/dd360-components/issues/95)) ([2d87830](https://github.com/dd3tech/dd360-components/commit/2d878309e68c4ca8122b7ee78a57344ac182834d))
+
+## [6.7.1](https://github.com/dd3tech/dd360-components/compare/v6.7.0...v6.7.1) (2023-05-17)
+
+
+### Bug Fixes
+
+* typo on export declaration of the ranger component ([#99](https://github.com/dd3tech/dd360-components/issues/99)) ([5992fc7](https://github.com/dd3tech/dd360-components/commit/5992fc773a1a94fc692411b1f9a1e8a767eb99ac))
+
+# [6.7.0](https://github.com/dd3tech/dd360-components/compare/v6.6.0...v6.7.0) (2023-05-17)
+
+
+### Features
+
+* **RangeSlider:** change MultiRangeSlider for RangeSlider ([#98](https://github.com/dd3tech/dd360-components/issues/98)) ([cb2f85d](https://github.com/dd3tech/dd360-components/commit/cb2f85db0bd1c44610abecf31427dd2c1a1f3359))
+
 # [6.6.0](https://github.com/dd3tech/dd360-components/compare/v6.5.0...v6.6.0) (2023-05-11)
 
 

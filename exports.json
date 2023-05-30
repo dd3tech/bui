@@ -230,6 +230,11 @@
       "require": "./dist/cjs/components/Callout/index.js",
       "module": "./dist/esm/components/Callout/index.js",
       "default": "./dist/esm/components/Callout/index.js"
+    },
+    "./RangeSlider": {
+      "require": "./dist/cjs/components/RangeSlider/index.js",
+      "module": "./dist/esm/components/RangeSlider/index.js",
+      "default": "./dist/esm/components/RangeSlider/index.js"
     }
   },
   "typesVersions": {
@@ -280,7 +285,8 @@
       "Dropdown": ["./dist/esm/components/Dropdown/index.d.ts"],
       "Navbar": ["./dist/esm/components/Navbar/index.d.ts"],
       "Tooltip": ["./dist/esm/components/Tooltip/index.d.ts"],
-      "Callout": ["./dist/esm/components/Callout/index.d.ts"]
+      "Callout": ["./dist/esm/components/Callout/index.d.ts"],
+      "RangeSlider": ["./dist/esm/components/RangeSlider/index.d.ts"]
     }
   }
 }

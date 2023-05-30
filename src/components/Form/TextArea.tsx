@@ -50,8 +50,13 @@ function TextArea({
   const isDisabled = variant === 'disabled'
   const { input, text } = inputVariants[variant]
   const [focused, setFocused] = useState(false)
-  const textareaRef = useRef<HTMLTextAreaElement>(null)
-  const isLabelScalded = !label || focused || textareaRef.current?.value.length
+  const textAreaRef = useRef<HTMLTextAreaElement>(null)
+
+  const isLabelScalded =
+    !label ||
+    focused ||
+    textAreaRef?.current?.value?.length ||
+    otherProps?.value?.toLocaleString()?.length
 
   const styles = {
     adornment: composeClasses(
@@ -117,7 +122,7 @@ function TextArea({
           </label>
         )}
         <textarea
-          ref={textareaRef}
+          ref={textAreaRef}
           {...otherProps}
           className={composeClasses(
             'w-full h-full bg-transparent focus:outline-none',

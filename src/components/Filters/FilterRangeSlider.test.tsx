@@ -1,9 +1,9 @@
 import { fireEvent, render } from '@testing-library/react'
 import { vi } from 'vitest'
-import { IRangeSlider } from 'components/MultiRangeSlider/MultiRangeSlider'
+import { RangeValues } from 'components/RangeSlider/RangeSlider'
 import FilterRangeSlider, { FilterRangeSliderProps } from './FilterRangeSlider'
 
-const onApply = vi.fn((range: IRangeSlider) => console.log(range))
+const onApply = vi.fn((range: RangeValues) => alert(range))
 const onReset = vi.fn()
 const defaultProps: FilterRangeSliderProps = {
   onApply,

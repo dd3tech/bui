@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import MultiRangeSliderComponent from '../components/MultiRangeSlider/MultiRangeSlider'
+import RangeSliderComponent from '../components/RangeSlider/RangeSlider'
 import Text from '../components/Typography'
 
 export default {
-  title: 'Form/MultiRangeSlider',
-  component: MultiRangeSliderComponent
-} as ComponentMeta<typeof MultiRangeSliderComponent>
+  title: 'Form/RangeSlider',
+  component: RangeSliderComponent
+} as ComponentMeta<typeof RangeSliderComponent>
 
-const Template: ComponentStory<typeof MultiRangeSliderComponent> = (args) => {
+const Template: ComponentStory<typeof RangeSliderComponent> = (args) => {
   const [text, setText] = useState('')
   const onChange = ({ min, max }) => setText(`${min}km - ${max}km`)
 
@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof MultiRangeSliderComponent> = (args) => {
       <Text bold className="mb-3">
         {text}
       </Text>
-      <MultiRangeSliderComponent
+      <RangeSliderComponent
         {...args}
         onChange={onChange}
         className="mt-2 mb-5"
@@ -26,9 +26,9 @@ const Template: ComponentStory<typeof MultiRangeSliderComponent> = (args) => {
   )
 }
 
-export const MultiRangeSlider = Template.bind({})
+export const RangeSlider = Template.bind({})
 
-MultiRangeSlider.args = {
-  min: 500,
+RangeSlider.args = {
+  min: 0,
   max: 1000
 }

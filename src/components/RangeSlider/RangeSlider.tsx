@@ -1,13 +1,13 @@
 import { useEffect, useState, useRef, RefObject } from 'react'
 import { composeClasses } from 'lib/classes'
-import './multiRangeSlider.css'
+import './rangeSlider.css'
 
-export interface IRangeSlider {
+export interface RangeValues {
   min: number
   max: number
 }
 
-export interface MultiRangeSliderProps {
+export interface RangeSliderProps {
   /**
    * Minimum value that can be selected.
    */
@@ -31,7 +31,7 @@ export interface MultiRangeSliderProps {
    * It receives an object with the properties min and max.
    * @param range
    */
-  onChange: (range: IRangeSlider) => void
+  onChange: (range: RangeValues) => void
   /**
    * Bar color
    */
@@ -60,6 +60,10 @@ export interface MultiRangeSliderProps {
    * A boolean that forces the component to update its value with the initMinValue and initMaxValue.
    */
   fireReset?: boolean
+  /**
+   * A boolean that indicates if the component is multi or not.
+   */
+  multi?: boolean
 }
 
 const barSizeVariants: { [key: string]: string } = {
@@ -89,6 +93,7 @@ export const updateBar = (
     min,
     max
   )
+
   const maxPercent = getPercent(
     input.name === 'max-val' ? Number(input.value) : minMaxVal,
     min,
@@ -101,7 +106,7 @@ export const updateBar = (
   }
 }
 
-const MultiRangeSlider = ({
+const RangeSlider = ({
   min,
   max,
   initMinValue,
@@ -113,8 +118,9 @@ const MultiRangeSlider = ({
   size,
   className,
   minValDisabled,
-  maxValDisabled
-}: MultiRangeSliderProps) => {
+  maxValDisabled,
+  multi
+}: RangeSliderProps) => {
   const initValue = { min: initMinValue ?? min, max: initMaxValue ?? max }
   const [minVal, setMinVal] = useState(initValue.min)
   const [maxVal, setMaxVal] = useState(initValue.max)
@@ -126,19 +132,15 @@ const MultiRangeSlider = ({
     // We always obtain a value lower than the maximum selected, since the maximum is reserved for the input maxVal
     const minValue = Math.min(val, maxVal - 1)
     setMinVal(minValue)
-    if (minValRef.current) {
-      minValRef.current.value = minValue.toString()
-    }
+    if (minValRef.current) minValRef.current.value = minValue.toString()
     maxValRef.current && updateBar(maxValRef.current, range, minValue, min, max)
   }
 
   const updateMax = (val: number) => {
     // We always obtain a value greater than the selected minimum, since the minimum is reserved for the input minVal
-    const maxValue = Math.max(val, minVal + 1)
+    const maxValue = Math.max(val, multi ? minVal + 1 : minVal)
     setMaxVal(maxValue)
-    if (maxValRef.current) {
-      maxValRef.current.value = maxValue.toString()
-    }
+    if (maxValRef.current) maxValRef.current.value = maxValue.toString()
     minValRef.current && updateBar(minValRef.current, range, maxValue, min, max)
   }
 
@@ -164,6 +166,7 @@ const MultiRangeSlider = ({
         disabled={minValDisabled}
         className={composeClasses(
           'thumb z-30 absolute pointer-events-none h-0 w-full outline-none',
+          !multi && 'hidden',
           thumbMargin[sizeBar],
           size
         )}
@@ -206,4 +209,5 @@ const MultiRangeSlider = ({
   )
 }
 
-export default MultiRangeSlider
+RangeSlider.displayName = 'RangeSlider'
+export default RangeSlider
