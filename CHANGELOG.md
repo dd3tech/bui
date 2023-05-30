@@ -1,3 +1,17 @@
+# [6.9.0](https://github.com/dd3tech/dd360-components/compare/v6.8.0...v6.9.0) (2023-05-30)
+
+
+### Bug Fixes
+
+* move animation list ([7382ae4](https://github.com/dd3tech/dd360-components/commit/7382ae45f78e9387c6eb86fdfe7f981b706b917a))
+* move type to types directory ([29ffcbd](https://github.com/dd3tech/dd360-components/commit/29ffcbdceecc5caaf2d43ad2d7162fa2c5bbd9f8))
+* type import ([6296732](https://github.com/dd3tech/dd360-components/commit/629673229d9751f52cccb017e76f740d759140b5))
+
+
+### Features
+
+* add transition component ([17ae90e](https://github.com/dd3tech/dd360-components/commit/17ae90e5148338f26c48bb896d904832c40e8b3f))
+
 # [6.8.0](https://github.com/dd3tech/dd360-components/compare/v6.7.3...v6.8.0) (2023-05-24)
 
 
