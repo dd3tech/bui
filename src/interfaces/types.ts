@@ -1,4 +1,4 @@
-import { ANIMATION_LIST } from "lib/animations"
+import { ANIMATION_LIST } from 'lib/animations'
 
 export type UnitCSS = `${number}${'px' | 'rem' | '%'}` | number
 
