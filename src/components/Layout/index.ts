@@ -12,6 +12,3 @@ export * from './Order'
 
 export { default as Overflow } from './Overflow'
 export * from './Overflow'
-
-export { default as Transition } from './Transition'
-export * from './Transition'

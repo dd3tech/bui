@@ -1,5 +1,3 @@
-import { ANIMATION_LIST } from 'lib/animations'
-
 export type UnitCSS = `${number}${'px' | 'rem' | '%'}` | number
 
 const twGlobalUnits = [
@@ -285,5 +283,3 @@ export type ButtonVariant =
   | 'outlineWhiteRed'
 
 export type PositionVariants = 'right' | 'left' | 'top' | 'bottom'
-
-export type AnimationsTypes = keyof typeof ANIMATION_LIST

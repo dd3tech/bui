@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import TransitionComponent from '../components/Layout/Transition'
+import TransitionComponent from '../components/Transition'
 
 export default {
   title: 'Layout/Transition',
