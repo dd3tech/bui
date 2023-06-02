@@ -72,20 +72,13 @@ const processChildren = (
   iconColor?: string
 ) => {
   return Children.map(children, (child, index) => {
-    return cloneElement(child as React.ReactElement<ListItemProps>, {
+    const listItemElement = child as React.ReactElement<ListItemProps>
+    return cloneElement(listItemElement, {
       icon: ordered ? `${prefixLabel}${index + 1}${suffixLabel}` : icon,
-      gapItem:
-        (child as React.ReactElement<ListItemProps>)?.props?.gapItem || gapItem,
-      iconSize:
-        (child as React.ReactElement<ListItemProps>)?.props?.iconSize ||
-        iconSize ||
-        defaultIconSize,
-      iconLineHeight:
-        (child as React.ReactElement<ListItemProps>)?.props?.iconLineHeight ||
-        iconLineHeight,
-      iconColor:
-        (child as React.ReactElement<ListItemProps>)?.props?.iconColor ||
-        iconColor
+      gapItem: listItemElement?.props?.gapItem || gapItem,
+      iconSize: listItemElement?.props?.iconSize || iconSize || defaultIconSize,
+      iconLineHeight: listItemElement?.props?.iconLineHeight || iconLineHeight,
+      iconColor: listItemElement?.props?.iconColor || iconColor
     })
   })
 }
