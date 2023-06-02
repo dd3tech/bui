@@ -121,8 +121,7 @@ function TextArea({
           >
             <span
               className={composeClasses(
-                !isDisabled ? 'text-info' : 'text-gray-400',
-                isRequired && 'ml-2'
+                !isDisabled ? 'text-info' : 'text-gray-400'
               )}
             >
               {label}
