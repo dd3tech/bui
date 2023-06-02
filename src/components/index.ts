@@ -109,6 +109,9 @@ export * from './Callout'
 export { default as Transition } from './Transition'
 export * from './Transition'
 
+export { default as List } from './List'
+export * from './List'
+
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
