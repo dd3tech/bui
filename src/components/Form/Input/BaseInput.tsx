@@ -167,11 +167,15 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
               <label
                 style={getAnimationLabel(!!isLabelScalded)}
                 className={composeClasses(
-                  'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis',
-                  !isDisabled && 'text-info'
+                  'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis'
                 )}
               >
-                <span className={composeClasses(isRequired && 'ml-2')}>
+                <span
+                  className={composeClasses(
+                    !isDisabled && 'text-info',
+                    isRequired && 'ml-2'
+                  )}
+                >
                   {label}
                 </span>
                 {isRequired && <span className="text-red-600 absolute">*</span>}

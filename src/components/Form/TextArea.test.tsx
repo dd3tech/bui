@@ -1,5 +1,5 @@
 import { it, describe, vi } from 'vitest'
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, prettyDOM, render } from '@testing-library/react'
 import UserCircleIcon from '@heroicons/react/outline/UserCircleIcon'
 import TextArea from './TextArea'
 
@@ -62,6 +62,8 @@ describe('<TextArea/>', () => {
       )
       expect(getByRole('textarea-container')).toHaveClass('bg-gray-100')
       const label = getByText('Example')
+
+      console.log(prettyDOM(label))
       expect(label).toBeInTheDocument()
       expect(label).toHaveClass('text-gray-400')
     })
