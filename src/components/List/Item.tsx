@@ -1,9 +1,8 @@
 import { Children, ReactNode, isValidElement } from 'react'
-import { IListIcon } from './Icon'
-import List from './List'
+import Icon, { ListIconProps } from './Icon'
 import { composeClasses } from 'lib/classes'
 
-export interface IListItem extends React.HTMLAttributes<HTMLLIElement> {
+export interface ListItemProps extends React.HTMLAttributes<HTMLLIElement> {
   icon?: ReactNode
   iconColor?: string
   gapItem?: number
@@ -20,15 +19,15 @@ const Item = ({
   iconSize,
   iconLineHeight,
   ...props
-}: IListItem) => {
-  let listIcon: React.ReactElement<IListIcon> | null = null
+}: ListItemProps) => {
+  let listIcon: React.ReactElement<ListIconProps> | null = null
 
   const renderedChildren = Children.map(children, (child) => {
     if (
       isValidElement(child) &&
-      (child as React.ReactElement<IListIcon>)?.type === List.Icon
+      (child as React.ReactElement<ListIconProps>)?.type === Icon
     ) {
-      listIcon = child as React.ReactElement<IListIcon>
+      listIcon = child as React.ReactElement<ListIconProps>
       return null
     }
     return child

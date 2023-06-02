@@ -36,4 +36,14 @@ const Template: ComponentStory<typeof ListComponent> = ({
 )
 
 export const List = Template.bind({})
-List.args = {}
+List.args = {
+  ordered: false,
+  gap: 5,
+  gapItem: 0,
+  icon: '•',
+  iconColor: '#000',
+  iconSize: 15,
+  iconLineHeight: 25,
+  prefixLabel: '',
+  suffixLabel: '.'
+}

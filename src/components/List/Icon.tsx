@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 
-export interface IListIcon extends React.HTMLAttributes<HTMLSpanElement> {
+export interface ListIconProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: ReactNode
 }
 
-const Icon = ({ children, ...props }: IListIcon) => {
+const Icon = ({ children, ...props }: ListIconProps) => {
   return (
     <span role="list-icon" style={{ ...props.style }} {...props}>
       {children}
