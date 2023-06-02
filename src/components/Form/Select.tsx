@@ -48,6 +48,7 @@ export interface SelectProps extends InputHTMLAttributes<HTMLInputElement> {
   boxShadow?: ShadowVariants
   optionsList: ISelectOptions
   itemWidth?: 'trimWithEllipsis' | 'fullWidth' | 'textWrap'
+  isRequired?: boolean
 }
 
 const IconStatus = ({ variant }: { variant: SelectVariantType }) => {
@@ -135,6 +136,7 @@ function Select({
   value: selectedValue,
   placeholder,
   itemWidth = 'trimWithEllipsis',
+  isRequired,
   ...otherProps
 }: SelectProps) {
   const { disabled } = otherProps
@@ -273,7 +275,10 @@ function Select({
                 !isDisabled && 'text-info'
               )}
             >
-              {label}
+              <span className={composeClasses(isRequired && 'ml-2')}>
+                {label}
+              </span>
+              {isRequired && <span className="text-red-600 absolute">*</span>}
             </label>
           )}
           <div className="relative">

@@ -19,7 +19,8 @@ function PercentageInput(props: InputProps) {
     [onChange, localValue]
   )
   useEffect(() => {
-    if (value) setLocalValue(value)
+    if (typeof value === 'string' || typeof value === 'number')
+      setLocalValue(value)
   }, [value])
 
   return <BaseInput {...props} onChange={handleChange} value={localValue} />

@@ -40,7 +40,8 @@ function NumberInput({
   }, [])
 
   useEffect(() => {
-    if (value) setLocalValue(value)
+    if (typeof value === 'string' || typeof value === 'number')
+      setLocalValue(value)
   }, [value])
 
   return (

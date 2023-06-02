@@ -36,6 +36,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   language?: 'es' | 'en'
   large?: boolean
   boxShadow?: ShadowVariants
+  isRequired?: boolean
 }
 
 const IconStatus = ({ variant }: { variant: InputVariantType }) => {
@@ -83,6 +84,7 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
       style,
       placeholder,
       value,
+      isRequired,
       ...otherProps
     }: InputProps,
     ref
@@ -169,7 +171,10 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
                   !isDisabled && 'text-info'
                 )}
               >
-                {label}
+                <span className={composeClasses(isRequired && 'ml-2')}>
+                  {label}
+                </span>
+                {isRequired && <span className="text-red-600 absolute">*</span>}
               </label>
             )}
             <input

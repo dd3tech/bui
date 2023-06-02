@@ -26,6 +26,7 @@ export interface TextAreaProps
   rounded?: string
   large?: boolean
   boxShadow?: ShadowVariants
+  isRequired?: boolean
 }
 
 function TextArea({
@@ -43,6 +44,7 @@ function TextArea({
   placeholder,
   onFocus,
   onBlur,
+  isRequired,
   ...otherProps
 }: TextAreaProps) {
   const { disabled } = otherProps
@@ -118,7 +120,10 @@ function TextArea({
               !isDisabled ? 'text-info' : 'text-gray-400'
             )}
           >
-            {label}
+            <span className={composeClasses(isRequired && 'ml-2')}>
+              {label}
+            </span>
+            {isRequired && <span className="text-red-600 absolute">*</span>}
           </label>
         )}
         <textarea
