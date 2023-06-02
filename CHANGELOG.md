@@ -1,3 +1,16 @@
+# [6.10.0](https://github.com/dd3tech/dd360-components/compare/v6.9.0...v6.10.0) (2023-06-02)
+
+
+### Bug Fixes
+
+* add comment documentation on list item ([8bad2ba](https://github.com/dd3tech/dd360-components/commit/8bad2ba26ebdb9822918f65ae2beb7ef7ca123a6))
+* resolve comments ([2fca1fe](https://github.com/dd3tech/dd360-components/commit/2fca1feaa7f9b653803f06836df1202a279a3b95))
+
+
+### Features
+
+* add list component ([e652a7b](https://github.com/dd3tech/dd360-components/commit/e652a7ba2a6299f481ab4842e90d2e8478dae868))
+
 # [6.9.0](https://github.com/dd3tech/dd360-components/compare/v6.8.0...v6.9.0) (2023-05-30)
 
 
