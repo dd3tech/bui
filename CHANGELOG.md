@@ -1,3 +1,44 @@
+# [6.10.0](https://github.com/dd3tech/dd360-components/compare/v6.9.0...v6.10.0) (2023-06-02)
+
+
+### Bug Fixes
+
+* add comment documentation on list item ([8bad2ba](https://github.com/dd3tech/dd360-components/commit/8bad2ba26ebdb9822918f65ae2beb7ef7ca123a6))
+* resolve comments ([2fca1fe](https://github.com/dd3tech/dd360-components/commit/2fca1feaa7f9b653803f06836df1202a279a3b95))
+
+
+### Features
+
+* add list component ([e652a7b](https://github.com/dd3tech/dd360-components/commit/e652a7ba2a6299f481ab4842e90d2e8478dae868))
+
+# [6.9.0](https://github.com/dd3tech/dd360-components/compare/v6.8.0...v6.9.0) (2023-05-30)
+
+
+### Bug Fixes
+
+* move animation list ([7382ae4](https://github.com/dd3tech/dd360-components/commit/7382ae45f78e9387c6eb86fdfe7f981b706b917a))
+* move type to types directory ([29ffcbd](https://github.com/dd3tech/dd360-components/commit/29ffcbdceecc5caaf2d43ad2d7162fa2c5bbd9f8))
+* type import ([6296732](https://github.com/dd3tech/dd360-components/commit/629673229d9751f52cccb017e76f740d759140b5))
+
+
+### Features
+
+* add transition component ([17ae90e](https://github.com/dd3tech/dd360-components/commit/17ae90e5148338f26c48bb896d904832c40e8b3f))
+
+# [6.8.0](https://github.com/dd3tech/dd360-components/compare/v6.7.3...v6.8.0) (2023-05-24)
+
+
+### Features
+
+* skeleton is added to the sidebar ([52d5485](https://github.com/dd3tech/dd360-components/commit/52d548590efccd1d8a05157a0152b887c252ae51))
+
+## [6.7.3](https://github.com/dd3tech/dd360-components/compare/v6.7.2...v6.7.3) (2023-05-18)
+
+
+### Bug Fixes
+
+* **Text:** add validation in variant currency([#100](https://github.com/dd3tech/dd360-components/issues/100)) ([d76372c](https://github.com/dd3tech/dd360-components/commit/d76372c0eed39c88ba41e4b6a1f0ce1165a3954d))
+
 ## [6.7.2](https://github.com/dd3tech/dd360-components/compare/v6.7.1...v6.7.2) (2023-05-17)
 
 
