@@ -1,7 +1,9 @@
-import { Children, ReactNode, cloneElement, isValidElement } from 'react'
+import { Children, ReactNode, cloneElement } from 'react'
 import { composeClasses } from 'lib/classes'
+import Item, { IListItem } from './Item'
+import Icon from './Icon'
 
-interface IList extends React.HTMLAttributes<HTMLUListElement> {
+export interface IList extends React.HTMLAttributes<HTMLUListElement> {
   ordered?: boolean
   gap?: number
   gapItem?: number
@@ -11,19 +13,6 @@ interface IList extends React.HTMLAttributes<HTMLUListElement> {
   icon?: ReactNode
   iconSize?: number
   iconLineHeight?: number
-  children: ReactNode
-}
-
-interface IListItem extends React.HTMLAttributes<HTMLLIElement> {
-  icon?: ReactNode
-  iconColor?: string
-  gapItem?: number
-  iconSize?: number
-  iconLineHeight?: number
-  children: ReactNode
-}
-
-interface IListIcon extends React.HTMLAttributes<HTMLSpanElement> {
   children: ReactNode
 }
 
@@ -81,57 +70,6 @@ const List = ({
         })
       })}
     </Wrapper>
-  )
-}
-
-const Item = ({
-  children,
-  gapItem,
-  icon,
-  iconColor,
-  iconSize,
-  iconLineHeight,
-  ...props
-}: IListItem) => {
-  let listIcon: React.ReactElement<IListIcon> | null = null
-
-  const renderedChildren = Children.map(children, (child) => {
-    if (
-      isValidElement(child) &&
-      (child as React.ReactElement<IListIcon>)?.type === List.Icon
-    ) {
-      listIcon = child as React.ReactElement<IListIcon>
-      return null
-    }
-    return child
-  })
-
-  return (
-    <li
-      role="list-item"
-      className={composeClasses('flex', props.className)}
-      style={{ gap: `${gapItem}px`, ...props.style }}
-    >
-      <span
-        style={{
-          color: iconColor,
-          fontSize: `${iconSize}px`,
-          lineHeight: `${iconLineHeight}px`
-        }}
-        className="w-5 flex-shrink-0 flex items-start justify-center text-center"
-      >
-        {listIcon ? listIcon : icon}
-      </span>
-      <span>{renderedChildren}</span>
-    </li>
-  )
-}
-
-const Icon = ({ children, ...props }: IListIcon) => {
-  return (
-    <span role="list-icon" style={{ ...props.style }} {...props}>
-      {children}
-    </span>
   )
 }
 
