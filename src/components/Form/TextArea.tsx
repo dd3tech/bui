@@ -115,7 +115,7 @@ function TextArea({
               zIndex: 1,
               ...getAnimationLabel(!!isLabelScalded)
             }}
-            className="absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis pb-0.5"
+            className="absolute w-full block text-xs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis pb-0.5"
           >
             <span
               className={composeClasses(

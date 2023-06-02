@@ -270,7 +270,7 @@ function Select({
           {label && (
             <label
               style={getAnimationLabel(isLabelScalded)}
-              className="absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis"
+              className="absolute w-full block text-xs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis"
             >
               <span className={composeClasses(!isDisabled && 'text-info')}>
                 {label}
