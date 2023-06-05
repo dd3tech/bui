@@ -11,20 +11,62 @@ import Flex from '../Layout/Flex'
 import { SideBarSubItem, TBadge } from './SideBar'
 import SideBarBadge from './SideBarBadge'
 
-export interface SideBarItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SideBarItemProps {
+  /**
+   * Index of the SideBarItem
+   */
   index: number
+  /**
+   * Indicates if the SideBarItem is disabled
+   */
   disabled?: boolean
+  /**
+   * Indicates if the SideBarItem is active
+   */
   active: boolean
+  /**
+   * Icon element to be displayed
+   */
   icon?: JSX.Element
+  /**
+   * Object with subitems of the SideBarItem
+   */
   subItems?: SideBarSubItem
+  /**
+   * Title of the SideBarItem
+   */
   title: string
+  /**
+   * Indicates if the SideBarItem is expanded
+   */
   isExpand: boolean
+  /**
+   * Badge value to be displayed
+   */
   badge?: TBadge
+  /**
+   * Indicates if the SideBarItem's submenu is open
+   */
   isOpen?: boolean
+  /**
+   * Indicates if the SideBarItem's option is clicked
+   */
   isOptionClicked: boolean
+  /**
+   * Tag to be displayed for disabled options
+   */
   disabledOptionsTag?: string
+  /**
+   * This function will be called only if the main item has no sub items
+   */
   goTo?: () => void
+  /**
+   * Function to handle the click event on the SideBarItem
+   */
   handleClickOption: (disabled: boolean | undefined, goTo: any) => () => void
+  /**
+   * Function to toggle the submenu of the SideBarItem
+   */
   toggleSubMenu: (menuItemIndex: number) => void
 }
 
@@ -64,61 +106,19 @@ const ListSubItems = ({ subItemsArray, isOpen }: ListSubItems) => (
 )
 
 const SideBarItem = ({
-  /**
-   * Index of the SideBarItem
-   */
   index,
-  /**
-   * Indicates if the SideBarItem is disabled
-   */
   disabled,
-  /**
-   * Indicates if the SideBarItem is active
-   */
   active,
-  /**
-   * Tag to be displayed for disabled options
-   */
   disabledOptionsTag,
-  /**
-   * Indicates if the SideBarItem's option is clicked
-   */
   isOptionClicked,
-  /**
-   * Object with subitems of the SideBarItem
-   */
   subItems,
-  /**
-   * Indicates if the SideBarItem's submenu is open
-   */
   isOpen,
-  /**
-   * Badge value to be displayed
-   */
   badge,
-  /**
-   * Indicates if the SideBarItem is expanded
-   */
   isExpand,
-  /**
-   * Title of the SideBarItem
-   */
   title,
-  /**
-   * Icon element to be displayed
-   */
   icon,
-  /**
-   * This function will be called only if the main item has no sub items
-   */
   goTo,
-  /**
-   * Function to handle the click event on the SideBarItem
-   */
   handleClickOption,
-  /**
-   * Function to toggle the submenu of the SideBarItem
-   */
   toggleSubMenu
 }: SideBarItemProps) => {
   const subItemsArray = subItems ? Object.entries(subItems) : []
