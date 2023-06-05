@@ -15,10 +15,10 @@ import {
   InputVariant as InputVariantType,
   InputType,
   getClassesByPseudoClass,
-  getAnimationLabel,
   getPaddingInput
 } from '../shared'
 import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
+import FormLabel from '../FormLabel'
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type?: InputType
@@ -98,8 +98,8 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
     const isLabelScalded =
       !label ||
       focused ||
-      value?.toLocaleString().length ||
-      inputRef.current?.value.length
+      Boolean(value?.toLocaleString().length) ||
+      Boolean(inputRef.current?.value.length)
 
     const handleFocus = useCallback(
       (event: React.FocusEvent<HTMLInputElement>) => {
@@ -164,15 +164,12 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
           )}
           <div className="flex flex-col w-full relative h-11">
             {label && (
-              <label
-                style={getAnimationLabel(!!isLabelScalded)}
-                className="absolute w-full block text-xs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis"
-              >
-                <span className={composeClasses(!isDisabled && 'text-info')}>
-                  {label}
-                </span>
-                {isRequired && <span className="text-red-600 absolute">*</span>}
-              </label>
+              <FormLabel
+                isLabelScalded={isLabelScalded}
+                isDisabled={isDisabled}
+                isRequired={isRequired}
+                label={label}
+              />
             )}
             <input
               ref={inputRef}

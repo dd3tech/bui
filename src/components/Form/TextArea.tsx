@@ -6,12 +6,9 @@ import {
   useRef
 } from 'react'
 import { composeClasses } from 'lib/classes'
-import {
-  inputVariants,
-  InputVariant as InputVariantType,
-  getAnimationLabel
-} from './shared'
+import { inputVariants, InputVariant as InputVariantType } from './shared'
 import { Padding, ShadowVariants } from '../../interfaces/types'
+import FormLabel from './FormLabel'
 
 export interface TextAreaProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -54,11 +51,11 @@ function TextArea({
   const [focused, setFocused] = useState(false)
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
 
-  const isLabelScalded =
+  const isLabelScalded: boolean =
     !label ||
     focused ||
-    textAreaRef?.current?.value?.length ||
-    otherProps?.value?.toLocaleString()?.length
+    Boolean(textAreaRef?.current?.value?.length) ||
+    Boolean(otherProps?.value?.toLocaleString()?.length)
 
   const styles = {
     adornment: composeClasses(
@@ -109,23 +106,12 @@ function TextArea({
     <>
       <div role="textarea-container" className={styles.container}>
         {label && (
-          <label
-            style={{
-              cursor: 'inherit',
-              zIndex: 1,
-              ...getAnimationLabel(!!isLabelScalded)
-            }}
-            className="absolute w-full block text-xs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis pb-0.5"
-          >
-            <span
-              className={composeClasses(
-                !isDisabled ? 'text-info' : 'text-gray-400'
-              )}
-            >
-              {label}
-            </span>
-            {isRequired && <span className="text-red-600 absolute">*</span>}
-          </label>
+          <FormLabel
+            isLabelScalded={isLabelScalded}
+            isDisabled={isDisabled}
+            isRequired={isRequired}
+            label={label}
+          />
         )}
         <textarea
           ref={textAreaRef}

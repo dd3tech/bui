@@ -19,9 +19,9 @@ import { Padding, ShadowVariants } from '../../interfaces/types'
 import {
   inputVariants,
   InputVariant as SelectVariantType,
-  getAnimationLabel,
   getPaddingInput
 } from './shared'
+import FormLabel from './FormLabel'
 
 type ItemObj = {
   label?: string
@@ -268,15 +268,12 @@ function Select({
         )}
         <div className="flex flex-col w-full relative h-11">
           {label && (
-            <label
-              style={getAnimationLabel(isLabelScalded)}
-              className="absolute w-full block text-xs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis"
-            >
-              <span className={composeClasses(!isDisabled && 'text-info')}>
-                {label}
-              </span>
-              {isRequired && <span className="text-red-600 absolute">*</span>}
-            </label>
+            <FormLabel
+              label={label}
+              isLabelScalded={isLabelScalded}
+              isDisabled={isDisabled}
+              isRequired={isRequired}
+            />
           )}
           <div className="relative">
             <input

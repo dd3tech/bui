@@ -135,8 +135,7 @@ function DateInput({
   }, [currentDate, variant])
 
   useEffect(() => {
-    if (typeof value === 'string' || typeof value === 'number')
-      setDate(getDateFormat(String(value)))
+    if (!isNaN(Number(value))) setDate(getDateFormat(String(value)))
   }, [value])
 
   useEffect(() => {

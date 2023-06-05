@@ -19,7 +19,7 @@ function CurrencyInput(props: InputProps) {
   )
 
   useEffect(() => {
-    if (typeof value === 'string' || typeof value === 'number')
+    if (!isNaN(Number(value)))
       setLocalValue(getValueWithDecimalFormat(String(value)))
   }, [value])
 
