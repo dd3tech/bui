@@ -1,29 +1,45 @@
-import React, { useRef } from 'react'
 import {
-  ChevronDoubleLeftIcon,
-  ExclamationIcon,
-  ClockIcon,
-  ExclamationCircleIcon
-} from '@heroicons/react/outline'
+  MutableRefObject,
+  ReactElement,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
+import { ExclamationIcon, ChevronLeftIcon } from '@heroicons/react/outline'
+import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 import ToolTipHover from '../ToolTipHover'
+import Flex from '../Layout/Flex/Flex'
+import SideBarHeader from './SideBarHeader'
+import SideBarItem from './SideBarItem'
+import SkeletonSideBarList from './SkeletonSideBarList'
 import './sideBar.css'
 
-import { composeClasses } from 'lib/classes'
-import Flex from '../Layout/Flex/Flex'
-import Skeleton from '../Skeleton/Skeleton'
-
-export interface SideBarProps {
-  sideBarList?: Array<{
+export interface ISideBarSubItem {
+  [key: string]: {
     title: string
     active: boolean
     to: () => void
-    icon?: JSX.Element
-    disabled?: boolean
-    hidden?: boolean
-  }>
+  }
+}
+
+export type TBadge = string | number | ReactElement
+export interface ISideBarItem {
+  title: string
+  active: boolean
+  isOpen?: boolean
+  to?: () => void
+  icon?: JSX.Element
+  disabled?: boolean
+  hidden?: boolean
+  subItems?: ISideBarSubItem
+  badge?: TBadge
+}
+
+export interface SideBarProps {
+  sideBarList?: ISideBarItem[]
   sideBarName: string
-  sideBarSubTitle?: string | React.ReactElement
+  sideBarSubTitle?: string | ReactElement
   defaultExpand?: boolean
   dangerZone?: {
     show: boolean
@@ -39,29 +55,6 @@ export interface SideBarProps {
   isLoadingSideBarList?: boolean
 }
 
-const SkeletonSideBarList = () => {
-  return (
-    <>
-      {Array.from(Array(5).keys()).map((key) => (
-        <Flex
-          key={key}
-          alignItems="center"
-          justifyContent="start"
-          gap="1"
-          className="w-72 h-16"
-        >
-          <Flex alignItems="center" className="w-16">
-            <Flex alignItems="center" className="w-6 h-6 ml-5">
-              <Skeleton rounded="base" height={20} width={20} />
-            </Flex>
-          </Flex>
-          <Skeleton rounded="full" className="h-3 w-24" />
-        </Flex>
-      ))}
-    </>
-  )
-}
-
 const SideBar = ({
   sideBarList,
   sideBarName,
@@ -75,22 +68,28 @@ const SideBar = ({
   isLoadingSideBarList,
   ...props
 }: SideBarProps) => {
-  const sidebarRef: React.MutableRefObject<HTMLDivElement | null> =
+  const sidebarRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
   const isScrolling = useRef<number>()
-  const [expand, setExpand] = React.useState(false)
-  const [timer, setTimer] = React.useState(false)
-  const [isOptionClicked, setIsOptionClicked] = React.useState(false)
+  const [expand, setExpand] = useState(false)
+  const [timer, setTimer] = useState(false)
+  const [isOptionClicked, setIsOptionClicked] = useState(false)
+  const [menuItems, setMenuItems] = useState<ISideBarItem[] | undefined>(
+    sideBarList
+  )
 
-  const activeStyle = React.useCallback((activeLink: boolean) => {
-    return {
-      width: '6px',
-      minWidth: '6px',
-      height: '64px',
-      backgroundColor: `${activeLink ? 'var(--primary)' : 'transparent'}`,
-      borderRadius: '0px 8px 8px 0px'
-    }
-  }, [])
+  const toggleSubMenu = (menuItemIndex: number) => {
+    if (!menuItems) return
+
+    setMenuItems((prevMenuItems) => {
+      if (!prevMenuItems) return []
+      const updatedMenuItems = [...prevMenuItems]
+      updatedMenuItems[menuItemIndex].isOpen =
+        !updatedMenuItems[menuItemIndex].isOpen
+
+      return updatedMenuItems
+    })
+  }
 
   const shotTimer = () => {
     setTimeout(() => {
@@ -98,7 +97,7 @@ const SideBar = ({
     }, 300)
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (defaultExpand) {
       setExpand(true)
       shotTimer()
@@ -118,15 +117,15 @@ const SideBar = ({
   }
 
   const handleClickOption =
-    (disabled: boolean | undefined, active: boolean, to: () => void) => () => {
-      if (disabled || active) return
+    (disabled: boolean | undefined, to: () => void) => () => {
+      if (disabled) return
       flushSync
         ? flushSync(() => setIsOptionClicked(true))
         : setIsOptionClicked(true)
       to()
     }
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
@@ -149,8 +148,9 @@ const SideBar = ({
         ref={sidebarRef}
         role="container-sidebar"
         className={composeClasses(
-          'shadow-lg border-t-0 box-border overflow-hidden h-full bg-white fixed transition-all delay-75 duration-200 ease-in z-40',
-          expand ? 'w-72' : 'w-0 lg:w-16'
+          'bg-gray-50 shadow-lg border-t-0 box-border overflow-hidden h-full fixed z-40',
+          'transition-all delay-75 duration-200 ease-in',
+          expand ? 'w-60' : 'w-0 lg:w-14'
         )}
         style={{
           maxHeight: `calc(100vh - ${sidebarRef.current?.offsetTop}px)`,
@@ -162,14 +162,15 @@ const SideBar = ({
           <Flex
             justifyContent="between"
             alignItems="center"
-            className="border-b w-full h-16 lg:h-20"
+            className={composeClasses('w-full h-16 mb-1', expand && 'relative')}
           >
             <div
               role="active-sidebar"
               className={composeClasses(
-                'fixed ml-6 lg:ml-3.5 border rounded-full bg-white text-primary cursor-pointer transition-all duration-300 ease-in-out',
+                'fixed ml-2.5 border rounded-full bg-white text-primary cursor-pointer transition-all duration-300 ease-in-out',
                 'focus:bg-primary focus:text-white',
-                'hover:bg-blue-50'
+                'hover:bg-blue-50',
+                expand && 'absolute right-2'
               )}
               onClick={() => {
                 setExpand(!expand)
@@ -184,44 +185,25 @@ const SideBar = ({
                   expand ? 'rotate-0' : 'rotate-180'
                 )}
               >
-                <ChevronDoubleLeftIcon
+                <ChevronLeftIcon
                   className="transition-all duration-200 ease-in-out"
                   width={25}
                 />
               </Flex>
             </div>
-            <Flex
-              justifyContent="center"
-              gap="1"
-              className="flex-col col-span-2 p-3 ml-16 w-full h-24"
-            >
-              {isLoadingHeaderInfo ? (
-                <>
-                  <Skeleton rounded="full" className="h-4 w-32" />
-                  <Skeleton rounded="full" className="h-3 w-24" />
-                </>
-              ) : (
-                <>
-                  <Text
-                    variant="span"
-                    size="base"
-                    bold
-                    className="block w-52 letter-spacing-negative capitalize"
-                  >
-                    {sideBarName}
-                  </Text>
-                  {sideBarSubTitle && (
-                    <Text
-                      variant="small"
-                      fontBold="medium"
-                      className="text-gray-400 whitespace-nowrap"
-                    >
-                      {sideBarSubTitle}
-                    </Text>
-                  )}
-                </>
-              )}
-            </Flex>
+            {expand && (
+              <Flex
+                justifyContent="center"
+                gap="1"
+                className="flex-col col-span-2 p-3 w-full"
+              >
+                <SideBarHeader
+                  sideBarName={sideBarName}
+                  sideBarSubTitle={sideBarSubTitle}
+                  isLoadingHeaderInfo={isLoadingHeaderInfo}
+                />
+              </Flex>
+            )}
           </Flex>
           <div
             role="list-options"
@@ -232,132 +214,69 @@ const SideBar = ({
             {isLoadingSideBarList ? (
               <SkeletonSideBarList />
             ) : (
-              sideBarList?.map(
-                (
-                  { title, active, to, icon, disabled, hidden },
-                  index: number
-                ) =>
-                  !hidden && (
-                    <Flex
-                      key={`${title}-${index.toString()}`}
-                      alignItems="center"
-                      justifyContent="start"
-                      gap="1"
-                      className={composeClasses(
-                        'w-72 h-16 transition-all duration-300 ease-out letter-spacing-negative',
-                        'hover:text-error',
-                        disabled
-                          ? 'cursor-not-allowed'
-                          : 'cursor-pointer hover:bg-gray-100',
-                        active && 'bg-blue-50'
-                      )}
-                      onClick={handleClickOption(disabled, active, to)}
-                    >
-                      <ToolTipHover
-                        element={
-                          <Flex
-                            role={`option-icon-${index}`}
-                            alignItems="center"
-                            className="w-16 flex"
-                          >
-                            <div style={activeStyle(active)}></div>
-                            <Flex
-                              alignItems="center"
-                              className={composeClasses(
-                                'w-6 h-6 ml-3.5',
-                                disabled ? 'text-gray-300' : 'text-gray-400',
-                                active && 'text-primary'
-                              )}
-                            >
-                              {icon ? icon : <ExclamationCircleIcon />}
-                            </Flex>
-                          </Flex>
-                        }
-                        variantPopup="dark"
-                        disabled={expand || isOptionClicked}
-                        complementPosition={{ top: 55, left: 85 }}
-                      >
-                        {!disabled ? (
-                          title
-                        ) : (
-                          <Flex alignItems="center" gap="1">
-                            <ClockIcon width={15} />
-                            {title}
-                          </Flex>
-                        )}
-                      </ToolTipHover>
-                      <Text
-                        role={`option-${index}`}
-                        variant="span"
-                        className={`${
-                          disabled ? 'text-gray-300' : 'text-info'
-                        } w-56 whitespace-nowrap font-semibold`}
-                      >
-                        {disabled && (
-                          <Flex
-                            alignItems="center"
-                            gap="1"
-                            className="mr-10 italic"
-                            style={{ fontSize: '10px' }}
-                          >
-                            <ClockIcon width={15} />
-                            {disabledOptionsTag}
-                          </Flex>
-                        )}
-                        {title}
-                      </Text>
-                    </Flex>
+              menuItems?.map(
+                (item, index: number) =>
+                  !item.hidden && (
+                    <SideBarItem
+                      key={`${item.title}-${index.toString()}`}
+                      index={index}
+                      disabledOptionsTag={disabledOptionsTag}
+                      isOptionClicked={isOptionClicked}
+                      isExpand={expand}
+                      handleClickOption={handleClickOption}
+                      toggleSubMenu={toggleSubMenu}
+                      {...item}
+                    />
                   )
               )
             )}
           </div>
           {props.dangerZone?.show && (
-            <div
+            <Flex
               role="danger-zone"
-              className={`w-72 border-t ${
-                props.dangerZone?.active ? 'bg-error' : 'bg-gray-50'
-              } border-gray-300 hover:error-200 transition ease-in duration-300`}
+              alignItems="center"
+              className="w-full cursor-pointer group mb-4"
+              onClick={() => {
+                if (props.dangerZone?.callBack) {
+                  flushSync
+                    ? flushSync(() => setIsOptionClicked(true))
+                    : setIsOptionClicked(true)
+                  props.dangerZone?.callBack()
+                }
+              }}
             >
-              <div
-                className="w-full h-20 lg:h-32 flex items-center cursor-pointer group"
-                onClick={() => {
-                  if (props.dangerZone?.callBack) {
-                    flushSync
-                      ? flushSync(() => setIsOptionClicked(true))
-                      : setIsOptionClicked(true)
-                    props.dangerZone?.callBack()
-                  }
-                }}
+              <ToolTipHover
+                variantPopup="dark"
+                disabled={expand || isOptionClicked}
+                complementPosition={{ top: 30, left: 85 }}
+                element={
+                  <Flex
+                    justifyContent="center"
+                    alignItems="center"
+                    className="w-14"
+                  >
+                    <ExclamationIcon
+                      role="danger-zone-icon"
+                      width={25}
+                      className={composeClasses(
+                        props.dangerZone?.active ? 'text-white' : 'text-error'
+                      )}
+                    />
+                  </Flex>
+                }
               >
-                <ToolTipHover
-                  variantPopup="dark"
-                  disabled={expand || isOptionClicked}
-                  complementPosition={{ top: 65, left: 85 }}
-                  element={
-                    <div className="h-20 w-16 flex items-center">
-                      <ExclamationIcon
-                        role="danger-zone-icon"
-                        width={25}
-                        className={composeClasses(
-                          'ml-5',
-                          props.dangerZone?.active ? 'text-white' : 'text-error'
-                        )}
-                      />
-                    </div>
-                  }
-                >
-                  {props?.dangerZone?.text}
-                </ToolTipHover>
-                <Text
-                  className={composeClasses(
-                    'font-semibold',
-                    props.dangerZone?.active ? 'text-white' : 'text-info'
-                  )}
-                >
-                  {props?.dangerZone?.text}
-                </Text>
-              </div>
-            </div>
+                {props?.dangerZone?.text}
+              </ToolTipHover>
+              <Text
+                size="sm"
+                className={composeClasses(
+                  'min-w-max',
+                  props.dangerZone?.active ? 'text-white' : 'text-info'
+                )}
+              >
+                {props?.dangerZone?.text}
+              </Text>
+            </Flex>
           )}
         </Flex>
       </div>

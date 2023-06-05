@@ -1,41 +1,62 @@
 import { it, describe, vi } from 'vitest'
 import { render, RenderResult, fireEvent } from '@testing-library/react'
-
+import { ExclamationIcon, HomeIcon } from '@heroicons/react/outline'
 import SideBar from './SideBar'
-import { HomeIcon } from '@heroicons/react/outline'
 
 const dangerZoneCallback = vi.fn()
 const push = vi.fn()
 const flushSync = vi.fn()
 
+const subItems = {
+  1: {
+    title: 'SubLista 1',
+    active: true,
+    to: push
+  },
+  2: {
+    title: 'SubLista 2',
+    active: false,
+    to: push
+  }
+}
+
+const sideBarList = [
+  {
+    title: 'Project information',
+    active: true,
+    isOpen: true,
+    icon: <HomeIcon />,
+    subItems: subItems,
+    badge: 4
+  },
+  {
+    title: 'Monthly Flow',
+    active: false,
+    isOpen: false,
+    subItems: subItems,
+    badge: 4
+  },
+  {
+    title: 'Documentation',
+    active: false,
+    isOpen: false,
+    disabled: true,
+    subItems: subItems,
+    badge: <ExclamationIcon className="w-4 h-4 text-yellow-400" />
+  },
+  {
+    title: 'Sales',
+    active: false,
+    isOpen: false,
+    to: push,
+    badge: 8
+  }
+]
+
 const props = {
   sideBarName: 'Name Test',
   sideBarSubTitle: 'Subtitle text',
-  sideBarList: [
-    {
-      title: 'Project information',
-      active: true,
-      to: push,
-      icon: <HomeIcon id="home-icon" />
-    },
-    {
-      title: 'Monthly Flow',
-      active: false,
-      to: push
-    },
-    {
-      title: 'Documentation',
-      active: false,
-      to: push,
-      disabled: true
-    },
-    {
-      title: 'Sales',
-      active: false,
-      to: push,
-      hidden: true
-    }
-  ],
+  sideBarList: sideBarList,
   disabledOptionsTag: 'Próximamente',
   dangerZone: {
     show: true,
@@ -77,7 +98,7 @@ describe('<SideBar/>', () => {
     fireEvent.click(renderResult.getByRole('active-sidebar'))
     vi.advanceTimersByTime(300)
 
-    expect(sidebar.className.includes('w-72')).toBeTruthy()
+    expect(sidebar.className.includes('w-60')).toBeTruthy()
   })
 
   it('SideBar, when passing disabled property as true on the second and third object on the sidebarList, they are correctly disabled', () => {
@@ -107,7 +128,7 @@ describe('<SideBar/>', () => {
   })
 
   it('SideBar, when click an option redirect to new path', () => {
-    fireEvent.click(renderResult.getByRole('option-1'))
+    fireEvent.click(renderResult.getByRole('option-3'))
 
     vi.advanceTimersByTime(300)
 
@@ -119,7 +140,7 @@ describe('<SideBar/>', () => {
     renderResult.rerender(<SideBar {...props} flushSync={flushSync} />)
     const dangerBtn = renderResult.getByRole('danger-zone')
       .firstChild as HTMLDivElement
-    const option = renderResult.getByRole('option-1') as HTMLDivElement
+    const option = renderResult.getByRole('option-3') as HTMLDivElement
 
     fireEvent.click(option)
     fireEvent.click(dangerBtn)
@@ -129,6 +150,7 @@ describe('<SideBar/>', () => {
   })
 
   it('SideBar, subtitle and title are showing correctly', () => {
+    renderResult.rerender(<SideBar {...props} defaultExpand={true} />)
     expect(renderResult.getByText('Name Test')).toBeDefined()
     expect(renderResult.getByText('Subtitle text')).toBeDefined()
   })
@@ -144,23 +166,19 @@ describe('<SideBar/>', () => {
     ).toBeTruthy()
   })
 
-  it('SideBar, option is blue when is selected', () => {
+  it('SideBar, the active element should have the correct styles', () => {
     const adornment = renderResult.getByRole('option-icon-0')
       .firstChild as HTMLDivElement
-    const icon = renderResult.getByRole('option-icon-0')
-      .lastChild as HTMLDivElement
+
     const option = renderResult.getByRole('option-icon-0').parentElement
-      ?.parentElement?.parentElement as HTMLDivElement
-    expect(adornment.style.backgroundColor).toBe('')
-    expect(icon.className.includes('text-primary')).toBeTruthy()
-    expect(option.className.includes('bg-blue-50')).toBeTruthy()
-  })
+      ?.parentElement?.parentElement?.lastElementChild as HTMLDivElement
 
-  it('SideBar, is showing icon correctly when is passed by props', () => {
-    const icon = renderResult.getByRole('option-icon-0')
-      .lastChild as HTMLDivElement
+    const icon = renderResult.getByRole('option-icon-0').firstChild
+      ?.firstChild as HTMLDivElement
 
-    expect(icon.querySelector('svg')?.id).toBe('home-icon')
+    expect(adornment.className.includes('bg-gray-200')).toBeTruthy()
+    expect(option.className.includes('bg-gray-200')).toBeTruthy()
+    expect(icon.className.includes('text-gray-500')).toBeTruthy()
   })
 
   it('SideBar, is showing default icon', () => {
@@ -178,7 +196,7 @@ describe('<SideBar/>', () => {
 
     vi.advanceTimersByTime(300)
 
-    expect(sidebar.className.includes('w-72')).toBeTruthy()
+    expect(sidebar.className.includes('w-60')).toBeTruthy()
   })
 
   it('SideBar, hide tooltip when scroll page', () => {
@@ -205,11 +223,9 @@ describe('<SideBar/>', () => {
     renderResult.rerender(
       <SideBar {...props} dangerZone={{ ...props.dangerZone, active: true }} />
     )
-    const dangerZone = renderResult.getByRole('danger-zone') as HTMLDivElement
-    const dangerZoneText = renderResult.getByRole('danger-zone').firstChild
-      ?.lastChild as HTMLDivElement
+    const dangerZoneText = renderResult.getByRole('danger-zone')
+      .lastChild as HTMLDivElement
 
-    expect(dangerZone.className.includes('bg-error')).toBeTruthy()
     expect(dangerZoneText.className.includes('text-white')).toBeTruthy()
   })
 
@@ -218,6 +234,6 @@ describe('<SideBar/>', () => {
       <SideBar {...props} dangerZone={{ ...props.dangerZone, active: true }} />
     )
 
-    expect(renderResult.getByRole('list-options').children).toHaveLength(3)
+    expect(renderResult.getByRole('list-options').children).toHaveLength(4)
   })
 })
