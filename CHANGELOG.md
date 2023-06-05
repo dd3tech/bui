@@ -1,3 +1,10 @@
+## [6.11.1](https://github.com/dd3tech/dd360-components/compare/v6.11.0...v6.11.1) (2023-06-05)
+
+
+### Bug Fixes
+
+* add isRequired prop on inputs ([#107](https://github.com/dd3tech/dd360-components/issues/107)) ([a551866](https://github.com/dd3tech/dd360-components/commit/a551866bbedb5df61ce16b9f48acd1a7788f6168))
+
 # [6.11.0](https://github.com/dd3tech/dd360-components/compare/v6.10.0...v6.11.0) (2023-06-05)
 
 
