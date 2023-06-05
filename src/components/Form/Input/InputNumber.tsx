@@ -40,7 +40,7 @@ function NumberInput({
   }, [])
 
   useEffect(() => {
-    if (value) setLocalValue(value)
+    if (!isNaN(Number(value))) setLocalValue(String(value))
   }, [value])
 
   return (

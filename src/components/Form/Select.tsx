@@ -19,9 +19,9 @@ import { Padding, ShadowVariants } from '../../interfaces/types'
 import {
   inputVariants,
   InputVariant as SelectVariantType,
-  getAnimationLabel,
   getPaddingInput
 } from './shared'
+import FormLabel from './FormLabel'
 
 type ItemObj = {
   label?: string
@@ -48,6 +48,7 @@ export interface SelectProps extends InputHTMLAttributes<HTMLInputElement> {
   boxShadow?: ShadowVariants
   optionsList: ISelectOptions
   itemWidth?: 'trimWithEllipsis' | 'fullWidth' | 'textWrap'
+  isRequired?: boolean
 }
 
 const IconStatus = ({ variant }: { variant: SelectVariantType }) => {
@@ -135,6 +136,7 @@ function Select({
   value: selectedValue,
   placeholder,
   itemWidth = 'trimWithEllipsis',
+  isRequired,
   ...otherProps
 }: SelectProps) {
   const { disabled } = otherProps
@@ -266,15 +268,12 @@ function Select({
         )}
         <div className="flex flex-col w-full relative h-11">
           {label && (
-            <label
-              style={getAnimationLabel(isLabelScalded)}
-              className={composeClasses(
-                'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis',
-                !isDisabled && 'text-info'
-              )}
-            >
-              {label}
-            </label>
+            <FormLabel
+              label={label}
+              isLabelScalded={isLabelScalded}
+              isDisabled={isDisabled}
+              isRequired={isRequired}
+            />
           )}
           <div className="relative">
             <input
