@@ -1,46 +1,46 @@
-import { composeClasses } from 'lib/classes'
 import {
   ChevronDownIcon,
   ChevronUpIcon,
   ClockIcon,
   ExclamationCircleIcon
 } from '@heroicons/react/outline'
+import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 import ToolTipHover from '../ToolTipHover'
 import Flex from '../Layout/Flex'
-import { ISideBarSubItem, TBadge } from './SideBar'
+import { SideBarSubItem, TBadge } from './SideBar'
 import SideBarBadge from './SideBarBadge'
 
-export interface SideBarItemProps {
+export interface SideBarItemProps extends React.HTMLAttributes<HTMLDivElement> {
   index: number
   disabled?: boolean
   active: boolean
   icon?: JSX.Element
-  subItems?: ISideBarSubItem
+  subItems?: SideBarSubItem
   title: string
   isExpand: boolean
   badge?: TBadge
   isOpen?: boolean
   isOptionClicked: boolean
   disabledOptionsTag?: string
-  to?: () => void
-  handleClickOption: (disabled: boolean | undefined, to: any) => () => void
+  goTo?: () => void
+  handleClickOption: (disabled: boolean | undefined, goTo: any) => () => void
   toggleSubMenu: (menuItemIndex: number) => void
 }
 
-interface IListSubItems {
+interface ListSubItems {
   subItemsArray: [
     string,
     {
       title: string
       active: boolean
-      to: () => void
+      goTo: () => void
     }
   ][]
   isOpen?: boolean
 }
 
-const ListSubItems = ({ subItemsArray, isOpen }: IListSubItems) => (
+const ListSubItems = ({ subItemsArray, isOpen }: ListSubItems) => (
   <Flex
     className={composeClasses(
       'flex-col ml-7 pl-4 border-l border-gray-300 duration-300 ease-in',
@@ -55,7 +55,7 @@ const ListSubItems = ({ subItemsArray, isOpen }: IListSubItems) => (
           'text-blue-600 py-2 min-w-max cursor-pointer',
           subItem.active && 'font-semibold'
         )}
-        onClick={subItem.to}
+        onClick={subItem.goTo}
       >
         {subItem.title}
       </Text>
@@ -64,19 +64,61 @@ const ListSubItems = ({ subItemsArray, isOpen }: IListSubItems) => (
 )
 
 const SideBarItem = ({
+  /**
+   * Index of the SideBarItem
+   */
   index,
+  /**
+   * Indicates if the SideBarItem is disabled
+   */
   disabled,
+  /**
+   * Indicates if the SideBarItem is active
+   */
   active,
+  /**
+   * Tag to be displayed for disabled options
+   */
   disabledOptionsTag,
+  /**
+   * Indicates if the SideBarItem's option is clicked
+   */
   isOptionClicked,
+  /**
+   * Object with subitems of the SideBarItem
+   */
   subItems,
+  /**
+   * Indicates if the SideBarItem's submenu is open
+   */
   isOpen,
+  /**
+   * Badge value to be displayed
+   */
   badge,
+  /**
+   * Indicates if the SideBarItem is expanded
+   */
   isExpand,
+  /**
+   * Title of the SideBarItem
+   */
   title,
+  /**
+   * Icon element to be displayed
+   */
   icon,
-  to,
+  /**
+   * This function will be called only if the main item has no sub items
+   */
+  goTo,
+  /**
+   * Function to handle the click event on the SideBarItem
+   */
   handleClickOption,
+  /**
+   * Function to toggle the submenu of the SideBarItem
+   */
   toggleSubMenu
 }: SideBarItemProps) => {
   const subItemsArray = subItems ? Object.entries(subItems) : []
@@ -94,7 +136,7 @@ const SideBarItem = ({
         )}
         onClick={handleClickOption(
           disabled,
-          subItemsArray?.length ? () => toggleSubMenu(index) : to
+          subItemsArray?.length ? () => toggleSubMenu(index) : goTo
         )}
       >
         <ToolTipHover
@@ -118,7 +160,7 @@ const SideBarItem = ({
                     disabled ? 'text-gray-300' : 'text-gray-500'
                   )}
                 >
-                  {icon ? icon : <ExclamationCircleIcon />}
+                  {icon || <ExclamationCircleIcon />}
                 </Flex>
               </Flex>
             </Flex>
@@ -158,7 +200,7 @@ const SideBarItem = ({
               <Flex
                 alignItems="center"
                 gap="1"
-                className=" italic"
+                className="italic"
                 style={{ fontSize: '10px' }}
               >
                 <ClockIcon width={15} />

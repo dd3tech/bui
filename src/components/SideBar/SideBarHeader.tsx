@@ -1,12 +1,21 @@
-import { ReactElement } from 'react'
+import { ReactNode } from 'react'
 import Flex from '../Layout/Flex/Flex'
 import Skeleton from '../Skeleton/Skeleton'
 import Text from '../Typography'
 
 export interface SideBarHeaderProps {
+  /**
+   * Header information loading indicator
+   */
   isLoadingHeaderInfo?: boolean
+  /**
+   * Sidebar name displayed at the top
+   */
   sideBarName: string
-  sideBarSubTitle?: string | ReactElement
+  /**
+   * Sidebar subtitle displayed at the top
+   */
+  sideBarSubTitle?: ReactNode
 }
 
 const SideBarHeader = ({

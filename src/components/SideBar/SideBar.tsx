@@ -1,6 +1,7 @@
 import {
   MutableRefObject,
   ReactElement,
+  ReactNode,
   useEffect,
   useRef,
   useState
@@ -15,44 +16,92 @@ import SideBarItem from './SideBarItem'
 import SkeletonSideBarList from './SkeletonSideBarList'
 import './sideBar.css'
 
-export interface ISideBarSubItem {
+export interface SideBarSubItem {
   [key: string]: {
     title: string
     active: boolean
-    to: () => void
+    goTo: () => void
   }
 }
 
 export type TBadge = string | number | ReactElement
-export interface ISideBarItem {
+export interface SideBarItem {
   title: string
   active: boolean
   isOpen?: boolean
-  to?: () => void
+  goTo?: () => void
   icon?: JSX.Element
   disabled?: boolean
   hidden?: boolean
-  subItems?: ISideBarSubItem
+  subItems?: SideBarSubItem
   badge?: TBadge
 }
 
+export type SideBarList = SideBarItem[]
+
 export interface SideBarProps {
-  sideBarList?: ISideBarItem[]
+  /**
+   * List of sidebar items
+   */
+  sideBarList?: SideBarList
+  /**
+   * Sidebar name displayed at the top
+   */
   sideBarName: string
-  sideBarSubTitle?: string | ReactElement
+  /**
+   * Sidebar subtitle displayed at the top
+   */
+  sideBarSubTitle?: ReactNode
+  /**
+   * Indicates if the sidebar will be expanded by default
+   */
   defaultExpand?: boolean
   dangerZone?: {
+    /**
+     * Show danger zone
+     */
     show: boolean
+    /**
+     * Danger zone text
+     */
     text: string
+    /**
+     * Active state of the danger zone
+     */
     active: boolean
+    /**
+     * Danger zone callback function
+     */
     callBack?: () => void
   }
+  /**
+   * Label for disabled options
+   */
   disabledOptionsTag?: string
+  /**
+   * Top position of the sidebar
+   */
   top?: number
+  /**
+   * Left sidebar position
+   */
   left?: number
+  /**
+   * Status update synchronization function
+   */
   flushSync?: <R>(fn: () => R) => R
+  /**
+   * Header information loading indicator
+   */
   isLoadingHeaderInfo?: boolean
+  /**
+   * Sidebar list loading indicator
+   */
   isLoadingSideBarList?: boolean
+  /**
+   * Number of items of type skeletons to show when isLoadingSideBarList is true
+   */
+  numSkeletons?: number
 }
 
 const SideBar = ({
@@ -66,6 +115,7 @@ const SideBar = ({
   flushSync,
   isLoadingHeaderInfo,
   isLoadingSideBarList,
+  numSkeletons = 5,
   ...props
 }: SideBarProps) => {
   const sidebarRef: MutableRefObject<HTMLDivElement | null> =
@@ -74,7 +124,7 @@ const SideBar = ({
   const [expand, setExpand] = useState(false)
   const [timer, setTimer] = useState(false)
   const [isOptionClicked, setIsOptionClicked] = useState(false)
-  const [menuItems, setMenuItems] = useState<ISideBarItem[] | undefined>(
+  const [menuItems, setMenuItems] = useState<SideBarList | undefined>(
     sideBarList
   )
 
@@ -117,12 +167,12 @@ const SideBar = ({
   }
 
   const handleClickOption =
-    (disabled: boolean | undefined, to: () => void) => () => {
+    (disabled: boolean | undefined, goTo: () => void) => () => {
       if (disabled) return
       flushSync
         ? flushSync(() => setIsOptionClicked(true))
         : setIsOptionClicked(true)
-      to()
+      goTo()
     }
 
   useEffect(() => {
@@ -148,7 +198,7 @@ const SideBar = ({
         ref={sidebarRef}
         role="container-sidebar"
         className={composeClasses(
-          'bg-gray-50 shadow-lg border-t-0 box-border overflow-hidden h-full fixed z-40',
+          'bg-gray-50 shadow-lg border-t-0 box-border overflow-hidden h-full fixed',
           'transition-all delay-75 duration-200 ease-in',
           expand ? 'w-60' : 'w-0 lg:w-14'
         )}
@@ -187,7 +237,7 @@ const SideBar = ({
               >
                 <ChevronLeftIcon
                   className="transition-all duration-200 ease-in-out"
-                  width={25}
+                  width={18}
                 />
               </Flex>
             </div>
@@ -212,7 +262,7 @@ const SideBar = ({
             } overflow-y-auto overflow-x-hidden flex-grow`}
           >
             {isLoadingSideBarList ? (
-              <SkeletonSideBarList />
+              <SkeletonSideBarList childs={numSkeletons} />
             ) : (
               menuItems?.map(
                 (item, index: number) =>

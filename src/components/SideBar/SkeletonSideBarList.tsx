@@ -1,10 +1,14 @@
 import Skeleton from '../Skeleton/Skeleton'
 import Flex from '../Layout/Flex/Flex'
 
-const SkeletonSideBarList = () => {
+export interface SkeletonSideBarListProps {
+  childs: number
+}
+
+const SkeletonSideBarList = ({ childs }: SkeletonSideBarListProps) => {
   return (
     <>
-      {Array.from(Array(5).keys()).map((key) => (
+      {Array.from(Array(childs).keys()).map((key) => (
         <Flex
           key={key}
           alignItems="center"

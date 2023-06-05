@@ -1,8 +1,14 @@
 import { composeClasses } from 'lib/classes'
 import Flex from '../Layout/Flex'
 
-interface BadgeProps {
+export interface BadgeProps {
+  /**
+   * Value to be displayed on the badge
+   */
   value: string | number
+  /**
+   * Indicates if the element is active
+   */
   isActive: boolean
 }
 

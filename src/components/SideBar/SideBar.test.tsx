@@ -9,14 +9,14 @@ const flushSync = vi.fn()
 
 const subItems = {
   1: {
-    title: 'SubLista 1',
+    title: 'SubList 1',
     active: true,
-    to: push
+    goTo: push
   },
   2: {
-    title: 'SubLista 2',
+    title: 'SubList 2',
     active: false,
-    to: push
+    goTo: push
   }
 }
 
@@ -48,7 +48,7 @@ const sideBarList = [
     title: 'Sales',
     active: false,
     isOpen: false,
-    to: push,
+    goTo: push,
     badge: 8
   }
 ]
@@ -73,15 +73,15 @@ describe('<SideBar/>', () => {
     vi.useFakeTimers()
   })
 
-  it('SideBar component is working', () => {
+  it('should be render correctly', () => {
     expect(renderResult.container.firstChild).toBeDefined()
   })
 
-  it('SideBar, danger zone option is displayed when the show property is true', () => {
+  it('danger zone option is displayed when the show property is true', () => {
     expect(renderResult.getByRole('danger-zone')).toBeDefined()
   })
 
-  it('SideBar, danger zone callback is executed correctly when option is clicked', () => {
+  it('danger zone callback is executed correctly when option is clicked', () => {
     const dangerZone = renderResult.getByRole('danger-zone')
       .firstChild as HTMLDivElement
 
@@ -90,7 +90,7 @@ describe('<SideBar/>', () => {
     expect(dangerZoneCallback).toHaveBeenCalled()
   })
 
-  it('SideBar, when clicking on the icon to expand the sidebar, it opens correctly', () => {
+  it('when clicking on the icon to expand the sidebar, it opens correctly', () => {
     const sidebar = renderResult.getByRole(
       'container-sidebar'
     ) as HTMLDivElement
@@ -101,7 +101,7 @@ describe('<SideBar/>', () => {
     expect(sidebar.className.includes('w-60')).toBeTruthy()
   })
 
-  it('SideBar, when passing disabled property as true on the second and third object on the sidebarList, they are correctly disabled', () => {
+  it('when passing disabled property as true on the second and third object on the sidebarList, they are correctly disabled', () => {
     fireEvent.click(renderResult.getByRole('active-sidebar'))
 
     vi.advanceTimersByTime(300)
@@ -117,7 +117,7 @@ describe('<SideBar/>', () => {
     )
   })
 
-  it('SideBar, do not redirect to new path when option is disabled or active', () => {
+  it('do not redirect to new path when option is disabled or active', () => {
     const option1 = renderResult.getByRole('option-icon-0') as HTMLDivElement
     const option2 = renderResult.getByRole('option-icon-2') as HTMLDivElement
 
@@ -127,7 +127,7 @@ describe('<SideBar/>', () => {
     expect(push).not.toHaveBeenCalled()
   })
 
-  it('SideBar, when click an option redirect to new path', () => {
+  it('when click an option redirect to new path', () => {
     fireEvent.click(renderResult.getByRole('option-3'))
 
     vi.advanceTimersByTime(300)
@@ -136,7 +136,7 @@ describe('<SideBar/>', () => {
     expect(push).toHaveBeenCalled()
   })
 
-  it('SideBar, execute flushSync function when is passed by props and an option was clicked', () => {
+  it('execute flushSync function when is passed by props and an option was clicked', () => {
     renderResult.rerender(<SideBar {...props} flushSync={flushSync} />)
     const dangerBtn = renderResult.getByRole('danger-zone')
       .firstChild as HTMLDivElement
@@ -149,13 +149,13 @@ describe('<SideBar/>', () => {
     expect(push).toHaveBeenCalledTimes(2)
   })
 
-  it('SideBar, subtitle and title are showing correctly', () => {
+  it('subtitle and title are showing correctly', () => {
     renderResult.rerender(<SideBar {...props} defaultExpand={true} />)
     expect(renderResult.getByText('Name Test')).toBeDefined()
     expect(renderResult.getByText('Subtitle text')).toBeDefined()
   })
 
-  it('SideBar, rotate expand button when it is clicked', () => {
+  it('rotate expand button when it is clicked', () => {
     const btnExpand = renderResult.getByRole('active-sidebar')
 
     fireEvent.click(btnExpand)
@@ -166,7 +166,7 @@ describe('<SideBar/>', () => {
     ).toBeTruthy()
   })
 
-  it('SideBar, the active element should have the correct styles', () => {
+  it('the active element should have the correct styles', () => {
     const adornment = renderResult.getByRole('option-icon-0')
       .firstChild as HTMLDivElement
 
@@ -181,14 +181,14 @@ describe('<SideBar/>', () => {
     expect(icon.className.includes('text-gray-500')).toBeTruthy()
   })
 
-  it('SideBar, is showing default icon', () => {
+  it('is showing default icon', () => {
     const icon = renderResult.getByRole('option-icon-1')
       .lastChild as HTMLDivElement
 
     expect(icon.querySelector('svg')).toBeDefined()
   })
 
-  it('SideBar, expand sidebar by default is working', () => {
+  it('expand sidebar by default is working', () => {
     renderResult.rerender(<SideBar {...props} defaultExpand={true} />)
     const sidebar = renderResult.getByRole(
       'container-sidebar'
@@ -199,7 +199,7 @@ describe('<SideBar/>', () => {
     expect(sidebar.className.includes('w-60')).toBeTruthy()
   })
 
-  it('SideBar, hide tooltip when scroll page', () => {
+  it('hide tooltip when scroll page', () => {
     const icon = renderResult.getByRole('option-icon-1') as HTMLDivElement
 
     fireEvent.mouseEnter(icon)
@@ -208,7 +208,7 @@ describe('<SideBar/>', () => {
     expect(renderResult.getAllByText('Monthly Flow')[1]).not.toBeDefined()
   })
 
-  it('SideBar, is able to display tooltip after scrolling', () => {
+  it('is able to display tooltip after scrolling', () => {
     const option = renderResult.getByRole('option-icon-1') as HTMLDivElement
 
     fireEvent.mouseEnter(option)
@@ -219,7 +219,7 @@ describe('<SideBar/>', () => {
     expect(renderResult.getAllByText('Monthly Flow')[1]).toBeDefined()
   })
 
-  it('SideBar, display correct styles when danger zone is active', () => {
+  it('display correct styles when danger zone is active', () => {
     renderResult.rerender(
       <SideBar {...props} dangerZone={{ ...props.dangerZone, active: true }} />
     )
@@ -229,7 +229,7 @@ describe('<SideBar/>', () => {
     expect(dangerZoneText.className.includes('text-white')).toBeTruthy()
   })
 
-  it('SideBar, element should not be displayed when it has the hidden property', () => {
+  it('element should not be displayed when it has the hidden property', () => {
     renderResult.rerender(
       <SideBar {...props} dangerZone={{ ...props.dangerZone, active: true }} />
     )

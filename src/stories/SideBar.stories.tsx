@@ -13,17 +13,17 @@ const subItems = {
   1: {
     title: 'SubItem 1',
     active: true,
-    to: () => console.log('subItem 1.1')
+    goTo: () => console.log('subItem 1.1')
   },
   2: {
     title: 'SubItem 2',
     active: false,
-    to: () => console.log('subItem 1.2')
+    goTo: () => console.log('subItem 1.2')
   },
   3: {
-    title: 'SubItem 2',
+    title: 'SubItem 3',
     active: false,
-    to: () => console.log('subItem 1.2')
+    goTo: () => console.log('subItem 1.3')
   }
 }
 
@@ -55,7 +55,7 @@ const sideBarList = [
     title: 'Information 4',
     active: false,
     isOpen: false,
-    to: () => console.log('Item 4'),
+    goTo: () => console.log('Item 4'),
     badge: 8
   }
 ]
