@@ -1,6 +1,6 @@
-import Transition from 'components/Transition'
-import { composeClasses } from 'lib/classes'
 import React, { ReactNode, forwardRef } from 'react'
+import { composeClasses } from 'lib/classes'
+import Transition from 'components/Transition'
 
 interface ProgressCircleProps extends React.HTMLAttributes<HTMLDivElement> {
   /**

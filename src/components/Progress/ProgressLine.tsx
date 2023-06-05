@@ -1,5 +1,5 @@
-import { composeClasses } from 'lib/classes'
 import React, { ReactNode, forwardRef } from 'react'
+import { composeClasses } from 'lib/classes'
 
 interface ProgressLineProps extends React.HTMLAttributes<HTMLDivElement> {
   /**

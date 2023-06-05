@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 
 import Progress from './Progress'
 
-describe('<Transition/>', () => {
+describe('<Progress/>', () => {
   beforeEach(() => {
     vi.useFakeTimers()
   })
