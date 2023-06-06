@@ -1,3 +1,10 @@
+## [6.12.1](https://github.com/dd3tech/dd360-components/compare/v6.12.0...v6.12.1) (2023-06-06)
+
+
+### Bug Fixes
+
+* add maximum length to sidebar items ([a5107d1](https://github.com/dd3tech/dd360-components/commit/a5107d1a58845dea781d84b0d9ee21c10798b943))
+
 # [6.12.0](https://github.com/dd3tech/dd360-components/compare/v6.11.2...v6.12.0) (2023-06-06)
 
 
