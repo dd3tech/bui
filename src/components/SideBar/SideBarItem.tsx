@@ -184,15 +184,16 @@ const SideBarItem = ({
           className={composeClasses(
             'w-full rounded-r-md h-8 mr-2 duration-300 ease-in',
             active ? 'bg-gray-200 text-gray-900' : 'text-gray-500',
-            isExpand && '-ml-4 pl-4'
+            isExpand && '-ml-4 pl-1'
           )}
+          style={{ maxWidth: 188 }}
         >
           <Text
             role={`option-${index}`}
             variant="span"
             size="sm"
             className={composeClasses(
-              'whitespace-nowrap',
+              'whitespace-nowrap overflow-hidden overflow-ellipsis',
               disabled && 'text-gray-300'
             )}
           >
@@ -210,26 +211,28 @@ const SideBarItem = ({
             {title}
           </Text>
 
-          <Flex alignItems="center">
-            {badge && typeof badge !== 'object' ? (
-              <SideBarBadge value={badge} isActive={active} />
-            ) : (
-              badge
-            )}
-
-            <div
-              className={composeClasses(
-                'w-4 h-4 ml-2 mr-2.5',
-                !disabled && subItemsArray.length ? 'visible' : 'invisible'
-              )}
-            >
-              {isOpen ? (
-                <ChevronUpIcon className="w-full" />
+          {(!!badge || !!subItemsArray.length) && (
+            <Flex alignItems="center">
+              {badge && typeof badge !== 'object' ? (
+                <SideBarBadge value={badge} isActive={active} />
               ) : (
-                <ChevronDownIcon className="w-full" />
+                badge
               )}
-            </div>
-          </Flex>
+
+              <div
+                className={composeClasses(
+                  'w-4 h-4 ml-2 mr-2.5',
+                  !disabled && subItemsArray.length ? 'visible' : 'invisible'
+                )}
+              >
+                {isOpen ? (
+                  <ChevronUpIcon className="w-full" />
+                ) : (
+                  <ChevronDownIcon className="w-full" />
+                )}
+              </div>
+            </Flex>
+          )}
         </Flex>
       </Flex>
       {isExpand && (
