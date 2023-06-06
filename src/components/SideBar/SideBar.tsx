@@ -176,7 +176,7 @@ const SideBar = ({
     }
 
   useEffect(() => {
-    setMenuItems(menuItems)
+    setMenuItems(sideBarList)
   }, [sideBarList])
 
   useEffect(() => {
