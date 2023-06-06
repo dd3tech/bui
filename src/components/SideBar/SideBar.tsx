@@ -198,7 +198,7 @@ const SideBar = ({
         ref={sidebarRef}
         role="container-sidebar"
         className={composeClasses(
-          'bg-gray-50 shadow-lg border-t-0 box-border overflow-hidden h-full fixed',
+          'bg-gray-50 shadow-lg border-t-0 box-border overflow-hidden h-full fixed z-40',
           'transition-all delay-75 duration-200 ease-in',
           expand ? 'w-60' : 'w-0 lg:w-14'
         )}
