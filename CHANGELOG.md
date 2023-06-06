@@ -1,3 +1,10 @@
+# [6.12.0](https://github.com/dd3tech/dd360-components/compare/v6.11.2...v6.12.0) (2023-06-06)
+
+
+### Features
+
+* add progress component ([97ceef0](https://github.com/dd3tech/dd360-components/commit/97ceef094843b7313f9bfd3cbfbae82c067d9ff4))
+
 ## [6.11.2](https://github.com/dd3tech/dd360-components/compare/v6.11.1...v6.11.2) (2023-06-06)
 
 
