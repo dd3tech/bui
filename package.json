@@ -373,6 +373,11 @@
             "require": "./dist/cjs/components/List/index.js",
             "module": "./dist/esm/components/List/index.js",
             "default": "./dist/esm/components/List/index.js"
+        },
+        "./Progress": {
+            "require": "./dist/cjs/components/Progress/index.js",
+            "module": "./dist/esm/components/Progress/index.js",
+            "default": "./dist/esm/components/Progress/index.js"
         }
     },
     "typesVersions": {
@@ -517,6 +522,9 @@
             ],
             "List": [
                 "./dist/esm/components/List/index.d.ts"
+            ],
+            "Progress": [
+                "./dist/esm/components/Progress/index.d.ts"
             ]
         }
     }

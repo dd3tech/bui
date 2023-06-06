@@ -112,6 +112,9 @@ export * from './Transition'
 export { default as List } from './List'
 export * from './List'
 
+export { default as Progress } from './Progress'
+export * from './Progress'
+
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
