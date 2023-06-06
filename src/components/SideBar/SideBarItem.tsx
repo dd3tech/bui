@@ -70,7 +70,7 @@ export interface SideBarItemProps {
   toggleSubMenu: (menuItemIndex: number) => void
 }
 
-interface ListSubItems {
+interface ListSubItemsProps {
   subItemsArray: [
     string,
     {
@@ -82,7 +82,7 @@ interface ListSubItems {
   isOpen?: boolean
 }
 
-const ListSubItems = ({ subItemsArray, isOpen }: ListSubItems) => (
+const ListSubItems = ({ subItemsArray, isOpen }: ListSubItemsProps) => (
   <Flex
     className={composeClasses(
       'flex-col ml-7 pl-4 border-l border-gray-300 duration-300 ease-in',
@@ -145,7 +145,7 @@ const SideBarItem = ({
               role={`option-icon-${index}`}
               justifyContent="center"
               alignItems="center"
-              className="w-14 flex"
+              className="flex"
             >
               <Flex
                 justifyContent="center"
@@ -182,9 +182,9 @@ const SideBarItem = ({
           alignItems="center"
           justifyContent="between"
           className={composeClasses(
-            'w-full rounded-r-md h-8 mr-2 duration-300 ease-in',
+            'w-full rounded-r-md h-8 duration-300 ease-in',
             active ? 'bg-gray-200 text-gray-900' : 'text-gray-500',
-            isExpand && '-ml-4 pl-1'
+            isExpand && '-ml-2 pl-1'
           )}
           style={{ maxWidth: 188 }}
         >

@@ -98,7 +98,7 @@ describe('<SideBar/>', () => {
     fireEvent.click(renderResult.getByRole('active-sidebar'))
     vi.advanceTimersByTime(300)
 
-    expect(sidebar.className.includes('w-60')).toBeTruthy()
+    expect(sidebar.style.width).toBe('240px')
   })
 
   it('when passing disabled property as true on the second and third object on the sidebarList, they are correctly disabled', () => {
@@ -196,7 +196,7 @@ describe('<SideBar/>', () => {
 
     vi.advanceTimersByTime(300)
 
-    expect(sidebar.className.includes('w-60')).toBeTruthy()
+    expect(sidebar.style.width).toBe('240px')
   })
 
   it('hide tooltip when scroll page', () => {

@@ -25,7 +25,7 @@ export interface SideBarSubItem {
 }
 
 export type TBadge = string | number | ReactElement
-export interface SideBarItem {
+export interface SideBarItemProps {
   title: string
   active: boolean
   isOpen?: boolean
@@ -37,7 +37,7 @@ export interface SideBarItem {
   badge?: TBadge
 }
 
-export type SideBarList = SideBarItem[]
+export type SideBarList = SideBarItemProps[]
 
 export interface SideBarProps {
   /**
@@ -202,14 +202,14 @@ const SideBar = ({
         ref={sidebarRef}
         role="container-sidebar"
         className={composeClasses(
-          'bg-gray-50 shadow-lg border-t-0 box-border overflow-hidden h-full fixed z-40',
-          'transition-all delay-75 duration-200 ease-in',
-          expand ? 'w-60' : 'w-0 lg:w-14'
+          'bg-gray-50 border-t-0 box-border overflow-hidden h-full relative border',
+          'transition-all delay-75 duration-200 ease-in'
         )}
         style={{
           maxHeight: `calc(100vh - ${sidebarRef.current?.offsetTop}px)`,
           top: top ?? 0,
-          left: left ?? 0
+          left: left ?? 0,
+          width: expand ? '240px' : '58px'
         }}
       >
         <Flex className="h-full flex-col transition-all delay-300 ease-out">
@@ -221,7 +221,7 @@ const SideBar = ({
             <div
               role="active-sidebar"
               className={composeClasses(
-                'fixed ml-2.5 border rounded-full bg-white text-primary cursor-pointer transition-all duration-300 ease-in-out',
+                'fixed mx-2 border rounded-full bg-white text-primary cursor-pointer transition-all duration-300 ease-in-out',
                 'focus:bg-primary focus:text-white',
                 'hover:bg-blue-50',
                 expand && 'absolute right-2'
@@ -263,7 +263,7 @@ const SideBar = ({
             role="list-options"
             className={`${
               !expand ? 'hide-scroll' : ''
-            } overflow-y-auto overflow-x-hidden flex-grow`}
+            } overflow-y-auto overflow-x-hidden flex-grow mx-2`}
           >
             {isLoadingSideBarList ? (
               <SkeletonSideBarList childs={numSkeletons} />
