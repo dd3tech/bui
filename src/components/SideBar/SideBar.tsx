@@ -176,6 +176,10 @@ const SideBar = ({
     }
 
   useEffect(() => {
+    setMenuItems(sideBarList)
+  }, [sideBarList])
+
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
