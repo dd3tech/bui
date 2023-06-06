@@ -1,3 +1,11 @@
+## [6.12.2](https://github.com/dd3tech/dd360-components/compare/v6.12.1...v6.12.2) (2023-06-06)
+
+
+### Bug Fixes
+
+* set sideBarList ([790376a](https://github.com/dd3tech/dd360-components/commit/790376ad5696874b4cb61ae44493771b3230febb))
+* the status of the items is updated ([16f092e](https://github.com/dd3tech/dd360-components/commit/16f092e4632df54bd27c3a89ed78048cb8793dff))
+
 ## [6.12.1](https://github.com/dd3tech/dd360-components/compare/v6.12.0...v6.12.1) (2023-06-06)
 
 
