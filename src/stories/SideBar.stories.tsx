@@ -55,8 +55,7 @@ const sideBarList = [
     title: 'Information 4',
     active: false,
     isOpen: false,
-    goTo: () => console.log('Item 4'),
-    badge: 8
+    goTo: () => console.log('Item 4')
   }
 ]
 
