@@ -1,3 +1,22 @@
+## [6.11.1](https://github.com/dd3tech/dd360-components/compare/v6.11.0...v6.11.1) (2023-06-05)
+
+
+### Bug Fixes
+
+* add isRequired prop on inputs ([#107](https://github.com/dd3tech/dd360-components/issues/107)) ([a551866](https://github.com/dd3tech/dd360-components/commit/a551866bbedb5df61ce16b9f48acd1a7788f6168))
+
+# [6.11.0](https://github.com/dd3tech/dd360-components/compare/v6.10.0...v6.11.0) (2023-06-05)
+
+
+### Bug Fixes
+
+* comments are resolved ([15c6fd6](https://github.com/dd3tech/dd360-components/commit/15c6fd64294920e423a26f74ae8e2766ac856148))
+
+
+### Features
+
+* SideBar component is refactored ([616a67c](https://github.com/dd3tech/dd360-components/commit/616a67cf006d2e4eadd884cb3bc62caf06b59e0b))
+
 # [6.10.0](https://github.com/dd3tech/dd360-components/compare/v6.9.0...v6.10.0) (2023-06-02)
 
 
