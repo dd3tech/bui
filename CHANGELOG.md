@@ -1,3 +1,10 @@
+## [6.11.2](https://github.com/dd3tech/dd360-components/compare/v6.11.1...v6.11.2) (2023-06-06)
+
+
+### Bug Fixes
+
+* add a z-index to the sidebar to overlay it ([18217a1](https://github.com/dd3tech/dd360-components/commit/18217a1563febdf5afb2a2c59621d01cb76d6dc5))
+
 ## [6.11.1](https://github.com/dd3tech/dd360-components/compare/v6.11.0...v6.11.1) (2023-06-05)
 
 
