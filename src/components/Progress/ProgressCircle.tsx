@@ -1,41 +1,15 @@
-import React, { ReactNode, forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'
 import Transition from 'components/Transition'
+import { ProgressProps } from './Progress'
 
-interface ProgressCircleProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * The size of the progress circle component in pixels.
-   */
-  circleSize?: number
-  /**
-   * The width of the line in the progress circle component.
-   */
-  lineWidth?: number
-  /**
-   * A boolean indicating whether the progress component is in an indeterminate
-   * state. If it is true, it will start an infinite animation.
-   */
-  indeterminate?: boolean
-  /**
-   * The color of the progress line.
-   */
-  progressLineColor?: string
-  /**
-   * The color of the progress line background.
-   */
-  backgroundLineColor?: string
-  /**
-   * The line cap of the progress line. It is 'butt' by default.
-   */
-  lineCap?: 'round' | 'square' | 'butt'
+interface ProgressCircleProps
+  extends ProgressProps,
+    React.HTMLAttributes<HTMLDivElement> {
   /**
    * The `stroke-dasharray` property of the progress circle component.
    */
   strokeDasharray?: string
-  /**
-   * The children of the progress component.
-   */
-  children?: ReactNode
 }
 
 const ProgressCircle = forwardRef<HTMLDivElement, ProgressCircleProps>(
