@@ -186,13 +186,14 @@ const SideBarItem = ({
             active ? 'bg-gray-200 text-gray-900' : 'text-gray-500',
             isExpand && '-ml-4 pl-4'
           )}
+          style={{ maxWidth: 188 }}
         >
           <Text
             role={`option-${index}`}
             variant="span"
             size="sm"
             className={composeClasses(
-              'whitespace-nowrap',
+              'whitespace-nowrap overflow-hidden overflow-ellipsis',
               disabled && 'text-gray-300'
             )}
           >

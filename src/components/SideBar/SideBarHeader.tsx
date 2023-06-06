@@ -40,7 +40,13 @@ const SideBarHeader = ({
             variant="span"
             size="base"
             bold
-            className="block w-52 letter-spacing-negative capitalize"
+            className="block w-52 letter-spacing-negative capitalize max-h-11 overflow-hidden overflow-ellipsis"
+            style={{
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              maxWidth: 181
+            }}
           >
             {sideBarName}
           </Text>
