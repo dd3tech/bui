@@ -1,3 +1,11 @@
+## [6.12.3](https://github.com/dd3tech/dd360-components/compare/v6.12.2...v6.12.3) (2023-06-07)
+
+
+### Bug Fixes
+
+* hide sidebar ([efc7be6](https://github.com/dd3tech/dd360-components/commit/efc7be6d1289047836c6fd6f5421f647760f9c3a))
+* the sidebar should not overlap the content of the page ([90f99bb](https://github.com/dd3tech/dd360-components/commit/90f99bba4eecd380fb58e4ff19b34ea84f4ecdde))
+
 ## [6.12.2](https://github.com/dd3tech/dd360-components/compare/v6.12.1...v6.12.2) (2023-06-06)
 
 
