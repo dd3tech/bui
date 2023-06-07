@@ -94,7 +94,7 @@ const ListSubItems = ({ subItemsArray, isOpen }: ListSubItemsProps) => (
         key={key}
         size="sm"
         className={composeClasses(
-          'text-blue-600 py-2 min-w-max cursor-pointer',
+          'text-blue-600 py-2 cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis',
           subItem.active && 'font-semibold'
         )}
         onClick={subItem.goTo}
