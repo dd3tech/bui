@@ -1,3 +1,10 @@
+## [6.12.4](https://github.com/dd3tech/dd360-components/compare/v6.12.3...v6.12.4) (2023-06-07)
+
+
+### Bug Fixes
+
+* change validation value ([#115](https://github.com/dd3tech/dd360-components/issues/115)) ([4ec8126](https://github.com/dd3tech/dd360-components/commit/4ec812656432bab4263e4779306afdcfe5e5f5d2))
+
 ## [6.12.3](https://github.com/dd3tech/dd360-components/compare/v6.12.2...v6.12.3) (2023-06-07)
 
 
