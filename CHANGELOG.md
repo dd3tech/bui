@@ -1,3 +1,10 @@
+## [6.12.5](https://github.com/dd3tech/dd360-components/compare/v6.12.4...v6.12.5) (2023-06-07)
+
+
+### Bug Fixes
+
+* bug caused when using StrictMode is corrected ([eabfb0d](https://github.com/dd3tech/dd360-components/commit/eabfb0dd783cbc58e8092699ea70e35157a381b9))
+
 ## [6.12.4](https://github.com/dd3tech/dd360-components/compare/v6.12.3...v6.12.4) (2023-06-07)
 
 
