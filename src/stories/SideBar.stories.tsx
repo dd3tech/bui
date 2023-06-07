@@ -3,10 +3,14 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import SideBarComponent from '../components/SideBar/SideBar'
 import { HomeIcon } from '@heroicons/react/outline'
 import { ExclamationIcon } from '@heroicons/react/solid'
+import Flex from '../components/Layout/Flex'
 
 export default {
   title: 'Layout/SideBar',
-  component: SideBarComponent
+  component: SideBarComponent,
+  parameters: {
+    layout: 'fullscreen'
+  }
 } as ComponentMeta<typeof SideBarComponent>
 
 const subItems = {
@@ -60,7 +64,20 @@ const sideBarList = [
 ]
 
 const Template: ComponentStory<typeof SideBarComponent> = (args) => {
-  return <SideBarComponent {...args} />
+  return (
+    <Flex style={{ height: 'calc(100vh - 50px)' }}>
+      <div>
+        <SideBarComponent {...args} />
+      </div>
+      <Flex
+        alignItems="center"
+        justifyContent="center"
+        className="bg-blue-50 w-full"
+      >
+        Content
+      </Flex>
+    </Flex>
+  )
 }
 
 export const SideBar = Template.bind({})
