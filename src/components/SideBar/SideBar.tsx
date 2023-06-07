@@ -128,16 +128,12 @@ const SideBar = ({
   )
 
   const toggleSubMenu = (menuItemIndex: number) => {
-    if (!menuItems) return
+    if (!menuItems?.length) return
+    const updatedMenuItems = [...menuItems]
+    updatedMenuItems[menuItemIndex].isOpen =
+      !updatedMenuItems[menuItemIndex].isOpen
 
-    setMenuItems((prevMenuItems) => {
-      if (!prevMenuItems) return []
-      const updatedMenuItems = [...prevMenuItems]
-      updatedMenuItems[menuItemIndex].isOpen =
-        !updatedMenuItems[menuItemIndex].isOpen
-
-      return updatedMenuItems
-    })
+    setMenuItems(updatedMenuItems)
   }
 
   useEffect(() => {
