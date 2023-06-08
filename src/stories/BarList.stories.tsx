@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof BarList>
 
 const data = [
-  { label: 'Snapchat', value: 0 },
+  { label: 'Snapchat', value: 0, href: '/' },
   { label: 'Linkedin', value: 25 },
   { label: 'Twitter', value: 50 },
   { label: 'Facebook', value: 75 },
@@ -20,7 +20,13 @@ const Template: ComponentStory<typeof BarListComponent> = ({
   titleMetrics,
   titleValues,
   className,
-  roundedBar
+  roundedBar,
+  heightBar,
+  classNameBar,
+  fontSizeBar,
+  marginYItem,
+  defaultBackgroundBarColor,
+  defaultTextBarColor
 }) => (
   <BarListComponent
     listData={listData}
@@ -28,14 +34,26 @@ const Template: ComponentStory<typeof BarListComponent> = ({
     titleValues={titleValues}
     className={className}
     roundedBar={roundedBar}
+    heightBar={heightBar}
+    classNameBar={classNameBar}
+    fontSizeBar={fontSizeBar}
+    marginYItem={marginYItem}
+    defaultBackgroundBarColor={defaultBackgroundBarColor}
+    defaultTextBarColor={defaultTextBarColor}
   />
 )
 
 export const BarList = Template.bind({})
 BarList.args = {
   listData: data,
-  titleMetrics: 'Redes',
-  titleValues: 'Usuarios',
+  titleMetrics: 'Networks',
+  titleValues: 'Users',
   className: 'max-w-lg',
-  roundedBar: 'lg'
+  roundedBar: 'md',
+  heightBar: 'full',
+  classNameBar: '',
+  fontSizeBar: 'base',
+  marginYItem: '1',
+  defaultBackgroundBarColor: '#b5d4fc',
+  defaultTextBarColor: '#1D4ED8'
 }

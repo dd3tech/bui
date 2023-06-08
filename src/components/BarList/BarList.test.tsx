@@ -19,8 +19,8 @@ const barListProps = {
     { label: 'Facebook', value: 75 },
     { label: 'Instagram', value: 100 }
   ],
-  titleMetrics: 'Redes',
-  titleValues: 'Usuarios'
+  titleMetrics: 'Networks',
+  titleValues: 'Users'
 }
 
 const renderComponent = () => {
@@ -46,8 +46,8 @@ describe('<BarList />', () => {
   it('should render the titles', () => {
     const { getByText } = renderComponent()
 
-    expect(getByText('Redes')).toBeDefined()
-    expect(getByText('Usuarios')).toBeDefined()
+    expect(getByText('Networks')).toBeDefined()
+    expect(getByText('Users')).toBeDefined()
   })
 
   it('should render the icons', () => {

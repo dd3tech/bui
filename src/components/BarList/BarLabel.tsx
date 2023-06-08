@@ -1,15 +1,17 @@
 import { FC, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
-import { Size } from 'interfaces'
+import { Size } from '../../interfaces/types'
+import Text from '../Typography'
+import Anchor from '../Anchor'
 
-interface IPropsBarLabel {
+interface BarLabelProps {
   children: ReactNode
   fontSizeBar?: Size
-  href: string | undefined
+  href?: string
   textBarColor?: string
 }
 
-export const BarLabel: FC<IPropsBarLabel> = ({
+export const BarLabel: FC<BarLabelProps> = ({
   children,
   fontSizeBar,
   href,
@@ -17,29 +19,26 @@ export const BarLabel: FC<IPropsBarLabel> = ({
 }) => {
   if (href) {
     return (
-      <a
-        href={href}
+      <Anchor
+        to={href}
         rel="noreferrer"
         style={{ color: textBarColor }}
         data-testid="label-link"
-        className={composeClasses(
-          'hover:underline',
-          fontSizeBar && `text-${fontSizeBar}`
-        )}
+        className={composeClasses('hover:underline', `text-${fontSizeBar}`)}
         target="_blank"
       >
         {children}
-      </a>
+      </Anchor>
     )
   }
 
   return (
-    <p
+    <Text
+      size={fontSizeBar}
       data-testid="label-text"
       style={{ color: textBarColor }}
-      className={fontSizeBar && `text-${fontSizeBar}`}
     >
       {children}
-    </p>
+    </Text>
   )
 }
