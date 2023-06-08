@@ -23,6 +23,12 @@ interface IPropsBarList extends HTMLAttributes<HTMLDivElement> {
   titleValues?: string
 }
 
+/**
+ * This function calculates the widths of bars in a chart based on the values provided.
+ * @param {number[]} values - An array of numbers representing values for which we want to calculate
+ * corresponding widths.
+ * @returns The function `calculateWidthsFromValues` returns an array of numbers representing the
+ * calculated widths based on the input array of numbers `values`. */
 const calculateWidthsFromValues = (values: number[]) => {
   const MIN_WIDTH = 1
   const MAX_WIDTH = 100
