@@ -1,9 +1,9 @@
 import { CSSProperties, FC, HTMLAttributes, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
-import { BarLabel } from './BarLabel'
-import Flex from '../Layout/Flex/Flex'
-import Text from '../Typography/Text'
 import { Height, Margin, Rounded, Size } from '../../interfaces/types'
+import Flex from '../Layout/Flex/Flex'
+import Text from '../Typography'
+import { BarLabel } from './BarLabel'
 
 export interface ListItem {
   /* `backgroundBarColor?: CSSProperties['color']` is defining an optional property

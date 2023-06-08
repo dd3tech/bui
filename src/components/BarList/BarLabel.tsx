@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Size } from '../../interfaces/types'
-import Text from '../Typography/Text'
+import Text from '../Typography'
 import Anchor from '../Anchor/Anchor'
 
 export interface BarLabelProps {
