@@ -4,7 +4,7 @@ import { Size } from '../../interfaces/types'
 import Text from '../Typography'
 import Anchor from '../Anchor'
 
-interface BarLabelProps {
+export interface BarLabelProps {
   children: ReactNode
   fontSizeBar?: Size
   href?: string
