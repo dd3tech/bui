@@ -35,7 +35,7 @@ export const BarList = Template.bind({})
 BarList.args = {
   listData: data,
   titleMetrics: 'Redes',
-  titlevalues: 'Usuarios',
+  titleValues: 'Usuarios',
   className: 'max-w-lg',
   roundedBar: 'lg'
 }
