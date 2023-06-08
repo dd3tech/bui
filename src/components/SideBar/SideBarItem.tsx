@@ -85,7 +85,7 @@ interface ListSubItemsProps {
 const ListSubItems = ({ subItemsArray, isOpen }: ListSubItemsProps) => (
   <Flex
     className={composeClasses(
-      'flex-col ml-7 pl-4 border-l border-gray-300 duration-300 ease-in',
+      'flex-col ml-7 pl-4 border-l border-gray-300 duration-150 ease-in',
       isOpen ? 'max-h-96 overflow-auto mt-1' : 'max-h-0 overflow-hidden'
     )}
   >
@@ -94,8 +94,8 @@ const ListSubItems = ({ subItemsArray, isOpen }: ListSubItemsProps) => (
         key={key}
         size="sm"
         className={composeClasses(
-          'text-blue-600 py-2 cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis',
-          subItem.active && 'font-semibold'
+          'py-2 cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis',
+          subItem.active ? 'font-semibold text-blue-600' : 'text-gray-500'
         )}
         onClick={subItem.goTo}
       >
