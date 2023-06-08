@@ -2,18 +2,18 @@ import { FC, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Size } from 'interfaces'
 
-interface IPropsTitleBar {
+interface IPropsBarLabel {
   children: ReactNode
   fontSizeBar?: Size
   href: string | undefined
   textBarColor?: string
 }
 
-export const TitleBar: FC<IPropsTitleBar> = ({
+export const BarLabel: FC<IPropsBarLabel> = ({
   children,
   fontSizeBar,
   href,
-  textBarColor = '#1D4ED8'
+  textBarColor
 }) => {
   if (href) {
     return (
@@ -21,7 +21,7 @@ export const TitleBar: FC<IPropsTitleBar> = ({
         href={href}
         rel="noreferrer"
         style={{ color: textBarColor }}
-        data-testid="title-link"
+        data-testid="label-link"
         className={composeClasses(
           'hover:underline',
           fontSizeBar && `text-${fontSizeBar}`
@@ -35,7 +35,7 @@ export const TitleBar: FC<IPropsTitleBar> = ({
 
   return (
     <p
-      data-testid="title-text"
+      data-testid="label-text"
       style={{ color: textBarColor }}
       className={fontSizeBar && `text-${fontSizeBar}`}
     >

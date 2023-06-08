@@ -1,6 +1,6 @@
 import { CSSProperties, FC, HTMLAttributes, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
-import { TitleBar } from './BarTitle'
+import { BarLabel } from './BarLabel'
 import { Height, Rounded, Size } from 'interfaces'
 
 interface ListItem {
@@ -21,6 +21,8 @@ interface IPropsBarList extends HTMLAttributes<HTMLDivElement> {
   roundedBar?: Rounded
   titleMetrics?: string
   titleValues?: string
+  defaultTextBarColor?: CSSProperties['color']
+  defaultBackgroundBarColor?: CSSProperties['color']
 }
 
 /**
@@ -53,6 +55,8 @@ const BarList: FC<IPropsBarList> = ({
   roundedBar = 'md',
   titleMetrics,
   titleValues,
+  defaultBackgroundBarColor = '#b5d4fc',
+  defaultTextBarColor = '#1D4ED8',
   ...props
 }) => {
   const widths = calculateWidthsFromValues(listData.map((item) => item.value))
@@ -83,13 +87,13 @@ const BarList: FC<IPropsBarList> = ({
             <div className="relative flex items-center justify-between w-full">
               <div className="p-2 flex items-center justify-center flex-row gap-x-1 z-10">
                 {item?.startIcon && item.startIcon}
-                <TitleBar
-                  textBarColor={item.textBarColor}
+                <BarLabel
+                  textBarColor={item.textBarColor || defaultTextBarColor}
                   fontSizeBar={fontSizeBar}
                   href={item?.href}
                 >
                   {item?.title}
-                </TitleBar>
+                </BarLabel>
                 {item?.endIcon && item.endIcon}
               </div>
               <div
@@ -102,7 +106,8 @@ const BarList: FC<IPropsBarList> = ({
                 )}
                 style={{
                   width: `${widths[index]}%`,
-                  backgroundColor: item?.backgroundBarColor || '#b5d4fc'
+                  backgroundColor:
+                    item?.backgroundBarColor || defaultBackgroundBarColor
                 }}
               ></div>
               <div className="z-10">
