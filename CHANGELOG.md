@@ -1,3 +1,10 @@
+## [6.12.6](https://github.com/dd3tech/dd360-components/compare/v6.12.5...v6.12.6) (2023-06-08)
+
+
+### Bug Fixes
+
+* the animation speed of the display of the subitems is changed ([c240fd8](https://github.com/dd3tech/dd360-components/commit/c240fd800f08ce2745b970d7e324ae89400e2016))
+
 ## [6.12.5](https://github.com/dd3tech/dd360-components/compare/v6.12.4...v6.12.5) (2023-06-07)
 
 
