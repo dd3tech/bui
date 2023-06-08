@@ -112,6 +112,9 @@ export * from './Transition'
 export { default as List } from './List'
 export * from './List'
 
+export { default as BarList } from './BarList'
+export * from './BarList'
+
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
