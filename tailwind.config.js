@@ -38,6 +38,12 @@ module.exports = {
         inherit: 'inherit',
         13: '3.375rem'
       },
+      width: {
+        14.5: '3.625rem'
+      },
+      minWidth: {
+        14.5: '3.625rem'
+      },
       inset: {
         13: '3.375rem'
       },

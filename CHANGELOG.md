@@ -1,3 +1,80 @@
+## [6.12.6](https://github.com/dd3tech/dd360-components/compare/v6.12.5...v6.12.6) (2023-06-08)
+
+
+### Bug Fixes
+
+* the animation speed of the display of the subitems is changed ([c240fd8](https://github.com/dd3tech/dd360-components/commit/c240fd800f08ce2745b970d7e324ae89400e2016))
+
+## [6.12.5](https://github.com/dd3tech/dd360-components/compare/v6.12.4...v6.12.5) (2023-06-07)
+
+
+### Bug Fixes
+
+* bug caused when using StrictMode is corrected ([eabfb0d](https://github.com/dd3tech/dd360-components/commit/eabfb0dd783cbc58e8092699ea70e35157a381b9))
+
+## [6.12.4](https://github.com/dd3tech/dd360-components/compare/v6.12.3...v6.12.4) (2023-06-07)
+
+
+### Bug Fixes
+
+* change validation value ([#115](https://github.com/dd3tech/dd360-components/issues/115)) ([4ec8126](https://github.com/dd3tech/dd360-components/commit/4ec812656432bab4263e4779306afdcfe5e5f5d2))
+
+## [6.12.3](https://github.com/dd3tech/dd360-components/compare/v6.12.2...v6.12.3) (2023-06-07)
+
+
+### Bug Fixes
+
+* hide sidebar ([efc7be6](https://github.com/dd3tech/dd360-components/commit/efc7be6d1289047836c6fd6f5421f647760f9c3a))
+* the sidebar should not overlap the content of the page ([90f99bb](https://github.com/dd3tech/dd360-components/commit/90f99bba4eecd380fb58e4ff19b34ea84f4ecdde))
+
+## [6.12.2](https://github.com/dd3tech/dd360-components/compare/v6.12.1...v6.12.2) (2023-06-06)
+
+
+### Bug Fixes
+
+* set sideBarList ([790376a](https://github.com/dd3tech/dd360-components/commit/790376ad5696874b4cb61ae44493771b3230febb))
+* the status of the items is updated ([16f092e](https://github.com/dd3tech/dd360-components/commit/16f092e4632df54bd27c3a89ed78048cb8793dff))
+
+## [6.12.1](https://github.com/dd3tech/dd360-components/compare/v6.12.0...v6.12.1) (2023-06-06)
+
+
+### Bug Fixes
+
+* add maximum length to sidebar items ([a5107d1](https://github.com/dd3tech/dd360-components/commit/a5107d1a58845dea781d84b0d9ee21c10798b943))
+
+# [6.12.0](https://github.com/dd3tech/dd360-components/compare/v6.11.2...v6.12.0) (2023-06-06)
+
+
+### Features
+
+* add progress component ([97ceef0](https://github.com/dd3tech/dd360-components/commit/97ceef094843b7313f9bfd3cbfbae82c067d9ff4))
+
+## [6.11.2](https://github.com/dd3tech/dd360-components/compare/v6.11.1...v6.11.2) (2023-06-06)
+
+
+### Bug Fixes
+
+* add a z-index to the sidebar to overlay it ([18217a1](https://github.com/dd3tech/dd360-components/commit/18217a1563febdf5afb2a2c59621d01cb76d6dc5))
+
+## [6.11.1](https://github.com/dd3tech/dd360-components/compare/v6.11.0...v6.11.1) (2023-06-05)
+
+
+### Bug Fixes
+
+* add isRequired prop on inputs ([#107](https://github.com/dd3tech/dd360-components/issues/107)) ([a551866](https://github.com/dd3tech/dd360-components/commit/a551866bbedb5df61ce16b9f48acd1a7788f6168))
+
+# [6.11.0](https://github.com/dd3tech/dd360-components/compare/v6.10.0...v6.11.0) (2023-06-05)
+
+
+### Bug Fixes
+
+* comments are resolved ([15c6fd6](https://github.com/dd3tech/dd360-components/commit/15c6fd64294920e423a26f74ae8e2766ac856148))
+
+
+### Features
+
+* SideBar component is refactored ([616a67c](https://github.com/dd3tech/dd360-components/commit/616a67cf006d2e4eadd884cb3bc62caf06b59e0b))
+
 # [6.10.0](https://github.com/dd3tech/dd360-components/compare/v6.9.0...v6.10.0) (2023-06-02)
 
 

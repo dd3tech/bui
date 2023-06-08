@@ -15,10 +15,10 @@ import {
   InputVariant as InputVariantType,
   InputType,
   getClassesByPseudoClass,
-  getAnimationLabel,
   getPaddingInput
 } from '../shared'
 import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
+import FormLabel from '../FormLabel'
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type?: InputType
@@ -36,6 +36,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   language?: 'es' | 'en'
   large?: boolean
   boxShadow?: ShadowVariants
+  isRequired?: boolean
 }
 
 const IconStatus = ({ variant }: { variant: InputVariantType }) => {
@@ -83,6 +84,7 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
       style,
       placeholder,
       value,
+      isRequired,
       ...otherProps
     }: InputProps,
     ref
@@ -96,8 +98,8 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
     const isLabelScalded =
       !label ||
       focused ||
-      value?.toLocaleString().length ||
-      inputRef.current?.value.length
+      Boolean(value?.toLocaleString().length) ||
+      Boolean(inputRef.current?.value.length)
 
     const handleFocus = useCallback(
       (event: React.FocusEvent<HTMLInputElement>) => {
@@ -162,15 +164,12 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
           )}
           <div className="flex flex-col w-full relative h-11">
             {label && (
-              <label
-                style={getAnimationLabel(!!isLabelScalded)}
-                className={composeClasses(
-                  'absolute w-full block text-xxs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis',
-                  !isDisabled && 'text-info'
-                )}
-              >
-                {label}
-              </label>
+              <FormLabel
+                isLabelScalded={isLabelScalded}
+                isDisabled={isDisabled}
+                isRequired={isRequired}
+                label={label}
+              />
             )}
             <input
               ref={inputRef}

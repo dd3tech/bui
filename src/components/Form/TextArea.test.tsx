@@ -62,6 +62,7 @@ describe('<TextArea/>', () => {
       )
       expect(getByRole('textarea-container')).toHaveClass('bg-gray-100')
       const label = getByText('Example')
+
       expect(label).toBeInTheDocument()
       expect(label).toHaveClass('text-gray-400')
     })

@@ -1,0 +1,46 @@
+.progress-linear-animation {
+  animation: progress-linear-fill 0.5s ease-in-out forwards;
+}
+.progress-linear-indeterminate {
+  animation: progress-linear-move 1.5s ease-in-out infinite forwards;
+}
+.progress-circle circle {
+  fill: none;
+}
+.progress-circle-animation {
+  animation: progress-circle-fill 1s ease-in-out both;
+}
+.progress-circle-indeterminate {
+  animation: progress-circle-spin 2s ease-in-out infinite alternate;
+}
+
+@keyframes progress-linear-fill {
+  0% {
+    width: 0;
+  }
+}
+@keyframes progress-linear-move {
+  0% {
+    width: 100%;
+    transform: translate(-100%, 0) scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    width: 50%;
+    transform: translate(100%, 0) scaleX(0);
+    transform-origin: right;
+  }
+}
+@keyframes progress-circle-fill {
+  0% {
+    stroke-dasharray: 0 500;
+  }
+}
+@keyframes progress-circle-spin {
+  0% {
+    stroke-dasharray: 40 500;
+  }
+  100% {
+    stroke-dasharray: 250 500;
+  }
+}
