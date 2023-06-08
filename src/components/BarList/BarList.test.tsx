@@ -90,12 +90,12 @@ describe('<BarList />', () => {
   it('when an item contains an href, a link must be rendered', () => {
     const { getByTestId } = renderComponent()
 
-    expect(getByTestId('title-link')).toBeDefined()
+    expect(getByTestId('label-link')).toBeDefined()
   })
 
   it('when an item does not contain an href, a text must be rendered', () => {
     const { getAllByTestId } = renderComponent()
 
-    expect(getAllByTestId('title-text')).toHaveLength(4)
+    expect(getAllByTestId('label-text')).toHaveLength(4)
   })
 })
