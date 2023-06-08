@@ -8,11 +8,11 @@ export default {
 } as ComponentMeta<typeof BarList>
 
 const data = [
-  { title: 'Snapchat', value: 0 },
-  { title: 'Linkedin', value: 25 },
-  { title: 'Twitter', value: 50 },
-  { title: 'Facebook', value: 75 },
-  { title: 'Instagram', value: 100 }
+  { label: 'Snapchat', value: 0 },
+  { label: 'Linkedin', value: 25 },
+  { label: 'Twitter', value: 50 },
+  { label: 'Facebook', value: 75 },
+  { label: 'Instagram', value: 100 }
 ]
 
 const Template: ComponentStory<typeof BarListComponent> = ({

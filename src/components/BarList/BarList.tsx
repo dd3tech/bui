@@ -9,7 +9,7 @@ interface ListItem {
   endIcon?: ReactNode
   href?: string
   startIcon?: ReactNode
-  title: string
+  label: string
   value: number
 }
 
@@ -80,7 +80,7 @@ const BarList: FC<IPropsBarList> = ({
       {listData?.map((item, index) => {
         return (
           <div
-            key={`${item?.title}-${item?.value}`}
+            key={`${item?.label}-${item?.value}`}
             className={composeClasses('w-full mb-1')}
             data-testid="item-bar"
           >
@@ -92,7 +92,7 @@ const BarList: FC<IPropsBarList> = ({
                   fontSizeBar={fontSizeBar}
                   href={item?.href}
                 >
-                  {item?.title}
+                  {item?.label}
                 </BarLabel>
                 {item?.endIcon && item.endIcon}
               </div>

@@ -5,19 +5,19 @@ import BarList from './BarList'
 const barListProps = {
   listData: [
     {
-      title: 'Snapchat',
+      label: 'Snapchat',
       value: 0,
       endIcon: <div data-testid="end-icon" />
     },
-    { title: 'Linkedin', value: 25 },
+    { label: 'Linkedin', value: 25 },
     {
-      title: 'Twitter',
+      label: 'Twitter',
       href: 'https://twitter.com/',
       value: 50,
       startIcon: <div data-testid="start-icon" />
     },
-    { title: 'Facebook', value: 75 },
-    { title: 'Instagram', value: 100 }
+    { label: 'Facebook', value: 75 },
+    { label: 'Instagram', value: 100 }
   ],
   titleMetrics: 'Redes',
   titleValues: 'Usuarios'
