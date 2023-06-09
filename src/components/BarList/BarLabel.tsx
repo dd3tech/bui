@@ -1,22 +1,26 @@
-import { FC, ReactNode } from 'react'
+import { CSSProperties, FC } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Size } from '../../interfaces/types'
 import Text from '../Typography'
 import Anchor from '../Anchor/Anchor'
 
-export interface BarLabelProps {
-  children: ReactNode
-  fontSizeBar?: Size
+export interface LabelProps {
+  // Represents the label or title for a specific item in the `listData` property of `BarList`.
+  label: string
+
+  // Defines the URL of a hyperlink that wraps the bar tag for a specific item in the `listData` property of `BarList`.
   href?: string
-  textBarColor?: string
+
+  // Sets the color of the text in the bar label for a specific item in the `listData` property of `BarList`.
+  textBarColor?: CSSProperties['color']
 }
 
-export const BarLabel: FC<BarLabelProps> = ({
-  children,
-  fontSizeBar,
-  href,
-  textBarColor
-}) => {
+export interface BarLabelProps extends LabelProps {
+  // Allows to pass a value from the `Size` enumeration to set the font size of the text in the bar labels. The default value is ``base``.
+  size?: Size
+}
+
+const BarLabel: FC<BarLabelProps> = ({ label, size, href, textBarColor }) => {
   if (href) {
     return (
       <Anchor
@@ -24,21 +28,19 @@ export const BarLabel: FC<BarLabelProps> = ({
         rel="noreferrer"
         style={{ color: textBarColor }}
         data-testid="label-link"
-        className={composeClasses('hover:underline', `text-${fontSizeBar}`)}
+        className={composeClasses('hover:underline', size && `text-${size}`)}
         target="_blank"
       >
-        {children}
+        {label}
       </Anchor>
     )
   }
 
   return (
-    <Text
-      size={fontSizeBar}
-      data-testid="label-text"
-      style={{ color: textBarColor }}
-    >
-      {children}
+    <Text size={size} data-testid="label-text" style={{ color: textBarColor }}>
+      {label}
     </Text>
   )
 }
+
+export default BarLabel

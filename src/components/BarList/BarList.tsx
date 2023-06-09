@@ -1,94 +1,54 @@
-import { CSSProperties, FC, HTMLAttributes, ReactNode } from 'react'
+import { CSSProperties, FC, HTMLAttributes, ReactNode, useMemo } from 'react'
 import { composeClasses } from 'lib/classes'
+import { composeStyles } from 'lib/styles'
 import { Height, Margin, Rounded, Size } from '../../interfaces/types'
 import Flex from '../Layout/Flex/Flex'
 import Text from '../Typography'
-import { BarLabel } from './BarLabel'
+import BarLabel, { LabelProps } from './BarLabel'
 
-export interface ListItem {
-  /* `backgroundBarColor?: CSSProperties['color']` is defining an optional property
-  `backgroundBarColor` of type `CSSProperties['color']` for the `ListItem` interface. This property
-  can be used to set the background color of the bar element for a specific item in the `listData`
-  prop of the `BarList` component. */
+export interface ListItem extends LabelProps {
+  // Sets the background color of the bar element for a specific element in the `listData` property of `BarList`.
   backgroundBarColor?: CSSProperties['color']
-  /* `textBarColor?: CSSProperties['color']` is defining an optional property `textBarColor` of type
-  `CSSProperties['color']` for the `ListItem` interface. This property can be used to set the color
-  of the text in the bar label for a specific item in the `listData` prop of the `BarList`
-  component.  */
-  textBarColor?: CSSProperties['color']
-  /* `endIcon?: ReactNode` is defining an optional property `endIcon` of type `ReactNode` for the
-  `ListItem` interface. This property can be used to pass a React element as an icon to be displayed
-  at the end of the bar label for a specific item in the `listData` prop of the `BarList` component. */
+
+  // Allows to pass a React element as an icon to be displayed at the end of the bar label for a specific element in the `listData` property of `BarList`.
   endIcon?: ReactNode
-  /* `href?: string` is defining an optional property `href` of type `string` for the `ListItem`
-  interface. This property can be used to set the URL for a hyperlink that wraps the bar label for a
-  specific item in the `listData` prop of the `BarList` component. */
-  href?: string
-  /* `startIcon?: ReactNode` is defining an optional property `startIcon` of type `ReactNode` for the
-  `ListItem` interface. This property can be used to pass a React element as an icon to be displayed
-  at the start of the bar label for a specific item in the `listData` prop of the `BarList`
-  component. */
+
+  // Allows to pass a React element as an icon to be displayed at the beginning of the bar label for a specific element in the `listData` property of `BarList`.
   startIcon?: ReactNode
-  /* `label: string` is defining a required property `label` of type `string` for the `ListItem`
-  interface. This property represents the label or title for a specific item in the `listData` prop
-  of the `BarList` component. */
-  label: string
-  /* `value: number` is defining a required property `value` of type `number` for the `ListItem`
-  interface. This property represents the numerical value associated with a specific item in the
-  `listData` prop of the `BarList` component. */
+
+  // Represents the numeric value associated with a specific item in the `listData` property of `BarList`.
   value: number
 }
 
 interface BarListProps extends HTMLAttributes<HTMLDivElement> {
-  /* `classNameBar?: string` is defining an optional prop `classNameBar` of type `string` for the
-  `BarList` component. This prop can be used to pass a custom CSS class to the background bar
-  element of each item in the list. */
+  // Allows to pass a custom CSS class to the background bar element of each item in the list.
   classNameBar?: string
-  /* `fontSizeBar?: Size` is defining an optional prop `fontSizeBar` of type `Size` for the `BarList`
-  component. This prop can be used to pass a value from the `Size` enum to set the font size of the
-  text in the bar labels. If the prop is not provided, it defaults to `'base'` */
+
+  // Allows to pass a value from the `Size` enumeration to set the font size of the text in the bar labels. The default value is ``base``.
   fontSizeBar?: Size
-  /* `heightBar?: Height` is defining an optional prop `heightBar` of type `Height` for the `BarList`
-  component. This prop can be used to pass a value from the `Height` enum to set the height of the
-  background bar element of each item in the list. If the prop is not provided, it defaults to
-  'h-full'. */
+
+  // Allows passing a value from the `Height` enumeration to set the height of the bottom bar element of each item in the list. The default value is `'h-full'`.
   heightBar?: Height
-  /* `listData: ListItem[]` is defining a prop `listData` of type `ListItem[]` for the `BarList`
-  component. This prop is an array of objects, where each object represents a single item in the
-  list and contains properties such as `backgroundBarColor`, `textBarColor`, `endIcon`, `href`,
-  `startIcon`, `label`, and `value`. The `ListItem` interface defines the shape of these objects and
-  specifies which properties are optional. The `BarList` component uses this prop to render a list
-  of bars, where each bar represents an item in the `listData` array. */
+
+  // Represents the list item data for the `BarList` component. It is an array of objects where each object represents an element of the list.
   listData: ListItem[]
-  /* `marginYItem`: Margin` is defining an optional `marginYItem` prop of type `Margin` for the
-  `BarList` component. This property can be used to pass a value from the `Margin` enum to set the
-  vertical spacing between each item, . If the prop is not provided, the default value is `1`. */
+
+  // Allows to pass a value from the `Margin` enumeration to set the vertical spacing between each element. The default value is `1`.
   marginYItem?: Margin
-  /* `roundedBar?: Rounded` is defining an optional prop `roundedBar` of type `Rounded` for the
-  `BarList` component. This prop can be used to pass a value from the `Rounded` enum to set the
-  border radius of the background bar element of each item in the list. If the prop is not provided,
-  it defaults to `'md'`. */
+
+  // Allows to pass a value from the `Rounded` enumeration to set the border radius of the background bar element of each item in the list. The default value is `'md'`.
   roundedBar?: Rounded
-  /* `titleMetrics?: string` is defining an optional prop `titleMetrics` of type `string` for the
-  `BarList` component. This prop can be used to pass a string value to display as the title or label
-  for the metrics being displayed in the bar list. If the prop is not provided, no title will be
-  displayed. */
+
+  // Allows to pass a string value to display as a title for the metrics displayed in the bar list. If not provided, no title will be displayed.
   titleMetrics?: string
-  /* `titleValues?: string` is defining an optional prop `titleValues` of type `string` for the
-  `BarList` component. This prop can be used to pass a string value to display as the title or label
-  for the values being displayed in the bar list. If the prop is not provided, no title will be
-  displayed for the values. */
+
+  // Allows to pass a string value to display as a title for the values shown in the bar list. If not provided, no title will be displayed for the values.
   titleValues?: string
-  /* `defaultTextBarColor?: CSSProperties['color']` is defining an optional prop `defaultTextBarColor`
-  of type `CSSProperties['color']` for the `BarList` component. This prop can be used to set a
-  default color for the text in the bar labels if the `textBarColor` property is not provided for a
-  specific item in the `listData` prop. If the prop is not provided, it defaults to `'#1D4ED8'`. */
+
+  // Defines the default color of the text in the bar labels if the `textBarColor` property is not provided for a specific element in the `listData` property. The default value is `'#1D4ED8'`.
   defaultTextBarColor?: CSSProperties['color']
-  /* `defaultBackgroundBarColor?: CSSProperties['color']` is defining an optional prop
-  `defaultBackgroundBarColor` of type `CSSProperties['color']` for the `BarList` component. This
-  prop can be used to set a default color for the background of the bar element if the
-  `backgroundBarColor` property is not provided for a specific item in the `listData` prop. If the
-  prop is not provided, it defaults to `'#b5d4fc'`. */
+
+  // Defines the default background color of the bar element if the `backgroundBarColor` property is not provided for a specific element in the `listData` property. The default value is `'#b5d4fc'`.
   defaultBackgroundBarColor?: CSSProperties['color']
 }
 
@@ -105,7 +65,7 @@ const calculateWidthsFromValues = (values: number[]) => {
   const max = Math.max(...values)
 
   const calculateWidth = (value: number) => {
-    if (value === 0) return 0
+    if (!value || value === 0) return 0
     return Math.max((value / max) * MAX_WIDTH, MIN_WIDTH)
   }
 
@@ -127,7 +87,10 @@ const BarList: FC<BarListProps> = ({
   defaultTextBarColor = '#1D4ED8',
   ...props
 }) => {
-  const widths = calculateWidthsFromValues(listData.map((item) => item.value))
+  const widths = useMemo(
+    () => calculateWidthsFromValues(listData.map((item) => item?.value)),
+    [listData]
+  )
 
   return (
     <div
@@ -164,26 +127,28 @@ const BarList: FC<BarListProps> = ({
               >
                 {item?.startIcon && item.startIcon}
                 <BarLabel
-                  textBarColor={item.textBarColor || defaultTextBarColor}
-                  fontSizeBar={fontSizeBar}
+                  textBarColor={item?.textBarColor || defaultTextBarColor}
+                  size={fontSizeBar}
                   href={item?.href}
-                >
-                  {item?.label}
-                </BarLabel>
+                  label={item?.label}
+                />
                 {item?.endIcon && item.endIcon}
               </Flex>
               <div
                 data-testid="item-background"
                 className={composeClasses(
                   'absolute',
-                  `h-${heightBar} rounded-${roundedBar}`,
+                  heightBar && `h-${heightBar}`,
+                  roundedBar && `rounded-${roundedBar}`,
                   classNameBar
                 )}
-                style={{
-                  width: `${widths[index]}%`,
-                  backgroundColor:
-                    item?.backgroundBarColor || defaultBackgroundBarColor
-                }}
+                style={composeStyles([
+                  {
+                    width: `${widths[index]}%`,
+                    backgroundColor:
+                      item?.backgroundBarColor || defaultBackgroundBarColor
+                  }
+                ])}
               ></div>
               <div className="z-10 h-full">
                 <Text size={fontSizeBar}>{item?.value}</Text>

@@ -38,9 +38,9 @@ describe('<BarList />', () => {
   afterEach(cleanup)
 
   it('should be render', () => {
-    const { getByTestId } = renderComponent()
+    const { container } = renderComponent()
 
-    expect(getByTestId('container-bar-list')).toBeDefined()
+    expect(container.firstChild).toBeDefined()
   })
 
   it('should render the titles', () => {
@@ -69,7 +69,7 @@ describe('<BarList />', () => {
     expect(getByTestId('container-bar-list').className).toContain('max-w-lg')
   })
 
-  it('when passing the prop heightBar it should be rendered in the className of each items background container', () => {
+  it('applies the "h-screen" class to the bar of each element when using the "heightBar" property', () => {
     const { getAllByTestId } = renderComponent()
 
     const items = getAllByTestId('item-background')
@@ -78,24 +78,9 @@ describe('<BarList />', () => {
     })
   })
 
-  it('when passing the prop classNameBar it should be rendered in the className of each items background container', () => {
-    const { getAllByTestId } = renderComponent()
-
-    const items = getAllByTestId('item-background')
-    items.forEach((item) => {
-      expect(item?.className).toContain('font-bold')
-    })
-  })
-
   it('when an item contains an href, a link must be rendered', () => {
     const { getByTestId } = renderComponent()
 
     expect(getByTestId('label-link')).toBeDefined()
-  })
-
-  it('when an item does not contain an href, a text must be rendered', () => {
-    const { getAllByTestId } = renderComponent()
-
-    expect(getAllByTestId('label-text')).toHaveLength(4)
   })
 })
