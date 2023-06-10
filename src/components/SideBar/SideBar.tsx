@@ -104,6 +104,10 @@ export interface SideBarProps {
    * Number of items of type skeletons to show when isLoadingSideBarList is true
    */
   numSkeletons?: number
+  /**
+   * Optional object for the styles of the SideBar
+   */
+  style?: React.CSSProperties
 }
 
 const SideBar = ({
@@ -118,6 +122,7 @@ const SideBar = ({
   isLoadingHeaderInfo,
   isLoadingSideBarList,
   numSkeletons = 5,
+  style,
   ...props
 }: SideBarProps) => {
   const sidebarRef: MutableRefObject<HTMLDivElement | null> =
@@ -129,11 +134,8 @@ const SideBar = ({
     sideBarList
   )
   const containerHeaderRef = useRef<HTMLDivElement>(null)
-  const [positionToggleSideBar, setPositionToggleSideBar] = useState({
-    top: 0,
-    left: 0
-  })
   const { size, isMobile } = useResize()
+  const isMdScreen = (size?.width ?? 0) <= 1024
 
   const toggleSubMenu = (menuItemIndex: number) => {
     if (!menuItems?.length) return
@@ -182,15 +184,6 @@ const SideBar = ({
     }
   }, [])
 
-  useEffect(() => {
-    const element = containerHeaderRef.current
-
-    if (element) {
-      const { left, top } = element.getBoundingClientRect()
-      setPositionToggleSideBar({ left, top })
-    }
-  }, [containerHeaderRef])
-
   return (
     <>
       {isMobile && (
@@ -207,6 +200,14 @@ const SideBar = ({
         />
       )}
 
+      {!expand && isMdScreen && (
+        <ToggleSideBar
+          expand={expand}
+          className="block lg:hidden mt-3"
+          setExpand={setExpand}
+        />
+      )}
+
       <div
         ref={sidebarRef}
         role="container-sidebar"
@@ -219,7 +220,8 @@ const SideBar = ({
         style={{
           maxHeight: `calc(100vh - ${sidebarRef.current?.offsetTop}px)`,
           top: top ?? 0,
-          left: left ?? 0
+          left: left ?? 0,
+          ...style
         }}
       >
         <Flex
@@ -235,12 +237,9 @@ const SideBar = ({
             className={composeClasses('w-full h-16 mb-1', expand && 'relative')}
             ref={containerHeaderRef}
           >
-            <ToggleSideBar
-              expand={expand}
-              setExpand={setExpand}
-              postiton={positionToggleSideBar}
-              size={size}
-            />
+            {(!isMdScreen || expand) && (
+              <ToggleSideBar expand={expand} setExpand={setExpand} />
+            )}
             {expand && (
               <Flex
                 justifyContent="center"

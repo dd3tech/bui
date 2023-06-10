@@ -161,8 +161,10 @@ describe('<SideBar/>', () => {
     fireEvent.click(btnExpand)
     vi.advanceTimersByTime(300)
 
+    const btnExpand2 = renderResult.getByRole('active-sidebar')
+
     expect(
-      (btnExpand.firstChild as HTMLElement).className.includes('rotate-0')
+      (btnExpand2.firstChild as HTMLElement).className.includes('rotate-0')
     ).toBeTruthy()
   })
 

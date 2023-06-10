@@ -1,43 +1,39 @@
+import { Dispatch } from 'react'
 import { ChevronLeftIcon } from '@heroicons/react/outline'
-import { SizeTypes } from 'hooks/useResize'
 import { composeClasses } from 'lib/classes'
 import Flex from '../Layout/Flex/Flex'
 
+interface ToggleSideBarProps {
+  /**
+   * Indicates if the sidebar is expanded
+   */
+  expand: boolean
+  /**
+   * Class to be applied to the component
+   */
+  className?: string
+  /**
+   * Function to set the expand state
+   */
+  setExpand: Dispatch<React.SetStateAction<boolean>>
+}
+
 const ToggleSideBar = ({
   expand,
-  setExpand,
-  postiton,
-  size
-}: {
-  expand: boolean
-  setExpand: (expand: boolean) => void
-  size: SizeTypes
-  postiton: {
-    top: number
-    left: number
-  }
-}) => {
-  const isHidden = (size?.width ?? 0) <= 1024
-  console.log(postiton)
-
+  className,
+  setExpand
+}: ToggleSideBarProps) => {
   return (
     <div
       role="active-sidebar"
       className={composeClasses(
-        'fixed lg:absolute mx-2 border rounded-full bg-white text-primary cursor-pointer transition-all duration-300 ease-in-out',
+        'absolute mx-2 border rounded-full bg-white text-primary cursor-pointer transition-all duration-300 ease-in-out',
         'focus:bg-primary focus:text-white',
         'hover:bg-blue-50',
-        expand && 'absolute right-2'
+        expand && 'right-2',
+        className
       )}
-      onClick={() => setExpand(!expand)}
-      style={
-        isHidden && !expand
-          ? {
-              top: postiton.top + 12,
-              left: postiton.left
-            }
-          : undefined
-      }
+      onClick={() => setExpand((prev) => !prev)}
     >
       <Flex
         justifyContent="center"
