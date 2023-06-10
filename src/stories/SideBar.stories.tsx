@@ -1,8 +1,8 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import SideBarComponent from '../components/SideBar/SideBar'
 import { HomeIcon } from '@heroicons/react/outline'
-import { ExclamationIcon } from '@heroicons/react/solid'
+import ExclamationIcon from '@heroicons/react/solid/ExclamationIcon'
+import SideBarComponent from '../components/SideBar/SideBar'
 import Flex from '../components/Layout/Flex'
 
 export default {
