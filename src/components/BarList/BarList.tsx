@@ -18,6 +18,12 @@ export interface ListItem extends LabelProps {
 
   // Represents the numeric value associated with a specific item in the `listData` property of `BarList`.
   value: number
+
+  // Specifies the prefix text or value for a specific item in the `listData` property of `BarList`.
+  prefix?: string
+
+  // Specifies the suffix text or value for a specific item in the `listData` property of `BarList`.
+  suffix?: string
 }
 
 interface BarListProps extends HTMLAttributes<HTMLDivElement> {
@@ -50,6 +56,12 @@ interface BarListProps extends HTMLAttributes<HTMLDivElement> {
 
   // Defines the default background color of the bar element if the `backgroundBarColor` property is not provided for a specific element in the `listData` property. The default value is `'#b5d4fc'`.
   defaultBackgroundBarColor?: CSSProperties['color']
+
+  // Specifies the prefix text or value for the values shown in the bar list.
+  valuePrefix?: string
+
+  // Specifies the suffix text or value for the values shown in the bar list.
+  valueSuffix?: string
 }
 
 /**
@@ -85,6 +97,8 @@ const BarList: FC<BarListProps> = ({
   marginYItem = '1',
   defaultBackgroundBarColor = '#b5d4fc',
   defaultTextBarColor = '#1D4ED8',
+  valuePrefix,
+  valueSuffix,
   ...props
 }) => {
   const widths = useMemo(
@@ -109,6 +123,9 @@ const BarList: FC<BarListProps> = ({
         </Flex>
       )}
       {listData?.map((item, index) => {
+        const prefix = item?.prefix || valuePrefix
+        const suffix = item?.suffix || valueSuffix
+
         return (
           <div
             key={`${item?.label}-${item?.value}`}
@@ -123,7 +140,8 @@ const BarList: FC<BarListProps> = ({
               <Flex
                 alignItems="center"
                 justifyContent="between"
-                className="p-2 flex-row flex-nowrap gap-x-1 z-10 h-full"
+                className="p-2 flex-row flex-nowrap gap-x-1 h-full"
+                style={{ zIndex: '5' }}
               >
                 {item?.startIcon && item.startIcon}
                 <BarLabel
@@ -150,8 +168,18 @@ const BarList: FC<BarListProps> = ({
                   }
                 ])}
               ></div>
-              <div className="z-10 h-full">
+              <div className="h-full" style={{ zIndex: '5' }}>
+                {prefix && (
+                  <Text size={fontSizeBar} className="mr-0.5">
+                    {prefix}
+                  </Text>
+                )}
                 <Text size={fontSizeBar}>{item?.value}</Text>
+                {suffix && (
+                  <Text size={fontSizeBar} className="ml-0.5">
+                    {suffix}
+                  </Text>
+                )}
               </div>
             </Flex>
           </div>

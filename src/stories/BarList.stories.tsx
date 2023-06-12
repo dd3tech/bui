@@ -26,7 +26,9 @@ const Template: ComponentStory<typeof BarListComponent> = ({
   fontSizeBar,
   marginYItem,
   defaultBackgroundBarColor,
-  defaultTextBarColor
+  defaultTextBarColor,
+  valuePrefix,
+  valueSuffix
 }) => (
   <BarListComponent
     listData={listData}
@@ -40,6 +42,8 @@ const Template: ComponentStory<typeof BarListComponent> = ({
     marginYItem={marginYItem}
     defaultBackgroundBarColor={defaultBackgroundBarColor}
     defaultTextBarColor={defaultTextBarColor}
+    valuePrefix={valuePrefix}
+    valueSuffix={valueSuffix}
   />
 )
 
@@ -55,5 +59,7 @@ BarList.args = {
   fontSizeBar: 'base',
   marginYItem: '1',
   defaultBackgroundBarColor: '#b5d4fc',
-  defaultTextBarColor: '#1D4ED8'
+  defaultTextBarColor: '#1D4ED8',
+  valuePrefix: '',
+  valueSuffix: ''
 }
