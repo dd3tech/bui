@@ -115,6 +115,9 @@ export * from './List'
 export { default as Progress } from './Progress'
 export * from './Progress'
 
+export { default as BarList } from './BarList'
+export * from './BarList'
+
 export * from './Filters'
 export * from './Tabs'
 export * from './FormControl'
