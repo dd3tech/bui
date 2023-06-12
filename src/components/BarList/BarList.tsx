@@ -7,60 +7,86 @@ import Text from '../Typography'
 import BarLabel, { LabelProps } from './BarLabel'
 
 export interface ListItem extends LabelProps {
-  // Sets the background color of the bar element for a specific element in the `listData` property of `BarList`.
+  /**
+   * Sets the background color of the bar element for a specific element in the `listData` property of `BarList`.
+   **/
   backgroundBarColor?: CSSProperties['color']
-
-  // Allows to pass a React element as an icon to be displayed at the end of the bar label for a specific element in the `listData` property of `BarList`.
+  /**
+   * Allows to pass a React element as an icon to be displayed at the end of the bar label for a specific element in the `listData` property of `BarList`.
+   */
   endIcon?: ReactNode
-
-  // Allows to pass a React element as an icon to be displayed at the beginning of the bar label for a specific element in the `listData` property of `BarList`.
+  /**
+   * Allows to pass a React element as an icon to be displayed at the beginning of the bar label for a specific element in the `listData` property of `BarList`.
+   */
   startIcon?: ReactNode
-
-  // Represents the numeric value associated with a specific item in the `listData` property of `BarList`.
+  /**
+   * Represents the numeric value associated with a specific item in the `listData` property of `BarList`.
+   */
   value: number
-
-  // Specifies the prefix text or value for a specific item in the `listData` property of `BarList`.
+  /**
+   * Specifies the prefix text or value for a specific item in the `listData` property of `BarList`.
+   */
   prefix?: string
-
-  // Specifies the suffix text or value for a specific item in the `listData` property of `BarList`.
+  /**
+   * Specifies the suffix text or value for a specific item in the `listData` property of `BarList`.
+   */
   suffix?: string
 }
 
 interface BarListProps extends HTMLAttributes<HTMLDivElement> {
-  // Allows to pass a custom CSS class to the background bar element of each item in the list.
+  /**
+   * Allows to pass a custom CSS class to the background bar element of each item in the list.
+   */
   classNameBar?: string
-
-  // Allows to pass a value from the `Size` enumeration to set the font size of the text in the bar labels. The default value is ``base``.
+  /**
+   * Allows to pass a value from the `Size` enumeration to set the font size of the text in the bar labels.
+   * The default value is ``base``.
+   */
   fontSizeBar?: Size
-
-  // Allows passing a value from the `Height` enumeration to set the height of the bottom bar element of each item in the list. The default value is `'h-full'`.
+  /**
+   * Allows passing a value from the `Height` enumeration to set the height of the bottom bar element of each item in the list.
+   * The default value is `'h-full'`.
+   */
   heightBar?: Height
-
-  // Represents the list item data for the `BarList` component. It is an array of objects where each object represents an element of the list.
+  /**
+   * Represents the list item data for the `BarList` component. It is an array of objects where each object represents an element of the list.
+   */
   listData: ListItem[]
-
-  // Allows to pass a value from the `Margin` enumeration to set the vertical spacing between each element. The default value is `1`.
+  /**
+   * Allows to pass a value from the `Margin` enumeration to set the vertical spacing between each element.
+   * The default value is `1`.
+   */
   marginYItem?: Margin
-
-  // Allows to pass a value from the `Rounded` enumeration to set the border radius of the background bar element of each item in the list. The default value is `'md'`.
+  /**
+   * Allows to pass a value from the `Rounded` enumeration to set the border radius of the background bar element of each item in the list.
+   * The default value is `'md'`.
+   */
   roundedBar?: Rounded
-
-  // Allows to pass a string value to display as a title for the metrics displayed in the bar list. If not provided, no title will be displayed.
+  /**
+   * Allows to pass a string value to display as a title for the metrics displayed in the bar list. If not provided, no title will be displayed.
+   */
   titleMetrics?: string
-
-  // Allows to pass a string value to display as a title for the values shown in the bar list. If not provided, no title will be displayed for the values.
+  /**
+   * Allows to pass a string value to display as a title for the values shown in the bar list. If not provided, no title will be displayed for the values.
+   */
   titleValues?: string
-
-  // Defines the default color of the text in the bar labels if the `textBarColor` property is not provided for a specific element in the `listData` property. The default value is `'#1D4ED8'`.
+  /**
+   * Defines the default color of the text in the bar labels if the `textBarColor` property is not provided for a specific element in the `listData` property.
+   * The default value is `'#1D4ED8'`.
+   */
   defaultTextBarColor?: CSSProperties['color']
-
-  // Defines the default background color of the bar element if the `backgroundBarColor` property is not provided for a specific element in the `listData` property. The default value is `'#b5d4fc'`.
+  /**
+   * Defines the default background color of the bar element if the `backgroundBarColor` property is not provided for a specific element in the `listData` property.
+   * The default value is `'#b5d4fc'`.
+   */
   defaultBackgroundBarColor?: CSSProperties['color']
-
-  // Specifies the prefix text or value for the values shown in the bar list.
+  /**
+   * Specifies the prefix text or value for the values shown in the bar list.
+   */
   valuePrefix?: string
-
-  // Specifies the suffix text or value for the values shown in the bar list.
+  /**
+   * Specifies the suffix text or value for the values shown in the bar list.
+   */
   valueSuffix?: string
 }
 

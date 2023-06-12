@@ -5,18 +5,24 @@ import Text from '../Typography'
 import Anchor from '../Anchor/Anchor'
 
 export interface LabelProps {
-  // Represents the label or title for a specific item in the `listData` property of `BarList`.
+  /**
+   * Represents the label or title for a specific item in the `listData` property of `BarList`.
+   */
   label: string
-
-  // Defines the URL of a hyperlink that wraps the bar tag for a specific item in the `listData` property of `BarList`.
+  /**
+   * Defines the URL of a hyperlink that wraps the bar tag for a specific item in the `listData` property of `BarList`.
+   */
   href?: string
-
-  // Sets the color of the text in the bar label for a specific item in the `listData` property of `BarList`.
+  /**
+   * Sets the color of the text in the bar label for a specific item in the `listData` property of `BarList`.
+   */
   textBarColor?: CSSProperties['color']
 }
 
 export interface BarLabelProps extends LabelProps {
-  // Allows to pass a value from the `Size` enumeration to set the font size of the text in the bar labels. The default value is ``base``.
+  /**
+   * Allows to pass a value from the `Size` enumeration to set the font size of the text in the bar labels. The default value is ``base``.
+   */
   size?: Size
 }
 
