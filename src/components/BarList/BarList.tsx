@@ -125,7 +125,9 @@ const BarList: FC<BarListProps> = ({
   defaultTextBarColor = '#1D4ED8',
   valuePrefix,
   valueSuffix,
-  ...props
+  style,
+  className,
+  ...otherProps
 }) => {
   const widths = useMemo(
     () => calculateWidthsFromValues(listData.map((item) => item?.value)),
@@ -135,8 +137,9 @@ const BarList: FC<BarListProps> = ({
   return (
     <div
       data-testid="container-bar-list"
-      className={composeClasses('w-full h-full', props?.className)}
-      style={props?.style}
+      className={composeClasses('w-full h-full', className)}
+      style={style}
+      {...otherProps}
     >
       {(titleMetrics || titleValues) && (
         <Flex
