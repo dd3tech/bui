@@ -197,7 +197,7 @@ const BarList: FC<BarListProps> = ({
                   }
                 ])}
               ></div>
-              <div className="h-full" style={{ zIndex: '5' }}>
+              <div className="h-full pr-1" style={{ zIndex: '5' }}>
                 {prefix && (
                   <Text size={fontSizeBar} className="mr-0.5">
                     {prefix}
