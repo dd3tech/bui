@@ -245,6 +245,11 @@
       "require": "./dist/cjs/components/Progress/index.js",
       "module": "./dist/esm/components/Progress/index.js",
       "default": "./dist/esm/components/Progress/index.js"
+    },
+    "./BarList": {
+      "require": "./dist/cjs/components/BarList/index.js",
+      "module": "./dist/esm/components/BarList/index.js",
+      "default": "./dist/esm/components/BarList/index.js"
     }
   },
   "typesVersions": {
@@ -298,7 +303,8 @@
       "Callout": ["./dist/esm/components/Callout/index.d.ts"],
       "RangeSlider": ["./dist/esm/components/RangeSlider/index.d.ts"],
       "List": ["./dist/esm/components/List/index.d.ts"],
-      "Progress": ["./dist/esm/components/Progress/index.d.ts"]
+      "Progress": ["./dist/esm/components/Progress/index.d.ts"],
+      "BarList": ["./dist/esm/components/BarList/index.d.ts"]
     }
   }
 }

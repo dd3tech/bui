@@ -1,3 +1,17 @@
+## [6.13.1](https://github.com/dd3tech/dd360-components/compare/v6.13.0...v6.13.1) (2023-06-12)
+
+
+### Bug Fixes
+
+* added padding-right in values on BarList component ([#121](https://github.com/dd3tech/dd360-components/issues/121)) ([485b5be](https://github.com/dd3tech/dd360-components/commit/485b5be7fc08af1d9f893ec9dac0862ddd28673c))
+
+# [6.13.0](https://github.com/dd3tech/dd360-components/compare/v6.12.6...v6.13.0) (2023-06-12)
+
+
+### Features
+
+* BarList component props are modified ([a361796](https://github.com/dd3tech/dd360-components/commit/a361796c76ef8193945e8d538006b68b4e1f899b))
+
 ## [6.12.6](https://github.com/dd3tech/dd360-components/compare/v6.12.5...v6.12.6) (2023-06-08)
 
 
