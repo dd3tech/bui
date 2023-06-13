@@ -156,15 +156,15 @@ describe('<SideBar/>', () => {
   })
 
   it('rotate expand button when it is clicked', () => {
-    const btnExpand = renderResult.getByRole('active-sidebar')
+    let btnExpand = renderResult.getByRole('active-sidebar')
 
     fireEvent.click(btnExpand)
     vi.advanceTimersByTime(300)
 
-    const btnExpand2 = renderResult.getByRole('active-sidebar')
+    btnExpand = renderResult.getByRole('active-sidebar')
 
     expect(
-      (btnExpand2.firstChild as HTMLElement).className.includes('rotate-0')
+      (btnExpand.firstChild as HTMLElement).className.includes('rotate-0')
     ).toBeTruthy()
   })
 

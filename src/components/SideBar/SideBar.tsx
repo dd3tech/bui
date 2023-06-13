@@ -1,4 +1,5 @@
 import {
+  CSSProperties,
   MutableRefObject,
   ReactElement,
   ReactNode,
@@ -107,7 +108,7 @@ export interface SideBarProps {
   /**
    * Optional object for the styles of the SideBar
    */
-  style?: React.CSSProperties
+  style?: CSSProperties
 }
 
 const SideBar = ({
@@ -123,7 +124,7 @@ const SideBar = ({
   isLoadingSideBarList,
   numSkeletons = 5,
   style,
-  ...props
+  dangerZone
 }: SideBarProps) => {
   const sidebarRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
@@ -134,8 +135,7 @@ const SideBar = ({
     sideBarList
   )
   const containerHeaderRef = useRef<HTMLDivElement>(null)
-  const { size, isMobile } = useResize()
-  const isMdScreen = (size?.width ?? 0) <= 1024
+  const { isMobile, isMdScreen } = useResize()
 
   const toggleSubMenu = (menuItemIndex: number) => {
     if (!menuItems?.length) return
@@ -280,17 +280,17 @@ const SideBar = ({
               )
             )}
           </div>
-          {props.dangerZone?.show && (
+          {dangerZone?.show && (
             <Flex
               role="danger-zone"
               alignItems="center"
               className="w-full cursor-pointer group mb-4"
               onClick={() => {
-                if (props.dangerZone?.callBack) {
+                if (dangerZone?.callBack) {
                   flushSync
                     ? flushSync(() => setIsOptionClicked(true))
                     : setIsOptionClicked(true)
-                  props.dangerZone?.callBack()
+                  dangerZone?.callBack()
                 }
               }}
             >
@@ -308,22 +308,22 @@ const SideBar = ({
                       role="danger-zone-icon"
                       width={25}
                       className={composeClasses(
-                        props.dangerZone?.active ? 'text-white' : 'text-error'
+                        dangerZone?.active ? 'text-white' : 'text-error'
                       )}
                     />
                   </Flex>
                 }
               >
-                {props?.dangerZone?.text}
+                {dangerZone?.text}
               </ToolTipHover>
               <Text
                 size="sm"
                 className={composeClasses(
                   'min-w-max',
-                  props.dangerZone?.active ? 'text-white' : 'text-info'
+                  dangerZone?.active ? 'text-white' : 'text-info'
                 )}
               >
-                {props?.dangerZone?.text}
+                {dangerZone?.text}
               </Text>
             </Flex>
           )}
