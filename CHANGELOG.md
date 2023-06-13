@@ -1,3 +1,10 @@
+# [6.14.0](https://github.com/dd3tech/dd360-components/compare/v6.13.1...v6.14.0) (2023-06-13)
+
+
+### Features
+
+* this comment is added to be able to perform the release ([161089a](https://github.com/dd3tech/dd360-components/commit/161089a62f6877eca8541799f94c140e4aa2c3d2))
+
 ## [6.13.1](https://github.com/dd3tech/dd360-components/compare/v6.13.0...v6.13.1) (2023-06-12)
 
 
