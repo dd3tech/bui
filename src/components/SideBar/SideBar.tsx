@@ -1,4 +1,5 @@
 import {
+  CSSProperties,
   MutableRefObject,
   ReactElement,
   ReactNode,
@@ -6,7 +7,8 @@ import {
   useRef,
   useState
 } from 'react'
-import { ExclamationIcon, ChevronLeftIcon } from '@heroicons/react/outline'
+import ExclamationIcon from '@heroicons/react/outline/ExclamationIcon'
+import useResize from 'hooks/useResize'
 import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 import ToolTipHover from '../ToolTipHover'
@@ -14,6 +16,7 @@ import Flex from '../Layout/Flex/Flex'
 import SideBarHeader from './SideBarHeader'
 import SideBarItem from './SideBarItem'
 import SkeletonSideBarList from './SkeletonSideBarList'
+import ToggleSideBar from './ToggleSideBar'
 import './sideBar.css'
 
 export interface SideBarSubItem {
@@ -102,6 +105,10 @@ export interface SideBarProps {
    * Number of items of type skeletons to show when isLoadingSideBarList is true
    */
   numSkeletons?: number
+  /**
+   * Optional object for the styles of the SideBar
+   */
+  style?: CSSProperties
 }
 
 const SideBar = ({
@@ -116,7 +123,8 @@ const SideBar = ({
   isLoadingHeaderInfo,
   isLoadingSideBarList,
   numSkeletons = 5,
-  ...props
+  style,
+  dangerZone
 }: SideBarProps) => {
   const sidebarRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
@@ -126,6 +134,8 @@ const SideBar = ({
   const [menuItems, setMenuItems] = useState<SideBarList | undefined>(
     sideBarList
   )
+  const containerHeaderRef = useRef<HTMLDivElement>(null)
+  const { isMobile, isMdScreen } = useResize()
 
   const toggleSubMenu = (menuItemIndex: number) => {
     if (!menuItems?.length) return
@@ -175,139 +185,151 @@ const SideBar = ({
   }, [])
 
   return (
-    <div
-      ref={sidebarRef}
-      role="container-sidebar"
-      className={composeClasses(
-        'bg-gray-50 border-t-0 box-border overflow-hidden h-full relative border',
-        'transition-all delay-75 duration-200 ease-in',
-        expand ? 'w-60 min-w-full' : 'w-0 lg:w-14.5 lg:min-w-14.5'
+    <>
+      {isMobile && (
+        <div
+          className={composeClasses(
+            'lg:hidden absolute z-40 transition-all duration-200 ease-in',
+            expand ? 'fade-in w-full h-full opacity-90' : 'fade-out opacity-0'
+          )}
+          style={{
+            backgroundColor: 'rgba(17, 24, 39, 0.75)',
+            top: top ?? 0,
+            left: left ?? 0
+          }}
+        />
       )}
-      style={{
-        maxHeight: `calc(100vh - ${sidebarRef.current?.offsetTop}px)`,
-        top: top ?? 0,
-        left: left ?? 0
-      }}
-    >
-      <Flex className="h-full flex-col transition-all delay-300 ease-out">
+
+      {!expand && isMdScreen && (
+        <ToggleSideBar
+          expand={expand}
+          className="block lg:hidden mt-3"
+          setExpand={setExpand}
+        />
+      )}
+
+      <div
+        ref={sidebarRef}
+        role="container-sidebar"
+        className={composeClasses(
+          'border-t-0 box-border overflow-hidden h-full border',
+          'transition-all delay-75 duration-200 ease-in',
+          expand ? 'w-60 min-w-full' : 'w-0 lg:w-14.5 lg:min-w-14.5',
+          isMobile ? 'absolute z-50' : 'relative'
+        )}
+        style={{
+          maxHeight: `calc(100vh - ${sidebarRef.current?.offsetTop}px)`,
+          top: top ?? 0,
+          left: left ?? 0,
+          ...style
+        }}
+      >
         <Flex
-          justifyContent="between"
-          alignItems="center"
-          className={composeClasses('w-full h-16 mb-1', expand && 'relative')}
+          className="h-full flex-col transition-all delay-300 ease-out bg-gray-50"
+          style={{
+            maxWidth: 240
+          }}
         >
-          <div
-            role="active-sidebar"
-            className={composeClasses(
-              'fixed mx-2 border rounded-full bg-white text-primary cursor-pointer transition-all duration-300 ease-in-out',
-              'focus:bg-primary focus:text-white',
-              'hover:bg-blue-50',
-              expand && 'absolute right-2'
-            )}
-            onClick={() => setExpand(!expand)}
+          <Flex
+            role="container-header"
+            justifyContent="between"
+            alignItems="center"
+            className={composeClasses('w-full h-16 mb-1', expand && 'relative')}
+            ref={containerHeaderRef}
           >
-            <Flex
-              justifyContent="center"
-              alignItems="center"
-              className={composeClasses(
-                'w-9 h-9 transform transition-all duration-200 ease-in-out',
-                expand ? 'rotate-0' : 'rotate-180'
-              )}
-            >
-              <ChevronLeftIcon
-                className="transition-all duration-200 ease-in-out"
-                width={18}
-              />
-            </Flex>
+            {(!isMdScreen || expand) && (
+              <ToggleSideBar expand={expand} setExpand={setExpand} />
+            )}
+            {expand && (
+              <Flex
+                justifyContent="center"
+                gap="1"
+                className="flex-col col-span-2 p-3 w-full"
+              >
+                <SideBarHeader
+                  sideBarName={sideBarName}
+                  sideBarSubTitle={sideBarSubTitle}
+                  isLoadingHeaderInfo={isLoadingHeaderInfo}
+                />
+              </Flex>
+            )}
+          </Flex>
+          <div
+            role="list-options"
+            className={`${
+              !expand ? 'hide-scroll' : ''
+            } overflow-y-auto overflow-x-hidden flex-grow mx-2`}
+          >
+            {isLoadingSideBarList ? (
+              <SkeletonSideBarList childs={numSkeletons} />
+            ) : (
+              menuItems?.map(
+                (item, index: number) =>
+                  !item.hidden && (
+                    <SideBarItem
+                      key={`${item.title}-${index.toString()}`}
+                      index={index}
+                      disabledOptionsTag={disabledOptionsTag}
+                      isOptionClicked={isOptionClicked}
+                      isExpand={expand}
+                      handleClickOption={handleClickOption}
+                      toggleSubMenu={toggleSubMenu}
+                      {...item}
+                    />
+                  )
+              )
+            )}
           </div>
-          {expand && (
+          {dangerZone?.show && (
             <Flex
-              justifyContent="center"
-              gap="1"
-              className="flex-col col-span-2 p-3 w-full"
+              role="danger-zone"
+              alignItems="center"
+              className="w-full cursor-pointer group mb-4"
+              onClick={() => {
+                if (dangerZone?.callBack) {
+                  flushSync
+                    ? flushSync(() => setIsOptionClicked(true))
+                    : setIsOptionClicked(true)
+                  dangerZone?.callBack()
+                }
+              }}
             >
-              <SideBarHeader
-                sideBarName={sideBarName}
-                sideBarSubTitle={sideBarSubTitle}
-                isLoadingHeaderInfo={isLoadingHeaderInfo}
-              />
+              <ToolTipHover
+                variantPopup="dark"
+                disabled={expand || isOptionClicked}
+                complementPosition={{ top: 30, left: 85 }}
+                element={
+                  <Flex
+                    justifyContent="center"
+                    alignItems="center"
+                    className="w-14"
+                  >
+                    <ExclamationIcon
+                      role="danger-zone-icon"
+                      width={25}
+                      className={composeClasses(
+                        dangerZone?.active ? 'text-white' : 'text-error'
+                      )}
+                    />
+                  </Flex>
+                }
+              >
+                {dangerZone?.text}
+              </ToolTipHover>
+              <Text
+                size="sm"
+                className={composeClasses(
+                  'min-w-max',
+                  dangerZone?.active ? 'text-white' : 'text-info'
+                )}
+              >
+                {dangerZone?.text}
+              </Text>
             </Flex>
           )}
         </Flex>
-        <div
-          role="list-options"
-          className={`${
-            !expand ? 'hide-scroll' : ''
-          } overflow-y-auto overflow-x-hidden flex-grow mx-2`}
-        >
-          {isLoadingSideBarList ? (
-            <SkeletonSideBarList childs={numSkeletons} />
-          ) : (
-            menuItems?.map(
-              (item, index: number) =>
-                !item.hidden && (
-                  <SideBarItem
-                    key={`${item.title}-${index.toString()}`}
-                    index={index}
-                    disabledOptionsTag={disabledOptionsTag}
-                    isOptionClicked={isOptionClicked}
-                    isExpand={expand}
-                    handleClickOption={handleClickOption}
-                    toggleSubMenu={toggleSubMenu}
-                    {...item}
-                  />
-                )
-            )
-          )}
-        </div>
-        {props.dangerZone?.show && (
-          <Flex
-            role="danger-zone"
-            alignItems="center"
-            className="w-full cursor-pointer group mb-4"
-            onClick={() => {
-              if (props.dangerZone?.callBack) {
-                flushSync
-                  ? flushSync(() => setIsOptionClicked(true))
-                  : setIsOptionClicked(true)
-                props.dangerZone?.callBack()
-              }
-            }}
-          >
-            <ToolTipHover
-              variantPopup="dark"
-              disabled={expand || isOptionClicked}
-              complementPosition={{ top: 30, left: 85 }}
-              element={
-                <Flex
-                  justifyContent="center"
-                  alignItems="center"
-                  className="w-14"
-                >
-                  <ExclamationIcon
-                    role="danger-zone-icon"
-                    width={25}
-                    className={composeClasses(
-                      props.dangerZone?.active ? 'text-white' : 'text-error'
-                    )}
-                  />
-                </Flex>
-              }
-            >
-              {props?.dangerZone?.text}
-            </ToolTipHover>
-            <Text
-              size="sm"
-              className={composeClasses(
-                'min-w-max',
-                props.dangerZone?.active ? 'text-white' : 'text-info'
-              )}
-            >
-              {props?.dangerZone?.text}
-            </Text>
-          </Flex>
-        )}
-      </Flex>
-    </div>
+      </div>
+    </>
   )
 }
 

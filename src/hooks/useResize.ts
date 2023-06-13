@@ -8,6 +8,7 @@ export type SizeTypes = {
 export type useResizeReturnedTypes = {
   size: SizeTypes
   isMobile: boolean
+  isMdScreen: boolean
 }
 
 /**
@@ -42,5 +43,9 @@ export default function useResize(): useResizeReturnedTypes {
     return () => window.removeEventListener('resize', handleChangeResize)
   }, [])
 
-  return { size, isMobile: window.innerWidth < 768 }
+  return {
+    size,
+    isMobile: window.innerWidth < 768,
+    isMdScreen: window.innerWidth <= 1024
+  }
 }
