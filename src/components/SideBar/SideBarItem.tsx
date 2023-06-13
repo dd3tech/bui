@@ -6,8 +6,8 @@ import {
 } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
-import ToolTipHover from '../ToolTipHover'
 import Flex from '../Layout/Flex'
+import ToolTipHover from '../ToolTipHover'
 import { SideBarSubItem, TBadge } from './SideBar'
 import SideBarBadge from './SideBarBadge'
 
