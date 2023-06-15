@@ -1,0 +1,27 @@
+.timeline-cmpnt.alternate li:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-cmpnt.alternate li:nth-child(even) > :first-child {
+  text-align: left;
+}
+
+.timeline-cmpnt.alternate li:nth-child(even) > :last-child {
+  text-align: right;
+}
+
+.timeline-cmpnt.right li > :first-child {
+  text-align: right;
+}
+
+.timeline-cmpnt.right li > :last-child {
+  text-align: left;
+}
+
+.timeline-cmpnt.left li > :first-child {
+  text-align: right;
+}
+
+.timeline-cmpnt.left li > :last-child {
+  text-align: left;
+}
