@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode } from 'react'
-import { UnitCSS } from 'interfaces'
+import { UnitCSS } from '../../interfaces'
 import { composeClasses } from 'lib/classes'
 import Flex from '../Layout/Flex/Flex'
 
