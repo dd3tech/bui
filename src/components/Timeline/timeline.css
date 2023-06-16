@@ -10,6 +10,21 @@
   text-align: right;
 }
 
+.timeline-cmpnt.alternate li:not(:has(div[role='timeline-content']))::before {
+  content: '';
+  flex: 1;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.timeline-cmpnt.alternate
+  li:not(:has(div[role='timeline-opposite-content']))::before {
+  content: '';
+  flex: 1;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .timeline-cmpnt.right li > :first-child {
   text-align: right;
 }
