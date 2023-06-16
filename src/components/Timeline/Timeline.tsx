@@ -20,7 +20,7 @@ export interface TimelineProps extends HTMLAttributes<HTMLUListElement> {
    * The position of the main content of the items.
    * @default 'alternate'
    */
-  position: Position
+  position?: Position
   /**
    * Override or extend the classes applied to the component.
    */
