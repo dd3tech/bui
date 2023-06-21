@@ -13,6 +13,7 @@ export interface ProgressCircleProps
   children?: React.ReactNode
   classNamePercentage?: string
   width?: number
+  text?: string
 }
 
 const ProgressCircle = ({
@@ -23,7 +24,8 @@ const ProgressCircle = ({
   strokeWidth,
   children,
   classNamePercentage,
-  width
+  width,
+  text
 }: ProgressCircleProps) => {
   return (
     <>
@@ -35,6 +37,7 @@ const ProgressCircle = ({
           })}
           strokeWidth={strokeWidth}
           value={value}
+          text={text}
         >
           <div className={classNamePercentage}>
             {Math.min(value, 100).toFixed(0)}%
