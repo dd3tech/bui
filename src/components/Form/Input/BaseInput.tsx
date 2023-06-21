@@ -39,7 +39,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   isRequired?: boolean
 }
 
-const IconStatus = ({ variant }: { variant: InputVariantType }) => {
+export const IconStatus = ({ variant }: { variant: InputVariantType }) => {
   const { bgIcon, text } = inputVariants[variant]
   return (
     <div

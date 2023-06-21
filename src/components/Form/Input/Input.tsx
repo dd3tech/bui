@@ -10,6 +10,8 @@ import NumberInput from './InputNumber'
 
 export interface GenericInputProps extends InputProps {
   controllers?: boolean
+  min?: number
+  max?: number
 }
 
 export default function Input({

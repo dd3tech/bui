@@ -57,7 +57,7 @@
         "@popperjs/core": "2.11.7",
         "dd360-utils": "^1.0.12",
         "react-circular-progressbar": "^2.1.0",
-        "react-currency-input-field": "^3.6.5"
+        "react-currency-input-field": "^3.6.10"
     },
     "peerDependencies": {
         "react": ">=17.0.0",

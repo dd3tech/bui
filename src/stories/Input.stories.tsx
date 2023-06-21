@@ -41,8 +41,8 @@ InputWithIcon.args = {
 export const InputCurrency = Template.bind({})
 InputCurrency.args = {
   label: 'Currency',
-  endAdornment: '$',
-  startAdornment: '%',
+  startAdornment: '$',
+  endAdornment: '%',
   className: 'w-full',
   type: 'currency',
   prefix: '$'
