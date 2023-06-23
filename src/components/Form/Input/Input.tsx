@@ -10,8 +10,8 @@ import NumberInput from './InputNumber'
 
 export interface GenericInputProps extends InputProps {
   controllers?: boolean
-  min?: number | string
-  max?: number | string
+  min?: number
+  max?: number
 }
 
 export default function Input({
@@ -24,9 +24,9 @@ export default function Input({
     case 'currency':
       return (
         <CurrencyInput
+          min={otherProps.min}
+          max={otherProps.max}
           {...otherProps}
-          min={otherProps as number}
-          max={otherProps as number}
         />
       )
     case 'password':

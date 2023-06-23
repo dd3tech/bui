@@ -4,8 +4,7 @@ import {
   InputHTMLAttributes,
   ReactNode,
   useRef,
-  forwardRef,
-  useEffect
+  forwardRef
 } from 'react'
 import CInput from 'react-currency-input-field'
 import { composeClasses } from 'lib/classes'
@@ -13,12 +12,12 @@ import {
   inputVariants,
   InputVariant as InputVariantType,
   InputType,
-  getClassesByPseudoClass,
   getPaddingInput
 } from '../shared'
 import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
 import FormLabel from '../FormLabel'
 import { IconStatus } from './BaseInput'
+import useInputStyles from './useInputStyles'
 
 interface InputCurrencyProps extends InputHTMLAttributes<HTMLInputElement> {
   type?: InputType
@@ -88,9 +87,24 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
     const { input, text } = inputVariants[variant]
     const inputRef = useRef<HTMLInputElement>(null)
 
-    const [isLabelScalded, seTisLabelScalded] = useState<boolean>(
-      !label || focused || Boolean(inputRef.current?.value)
-    )
+    const { styles, isLabelScalded } = useInputStyles({
+      classNameAdornment,
+      className,
+      boxShadow,
+      isDisabled,
+      disabled,
+      inputBlank,
+      rounded,
+      variant,
+      focused,
+      padding,
+      paddingX,
+      paddingY,
+      large,
+      input,
+      label,
+      inputRef
+    })
 
     const handleFocus = useCallback(
       (event: React.FocusEvent<HTMLInputElement>) => {
@@ -108,44 +122,6 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       [onBlur]
     )
 
-    const styles = {
-      adornment: composeClasses(
-        'text-gray-400 transition duration-500 ease-out focus:ease-in',
-        classNameAdornment
-      ),
-      container: composeClasses(
-        'gap-3 placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium',
-        'border-solid border',
-        'transition duration-500 ease-out focus:ease-in',
-        !isDisabled && `hover:shadow-${boxShadow} hover:border-info`,
-        className && disabled && getClassesByPseudoClass(className, 'disabled'),
-        inputBlank && 'border-none',
-        rounded && `rounded-${rounded}`,
-        !['error', 'success', 'warning'].includes(variant) &&
-          focused &&
-          'border-blue-500',
-        ['error', 'success', 'warning'].includes(variant)
-          ? 'bg-white'
-          : 'bg-gray-50',
-        isDisabled
-          ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-          : 'hover:bg-white',
-        input.borderColor,
-        padding && `p-${padding}`,
-        !padding && paddingX && `px-${paddingX}`,
-        !padding && paddingY && `py-${paddingY}`,
-        input.color,
-        large ? 'h-13' : 'h-12',
-        className
-      )
-    }
-
-    useEffect(() => seTisLabelScalded(!!value), [value])
-
-    useEffect(() => {
-      seTisLabelScalded(!!otherProps?.defaultValue || !!value)
-    }, [])
-
     return (
       <>
         <div
@@ -162,7 +138,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
           <div className="flex flex-col w-full relative h-11">
             {label && (
               <FormLabel
-                isLabelScalded={(isLabelScalded as boolean) || focused}
+                isLabelScalded={isLabelScalded || focused}
                 isDisabled={isDisabled}
                 isRequired={isRequired}
                 label={label}

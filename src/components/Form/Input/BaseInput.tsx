@@ -14,11 +14,11 @@ import {
   inputVariants,
   InputVariant as InputVariantType,
   InputType,
-  getClassesByPseudoClass,
   getPaddingInput
 } from '../shared'
 import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
 import FormLabel from '../FormLabel'
+import useInputStyles from './useInputStyles'
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type?: InputType
@@ -95,11 +95,25 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
     const isDisabled = variant === 'disabled'
     const { input, text } = inputVariants[variant]
     const inputRef = useRef<HTMLInputElement>(null)
-    const isLabelScalded =
-      !label ||
-      focused ||
-      Boolean(value?.toLocaleString().length) ||
-      Boolean(inputRef.current?.value.length)
+
+    const { styles, isLabelScalded } = useInputStyles({
+      input,
+      isDisabled,
+      disabled,
+      variant,
+      focused,
+      classNameAdornment,
+      className,
+      boxShadow,
+      inputBlank,
+      rounded,
+      padding,
+      paddingX,
+      paddingY,
+      large,
+      label,
+      inputRef
+    })
 
     const handleFocus = useCallback(
       (event: React.FocusEvent<HTMLInputElement>) => {
@@ -116,38 +130,6 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
       },
       [onBlur]
     )
-
-    const styles = {
-      adornment: composeClasses(
-        'text-gray-400 transition duration-500 ease-out focus:ease-in',
-        classNameAdornment
-      ),
-      container: composeClasses(
-        'gap-3 placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium',
-        'border-solid border',
-        'transition duration-500 ease-out focus:ease-in',
-        !isDisabled && `hover:shadow-${boxShadow} hover:border-info`,
-        className && disabled && getClassesByPseudoClass(className, 'disabled'),
-        inputBlank && 'border-none',
-        rounded && `rounded-${rounded}`,
-        !['error', 'success', 'warning'].includes(variant) &&
-          focused &&
-          'border-blue-500',
-        ['error', 'success', 'warning'].includes(variant)
-          ? 'bg-white'
-          : 'bg-gray-50',
-        isDisabled
-          ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-          : 'hover:bg-white',
-        input.borderColor,
-        padding && `p-${padding}`,
-        !padding && paddingX && `px-${paddingX}`,
-        !padding && paddingY && `py-${paddingY}`,
-        input.color,
-        large ? 'h-13' : 'h-12',
-        className
-      )
-    }
 
     return (
       <>
