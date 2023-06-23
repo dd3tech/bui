@@ -81,7 +81,6 @@ function AutoComplete({
       }
     }
   }, [itemName])
-
   return (
     <div className="grid">
       <Input
@@ -92,6 +91,8 @@ function AutoComplete({
           disabled && 'opacity-30 bg-gray-100',
           className
         )}
+        min={undefined}
+        max={undefined}
         onChange={handleChange}
         onBlur={onBlur}
         onFocus={onFocus}
