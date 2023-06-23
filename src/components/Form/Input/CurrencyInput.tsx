@@ -122,6 +122,26 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       [onBlur]
     )
 
+    const handleOnChange = useCallback(
+      (inputValue, name) => {
+        const newValue = Number(inputValue)
+        if (min && inputValue && newValue < min) {
+          return
+        }
+        if (max && inputValue && newValue > max) {
+          return
+        }
+        const event = {
+          target: {
+            value: newValue || undefined,
+            name
+          }
+        }
+        onChange && onChange(event as any)
+      },
+      [min, max, onChange]
+    )
+
     return (
       <>
         <div
@@ -135,7 +155,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
               {startAdornment}
             </div>
           )}
-          <div className="flex flex-col w-full relative h-11">
+          <div className="w-full relative h-11">
             {label && (
               <FormLabel
                 isLabelScalded={isLabelScalded || focused}
@@ -168,22 +188,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
                 zIndex: 1,
                 ...getPaddingInput(!!label)
               }}
-              onValueChange={(value, name) => {
-                const _value = Number(value)
-                if (min && value && _value < min) {
-                  return
-                }
-                if (max && value && _value > max) {
-                  return
-                }
-                const event = {
-                  target: {
-                    value: _value || undefined,
-                    name
-                  }
-                }
-                onChange && onChange(event as any)
-              }}
+              onValueChange={handleOnChange}
             />
           </div>
           {endAdornment && (
