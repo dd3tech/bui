@@ -8,19 +8,13 @@ import {
 } from 'react'
 import CInput from 'react-currency-input-field'
 import { composeClasses } from 'lib/classes'
-import {
-  inputVariants,
-  InputVariant as InputVariantType,
-  InputType,
-  getPaddingInput
-} from '../shared'
+import { InputVariant as InputVariantType, getPaddingInput } from '../shared'
 import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
 import FormLabel from '../FormLabel'
 import { IconStatus } from './BaseInput'
 import useInputStyles from './useInputStyles'
 
 interface InputCurrencyProps extends InputHTMLAttributes<HTMLInputElement> {
-  type?: InputType
   variant?: InputVariantType
   label?: string
   message?: string
@@ -41,8 +35,6 @@ interface InputCurrencyProps extends InputHTMLAttributes<HTMLInputElement> {
   decimalSeparator?: string
   decimalsLimit?: number
   suffix?: string
-  min?: number
-  max?: number
 }
 
 const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
@@ -76,22 +68,18 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       min,
       max,
       onChange,
+      disabled,
       ...otherProps
     }: InputCurrencyProps,
     ref
   ) => {
     const [focused, setFocused] = useState(false)
-    const { disabled } = otherProps
-    variant = disabled ? 'disabled' : variant
-    const isDisabled = variant === 'disabled'
-    const { input, text } = inputVariants[variant]
     const inputRef = useRef<HTMLInputElement>(null)
 
-    const { styles, isLabelScalded } = useInputStyles({
+    const { styles, isLabelScalded, text, isDisabled } = useInputStyles({
       classNameAdornment,
       className,
       boxShadow,
-      isDisabled,
       disabled,
       inputBlank,
       rounded,
@@ -101,7 +89,6 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       paddingX,
       paddingY,
       large,
-      input,
       label,
       inputRef
     })
@@ -125,10 +112,13 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
     const handleOnChange = useCallback(
       (inputValue, name) => {
         const newValue = Number(inputValue)
-        if (min && inputValue && newValue < min) {
+        const newMin = Number(min)
+        const newMax = Number(max)
+
+        if (newMin && inputValue && newValue < newMin) {
           return
         }
-        if (max && inputValue && newValue > max) {
+        if (newMax && inputValue && newValue > newMax) {
           return
         }
         const event = {

@@ -1,25 +1,24 @@
-import { composeClasses } from 'lib/classes'
 import { RefObject, useEffect, useState } from 'react'
-import { getClassesByPseudoClass } from '../shared'
+import { composeClasses } from 'lib/classes'
+import {
+  getClassesByPseudoClass,
+  inputVariants,
+  InputVariant as InputVariantType
+} from '../shared'
 
-interface IUseInputStyles {
+interface UseInputStylesParams {
   classNameAdornment?: string
   className?: string
   boxShadow?: string
-  isDisabled?: boolean
   disabled?: boolean
   inputBlank?: boolean
   rounded?: string
-  variant: string
+  variant: InputVariantType
   focused?: boolean
   padding?: string
   paddingX?: string
   paddingY?: string
   large?: boolean
-  input: {
-    borderColor: string
-    color?: string | undefined
-  }
   label?: string
   inputRef: RefObject<HTMLInputElement>
 }
@@ -28,7 +27,6 @@ const useInputStyles = ({
   classNameAdornment,
   className,
   boxShadow,
-  isDisabled,
   disabled,
   inputBlank,
   rounded,
@@ -38,16 +36,24 @@ const useInputStyles = ({
   paddingX,
   paddingY,
   large,
-  input,
   label,
   inputRef
-}: IUseInputStyles) => {
+}: UseInputStylesParams) => {
+  variant = disabled ? 'disabled' : variant
+  const isDisabled = variant === 'disabled'
+  const { input, text } = inputVariants[variant]
+
   const [styles, setStyles] = useState<{
     adornment: string
     container: string
   }>({
     adornment: '',
-    container: ''
+    container: composeClasses(
+      'gap-3 placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium',
+      'border-solid border',
+      'transition duration-500 ease-out focus:ease-in',
+      !isDisabled && `hover:shadow-${boxShadow} hover:border-info`
+    )
   })
 
   const [isLabelScalded, setIsLabelScalded] = useState(
@@ -109,10 +115,13 @@ const useInputStyles = ({
     paddingX,
     paddingY,
     large,
-    input
+    input,
+    text,
+    isDisabled,
+    inputVariants
   ])
 
-  return { styles, isLabelScalded }
+  return { styles, isLabelScalded, isDisabled, text }
 }
 
 export default useInputStyles

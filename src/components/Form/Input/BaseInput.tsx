@@ -85,20 +85,15 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
       placeholder,
       value,
       isRequired,
+      disabled,
       ...otherProps
     }: InputProps,
     ref
   ) => {
     const [focused, setFocused] = useState(false)
-    const { disabled } = otherProps
-    variant = disabled ? 'disabled' : variant
-    const isDisabled = variant === 'disabled'
-    const { input, text } = inputVariants[variant]
     const inputRef = useRef<HTMLInputElement>(null)
 
-    const { styles, isLabelScalded } = useInputStyles({
-      input,
-      isDisabled,
+    const { styles, isLabelScalded, isDisabled, text } = useInputStyles({
       disabled,
       variant,
       focused,
