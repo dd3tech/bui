@@ -1,35 +1,13 @@
-import {
-  useState,
-  useCallback,
-  InputHTMLAttributes,
-  ReactNode,
-  useRef,
-  forwardRef
-} from 'react'
+import { useState, useCallback, useRef, forwardRef } from 'react'
 import CInput from 'react-currency-input-field'
 import { composeClasses } from 'lib/classes'
-import { InputVariant as InputVariantType, getPaddingInput } from '../shared'
-import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
+import { getPaddingInput } from '../shared'
 import FormLabel from '../FormLabel'
-import { IconStatus } from './BaseInput'
+import { IconStatus, InputProps } from './BaseInput'
 import useInputStyles from './useInputStyles'
 
-interface InputCurrencyProps extends InputHTMLAttributes<HTMLInputElement> {
-  variant?: InputVariantType
-  label?: string
-  message?: string
-  inputBlank?: boolean
-  padding?: Padding
-  paddingX?: Padding
-  paddingY?: Padding
-  endAdornment?: ReactNode
-  startAdornment?: ReactNode
-  classNameAdornment?: string
-  rounded?: Rounded
+interface InputCurrencyProps extends InputProps {
   language?: 'es' | 'en'
-  large?: boolean
-  boxShadow?: ShadowVariants
-  isRequired?: boolean
   prefix?: string
   groupSeparator?: string
   decimalSeparator?: string
