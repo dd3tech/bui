@@ -383,11 +383,6 @@
             "require": "./dist/cjs/components/BarList/index.js",
             "module": "./dist/esm/components/BarList/index.js",
             "default": "./dist/esm/components/BarList/index.js"
-        },
-        "./Timeline": {
-            "require": "./dist/cjs/components/Timeline/index.js",
-            "module": "./dist/esm/components/Timeline/index.js",
-            "default": "./dist/esm/components/Timeline/index.js"
         }
     },
     "typesVersions": {
@@ -538,9 +533,6 @@
             ],
             "BarList": [
                 "./dist/esm/components/BarList/index.d.ts"
-            ],
-            "Timeline": [
-                "./dist/esm/components/Timeline/index.d.ts"
             ]
         }
     }

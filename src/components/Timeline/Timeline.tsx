@@ -9,7 +9,7 @@ import TimelineSeparator from './TimelineSeparator'
 import { TimelineProvider } from './TimelineContext'
 import './timeline.css'
 
-export type Position = 'left' | 'right' | 'alternate'
+export type TimeLinePosition = 'left' | 'right' | 'alternate'
 
 export interface TimelineProps extends HTMLAttributes<HTMLUListElement> {
   /**
@@ -20,7 +20,7 @@ export interface TimelineProps extends HTMLAttributes<HTMLUListElement> {
    * The position of the main content of the items.
    * @default 'alternate'
    */
-  position?: Position
+  position?: TimeLinePosition
   /**
    * Override or extend the classes applied to the component.
    */

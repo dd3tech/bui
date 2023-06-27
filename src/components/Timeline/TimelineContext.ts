@@ -1,7 +1,8 @@
 import { Dispatch, SetStateAction, createContext, useContext } from 'react'
+import { TimeLinePosition } from './Timeline'
 
 interface IContext {
-  position: 'left' | 'right' | 'alternate'
+  position: TimeLinePosition
   left: boolean
   setLeft: Dispatch<SetStateAction<boolean>>
 }

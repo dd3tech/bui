@@ -3,7 +3,16 @@ import { UnitCSS } from '../../interfaces'
 import { composeClasses } from 'lib/classes'
 import Flex from '../Layout/Flex/Flex'
 
-export const getDotColor: { [key: string]: { bg: string; border: string } } = {
+export type TimeLineDotColor =
+  | 'primary'
+  | 'warning'
+  | 'info'
+  | 'success'
+  | 'error'
+
+export const getDotColor: {
+  [key in TimeLineDotColor]: { bg: string; border: string }
+} = {
   primary: {
     bg: 'bg-primary',
     border: 'border-primary'
@@ -26,6 +35,8 @@ export const getDotColor: { [key: string]: { bg: string; border: string } } = {
   }
 }
 
+export type TimeLineDotVariant = 'filled' | 'outlined'
+
 export interface TimelineDotProps {
   /**
    * The content of the component.
@@ -39,12 +50,12 @@ export interface TimelineDotProps {
    * Color del borde o relleno del Dot
    * @default 'primary'
    */
-  color?: 'primary' | 'warning' | 'info' | 'success' | 'error'
+  color?: TimeLineDotColor
   /**
    * Variant del Dot
    * @default 'filled'
    */
-  variant?: 'filled' | 'outlined'
+  variant?: TimeLineDotVariant
   /**
    * Dot width
    */

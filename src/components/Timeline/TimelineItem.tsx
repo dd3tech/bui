@@ -1,7 +1,7 @@
 import { CSSProperties, ReactElement, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import { useTimelineContext } from './TimelineContext'
-import { Position } from './Timeline'
+import { TimeLinePosition } from './Timeline'
 
 export interface TimelineItemProps {
   /**
@@ -19,7 +19,7 @@ export interface TimelineItemProps {
   /**
    * The position of the main content of the item.
    */
-  position?: Omit<Position, 'alternate'>
+  position?: Omit<TimeLinePosition, 'alternate'>
 }
 
 const TimelineItem = ({
@@ -28,9 +28,9 @@ const TimelineItem = ({
   className,
   style
 }: TimelineItemProps) => {
-  const { position: positionMain } = useTimelineContext()
+  const { position: mainPosition } = useTimelineContext()
   const [OppositeContent, Separator, Content] = children as ReactElement[]
-  const isLeft = (position ?? positionMain) === 'left'
+  const isLeft = (position ?? mainPosition) === 'left'
 
   return (
     <li
