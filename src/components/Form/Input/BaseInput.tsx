@@ -107,7 +107,8 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
       paddingY,
       large,
       label,
-      inputRef
+      inputRef,
+      value
     })
 
     const handleFocus = useCallback(

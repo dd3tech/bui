@@ -21,6 +21,7 @@ interface UseInputStylesParams {
   large?: boolean
   label?: string
   inputRef: RefObject<HTMLInputElement>
+  value?: string | number | readonly string[]
 }
 
 const useInputStyles = ({
@@ -37,7 +38,8 @@ const useInputStyles = ({
   paddingY,
   large,
   label,
-  inputRef
+  inputRef,
+  value
 }: UseInputStylesParams) => {
   variant = disabled ? 'disabled' : variant
   const isDisabled = variant === 'disabled'
@@ -60,13 +62,19 @@ const useInputStyles = ({
     !label ||
       focused ||
       Boolean(inputRef.current?.defaultValue) ||
-      Boolean(inputRef.current?.value)
+      Boolean(inputRef.current?.value) ||
+      Boolean(value?.toLocaleString().length)
   )
 
   useEffect(
     () =>
-      setIsLabelScalded(!label || focused || Boolean(inputRef.current?.value)),
-    [inputRef.current?.value, label, focused]
+      setIsLabelScalded(
+        !label ||
+          focused ||
+          Boolean(inputRef.current?.value) ||
+          Boolean(value?.toLocaleString().length)
+      ),
+    [inputRef.current?.value, label, focused, value]
   )
 
   useEffect(() => {
