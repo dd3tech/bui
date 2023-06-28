@@ -1,4 +1,4 @@
-import CurrencyInput from './CurrencyInput'
+import CurrencyInput, { InputCurrencyProps } from './CurrencyInput'
 import PasswordInput from './PasswordInput'
 import BaseInput from './BaseInput'
 import DateInput from './DateInput'
@@ -8,7 +8,7 @@ import PercentageInput from './PercentageInput'
 import type { InputProps } from './BaseInput'
 import NumberInput from './InputNumber'
 
-export interface GenericInputProps extends InputProps {
+export interface GenericInputProps extends InputProps, InputCurrencyProps {
   controllers?: boolean
 }
 

@@ -37,6 +37,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   large?: boolean
   boxShadow?: ShadowVariants
   isRequired?: boolean
+  internalClassName?: string
 }
 
 export const IconStatus = ({ variant }: { variant: InputVariantType }) => {
@@ -86,6 +87,7 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
       value,
       isRequired,
       disabled,
+      internalClassName,
       ...otherProps
     }: InputProps,
     ref
@@ -154,6 +156,7 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
               {...otherProps}
               placeholder={isLabelScalded ? placeholder : ''}
               className={composeClasses(
+                internalClassName,
                 'outline-none w-full font-medium bg-transparent'
               )}
               onFocus={handleFocus}

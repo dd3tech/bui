@@ -6,7 +6,7 @@ import FormLabel from '../FormLabel'
 import { IconStatus, InputProps } from './BaseInput'
 import useInputStyles from './useInputStyles'
 
-interface InputCurrencyProps extends InputProps {
+export interface InputCurrencyProps extends InputProps {
   language?: 'es' | 'en'
   prefix?: string
   groupSeparator?: string
@@ -47,6 +47,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       max,
       onChange,
       disabled,
+      internalClassName,
       ...otherProps
     }: InputCurrencyProps,
     ref
@@ -137,6 +138,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
               {...otherProps}
               placeholder={isLabelScalded ? placeholder : ''}
               className={composeClasses(
+                internalClassName,
                 'absolute outline-none w-full font-medium bg-transparent'
               )}
               defaultValue={Number(value) || undefined}
