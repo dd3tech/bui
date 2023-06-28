@@ -138,8 +138,8 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
               {...otherProps}
               placeholder={isLabelScalded ? placeholder : ''}
               className={composeClasses(
-                internalClassName,
-                'absolute outline-none w-full font-medium bg-transparent'
+                internalClassName ??
+                  'absolute outline-none w-full font-medium bg-transparent'
               )}
               defaultValue={Number(value) || undefined}
               allowDecimals={true}
