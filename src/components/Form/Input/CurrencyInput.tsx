@@ -5,6 +5,7 @@ import { getPaddingInput } from '../shared'
 import FormLabel from '../FormLabel'
 import { IconStatus, InputProps } from './BaseInput'
 import useInputStyles from './useInputStyles'
+import { unFormatCurrency } from 'dd360-utils'
 
 export interface InputCurrencyProps extends InputProps {
   language?: 'es' | 'en'
@@ -13,6 +14,19 @@ export interface InputCurrencyProps extends InputProps {
   decimalSeparator?: string
   decimalsLimit?: number
   suffix?: string
+}
+
+const getEvent = (e: React.FocusEvent<HTMLInputElement>, prefix: string) => {
+  const newValue = e.target.value.replace(prefix, '')
+  const unformatedValue: any = unFormatCurrency(newValue)
+  return {
+    ...e,
+    target: {
+      ...e.target,
+      value: unformatedValue || undefined,
+      name: e.target.name
+    }
+  }
 }
 
 const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
@@ -73,19 +87,21 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
     })
 
     const handleFocus = useCallback(
-      (event: React.FocusEvent<HTMLInputElement>) => {
+      (e: React.FocusEvent<HTMLInputElement>) => {
         setFocused(true)
-        onFocus && onFocus(event)
+        const formattedEvent = getEvent(e, prefix)
+        onFocus && onFocus(formattedEvent)
       },
-      [onFocus]
+      [onFocus, prefix]
     )
 
     const handleBlur = useCallback(
-      (event: React.FocusEvent<HTMLInputElement>) => {
+      (e: React.FocusEvent<HTMLInputElement>) => {
         setFocused(false)
-        onBlur && onBlur(event)
+        const formattedEvent = getEvent(e, prefix)
+        onBlur && onBlur(formattedEvent)
       },
-      [onBlur]
+      [onBlur, prefix]
     )
 
     const handleOnChange = useCallback(
