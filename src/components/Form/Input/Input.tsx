@@ -1,11 +1,10 @@
+import BaseInput, { InputProps } from './BaseInput'
 import CurrencyInput, { InputCurrencyProps } from './CurrencyInput'
 import PasswordInput from './PasswordInput'
-import BaseInput from './BaseInput'
 import DateInput from './DateInput'
 import YearInput from './YearInput'
 import MonthInput from './MonthInput'
 import PercentageInput from './PercentageInput'
-import type { InputProps } from './BaseInput'
 import NumberInput from './InputNumber'
 
 export interface GenericInputProps extends InputProps, InputCurrencyProps {

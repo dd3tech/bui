@@ -1,29 +1,46 @@
-import { useState, useCallback, useRef, forwardRef } from 'react'
+import { useCallback, useRef, forwardRef } from 'react'
 import CInput from 'react-currency-input-field'
-import { composeClasses } from 'lib/classes'
-import { getPaddingInput } from '../shared'
-import FormLabel from '../FormLabel'
-import { IconStatus, InputProps } from './BaseInput'
-import useInputStyles from './useInputStyles'
 import { unFormatCurrency } from 'dd360-utils'
+import { composeClasses } from 'lib/classes'
+import { useInputFocused, useLabelScalded } from 'hooks'
+
+import { getPaddingInput, inputIsDisabled } from '../shared'
+import { InputProps } from './BaseInput'
+import WrapperInput from './WrapperInput'
 
 export interface InputCurrencyProps extends InputProps {
-  language?: 'es' | 'en'
+  /**
+   * The prefix to be displayed before the input value.
+   */
   prefix?: string
-  groupSeparator?: string
+  /**
+   * Separator between integer part and fractional part of value.
+   */
   decimalSeparator?: string
+  /**
+   * Separator between thousand, million and billion
+   * This cannot be a number
+   */
+  groupSeparator?: string
+  /**
+   * The maximum number of decimal places allowed in the input value.
+   * Default = 2
+   */
   decimalsLimit?: number
+  /**
+   * The suffix to be displayed after the input value.
+   */
   suffix?: string
 }
 
 const getEvent = (e: React.FocusEvent<HTMLInputElement>, prefix: string) => {
   const newValue = e.target.value.replace(prefix, '')
-  const unformatedValue: any = unFormatCurrency(newValue)
+  const unformatedValue = unFormatCurrency(newValue)
   return {
     ...e,
     target: {
       ...e.target,
-      value: unformatedValue || undefined,
+      value: (unformatedValue || undefined) as any,
       name: e.target.name
     }
   }
@@ -43,7 +60,6 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       startAdornment,
       endAdornment,
       message,
-      inputBlank,
       onFocus,
       onBlur,
       large,
@@ -61,34 +77,28 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       max,
       onChange,
       disabled,
-      internalClassName,
+      isCell,
       ...otherProps
     }: InputCurrencyProps,
     ref
   ) => {
-    const [focused, setFocused] = useState(false)
+    variant = disabled ? 'disabled' : variant
+    const isDisabled = inputIsDisabled(variant)
     const inputRef = useRef<HTMLInputElement>(null)
 
-    const { styles, isLabelScalded, text, isDisabled } = useInputStyles({
-      classNameAdornment,
-      className,
-      boxShadow,
-      disabled,
-      inputBlank,
-      rounded,
-      variant,
-      focused,
-      padding,
-      paddingX,
-      paddingY,
-      large,
-      label,
-      inputRef
+    const { isFocused, handleFocusOff, handleFocusOn } = useInputFocused()
+    const { isLabelScalded } = useLabelScalded({
+      label: label || '',
+      isFocused,
+      isFilled:
+        Boolean(inputRef.current?.defaultValue) ||
+        Boolean(inputRef.current?.value) ||
+        Boolean(value?.toLocaleString().length)
     })
 
     const handleFocus = useCallback(
       (e: React.FocusEvent<HTMLInputElement>) => {
-        setFocused(true)
+        handleFocusOn()
         const formattedEvent = getEvent(e, prefix)
         onFocus && onFocus(formattedEvent)
       },
@@ -97,7 +107,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
 
     const handleBlur = useCallback(
       (e: React.FocusEvent<HTMLInputElement>) => {
-        setFocused(false)
+        handleFocusOff()
         const formattedEvent = getEvent(e, prefix)
         onBlur && onBlur(formattedEvent)
       },
@@ -106,19 +116,19 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
 
     const handleOnChange = useCallback(
       (inputValue, name) => {
-        const newValue = Number(inputValue)
-        const newMin = Number(min)
-        const newMax = Number(max)
+        const [newVal, newMin, newMax] = [
+          Number(inputValue),
+          Number(min),
+          Number(max)
+        ]
 
-        if (newMin && inputValue && newValue < newMin) {
+        if (newMin && inputValue && (newVal < newMin || newVal > newMax)) {
           return
         }
-        if (newMax && inputValue && newValue > newMax) {
-          return
-        }
+
         const event = {
           target: {
-            value: newValue || undefined,
+            value: newVal || undefined,
             name
           }
         }
@@ -128,70 +138,76 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
     )
 
     return (
-      <>
-        <div
-          ref={ref}
-          role="input-container"
-          className={styles.container}
-          style={style}
-        >
-          {startAdornment && (
-            <div data-testid="startAdornment" className={styles.adornment}>
-              {startAdornment}
-            </div>
-          )}
-          <div className="w-full relative h-11">
-            {label && (
-              <FormLabel
-                isLabelScalded={isLabelScalded || focused}
-                isDisabled={isDisabled}
-                isRequired={isRequired}
-                label={label}
-              />
+      <WrapperInput
+        ref={ref}
+        boxShadow={boxShadow}
+        className={className}
+        classNameAdornment={classNameAdornment}
+        endAdornment={endAdornment}
+        isCell={isCell}
+        isDisabled={isDisabled}
+        isFocused={isFocused}
+        isLabelScalded={isLabelScalded}
+        isRequired={isRequired}
+        label={label}
+        large={large}
+        message={message}
+        padding={padding}
+        paddingX={paddingX}
+        paddingY={paddingY}
+        rounded={rounded}
+        startAdornment={startAdornment}
+        style={style}
+        variant={variant}
+      >
+        {isCell ? (
+          <CInput
+            {...otherProps}
+            placeholder={placeholder}
+            className={className}
+            defaultValue={Number(value) || undefined}
+            allowDecimals={true}
+            allowNegativeValue={true}
+            step={undefined}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            groupSeparator={groupSeparator}
+            decimalSeparator={decimalSeparator}
+            decimalsLimit={decimalsLimit}
+            prefix={prefix}
+            disabled={isDisabled}
+            suffix={suffix}
+            onValueChange={handleOnChange}
+          />
+        ) : (
+          <CInput
+            ref={inputRef}
+            {...otherProps}
+            placeholder={isLabelScalded ? placeholder : ''}
+            className={composeClasses(
+              'absolute outline-none w-full font-medium bg-transparent'
             )}
-            <CInput
-              ref={inputRef}
-              {...otherProps}
-              placeholder={isLabelScalded ? placeholder : ''}
-              className={composeClasses(
-                internalClassName ??
-                  'absolute outline-none w-full font-medium bg-transparent'
-              )}
-              defaultValue={Number(value) || undefined}
-              allowDecimals={true}
-              allowNegativeValue={true}
-              step={undefined}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              groupSeparator={groupSeparator}
-              decimalSeparator={decimalSeparator}
-              decimalsLimit={decimalsLimit}
-              prefix={prefix}
-              disabled={isDisabled}
-              suffix={suffix}
-              style={{
-                cursor: 'inherit',
-                zIndex: 1,
-                ...getPaddingInput(!!label)
-              }}
-              onValueChange={handleOnChange}
-            />
-          </div>
-          {endAdornment && (
-            <div data-testid="endAdornment" className={styles.adornment}>
-              {endAdornment}
-            </div>
-          )}
-          {['warning', 'error', 'success'].includes(variant) && (
-            <IconStatus variant={variant} />
-          )}
-        </div>
-        {message && (
-          <p className={composeClasses('text-xs mt-1 ml-2', text.color)}>
-            {message}
-          </p>
+            defaultValue={Number(value) || undefined}
+            allowDecimals={true}
+            allowNegativeValue={true}
+            step={undefined}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            groupSeparator={groupSeparator}
+            decimalSeparator={decimalSeparator}
+            decimalsLimit={decimalsLimit}
+            prefix={prefix}
+            disabled={isDisabled}
+            suffix={suffix}
+            style={{
+              cursor: 'inherit',
+              zIndex: 1,
+              ...getPaddingInput(!!label)
+            }}
+            onValueChange={handleOnChange}
+          />
         )}
-      </>
+      </WrapperInput>
     )
   }
 )

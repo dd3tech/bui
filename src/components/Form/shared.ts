@@ -183,3 +183,6 @@ export const getPaddingInput = (hasLabel: boolean): StyleObject => {
     paddingBottom: hasLabel ? 5 : 10
   }
 }
+
+export const inputIsDisabled = (variant: InputVariant): boolean =>
+  variant === 'disabled'
