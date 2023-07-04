@@ -19,6 +19,7 @@ export interface InputCurrencyProps {
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
   role?: string
   onPaste?: React.ClipboardEventHandler<HTMLInputElement>
+  onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>
 }
 
 /**
@@ -49,6 +50,7 @@ const InputCurrency: FC<InputCurrencyProps> = (props) => {
       onBlur={() => props.onBlurInput && props.onBlurInput()}
       disabled={props.disabled}
       onFocus={(e) => props.onFocus && props.onFocus(e)}
+      onKeyPress={props.onKeyPress}
       role={props?.role ?? ''}
       onPaste={props.onPaste}
       decimalSeparator="."

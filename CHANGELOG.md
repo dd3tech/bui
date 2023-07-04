@@ -1,3 +1,17 @@
+# [6.15.0](https://github.com/dd3tech/dd360-components/compare/v6.14.1...v6.15.0) (2023-07-04)
+
+
+### Features
+
+* add key press event on input currency ([d7377b3](https://github.com/dd3tech/dd360-components/commit/d7377b368d412163b9aa4e409931d9694444ce0d))
+
+## [6.14.1](https://github.com/dd3tech/dd360-components/compare/v6.14.0...v6.14.1) (2023-06-27)
+
+
+### Bug Fixes
+
+* **Sidebar:** add validation on SideBarItem ([#126](https://github.com/dd3tech/dd360-components/issues/126)) ([74392ad](https://github.com/dd3tech/dd360-components/commit/74392ada2c9acae083fabc1b66d984ef93c40b6b))
+
 # [6.14.0](https://github.com/dd3tech/dd360-components/compare/v6.13.1...v6.14.0) (2023-06-13)
 
 
