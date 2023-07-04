@@ -1,3 +1,10 @@
+## [6.15.1](https://github.com/dd3tech/dd360-components/compare/v6.15.0...v6.15.1) (2023-07-04)
+
+
+### Bug Fixes
+
+* behavior on Input component when the type is currency ([#125](https://github.com/dd3tech/dd360-components/issues/125)) ([f6d040e](https://github.com/dd3tech/dd360-components/commit/f6d040eabdc30efb0dbe8989dfd3a3964684ad5b))
+
 # [6.15.0](https://github.com/dd3tech/dd360-components/compare/v6.14.1...v6.15.0) (2023-07-04)
 
 
