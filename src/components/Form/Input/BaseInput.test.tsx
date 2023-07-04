@@ -22,12 +22,6 @@ describe('<BaseInput />', () => {
     expect(label).toBeInTheDocument()
   })
 
-  it('renders correctly with inputBlank prop', () => {
-    const { getByRole } = render(<BaseInput inputBlank type="text" />)
-    const box = getByRole('input-container')
-    expect(box.className).toContain('border-none')
-  })
-
   it('handles focus and blur events correctly', () => {
     const { getByTestId, getByRole } = render(<BaseInput data-testid="input" />)
     const inputContainer = getByRole('input-container')

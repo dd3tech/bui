@@ -22,7 +22,14 @@ export interface InputCurrencyProps {
   onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>
 }
 
+/**
+ * @deprecated Use `import { Input } from 'dd360-ds'`
+ */
+
 const InputCurrency: FC<InputCurrencyProps> = (props) => {
+  console.warn(
+    "[DEPRECATED] This component is deprecated. Instead use `import { Input } from 'dd360-ds'` with a prop called type={'currency'}."
+  )
   return (
     <CurrencyInput
       className={composeClasses(

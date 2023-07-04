@@ -1,65 +1,93 @@
 import {
   InputHTMLAttributes,
-  ReactNode,
   useCallback,
   useRef,
-  useState,
-  forwardRef
+  forwardRef,
+  ReactNode
 } from 'react'
-import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
-import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
-import InformationCircleIcon from '@heroicons/react/outline/InformationCircleIcon'
 import { composeClasses } from 'lib/classes'
+import { useLabelScalded, useInputFocused } from 'hooks'
+import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
 import {
-  inputVariants,
   InputVariant as InputVariantType,
   InputType,
-  getClassesByPseudoClass,
-  getPaddingInput
+  getPaddingInput,
+  inputIsDisabled
 } from '../shared'
-import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
-import FormLabel from '../FormLabel'
+import WrapperInput from './WrapperInput'
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  type?: InputType
-  variant?: InputVariantType
-  label?: string
-  message?: string
-  inputBlank?: boolean
-  padding?: Padding
-  paddingX?: Padding
-  paddingY?: Padding
-  endAdornment?: ReactNode
-  startAdornment?: ReactNode
-  classNameAdornment?: string
-  rounded?: Rounded
-  language?: 'es' | 'en'
-  large?: boolean
+export interface SharedInputProps {
   boxShadow?: ShadowVariants
+  /**
+   * Additional CSS class for the input adornment.
+   */
+  classNameAdornment?: string
+  /**
+   * Element to be displayed as an adornment at the end of the input.
+   */
+  endAdornment?: ReactNode
+  /**
+   * Indicates if the input is used within a cell of a table or similar structure.
+   */
+  isCell?: boolean
+  /**
+   * Indicates if the input is required.
+   */
   isRequired?: boolean
+  /**
+   * Label that describes the purpose of the input.
+   */
+  label?: string
+  /**
+   * Indicates if the input is large in size.
+   */
+  large?: boolean
+  /**
+   * Help message or additional information for the input.
+   */
+  message?: string
+  /**
+   * Inner padding of the input.
+   */
+  padding?: Padding
+  /**
+   * Horizontal padding of the input.
+   */
+  paddingX?: Padding
+  /**
+   * Vertical padding of the input.
+   */
+  paddingY?: Padding
+  /**
+   * Rounded border style of the input.
+   */
+  rounded?: Rounded
+  /**
+   * Element to be displayed as an adornment at the beginning of the input.
+   */
+  startAdornment?: ReactNode
+  /**
+   * Indicates if the input is disabled.
+   */
+  isDisabled?: boolean
 }
 
-const IconStatus = ({ variant }: { variant: InputVariantType }) => {
-  const { bgIcon, text } = inputVariants[variant]
-  return (
-    <div
-      className={composeClasses(
-        'flex justify-center items-center rounded-xl bg-red-50 text-error',
-        text.color,
-        bgIcon?.color
-      )}
-      style={{ marginLeft: 11, marginRight: -10, minWidth: 36, minHeight: 36 }}
-      role="defaultIcon"
-    >
-      {variant === 'success' && (
-        <CheckCircleIcon aria-label="check" width={24} />
-      )}
-      {variant === 'warning' && (
-        <InformationCircleIcon aria-label="warning" width={24} />
-      )}
-      {variant === 'error' && <XCircleIcon aria-label="error" width={24} />}
-    </div>
-  )
+export interface InputProps
+  extends SharedInputProps,
+    InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * The type of input element.
+   */
+  type?: InputType
+  /**
+   * The variant of the input component.
+   */
+  variant?: InputVariantType
+  /**
+   * The language of the input component.
+   * It can be either 'es' for Spanish or 'en' for English.
+   */
+  language?: 'es' | 'en'
 }
 
 const BaseInput = forwardRef<HTMLDivElement, InputProps>(
@@ -76,7 +104,6 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
       startAdornment,
       endAdornment,
       message,
-      inputBlank,
       onFocus,
       onBlur,
       large,
@@ -85,25 +112,29 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
       placeholder,
       value,
       isRequired,
+      disabled,
+      isCell,
       ...otherProps
     }: InputProps,
     ref
   ) => {
-    const [focused, setFocused] = useState(false)
-    const { disabled } = otherProps
     variant = disabled ? 'disabled' : variant
-    const isDisabled = variant === 'disabled'
-    const { input, text } = inputVariants[variant]
+    const isDisabled = inputIsDisabled(variant)
     const inputRef = useRef<HTMLInputElement>(null)
-    const isLabelScalded =
-      !label ||
-      focused ||
-      Boolean(value?.toLocaleString().length) ||
-      Boolean(inputRef.current?.value.length)
+
+    const { isFocused, handleFocusOff, handleFocusOn } = useInputFocused()
+    const { isLabelScalded } = useLabelScalded({
+      label: label || '',
+      isFocused,
+      isFilled:
+        Boolean(inputRef.current?.defaultValue) ||
+        Boolean(inputRef.current?.value) ||
+        Boolean(value?.toLocaleString().length)
+    })
 
     const handleFocus = useCallback(
       (event: React.FocusEvent<HTMLInputElement>) => {
-        setFocused(true)
+        handleFocusOn()
         onFocus && onFocus(event)
       },
       [onFocus]
@@ -111,99 +142,65 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
 
     const handleBlur = useCallback(
       (event: React.FocusEvent<HTMLInputElement>) => {
-        setFocused(false)
+        handleFocusOff()
         onBlur && onBlur(event)
       },
       [onBlur]
     )
 
-    const styles = {
-      adornment: composeClasses(
-        'text-gray-400 transition duration-500 ease-out focus:ease-in',
-        classNameAdornment
-      ),
-      container: composeClasses(
-        'gap-3 placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium',
-        'border-solid border',
-        'transition duration-500 ease-out focus:ease-in',
-        !isDisabled && `hover:shadow-${boxShadow} hover:border-info`,
-        className && disabled && getClassesByPseudoClass(className, 'disabled'),
-        inputBlank && 'border-none',
-        rounded && `rounded-${rounded}`,
-        !['error', 'success', 'warning'].includes(variant) &&
-          focused &&
-          'border-blue-500',
-        ['error', 'success', 'warning'].includes(variant)
-          ? 'bg-white'
-          : 'bg-gray-50',
-        isDisabled
-          ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-          : 'hover:bg-white',
-        input.borderColor,
-        padding && `p-${padding}`,
-        !padding && paddingX && `px-${paddingX}`,
-        !padding && paddingY && `py-${paddingY}`,
-        input.color,
-        large ? 'h-13' : 'h-12',
-        className
-      )
-    }
-
     return (
-      <>
-        <div
-          ref={ref}
-          role="input-container"
-          className={styles.container}
-          style={style}
-        >
-          {startAdornment && (
-            <div data-testid="startAdornment" className={styles.adornment}>
-              {startAdornment}
-            </div>
-          )}
-          <div className="flex flex-col w-full relative h-11">
-            {label && (
-              <FormLabel
-                isLabelScalded={isLabelScalded}
-                isDisabled={isDisabled}
-                isRequired={isRequired}
-                label={label}
-              />
+      <WrapperInput
+        boxShadow={boxShadow}
+        className={className}
+        classNameAdornment={classNameAdornment}
+        endAdornment={endAdornment}
+        isCell={isCell}
+        isDisabled={isDisabled}
+        isFocused={isFocused}
+        isLabelScalded={isLabelScalded}
+        isRequired={isRequired}
+        label={label}
+        large={large}
+        message={message}
+        padding={padding}
+        paddingX={paddingX}
+        paddingY={paddingY}
+        ref={ref}
+        rounded={rounded}
+        startAdornment={startAdornment}
+        style={style}
+        variant={variant}
+      >
+        {isCell ? (
+          <input
+            {...otherProps}
+            placeholder={placeholder}
+            className={className}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            disabled={isDisabled}
+            value={value}
+          />
+        ) : (
+          <input
+            ref={inputRef}
+            {...otherProps}
+            placeholder={isLabelScalded ? placeholder : ''}
+            className={composeClasses(
+              'outline-none w-full h-full font-medium bg-transparent absolute'
             )}
-            <input
-              ref={inputRef}
-              {...otherProps}
-              placeholder={isLabelScalded ? placeholder : ''}
-              className={composeClasses(
-                'outline-none w-full font-medium bg-transparent'
-              )}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              style={{
-                cursor: 'inherit',
-                zIndex: 1,
-                ...getPaddingInput(!!label)
-              }}
-              disabled={isDisabled}
-              value={value}
-            />
-          </div>
-          {endAdornment && (
-            <div data-testid="endAdornment" className={styles.adornment}>
-              {endAdornment}
-            </div>
-          )}
-          {['warning', 'error', 'success'].includes(variant) && (
-            <IconStatus variant={variant} />
-          )}
-        </div>
-        {message && (
-          <p className={composeClasses('text-xs mt-1 ml-2', text.color)}>
-            {message}
-          </p>
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            disabled={isDisabled}
+            value={value}
+            style={{
+              cursor: 'inherit',
+              zIndex: 1,
+              ...getPaddingInput(!!label)
+            }}
+          />
         )}
-      </>
+      </WrapperInput>
     )
   }
 )
