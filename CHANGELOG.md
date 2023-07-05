@@ -1,3 +1,10 @@
+## [6.15.2](https://github.com/dd3tech/dd360-components/compare/v6.15.1...v6.15.2) (2023-07-05)
+
+
+### Bug Fixes
+
+* add decimalScale prop to Input type currency ([#128](https://github.com/dd3tech/dd360-components/issues/128)) ([a204063](https://github.com/dd3tech/dd360-components/commit/a2040634212591f888d2fe344f9c620bd5c62d71))
+
 ## [6.15.1](https://github.com/dd3tech/dd360-components/compare/v6.15.0...v6.15.1) (2023-07-04)
 
 
