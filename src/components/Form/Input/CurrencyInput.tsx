@@ -31,6 +31,12 @@ export interface InputCurrencyProps extends InputProps {
    * The suffix to be displayed after the input value.
    */
   suffix?: string
+  /**
+   * The number of decimal places that will appear after the decimalSeparator prop.
+   * Default = 2
+   * example: 0.5 -> decimalScale = 2 -> 0.50
+   */
+  decimalScale?: number
 }
 
 const getEvent = (e: React.FocusEvent<HTMLInputElement>, prefix: string) => {
@@ -78,6 +84,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       onChange,
       disabled,
       isCell,
+      decimalScale = 2,
       ...otherProps
     }: InputCurrencyProps,
     ref
@@ -174,6 +181,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             groupSeparator={groupSeparator}
             decimalSeparator={decimalSeparator}
             decimalsLimit={decimalsLimit}
+            decimalScale={decimalScale}
             prefix={prefix}
             disabled={isDisabled}
             suffix={suffix}
@@ -196,6 +204,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             groupSeparator={groupSeparator}
             decimalSeparator={decimalSeparator}
             decimalsLimit={decimalsLimit}
+            decimalScale={decimalScale}
             prefix={prefix}
             disabled={isDisabled}
             suffix={suffix}
