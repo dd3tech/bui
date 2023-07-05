@@ -33,6 +33,8 @@ export interface InputCurrencyProps extends InputProps {
   suffix?: string
   /**
    * The number of decimal places that will appear after the decimalSeparator prop.
+   * Default = 2
+   * example: 0.5 -> decimalScale = 2 -> 0.50
    */
   decimalScale?: number
 }
