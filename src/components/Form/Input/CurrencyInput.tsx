@@ -173,8 +173,8 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             {...otherProps}
             placeholder={placeholder}
             className={className}
-            defaultValue={Number(defaultValue) || undefined}
-            value={Number(value) || undefined}
+            defaultValue={(defaultValue as string) || undefined}
+            value={value}
             allowDecimals={true}
             allowNegativeValue={true}
             step={undefined}
@@ -197,8 +197,8 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             className={composeClasses(
               'absolute outline-none w-full font-medium bg-transparent'
             )}
-            defaultValue={Number(defaultValue) || undefined}
-            value={Number(value) || undefined}
+            defaultValue={(defaultValue as string) || undefined}
+            value={value}
             allowDecimals={true}
             allowNegativeValue={true}
             step={undefined}
