@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import CurrencyInput from 'react-currency-input-field'
+import CurrencyInput from '../CurrencyInput'
 
 import { composeClasses } from 'lib/classes'
 

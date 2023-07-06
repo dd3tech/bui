@@ -1,5 +1,5 @@
 import { useCallback, useRef, forwardRef } from 'react'
-import CInput from 'react-currency-input-field'
+import CInput from '../../CurrencyInput'
 import { unFormatCurrency } from 'dd360-utils'
 import { composeClasses } from 'lib/classes'
 import { useInputFocused, useLabelScalded } from 'hooks'
