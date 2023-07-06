@@ -84,6 +84,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       onChange,
       disabled,
       isCell,
+      defaultValue,
       decimalScale = 2,
       ...otherProps
     }: InputCurrencyProps,
@@ -172,7 +173,8 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             {...otherProps}
             placeholder={placeholder}
             className={className}
-            defaultValue={Number(value) || undefined}
+            defaultValue={Number(defaultValue) || undefined}
+            value={Number(value) || undefined}
             allowDecimals={true}
             allowNegativeValue={true}
             step={undefined}
@@ -195,7 +197,8 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             className={composeClasses(
               'absolute outline-none w-full font-medium bg-transparent'
             )}
-            defaultValue={Number(value) || undefined}
+            defaultValue={Number(defaultValue) || undefined}
+            value={Number(value) || undefined}
             allowDecimals={true}
             allowNegativeValue={true}
             step={undefined}
