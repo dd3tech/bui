@@ -167,6 +167,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             prefix={prefix}
             disabled={isDisabled}
             suffix={suffix}
+            onChange={undefined}
             onValueChange={handleOnChange}
           />
         ) : (
@@ -196,6 +197,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
               zIndex: 1,
               ...getPaddingInput(!!label)
             }}
+            onChange={undefined}
             onValueChange={handleOnChange}
           />
         )}
