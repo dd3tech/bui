@@ -79,11 +79,10 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       groupSeparator = ',',
       decimalSeparator = '.',
       decimalsLimit = 2,
-      min,
-      max,
       onChange,
       disabled,
       isCell,
+      defaultValue,
       decimalScale = 2,
       ...otherProps
     }: InputCurrencyProps,
@@ -122,26 +121,8 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
     )
 
     const handleOnChange = useCallback(
-      (inputValue, name) => {
-        const [newVal, newMin, newMax] = [
-          Number(inputValue),
-          Number(min),
-          Number(max)
-        ]
-
-        if (newMin && inputValue && (newVal < newMin || newVal > newMax)) {
-          return
-        }
-
-        const event = {
-          target: {
-            value: newVal || undefined,
-            name
-          }
-        }
-        onChange && onChange(event as any)
-      },
-      [min, max, onChange]
+      (value, name) => onChange && onChange({ target: { value, name } } as any),
+      [value, defaultValue, onChange]
     )
 
     return (
@@ -172,7 +153,8 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             {...otherProps}
             placeholder={placeholder}
             className={className}
-            defaultValue={Number(value) || undefined}
+            defaultValue={(defaultValue as string) || undefined}
+            value={value}
             allowDecimals={true}
             allowNegativeValue={true}
             step={undefined}
@@ -185,6 +167,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             prefix={prefix}
             disabled={isDisabled}
             suffix={suffix}
+            onChange={undefined}
             onValueChange={handleOnChange}
           />
         ) : (
@@ -195,7 +178,8 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             className={composeClasses(
               'absolute outline-none w-full font-medium bg-transparent'
             )}
-            defaultValue={Number(value) || undefined}
+            defaultValue={(defaultValue as string) || undefined}
+            value={value}
             allowDecimals={true}
             allowNegativeValue={true}
             step={undefined}
@@ -213,6 +197,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
               zIndex: 1,
               ...getPaddingInput(!!label)
             }}
+            onChange={undefined}
             onValueChange={handleOnChange}
           />
         )}
