@@ -1,3 +1,15 @@
+## [6.15.3](https://github.com/dd3tech/dd360-components/compare/v6.15.2...v6.15.3) (2023-07-07)
+
+
+### Bug Fixes
+
+* Adding react-currency-input-field again ([c7eaf07](https://github.com/dd3tech/dd360-components/commit/c7eaf074d3229a94e7bc1f9197566bb265b5e191))
+* Fifth try ([b7c79da](https://github.com/dd3tech/dd360-components/commit/b7c79da99a85298f9f140142e2085d51aaa5ad21))
+* fourth try ([35b3d40](https://github.com/dd3tech/dd360-components/commit/35b3d40a8866d72c494e3c3708bf9bacb4c0a209))
+* second try ([d1d0f3b](https://github.com/dd3tech/dd360-components/commit/d1d0f3bb2d0361367c8b1c933d32ceda8ca6be64))
+* third try ([425048c](https://github.com/dd3tech/dd360-components/commit/425048cd2338c04f53264f64bbf3d402e621d67c))
+* trying to adjust the value and defaultValue of the currencyInput ([9b75bb2](https://github.com/dd3tech/dd360-components/commit/9b75bb232cf911ccd623d395e6059dc401f93010))
+
 ## [6.15.2](https://github.com/dd3tech/dd360-components/compare/v6.15.1...v6.15.2) (2023-07-05)
 
 
