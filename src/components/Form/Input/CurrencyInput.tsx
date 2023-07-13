@@ -127,7 +127,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
 
     const formattedValue = useCallback(() => {
       if (String(value).includes('.') || isFocused) return value
-      return Number(value).toFixed(decimalScale)
+      return value && Number(value).toFixed(decimalScale)
     }, [value, defaultValue, isFocused])
 
     return (
