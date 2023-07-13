@@ -125,6 +125,11 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       [value, defaultValue, onChange]
     )
 
+    const formattedValue = useCallback(() => {
+      if (String(value).includes('.') || isFocused) return value
+      return Number(value).toFixed(decimalScale)
+    }, [value, defaultValue, isFocused])
+
     return (
       <WrapperInput
         ref={ref}
@@ -154,7 +159,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             placeholder={placeholder}
             className={className}
             defaultValue={(defaultValue as string) || undefined}
-            value={value}
+            value={formattedValue()}
             allowDecimals={true}
             allowNegativeValue={true}
             step={undefined}
@@ -179,7 +184,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
               'absolute outline-none w-full font-medium bg-transparent'
             )}
             defaultValue={(defaultValue as string) || undefined}
-            value={value}
+            value={formattedValue()}
             allowDecimals={true}
             allowNegativeValue={true}
             step={undefined}
