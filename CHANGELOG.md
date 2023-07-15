@@ -1,3 +1,11 @@
+## [6.15.4](https://github.com/dd3tech/dd360-components/compare/v6.15.3...v6.15.4) (2023-07-13)
+
+
+### Bug Fixes
+
+* add format value ([54a0649](https://github.com/dd3tech/dd360-components/commit/54a0649c32bf9d2f3566f7091fac37f41372b314))
+* add format value ([bc5102d](https://github.com/dd3tech/dd360-components/commit/bc5102d048cb4a11e8ee4bcdbcdc28c3645bf50e))
+
 ## [6.15.3](https://github.com/dd3tech/dd360-components/compare/v6.15.2...v6.15.3) (2023-07-07)
 
 
