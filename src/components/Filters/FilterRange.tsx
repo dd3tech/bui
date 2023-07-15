@@ -1,5 +1,7 @@
 import { ChangeEvent, useState } from 'react'
-import ConfirmDialog from 'components/ConfirmDialog/ConfirmDialog'
+import ConfirmDialog, {
+  ConfirmDialogAddonsProps
+} from 'components/ConfirmDialog/ConfirmDialog'
 import Input from 'components/Form/Input'
 import Text from 'components/Typography/Text'
 
@@ -8,7 +10,7 @@ export interface IRange {
   maxVal?: number
 }
 
-export interface FilterRangeProps {
+export interface FilterRangeProps extends ConfirmDialogAddonsProps {
   /**
    * Title displayed in the ConfirmDialog
    */
@@ -46,10 +48,6 @@ export interface FilterRangeProps {
    */
   textResetBtn?: string
   /**
-   * The position in which the ConfirmDialog will be displayed
-   */
-  position?: { show: boolean; left: number; top: number }
-  /**
    * The class name to apply to the ConfirmDialog
    */
   className?: string
@@ -78,9 +76,10 @@ const FilterRange = ({
   defaultMax,
   textApplyBtn = 'Apply',
   textResetBtn = 'Reset',
-  position = { show: false, left: 0, top: 0 },
   className,
   width,
+  actionContent,
+  usePortal,
   onApply,
   onReset
 }: FilterRangeProps) => {
@@ -130,14 +129,16 @@ const FilterRange = ({
 
   return (
     <ConfirmDialog
+      actionContent={actionContent}
+      usePortal={usePortal}
       title={title}
-      onConfirm={apply}
-      onCancel={reset}
+      handleConfirm={apply}
+      handleCancel={reset}
       textConfirmBtn={textApplyBtn}
       textCancelBtn={textResetBtn}
-      position={position}
       className={className}
       width={width}
+      preventCloseHandleCancel
     >
       <div className="flex mb-3">
         <div className="grid">

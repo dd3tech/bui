@@ -1,5 +1,7 @@
 import { ChangeEvent, useState } from 'react'
-import ConfirmDialog from '../ConfirmDialog/ConfirmDialog'
+import ConfirmDialog, {
+  ConfirmDialogAddonsProps
+} from '../ConfirmDialog/ConfirmDialog'
 import MonthInput from '../Form/Input/MonthInput'
 import YearInput from '../Form/Input/YearInput'
 import Text from '../Typography/Text'
@@ -9,7 +11,7 @@ export interface IFilterDateValue {
   year: string
 }
 
-export interface FilterDateProps {
+export interface FilterDateProps extends ConfirmDialogAddonsProps {
   /**
    * Title displayed in the ConfirmDialog
    */
@@ -22,10 +24,6 @@ export interface FilterDateProps {
    * Text displayed on the button to reset
    */
   textResetBtn?: string
-  /**
-   * The position in which the ConfirmDialog will be displayed
-   */
-  position?: { show: boolean; left: number; top: number }
   /**
    * The class name to apply to the ConfirmDialog
    */
@@ -53,12 +51,13 @@ const FilterDate = ({
   title,
   textApplyBtn,
   textResetBtn,
-  position,
   className,
   width,
   language,
   onApply,
-  onReset
+  onReset,
+  actionContent,
+  usePortal
 }: FilterDateProps) => {
   const [date, setDate] = useState({ month: '', year: '' })
 
@@ -80,14 +79,16 @@ const FilterDate = ({
 
   return (
     <ConfirmDialog
+      actionContent={actionContent}
+      usePortal={usePortal}
       title={title}
-      onConfirm={apply}
-      onCancel={reset}
+      handleConfirm={apply}
+      handleCancel={reset}
       textConfirmBtn={textApplyBtn}
       textCancelBtn={textResetBtn}
-      position={position}
       className={className}
       width={width}
+      preventCloseHandleCancel
     >
       <div>
         <div className="grid pb-2">

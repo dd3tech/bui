@@ -1,9 +1,11 @@
 import { useCallback, useState } from 'react'
 import RangeSlider, { RangeValues } from '../RangeSlider/RangeSlider'
-import ConfirmDialog from '../ConfirmDialog/ConfirmDialog'
+import ConfirmDialog, {
+  ConfirmDialogAddonsProps
+} from '../ConfirmDialog/ConfirmDialog'
 import Text from '../Typography/Text'
 
-export interface FilterRangeSliderProps {
+export interface FilterRangeSliderProps extends ConfirmDialogAddonsProps {
   /**
    * Title displayed in the ConfirmDialog
    */
@@ -45,10 +47,6 @@ export interface FilterRangeSliderProps {
    */
   textResetBtn?: string
   /**
-   * The position in which the ConfirmDialog will be displayed
-   */
-  position?: { show: boolean; left: number; top: number }
-  /**
    * The class name to apply to the ConfirmDialog
    */
   className?: string
@@ -78,11 +76,12 @@ const FilterRangeSlider = ({
   unitName = 'Km',
   textApplyBtn = 'Apply',
   textResetBtn = 'Reset',
-  position = { show: false, left: 0, top: 0 },
   className,
   width,
   onApply,
-  onReset
+  onReset,
+  actionContent,
+  usePortal
 }: FilterRangeSliderProps) => {
   const initValue = { min: initMinValue ?? min, max: initMaxValue ?? max }
   const [range, setRange] = useState<RangeValues>(initValue)
@@ -100,14 +99,16 @@ const FilterRangeSlider = ({
 
   return (
     <ConfirmDialog
+      actionContent={actionContent}
+      usePortal={usePortal}
       title={title}
-      onConfirm={apply}
-      onCancel={reset}
+      handleConfirm={apply}
+      handleCancel={reset}
       textConfirmBtn={textApplyBtn}
       textCancelBtn={textResetBtn}
-      position={position}
       className={className}
       width={width}
+      preventCloseHandleCancel
     >
       <div>
         <Text size="base" bold>
