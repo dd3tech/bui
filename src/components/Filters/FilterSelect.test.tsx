@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { RenderResult, fireEvent, render } from '@testing-library/react'
 import { vi } from 'vitest'
 import FilterSelect, { IRadioItems } from './FilterSelect'
 
@@ -18,24 +18,39 @@ const onApply = vi.fn((val: string) => console.log(val))
 const onReset = vi.fn()
 const defaultProps = {
   listItems: list,
-  position: { show: true, left: 0, top: 0 },
   onApply: onApply,
-  onReset: onReset
+  onReset: onReset,
+  actionContent: <button data-testid="btn-action">Filter Select Action</button>
+}
+
+function openDialog(getByTestId: RenderResult['getByTestId']) {
+  const btnOpen = getByTestId('btn-action')
+  fireEvent.click(btnOpen)
 }
 
 describe('<FilterSelect/>', () => {
   it('should be rendered with 3 Child Radios', () => {
-    const { getByRole } = render(<FilterSelect {...defaultProps} />)
-    const filterSelect = getByRole('radio-group')
+    const { getByRole, getByTestId } = render(
+      <FilterSelect {...defaultProps} />
+    )
 
+    openDialog(getByTestId)
+
+    const filterSelect = getByRole('radio-group')
     expect(filterSelect).toBeDefined()
     expect(filterSelect.childElementCount).toEqual(3)
   })
 
   it('should call a function when the apply and reset button are clicked', () => {
-    const { getByRole } = render(<FilterSelect {...defaultProps} />)
+    const { getByRole, getByTestId } = render(
+      <FilterSelect {...defaultProps} />
+    )
+
+    openDialog(getByTestId)
     const applyBtn = getByRole('confirm-btn')
     fireEvent.click(applyBtn)
+
+    openDialog(getByTestId)
     const resetBtn = getByRole('cancel-btn')
     fireEvent.click(resetBtn)
 
@@ -46,7 +61,12 @@ describe('<FilterSelect/>', () => {
   })
 
   it('the selected value must be checked', () => {
-    const { getByRole } = render(<FilterSelect {...defaultProps} />)
+    const { getByRole, getByTestId } = render(
+      <FilterSelect {...defaultProps} />
+    )
+
+    openDialog(getByTestId)
+
     const radioList = Array.from(getByRole('radio-group').children)
     const radio = radioList[0].querySelector(
       'input[type="radio"]'
