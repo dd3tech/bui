@@ -1,30 +1,35 @@
-# DD360 React Components
 
-[![size](https://badgen.net/bundlephobia/min/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
-[![minzip size](https://badgen.net/bundlephobia/minzip/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
-[![version](https://badgen.net/npm/v/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
-[![types](https://badgen.net/npm/types/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
-[![license](https://badgen.net/npm/license/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
+<div align="center">
+<h1>
 
-DD360 Components is a tailwind based React component library
+**BUI**
+</h1>
 
-***You do not need to have tailwind installed to use this library. However it can be 100% compatible with tailwind and you should not have any problem if you want to combine them.***
+A React ecosystem library for building back-office platforms like [DD360](https://dd360.mx/). <br/>
+It's library created by developers for developers 
+
+<br/>
+
+**[Stable v6](https://bui.dd360.mx/)**
+
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dd3tech/bui)
+[![npm latest package](https://img.shields.io/npm/v/dd360-ds/latest.svg)](https://www.npmjs.com/package/dd360-ds)
+[![npm downloads](https://img.shields.io/npm/dm/dd360-ds)](https://www.npmjs.com/package/dd360-ds)
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/dd3tech/bui.svg)](https://isitmaintained.com/project/dd3tech/bui 'Average time to resolve an issue')
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/7584/badge)](https://bestpractices.coreinfrastructure.org/projects/7584)
+[![Storybook](https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg)](https://main--62ffec7466615c40c8dbe435.chromatic.com)
 
 
-## ⚙️ Minimum requirements
-![node](https://shields.io/badge/node-v16+-lightgray?logo=nodedotjs&logoWidth=20&style=for-the-badge)
-![npm](https://shields.io/badge/npm-v7+-lightgrey?logo=npm&logoWidth=20&style=for-the-badge)
+<p>
+  <a href="https://bui.dd360.mx/" rel="noopener" target="_blank"><img src="./assets/dashboard-bui.png" alt="BUI dashboard example"></a>
+</p>
 
-## 🔮 Links
+<h3>
+  <a href="https://bui.dd360.mx/docs/get-started/getting-started">Docs</a> &bull;
+  <a href="https://bui.dd360.mx">Website</a>
+</h3>
 
-- [storybook](https://main--62ffec7466615c40c8dbe435.chromatic.com/)
-- [npm](https://www.npmjs.com/package/dd360-ds)
-- [github](https://github.com/dd3tech/dd360-components)
-- [website](https://dd360-ds.netlify.app/)
-
-## 🧪 Testing
-
-we use [vitest](https://vitest.dev/) for unit tests
+</div>
 
 ## 📲 Instalation
 
@@ -32,23 +37,10 @@ we use [vitest](https://vitest.dev/) for unit tests
 npm install dd360-ds
 ```
 
-## 💡 Usage
+or
 
-After Installation, you will have to make some extra configurations for everything to work normally.
-
-Import stylesheets into the `App.js` or `App.tsx`
-
-```js
-import 'dd360-ds/dd360.css'
-```
-
-***⚠️Warning: If you want to combine it with other styles, be sure to import our css as the last one.***
-
-
-How to import components?
-
-```jsx
-import { Button } from 'dd360-ds'
+```bash
+yarn add dd360-ds
 ```
 
 ## 💅 Customize theme
@@ -92,10 +84,28 @@ Within the ThemeProvider, you can use the components provided by dd360-ds and th
 
 Remember that to use the ThemeProvider, you must import both the createTheme component and the ThemeProvider component from dd360-ds/theme.
 
+## 💡 Usage
+
+After Installation, you will have to make some extra configurations for everything to work normally.
+
+Import stylesheets into the `App.js` or `App.tsx`
+
+```js
+import 'dd360-ds/dd360.css'
+```
+
+***⚠️Warning: If you want to combine it with other styles, be sure to import our css as the last one.***
+
+
+How to import components?
+
+```jsx
+import { Button } from 'dd360-ds'
+```
 
 ## 🔫 Components
 
 This is the most fun part. Below we will explain the use of the components we are currently developing.
 
-You can checking and contribute to the docs website [here](https://github.com/dd3tech/dd360-components-docs)
+You can checking and contribute to the docs website [here](https://github.com/dd3tech/bui-docs)
 
