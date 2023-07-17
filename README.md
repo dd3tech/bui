@@ -1,13 +1,11 @@
 
 <div align="center">
-<h1>
-
-**BUI**
-</h1>
+<img src="./assets/logo-light.svg" alt="BUI logo">
+<hr />
+<br/>
 
 A React ecosystem library for building back-office platforms like [DD360](https://dd360.mx/). <br/>
 It's library created by developers for developers 
-
 <br/>
 
 **[Stable v6](https://bui.dd360.mx/)**
@@ -25,8 +23,8 @@ It's library created by developers for developers
 </p>
 
 <h3>
-  <a href="https://bui.dd360.mx/docs/get-started/getting-started">Docs</a> &bull;
-  <a href="https://bui.dd360.mx">Website</a>
+  <a rel="noopener" target="_blank" href="https://bui.dd360.mx/docs/get-started/getting-started">Docs</a> &bull;
+  <a rel="noopener" target="_blank" href="https://bui.dd360.mx">Website</a>
 </h3>
 
 </div>
@@ -94,7 +92,7 @@ Import stylesheets into the `App.js` or `App.tsx`
 import 'dd360-ds/dd360.css'
 ```
 
-***⚠️Warning: If you want to combine it with other styles, be sure to import our css as the last one.***
+⚠️ ***Warning: If you want to combine it with other styles, be sure to import our css as the last one.***
 
 
 How to import components?
