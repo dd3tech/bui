@@ -369,6 +369,11 @@
       "module": "./dist/esm/components/RangeSlider/index.js",
       "default": "./dist/esm/components/RangeSlider/index.js"
     },
+    "./Transition": {
+      "require": "./dist/cjs/components/Transition/index.js",
+      "module": "./dist/esm/components/Transition/index.js",
+      "default": "./dist/esm/components/Transition/index.js"
+    },
     "./List": {
       "require": "./dist/cjs/components/List/index.js",
       "module": "./dist/esm/components/List/index.js",
@@ -524,6 +529,9 @@
       ],
       "RangeSlider": [
         "./dist/esm/components/RangeSlider/index.d.ts"
+      ],
+      "Transition": [
+        "./dist/esm/components/Transition/index.d.ts"
       ],
       "List": [
         "./dist/esm/components/List/index.d.ts"
