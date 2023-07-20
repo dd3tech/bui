@@ -14,14 +14,18 @@ const SkeletonSideBarList = ({ childs }: SkeletonSideBarListProps) => {
           alignItems="center"
           justifyContent="start"
           gap="1"
-          className="w-72 h-16"
+          className="h-8"
         >
-          <Flex alignItems="center" className="w-16">
-            <Flex alignItems="center" className="w-6 h-6 ml-5">
+          <Flex alignItems="center" justifyContent="start" className="w-12">
+            <Flex
+              alignItems="center"
+              justifyContent="start"
+              className="w-6 h-6 ml-2.5"
+            >
               <Skeleton rounded="base" height={20} width={20} />
             </Flex>
           </Flex>
-          <Skeleton rounded="full" className="h-3 w-24" />
+          <Skeleton rounded="full" className="h-4 w-full mr-3" />
         </Flex>
       ))}
     </>
