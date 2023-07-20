@@ -1,3 +1,10 @@
+## [6.15.6](https://github.com/dd3tech/dd360-components/compare/v6.15.5...v6.15.6) (2023-07-20)
+
+
+### Bug Fixes
+
+* transition component exports ([#135](https://github.com/dd3tech/dd360-components/issues/135)) ([a5e1d44](https://github.com/dd3tech/dd360-components/commit/a5e1d448c7df7e0ef18c56f01abeacdfa26e48d2))
+
 ## [6.15.5](https://github.com/dd3tech/dd360-components/compare/v6.15.4...v6.15.5) (2023-07-19)
 
 
