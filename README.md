@@ -19,7 +19,7 @@ It's library created by developers for developers
 
 
 <p>
-  <a href="https://bui.dd360.mx/" rel="noopener" target="_blank"><img src="./assets/dashboard-bui.png" alt="BUI dashboard example"></a>
+  <a href="https://bui.dd360.mx/" rel="noopener" target="_blank"><img style="border-radius:6px" src="./assets/bui-components-dark.png" alt="BUI components"></a>
 </p>
 
 <h3>
@@ -29,7 +29,7 @@ It's library created by developers for developers
 
 </div>
 
-## 📲 Instalation
+## 📲 Installation
 
 ```bash
 npm install dd360-ds
