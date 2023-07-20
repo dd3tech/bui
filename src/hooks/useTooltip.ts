@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { createPopper, Instance, preventOverflow, flip } from '@popperjs/core'
 import { PositionVariants } from '../interfaces/types'
+import useIsomorphicEffect from './useIsomorphicEffect'
 
 export interface TooltipParams {
   placement?: PositionVariants
@@ -58,50 +59,75 @@ export default function useTooltip(params?: TooltipParams) {
     entryTimer.current = setTimeout(() => {
       if (isMounted.current) setIsVisible(true)
     }, showDelay)
-  }, [isMounted, showDelay])
+  }, [showDelay])
 
   const handleMouseLeave = useCallback(() => {
     if (leaveTimer?.current) clearTimeout(leaveTimer.current)
     leaveTimer.current = setTimeout(() => {
       if (isMounted.current) setIsVisible(false)
     }, hideDelay)
-  }, [isMounted, hideDelay])
+  }, [hideDelay])
 
   const handleOnClick = useCallback(() => {
-    if (isMounted.current) setIsVisible((prev) => !prev)
-  }, [isMounted])
+    if (isMounted.current) {
+      setIsVisible((prev) => !prev)
+    }
+  }, [])
 
-  useEffect(() => {
-    if (!isVisible || !refElement.current || !popperElement.current) {
-      popperInstance.current?.destroy()
+  const handleSetIsVisible = useCallback((value: boolean) => {
+    if (isMounted.current) {
+      setIsVisible(value)
+    }
+  }, [])
+
+  const popperOptions = useMemo(() => {
+    return {
+      placement: placement,
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 10]
+          }
+        },
+        preventOverflow,
+        flip,
+        ...modifiers
+      ],
+      removeOnDestroy: true
+    }
+  }, [placement, modifiers])
+
+  useIsomorphicEffect(() => {
+    if (!popperInstance.current) return
+    popperInstance.current.setOptions(popperOptions)
+  }, [popperOptions])
+
+  useIsomorphicEffect(() => {
+    if (!refElement.current || !popperElement.current) {
       return
     }
 
-    popperInstance.current = createPopper(
+    const instance = createPopper(
       refElement.current,
       popperElement.current,
-      {
-        placement: placement,
-        modifiers: [
-          {
-            name: 'offset',
-            options: {
-              offset: [0, 10]
-            }
-          },
-          preventOverflow,
-          flip,
-          ...modifiers
-        ]
-      }
+      popperOptions
     )
-  }, [isVisible, placement])
+
+    popperInstance.current = instance
+
+    return () => {
+      instance.destroy()
+      popperInstance.current = null
+    }
+  }, [refElement?.current, popperElement?.current])
 
   return {
     isVisible,
     handleMouseEnter,
     handleMouseLeave,
     handleOnClick,
+    handleSetIsVisible,
     refs: { refElement, popperElement, popperInstance }
   }
 }

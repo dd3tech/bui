@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { FilterRange as FilterRangeComponent, Text } from '../components'
 import { FilterIcon } from '@heroicons/react/outline'
@@ -13,34 +13,7 @@ const handleChange = (value: string) => {
 }
 
 const Template: ComponentStory<typeof FilterRangeComponent> = (args) => {
-  const refButton = useRef<null | HTMLButtonElement>(null)
-  const [position, setPosition] = useState({ show: false, left: 0, top: 0 })
-
-  const handleClick = () => {
-    if (refButton.current !== null) {
-      const { offsetLeft, offsetTop } = refButton.current
-      setPosition((current) => ({
-        ...position,
-        show: !current.show,
-        left: offsetLeft + 10,
-        top: offsetTop + 30
-      }))
-    }
-  }
-
-  return (
-    <div className="h-64">
-      <button onClick={handleClick} ref={refButton}>
-        <div className="flex items-center">
-          <Text className="mt-0.5 mr-1" bold>
-            FilterRange
-          </Text>
-          <FilterIcon className="w-4 h-4" />
-        </div>
-      </button>
-      <FilterRangeComponent {...args} position={position} />
-    </div>
-  )
+  return <FilterRangeComponent {...args} />
 }
 
 export const FilterRange = Template.bind({})
@@ -48,5 +21,15 @@ FilterRange.args = {
   title: 'Nombre del filtro',
   min: 30,
   max: 300,
+  actionContent: (
+    <button className="w-56">
+      <div className="flex items-center">
+        <Text className="mt-0.5 mr-1" bold>
+          FilterRange
+        </Text>
+        <FilterIcon className="w-4 h-4" />
+      </div>
+    </button>
+  ),
   onApply: handleChange
 }

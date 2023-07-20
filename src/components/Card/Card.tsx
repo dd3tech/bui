@@ -1,8 +1,8 @@
-import { useCallback } from 'react'
+import { forwardRef, useCallback } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Rounded } from '../../interfaces/types'
 
-export interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   rounded?: Rounded
   padding?: number
@@ -13,50 +13,56 @@ export interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
   width?: number | string
 }
 
-const Card = ({
-  children,
-  rounded,
-  height,
-  width,
-  padding,
-  paddingX,
-  paddingY,
-  className,
-  style,
-  ...otherProps
-}: ICardProps) => {
-  const getPadding = useCallback(() => {
-    if (paddingX && paddingY) {
-      return `px-${paddingX} py-${paddingY}`
-    }
+const Card = forwardRef<HTMLDivElement, CardProps>(
+  (
+    {
+      children,
+      rounded,
+      height,
+      width,
+      padding,
+      paddingX,
+      paddingY,
+      className,
+      style,
+      ...otherProps
+    },
+    ref
+  ) => {
+    const getPadding = useCallback(() => {
+      if (paddingX && paddingY) {
+        return `px-${paddingX} py-${paddingY}`
+      }
 
-    if (paddingX) {
-      return `px-${paddingX}`
-    }
+      if (paddingX) {
+        return `px-${paddingX}`
+      }
 
-    if (paddingY) {
-      return `py-${paddingY}`
-    }
+      if (paddingY) {
+        return `py-${paddingY}`
+      }
 
-    return `p-${padding}`
-  }, [padding, paddingY, paddingX])
+      return `p-${padding}`
+    }, [padding, paddingY, paddingX])
 
-  return (
-    <div
-      data-testid="card-contain"
-      style={{ ...style, height, width }}
-      className={composeClasses(
-        'shadow-sm border',
-        rounded && `rounded-${rounded}`,
-        getPadding(),
-        className
-      )}
-      {...otherProps}
-    >
-      {children}
-    </div>
-  )
-}
+    return (
+      <div
+        ref={ref}
+        data-testid="card-contain"
+        style={{ ...style, height, width }}
+        className={composeClasses(
+          'shadow-sm border',
+          rounded && `rounded-${rounded}`,
+          getPadding(),
+          className
+        )}
+        {...otherProps}
+      >
+        {children}
+      </div>
+    )
+  }
+)
 
 Card.displayName = 'Card'
 Card.defaultProps = {

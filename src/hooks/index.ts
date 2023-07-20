@@ -15,3 +15,6 @@ export * from './useInputFocused'
 
 export { default as useLabelScalded } from './useLabelScalded'
 export * from './useLabelScalded'
+
+export { default as useIsomorphicEffect } from './useIsomorphicEffect'
+export * from './useIsomorphicEffect'

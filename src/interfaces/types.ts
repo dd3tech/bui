@@ -282,4 +282,16 @@ export type ButtonVariant =
   | 'danger'
   | 'outlineWhiteRed'
 
-export type PositionVariants = 'right' | 'left' | 'top' | 'bottom'
+export type PositionVariants =
+  | 'right'
+  | 'right-start'
+  | 'right-end'
+  | 'left'
+  | 'left-start'
+  | 'left-end'
+  | 'top'
+  | 'top-start'
+  | 'top-end'
+  | 'bottom'
+  | 'bottom-start'
+  | 'bottom-end'

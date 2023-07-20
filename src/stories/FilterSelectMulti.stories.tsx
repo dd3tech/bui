@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import {
   FilterSelectMulti as FilterSelectMultiComponent,
@@ -36,39 +36,23 @@ const handleChange = (value: string) => {
 }
 
 const Template: ComponentStory<typeof FilterSelectMultiComponent> = (args) => {
-  const refButton = useRef<null | HTMLButtonElement>(null)
-  const [position, setPosition] = useState({ show: false, left: 0, top: 0 })
-
-  const handleClick = () => {
-    if (refButton.current !== null) {
-      const { offsetLeft, offsetTop } = refButton.current
-      setPosition((current) => ({
-        ...position,
-        show: !current.show,
-        left: offsetLeft + 10,
-        top: offsetTop + 30
-      }))
-    }
-  }
-
-  return (
-    <div className="h-64">
-      <button onClick={handleClick} ref={refButton}>
-        <div className="flex items-center">
-          <Text className="mt-0.5 mr-1" bold>
-            FilterSelectMulti
-          </Text>
-          <FilterIcon className="w-4 h-4" />
-        </div>
-      </button>
-      <FilterSelectMultiComponent {...args} position={position} />
-    </div>
-  )
+  return <FilterSelectMultiComponent {...args} />
 }
 
 export const FilterSelectMulti = Template.bind({})
 FilterSelectMulti.args = {
   title: 'Nombre del filtro',
   initialItemList: list,
-  onApply: handleChange
+  actionContent: (
+    <button>
+      <div className="flex items-center">
+        <Text className="mt-0.5 mr-1" bold>
+          FilterSelectMulti
+        </Text>
+        <FilterIcon className="w-4 h-4" />
+      </div>
+    </button>
+  ),
+  onApply: handleChange,
+  usePortal: false
 }

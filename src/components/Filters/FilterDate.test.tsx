@@ -1,5 +1,5 @@
-import { fireEvent, render } from '@testing-library/react'
 import { vi } from 'vitest'
+import { RenderResult, fireEvent, render } from '@testing-library/react'
 import FilterDate, { FilterDateProps } from './FilterDate'
 
 const onApply = vi.fn()
@@ -8,7 +8,12 @@ const onReset = vi.fn()
 const defaultProps: FilterDateProps = {
   onApply,
   onReset,
-  position: { show: true, left: 0, top: 0 }
+  actionContent: <button data-testid="btn-action">Filter Date Action</button>
+}
+
+function openDialog(getByTestId: RenderResult['getByTestId']) {
+  const btnOpen = getByTestId('btn-action')
+  fireEvent.click(btnOpen)
 }
 
 describe('<FilterDate/>', () => {
@@ -18,12 +23,16 @@ describe('<FilterDate/>', () => {
   })
 
   it('should call a function when the apply and reset button are clicked', () => {
-    const { getByRole } = render(<FilterDate {...defaultProps} />)
+    const { getByRole, getByTestId } = render(<FilterDate {...defaultProps} />)
+
+    openDialog(getByTestId)
 
     const applyBtn = getByRole('confirm-btn')
     fireEvent.click(applyBtn)
     expect(onApply).toHaveBeenCalled()
     expect(onApply).toHaveBeenCalledTimes(1)
+
+    openDialog(getByTestId)
 
     const resetBtn = getByRole('cancel-btn')
     fireEvent.click(resetBtn)
@@ -32,7 +41,11 @@ describe('<FilterDate/>', () => {
   })
 
   it('should be call handleChange when changing the value of the date picker', () => {
-    const { getByRole, getAllByRole } = render(<FilterDate {...defaultProps} />)
+    const { getByRole, getAllByRole, getByTestId } = render(
+      <FilterDate {...defaultProps} />
+    )
+
+    openDialog(getByTestId)
 
     fireEvent.click(getByRole('active-calendar'))
     fireEvent.click(getAllByRole('month')[4])
@@ -46,6 +59,9 @@ describe('<FilterDate/>', () => {
     const { getByTestId } = render(
       <FilterDate {...defaultProps} language="en" />
     )
+
+    openDialog(getByTestId)
+
     const filter = getByTestId('card-contain')
 
     expect(filter).toHaveTextContent('Year')

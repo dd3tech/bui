@@ -1,5 +1,7 @@
 import { ChangeEvent, useState } from 'react'
-import ConfirmDialog from 'components/ConfirmDialog/ConfirmDialog'
+import ConfirmDialog, {
+  ConfirmDialogAddonsProps
+} from 'components/ConfirmDialog/ConfirmDialog'
 import Radio from 'components/Radio/Radio'
 import RadioGroup from 'components/Radio/RadioGroup'
 
@@ -10,7 +12,7 @@ export interface IRadioItems {
   }
 }
 
-export interface IFilterSelect {
+export interface IFilterSelect extends ConfirmDialogAddonsProps {
   /**
    * Title displayed in the ConfirmDialog
    */
@@ -31,10 +33,6 @@ export interface IFilterSelect {
    * Text displayed on the button to reset
    */
   textResetBtn?: string
-  /**
-   * The position in which the ConfirmDialog will be displayed
-   */
-  position?: { show: boolean; left: number; top: number }
   /**
    * The class name to apply to the ConfirmDialog
    */
@@ -60,11 +58,12 @@ const FilterSelect = ({
   selectedValue: defaultValue = '',
   textApplyBtn = 'Apply',
   textResetBtn = 'Reset',
-  position = { show: false, left: 0, top: 0 },
   className,
   width,
   onApply,
-  onReset
+  onReset,
+  actionContent,
+  usePortal
 }: IFilterSelect) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
 
@@ -81,14 +80,16 @@ const FilterSelect = ({
 
   return (
     <ConfirmDialog
+      actionContent={actionContent}
+      usePortal={usePortal}
       title={title}
-      onConfirm={apply}
-      onCancel={reset}
+      handleConfirm={apply}
+      handleCancel={reset}
       textConfirmBtn={textApplyBtn}
       textCancelBtn={textResetBtn}
-      position={position}
       className={className}
       width={width}
+      preventCloseHandleCancel
     >
       <RadioGroup value={selectedValue} onChange={handleChange}>
         {Object.entries(listItems).map(([key, { label, disabled }]) => (

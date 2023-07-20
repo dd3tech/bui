@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from 'react'
 import Checkbox from 'components/Checkbox/Checkbox'
-import ConfirmDialog from 'components/ConfirmDialog/ConfirmDialog'
+import ConfirmDialog, {
+  ConfirmDialogAddonsProps
+} from 'components/ConfirmDialog/ConfirmDialog'
 import FormControlLabel from 'components/FormControl/FormControlLabel'
 
 export interface ICheckBoxItems {
@@ -11,7 +13,7 @@ export interface ICheckBoxItems {
   }
 }
 
-export interface FilterSelectMultiProps {
+export interface FilterSelectMultiProps extends ConfirmDialogAddonsProps {
   /**
    * Title displayed in the ConfirmDialog
    */
@@ -28,10 +30,6 @@ export interface FilterSelectMultiProps {
    * Text displayed on the button to reset
    */
   textResetBtn?: string
-  /**
-   * The position in which the ConfirmDialog will be displayed
-   */
-  position?: { show: boolean; left: number; top: number }
   /**
    * The class name to apply to the ConfirmDialog
    */
@@ -56,11 +54,12 @@ const FilterSelectMulti = ({
   initialItemList,
   textApplyBtn = 'Apply',
   textResetBtn = 'Reset',
-  position = { show: false, left: 0, top: 0 },
   className,
   width,
   onApply,
-  onReset
+  onReset,
+  actionContent,
+  usePortal
 }: FilterSelectMultiProps) => {
   const [itemList, setItemList] = useState<ICheckBoxItems>(initialItemList)
 
@@ -87,14 +86,16 @@ const FilterSelectMulti = ({
 
   return (
     <ConfirmDialog
+      actionContent={actionContent}
+      usePortal={usePortal}
       title={title}
-      onConfirm={apply}
-      onCancel={reset}
+      handleConfirm={apply}
+      handleCancel={reset}
       textConfirmBtn={textApplyBtn}
       textCancelBtn={textResetBtn}
-      position={position}
       className={className}
       width={width}
+      preventCloseHandleCancel
     >
       <div role="checkbox-group" className="flex flex-col">
         {Object.entries(itemList).map(([key, { label, checked, disabled }]) => (
