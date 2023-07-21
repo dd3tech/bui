@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import React, { forwardRef, ReactNode, FC } from 'react'
 import { ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'

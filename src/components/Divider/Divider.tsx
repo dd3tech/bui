@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { composeClasses } from 'lib/classes'
 
 export interface IDivider {

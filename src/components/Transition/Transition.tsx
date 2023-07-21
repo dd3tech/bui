@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { useState, useEffect, useRef, forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'
 import { ANIMATION_LIST } from './animations'

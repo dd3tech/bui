@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import React, { forwardRef, LegacyRef } from 'react'
 
 export interface KBDProps {

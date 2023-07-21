@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Portal } from '../../common/Portal/Portal'

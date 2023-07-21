@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { forwardRef, HTMLAttributes, ElementType, useMemo } from 'react'
 import { composeClasses, spacing, borderRadius, border } from 'lib'
 

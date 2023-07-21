@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { ReactNode } from 'react'
 import Flex from '../Layout/Flex/Flex'
 import Skeleton from '../Skeleton/Skeleton'

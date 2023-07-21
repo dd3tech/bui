@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { forwardRef } from 'react'
 import { useModalManager } from 'hooks'
 import { composeClasses } from 'lib/classes'

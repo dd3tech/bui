@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { useCallback } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Rounded } from '../../interfaces/types'

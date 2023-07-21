@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import React, { useEffect, useState } from 'react'
 import Divider from 'components/Divider'
 import Text from 'components/Typography'

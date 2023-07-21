@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { CSSProperties, FC, HTMLAttributes, ReactNode, useMemo } from 'react'
 import { composeClasses } from 'lib/classes'
 import { composeStyles } from 'lib/styles'

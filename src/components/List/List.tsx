@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { Children, ReactNode, cloneElement, forwardRef, useMemo } from 'react'
 import { composeClasses } from 'lib/classes'
 import Item, { ListItemProps } from './Item'

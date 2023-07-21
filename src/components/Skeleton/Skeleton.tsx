@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { Rounded, UnitCSS } from '../../interfaces/types'
 import React from 'react'
 import './skeleton.css'

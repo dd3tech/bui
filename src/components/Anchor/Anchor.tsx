@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { ComponentType, ComponentProps } from 'react'
 
 export interface AnchorProps extends ComponentProps<'a'> {

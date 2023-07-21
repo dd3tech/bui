@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import Skeleton from '../Skeleton/Skeleton'
 import Flex from '../Layout/Flex/Flex'
 

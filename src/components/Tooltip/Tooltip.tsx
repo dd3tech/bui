@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { ReactNode, cloneElement, ReactElement, FC } from 'react'
 import { composeClasses } from 'lib/classes'
 import { fontSize } from 'lib/font'

@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
+
 export const SVGIcon = ({
   children,
   ...props

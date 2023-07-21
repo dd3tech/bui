@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import { Dispatch } from 'react'
 import { ChevronLeftIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'

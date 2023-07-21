@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+*/
+
 import DatePicker, { DatePickerProps } from './DatePicker'
 import { Portal } from '../../common/Portal'
 
