@@ -3,12 +3,13 @@
   "version": "6.15.6",
   "description": "DD360 Components is a tailwind based React component library",
   "license": "MIT",
+  "homepage": "https://bui.dd360.mx",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dd3tech/dd360-components"
+    "url": "https://github.com/dd3tech/bui"
   },
   "bugs": {
-    "url": "https://github.com/dd3tech/dd360-components/issues"
+    "url": "https://github.com/dd3tech/bui/issues"
   },
   "keywords": [
     "tailwind components",
