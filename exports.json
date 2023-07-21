@@ -255,6 +255,11 @@
       "require": "./dist/cjs/components/BarList/index.js",
       "module": "./dist/esm/components/BarList/index.js",
       "default": "./dist/esm/components/BarList/index.js"
+    },
+    "./Timeline": {
+      "require": "./dist/cjs/components/Timeline/index.js",
+      "module": "./dist/esm/components/Timeline/index.js",
+      "default": "./dist/esm/components/Timeline/index.js"
     }
   },
   "typesVersions": {
@@ -310,7 +315,8 @@
       "Transition": ["./dist/esm/components/Transition/index.d.ts"],
       "List": ["./dist/esm/components/List/index.d.ts"],
       "Progress": ["./dist/esm/components/Progress/index.d.ts"],
-      "BarList": ["./dist/esm/components/BarList/index.d.ts"]
+      "BarList": ["./dist/esm/components/BarList/index.d.ts"],
+      "Timeline": ["./dist/esm/components/Timeline/index.d.ts"]
     }
   }
 }
