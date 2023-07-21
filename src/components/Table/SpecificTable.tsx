@@ -1,5 +1,9 @@
-import { ITopHeader, IHeader } from '../../interfaces/SpecificTable'
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { formatCustomDecimal } from 'dd360-utils'
+import { ITopHeader, IHeader } from '../../interfaces/SpecificTable'
 
 interface SpecificTableProps {
   topHeader: ITopHeader[]

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { createPopper, Instance, preventOverflow, flip } from '@popperjs/core'
 import { PositionVariants } from '../interfaces/types'

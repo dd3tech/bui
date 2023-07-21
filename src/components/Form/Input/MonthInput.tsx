@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useState, ChangeEvent, useCallback, useEffect } from 'react'
 import { CalendarIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'

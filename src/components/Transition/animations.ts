@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 export const ANIMATION_LIST = {
   hoverTranlationLeft: 'hover-tranlation-left',
   hoverTranlationRight: 'hover-tranlation-right',

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { CSSProperties, ForwardedRef, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'

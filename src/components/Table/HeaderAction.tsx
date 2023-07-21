@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useState } from 'react'
 import { SortAscendingIcon, SortDescendingIcon } from '@heroicons/react/outline'
 

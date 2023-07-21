@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { ChangeEvent, useState } from 'react'
 import Checkbox from 'components/Checkbox/Checkbox'
 import ConfirmDialog from 'components/ConfirmDialog/ConfirmDialog'

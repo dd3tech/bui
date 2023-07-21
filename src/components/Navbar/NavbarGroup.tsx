@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { Gap } from '../../interfaces/types'
 import { composeClasses } from 'lib/classes'
 

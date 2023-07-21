@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import * as HIcons from '@heroicons/react/outline'
 
 export type IconName = keyof typeof HIcons

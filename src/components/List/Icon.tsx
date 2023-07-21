@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { ReactNode } from 'react'
 
 export interface ListIconProps extends React.HTMLAttributes<HTMLSpanElement> {

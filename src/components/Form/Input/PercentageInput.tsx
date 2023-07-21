@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useCallback, useState, useEffect } from 'react'
 import BaseInput, { InputProps } from './BaseInput'
 

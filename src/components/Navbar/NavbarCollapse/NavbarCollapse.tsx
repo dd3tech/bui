@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useState, ReactElement } from 'react'
 import NavbarCollapseContent from './NavbarCollapseContent'
 import NavbarCollapseToggle from './NavbarCollapseToggle'

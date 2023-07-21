@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import Input from './Input'
 export default Input
 export * from './Input'

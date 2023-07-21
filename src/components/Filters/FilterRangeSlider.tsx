@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useCallback, useState } from 'react'
 import RangeSlider, { RangeValues } from '../RangeSlider/RangeSlider'
 import ConfirmDialog from '../ConfirmDialog/ConfirmDialog'

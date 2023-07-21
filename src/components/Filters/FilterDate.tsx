@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { ChangeEvent, useState } from 'react'
 import ConfirmDialog from '../ConfirmDialog/ConfirmDialog'
 import MonthInput from '../Form/Input/MonthInput'

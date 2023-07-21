@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useState, useCallback, useEffect } from 'react'
 
 export type SizeTypes = {

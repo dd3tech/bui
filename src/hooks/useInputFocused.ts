@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useState, useCallback } from 'react'
 
 const useInputFocused = () => {

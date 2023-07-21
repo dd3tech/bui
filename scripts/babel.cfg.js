@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 export const babelConfig = (api, targets) => {
   // https://babeljs.io/docs/en/config-files#config-function-api
   const isTestEnv = api.env('test')

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 

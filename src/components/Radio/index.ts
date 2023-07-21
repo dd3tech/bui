@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 export { default as RadioGroup } from './RadioGroup'
 export * from './RadioGroup'
 

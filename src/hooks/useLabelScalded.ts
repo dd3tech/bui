@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useEffect, useState } from 'react'
 
 export interface UseLabelScaldedParams {

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { Children, ReactNode, isValidElement } from 'react'
 import Icon, { ListIconProps } from './Icon'
 import { composeClasses } from 'lib/classes'

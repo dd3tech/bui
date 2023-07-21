@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useCallback, useState } from 'react'
 import GlobeAltIcon from '@heroicons/react/outline/GlobeAltIcon'
 import { composeClasses } from 'lib/classes'

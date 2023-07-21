@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useMemo, useCallback, forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'
 import { ClockIcon } from '@heroicons/react/outline'

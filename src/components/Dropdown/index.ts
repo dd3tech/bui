@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import Dropdown from './Dropdown'
 import Menu from './DropdownMenu'
 import Trigger from './DropdownTrigger'

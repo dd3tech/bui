@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { ReactNode } from 'react'
 import { DEFAULT_TAILWIND_TEXT_SIZE } from '../lib/font'
 

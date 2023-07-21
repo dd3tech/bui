@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import React, { ReactNode, useState, useCallback, useEffect } from 'react'
 import { getLeftAndTopScreen } from 'dd360-utils'
 import { composeClasses } from 'lib/classes'

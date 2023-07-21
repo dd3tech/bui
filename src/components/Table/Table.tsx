@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { composeClasses } from 'lib/classes'
 import { Rounded } from '../../interfaces/types'
 import Header from './base/Header'

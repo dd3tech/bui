@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useState, useCallback } from 'react'
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline'
 import BaseInput, { InputProps } from './BaseInput'

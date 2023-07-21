@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 const fs = require('fs')
 import { babelConfig } from './babel.cfg'
 

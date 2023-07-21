@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import RangeSlider, { RangeSliderProps, RangeValues } from './RangeSlider'
 
 export type { RangeSliderProps as MultiRangeSliderProps }

@@ -1,4 +1,10 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
+import { XIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
+import Text from 'components/Typography/Text'
 import { AlignItems, Gap } from '../../../interfaces/types'
 import {
   NavbarContentActiveColor,
@@ -6,8 +12,6 @@ import {
 } from '../NavbarContent'
 import { NavbarContentProvider } from '../NavbarContentContext'
 import { useNavbarCollapseContext } from './NavbarCollapseContext'
-import { XIcon } from '@heroicons/react/outline'
-import Text from 'components/Typography/Text'
 
 export interface NavbarCollapseContentProps
   extends React.HTMLAttributes<HTMLDivElement> {

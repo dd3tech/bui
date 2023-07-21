@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import BaseInput, { InputProps } from './BaseInput'
 import CurrencyInput, { InputCurrencyProps } from './CurrencyInput'
 import PasswordInput from './PasswordInput'

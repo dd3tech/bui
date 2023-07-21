@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import React from 'react'
 import Button from '../Buttons/Button'
 import Text from '../Typography'

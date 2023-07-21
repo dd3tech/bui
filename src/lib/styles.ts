@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 export interface StyleObject {
   [key: string]: string | number | null | undefined | boolean
 }

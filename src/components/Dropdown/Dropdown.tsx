@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { PropsWithoutRef, ReactElement, RefAttributes, useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import DropdownMenu from './DropdownMenu'

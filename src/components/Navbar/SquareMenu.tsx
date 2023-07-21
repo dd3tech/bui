@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 export function SquareMenu({ color = 'currentColor', size = 16, ...props }) {
   return (
     <svg

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { Dispatch, SetStateAction, createContext, useContext } from 'react'
 import { TimeLinePosition } from './Timeline'
 

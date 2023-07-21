@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useCallback, useRef, forwardRef } from 'react'
 import CInput from 'react-currency-input-field'
 import { unFormatCurrency } from 'dd360-utils'

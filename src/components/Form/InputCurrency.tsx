@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { FC } from 'react'
 import CurrencyInput from 'react-currency-input-field'
 

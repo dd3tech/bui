@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { FC, forwardRef, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 

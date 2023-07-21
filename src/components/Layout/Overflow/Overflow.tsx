@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import React, { forwardRef } from 'react'
 
 export interface OverFlowProps extends React.HTMLAttributes<HTMLDivElement> {

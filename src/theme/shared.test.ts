@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { createTheme, mergeThemes, generateCSSProperties } from './shared'
 

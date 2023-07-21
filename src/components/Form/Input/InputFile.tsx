@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { ChangeEvent, ReactNode, useCallback, useState } from 'react'
 import UploadIcon from '@heroicons/react/outline/UploadIcon'
 import ProgressBar from '../../ProgressBar/ProgressBar'

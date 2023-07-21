@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import { useEffect, useState, useRef, RefObject } from 'react'
 import { composeClasses } from 'lib/classes'
 import './rangeSlider.css'

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 export interface SpinnerProps {
   color?: string
   className?: string
