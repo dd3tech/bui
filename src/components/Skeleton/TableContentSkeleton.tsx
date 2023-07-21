@@ -1,6 +1,6 @@
 /*
  * Copyright (c) DD360 and its affiliates.
-*/
+ */
 
 import Skeleton from 'components/Skeleton/Skeleton'
 import { Rounded, UnitCSS } from '../../interfaces/types'

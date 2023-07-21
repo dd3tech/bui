@@ -1,7 +1,6 @@
 /*
  * Copyright (c) DD360 and its affiliates.
-*/
-
+ */
 
 import { useState, ChangeEvent, useCallback, useMemo } from 'react'
 import {

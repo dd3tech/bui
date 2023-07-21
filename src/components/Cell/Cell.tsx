@@ -1,6 +1,6 @@
 /*
  * Copyright (c) DD360 and its affiliates.
-*/
+ */
 
 import { ButtonHTMLAttributes, forwardRef } from 'react'
 import Text, { TextSizeType } from '../Typography'

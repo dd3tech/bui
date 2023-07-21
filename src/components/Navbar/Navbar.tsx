@@ -1,6 +1,6 @@
 /*
  * Copyright (c) DD360 and its affiliates.
-*/
+ */
 
 import { Padding, Rounded, ShadowVariants } from '../../interfaces/types'
 import { composeClasses } from 'lib/classes'

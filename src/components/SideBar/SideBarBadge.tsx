@@ -1,6 +1,6 @@
 /*
  * Copyright (c) DD360 and its affiliates.
-*/
+ */
 
 import { composeClasses } from 'lib/classes'
 import Flex from '../Layout/Flex'

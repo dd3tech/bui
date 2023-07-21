@@ -1,6 +1,6 @@
 /*
  * Copyright (c) DD360 and its affiliates.
-*/
+ */
 
 import { forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'

@@ -1,6 +1,6 @@
 /*
  * Copyright (c) DD360 and its affiliates.
-*/
+ */
 
 import { forwardRef, FC, ReactNode } from 'react'
 import { AlignItems } from '../../interfaces/types'
