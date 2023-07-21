@@ -1,3 +1,59 @@
+## [6.15.6](https://github.com/dd3tech/dd360-components/compare/v6.15.5...v6.15.6) (2023-07-20)
+
+
+### Bug Fixes
+
+* transition component exports ([#135](https://github.com/dd3tech/dd360-components/issues/135)) ([a5e1d44](https://github.com/dd3tech/dd360-components/commit/a5e1d448c7df7e0ef18c56f01abeacdfa26e48d2))
+
+## [6.15.5](https://github.com/dd3tech/dd360-components/compare/v6.15.4...v6.15.5) (2023-07-19)
+
+
+### Bug Fixes
+
+* change height skeleton sidebarlist ([9d69f51](https://github.com/dd3tech/dd360-components/commit/9d69f51674c057790ce8aab5984ba6ceda31eee4))
+* changes styles sidebar skeletonlist ([cd88e5a](https://github.com/dd3tech/dd360-components/commit/cd88e5a13eaaa6dd10cec7383c6bbae486fef8da))
+
+## [6.15.4](https://github.com/dd3tech/dd360-components/compare/v6.15.3...v6.15.4) (2023-07-13)
+
+
+### Bug Fixes
+
+* add format value ([54a0649](https://github.com/dd3tech/dd360-components/commit/54a0649c32bf9d2f3566f7091fac37f41372b314))
+* add format value ([bc5102d](https://github.com/dd3tech/dd360-components/commit/bc5102d048cb4a11e8ee4bcdbcdc28c3645bf50e))
+
+## [6.15.3](https://github.com/dd3tech/dd360-components/compare/v6.15.2...v6.15.3) (2023-07-07)
+
+
+### Bug Fixes
+
+* Adding react-currency-input-field again ([c7eaf07](https://github.com/dd3tech/dd360-components/commit/c7eaf074d3229a94e7bc1f9197566bb265b5e191))
+* Fifth try ([b7c79da](https://github.com/dd3tech/dd360-components/commit/b7c79da99a85298f9f140142e2085d51aaa5ad21))
+* fourth try ([35b3d40](https://github.com/dd3tech/dd360-components/commit/35b3d40a8866d72c494e3c3708bf9bacb4c0a209))
+* second try ([d1d0f3b](https://github.com/dd3tech/dd360-components/commit/d1d0f3bb2d0361367c8b1c933d32ceda8ca6be64))
+* third try ([425048c](https://github.com/dd3tech/dd360-components/commit/425048cd2338c04f53264f64bbf3d402e621d67c))
+* trying to adjust the value and defaultValue of the currencyInput ([9b75bb2](https://github.com/dd3tech/dd360-components/commit/9b75bb232cf911ccd623d395e6059dc401f93010))
+
+## [6.15.2](https://github.com/dd3tech/dd360-components/compare/v6.15.1...v6.15.2) (2023-07-05)
+
+
+### Bug Fixes
+
+* add decimalScale prop to Input type currency ([#128](https://github.com/dd3tech/dd360-components/issues/128)) ([a204063](https://github.com/dd3tech/dd360-components/commit/a2040634212591f888d2fe344f9c620bd5c62d71))
+
+## [6.15.1](https://github.com/dd3tech/dd360-components/compare/v6.15.0...v6.15.1) (2023-07-04)
+
+
+### Bug Fixes
+
+* behavior on Input component when the type is currency ([#125](https://github.com/dd3tech/dd360-components/issues/125)) ([f6d040e](https://github.com/dd3tech/dd360-components/commit/f6d040eabdc30efb0dbe8989dfd3a3964684ad5b))
+
+# [6.15.0](https://github.com/dd3tech/dd360-components/compare/v6.14.1...v6.15.0) (2023-07-04)
+
+
+### Features
+
+* add key press event on input currency ([d7377b3](https://github.com/dd3tech/dd360-components/commit/d7377b368d412163b9aa4e409931d9694444ce0d))
+
 ## [6.14.1](https://github.com/dd3tech/dd360-components/compare/v6.14.0...v6.14.1) (2023-06-27)
 
 

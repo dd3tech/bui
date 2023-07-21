@@ -9,3 +9,9 @@ export * from './useTooltip'
 
 export { default as usePagination } from './usePagination'
 export * from './usePagination'
+
+export { default as useInputFocused } from './useInputFocused'
+export * from './useInputFocused'
+
+export { default as useLabelScalded } from './useLabelScalded'
+export * from './useLabelScalded'

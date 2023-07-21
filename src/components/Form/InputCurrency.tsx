@@ -19,9 +19,17 @@ export interface InputCurrencyProps {
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
   role?: string
   onPaste?: React.ClipboardEventHandler<HTMLInputElement>
+  onKeyPress?: React.KeyboardEventHandler<HTMLInputElement>
 }
 
+/**
+ * @deprecated Use `import { Input } from 'dd360-ds'`
+ */
+
 const InputCurrency: FC<InputCurrencyProps> = (props) => {
+  console.warn(
+    "[DEPRECATED] This component is deprecated. Instead use `import { Input } from 'dd360-ds'` with a prop called type={'currency'}."
+  )
   return (
     <CurrencyInput
       className={composeClasses(
@@ -42,6 +50,7 @@ const InputCurrency: FC<InputCurrencyProps> = (props) => {
       onBlur={() => props.onBlurInput && props.onBlurInput()}
       disabled={props.disabled}
       onFocus={(e) => props.onFocus && props.onFocus(e)}
+      onKeyPress={props.onKeyPress}
       role={props?.role ?? ''}
       onPaste={props.onPaste}
       decimalSeparator="."

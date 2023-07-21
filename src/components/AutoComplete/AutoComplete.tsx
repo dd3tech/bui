@@ -81,7 +81,6 @@ function AutoComplete({
       }
     }
   }, [itemName])
-
   return (
     <div className="grid">
       <Input
