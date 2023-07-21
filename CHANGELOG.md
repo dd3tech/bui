@@ -1,3 +1,18 @@
+# [6.16.0](https://github.com/dd3tech/dd360-components/compare/v6.15.6...v6.16.0) (2023-07-21)
+
+
+### Bug Fixes
+
+* added exports in components index ([304b771](https://github.com/dd3tech/dd360-components/commit/304b771c242bbb78f038ddc671b1c93ce06168ad))
+* added exports in package.json ([cf8d09e](https://github.com/dd3tech/dd360-components/commit/cf8d09e7c07d13fe376129374ee8fea898dbf698))
+* pseudo element is added when alternate position is applied ([ef1140c](https://github.com/dd3tech/dd360-components/commit/ef1140cd82fcc534d502aae5c3d2dcd5a3a492fb))
+* the position prop is optional ([6030934](https://github.com/dd3tech/dd360-components/commit/6030934a0ca640503c4ea44ef38b91e1585ecab8))
+
+
+### Features
+
+* new Timeline component is added ([85e3446](https://github.com/dd3tech/dd360-components/commit/85e3446541cdd99d625dec7e1a21b7cff1bc24da))
+
 ## [6.15.6](https://github.com/dd3tech/dd360-components/compare/v6.15.5...v6.15.6) (2023-07-20)
 
 
