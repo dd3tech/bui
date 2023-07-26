@@ -34,3 +34,5 @@ export function Portal({
 
   return createPortal(children, container)
 }
+
+export default Portal
