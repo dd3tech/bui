@@ -9,19 +9,13 @@ export default {
 } as ComponentMeta<typeof InputComponent>
 
 const Template: ComponentStory<typeof InputComponent> = (args) => {
-  const [value, setValue] = React.useState<any>('0')
+  const [value, setValue] = React.useState('')
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
   }
 
-  return (
-    <>
-      <button onClick={() => setValue(0)}>test</button>
-      <input type="number" min={4} max={99} className="w-30" />
-      <InputComponent {...args} value={value} onChange={handleChange} />
-    </>
-  )
+  return <InputComponent {...args} value={value} onChange={handleChange} />
 }
 
 export const Input = Template.bind({})

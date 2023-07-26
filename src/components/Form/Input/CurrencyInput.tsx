@@ -133,14 +133,14 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       (value, name) => {
         if (!value || !max || Number(value) <= Number(max)) {
           onChange && onChange({ target: { value, name } } as any)
-        }
-        if (
-          (max && Number(value) > Number(max)) ||
-          (min && Number(value) < Number(min))
-        ) {
-          setCurrentVariant('error')
-        } else {
-          setCurrentVariant(variant)
+          if (
+            (max && Number(value) > Number(max)) ||
+            (min && Number(value) < Number(min))
+          ) {
+            setCurrentVariant('error')
+          } else {
+            setCurrentVariant(variant)
+          }
         }
       },
       [value, defaultValue, onChange]
