@@ -9,13 +9,19 @@ export default {
 } as ComponentMeta<typeof InputComponent>
 
 const Template: ComponentStory<typeof InputComponent> = (args) => {
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = React.useState<any>('0')
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
   }
 
-  return <InputComponent {...args} value={value} onChange={handleChange} />
+  return (
+    <>
+      <button onClick={() => setValue(0)}>test</button>
+      <input type="number" min={4} max={99} className="w-30" />
+      <InputComponent {...args} value={value} onChange={handleChange} />
+    </>
+  )
 }
 
 export const Input = Template.bind({})
@@ -46,7 +52,8 @@ InputCurrency.args = {
   className: 'w-96',
   type: 'currency',
   prefix: '$',
-  variant: 'success'
+  variant: 'success',
+  max: 99.95
 }
 export const InputPassword = Template.bind({})
 InputPassword.args = {
