@@ -46,7 +46,8 @@ InputCurrency.args = {
   className: 'w-96',
   type: 'currency',
   prefix: '$',
-  variant: 'success'
+  variant: 'success',
+  max: 99.95
 }
 export const InputPassword = Template.bind({})
 InputPassword.args = {
