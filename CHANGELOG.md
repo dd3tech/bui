@@ -1,3 +1,10 @@
+## [6.16.1](https://github.com/dd3tech/bui/compare/v6.16.0...v6.16.1) (2023-07-27)
+
+
+### Bug Fixes
+
+* fixed bug in value formatting when 0 is entered ([#136](https://github.com/dd3tech/bui/issues/136)) ([7eb91df](https://github.com/dd3tech/bui/commit/7eb91dff4d0b43cacd1247c58f9c6eafe403f7b8))
+
 # [6.16.0](https://github.com/dd3tech/dd360-components/compare/v6.15.6...v6.16.0) (2023-07-21)
 
 
