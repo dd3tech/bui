@@ -98,7 +98,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       disabled ? 'disabled' : variant
     )
 
-    const isDisabled = inputIsDisabled(variant)
+    const isDisabled = inputIsDisabled(currentVariant)
     const inputRef = useRef<HTMLInputElement>(null)
 
     const { isFocused, handleFocusOff, handleFocusOn } = useInputFocused()
