@@ -1,3 +1,10 @@
+## [6.16.3](https://github.com/dd3tech/bui/compare/v6.16.2...v6.16.3) (2023-07-27)
+
+
+### Bug Fixes
+
+* **CurrencyInput:** if we did not write directly in the input, the variant did not changed in certain cases ([e9fb6af](https://github.com/dd3tech/bui/commit/e9fb6afd1be058895f01e879816f9e6122f998f0))
+
 ## [6.16.2](https://github.com/dd3tech/bui/compare/v6.16.1...v6.16.2) (2023-07-27)
 
 
