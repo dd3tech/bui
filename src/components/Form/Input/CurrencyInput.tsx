@@ -2,7 +2,7 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import { useCallback, useRef, forwardRef, useState } from 'react'
+import { useCallback, useRef, forwardRef, useState, useEffect } from 'react'
 import CInput from 'react-currency-input-field'
 import { unFormatCurrency } from 'dd360-utils'
 import { composeClasses } from 'lib/classes'
@@ -151,6 +151,10 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
         return value
       return (value === 0 || value) && Number(value).toFixed(decimalScale)
     }, [value, defaultValue, isFocused])
+
+    useEffect(() => {
+      setCurrentVariant(variant)
+    }, [variant])
 
     return (
       <WrapperInput
