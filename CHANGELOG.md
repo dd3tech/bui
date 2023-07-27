@@ -1,3 +1,10 @@
+## [6.16.2](https://github.com/dd3tech/bui/compare/v6.16.1...v6.16.2) (2023-07-27)
+
+
+### Bug Fixes
+
+* **CurrencyInput:** status disabled in currency input ([6fc5606](https://github.com/dd3tech/bui/commit/6fc5606057c596a81cdcbaa83ef0886beebb5299))
+
 ## [6.16.1](https://github.com/dd3tech/bui/compare/v6.16.0...v6.16.1) (2023-07-27)
 
 
