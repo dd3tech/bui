@@ -50,14 +50,23 @@ function MonthInput({
 }: InputProps & { pickerType?: 'month' | 'month-year' }) {
   const [showDatePicker, setShowDatePicker] = useState(false)
   const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
-  const [localValue, setLocalValue] = useState(
-    typeof value === 'number' ? value : null
+  const [localValue, setLocalValue] = useState<number | string | null>(
+    value as any
   )
+  const [displayValue, setDisplayValue] = useState<string | undefined>()
 
   const handleDateChange = useCallback(
     (newDate: Date) => {
+      let value
+      if (pickerType === 'month') {
+        value = newDate.getMonth().toString()
+      } else {
+        value = `${newDate.getFullYear().toString()} ${newDate
+          .getMonth()
+          .toString()}`
+      }
       const event = {
-        target: { value: newDate.getMonth().toString(), name: props.name }
+        target: { value, name: props.name }
       }
       setLocalValue(Number(event.target.value))
       setShowDatePicker(!setShowDatePicker)
@@ -67,21 +76,35 @@ function MonthInput({
   )
 
   useEffect(() => {
-    if (value === '') setLocalValue(null)
-  }, [value])
+    if (value === '') {
+      setDisplayValue(undefined)
+      setLocalValue(null)
+      return
+    }
+    if (pickerType === 'month') {
+      if (Number(value) > 11) {
+        setDisplayValue(undefined)
+        setLocalValue(null)
+        return
+      }
+      setDisplayValue(monthNames[language ?? 'es'][Number(value)])
+    } else {
+      const [year, month] = String(value).split(' ')
+      if (Number(month) > 11) {
+        setDisplayValue(undefined)
+        setLocalValue(null)
+        return
+      }
+      setDisplayValue(`${monthNames[language ?? 'es'][Number(month)]} ${year}`)
+    }
+  }, [value, pickerType, language])
 
   return (
     <BaseInput
       {...props}
       type="text"
       disabled
-      value={
-        localValue !== null
-          ? localValue < monthNames.en.length
-            ? monthNames[language ?? 'es'][localValue]
-            : ''
-          : ''
-      }
+      value={displayValue as any}
       className={composeClasses('relative', className)}
       endAdornment={
         <>
