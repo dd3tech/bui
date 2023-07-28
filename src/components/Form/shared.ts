@@ -16,6 +16,7 @@ export type InputType =
   | 'number'
   | 'percentage'
   | 'file'
+  | 'month-year'
 
 export type InputVariant =
   | 'default'

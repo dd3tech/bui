@@ -45,8 +45,9 @@ function MonthInput({
   value,
   onChange,
   language,
+  pickerType,
   ...props
-}: InputProps) {
+}: InputProps & { pickerType: 'month' | 'month-year' }) {
   const [showDatePicker, setShowDatePicker] = useState(false)
   const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
   const [localValue, setLocalValue] = useState(
@@ -94,7 +95,7 @@ function MonthInput({
           {showDatePicker && (
             <DatePicker
               language={language}
-              onlyOf="month"
+              onlyOf={pickerType}
               onChange={handleDateChange}
               className="absolute top-14 right-0 text-black"
             />
