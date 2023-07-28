@@ -45,9 +45,9 @@ function MonthInput({
   value,
   onChange,
   language,
-  pickerType,
+  pickerType = 'month',
   ...props
-}: InputProps & { pickerType: 'month' | 'month-year' }) {
+}: InputProps & { pickerType?: 'month' | 'month-year' }) {
   const [showDatePicker, setShowDatePicker] = useState(false)
   const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
   const [localValue, setLocalValue] = useState(
