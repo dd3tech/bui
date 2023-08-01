@@ -8,7 +8,7 @@ import { unFormatCurrency } from 'dd360-utils'
 import { composeClasses } from 'lib/classes'
 import { useInputFocused, useLabelScalded } from 'hooks'
 
-import { getPaddingInput, inputIsDisabled } from '../shared'
+import { getPaddingInput } from '../shared'
 import { InputProps } from './BaseInput'
 import WrapperInput from './WrapperInput'
 
@@ -98,7 +98,6 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       disabled ? 'disabled' : variant
     )
 
-    const isDisabled = inputIsDisabled(currentVariant)
     const inputRef = useRef<HTMLInputElement>(null)
 
     const { isFocused, handleFocusOff, handleFocusOn } = useInputFocused()
@@ -164,7 +163,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
         classNameAdornment={classNameAdornment}
         endAdornment={endAdornment}
         isCell={isCell}
-        isDisabled={isDisabled}
+        isDisabled={disabled}
         isFocused={isFocused}
         isLabelScalded={isLabelScalded}
         isRequired={isRequired}
@@ -196,7 +195,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             decimalsLimit={decimalsLimit}
             decimalScale={decimalScale}
             prefix={prefix}
-            disabled={isDisabled}
+            disabled={disabled}
             suffix={suffix}
             onChange={undefined}
             onValueChange={handleOnChange}
@@ -221,7 +220,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             decimalsLimit={decimalsLimit}
             decimalScale={decimalScale}
             prefix={prefix}
-            disabled={isDisabled}
+            disabled={disabled}
             suffix={suffix}
             style={{
               cursor: 'inherit',
