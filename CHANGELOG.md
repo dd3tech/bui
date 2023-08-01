@@ -1,3 +1,10 @@
+## [6.16.4](https://github.com/dd3tech/bui/compare/v6.16.3...v6.16.4) (2023-08-01)
+
+
+### Bug Fixes
+
+* disabled prop was set on effect ([#141](https://github.com/dd3tech/bui/issues/141)) ([c336780](https://github.com/dd3tech/bui/commit/c3367808ca5364cc100b18883ede4ea227ae8a10))
+
 ## [6.16.3](https://github.com/dd3tech/bui/compare/v6.16.2...v6.16.3) (2023-07-27)
 
 
