@@ -1,3 +1,31 @@
+## [6.16.4](https://github.com/dd3tech/bui/compare/v6.16.3...v6.16.4) (2023-08-01)
+
+
+### Bug Fixes
+
+* disabled prop was set on effect ([#141](https://github.com/dd3tech/bui/issues/141)) ([c336780](https://github.com/dd3tech/bui/commit/c3367808ca5364cc100b18883ede4ea227ae8a10))
+
+## [6.16.3](https://github.com/dd3tech/bui/compare/v6.16.2...v6.16.3) (2023-07-27)
+
+
+### Bug Fixes
+
+* **CurrencyInput:** if we did not write directly in the input, the variant did not changed in certain cases ([e9fb6af](https://github.com/dd3tech/bui/commit/e9fb6afd1be058895f01e879816f9e6122f998f0))
+
+## [6.16.2](https://github.com/dd3tech/bui/compare/v6.16.1...v6.16.2) (2023-07-27)
+
+
+### Bug Fixes
+
+* **CurrencyInput:** status disabled in currency input ([6fc5606](https://github.com/dd3tech/bui/commit/6fc5606057c596a81cdcbaa83ef0886beebb5299))
+
+## [6.16.1](https://github.com/dd3tech/bui/compare/v6.16.0...v6.16.1) (2023-07-27)
+
+
+### Bug Fixes
+
+* fixed bug in value formatting when 0 is entered ([#136](https://github.com/dd3tech/bui/issues/136)) ([7eb91df](https://github.com/dd3tech/bui/commit/7eb91dff4d0b43cacd1247c58f9c6eafe403f7b8))
+
 # [6.16.0](https://github.com/dd3tech/dd360-components/compare/v6.15.6...v6.16.0) (2023-07-21)
 
 

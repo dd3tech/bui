@@ -2,7 +2,7 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import { useCallback, useRef, forwardRef } from 'react'
+import { useCallback, useRef, forwardRef, useState, useEffect } from 'react'
 import CInput from 'react-currency-input-field'
 import { unFormatCurrency } from 'dd360-utils'
 import { composeClasses } from 'lib/classes'
@@ -88,12 +88,17 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
       isCell,
       defaultValue,
       decimalScale = 2,
+      min,
+      max,
       ...otherProps
     }: InputCurrencyProps,
     ref
   ) => {
-    variant = disabled ? 'disabled' : variant
-    const isDisabled = inputIsDisabled(variant)
+    const [currentVariant, setCurrentVariant] = useState(
+      disabled ? 'disabled' : variant
+    )
+
+    const isDisabled = inputIsDisabled(currentVariant)
     const inputRef = useRef<HTMLInputElement>(null)
 
     const { isFocused, handleFocusOff, handleFocusOn } = useInputFocused()
@@ -125,14 +130,31 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
     )
 
     const handleOnChange = useCallback(
-      (value, name) => onChange && onChange({ target: { value, name } } as any),
+      (value, name) => {
+        if (!value || !max || Number(value) <= Number(max)) {
+          onChange && onChange({ target: { value, name } } as any)
+          if (
+            (max && Number(value) > Number(max)) ||
+            (min && Number(value) < Number(min))
+          ) {
+            setCurrentVariant('error')
+          } else {
+            setCurrentVariant(variant)
+          }
+        }
+      },
       [value, defaultValue, onChange]
     )
 
     const formattedValue = useCallback(() => {
-      if (String(value).includes('.') || isFocused) return value
-      return value && Number(value).toFixed(decimalScale)
+      if (String(value).includes('.') || (isFocused && value !== 0))
+        return value
+      return (value === 0 || value) && Number(value).toFixed(decimalScale)
     }, [value, defaultValue, isFocused])
+
+    useEffect(() => {
+      setCurrentVariant(disabled ? 'disabled' : variant)
+    }, [variant, disabled])
 
     return (
       <WrapperInput
@@ -155,7 +177,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
         rounded={rounded}
         startAdornment={startAdornment}
         style={style}
-        variant={variant}
+        variant={currentVariant}
       >
         {isCell ? (
           <CInput
