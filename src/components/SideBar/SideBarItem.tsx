@@ -72,6 +72,16 @@ export interface SideBarItemProps {
    * Function to toggle the submenu of the SideBarItem
    */
   toggleSubMenu: (menuItemIndex: number) => void
+  /**
+   * Badge color
+   * @default 'bg-blue-500'
+   */
+  badgeColor?: string
+  /**
+   * Badge text color
+   * @default 'text-white'
+   */
+  badgeTextColor?: string
 }
 
 interface ListSubItemsProps {
@@ -118,6 +128,8 @@ const SideBarItem = ({
   subItems,
   isOpen,
   badge,
+  badgeColor = 'bg-blue-600',
+  badgeTextColor = 'text-white',
   isExpand,
   title,
   icon,
@@ -154,9 +166,20 @@ const SideBarItem = ({
               <Flex
                 justifyContent="center"
                 alignItems="center"
-                className={composeClasses('w-10 h-8 ', active && 'bg-gray-200')}
+                className={composeClasses(
+                  'w-10 h-8 relative',
+                  active && 'bg-gray-200'
+                )}
                 style={{ borderRadius: 6 }}
               >
+                {!!badge && !isExpand && (
+                  <div
+                    className={composeClasses(
+                      badgeColor,
+                      'absolute w-2.5 h-2.5 top-1 right-1 rounded-full'
+                    )}
+                  />
+                )}
                 <Flex
                   alignItems="center"
                   className={composeClasses(
@@ -218,7 +241,11 @@ const SideBarItem = ({
           {(!!badge || !!subItemsArray.length) && (
             <Flex alignItems="center">
               {badge && typeof badge !== 'object' ? (
-                <SideBarBadge value={badge} isActive={active} />
+                <SideBarBadge
+                  value={badge}
+                  badgeColor={badgeColor}
+                  badgeTextColor={badgeTextColor}
+                />
               ) : (
                 badge
               )}
