@@ -40,6 +40,8 @@
   width: 1px;
   height: 100%;
   background-color: #8f969a;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .table-container-cmpnt.vertical-borders thead tr th:last-child::after,
