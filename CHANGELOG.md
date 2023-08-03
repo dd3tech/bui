@@ -1,3 +1,10 @@
+## [6.16.5](https://github.com/dd3tech/bui/compare/v6.16.4...v6.16.5) (2023-08-03)
+
+
+### Bug Fixes
+
+* table before element and date picker text color ([#142](https://github.com/dd3tech/bui/issues/142)) ([be8e5f2](https://github.com/dd3tech/bui/commit/be8e5f2fcb9eb7c775b0ee84a635239b8b7f77a6))
+
 ## [6.16.4](https://github.com/dd3tech/bui/compare/v6.16.3...v6.16.4) (2023-08-01)
 
 

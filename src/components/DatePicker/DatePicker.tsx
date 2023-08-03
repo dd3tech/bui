@@ -162,7 +162,7 @@ const disableMonthBtn = ({
 
   return {
     disabled,
-    className: disabled ? 'text-gray-300 border-white' : 'text-gray-800'
+    className: composeClasses(disabled && 'text-gray-300 border-white')
   }
 }
 
@@ -181,7 +181,7 @@ const disabledYearBtn = ({
 
   return {
     disabled,
-    className: disabled ? 'text-gray-300' : 'text-gray-800'
+    className: composeClasses(disabled && 'text-gray-300')
   }
 }
 
