@@ -172,14 +172,6 @@ const SideBarItem = ({
                 )}
                 style={{ borderRadius: 6 }}
               >
-                {!!badge && !isExpand && (
-                  <div
-                    className={composeClasses(
-                      badgeColor,
-                      'absolute w-2.5 h-2.5 top-1 right-1 rounded-full'
-                    )}
-                  />
-                )}
                 <Flex
                   alignItems="center"
                   className={composeClasses(
@@ -189,6 +181,14 @@ const SideBarItem = ({
                 >
                   {icon || <ExclamationCircleIcon />}
                 </Flex>
+                {!!badge && !isExpand && (
+                  <div
+                    className={composeClasses(
+                      badgeColor,
+                      'absolute w-2.5 h-2.5 top-1 right-1 rounded-full'
+                    )}
+                  />
+                )}
               </Flex>
             </Flex>
           }
