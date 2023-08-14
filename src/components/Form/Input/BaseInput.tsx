@@ -191,7 +191,7 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
             {...otherProps}
             placeholder={isLabelScalded ? placeholder : ''}
             className={composeClasses(
-              'outline-none w-full h-full font-medium bg-transparent absolute'
+              'outline-none w-full h-full font-medium bg-transparent absolute left-0 right-0'
             )}
             onFocus={handleFocus}
             onBlur={handleBlur}
