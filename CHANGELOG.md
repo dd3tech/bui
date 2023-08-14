@@ -1,3 +1,10 @@
+## [6.16.7](https://github.com/dd3tech/bui/compare/v6.16.6...v6.16.7) (2023-08-14)
+
+
+### Bug Fixes
+
+* input was positioned outside the top container box ([#145](https://github.com/dd3tech/bui/issues/145)) ([0d0582b](https://github.com/dd3tech/bui/commit/0d0582bf61d20573e66ff81686363b9c012aa78d))
+
 ## [6.16.6](https://github.com/dd3tech/bui/compare/v6.16.5...v6.16.6) (2023-08-04)
 
 
