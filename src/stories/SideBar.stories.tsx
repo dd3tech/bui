@@ -42,10 +42,12 @@ const sideBarList = [
   },
   {
     title: 'Information 2',
-    active: false,
+    active: true,
     isOpen: false,
     subItems: subItems,
-    badge: 4
+    badge: '+99',
+    badgeColor: 'bg-red-500',
+    badgeTextColor: 'text-yellow-50'
   },
   {
     title: 'Information 3',
@@ -53,13 +55,23 @@ const sideBarList = [
     isOpen: false,
     disabled: true,
     subItems: subItems,
-    badge: <ExclamationIcon className="w-4 h-4 text-yellow-400" />
+    badge: <ExclamationIcon className="w-4 h-4 text-yellow-400" />,
+    badgeColor: 'bg-yellow-500'
   },
   {
     title: 'Information 4',
     active: false,
     isOpen: false,
     goTo: () => console.log('Item 4')
+  },
+  {
+    title: 'Information 5',
+    active: false,
+    isOpen: false,
+    subItems: subItems,
+    badge: '+99',
+    badgeColor: 'bg-red-500',
+    badgeTextColor: 'text-yellow-50'
   }
 ]
 

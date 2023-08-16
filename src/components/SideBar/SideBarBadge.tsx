@@ -11,20 +11,31 @@ export interface BadgeProps {
    */
   value: string | number
   /**
-   * Indicates if the element is active
+   * Color of the badge
+   * @default 'bg-blue-600'
    */
-  isActive: boolean
+  badgeColor?: string
+  /**
+   * Text color of the badge
+   * @default 'text-white'
+   */
+  badgeTextColor?: string
 }
 
-const SideBarBadge = ({ value, isActive }: BadgeProps) => (
+const SideBarBadge = ({
+  value,
+  badgeColor = 'bg-blue-600',
+  badgeTextColor = 'text-white'
+}: BadgeProps) => (
   <Flex
     justifyContent="center"
     alignItems="center"
     className={composeClasses(
-      'rounded-2xl bg-blue-50 w-6 text-white text-xs font-medium',
-      isActive ? 'bg-blue-600 text-white' : 'bg-blue-50 text-gray-700'
+      'rounded-2xl text-xs font-medium px-1',
+      badgeColor,
+      badgeTextColor
     )}
-    style={{ height: 22 }}
+    style={{ height: 22, minWidth: 22 }}
   >
     {value}
   </Flex>
