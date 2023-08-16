@@ -65,6 +65,8 @@
   height: 1px;
   width: 100%;
   background-color: #d1d5db;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .table-container-cmpnt.horizontal-borders tbody tr:last-child td::before {

@@ -1,3 +1,17 @@
+## [6.16.7](https://github.com/dd3tech/bui/compare/v6.16.6...v6.16.7) (2023-08-14)
+
+
+### Bug Fixes
+
+* input was positioned outside the top container box ([#145](https://github.com/dd3tech/bui/issues/145)) ([0d0582b](https://github.com/dd3tech/bui/commit/0d0582bf61d20573e66ff81686363b9c012aa78d))
+
+## [6.16.6](https://github.com/dd3tech/bui/compare/v6.16.5...v6.16.6) (2023-08-04)
+
+
+### Bug Fixes
+
+* table horizontal line ([1b5926f](https://github.com/dd3tech/bui/commit/1b5926fe6c5bb81d5e5c155f65e58939f2825ea8))
+
 ## [6.16.5](https://github.com/dd3tech/bui/compare/v6.16.4...v6.16.5) (2023-08-03)
 
 
