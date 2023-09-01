@@ -68,6 +68,11 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
    * This prop defines the width of the modal.
    */
   width?: string
+  /**
+   * Optional.
+   * This prop define if it has the close button.
+   */
+  isButtonClose?: boolean
 }
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
@@ -84,6 +89,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
       preventClose,
       setCloseModal,
       width,
+      isButtonClose = true,
       ...props
     }: ModalProps,
     ref
@@ -131,28 +137,30 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
                 height: !fullScreen ? height : '100%'
               }}
             >
-              <div
-                role="btn-close"
-                onClick={handleModalClose}
-                className="absolute top-0 right-0  mr-6 cursor-pointer mt-6"
-              >
-                <svg
-                  className="cursor-pointer"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              {isButtonClose && (
+                <div
+                  role="btn-close"
+                  onClick={handleModalClose}
+                  className="absolute top-0 right-0  mr-6 cursor-pointer mt-6"
                 >
-                  <path
-                    d="M1 17L17 1M1 1L17 17"
-                    stroke="var(--primary)"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+                  <svg
+                    className="cursor-pointer"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 17L17 1M1 1L17 17"
+                      stroke="var(--primary)"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              )}
               <div className="mt-4 mb-4 w-full">{children}</div>
             </div>
           </div>
