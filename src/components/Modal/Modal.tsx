@@ -72,7 +72,7 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
    * Optional.
    * This prop define if it has the close button.
    */
-  isButtonClose?: boolean
+  btnClose?: boolean
 }
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
@@ -89,7 +89,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
       preventClose,
       setCloseModal,
       width,
-      isButtonClose = true,
+      btnClose = true,
       ...props
     }: ModalProps,
     ref
@@ -137,7 +137,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
                 height: !fullScreen ? height : '100%'
               }}
             >
-              {isButtonClose && (
+              {btnClose && (
                 <div
                   role="btn-close"
                   onClick={handleModalClose}

@@ -65,7 +65,7 @@ describe('<Modal/>', () => {
       <Modal
         active={true}
         setCloseModal={setCloseModal}
-        isButtonClose={false}
+        btnClose={false}
       />
     )
     const btnCancel = renderResult.queryByRole('btn-close')
