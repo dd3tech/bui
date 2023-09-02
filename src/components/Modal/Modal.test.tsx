@@ -62,11 +62,7 @@ describe('<Modal/>', () => {
 
   it('should not render the button(x)', () => {
     const renderResult = render(
-      <Modal
-        active={true}
-        setCloseModal={setCloseModal}
-        btnClose={false}
-      />
+      <Modal active={true} setCloseModal={setCloseModal} btnClose={false} />
     )
     const btnCancel = renderResult.queryByRole('btn-close')
     expect(btnCancel).toBeNull()
