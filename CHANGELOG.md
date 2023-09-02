@@ -1,3 +1,10 @@
+## [6.16.8](https://github.com/dd3tech/bui/compare/v6.16.7...v6.16.8) (2023-09-02)
+
+
+### Bug Fixes
+
+* added the possibility that the close button is not rendered ([#146](https://github.com/dd3tech/bui/issues/146)) ([2cd92a3](https://github.com/dd3tech/bui/commit/2cd92a31f9d85a0acf8570f8264ea691667baafb))
+
 ## [6.16.7](https://github.com/dd3tech/bui/compare/v6.16.6...v6.16.7) (2023-08-14)
 
 
