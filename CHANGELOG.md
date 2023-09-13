@@ -1,3 +1,10 @@
+## [6.16.9](https://github.com/dd3tech/bui/compare/v6.16.8...v6.16.9) (2023-09-13)
+
+
+### Bug Fixes
+
+* export image component ([#147](https://github.com/dd3tech/bui/issues/147)) ([677a395](https://github.com/dd3tech/bui/commit/677a395395d1d4511f3972f0180043236efaba6c))
+
 ## [6.16.8](https://github.com/dd3tech/bui/compare/v6.16.7...v6.16.8) (2023-09-02)
 
 
