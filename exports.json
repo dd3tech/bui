@@ -260,7 +260,12 @@
       "require": "./dist/cjs/components/Timeline/index.js",
       "module": "./dist/esm/components/Timeline/index.js",
       "default": "./dist/esm/components/Timeline/index.js"
-    }
+    },
+    "./Image": {
+      "require": "./dist/cjs/components/Image/index.js",
+      "module": "./dist/esm/components/Image/index.js",
+      "default": "./dist/esm/components/Image/index.js"
+  }
   },
   "typesVersions": {
     "*": {
@@ -316,7 +321,8 @@
       "List": ["./dist/esm/components/List/index.d.ts"],
       "Progress": ["./dist/esm/components/Progress/index.d.ts"],
       "BarList": ["./dist/esm/components/BarList/index.d.ts"],
-      "Timeline": ["./dist/esm/components/Timeline/index.d.ts"]
+      "Timeline": ["./dist/esm/components/Timeline/index.d.ts"],
+      "Image": ["./dist/esm/components/Image/index.d.ts"]
     }
   }
 }
