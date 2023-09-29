@@ -153,8 +153,8 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
     }, [value, defaultValue, isFocused])
 
     useEffect(() => {
-      setCurrentVariant(variant)
-    }, [variant])
+      setCurrentVariant(disabled ? 'disabled' : variant)
+    }, [variant, disabled])
 
     return (
       <WrapperInput

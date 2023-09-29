@@ -1,3 +1,45 @@
+## [6.16.9](https://github.com/dd3tech/bui/compare/v6.16.8...v6.16.9) (2023-09-13)
+
+
+### Bug Fixes
+
+* export image component ([#147](https://github.com/dd3tech/bui/issues/147)) ([677a395](https://github.com/dd3tech/bui/commit/677a395395d1d4511f3972f0180043236efaba6c))
+
+## [6.16.8](https://github.com/dd3tech/bui/compare/v6.16.7...v6.16.8) (2023-09-02)
+
+
+### Bug Fixes
+
+* added the possibility that the close button is not rendered ([#146](https://github.com/dd3tech/bui/issues/146)) ([2cd92a3](https://github.com/dd3tech/bui/commit/2cd92a31f9d85a0acf8570f8264ea691667baafb))
+
+## [6.16.7](https://github.com/dd3tech/bui/compare/v6.16.6...v6.16.7) (2023-08-14)
+
+
+### Bug Fixes
+
+* input was positioned outside the top container box ([#145](https://github.com/dd3tech/bui/issues/145)) ([0d0582b](https://github.com/dd3tech/bui/commit/0d0582bf61d20573e66ff81686363b9c012aa78d))
+
+## [6.16.6](https://github.com/dd3tech/bui/compare/v6.16.5...v6.16.6) (2023-08-04)
+
+
+### Bug Fixes
+
+* table horizontal line ([1b5926f](https://github.com/dd3tech/bui/commit/1b5926fe6c5bb81d5e5c155f65e58939f2825ea8))
+
+## [6.16.5](https://github.com/dd3tech/bui/compare/v6.16.4...v6.16.5) (2023-08-03)
+
+
+### Bug Fixes
+
+* table before element and date picker text color ([#142](https://github.com/dd3tech/bui/issues/142)) ([be8e5f2](https://github.com/dd3tech/bui/commit/be8e5f2fcb9eb7c775b0ee84a635239b8b7f77a6))
+
+## [6.16.4](https://github.com/dd3tech/bui/compare/v6.16.3...v6.16.4) (2023-08-01)
+
+
+### Bug Fixes
+
+* disabled prop was set on effect ([#141](https://github.com/dd3tech/bui/issues/141)) ([c336780](https://github.com/dd3tech/bui/commit/c3367808ca5364cc100b18883ede4ea227ae8a10))
+
 ## [6.16.3](https://github.com/dd3tech/bui/compare/v6.16.2...v6.16.3) (2023-07-27)
 
 
