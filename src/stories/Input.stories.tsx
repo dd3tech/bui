@@ -74,6 +74,12 @@ InputMonth.args = {
   type: 'month',
   className: 'w-full'
 }
+export const InputMonthYear = Template.bind({})
+InputMonthYear.args = {
+  label: 'Month/Year',
+  type: 'month-year',
+  className: 'w-full'
+}
 export const InputYear = Template.bind({})
 InputYear.args = {
   label: 'Year',

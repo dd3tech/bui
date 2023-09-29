@@ -31,7 +31,9 @@ export default function Input({
     case 'year':
       return <YearInput placeholder="yyyy" {...otherProps} />
     case 'month':
-      return <MonthInput {...otherProps} />
+      return <MonthInput {...otherProps} pickerType="month" />
+    case 'month-year':
+      return <MonthInput {...otherProps} pickerType="month-year" />
     case 'percentage':
       return (
         <PercentageInput placeholder="00.00" endAdornment="%" {...otherProps} />
