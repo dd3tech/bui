@@ -1,3 +1,10 @@
+## [6.16.10](https://github.com/dd3tech/bui/compare/v6.16.9...v6.16.10) (2023-09-29)
+
+
+### Bug Fixes
+
+* add missing props on DatePicker and ShapeButton components ([#140](https://github.com/dd3tech/bui/issues/140)) ([893ce1a](https://github.com/dd3tech/bui/commit/893ce1a6b6b32959fc9dfa18265d93511720bb25))
+
 ## [6.16.9](https://github.com/dd3tech/bui/compare/v6.16.8...v6.16.9) (2023-09-13)
 
 
