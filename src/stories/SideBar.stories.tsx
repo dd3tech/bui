@@ -22,7 +22,19 @@ const subItems = {
   2: {
     title: 'SubItem 2',
     active: false,
-    goTo: () => console.log('subItem 1.2')
+    goTo: () => console.log('subItem 1.2'),
+    childrenSubItem: {
+      1: {
+        title: 'ChildrenSubItem 1',
+        active: true,
+        goTo: () => console.log('childrenSubItem 1.1')
+      },
+      2: {
+        title: 'ChildrenSubItem 2',
+        active: false,
+        goTo: () => console.log('childrenSubItem 1.2')
+      }
+    }
   },
   3: {
     title: 'SubItem 3',

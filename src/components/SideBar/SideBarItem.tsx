@@ -31,7 +31,7 @@ export interface SideBarItemProps {
   /**
    * Icon element to be displayed
    */
-  icon?: JSX.Element
+  icon?: any
   /**
    * Object with subitems of the SideBarItem
    */
@@ -73,6 +73,14 @@ export interface SideBarItemProps {
    */
   toggleSubMenu: (menuItemIndex: number) => void
   /**
+   * Function to toggle the children submenu of the SideBarItem
+   */
+  toggleChildrenSubMenu: (e: number) => void
+  /**
+   * Array that holds the indices of open child items in the submenu.
+   */
+  openChildrenItems: number[]
+  /**
    * Badge color
    * @default 'bg-blue-500'
    */
@@ -84,6 +92,14 @@ export interface SideBarItemProps {
   badgeTextColor?: string
 }
 
+interface ListChildrenSubItemsProps {
+  childrenSubItem: {
+    title: string
+    goTo: () => void
+    active: boolean
+  }[]
+}
+
 interface ListSubItemsProps {
   subItemsArray: [
     string,
@@ -91,33 +107,104 @@ interface ListSubItemsProps {
       title: string
       active: boolean
       goTo: () => void
+      childrenSubItem?: ListChildrenSubItemsProps
+      isOpen?: boolean
     }
   ][]
   isOpen?: boolean
+  openChildrenItems: number[]
+  toggleChildrenSubMenu: (e: number) => void
 }
 
-const ListSubItems = ({ subItemsArray, isOpen }: ListSubItemsProps) => (
-  <Flex
-    className={composeClasses(
-      'flex-col ml-7 pl-4 border-l border-gray-300 duration-150 ease-in',
-      isOpen ? 'max-h-96 overflow-auto mt-1' : 'max-h-0 overflow-hidden'
-    )}
-  >
-    {subItemsArray?.map(([key, subItem]) => (
-      <Text
-        key={key}
-        size="sm"
+const ListSubItems = ({
+  subItemsArray,
+  isOpen,
+  openChildrenItems,
+  toggleChildrenSubMenu
+}: ListSubItemsProps) => {
+  return (
+    <div>
+      <Flex
         className={composeClasses(
-          'py-2 cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis',
-          subItem.active ? 'font-semibold text-blue-600' : 'text-gray-500'
+          'flex-col ml-7 pl-4 duration-150 ease-in',
+          isOpen ? 'mt-1' : 'max-h-0 overflow-hidden'
         )}
-        onClick={subItem.goTo}
       >
-        {subItem.title}
-      </Text>
-    ))}
-  </Flex>
-)
+        {subItemsArray?.map(([key, subItem], index: number) => (
+          <div key={key}>
+            <Flex
+              alignItems="center"
+              gap="2"
+              className={composeClasses(
+                'cursor-pointer',
+                !subItem?.childrenSubItem &&
+                  'border-l border-gray-300 text-gray-500 -ml-4 pl-3'
+              )}
+              onClick={() => {
+                subItem.childrenSubItem
+                  ? toggleChildrenSubMenu(index)
+                  : subItem.goTo()
+              }}
+            >
+              {subItem?.childrenSubItem && (
+                <div className={composeClasses('w-4 h-4 -ml-6 text-gray-500')}>
+                  {openChildrenItems.includes(index) ? (
+                    <ChevronUpIcon className="w-full" />
+                  ) : (
+                    <ChevronDownIcon className="w-full" />
+                  )}
+                </div>
+              )}
+              <Text
+                size="sm"
+                className={composeClasses(
+                  'cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis',
+                  subItem.active && !subItem.childrenSubItem
+                    ? 'font-semibold text-blue-600'
+                    : 'text-gray-500 py-2'
+                )}
+              >
+                {subItem.title}
+              </Text>
+            </Flex>
+            {(openChildrenItems.includes(index) || subItem.isOpen) &&
+              subItem.childrenSubItem && (
+                <ListChildrenSubItems
+                  childrenSubItem={Object.values(subItem?.childrenSubItem)}
+                />
+              )}
+          </div>
+        ))}
+      </Flex>
+    </div>
+  )
+}
+
+const ListChildrenSubItems = ({
+  childrenSubItem
+}: ListChildrenSubItemsProps) => {
+  return (
+    <Flex
+      className={composeClasses(
+        'flex-col pl-4 -ml-4 border-l border-gray-300 cursor-pointer'
+      )}
+    >
+      {childrenSubItem.map((children) => (
+        <Flex className="flex-col" onClick={children.goTo} key={children.title}>
+          <Text
+            className={composeClasses(
+              'py-1 cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis',
+              children.active ? 'text-blue-600' : 'text-gray-500'
+            )}
+            size="sm"
+          >
+            {children.title}
+          </Text>
+        </Flex>
+      ))}
+    </Flex>
+  )
+}
 
 const SideBarItem = ({
   index,
@@ -135,7 +222,9 @@ const SideBarItem = ({
   icon,
   goTo,
   handleClickOption,
-  toggleSubMenu
+  toggleSubMenu,
+  toggleChildrenSubMenu,
+  openChildrenItems
 }: SideBarItemProps) => {
   const subItemsArray = subItems ? Object.entries(subItems) : []
 
@@ -228,7 +317,7 @@ const SideBarItem = ({
               <Flex
                 alignItems="center"
                 gap="1"
-                className="italic"
+                className="italic mt-2"
                 style={{ fontSize: '10px' }}
               >
                 <ClockIcon width={15} />
@@ -267,7 +356,12 @@ const SideBarItem = ({
         </Flex>
       </Flex>
       {isExpand && (
-        <ListSubItems subItemsArray={subItemsArray} isOpen={isOpen} />
+        <ListSubItems
+          toggleChildrenSubMenu={toggleChildrenSubMenu}
+          openChildrenItems={openChildrenItems}
+          subItemsArray={subItemsArray}
+          isOpen={isOpen}
+        />
       )}
     </div>
   )

@@ -28,6 +28,7 @@ export interface SideBarSubItem {
     title: string
     active: boolean
     goTo: () => void
+    childrenSubItem?: any
   }
 }
 
@@ -37,7 +38,7 @@ export interface SideBarItemProps {
   active: boolean
   isOpen?: boolean
   goTo?: () => void
-  icon?: JSX.Element
+  icon?: any
   disabled?: boolean
   hidden?: boolean
   subItems?: SideBarSubItem
@@ -167,6 +168,15 @@ const SideBar = ({
       setIsOptionClicked(false)
     }, 20)
   }
+  const [openChildrenItems, setOpenChildrenItems] = useState<number[]>([])
+
+  const toggleChildrenSubMenu = (index: number) => {
+    if (openChildrenItems.includes(index))
+      return setOpenChildrenItems(
+        openChildrenItems.filter((item) => item !== index)
+      )
+    return setOpenChildrenItems([...openChildrenItems, index])
+  }
 
   const handleClickOption =
     (disabled: boolean | undefined, goTo: () => void) => () => {
@@ -216,7 +226,7 @@ const SideBar = ({
         ref={sidebarRef}
         role="container-sidebar"
         className={composeClasses(
-          'border-t-0 box-border overflow-hidden h-full border',
+          'border-t-0 box-border overflow-hidden h-full border relative z-50',
           'transition-all delay-75 duration-200 ease-in',
           expand ? 'w-60 min-w-full' : 'w-0 lg:w-14.5 lg:min-w-14.5',
           isMobile ? 'absolute z-50' : 'relative'
@@ -278,6 +288,8 @@ const SideBar = ({
                       isExpand={expand}
                       handleClickOption={handleClickOption}
                       toggleSubMenu={toggleSubMenu}
+                      toggleChildrenSubMenu={toggleChildrenSubMenu}
+                      openChildrenItems={openChildrenItems}
                       {...item}
                     />
                   )
@@ -288,7 +300,7 @@ const SideBar = ({
             <Flex
               role="danger-zone"
               alignItems="center"
-              className="w-full cursor-pointer group mb-4"
+              className="w-full cursor-pointer group mb-4 mt-8 relative"
               onClick={() => {
                 if (dangerZone?.callBack) {
                   flushSync
