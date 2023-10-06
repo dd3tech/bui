@@ -23,12 +23,19 @@ import SkeletonSideBarList from './SkeletonSideBarList'
 import ToggleSideBar from './ToggleSideBar'
 import './sideBar.css'
 
+export interface ListChildrenSubItemsProps {
+  childrenSubItem: {
+    title: string
+    goTo: () => void
+    active: boolean
+  }[]
+}
 export interface SideBarSubItem {
   [key: string]: {
     title: string
     active: boolean
     goTo: () => void
-    childrenSubItem?: any
+    childrenSubItem?: ListChildrenSubItemsProps
   }
 }
 
@@ -38,7 +45,7 @@ export interface SideBarItemProps {
   active: boolean
   isOpen?: boolean
   goTo?: () => void
-  icon?: any
+  icon?: JSX.Element
   disabled?: boolean
   hidden?: boolean
   subItems?: SideBarSubItem

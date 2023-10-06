@@ -12,7 +12,7 @@ import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 import Flex from '../Layout/Flex'
 import ToolTipHover from '../ToolTipHover'
-import { SideBarSubItem, TBadge } from './SideBar'
+import { ListChildrenSubItemsProps, SideBarSubItem, TBadge } from './SideBar'
 import SideBarBadge from './SideBarBadge'
 
 export interface SideBarItemProps {
@@ -31,7 +31,7 @@ export interface SideBarItemProps {
   /**
    * Icon element to be displayed
    */
-  icon?: any
+  icon?: JSX.Element
   /**
    * Object with subitems of the SideBarItem
    */
@@ -90,14 +90,6 @@ export interface SideBarItemProps {
    * @default 'text-white'
    */
   badgeTextColor?: string
-}
-
-interface ListChildrenSubItemsProps {
-  childrenSubItem: {
-    title: string
-    goTo: () => void
-    active: boolean
-  }[]
 }
 
 interface ListSubItemsProps {
