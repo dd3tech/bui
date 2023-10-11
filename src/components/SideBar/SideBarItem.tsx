@@ -12,7 +12,7 @@ import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 import Flex from '../Layout/Flex'
 import ToolTipHover from '../ToolTipHover'
-import { ListChildrenSubItemsProps, SideBarSubItem, TBadge } from './SideBar'
+import { SideBarSubItem, TBadge } from './SideBar'
 import SideBarBadge from './SideBarBadge'
 
 export interface SideBarItemProps {
@@ -92,6 +92,15 @@ export interface SideBarItemProps {
   badgeTextColor?: string
 }
 
+interface ListChildrenSubItemsProps {
+  childrenSubItem: {
+    title: string
+    goTo: () => void
+    active: boolean
+    hidden?: boolean
+  }[]
+}
+
 interface ListSubItemsProps {
   subItemsArray: [
     string,
@@ -159,12 +168,11 @@ const ListSubItems = ({
                 {subItem.title}
               </Text>
             </Flex>
-            {(openChildrenItems.includes(index) || subItem.isOpen) &&
-              subItem.childrenSubItem && (
-                <ListChildrenSubItems
-                  childrenSubItem={Object.values(subItem?.childrenSubItem)}
-                />
-              )}
+            {openChildrenItems.includes(index) && subItem.childrenSubItem && (
+              <ListChildrenSubItems
+                childrenSubItem={Object.values(subItem?.childrenSubItem)}
+              />
+            )}
           </div>
         ))}
       </Flex>
@@ -186,7 +194,8 @@ const ListChildrenSubItems = ({
           <Text
             className={composeClasses(
               'py-1 cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis',
-              children.active ? 'text-blue-600' : 'text-gray-500'
+              children.active ? 'text-blue-600' : 'text-gray-500',
+              children.hidden && 'hidden'
             )}
             size="sm"
           >
