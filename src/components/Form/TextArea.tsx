@@ -67,7 +67,7 @@ function TextArea({
       classNameAdornment
     ),
     container: composeClasses(
-      'w-full placeholder-gray-400 mt-1 flex items-center justify-between font-medium relative',
+      'w-full placeholder-gray-400 mt-1 flex items-center justify-between font-medium relative h-auto',
       'border-solid border',
       'transition duration-500 ease-out focus:ease-in',
       !isDisabled && `hover:shadow-${boxShadow} hover:border-info`,
