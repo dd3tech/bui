@@ -28,6 +28,7 @@ export interface TextAreaProps
   large?: boolean
   boxShadow?: ShadowVariants
   isRequired?: boolean
+  classNameTextArea?: string
 }
 
 function TextArea({
@@ -46,6 +47,7 @@ function TextArea({
   onFocus,
   onBlur,
   isRequired,
+  classNameTextArea,
   ...otherProps
 }: TextAreaProps) {
   const { disabled } = otherProps
@@ -67,7 +69,7 @@ function TextArea({
       classNameAdornment
     ),
     container: composeClasses(
-      'w-full placeholder-gray-400 mt-1 flex items-center justify-between font-medium relative h-auto',
+      'w-full placeholder-gray-400 mt-1 flex items-center justify-between font-medium relative',
       'border-solid border',
       'transition duration-500 ease-out focus:ease-in',
       !isDisabled && `hover:shadow-${boxShadow} hover:border-info`,
@@ -121,8 +123,9 @@ function TextArea({
           ref={textAreaRef}
           {...otherProps}
           className={composeClasses(
-            'w-full h-full bg-transparent focus:outline-none',
-            isDisabled && 'cursor-not-allowed'
+            'w-full bg-transparent focus:outline-none',
+            isDisabled && 'cursor-not-allowed',
+            classNameTextArea
           )}
           placeholder={isLabelScalded ? placeholder : ''}
           disabled={isDisabled}
