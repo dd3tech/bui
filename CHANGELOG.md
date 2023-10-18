@@ -1,3 +1,10 @@
+## [6.16.11](https://github.com/dd3tech/bui/compare/v6.16.10...v6.16.11) (2023-10-18)
+
+
+### Bug Fixes
+
+* **TextArea:** add missing className prop  ([#149](https://github.com/dd3tech/bui/issues/149)) ([cbd0a55](https://github.com/dd3tech/bui/commit/cbd0a5503148c996b400c827ba4456548f71844a))
+
 ## [6.16.10](https://github.com/dd3tech/bui/compare/v6.16.9...v6.16.10) (2023-09-29)
 
 
