@@ -128,7 +128,7 @@ function TabGroup({
       if (tabElement)
         tabElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
     },
-    [refContainer, handleChangeIndicator]
+    [refContainer, handleChangeIndicator, onChange]
   )
 
   const childrenWithProps = useCallback((): ReactNode => {
