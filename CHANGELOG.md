@@ -1,3 +1,10 @@
+## [6.16.12](https://github.com/dd3tech/bui/compare/v6.16.11...v6.16.12) (2023-10-19)
+
+
+### Bug Fixes
+
+* Added validation of a negative number in currency type text ([#150](https://github.com/dd3tech/bui/issues/150)) ([7087fa0](https://github.com/dd3tech/bui/commit/7087fa075ca3b2db3578c77af094c2da23c3adbb))
+
 ## [6.16.11](https://github.com/dd3tech/bui/compare/v6.16.10...v6.16.11) (2023-10-18)
 
 
