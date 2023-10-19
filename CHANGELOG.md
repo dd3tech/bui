@@ -1,3 +1,10 @@
+## [6.16.13](https://github.com/dd3tech/bui/compare/v6.16.12...v6.16.13) (2023-10-19)
+
+
+### Bug Fixes
+
+* add onchange dependency ([60a14db](https://github.com/dd3tech/bui/commit/60a14dbfcb080cfdaaa6cac9bba6007cece9e460))
+
 ## [6.16.12](https://github.com/dd3tech/bui/compare/v6.16.11...v6.16.12) (2023-10-19)
 
 
