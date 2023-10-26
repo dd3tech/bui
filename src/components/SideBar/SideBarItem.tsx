@@ -168,11 +168,12 @@ const ListSubItems = ({
                 {subItem.title}
               </Text>
             </Flex>
-            {openChildrenItems.includes(index) && subItem.childrenSubItem && (
-              <ListChildrenSubItems
-                childrenSubItem={Object.values(subItem?.childrenSubItem)}
-              />
-            )}
+            {subItem.childrenSubItem &&
+              (openChildrenItems.includes(index) || subItem.isOpen) && (
+                <ListChildrenSubItems
+                  childrenSubItem={Object.values(subItem?.childrenSubItem)}
+                />
+              )}
           </div>
         ))}
       </Flex>
