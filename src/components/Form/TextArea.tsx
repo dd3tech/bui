@@ -28,6 +28,7 @@ export interface TextAreaProps
   large?: boolean
   boxShadow?: ShadowVariants
   isRequired?: boolean
+  classNameTextArea?: string
 }
 
 function TextArea({
@@ -46,6 +47,7 @@ function TextArea({
   onFocus,
   onBlur,
   isRequired,
+  classNameTextArea,
   ...otherProps
 }: TextAreaProps) {
   const { disabled } = otherProps
@@ -121,8 +123,9 @@ function TextArea({
           ref={textAreaRef}
           {...otherProps}
           className={composeClasses(
-            'w-full h-full bg-transparent focus:outline-none',
-            isDisabled && 'cursor-not-allowed'
+            'w-full bg-transparent focus:outline-none',
+            isDisabled && 'cursor-not-allowed',
+            classNameTextArea
           )}
           placeholder={isLabelScalded ? placeholder : ''}
           disabled={isDisabled}
