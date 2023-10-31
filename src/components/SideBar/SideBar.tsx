@@ -121,6 +121,14 @@ export interface SideBarProps {
    * Optional object for the styles of the SideBar
    */
   style?: CSSProperties
+  /**
+   * Optional background item active
+   */
+  backgroundItemActive?: string
+  /**
+   * Optional text color item active
+   */
+  colorTextItemActive?: string
 }
 
 const SideBar = ({
@@ -136,6 +144,8 @@ const SideBar = ({
   isLoadingSideBarList,
   numSkeletons = 5,
   style,
+  backgroundItemActive,
+  colorTextItemActive,
   dangerZone
 }: SideBarProps) => {
   const sidebarRef: MutableRefObject<HTMLDivElement | null> =
@@ -297,6 +307,8 @@ const SideBar = ({
                       toggleSubMenu={toggleSubMenu}
                       toggleChildrenSubMenu={toggleChildrenSubMenu}
                       openChildrenItems={openChildrenItems}
+                      backgroundItemActive={backgroundItemActive}
+                      colorTextItemActive={colorTextItemActive}
                       {...item}
                     />
                   )

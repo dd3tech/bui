@@ -90,6 +90,16 @@ export interface SideBarItemProps {
    * @default 'text-white'
    */
   badgeTextColor?: string
+  /**
+   * background item active
+   * @default 'bg-gray-200'
+   */
+  backgroundItemActive?: string
+  /**
+   * color text item active
+   * @default 'text-gray-200'
+   */
+  colorTextItemActive?: string
 }
 
 interface ListChildrenSubItemsProps {
@@ -194,7 +204,7 @@ const ListChildrenSubItems = ({
         <Flex className="flex-col" onClick={children.goTo} key={children.title}>
           <Text
             className={composeClasses(
-              'py-1 cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis',
+              'py-1 cursor-pointer whitespace-nowrap overflow-hidden -ml-2 px-2 overflow-ellipsis hover:bg-gray-100',
               children.active ? 'text-blue-600' : 'text-gray-500',
               children.hidden && 'hidden'
             )}
@@ -226,7 +236,9 @@ const SideBarItem = ({
   handleClickOption,
   toggleSubMenu,
   toggleChildrenSubMenu,
-  openChildrenItems
+  openChildrenItems,
+  backgroundItemActive,
+  colorTextItemActive
 }: SideBarItemProps) => {
   const subItemsArray = subItems ? Object.entries(subItems) : []
 
@@ -259,7 +271,7 @@ const SideBarItem = ({
                 alignItems="center"
                 className={composeClasses(
                   'w-10 h-8 relative',
-                  active && 'bg-gray-200'
+                  active && (backgroundItemActive ?? 'bg-gray-200')
                 )}
                 style={{ borderRadius: 6 }}
               >
@@ -267,7 +279,9 @@ const SideBarItem = ({
                   alignItems="center"
                   className={composeClasses(
                     'w-5 h-5',
-                    disabled ? 'text-gray-300' : 'text-gray-500'
+                    disabled
+                      ? 'text-gray-300'
+                      : `${colorTextItemActive ?? 'text-gray-500'}`
                   )}
                 >
                   {icon || <ExclamationCircleIcon />}
@@ -301,7 +315,11 @@ const SideBarItem = ({
           justifyContent="between"
           className={composeClasses(
             'w-full rounded-r-md h-8 duration-300 ease-in',
-            active ? 'bg-gray-200 text-gray-900' : 'text-gray-500',
+            active
+              ? `${backgroundItemActive ?? 'bg-gray-200'} ${
+                  colorTextItemActive ?? 'text-gray-900'
+                }`
+              : 'text-gray-500',
             isExpand && '-ml-2 pl-1'
           )}
           style={{ maxWidth: 188 }}
