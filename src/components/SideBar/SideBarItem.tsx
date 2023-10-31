@@ -149,7 +149,7 @@ const ListSubItems = ({
               className={composeClasses(
                 'cursor-pointer',
                 !subItem?.childrenSubItem &&
-                  'border-l border-gray-300 text-gray-500 -ml-4 pl-3'
+                  'border-l border-gray-300 text-gray-500 -ml-4 pl-3 hover:bg-gray-100'
               )}
               onClick={() => {
                 subItem.childrenSubItem
@@ -204,7 +204,7 @@ const ListChildrenSubItems = ({
         <Flex className="flex-col" onClick={children.goTo} key={children.title}>
           <Text
             className={composeClasses(
-              'py-1 cursor-pointer whitespace-nowrap overflow-hidden -ml-2 px-2 overflow-ellipsis hover:bg-gray-100',
+              'py-1 cursor-pointer whitespace-nowrap overflow-hidden -ml-4 px-4 overflow-ellipsis hover:bg-gray-100',
               children.active ? 'text-blue-600' : 'text-gray-500',
               children.hidden && 'hidden'
             )}
