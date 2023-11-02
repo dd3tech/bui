@@ -22,6 +22,7 @@ interface Props
   disabledText?: string
   label: string
   disabled?: boolean
+  hidden?: boolean
 }
 
 const variantStyle = {
@@ -38,6 +39,7 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
       disabledText,
       textColor,
       className,
+      hidden,
       ...otherProps
     },
     ref
@@ -83,7 +85,8 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
           'inline-flex justify-center flex-wrap items-center box-content leading-5 select-none transition-all duration-300 ease-in',
           classes,
           variantStyle[variant],
-          className
+          className,
+          hidden && 'hidden'
         )}
       >
         {label}
