@@ -1,3 +1,10 @@
+## [6.16.15](https://github.com/dd3tech/bui/compare/v6.16.14...v6.16.15) (2023-11-09)
+
+
+### Bug Fixes
+
+* **useResize:** cases where window was undefined ([#153](https://github.com/dd3tech/bui/issues/153)) ([0a2535c](https://github.com/dd3tech/bui/commit/0a2535c2caaa2b88d0d6128d711d6fa9d6cd5f35))
+
 ## [6.16.14](https://github.com/dd3tech/bui/compare/v6.16.13...v6.16.14) (2023-11-02)
 
 
