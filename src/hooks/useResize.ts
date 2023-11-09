@@ -28,28 +28,28 @@ export default function useResize(): useResizeReturnedTypes {
     width: undefined,
     height: undefined
   })
+  const [isMobile, setIsMobile] = useState<boolean>(false)
+  const [isMdScreen, setIsMdScreen] = useState<boolean>(false)
 
   const handleChangeResize = useCallback(() => {
+    if (typeof window === undefined) return
     setSize({
       width: window.innerWidth,
       height: window.innerHeight
     })
+    setIsMobile(window.innerWidth < 768)
+    setIsMdScreen(window.innerWidth <= 1024)
   }, [])
 
   useEffect(() => {
-    if (!size.width || !size.height) {
-      setSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      })
-    }
+    handleChangeResize()
     window?.addEventListener('resize', handleChangeResize)
     return () => window.removeEventListener('resize', handleChangeResize)
   }, [])
 
   return {
     size,
-    isMobile: window.innerWidth < 768,
-    isMdScreen: window.innerWidth <= 1024
+    isMobile,
+    isMdScreen
   }
 }
