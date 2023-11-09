@@ -44,7 +44,7 @@ export default function useResize(): useResizeReturnedTypes {
   useEffect(() => {
     handleChangeResize()
     window?.addEventListener('resize', handleChangeResize)
-    return () => window.removeEventListener('resize', handleChangeResize)
+    return () => window?.removeEventListener('resize', handleChangeResize)
   }, [])
 
   return {
