@@ -1,3 +1,17 @@
+## [6.16.15](https://github.com/dd3tech/bui/compare/v6.16.14...v6.16.15) (2023-11-09)
+
+
+### Bug Fixes
+
+* **useResize:** cases where window was undefined ([#153](https://github.com/dd3tech/bui/issues/153)) ([0a2535c](https://github.com/dd3tech/bui/commit/0a2535c2caaa2b88d0d6128d711d6fa9d6cd5f35))
+
+## [6.16.14](https://github.com/dd3tech/bui/compare/v6.16.13...v6.16.14) (2023-11-02)
+
+
+### Bug Fixes
+
+* add prop hidden on Tabs ([#152](https://github.com/dd3tech/bui/issues/152)) ([4bc0def](https://github.com/dd3tech/bui/commit/4bc0def5028ee8bbcb224e2dbd4c8e7c69c6331b))
+
 ## [6.16.13](https://github.com/dd3tech/bui/compare/v6.16.12...v6.16.13) (2023-10-19)
 
 
