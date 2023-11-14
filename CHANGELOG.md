@@ -1,3 +1,10 @@
+## [6.17.2](https://github.com/dd3tech/bui/compare/v6.17.1...v6.17.2) (2023-11-14)
+
+
+### Bug Fixes
+
+* **sidebar:** add disabled and hidden opts on sub-sub items ([30655cf](https://github.com/dd3tech/bui/commit/30655cf0c1e58b6a26644c8f55000c9699637681))
+
 ## [6.17.1](https://github.com/dd3tech/bui/compare/v6.17.0...v6.17.1) (2023-11-14)
 
 
