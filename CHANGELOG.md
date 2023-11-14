@@ -1,3 +1,10 @@
+## [6.17.3](https://github.com/dd3tech/bui/compare/v6.17.2...v6.17.3) (2023-11-14)
+
+
+### Bug Fixes
+
+* **sidebar:** callback is always executed ([75f4ad4](https://github.com/dd3tech/bui/commit/75f4ad49c71f3c679cdf8fdac0ac85c4a2db7f0b))
+
 ## [6.17.2](https://github.com/dd3tech/bui/compare/v6.17.1...v6.17.2) (2023-11-14)
 
 
