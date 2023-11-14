@@ -176,12 +176,7 @@ const SideBarItem = ({
         )}
         onClick={handleClickOption(
           disabled,
-          subItems?.length && isExpand
-            ? () => {
-                toggleSubMenu(index)
-                goTo?.()
-              }
-            : goTo
+          subItems?.length && isExpand ? () => toggleSubMenu(index) : goTo
         )}
       >
         <ToolTipHover
