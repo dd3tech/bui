@@ -149,7 +149,7 @@ const SideBarItem = ({
   active,
   disabledOptionsTag,
   isOptionClicked,
-  subItems,
+  subItems = [],
   isOpen,
   badge,
   badgeColor = 'bg-blue-600',
@@ -163,8 +163,6 @@ const SideBarItem = ({
   bgActive,
   colorActive
 }: SideBarItemProps) => {
-  const subItemsArray = subItems ?? []
-
   return (
     <div>
       <Flex
@@ -176,13 +174,10 @@ const SideBarItem = ({
           'hover:text-error',
           disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100'
         )}
-        onClick={handleClickOption(disabled, () => {
-          if (subItemsArray?.length && isExpand) {
-            toggleSubMenu(index)
-          }
-
-          goTo?.()
-        })}
+        onClick={handleClickOption(
+          disabled,
+          subItems?.length && isExpand ? () => toggleSubMenu(index) : goTo
+        )}
       >
         <ToolTipHover
           element={
@@ -271,7 +266,7 @@ const SideBarItem = ({
             {title}
           </Text>
 
-          {(!!badge || !!subItemsArray.length) && (
+          {(!!badge || !!subItems.length) && (
             <Flex alignItems="center">
               {badge && typeof badge !== 'object' ? (
                 <SideBarBadge
@@ -286,7 +281,7 @@ const SideBarItem = ({
               <div
                 className={composeClasses(
                   'w-4 h-4 ml-2 mr-2.5',
-                  !disabled && subItemsArray.length ? 'visible' : 'invisible'
+                  !disabled && subItems.length ? 'visible' : 'invisible'
                 )}
               >
                 {isOpen ? (
@@ -302,8 +297,8 @@ const SideBarItem = ({
       {isExpand && (
         <ListSubItems
           toggleSubMenu={toggleSubMenu}
-          subItemsArray={subItemsArray}
-          isOpen={isOpen && !!subItemsArray.length}
+          subItemsArray={subItems}
+          isOpen={isOpen && !!subItems.length}
           indexItem={index}
         />
       )}
