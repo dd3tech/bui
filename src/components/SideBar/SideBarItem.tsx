@@ -85,13 +85,13 @@ const ListSubItems = ({
     <div>
       <Flex
         className={composeClasses(
-          'flex-col duration-150 ease-in',
+          'flex-col transition-all duration-300 ease-out',
           isOpen ? 'mt-1' : 'max-h-0 overflow-hidden',
           !isSubSubItem && 'pl-5 ml-4'
         )}
       >
         {subItemsArray?.map((subItem, index: number) => (
-          <div key={subItem.title}>
+          <div key={`sub-item-${subItem.title}-${index}`}>
             <Flex
               alignItems="center"
               gap="2"
@@ -123,7 +123,7 @@ const ListSubItems = ({
                 {subItem.title}
               </Text>
             </Flex>
-            {subItem.subItems && subItem.isOpen && (
+            {subItem.subItems && (
               <ListSubItems
                 indexItem={indexItem}
                 isOpen={subItem.isOpen}

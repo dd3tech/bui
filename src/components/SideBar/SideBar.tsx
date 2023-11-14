@@ -264,9 +264,7 @@ const SideBar = ({
           </Flex>
           <div
             role="list-options"
-            className={`${
-              !expand ? 'hide-scroll' : ''
-            } overflow-y-auto overflow-x-hidden flex-grow mx-2`}
+            className="hide-scroll overflow-y-auto overflow-x-hidden flex-grow mx-2"
           >
             {isLoadingSideBarList ? (
               <SkeletonSideBarList childs={numSkeletons} />
