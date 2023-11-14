@@ -1,3 +1,10 @@
+# [6.17.0](https://github.com/dd3tech/bui/compare/v6.16.15...v6.17.0) (2023-11-14)
+
+
+### Features
+
+* **sidebar:** added the possibility of rendering sub-sub items ([#154](https://github.com/dd3tech/bui/issues/154)) ([aabeb34](https://github.com/dd3tech/bui/commit/aabeb349d0b31695c7cf6413a3b34e424f382a2a))
+
 ## [6.16.15](https://github.com/dd3tech/bui/compare/v6.16.14...v6.16.15) (2023-11-09)
 
 
