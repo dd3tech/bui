@@ -30,13 +30,17 @@ export interface ListChildrenSubItemsProps {
     active: boolean
   }[]
 }
+
+export type SubItem = {
+  title: string
+  active: boolean
+  bgActive?: string
+  colorActive?: string
+  goTo: () => void
+}
+
 export interface SideBarSubItem {
-  [key: string]: {
-    title: string
-    active: boolean
-    goTo: () => void
-    childrenSubItem?: ListChildrenSubItemsProps
-  }
+  [key: string]: SubItem & { subItems: { [key: string]: SubItem } }
 }
 
 export type TBadge = string | number | ReactElement
@@ -156,6 +160,8 @@ const SideBar = ({
   const [menuItems, setMenuItems] = useState<SideBarList | undefined>(
     sideBarList
   )
+  const [openChildrenItems, setOpenChildrenItems] = useState<number[]>([])
+
   const containerHeaderRef = useRef<HTMLDivElement>(null)
   const { isMobile, isMdScreen } = useResize()
 
@@ -185,14 +191,16 @@ const SideBar = ({
       setIsOptionClicked(false)
     }, 20)
   }
-  const [openChildrenItems, setOpenChildrenItems] = useState<number[]>([])
 
   const toggleChildrenSubMenu = (index: number) => {
-    if (openChildrenItems.includes(index))
-      return setOpenChildrenItems(
-        openChildrenItems.filter((item) => item !== index)
+    if (openChildrenItems.includes(index)) {
+      const filteredChildrenItems = openChildrenItems.filter(
+        (item) => item !== index
       )
-    return setOpenChildrenItems([...openChildrenItems, index])
+      setOpenChildrenItems(filteredChildrenItems)
+      return
+    }
+    setOpenChildrenItems([...openChildrenItems, index])
   }
 
   const handleClickOption =
