@@ -1,3 +1,10 @@
+## [6.17.1](https://github.com/dd3tech/bui/compare/v6.17.0...v6.17.1) (2023-11-14)
+
+
+### Bug Fixes
+
+* **sidebar:** styles adjust and hide scroll ([98f1ed5](https://github.com/dd3tech/bui/commit/98f1ed5b77f368d5eeb3de61e11276e67d34d8c8))
+
 # [6.17.0](https://github.com/dd3tech/bui/compare/v6.16.15...v6.17.0) (2023-11-14)
 
 
