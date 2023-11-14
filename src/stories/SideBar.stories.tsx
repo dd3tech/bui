@@ -31,12 +31,14 @@ const subItems = [
     subItems: [
       {
         title: 'ChildrenSubItem 1',
-        active: true,
+        active: false,
+        disabled: true,
         goTo: () => console.log('childrenSubItem 1.1')
       },
       {
         title: 'ChildrenSubItem 2',
         active: false,
+        // hidden: true,
         goTo: () => console.log('childrenSubItem 1.2')
       }
     ]
@@ -54,7 +56,7 @@ const sideBarList = [
   },
   {
     title: 'Information 2',
-    active: true,
+    active: false,
     isOpen: false,
     subItems: [
       {

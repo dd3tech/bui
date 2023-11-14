@@ -87,53 +87,57 @@ const ListSubItems = ({
         className={composeClasses(
           'flex-col transition-all duration-300 ease-out',
           isOpen ? 'mt-1' : 'max-h-0 overflow-hidden',
-          !isSubSubItem && 'pl-5 ml-4'
+          !isSubSubItem && 'pl-5 ml-4 mb-2'
         )}
       >
-        {subItemsArray?.map((subItem, index: number) => (
-          <div key={`sub-item-${subItem.title}-${index}`}>
-            <Flex
-              alignItems="center"
-              gap="2"
-              className={composeClasses(
-                'cursor-pointer',
-                !subItem.subItems &&
-                  'border-l border-gray-300 text-gray-500 -ml-4 pl-3 hover:bg-gray-100'
-              )}
-              onClick={() => onToggleMenu(subItem, index)}
-            >
-              {subItem?.subItems && (
-                <div className="w-4 h-4 -ml-6 text-gray-500">
-                  {subItem.isOpen ? (
-                    <ChevronUpIcon className="w-full" />
-                  ) : (
-                    <ChevronDownIcon className="w-full" />
+        {subItemsArray?.map(
+          (subItem, index: number) =>
+            !subItem.hidden && (
+              <div key={`sub-item-${subItem.title}-${index}`}>
+                <Flex
+                  alignItems="center"
+                  gap="2"
+                  className={composeClasses(
+                    subItem.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+                    !subItem.subItems &&
+                      'border-l border-gray-300 text-gray-500 -ml-4 pl-3 hover:opacity-75'
                   )}
-                </div>
-              )}
-              <Text
-                size="sm"
-                className={composeClasses(
-                  'cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis',
-                  subItem.active && !subItem.subItems
-                    ? 'font-semibold text-blue-600'
-                    : 'text-gray-500 py-2'
+                  onClick={() => onToggleMenu(subItem, index)}
+                >
+                  {subItem?.subItems && (
+                    <div className="w-4 h-4 -ml-6 text-gray-500">
+                      {subItem.isOpen ? (
+                        <ChevronUpIcon className="w-full" />
+                      ) : (
+                        <ChevronDownIcon className="w-full" />
+                      )}
+                    </div>
+                  )}
+                  <Text
+                    size="sm"
+                    className={composeClasses(
+                      'whitespace-nowrap overflow-hidden overflow-ellipsis my-2',
+                      subItem.disabled ? 'text-gray-300' : 'text-gray-500',
+                      subItem.active &&
+                        !subItem.subItems &&
+                        'font-semibold text-blue-600'
+                    )}
+                  >
+                    {subItem.title}
+                  </Text>
+                </Flex>
+                {subItem.subItems && (
+                  <ListSubItems
+                    indexItem={indexItem}
+                    isOpen={subItem.isOpen}
+                    subItemsArray={subItem.subItems}
+                    toggleSubMenu={toggleSubMenu}
+                    isSubSubItem
+                  />
                 )}
-              >
-                {subItem.title}
-              </Text>
-            </Flex>
-            {subItem.subItems && (
-              <ListSubItems
-                indexItem={indexItem}
-                isOpen={subItem.isOpen}
-                subItemsArray={subItem.subItems}
-                toggleSubMenu={toggleSubMenu}
-                isSubSubItem
-              />
-            )}
-          </div>
-        ))}
+              </div>
+            )
+        )}
       </Flex>
     </div>
   )
