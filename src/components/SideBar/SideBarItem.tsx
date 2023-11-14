@@ -176,10 +176,13 @@ const SideBarItem = ({
           'hover:text-error',
           disabled ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-gray-100'
         )}
-        onClick={handleClickOption(
-          disabled,
-          subItemsArray?.length && isExpand ? () => toggleSubMenu(index) : goTo
-        )}
+        onClick={handleClickOption(disabled, () => {
+          if (subItemsArray?.length && isExpand) {
+            toggleSubMenu(index)
+          }
+
+          goTo?.()
+        })}
       >
         <ToolTipHover
           element={
