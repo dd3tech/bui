@@ -7,18 +7,18 @@ const dangerZoneCallback = vi.fn()
 const push = vi.fn()
 const flushSync = vi.fn()
 
-const subItems = {
-  1: {
+const subItems = [
+  {
     title: 'SubList 1',
     active: true,
     goTo: push
   },
-  2: {
+  {
     title: 'SubList 2',
     active: false,
     goTo: push
   }
-}
+]
 
 const sideBarList = [
   {

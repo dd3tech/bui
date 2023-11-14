@@ -23,40 +23,23 @@ import SkeletonSideBarList from './SkeletonSideBarList'
 import ToggleSideBar from './ToggleSideBar'
 import './sideBar.css'
 
-export interface ListChildrenSubItemsProps {
-  childrenSubItem: {
-    title: string
-    goTo: () => void
-    active: boolean
-  }[]
-}
-
-export type SubItem = {
-  title: string
-  active: boolean
-  bgActive?: string
-  colorActive?: string
-  goTo: () => void
-}
-
-export interface SideBarSubItem {
-  [key: string]: SubItem & { subItems: { [key: string]: SubItem } }
-}
-
 export type TBadge = string | number | ReactElement
-export interface SideBarItemProps {
+
+export interface SideBarItemPropsBase {
   title: string
   active: boolean
   isOpen?: boolean
+  bgActive?: string
+  colorActive?: string
   goTo?: () => void
   icon?: JSX.Element
   disabled?: boolean
   hidden?: boolean
-  subItems?: SideBarSubItem
+  subItems?: SideBarItemPropsBase[]
   badge?: TBadge
 }
 
-export type SideBarList = SideBarItemProps[]
+export type SideBarList = SideBarItemPropsBase[]
 
 export interface SideBarProps {
   /**
@@ -125,14 +108,6 @@ export interface SideBarProps {
    * Optional object for the styles of the SideBar
    */
   style?: CSSProperties
-  /**
-   * Optional background item active
-   */
-  backgroundItemActive?: string
-  /**
-   * Optional text color item active
-   */
-  colorTextItemActive?: string
 }
 
 const SideBar = ({
@@ -148,8 +123,6 @@ const SideBar = ({
   isLoadingSideBarList,
   numSkeletons = 5,
   style,
-  backgroundItemActive,
-  colorTextItemActive,
   dangerZone
 }: SideBarProps) => {
   const sidebarRef: MutableRefObject<HTMLDivElement | null> =
@@ -160,17 +133,24 @@ const SideBar = ({
   const [menuItems, setMenuItems] = useState<SideBarList | undefined>(
     sideBarList
   )
-  const [openChildrenItems, setOpenChildrenItems] = useState<number[]>([])
 
   const containerHeaderRef = useRef<HTMLDivElement>(null)
   const { isMobile, isMdScreen } = useResize()
 
-  const toggleSubMenu = (menuItemIndex: number) => {
+  const toggleSubMenu = (menuItemIndex: number, subItemIndex?: number) => {
     if (!menuItems?.length) return
     const updatedMenuItems = [...menuItems]
+
+    // If the subItemIndex is defined, it means that the submenu is a sub-submenu
+    if (typeof subItemIndex === 'number') {
+      const subMenuItems = updatedMenuItems[menuItemIndex].subItems || []
+      subMenuItems[subItemIndex].isOpen = !subMenuItems[subItemIndex].isOpen
+      setMenuItems(updatedMenuItems)
+      return
+    }
+
     updatedMenuItems[menuItemIndex].isOpen =
       !updatedMenuItems[menuItemIndex].isOpen
-
     setMenuItems(updatedMenuItems)
   }
 
@@ -192,24 +172,13 @@ const SideBar = ({
     }, 20)
   }
 
-  const toggleChildrenSubMenu = (index: number) => {
-    if (openChildrenItems.includes(index)) {
-      const filteredChildrenItems = openChildrenItems.filter(
-        (item) => item !== index
-      )
-      setOpenChildrenItems(filteredChildrenItems)
-      return
-    }
-    setOpenChildrenItems([...openChildrenItems, index])
-  }
-
   const handleClickOption =
     (disabled: boolean | undefined, goTo: () => void) => () => {
       if (disabled) return
       flushSync
         ? flushSync(() => setIsOptionClicked(true))
         : setIsOptionClicked(true)
-      goTo()
+      goTo?.()
     }
 
   useEffect(() => {
@@ -313,10 +282,6 @@ const SideBar = ({
                       isExpand={expand}
                       handleClickOption={handleClickOption}
                       toggleSubMenu={toggleSubMenu}
-                      toggleChildrenSubMenu={toggleChildrenSubMenu}
-                      openChildrenItems={openChildrenItems}
-                      backgroundItemActive={backgroundItemActive}
-                      colorTextItemActive={colorTextItemActive}
                       {...item}
                     />
                   )
