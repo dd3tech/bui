@@ -13,23 +13,35 @@ export default {
   }
 } as ComponentMeta<typeof SideBarComponent>
 
-const subItems = {
-  1: {
+const subItems = [
+  {
     title: 'SubItem 1',
     active: true,
     goTo: () => console.log('subItem 1.1')
   },
-  2: {
+  {
     title: 'SubItem 2',
     active: false,
     goTo: () => console.log('subItem 1.2')
   },
-  3: {
-    title: 'SubItem 3',
+  {
+    title: 'Sub-sub Item 3',
     active: false,
-    goTo: () => console.log('subItem 1.3')
+    goTo: () => console.log('subItem 1.3'),
+    subItems: [
+      {
+        title: 'ChildrenSubItem 1',
+        active: true,
+        goTo: () => console.log('childrenSubItem 1.1')
+      },
+      {
+        title: 'ChildrenSubItem 2',
+        active: false,
+        goTo: () => console.log('childrenSubItem 1.2')
+      }
+    ]
   }
-}
+]
 
 const sideBarList = [
   {
@@ -44,7 +56,35 @@ const sideBarList = [
     title: 'Information 2',
     active: true,
     isOpen: false,
-    subItems: subItems,
+    subItems: [
+      {
+        title: 'SubItem 1',
+        active: true,
+        goTo: () => console.log('subItem 1.1')
+      },
+      {
+        title: 'SubItem 2',
+        active: false,
+        goTo: () => console.log('subItem 1.2')
+      },
+      {
+        title: 'Sub-sub Item 3',
+        active: false,
+        goTo: () => console.log('subItem 1.3'),
+        subItems: [
+          {
+            title: 'ChildrenSubItem 1',
+            active: true,
+            goTo: () => console.log('childrenSubItem 1.1')
+          },
+          {
+            title: 'ChildrenSubItem 2',
+            active: false,
+            goTo: () => console.log('childrenSubItem 1.2')
+          }
+        ]
+      }
+    ],
     badge: '+99',
     badgeColor: 'bg-red-500',
     badgeTextColor: 'text-yellow-50'

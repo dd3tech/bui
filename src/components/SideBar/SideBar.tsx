@@ -23,28 +23,23 @@ import SkeletonSideBarList from './SkeletonSideBarList'
 import ToggleSideBar from './ToggleSideBar'
 import './sideBar.css'
 
-export interface SideBarSubItem {
-  [key: string]: {
-    title: string
-    active: boolean
-    goTo: () => void
-  }
-}
-
 export type TBadge = string | number | ReactElement
-export interface SideBarItemProps {
+
+export interface SideBarItemPropsBase {
   title: string
   active: boolean
   isOpen?: boolean
+  bgActive?: string
+  colorActive?: string
   goTo?: () => void
   icon?: JSX.Element
   disabled?: boolean
   hidden?: boolean
-  subItems?: SideBarSubItem
+  subItems?: SideBarItemPropsBase[]
   badge?: TBadge
 }
 
-export type SideBarList = SideBarItemProps[]
+export type SideBarList = SideBarItemPropsBase[]
 
 export interface SideBarProps {
   /**
@@ -138,15 +133,24 @@ const SideBar = ({
   const [menuItems, setMenuItems] = useState<SideBarList | undefined>(
     sideBarList
   )
+
   const containerHeaderRef = useRef<HTMLDivElement>(null)
   const { isMobile, isMdScreen } = useResize()
 
-  const toggleSubMenu = (menuItemIndex: number) => {
+  const toggleSubMenu = (menuItemIndex: number, subItemIndex?: number) => {
     if (!menuItems?.length) return
     const updatedMenuItems = [...menuItems]
+
+    // If the subItemIndex is defined, it means that the submenu is a sub-submenu
+    if (typeof subItemIndex === 'number') {
+      const subMenuItems = updatedMenuItems[menuItemIndex].subItems || []
+      subMenuItems[subItemIndex].isOpen = !subMenuItems[subItemIndex].isOpen
+      setMenuItems(updatedMenuItems)
+      return
+    }
+
     updatedMenuItems[menuItemIndex].isOpen =
       !updatedMenuItems[menuItemIndex].isOpen
-
     setMenuItems(updatedMenuItems)
   }
 
@@ -174,7 +178,7 @@ const SideBar = ({
       flushSync
         ? flushSync(() => setIsOptionClicked(true))
         : setIsOptionClicked(true)
-      goTo()
+      goTo?.()
     }
 
   useEffect(() => {
@@ -216,7 +220,7 @@ const SideBar = ({
         ref={sidebarRef}
         role="container-sidebar"
         className={composeClasses(
-          'border-t-0 box-border overflow-hidden h-full border',
+          'border-t-0 box-border overflow-hidden h-full border relative z-50',
           'transition-all delay-75 duration-200 ease-in',
           expand ? 'w-60 min-w-full' : 'w-0 lg:w-14.5 lg:min-w-14.5',
           isMobile ? 'absolute z-50' : 'relative'
@@ -288,7 +292,7 @@ const SideBar = ({
             <Flex
               role="danger-zone"
               alignItems="center"
-              className="w-full cursor-pointer group mb-4"
+              className="w-full cursor-pointer group mb-4 mt-8 relative"
               onClick={() => {
                 if (dangerZone?.callBack) {
                   flushSync
