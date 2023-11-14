@@ -1,3 +1,10 @@
+## [6.17.4](https://github.com/dd3tech/bui/compare/v6.17.3...v6.17.4) (2023-11-14)
+
+
+### Bug Fixes
+
+* **sidebar:** revert to toggle menu ([#155](https://github.com/dd3tech/bui/issues/155)) ([9ebcc23](https://github.com/dd3tech/bui/commit/9ebcc23e8a1b7a47ef3ccb18ba0a7f6c27af0117))
+
 ## [6.17.3](https://github.com/dd3tech/bui/compare/v6.17.2...v6.17.3) (2023-11-14)
 
 
