@@ -1,3 +1,10 @@
+## [6.17.5](https://github.com/dd3tech/bui/compare/v6.17.4...v6.17.5) (2023-11-21)
+
+
+### Bug Fixes
+
+* add compability with node v18 ([abdf948](https://github.com/dd3tech/bui/commit/abdf9485780860e4d91dc43b9599f15ed9407f1f))
+
 ## [6.17.4](https://github.com/dd3tech/bui/compare/v6.17.3...v6.17.4) (2023-11-14)
 
 
