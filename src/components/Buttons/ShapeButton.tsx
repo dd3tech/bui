@@ -47,6 +47,8 @@ function BaseCircleButton({
 }: BaseCircleButtonProps) {
   return (
     <button
+      {...props}
+      disabled={disabled}
       style={{ ...props.style, width, height }}
       className={composeClasses(
         'border border-gray-300 flex items-center justify-center',

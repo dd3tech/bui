@@ -306,11 +306,11 @@
       "module": "./dist/esm/components/Transition/index.js",
       "default": "./dist/esm/components/Transition/index.js"
     },
-    "./Wrapper": {
-      "require": "./dist/cjs/components/Wrapper/index.js",
-      "module": "./dist/esm/components/Wrapper/index.js",
-      "default": "./dist/esm/components/Wrapper/index.js"
-    }
+  "./Wrapper": {
+    "require": "./dist/cjs/components/Wrapper/index.js",
+    "module": "./dist/esm/components/Wrapper/index.js",
+    "default": "./dist/esm/components/Wrapper/index.js"
+  }
   },
   "typesVersions": {
     "*": {

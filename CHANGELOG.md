@@ -1,3 +1,101 @@
+## [6.17.4](https://github.com/dd3tech/bui/compare/v6.17.3...v6.17.4) (2023-11-14)
+
+
+### Bug Fixes
+
+* **sidebar:** revert to toggle menu ([#155](https://github.com/dd3tech/bui/issues/155)) ([9ebcc23](https://github.com/dd3tech/bui/commit/9ebcc23e8a1b7a47ef3ccb18ba0a7f6c27af0117))
+
+## [6.17.3](https://github.com/dd3tech/bui/compare/v6.17.2...v6.17.3) (2023-11-14)
+
+
+### Bug Fixes
+
+* **sidebar:** callback is always executed ([75f4ad4](https://github.com/dd3tech/bui/commit/75f4ad49c71f3c679cdf8fdac0ac85c4a2db7f0b))
+
+## [6.17.2](https://github.com/dd3tech/bui/compare/v6.17.1...v6.17.2) (2023-11-14)
+
+
+### Bug Fixes
+
+* **sidebar:** add disabled and hidden opts on sub-sub items ([30655cf](https://github.com/dd3tech/bui/commit/30655cf0c1e58b6a26644c8f55000c9699637681))
+
+## [6.17.1](https://github.com/dd3tech/bui/compare/v6.17.0...v6.17.1) (2023-11-14)
+
+
+### Bug Fixes
+
+* **sidebar:** styles adjust and hide scroll ([98f1ed5](https://github.com/dd3tech/bui/commit/98f1ed5b77f368d5eeb3de61e11276e67d34d8c8))
+
+# [6.17.0](https://github.com/dd3tech/bui/compare/v6.16.15...v6.17.0) (2023-11-14)
+
+
+### Features
+
+* **sidebar:** added the possibility of rendering sub-sub items ([#154](https://github.com/dd3tech/bui/issues/154)) ([aabeb34](https://github.com/dd3tech/bui/commit/aabeb349d0b31695c7cf6413a3b34e424f382a2a))
+
+## [6.16.15](https://github.com/dd3tech/bui/compare/v6.16.14...v6.16.15) (2023-11-09)
+
+
+### Bug Fixes
+
+* **useResize:** cases where window was undefined ([#153](https://github.com/dd3tech/bui/issues/153)) ([0a2535c](https://github.com/dd3tech/bui/commit/0a2535c2caaa2b88d0d6128d711d6fa9d6cd5f35))
+
+## [6.16.14](https://github.com/dd3tech/bui/compare/v6.16.13...v6.16.14) (2023-11-02)
+
+
+### Bug Fixes
+
+* add prop hidden on Tabs ([#152](https://github.com/dd3tech/bui/issues/152)) ([4bc0def](https://github.com/dd3tech/bui/commit/4bc0def5028ee8bbcb224e2dbd4c8e7c69c6331b))
+
+## [6.16.13](https://github.com/dd3tech/bui/compare/v6.16.12...v6.16.13) (2023-10-19)
+
+
+### Bug Fixes
+
+* add onchange dependency ([60a14db](https://github.com/dd3tech/bui/commit/60a14dbfcb080cfdaaa6cac9bba6007cece9e460))
+
+## [6.16.12](https://github.com/dd3tech/bui/compare/v6.16.11...v6.16.12) (2023-10-19)
+
+
+### Bug Fixes
+
+* Added validation of a negative number in currency type text ([#150](https://github.com/dd3tech/bui/issues/150)) ([7087fa0](https://github.com/dd3tech/bui/commit/7087fa075ca3b2db3578c77af094c2da23c3adbb))
+
+## [6.16.11](https://github.com/dd3tech/bui/compare/v6.16.10...v6.16.11) (2023-10-18)
+
+
+### Bug Fixes
+
+* **TextArea:** add missing className prop  ([#149](https://github.com/dd3tech/bui/issues/149)) ([cbd0a55](https://github.com/dd3tech/bui/commit/cbd0a5503148c996b400c827ba4456548f71844a))
+
+## [6.16.10](https://github.com/dd3tech/bui/compare/v6.16.9...v6.16.10) (2023-09-29)
+
+
+### Bug Fixes
+
+* add missing props on DatePicker and ShapeButton components ([#140](https://github.com/dd3tech/bui/issues/140)) ([893ce1a](https://github.com/dd3tech/bui/commit/893ce1a6b6b32959fc9dfa18265d93511720bb25))
+
+## [6.16.9](https://github.com/dd3tech/bui/compare/v6.16.8...v6.16.9) (2023-09-13)
+
+
+### Bug Fixes
+
+* export image component ([#147](https://github.com/dd3tech/bui/issues/147)) ([677a395](https://github.com/dd3tech/bui/commit/677a395395d1d4511f3972f0180043236efaba6c))
+
+## [6.16.8](https://github.com/dd3tech/bui/compare/v6.16.7...v6.16.8) (2023-09-02)
+
+
+### Bug Fixes
+
+* added the possibility that the close button is not rendered ([#146](https://github.com/dd3tech/bui/issues/146)) ([2cd92a3](https://github.com/dd3tech/bui/commit/2cd92a31f9d85a0acf8570f8264ea691667baafb))
+
+## [6.16.7](https://github.com/dd3tech/bui/compare/v6.16.6...v6.16.7) (2023-08-14)
+
+
+### Bug Fixes
+
+* input was positioned outside the top container box ([#145](https://github.com/dd3tech/bui/issues/145)) ([0d0582b](https://github.com/dd3tech/bui/commit/0d0582bf61d20573e66ff81686363b9c012aa78d))
+
 ## [6.16.6](https://github.com/dd3tech/bui/compare/v6.16.5...v6.16.6) (2023-08-04)
 
 

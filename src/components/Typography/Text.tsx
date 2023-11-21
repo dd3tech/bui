@@ -103,6 +103,7 @@ const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
     case 'currency':
       return (
         <p {...props} ref={ref}>
+          {props.children && Number(props.children) < 0 && '-'}
           {props.children && format(props.children)}
         </p>
       )

@@ -60,6 +60,14 @@ describe('<Modal/>', () => {
     expect(renderResult.container.firstChild).toBeNull()
   })
 
+  it('should not render the button(x)', () => {
+    const renderResult = render(
+      <Modal active={true} setCloseModal={setCloseModal} btnClose={false} />
+    )
+    const btnCancel = renderResult.queryByRole('btn-close')
+    expect(btnCancel).toBeNull()
+  })
+
   it('when passing the blur prop the modal must have the class "blur"', () => {
     renderResult.rerender(
       <Modal active={true} setCloseModal={setCloseModal} blur />

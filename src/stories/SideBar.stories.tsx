@@ -13,23 +13,37 @@ export default {
   }
 } as ComponentMeta<typeof SideBarComponent>
 
-const subItems = {
-  1: {
+const subItems = [
+  {
     title: 'SubItem 1',
     active: true,
     goTo: () => console.log('subItem 1.1')
   },
-  2: {
+  {
     title: 'SubItem 2',
     active: false,
     goTo: () => console.log('subItem 1.2')
   },
-  3: {
-    title: 'SubItem 3',
+  {
+    title: 'Sub-sub Item 3',
     active: false,
-    goTo: () => console.log('subItem 1.3')
+    goTo: () => console.log('subItem 1.3'),
+    subItems: [
+      {
+        title: 'ChildrenSubItem 1',
+        active: false,
+        disabled: true,
+        goTo: () => console.log('childrenSubItem 1.1')
+      },
+      {
+        title: 'ChildrenSubItem 2',
+        active: false,
+        // hidden: true,
+        goTo: () => console.log('childrenSubItem 1.2')
+      }
+    ]
   }
-}
+]
 
 const sideBarList = [
   {
@@ -44,8 +58,38 @@ const sideBarList = [
     title: 'Information 2',
     active: false,
     isOpen: false,
-    subItems: subItems,
-    badge: 4
+    subItems: [
+      {
+        title: 'SubItem 1',
+        active: true,
+        goTo: () => console.log('subItem 1.1')
+      },
+      {
+        title: 'SubItem 2',
+        active: false,
+        goTo: () => console.log('subItem 1.2')
+      },
+      {
+        title: 'Sub-sub Item 3',
+        active: false,
+        goTo: () => console.log('subItem 1.3'),
+        subItems: [
+          {
+            title: 'ChildrenSubItem 1',
+            active: true,
+            goTo: () => console.log('childrenSubItem 1.1')
+          },
+          {
+            title: 'ChildrenSubItem 2',
+            active: false,
+            goTo: () => console.log('childrenSubItem 1.2')
+          }
+        ]
+      }
+    ],
+    badge: '+99',
+    badgeColor: 'bg-red-500',
+    badgeTextColor: 'text-yellow-50'
   },
   {
     title: 'Information 3',
@@ -53,13 +97,23 @@ const sideBarList = [
     isOpen: false,
     disabled: true,
     subItems: subItems,
-    badge: <ExclamationIcon className="w-4 h-4 text-yellow-400" />
+    badge: <ExclamationIcon className="w-4 h-4 text-yellow-400" />,
+    badgeColor: 'bg-yellow-500'
   },
   {
     title: 'Information 4',
     active: false,
     isOpen: false,
     goTo: () => console.log('Item 4')
+  },
+  {
+    title: 'Information 5',
+    active: false,
+    isOpen: false,
+    subItems: subItems,
+    badge: '+99',
+    badgeColor: 'bg-red-500',
+    badgeTextColor: 'text-yellow-50'
   }
 ]
 
