@@ -1,3 +1,10 @@
+## [6.17.7](https://github.com/dd3tech/bui/compare/v6.17.6...v6.17.7) (2023-11-22)
+
+
+### Bug Fixes
+
+* feedbackbox storybook import ([#156](https://github.com/dd3tech/bui/issues/156)) ([144ca95](https://github.com/dd3tech/bui/commit/144ca95069fd3f131b411df98dd35ed602f61785))
+
 ## [6.17.6](https://github.com/dd3tech/bui/compare/v6.17.5...v6.17.6) (2023-11-22)
 
 
