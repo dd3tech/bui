@@ -554,13 +554,13 @@
             "./dist/esm/components/Filters/index.d.ts"
         ],
         "Input": [
-            "./dist/esm/components/Input/index.d.ts"
+            "./dist/esm/components/Form/Input/index.d.ts"
         ],
         "InputCurrency": [
-            "./dist/esm/components/InputCurrency.d.ts"
+            "./dist/esm/components/Form/InputCurrency.d.ts"
         ],
         "InputFile": [
-            "./dist/esm/components/Input/InputFile.d.ts"
+            "./dist/esm/components/Form/Input/InputFile.d.ts"
         ],
         "Select": [
             "./dist/esm/components/Form/Select.d.ts"

@@ -82,6 +82,9 @@ export * from './ImageIcon'
 export { default as Input } from './Form'
 export * from './Form'
 
+export { default as InputCurrency } from './Form/InputCurrency'
+export * from './Form/InputCurrency'
+
 export { default as InputFile } from './Form/Input/InputFile'
 export * from './Form/Input/InputFile'
 
