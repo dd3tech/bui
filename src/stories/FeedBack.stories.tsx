@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { FeedBackBox } from '../components/FeedBackBox'
+import FeedBackBox from '../components/FeedBackBox'
 
 export default {
   title: 'Components/FeedBackBox',
