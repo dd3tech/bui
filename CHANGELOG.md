@@ -1,3 +1,10 @@
+## [6.17.6](https://github.com/dd3tech/bui/compare/v6.17.5...v6.17.6) (2023-11-22)
+
+
+### Bug Fixes
+
+* **exports:** add, order and modification ([#137](https://github.com/dd3tech/bui/issues/137)) ([9ae0620](https://github.com/dd3tech/bui/commit/9ae06204bbaeb84c8f354a4889cf4f89118039c1))
+
 ## [6.17.5](https://github.com/dd3tech/bui/compare/v6.17.4...v6.17.5) (2023-11-21)
 
 
