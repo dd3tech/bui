@@ -2,4 +2,7 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-export { Portal } from './Portal'
+import Portal from './Portal'
+export { default as Portal } from './Portal'
+export default Portal
+export * from './Portal'

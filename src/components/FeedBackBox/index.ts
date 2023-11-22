@@ -2,5 +2,6 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-export { default as FeedBackBox } from './FeedBackBox'
+import FeedBackBox from './FeedBackBox'
+export default FeedBackBox
 export * from './FeedBackBox'

@@ -4,3 +4,4 @@ export * from './Card'
 
 export { default as DownloadCard } from './DownloadCard'
 export type { IDownloadCardProps } from './DownloadCard'
+export * from './DownloadCard'
