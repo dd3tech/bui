@@ -37,6 +37,9 @@ export * from './Callout'
 export { default as Card } from './Card'
 export * from './Card'
 
+export { default as DownloadCard } from './Card/DownloadCard'
+export * from './Card/DownloadCard'
+
 export { default as Cell } from './Cell'
 export * from './Cell'
 
@@ -52,12 +55,16 @@ export * from './ConfirmDialog'
 export { default as DatePicker } from './DatePicker'
 export * from './DatePicker'
 
+export { default as DatePickerWithPortal } from './DatePicker/DatePickerWithPortal'
+export * from './DatePicker/DatePickerWithPortal'
+
 export { default as Divider } from './Divider'
 export * from './Divider'
 
 export { default as Dropdown } from './Dropdown'
 export * from './Dropdown'
 
+export { default as FeedBackBox } from './FeedBackBox'
 export * from './FeedBackBox'
 
 export * from './FileViewer'
