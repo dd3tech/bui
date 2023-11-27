@@ -58,6 +58,7 @@ const props = {
   sideBarSubTitle: 'Subtitle text',
   sideBarList: sideBarList,
   disabledOptionsTag: 'Próximamente',
+  renderBottomCmp: () => <div>Custom element</div>,
   dangerZone: {
     show: true,
     text: 'Eliminar proyecto',
@@ -237,5 +238,9 @@ describe('<SideBar/>', () => {
     )
 
     expect(renderResult.getByRole('list-options').children).toHaveLength(4)
+  })
+
+  it('bottom element is displayed when included', () => {
+    expect(renderResult.getByRole('bottom-element')).toBeDefined()
   })
 })
