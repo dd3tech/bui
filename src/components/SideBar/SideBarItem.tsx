@@ -87,7 +87,7 @@ const ListSubItems = ({
         className={composeClasses(
           'flex-col transition-all duration-300 ease-out',
           isOpen ? 'mt-1' : 'max-h-0 overflow-hidden',
-          !isSubSubItem && 'pl-5 ml-4 mb-2'
+          !isSubSubItem ? 'pl-10 ml-4 mb-2' : 'pl-4'
         )}
       >
         {subItemsArray?.map(
