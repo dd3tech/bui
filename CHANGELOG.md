@@ -1,3 +1,10 @@
+# [6.18.0](https://github.com/dd3tech/bui/compare/v6.17.8...v6.18.0) (2023-11-28)
+
+
+### Features
+
+* **SideBar:** allow custom element in the dangerZone ([#158](https://github.com/dd3tech/bui/issues/158)) ([7c9e700](https://github.com/dd3tech/bui/commit/7c9e70026b4f4adf7ae92eca6161b056a87585ea))
+
 ## [6.17.8](https://github.com/dd3tech/bui/compare/v6.17.7...v6.17.8) (2023-11-28)
 
 
