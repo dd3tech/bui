@@ -1,3 +1,10 @@
+## [6.17.8](https://github.com/dd3tech/bui/compare/v6.17.7...v6.17.8) (2023-11-28)
+
+
+### Bug Fixes
+
+* **sidebar:** padding was modified in subitems ([#157](https://github.com/dd3tech/bui/issues/157)) ([f4b9b46](https://github.com/dd3tech/bui/commit/f4b9b463489fececa5219d090b92eeefab2c802f))
+
 ## [6.17.7](https://github.com/dd3tech/bui/compare/v6.17.6...v6.17.7) (2023-11-22)
 
 
