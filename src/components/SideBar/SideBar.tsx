@@ -58,6 +58,10 @@ export interface SideBarProps {
    * Indicates if the sidebar will be expanded by default
    */
   defaultExpand?: boolean
+  /**
+   * Custom element above the danger zone
+   */
+  renderBottomCmp?: (isExpanded: boolean) => ReactNode
   dangerZone?: {
     /**
      * Show danger zone
@@ -123,6 +127,7 @@ const SideBar = ({
   isLoadingSideBarList,
   numSkeletons = 5,
   style,
+  renderBottomCmp,
   dangerZone
 }: SideBarProps) => {
   const sidebarRef: MutableRefObject<HTMLDivElement | null> =
@@ -286,11 +291,23 @@ const SideBar = ({
               )
             )}
           </div>
+          {renderBottomCmp && (
+            <Flex
+              role="bottom-element"
+              alignItems="center"
+              className="w-full mb-4 mt-8 relative"
+            >
+              {renderBottomCmp(expand)}
+            </Flex>
+          )}
           {dangerZone?.show && (
             <Flex
               role="danger-zone"
               alignItems="center"
-              className="w-full cursor-pointer group mb-4 mt-8 relative"
+              className={composeClasses(
+                'w-full cursor-pointer group mb-4 relative',
+                !renderBottomCmp && 'mt-8'
+              )}
               onClick={() => {
                 if (dangerZone?.callBack) {
                   flushSync
