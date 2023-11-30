@@ -3,6 +3,8 @@
  */
 
 import React, { useEffect, useState } from 'react'
+import ChevronDownIcon from '@heroicons/react/outline/ChevronDownIcon'
+import ChevronUpIcon from '@heroicons/react/outline/ChevronUpIcon'
 import Divider from 'components/Divider'
 import Text from 'components/Typography'
 import Input, { InputProps } from '../Form/Input'
@@ -28,6 +30,7 @@ export interface AutoCompleteProps extends InputProps {
   className?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   disabled?: boolean
+  isSelect?: boolean
 }
 
 function AutoComplete({
@@ -44,6 +47,7 @@ function AutoComplete({
   isCloseOnBlur,
   disabled,
   label,
+  isSelect,
   ...otherProps
 }: AutoCompleteProps) {
   const [isActiveAutoComplete, setIsActiveAutoComplete] = useState(false)
@@ -58,8 +62,10 @@ function AutoComplete({
   }
 
   const onFocus = () => {
-    if (isCloseOnBlur && value && value.length && items.length) {
-      setIsActiveAutoComplete(true)
+    if (isCloseOnBlur && items.length) {
+      const isValue = value && value.length
+
+      if (isSelect || isValue) setIsActiveAutoComplete(true)
     }
   }
 
@@ -85,6 +91,7 @@ function AutoComplete({
       }
     }
   }, [itemName])
+
   return (
     <div className="grid">
       <Input
@@ -100,6 +107,23 @@ function AutoComplete({
         onFocus={onFocus}
         value={itemName}
         disabled={disabled}
+        endAdornment={
+          isActiveAutoComplete ? (
+            <ChevronUpIcon
+              role="chevron"
+              className="text-gray-400 cursor-pointer"
+              width={18}
+              onClick={() => setIsActiveAutoComplete(false)}
+            />
+          ) : (
+            <ChevronDownIcon
+              role="chevron"
+              className="text-gray-400 cursor-pointer"
+              width={18}
+              onClick={() => setIsActiveAutoComplete(true)}
+            />
+          )
+        }
       />
       <div
         role="panel"
@@ -138,7 +162,7 @@ function AutoComplete({
                       {item?.name}
                     </Text>
                   </div>
-                  <Divider />
+                  <Divider light={isSelect} />
                 </li>
               ))}
             </ul>
