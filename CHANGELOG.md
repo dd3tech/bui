@@ -1,3 +1,10 @@
+## [6.18.2](https://github.com/dd3tech/bui/compare/v6.18.1...v6.18.2) (2023-12-05)
+
+
+### Bug Fixes
+
+* **Fileviewer:** validation was added to the url ([#160](https://github.com/dd3tech/bui/issues/160)) ([b2e82fd](https://github.com/dd3tech/bui/commit/b2e82fda85aea745fbd7f76a073040962317d2ea))
+
 ## [6.18.1](https://github.com/dd3tech/bui/compare/v6.18.0...v6.18.1) (2023-12-05)
 
 
