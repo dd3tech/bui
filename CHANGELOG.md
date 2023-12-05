@@ -1,3 +1,10 @@
+## [6.18.1](https://github.com/dd3tech/bui/compare/v6.18.0...v6.18.1) (2023-12-05)
+
+
+### Bug Fixes
+
+* **Autocomplete:** the select type was added in autocomplete ([#159](https://github.com/dd3tech/bui/issues/159)) ([4d78169](https://github.com/dd3tech/bui/commit/4d781694a992119ffb2fc89db394439f116c0d79))
+
 # [6.18.0](https://github.com/dd3tech/bui/compare/v6.17.8...v6.18.0) (2023-11-28)
 
 
