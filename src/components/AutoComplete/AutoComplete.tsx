@@ -2,7 +2,9 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import ChevronUpIcon from '@heroicons/react/outline/ChevronUpIcon'
+import ChevronDownIcon from '@heroicons/react/outline/ChevronDownIcon'
 import Divider from 'components/Divider'
 import Text from 'components/Typography'
 import Input, { InputProps } from '../Form/Input'
@@ -28,6 +30,7 @@ export interface AutoCompleteProps extends InputProps {
   className?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   disabled?: boolean
+  isSelect?: boolean
 }
 
 function AutoComplete({
@@ -44,10 +47,17 @@ function AutoComplete({
   isCloseOnBlur,
   disabled,
   label,
+  isSelect,
   ...otherProps
 }: AutoCompleteProps) {
   const [isActiveAutoComplete, setIsActiveAutoComplete] = useState(false)
   const [itemName, setItemName] = useState(value ?? '')
+
+  const EndAdornmentCmp = isActiveAutoComplete ? ChevronUpIcon : ChevronDownIcon
+
+  const handleActiveAutoComplete = useCallback(() => {
+    setIsActiveAutoComplete((prevVal) => !prevVal)
+  }, [])
 
   const onBlur = () => {
     if (isCloseOnBlur) {
@@ -58,8 +68,10 @@ function AutoComplete({
   }
 
   const onFocus = () => {
-    if (isCloseOnBlur && value && value.length && items.length) {
-      setIsActiveAutoComplete(true)
+    if (isCloseOnBlur && items.length) {
+      const isValuePresent = value && value.length
+
+      if (isSelect || isValuePresent) setIsActiveAutoComplete(true)
     }
   }
 
@@ -85,6 +97,7 @@ function AutoComplete({
       }
     }
   }, [itemName])
+
   return (
     <div className="grid">
       <Input
@@ -100,6 +113,14 @@ function AutoComplete({
         onFocus={onFocus}
         value={itemName}
         disabled={disabled}
+        endAdornment={
+          <EndAdornmentCmp
+            role="chevron"
+            className="text-gray-400 cursor-pointer"
+            width={18}
+            onClick={handleActiveAutoComplete}
+          />
+        }
       />
       <div
         role="panel"
@@ -138,7 +159,7 @@ function AutoComplete({
                       {item?.name}
                     </Text>
                   </div>
-                  <Divider />
+                  <Divider light={isSelect} />
                 </li>
               ))}
             </ul>
