@@ -2,7 +2,7 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import ChevronUpIcon from '@heroicons/react/outline/ChevronUpIcon'
 import ChevronDownIcon from '@heroicons/react/outline/ChevronDownIcon'
 import Divider from 'components/Divider'
@@ -53,6 +53,12 @@ function AutoComplete({
   const [isActiveAutoComplete, setIsActiveAutoComplete] = useState(false)
   const [itemName, setItemName] = useState(value ?? '')
 
+  const EndAdornmentCmp = isActiveAutoComplete ? ChevronUpIcon : ChevronDownIcon
+
+  const handleActiveAutoComplete = useCallback(() => {
+    setIsActiveAutoComplete((prevVal) => !prevVal)
+  }, [])
+
   const onBlur = () => {
     if (isCloseOnBlur) {
       setTimeout(() => {
@@ -91,6 +97,7 @@ function AutoComplete({
       }
     }
   }, [itemName])
+
   return (
     <div className="grid">
       <Input
@@ -107,21 +114,12 @@ function AutoComplete({
         value={itemName}
         disabled={disabled}
         endAdornment={
-          isActiveAutoComplete ? (
-            <ChevronUpIcon
-              role="chevron"
-              className="text-gray-400 cursor-pointer"
-              width={18}
-              onClick={() => setIsActiveAutoComplete(false)}
-            />
-          ) : (
-            <ChevronDownIcon
-              role="chevron"
-              className="text-gray-400 cursor-pointer"
-              width={18}
-              onClick={() => setIsActiveAutoComplete(true)}
-            />
-          )
+          <EndAdornmentCmp
+            role="chevron"
+            className="text-gray-400 cursor-pointer"
+            width={18}
+            onClick={handleActiveAutoComplete}
+          />
         }
       />
       <div
