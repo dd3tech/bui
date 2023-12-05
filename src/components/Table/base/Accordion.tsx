@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import ChevronUpIcon from '@heroicons/react/outline/ChevronUpIcon'
 
@@ -13,14 +13,32 @@ export interface AccordionProps {
    * 0 is the position of the first column
    */
   iconPosition?: number
+  /**
+   * Indicates if the accordion is expanded default false
+   */
+  isExpanded?: boolean
+  /**
+   * The callback function that will be called whenever the accordion is expanded or collapsed
+   */
+  onClick?: () => void
 }
 
-const Accordion = ({ children, iconPosition = 0 }: AccordionProps) => {
-  const [toggle, setToggle] = useState(false)
+const Accordion = ({
+  children,
+  iconPosition = 0,
+  isExpanded = false,
+  onClick: onClickFn
+}: AccordionProps) => {
+  const [toggle, setToggle] = useState(isExpanded)
 
   const onClick = () => {
+    onClickFn?.()
     setToggle(!toggle)
   }
+
+  useEffect(() => {
+    setToggle(isExpanded)
+  }, [isExpanded])
 
   const [firstChild, ...childs] = children as React.ReactElement[]
 
