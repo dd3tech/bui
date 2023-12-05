@@ -148,9 +148,10 @@ const FileContent = ({
   role = 'viewer-file-container'
 }: FileContentProps) => {
   const encodedUrl = encodeURIComponent(url || '')
+
   return (
     <>
-      {url ? (
+      {url && url !== '' ? (
         <div
           role={role}
           className={composeClasses(
