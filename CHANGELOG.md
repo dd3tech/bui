@@ -1,3 +1,10 @@
+## [6.18.3](https://github.com/dd3tech/bui/compare/v6.18.2...v6.18.3) (2023-12-11)
+
+
+### Bug Fixes
+
+* **Modal:** add prop icon btn close ([#163](https://github.com/dd3tech/bui/issues/163)) ([e6bcc47](https://github.com/dd3tech/bui/commit/e6bcc4700af5d3dca2a9c0979c6a6773013d24ab))
+
 ## [6.18.2](https://github.com/dd3tech/bui/compare/v6.18.1...v6.18.2) (2023-12-05)
 
 
