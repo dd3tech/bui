@@ -1,3 +1,10 @@
+## [6.18.4](https://github.com/dd3tech/bui/compare/v6.18.3...v6.18.4) (2023-12-13)
+
+
+### Bug Fixes
+
+* **autocomplete:** homologate disabled style ([5a1a486](https://github.com/dd3tech/bui/commit/5a1a4866980915cf3c89215035222c7fa997a200))
+
 ## [6.18.3](https://github.com/dd3tech/bui/compare/v6.18.2...v6.18.3) (2023-12-11)
 
 
