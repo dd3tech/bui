@@ -31,7 +31,6 @@ export interface AutoCompleteProps extends InputProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   disabled?: boolean
   isSelect?: boolean
-  isDisabledStyle?: boolean
 }
 
 function AutoComplete({
@@ -49,7 +48,6 @@ function AutoComplete({
   disabled,
   label,
   isSelect,
-  isDisabledStyle,
   ...otherProps
 }: AutoCompleteProps) {
   const [isActiveAutoComplete, setIsActiveAutoComplete] = useState(false)
@@ -107,10 +105,7 @@ function AutoComplete({
         {...otherProps}
         label={label}
         role={role || 'autocomplete'}
-        className={composeClasses(
-          !isDisabledStyle && disabled && 'opacity-30 bg-gray-100',
-          className
-        )}
+        className={className}
         onChange={handleChange}
         onBlur={onBlur}
         onFocus={onFocus}
