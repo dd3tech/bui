@@ -145,8 +145,7 @@ function AutoComplete({
               </Text>
             </div>
           )}
-
-          {!isLoading && items.length > 0 && (
+          {!isLoading && items?.length > 0 && (
             <ul role="list">
               {items.map((item, key) => (
                 <li
@@ -165,8 +164,7 @@ function AutoComplete({
               ))}
             </ul>
           )}
-
-          {!isLoading && items.length === 0 && (
+          {!isLoading && items?.length === 0 && (
             <div
               role="dialog"
               className="flex items-center justify-between h-10 p-2 mt-1 cursor-pointer"
