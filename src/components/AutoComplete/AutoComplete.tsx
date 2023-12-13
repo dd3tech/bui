@@ -56,6 +56,7 @@ function AutoComplete({
   const EndAdornmentCmp = isActiveAutoComplete ? ChevronUpIcon : ChevronDownIcon
 
   const handleActiveAutoComplete = useCallback(() => {
+    if (disabled) return
     setIsActiveAutoComplete((prevVal) => !prevVal)
   }, [])
 
@@ -104,10 +105,7 @@ function AutoComplete({
         {...otherProps}
         label={label}
         role={role || 'autocomplete'}
-        className={composeClasses(
-          disabled && 'opacity-30 bg-gray-100',
-          className
-        )}
+        className={className}
         onChange={handleChange}
         onBlur={onBlur}
         onFocus={onFocus}
@@ -116,7 +114,10 @@ function AutoComplete({
         endAdornment={
           <EndAdornmentCmp
             role="chevron"
-            className="text-gray-400 cursor-pointer"
+            className={composeClasses(
+              'text-gray-400',
+              !disabled && 'cursor-pointer'
+            )}
             width={18}
             onClick={handleActiveAutoComplete}
           />
