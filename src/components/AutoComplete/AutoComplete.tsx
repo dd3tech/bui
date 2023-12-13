@@ -31,6 +31,7 @@ export interface AutoCompleteProps extends InputProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   disabled?: boolean
   isSelect?: boolean
+  isDisabledStyle?: boolean
 }
 
 function AutoComplete({
@@ -48,6 +49,7 @@ function AutoComplete({
   disabled,
   label,
   isSelect,
+  isDisabledStyle,
   ...otherProps
 }: AutoCompleteProps) {
   const [isActiveAutoComplete, setIsActiveAutoComplete] = useState(false)
@@ -56,6 +58,7 @@ function AutoComplete({
   const EndAdornmentCmp = isActiveAutoComplete ? ChevronUpIcon : ChevronDownIcon
 
   const handleActiveAutoComplete = useCallback(() => {
+    if (disabled) return
     setIsActiveAutoComplete((prevVal) => !prevVal)
   }, [])
 
@@ -105,7 +108,7 @@ function AutoComplete({
         label={label}
         role={role || 'autocomplete'}
         className={composeClasses(
-          disabled && 'opacity-30 bg-gray-100',
+          !isDisabledStyle && disabled && 'opacity-30 bg-gray-100',
           className
         )}
         onChange={handleChange}
@@ -116,7 +119,10 @@ function AutoComplete({
         endAdornment={
           <EndAdornmentCmp
             role="chevron"
-            className="text-gray-400 cursor-pointer"
+            className={composeClasses(
+              'text-gray-400',
+              !disabled && 'cursor-pointer'
+            )}
             width={18}
             onClick={handleActiveAutoComplete}
           />
