@@ -99,6 +99,11 @@ function AutoComplete({
     }
   }, [itemName])
 
+  useEffect(() => {
+    if (!value?.length) return
+    setItemName(value)
+  }, [value])
+
   return (
     <div className="grid">
       <Input
@@ -154,7 +159,7 @@ function AutoComplete({
                   onClick={() => handleSelectedItem(item as Item)}
                   key={item.id || key}
                 >
-                  <div className="flex items-center justify-between h-10 p-2 mt-1 cursor-pointer">
+                  <div className="flex items-center justify-between h-auto p-1 mt-1 mb-1 cursor-pointer">
                     <Text variant="p" className="font-semibold">
                       {item?.name}
                     </Text>
