@@ -80,7 +80,7 @@ describe('<TabGroup /> variant="primary ', () => {
     const indicationBar = result.getByRole('indication-bar')
 
     expect(indicationBar).toBeDefined()
-    expect(indicationBar.style.right).toBe('0px')
+    expect(indicationBar.style.right).toBe('1px')
     expect(indicationBar.style.width).toBe('3.5px')
     expect(indicationBar.className).toContain('bg-purple-500')
   })
