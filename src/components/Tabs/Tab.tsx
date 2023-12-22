@@ -82,9 +82,12 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
         role="tab"
         disabled={disabled}
         onClick={handleClick}
-        style={{ color: textColor && index === value ? textColor : undefined }}
+        style={{
+          color: textColor && index === value ? textColor : undefined,
+          minWidth: '132px'
+        }}
         className={composeClasses(
-          'inline-flex justify-center flex-wrap items-center box-content leading-5 select-none transition-all duration-300 ease-in  hover:bg-gray-50 hover:border-blue-400',
+          'inline-flex justify-center w-auto flex-wrap items-center box-content leading-5 select-none transition-all duration-300 ease-in  hover:bg-gray-50 hover:border-blue-400',
           isVertical ? 'border-r-3' : 'border-b-3',
           classes,
           variantStyle[variant],
