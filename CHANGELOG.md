@@ -1,3 +1,10 @@
+## [6.18.7](https://github.com/dd3tech/bui/compare/v6.18.6...v6.18.7) (2023-12-26)
+
+
+### Bug Fixes
+
+* **Autocomplete:** update state value ([#165](https://github.com/dd3tech/bui/issues/165)) ([a72e30f](https://github.com/dd3tech/bui/commit/a72e30f2c43a6a552d3c23e8cde4918ecf8f87a5))
+
 ## [6.18.6](https://github.com/dd3tech/bui/compare/v6.18.5...v6.18.6) (2023-12-26)
 
 
