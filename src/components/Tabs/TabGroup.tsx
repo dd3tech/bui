@@ -142,6 +142,7 @@ function TabGroup({
           variant,
           disabledText,
           className: childClassName,
+          isVertical: orientation === 'vertical',
           ...child.props
         })
       }
@@ -189,10 +190,12 @@ function TabGroup({
             ...dashRect,
             backgroundColor: !indicatorColor?.includes('bg-')
               ? indicatorColor
-              : undefined
+              : undefined,
+            bottom: '1px',
+            right: '1px'
           }}
           className={composeClasses(
-            'bg-blue-500 transition-all duration-300 ease-in absolute bottom-0',
+            'bg-blue-500 transition-all duration-300 ease-in absolute',
             indicatorColor?.includes('bg-') && indicatorColor
           )}
         />
