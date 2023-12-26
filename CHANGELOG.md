@@ -1,3 +1,10 @@
+## [6.18.5](https://github.com/dd3tech/bui/compare/v6.18.4...v6.18.5) (2023-12-26)
+
+
+### Bug Fixes
+
+* **Tabs:** styles are added when hovering in the tabs ([#166](https://github.com/dd3tech/bui/issues/166)) ([3788382](https://github.com/dd3tech/bui/commit/3788382a0d1d607c1eb6fd3fa359ae8d77cf5b5c))
+
 ## [6.18.4](https://github.com/dd3tech/bui/compare/v6.18.3...v6.18.4) (2023-12-13)
 
 
