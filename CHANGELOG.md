@@ -1,3 +1,10 @@
+## [6.18.6](https://github.com/dd3tech/bui/compare/v6.18.5...v6.18.6) (2023-12-26)
+
+
+### Bug Fixes
+
+* **TextArea:** add validation padding when has label ([#167](https://github.com/dd3tech/bui/issues/167)) ([5032f00](https://github.com/dd3tech/bui/commit/5032f009165fe451ac43e6f49180cd3a983b1b69))
+
 ## [6.18.5](https://github.com/dd3tech/bui/compare/v6.18.4...v6.18.5) (2023-12-26)
 
 
