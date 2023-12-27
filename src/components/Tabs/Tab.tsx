@@ -87,7 +87,7 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
           minWidth: '132px'
         }}
         className={composeClasses(
-          'inline-flex justify-center w-auto flex-wrap items-center box-content leading-5 select-none transition-all duration-300 ease-in  hover:bg-gray-50 hover:border-blue-400',
+          'inline-flex justify-center w-auto flex-wrap border-transparent items-center box-content leading-5 select-none transition-all duration-300 ease-in hover:bg-gray-50 hover:border-blue-400',
           isVertical ? 'border-r-3' : 'border-b-3',
           classes,
           variantStyle[variant],
