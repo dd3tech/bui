@@ -1,3 +1,10 @@
+## [6.18.8](https://github.com/dd3tech/bui/compare/v6.18.7...v6.18.8) (2023-12-27)
+
+
+### Bug Fixes
+
+* **Tabs:** change border style ([#168](https://github.com/dd3tech/bui/issues/168)) ([35a2d83](https://github.com/dd3tech/bui/commit/35a2d8339c887f03f4c175b6844e24e2f3fbc93c))
+
 ## [6.18.7](https://github.com/dd3tech/bui/compare/v6.18.6...v6.18.7) (2023-12-26)
 
 
