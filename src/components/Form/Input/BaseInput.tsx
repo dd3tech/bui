@@ -93,7 +93,8 @@ export interface InputProps
    */
   language?: 'es' | 'en'
   /**
-   * The suffix to be displayed after the input value.
+   * The maximum number of decimal places allowed in the input value.
+   * Default = 2
    */
   decimalsLimit?: number
 }
