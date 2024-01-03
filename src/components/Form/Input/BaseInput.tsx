@@ -92,6 +92,10 @@ export interface InputProps
    * It can be either 'es' for Spanish or 'en' for English.
    */
   language?: 'es' | 'en'
+  /**
+   * The suffix to be displayed after the input value.
+   */
+  decimalsLimit?: number
 }
 
 const BaseInput = forwardRef<HTMLDivElement, InputProps>(
