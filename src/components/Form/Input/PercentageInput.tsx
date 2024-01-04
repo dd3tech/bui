@@ -6,15 +6,24 @@ import { useCallback, useState, useEffect } from 'react'
 import BaseInput, { InputProps } from './BaseInput'
 
 function PercentageInput(props: InputProps) {
-  const { onChange, value } = props
+  const { onChange, value, decimalsLimit = 2 } = props
   const [localValue, setLocalValue] = useState(value || 0)
+
+  function getRegexDecimal(numDecimals: number) {
+    numDecimals = Math.max(0, numDecimals)
+
+    const regexPattern = new RegExp(
+      `^(100(?![.])?|\\d{1,2}(\\.\\d{1,${numDecimals}})?|\\d{1,2}(\\.\\d{0,${numDecimals}})?|)$`
+    )
+
+    return regexPattern
+  }
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      const validatePercentage =
-        /^(100(?!\.)?|\d{1,2}(\.\d{1,2})?|\d{1,2}(\.\d{0,2})?|)$/.test(
-          event.target.value
-        )
+      const validatePercentage = getRegexDecimal(decimalsLimit).test(
+        event.target.value
+      )
       if (validatePercentage) {
         setLocalValue(event.target.value)
         onChange && onChange(event)

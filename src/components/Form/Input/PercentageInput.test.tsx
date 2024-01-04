@@ -54,4 +54,14 @@ describe('<PercentageInput />', () => {
     fireEvent.change(input, { target: { value: '100' } })
     expect(input.value).toBe('100')
   })
+
+  it('should render the value using custom decimals', () => {
+    const { getByRole } = render(
+      <PercentageInput decimalsLimit={6} {...defaultProps} />
+    )
+    const input = getByRole('percentage-input') as HTMLInputElement
+
+    fireEvent.change(input, { target: { value: '12.123456' } })
+    expect(input.value).toBe('12.123456')
+  })
 })

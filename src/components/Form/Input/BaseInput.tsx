@@ -92,6 +92,11 @@ export interface InputProps
    * It can be either 'es' for Spanish or 'en' for English.
    */
   language?: 'es' | 'en'
+  /**
+   * The maximum number of decimal places allowed in the input value.
+   * Default = 2
+   */
+  decimalsLimit?: number
 }
 
 const BaseInput = forwardRef<HTMLDivElement, InputProps>(

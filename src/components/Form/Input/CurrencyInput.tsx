@@ -30,10 +30,6 @@ export interface InputCurrencyProps extends InputProps {
    * The maximum number of decimal places allowed in the input value.
    * Default = 2
    */
-  decimalsLimit?: number
-  /**
-   * The suffix to be displayed after the input value.
-   */
   suffix?: string
   /**
    * The number of decimal places that will appear after the decimalSeparator prop.
