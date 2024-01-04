@@ -1,3 +1,10 @@
+# [6.19.0](https://github.com/dd3tech/bui/compare/v6.18.8...v6.19.0) (2024-01-04)
+
+
+### Features
+
+* add custom decimals to percentage input ([ab24754](https://github.com/dd3tech/bui/commit/ab247548bd217fafdb38c68d2b4d58adfc790bd8))
+
 ## [6.18.8](https://github.com/dd3tech/bui/compare/v6.18.7...v6.18.8) (2023-12-27)
 
 
