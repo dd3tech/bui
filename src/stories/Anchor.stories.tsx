@@ -13,14 +13,14 @@ const Template: ComponentStory<typeof AnchorComponent> = (args) => (
 
 export const Anchor = Template.bind({})
 Anchor.args = {
-  to: '/anchor',
+  to: '/?path=/story/navigation-anchor--anchor',
   children: 'Click Anchor',
   className: 'text-primary'
 }
 
 export const LinkAnchor = Template.bind({})
 LinkAnchor.args = {
-  to: '/link',
+  to: '/?path=/story/navigation-anchor--link-anchor',
   children: 'Click Link',
   className: 'text-primary'
 }
