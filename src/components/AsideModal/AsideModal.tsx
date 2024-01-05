@@ -103,7 +103,7 @@ const AsideModal: FC<IAsideModalProps> = ({
         <div
           role="btn-close"
           className="text-info cursor-pointer hover:text-primary transition ease-in-out duration-300"
-          onClick={handleModalClose}
+          onClick={() => handleModalClose(true)}
         >
           <XCircleIcon className="w-6" />
         </div>
