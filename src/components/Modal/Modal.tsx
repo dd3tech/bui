@@ -136,7 +136,11 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         >
           <div className="flex items-center justify-center h-full">
             <div
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                if (!preventClose) {
+                  e.stopPropagation()
+                }
+              }}
               className={dynamicClassName}
               data-testid="modal-content"
               style={{
