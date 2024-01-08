@@ -1,3 +1,10 @@
+## [6.19.1](https://github.com/dd3tech/bui/compare/v6.19.0...v6.19.1) (2024-01-08)
+
+
+### Bug Fixes
+
+* **Modal:** added validation to prevent close modal ([#170](https://github.com/dd3tech/bui/issues/170)) ([7325375](https://github.com/dd3tech/bui/commit/7325375004047efeea68bd57f7341cea4102077c))
+
 # [6.19.0](https://github.com/dd3tech/bui/compare/v6.18.8...v6.19.0) (2024-01-04)
 
 
