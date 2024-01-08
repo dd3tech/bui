@@ -20,8 +20,8 @@ export default function useModalManager(params: IParamsConfigModal) {
   } = params
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  function handleModalClose() {
-    if (preventClose) return
+  function handleModalClose(fromCloseButton?: boolean) {
+    if (preventClose && !fromCloseButton) return
     setIsOpen(false)
     onClose()
   }

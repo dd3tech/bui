@@ -131,7 +131,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
           style={{
             backgroundColor: overlay && !blur ? 'rgba(17, 24, 39, 0.75)' : ''
           }}
-          onClick={handleModalClose}
+          onClick={() => handleModalClose()}
           {...props}
         >
           <div className="flex items-center justify-center h-full">
@@ -147,7 +147,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
               {btnClose && (
                 <div
                   role="btn-close"
-                  onClick={handleModalClose}
+                  onClick={() => handleModalClose(true)}
                   className="absolute top-0 right-0  mr-6 cursor-pointer mt-6"
                 >
                   {iconBtnClose ?? (

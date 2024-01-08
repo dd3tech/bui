@@ -24,6 +24,6 @@ export const customDD360 = create({
 
     brandTitle: 'DD360 Storybook',
     brandUrl: 'https://dd360.mx',
-    brandImage: 'https://dd360.mx/images/logo/DD360_LOGO.png',
+    brandImage: 'http://dd360-universe-static-assets-prod.s3.amazonaws.com/website/images/logo/DD360_LOGO.png',
     brandTarget: '_self'
 })
