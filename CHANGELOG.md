@@ -1,3 +1,10 @@
+## [6.19.2](https://github.com/dd3tech/bui/compare/v6.19.1...v6.19.2) (2024-01-08)
+
+
+### Bug Fixes
+
+* **Modal:** add validation stop propagation ([#171](https://github.com/dd3tech/bui/issues/171)) ([957faee](https://github.com/dd3tech/bui/commit/957faee5c75e67db42f07d7fbac161981fe69c1f))
+
 ## [6.19.1](https://github.com/dd3tech/bui/compare/v6.19.0...v6.19.1) (2024-01-08)
 
 
