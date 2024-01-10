@@ -291,6 +291,11 @@
       "module": "./dist/esm/components/Tabs/index.js",
       "default": "./dist/esm/components/Tabs/index.js"
     },
+    "./Tags": {
+      "require": "./dist/cjs/components/Tags/index.js",
+      "module": "./dist/esm/components/Tags/index.js",
+      "default": "./dist/esm/components/Tags/index.js"
+    },
     "./Text": {
       "require": "./dist/cjs/components/Typography/index.js",
       "module": "./dist/esm/components/Typography/index.js",
@@ -386,6 +391,7 @@
       "Table": ["./dist/esm/components/Table/index.d.ts"],
       "TableContentSkeleton": [ "./dist/esm/components/Skeleton/TableContentSkeleton.d.ts"],
       "Tabs": ["./dist/esm/components/Tabs/index.d.ts"],
+      "Tags": ["./dist/esm/components/Tags/index.d.ts"],
       "Text": ["./dist/esm/components/Typography/index.d.ts"],
       "TextArea": ["./dist/esm/components/Form/TextArea.d.ts"],
       "Timeline": ["./dist/esm/components/Timeline/index.d.ts"],
