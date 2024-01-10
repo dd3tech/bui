@@ -40,7 +40,7 @@ export interface TooltipProps {
 }
 
 const colorVariants: { [key: string]: string } = {
-  primary: `text-center ${fontSize.xs} bg-gray-900 opacity-70 p-2 text-white rounded-md`
+  primary: `text-center ${fontSize.xs} bg-gray-900 opacity-70 p-2 text-white rounded-md z-50`
 }
 
 const Tooltip: FC<TooltipProps> = ({
