@@ -29,7 +29,7 @@ describe('<Tags/>', () => {
     expect(getByTestId('tag-icon')).toBeInTheDocument()
   })
 
-  it('should not render the icon', () => {
+  it('should not render the icon in component', () => {
     const { queryByTestId } = render(
       <Tags variant="primary" className="text-error" />
     )
