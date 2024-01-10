@@ -40,7 +40,7 @@ export interface TooltipProps {
 }
 
 const colorVariants: { [key: string]: string } = {
-  primary: `text-center ${fontSize.xs} bg-gray-900 opacity-70 p-2 text-white rounded-md z-50`
+  primary: `text-center ${fontSize.xs} bg-gray-900 opacity-70 p-2 text-white rounded-md`
 }
 
 const Tooltip: FC<TooltipProps> = ({
@@ -73,7 +73,8 @@ const Tooltip: FC<TooltipProps> = ({
           className={composeClasses(
             colorVariants[variant],
             (startAdornment || endAdornment) &&
-              'flex items-center justify-center gap-1'
+              'flex items-center justify-center gap-1',
+            'z-50'
           )}
         >
           {startAdornment && startAdornment}
