@@ -148,8 +148,8 @@ export * from './Skeleton/TableContentSkeleton'
 
 export * from './Tabs'
 
-export { default as Tags } from './Tags'
-export * from './Tags'
+export { default as Tag } from './Tag'
+export * from './Tag'
 
 export { default as Text } from './Typography/Text'
 export * from './Typography/Text'

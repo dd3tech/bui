@@ -10,7 +10,7 @@ import { Rounded } from 'interfaces/types'
 type Size = 'small' | 'medium' | 'large' | 'extraLarge'
 type Variants = 'primary' | 'secondary' | 'success' | 'warning'
 
-export interface ITagsProps extends React.HTMLProps<HTMLDivElement> {
+export interface ITagProps extends React.HTMLProps<HTMLDivElement> {
   text?: string
   className?: string
   fontSize?: Size
@@ -21,14 +21,14 @@ export interface ITagsProps extends React.HTMLProps<HTMLDivElement> {
   fill?: boolean
 }
 
-const tagsVariants: { [Variants: string]: string } = {
+const tagVariants: { [Variants: string]: string } = {
   primary: 'bg-blue-100 text-blue-700 font-medium',
   warning: 'bg-yellow-50 text-warning font-medium',
   secondary: 'bg-gray-50 text-gray-700 font-medium',
   success: 'bg-green-50 text-green-700 font-medium'
 }
 
-const tagsVariantsWithFill: { [Variants: string]: string } = {
+const tagVariantsWithFill: { [Variants: string]: string } = {
   primary: 'bg-blue-600 text-blue-50 font-semibold',
   warning: 'bg-yellow-600 text-yellow-50 font-semibold',
   secondary: 'bg-gray-200 text-gray-600 font-semibold',
@@ -58,14 +58,14 @@ const getClassNames = (
 ): string => {
   const baseClasses = `inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-${rounded}`
   const variantClasses = fill
-    ? tagsVariantsWithFill[variant]
-    : tagsVariants[variant]
+    ? tagVariantsWithFill[variant]
+    : tagVariants[variant]
   const fontSizeClass = sizeVariants[fontSizeVariant]
 
   return composeClasses(baseClasses, variantClasses, fontSizeClass, className)
 }
 
-const Tags = ({
+const Tag = ({
   text,
   className,
   variant,
@@ -75,12 +75,12 @@ const Tags = ({
   fontSize = 'medium',
   fill = false,
   ...props
-}: ITagsProps) => {
+}: ITagProps) => {
   const classNames = getClassNames(className, variant, fontSize, rounded, fill)
   const classSizeIcon = sizeIcon[fontSize]
 
   return (
-    <div role="container-tags" className={classNames} {...props}>
+    <div role="container-tag" className={classNames} {...props}>
       {Icon && (
         <Icon
           className={composeClasses(classSizeIcon, classNameIcon)}
@@ -93,10 +93,10 @@ const Tags = ({
   )
 }
 
-Tags.displayName = 'Tags'
-Tags.defaultProps = {
+Tag.displayName = 'Tag'
+Tag.defaultProps = {
   text: 'Label tag',
   variant: 'primary'
 }
 
-export default Tags
+export default Tag
