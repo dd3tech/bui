@@ -1,3 +1,10 @@
+# [6.20.0](https://github.com/dd3tech/bui/compare/v6.19.2...v6.20.0) (2024-01-11)
+
+
+### Features
+
+* new component Tag ([#172](https://github.com/dd3tech/bui/issues/172)) ([05a8d90](https://github.com/dd3tech/bui/commit/05a8d9048840dbef9358f49e8cde7e5b0a54fc6e))
+
 ## [6.19.2](https://github.com/dd3tech/bui/compare/v6.19.1...v6.19.2) (2024-01-08)
 
 
