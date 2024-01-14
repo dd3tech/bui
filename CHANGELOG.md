@@ -1,3 +1,10 @@
+## [6.20.1](https://github.com/dd3tech/bui/compare/v6.20.0...v6.20.1) (2024-01-14)
+
+
+### Bug Fixes
+
+* **Tag:** html change in tag component ([#174](https://github.com/dd3tech/bui/issues/174)) ([de8053c](https://github.com/dd3tech/bui/commit/de8053c2332bd418bb563234845eb55d33668d70))
+
 # [6.20.0](https://github.com/dd3tech/bui/compare/v6.19.2...v6.20.0) (2024-01-11)
 
 
