@@ -63,9 +63,11 @@ function InputFile({
   ...otherProps
 }: InputFileProps) {
   const [isDrag, setIsDrag] = useState(false)
+  const disabled = otherProps.disabled
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
+      if (disabled) return
       setIsDrag(false)
       onChange && onChange(event)
     },
@@ -79,12 +81,20 @@ function InputFile({
   }, [error?.message, isDrag, dragMessage, boxMessage])
 
   return (
-    <div role={roleContainer}>
+    <div
+      role={roleContainer}
+      className={composeClasses(disabled && 'cursor-not-allowed')}
+    >
       <Text variant="p" className="mb-2 text-xs text-gray-400">
         {label}{' '}
         <label
           htmlFor={id}
-          className="text-primary underline underline-offset-1 cursor-pointer leading-6"
+          className={
+            composeClasses(
+              'text-primary underline underline-offset-1 leading-6',
+              disabled ? 'cursor-not-allowed' : 'cursor-pointer'
+            ) as string
+          }
         >
           {labelAction}
         </label>
@@ -111,9 +121,15 @@ function InputFile({
             onChange={handleChange}
             onDragEnd={() => setIsDrag(false)}
             onDragLeave={() => setIsDrag(false)}
-            onDragOver={() => setIsDrag(true)}
-            disabled={progressIndicator >= 1}
-            className="opacity-0 absolute top-0 left-0 bottom-0 right-0 cursor-pointer"
+            onDragOver={() => {
+              if (disabled) return
+              setIsDrag(true)
+            }}
+            disabled={progressIndicator >= 1 || disabled}
+            className={composeClasses(
+              'opacity-0 absolute top-0 left-0 bottom-0 right-0',
+              disabled ? 'cursor-not-allowed' : 'cursor-pointer'
+            )}
           />
           <UploadIcon className="w-5 h-5" />
           <div className="flex flex-col gap-1">
@@ -153,6 +169,7 @@ InputFile.defaultProps = {
   dragMessage: 'Suelta aquí',
   id: 'upload',
   label: 'Drag & drop your files or',
+  disabled: false,
   labelAction: 'browse from your device',
   error: {
     show: false,
