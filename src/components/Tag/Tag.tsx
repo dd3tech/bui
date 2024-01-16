@@ -80,7 +80,7 @@ const Tag = ({
   const classSizeIcon = sizeIcon[fontSize]
 
   return (
-    <div role="container-tag" className={classNames} {...props}>
+    <span role="container-tag" className={classNames} {...props}>
       {Icon && (
         <Icon
           className={composeClasses(classSizeIcon, classNameIcon)}
@@ -89,7 +89,7 @@ const Tag = ({
         />
       )}
       {text}
-    </div>
+    </span>
   )
 }
 
