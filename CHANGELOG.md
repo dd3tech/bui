@@ -1,3 +1,10 @@
+# [6.21.0](https://github.com/dd3tech/bui/compare/v6.20.1...v6.21.0) (2024-01-16)
+
+
+### Features
+
+* add default value on text component ([0863391](https://github.com/dd3tech/bui/commit/086339186cc14c6ab9a856c24c56136ea1ef137c))
+
 ## [6.20.1](https://github.com/dd3tech/bui/compare/v6.20.0...v6.20.1) (2024-01-14)
 
 
