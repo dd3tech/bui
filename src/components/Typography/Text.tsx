@@ -61,6 +61,8 @@ export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
   size?: TextSizeType | number | TResponsiveText
   textMuted?: boolean
   textMuted500?: boolean
+  showDefaultValue?: boolean
+  defaultValue?: string
   href?: string
   target?: string
   style?: any
@@ -165,12 +167,18 @@ const rmvUnnecesaryProps = (props: TextProps) => {
   delete props.textColor
   delete props.textMuted
   delete props.textMuted500
+  delete props.showDefaultValue
+  delete props.defaultValue
 }
 
 const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>(
   (textProps: TextProps, ref) => {
     const { ...props } = textProps
 
+    const defaultValue = props.defaultValue || '-'
+    const value = props.children || defaultValue
+
+    props.children = props.showDefaultValue ? value : props.children
     props.className = composeClasses(
       props.className,
       props.align && `text-${props.align}`,

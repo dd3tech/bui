@@ -18,6 +18,7 @@ Default.args = {
   boxMessage: 'PDF Peso máximo por archivo 20 MB',
   dragMessage: 'Suelta aquí',
   id: 'upload',
+  disabled: false,
   label: 'Drag & drop your files or',
   labelAction: 'browse from your device',
   error: {

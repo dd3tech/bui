@@ -29,4 +29,12 @@ describe('<Text/>', () => {
     const { container } = render(<Text children="Responsive" size={'sm'} />)
     expect(container.children[0]).toHaveClass('text-sm')
   })
+  it('should display the default text when showDefaultValue is true and content is empty', () => {
+    const { container } = render(<Text showDefaultValue />)
+    expect(container.children[0]).toHaveTextContent('-')
+  })
+  it('should display the defaultValue text when content is empty and showDefaultValue is true', () => {
+    const { container } = render(<Text showDefaultValue defaultValue="..." />)
+    expect(container.children[0]).toHaveTextContent('...')
+  })
 })
