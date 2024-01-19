@@ -350,6 +350,11 @@
             "module": "./dist/esm/common/Portal/index.js",
             "default": "./dist/esm/common/Portal/index.js"
         },
+        "./Phase": {
+            "require": "./dist/cjs/components/Phase/index.js",
+            "module": "./dist/esm/components/Phase/index.js",
+            "default": "./dist/esm/components/Phase/index.js"
+        },
         "./Progress": {
             "require": "./dist/cjs/components/Progress/index.js",
             "module": "./dist/esm/components/Progress/index.js",
@@ -593,6 +598,9 @@
             ],
             "Portal": [
                 "./dist/esm/common/Portal/index.d.ts"
+            ],
+            "Phase": [
+                "./dist/esm/components/Phase/index.d.ts"
             ],
             "Progress": [
                 "./dist/esm/components/Progress/index.d.ts"
