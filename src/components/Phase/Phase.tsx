@@ -198,7 +198,7 @@ const Phase = ({
 
 Phase.displayName = 'Phase'
 Phase.defaultProps = {
-  title: 'Title phase',
+  title: 'Title',
   variant: 'phases',
   textTag: 'Pending',
   status: 'default'
