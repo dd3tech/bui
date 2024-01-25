@@ -114,6 +114,9 @@ export * from './ProgressBar'
 export { default as ProgressCircle } from './ProgressCircle'
 export * from './ProgressCircle'
 
+export { default as Phase } from './Phase'
+export * from './Phase'
+
 export * from './Radio'
 
 export { default as RangeSlider } from './RangeSlider'
