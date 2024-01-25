@@ -1,3 +1,11 @@
+## [6.21.1](https://github.com/dd3tech/bui/compare/v6.21.0...v6.21.1) (2024-01-25)
+
+
+### Bug Fixes
+
+* add z-index ([75d7621](https://github.com/dd3tech/bui/commit/75d7621f7ccf088cb3de82b057a85bcb44c147c0))
+* moved the z index to the main className ([fe29439](https://github.com/dd3tech/bui/commit/fe294399597d6fa7d159a1ff1b76511863a147dc))
+
 # [6.21.0](https://github.com/dd3tech/bui/compare/v6.20.1...v6.21.0) (2024-01-16)
 
 
