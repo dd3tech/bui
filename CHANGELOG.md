@@ -1,3 +1,16 @@
+# [6.22.0](https://github.com/dd3tech/bui/compare/v6.21.1...v6.22.0) (2024-01-25)
+
+
+### Bug Fixes
+
+* export phase in package.json ([a46e195](https://github.com/dd3tech/bui/commit/a46e195587b1f6071f25792c0d55b424fc014a24))
+* Update value prop title ([8001f88](https://github.com/dd3tech/bui/commit/8001f88317dd8c4eb3d803c69c74b3f346903f01))
+
+
+### Features
+
+* New component phases ([8ff255e](https://github.com/dd3tech/bui/commit/8ff255e31d4ff6955e7bb88d7abef05d84255c90))
+
 ## [6.21.1](https://github.com/dd3tech/bui/compare/v6.21.0...v6.21.1) (2024-01-25)
 
 
