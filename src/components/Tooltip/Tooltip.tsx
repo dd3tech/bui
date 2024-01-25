@@ -73,7 +73,8 @@ const Tooltip: FC<TooltipProps> = ({
           className={composeClasses(
             colorVariants[variant],
             (startAdornment || endAdornment) &&
-              'flex items-center justify-center gap-1'
+              'flex items-center justify-center gap-1',
+            'z-50'
           )}
         >
           {startAdornment && startAdornment}
