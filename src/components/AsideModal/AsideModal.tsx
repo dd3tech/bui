@@ -53,6 +53,10 @@ export interface IAsideModalProps extends ComponentProps<'aside'> {
    * This prop is used to pass a children
    */
   children: ReactNode
+  /**
+   * This prop is used to determine if the title is sticky
+   */
+  isStickyTitle?: boolean
 }
 
 const AsideModal: FC<IAsideModalProps> = ({
@@ -62,6 +66,7 @@ const AsideModal: FC<IAsideModalProps> = ({
   open,
   onClose,
   disableEscapeKeyDown,
+  isStickyTitle,
   children,
   ...otherProps
 }) => {
@@ -90,13 +95,20 @@ const AsideModal: FC<IAsideModalProps> = ({
       className={composeClasses(
         translateByPosition.base,
         isOpen ? translateByPosition.open : translateByPosition.close,
-        'fixed top-0 w-full lg:w-8/12 max-w-5xl h-full px-10 py-7 border-t-0 shadow-lg',
-        'bg-white overflow-auto transform transition-all duration-300 ease-linear z-40'
+        'fixed top-0 w-full lg:w-8/12 pb-7 max-w-5xl h-full px-10 border-t-0 shadow-lg',
+        'bg-white overflow-auto transform transition-all duration-300 ease-linear z-40',
+        !isStickyTitle && 'pt-7'
       )}
       ref={asideModalRef}
       {...otherProps}
     >
-      <Flex justifyContent="between" alignItems="center">
+      <Flex
+        className={composeClasses(
+          isStickyTitle && 'sticky top-0 bg-white pt-7'
+        )}
+        justifyContent="between"
+        alignItems="center"
+      >
         <Text variant={titleVariant} bold>
           {title}
         </Text>
