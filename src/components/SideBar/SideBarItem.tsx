@@ -93,7 +93,7 @@ const ListSubItems = ({
         {subItemsArray?.map(
           (subItem, index: number) =>
             !subItem.hidden && (
-              <div key={`sub-item-${subItem.title}-${index}`}>
+              <div key={`sub-item-${subItem.title}-${index.toString()}`}>
                 <Flex
                   alignItems="center"
                   gap="2"
@@ -205,7 +205,7 @@ const SideBarItem = ({
                       : `${colorActive ?? 'text-gray-500'}`
                   )}
                 >
-                  {icon || <ExclamationCircleIcon />}
+                  {icon ?? <ExclamationCircleIcon />}
                 </Flex>
                 {!!badge && !isExpand && (
                   <div
@@ -220,7 +220,7 @@ const SideBarItem = ({
           }
           variantPopup="dark"
           disabled={isExpand || isOptionClicked}
-          complementPosition={{ top: 55, left: 85 }}
+          complementPosition={{ top: 40, left: 85 }}
         >
           {!disabled ? (
             title
