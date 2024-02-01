@@ -1,3 +1,10 @@
+## [6.22.1](https://github.com/dd3tech/bui/compare/v6.22.0...v6.22.1) (2024-02-01)
+
+
+### Bug Fixes
+
+* **AsideModal:** add prop isStickyTitle ([#178](https://github.com/dd3tech/bui/issues/178)) ([f9e4536](https://github.com/dd3tech/bui/commit/f9e4536d84c4644c1aedf52b1178c3fa218527fe))
+
 # [6.22.0](https://github.com/dd3tech/bui/compare/v6.21.1...v6.22.0) (2024-01-25)
 
 
