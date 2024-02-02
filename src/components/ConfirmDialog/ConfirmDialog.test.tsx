@@ -6,8 +6,7 @@ const onClick = vi.fn(() => 0)
 const defaultProps: IConfirmDialog = {
   title: 'This is a title',
   children: 'Content',
-  onConfirm: onClick,
-  position: { show: true, left: 0, top: 0 }
+  onConfirm: onClick
 }
 
 describe('<FilterSelect/>', () => {
