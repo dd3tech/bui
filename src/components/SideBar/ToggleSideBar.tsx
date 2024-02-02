@@ -31,7 +31,7 @@ const ToggleSideBar = ({
     <div
       role="active-sidebar"
       className={composeClasses(
-        'absolute mx-2 border rounded-full bg-white text-primary cursor-pointer transition-all duration-300 ease-in-out',
+        'absolute mx-2 border rounded-full bg-white text-primary cursor-pointer transition-all duration-300 ease-in-out z-50',
         'focus:bg-primary focus:text-white',
         'hover:bg-blue-50',
         expand && 'right-2',
