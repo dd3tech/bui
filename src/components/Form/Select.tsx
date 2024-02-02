@@ -229,8 +229,6 @@ function Select({
 
   useEffect(() => {
     const handleClickOutside = (e: globalThis.MouseEvent) => {
-      if ((e.target as HTMLElement).getAttribute('role') === 'chevron') return
-
       if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
         setIsOpen(false)
       }

@@ -225,10 +225,10 @@ const SideBar = ({
         ref={sidebarRef}
         role="container-sidebar"
         className={composeClasses(
-          'border-t-0 box-border overflow-hidden h-full border relative z-50',
+          'border-t-0 box-border overflow-hidden h-full border z-50',
           'transition-all delay-75 duration-200 ease-in',
           expand ? 'w-60 min-w-full' : 'w-0 lg:w-14.5 lg:min-w-14.5',
-          isMobile ? 'absolute z-50' : 'relative'
+          isMobile ? 'absolute' : 'relative'
         )}
         style={{
           maxHeight: `calc(100vh - ${sidebarRef.current?.offsetTop}px)`,
