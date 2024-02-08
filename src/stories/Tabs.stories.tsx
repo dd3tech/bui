@@ -75,5 +75,6 @@ TabGroup.args = {
   indicatorColor: 'var(--primary)',
   variant: 'primary',
   wideLine: 3,
-  textColor: 'var(--primary)'
+  textColor: 'var(--primary)',
+  textDisabledColor: '#D1D5DB'
 }

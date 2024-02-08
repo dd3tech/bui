@@ -17,10 +17,13 @@ export interface TabGroupProps {
   orientation?: 'vertical' | 'horizontal'
   wideLine?: number
   width?: number
+  tabWidth?: number
+  tabMinWidth?: number
   childClassName?: string
   indicatorColor?: string
   textColor?: string
-  variant?: 'secondary' | 'primary'
+  textDisabledColor?: string
+  variant?: 'secondary' | 'primary' | 'tertiary'
   className?: string
   fontSize?: 'xs' | 'sm' | 'base' | 'xl' | 'lg'
 }
@@ -64,7 +67,8 @@ const orientationStyle = {
 
 const variantStyle = {
   primary: 'border-gray-200',
-  secondary: 'gap-4'
+  secondary: 'gap-4',
+  tertiary: ''
 }
 
 function TabGroup({
@@ -74,11 +78,14 @@ function TabGroup({
   onChange,
   wideLine = 3.2,
   width,
+  tabWidth,
+  tabMinWidth,
   disabledText,
   childClassName,
   indicatorColor,
   variant = 'primary',
   textColor,
+  textDisabledColor = '#D1D5DB',
   className = '',
   fontSize = 'xs',
   ...otherProps
@@ -139,8 +146,11 @@ function TabGroup({
           value,
           onClick,
           textColor,
+          textDisabledColor,
           variant,
           disabledText,
+          tabWidth,
+          tabMinWidth,
           className: childClassName,
           isVertical: orientation === 'vertical',
           ...child.props
@@ -154,7 +164,10 @@ function TabGroup({
     disabledText,
     childClassName,
     textColor,
+    textDisabledColor,
     variant,
+    tabWidth,
+    tabMinWidth,
     children
   ])
 
@@ -183,7 +196,7 @@ function TabGroup({
       >
         {childrenWithProps()}
       </div>
-      {variant === 'primary' && (
+      {variant !== 'secondary' && (
         <span
           role="indication-bar"
           style={{
