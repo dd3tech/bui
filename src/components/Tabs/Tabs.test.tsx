@@ -15,7 +15,8 @@ const defaultProps: TabGroupProps = {
   indicatorColor: 'rgb(59, 130, 246)',
   variant: 'secondary',
   textColor: 'rgb(59, 130, 246)',
-  wideLine: 3.2
+  wideLine: 3.2,
+  textDisabledColor: 'rgb(209, 213, 219)'
 }
 
 const initialValue = 2
@@ -125,8 +126,43 @@ describe('<TabGroup /> variant="secondary"', () => {
     expect(currentTab.className).toContain('rounded')
     expect(currentTab.className).toContain('border-blue-500')
     expect(currentTab.className).toContain('text-blue-500')
-    expect(disabledTab.className).toContain('text-gray-300')
+    expect(disabledTab.style.color).toContain('rgb(209, 213, 219)')
     expect(disabledTab.className).toContain('font-semibold')
+  })
+})
+
+describe('<TabGroup /> variant="tertiary"', () => {
+  it('<TabGroup /> validation className and props', () => {
+    const props: TabGroupProps = {
+      ...defaultProps,
+      variant: 'tertiary',
+      textColor: 'rgb(89, 22, 201)'
+    }
+    const result = render(<BasicTabs {...props} />)
+    const tabContainer = result.getByRole('tablist')
+
+    expect(tabContainer).toBeDefined()
+    expect(tabContainer.className).toContain('flex-col')
+    expect(tabContainer.className).not.toContain('border')
+  })
+
+  it('<Tab /> validation className and props', () => {
+    const props: TabGroupProps = {
+      ...defaultProps,
+      disabledText: 'rgb(209, 213, 219)',
+      variant: 'tertiary',
+      textColor: 'rgb(89, 22, 201)',
+      tabMinWidth: 120,
+      tabWidth: 150
+    }
+    const result = render(<BasicTabs {...props} />)
+    const currentTab = result.getAllByRole('tab')[initialValue]
+    const disabledTab = result.getByTestId('disabled')
+
+    expect(currentTab.style.color).toContain('rgb(89, 22, 201)')
+    expect(disabledTab.style.color).toContain('rgb(209, 213, 219)')
+    expect(disabledTab.className).toContain('font-semibold')
+    expect(disabledTab.style.minWidth).toContain('120px')
   })
 })
 
