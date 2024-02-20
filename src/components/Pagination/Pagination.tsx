@@ -2,13 +2,7 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import {
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState
-} from 'react'
+import { SetStateAction, useCallback, useMemo, useState } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
@@ -96,10 +90,6 @@ const Pagination = ({
     []
   )
 
-  useEffect(() => {
-    sliceSize && setSize(Number(sliceSize))
-  }, [])
-
   if (totalPages === 0) {
     return <></>
   }
@@ -111,6 +101,7 @@ const Pagination = ({
     >
       <div className="flex items-center">
         {firstText && <Text size="base">{firstText}</Text>}
+
         <select
           role="select-slice-size"
           name="custom-pagination"
