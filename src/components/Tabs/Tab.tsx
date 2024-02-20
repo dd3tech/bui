@@ -10,7 +10,7 @@ interface PrivateProps {
   onChange?: (event: React.MouseEvent<HTMLButtonElement>) => void
   index?: number
   value?: number
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'tertiary'
 }
 
 interface Props
@@ -19,16 +19,20 @@ interface Props
     HTMLButtonElement
   > {
   textColor?: string
+  textDisabledColor?: string
   disabledText?: string
   label: string
   disabled?: boolean
   hidden?: boolean
   isVertical?: boolean
+  tabWidth?: number
+  tabMinWidth?: number
 }
 
 const variantStyle = {
-  secondary: 'border rounded-md py-2 px-5',
-  primary: 'py-3 px-4'
+  secondary: 'border rounded-md py-2 px-5 hover:bg-gray-50',
+  primary: 'py-3 px-4 hover:bg-gray-50',
+  tertiary: ''
 }
 
 const Tab = forwardRef<HTMLButtonElement, Props>(
@@ -39,9 +43,12 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
       onClick,
       disabledText,
       textColor,
+      textDisabledColor,
       className,
       hidden,
       isVertical,
+      tabWidth,
+      tabMinWidth,
       ...otherProps
     },
     ref
@@ -70,10 +77,18 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
           list.push('text-blue-500')
         }
       } else {
-        list.push(disabled ? 'text-gray-300' : 'text-info')
+        list.push(variant !== 'tertiary' ? 'text-info' : undefined)
       }
       return list.join(' ')
     }, [value, variant, disabled])
+
+    const getTextColor = useMemo(() => {
+      return disabled && textDisabledColor
+        ? textDisabledColor
+        : textColor && index === value
+        ? textColor
+        : undefined
+    }, [value, textColor, textDisabledColor, disabled])
 
     return (
       <button
@@ -83,11 +98,12 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
         disabled={disabled}
         onClick={handleClick}
         style={{
-          color: textColor && index === value ? textColor : undefined,
-          minWidth: '132px'
+          color: getTextColor,
+          minWidth: variant !== 'tertiary' ? '132px' : tabMinWidth,
+          width: tabWidth || undefined
         }}
         className={composeClasses(
-          'inline-flex justify-center w-auto flex-wrap border-transparent items-center box-content leading-5 select-none transition-all duration-300 ease-in hover:bg-gray-50 hover:border-blue-400',
+          'inline-flex justify-center w-auto flex-wrap border-transparent items-center box-content leading-5 select-none transition-all duration-300 ease-in hover:border-blue-400',
           isVertical ? 'border-r-3' : 'border-b-3',
           classes,
           variantStyle[variant],
