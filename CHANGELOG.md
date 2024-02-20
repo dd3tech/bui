@@ -1,3 +1,10 @@
+## [6.22.3](https://github.com/dd3tech/bui/compare/v6.22.2...v6.22.3) (2024-02-20)
+
+
+### Bug Fixes
+
+* remove use effect on pagination ([#183](https://github.com/dd3tech/bui/issues/183)) ([673f131](https://github.com/dd3tech/bui/commit/673f13116eaf509c8634d3fbf73cbcf0ac0061f3))
+
 ## [6.22.2](https://github.com/dd3tech/bui/compare/v6.22.1...v6.22.2) (2024-02-20)
 
 
