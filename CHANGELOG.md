@@ -1,3 +1,10 @@
+## [6.22.2](https://github.com/dd3tech/bui/compare/v6.22.1...v6.22.2) (2024-02-20)
+
+
+### Bug Fixes
+
+* added new variant in components tab to isolate primary styles ([#182](https://github.com/dd3tech/bui/issues/182)) ([1b1ef3d](https://github.com/dd3tech/bui/commit/1b1ef3debedba4ea8a9ff4baf476c8fd84e76d0d))
+
 ## [6.22.1](https://github.com/dd3tech/bui/compare/v6.22.0...v6.22.1) (2024-02-01)
 
 
