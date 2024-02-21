@@ -27,10 +27,6 @@ export interface FilterDateProps {
    */
   textResetBtn?: string
   /**
-   * The position in which the ConfirmDialog will be displayed
-   */
-  position?: { show: boolean; left: number; top: number }
-  /**
    * The class name to apply to the ConfirmDialog
    */
   className?: string
@@ -57,7 +53,6 @@ const FilterDate = ({
   title,
   textApplyBtn,
   textResetBtn,
-  position,
   className,
   width,
   language,
@@ -89,7 +84,6 @@ const FilterDate = ({
       onCancel={reset}
       textConfirmBtn={textApplyBtn}
       textCancelBtn={textResetBtn}
-      position={position}
       className={className}
       width={width}
     >

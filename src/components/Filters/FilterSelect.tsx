@@ -36,10 +36,6 @@ export interface IFilterSelect {
    */
   textResetBtn?: string
   /**
-   * The position in which the ConfirmDialog will be displayed
-   */
-  position?: { show: boolean; left: number; top: number }
-  /**
    * The class name to apply to the ConfirmDialog
    */
   className?: string
@@ -64,7 +60,6 @@ const FilterSelect = ({
   selectedValue: defaultValue = '',
   textApplyBtn = 'Apply',
   textResetBtn = 'Reset',
-  position = { show: false, left: 0, top: 0 },
   className,
   width,
   onApply,
@@ -90,7 +85,6 @@ const FilterSelect = ({
       onCancel={reset}
       textConfirmBtn={textApplyBtn}
       textCancelBtn={textResetBtn}
-      position={position}
       className={className}
       width={width}
     >
