@@ -3,11 +3,8 @@
  */
 
 import { ElementType } from 'react'
-import {
-  CheckCircleIcon,
-  SearchCircleIcon,
-  ExclamationIcon
-} from '@heroicons/react/solid'
+import { CheckCircleIcon, ExclamationIcon } from '@heroicons/react/solid'
+import { EyeIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 import Divider from '../Divider'
 import Flex from '../Layout/Flex'
@@ -102,7 +99,11 @@ const phaseStyles: IClassStyles = {
 
 const ICON_STATUS = {
   completed: <CheckCircleIcon className="w-4 h-4 text-green-500" />,
-  onValidation: <SearchCircleIcon className="w-4 h-4 text-blue-500" />,
+  onValidation: (
+    <div className="bg-blue-500 p-0.5 rounded-full">
+      <EyeIcon className="w-3 h-3 text-white" />
+    </div>
+  ),
   missingInformation: <ExclamationIcon className="w-4 h-4 text-yellow-500" />
 }
 
