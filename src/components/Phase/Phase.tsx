@@ -17,7 +17,7 @@ import Text from '../Typography'
 type Status = 'default' | 'active' | 'success' | 'selected' | 'completed'
 type Variants = 'phases' | 'status' | 'quarters'
 type TagVariants = 'primary' | 'secondary' | 'success' | 'warning'
-type IconStatus = 'completed' | 'onValidation' | 'missingInformation'
+type IconStatus = keyof typeof ICON_STATUS
 
 export interface IListItem {
   label: string
@@ -100,17 +100,10 @@ const phaseStyles: IClassStyles = {
   }
 }
 
-const iconStatus = (type: IconStatus) => {
-  switch (type) {
-    case 'completed':
-      return <CheckCircleIcon className="w-4 h-4 text-green-500" />
-    case 'onValidation':
-      return <SearchCircleIcon className="w-4 h-4 text-blue-500" />
-    case 'missingInformation':
-      return <ExclamationIcon className="w-4 h-4 text-yellow-500" />
-    default:
-      return <ExclamationIcon className="w-4 h-4 text-yellow-500" />
-  }
+const ICON_STATUS = {
+  completed: <CheckCircleIcon className="w-4 h-4 text-green-500" />,
+  onValidation: <SearchCircleIcon className="w-4 h-4 text-blue-500" />,
+  missingInformation: <ExclamationIcon className="w-4 h-4 text-yellow-500" />
 }
 
 const Phase = ({
@@ -199,7 +192,7 @@ const Phase = ({
                   <Text variant="p" size="sm" fontBold="medium">
                     {item.label}
                   </Text>
-                  {iconStatus(item.status)}
+                  {ICON_STATUS[item.status]}
                 </Flex>
               ))}
             </Flex>
