@@ -17,7 +17,7 @@ import Text from '../Typography'
 type Status = 'default' | 'active' | 'success' | 'selected' | 'completed'
 type Variants = 'phases' | 'status' | 'quarters'
 type TagVariants = 'primary' | 'secondary' | 'success' | 'warning'
-type IconStatus = keyof typeof ICON_STATUS
+export type IconStatus = keyof typeof ICON_STATUS
 
 export interface IListItem {
   label: string
