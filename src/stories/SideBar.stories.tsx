@@ -17,7 +17,10 @@ const subItems = [
   {
     title: 'SubItem 1',
     active: true,
-    goTo: () => console.log('subItem 1.1')
+    goTo: () => console.log('subItem 1.1'),
+    badge: '3',
+    badgeColor: 'bg-red-500',
+    badgeTextColor: 'text-yellow-50'
   },
   {
     title: 'SubItem 2',
@@ -33,7 +36,8 @@ const subItems = [
         title: 'ChildrenSubItem 1',
         active: false,
         disabled: true,
-        goTo: () => console.log('childrenSubItem 1.1')
+        goTo: () => console.log('childrenSubItem 1.1'),
+        badge: '1'
       },
       {
         title: 'ChildrenSubItem 2',

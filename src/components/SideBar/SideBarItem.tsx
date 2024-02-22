@@ -12,7 +12,7 @@ import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 import Flex from '../Layout/Flex'
 import ToolTipHover from '../ToolTipHover'
-import type { SideBarItemPropsBase } from './SideBar'
+import type { SideBarItemPropsBase, TBadge } from './SideBar'
 import SideBarBadge from './SideBarBadge'
 
 export interface SideBarItemProps extends SideBarItemPropsBase {
@@ -58,6 +58,9 @@ interface ListSubItemsProps {
   isOpen?: SideBarItemProps['isOpen']
   indexItem: number
   isSubSubItem?: boolean
+  badge?: TBadge
+  badgeColor?: string
+  badgeTextColor?: string
 }
 
 const ListSubItems = ({
@@ -97,6 +100,7 @@ const ListSubItems = ({
                 <Flex
                   alignItems="center"
                   gap="2"
+                  // justifyContent="between"
                   className={composeClasses(
                     subItem.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
                     !subItem.subItems &&
@@ -125,6 +129,16 @@ const ListSubItems = ({
                   >
                     {subItem.title}
                   </Text>
+
+                  {subItem?.badge && typeof subItem?.badge !== 'object' ? (
+                    <SideBarBadge
+                      value={subItem?.badge}
+                      badgeColor={subItem?.badgeColor}
+                      badgeTextColor={subItem?.badgeTextColor}
+                    />
+                  ) : (
+                    subItem?.badge
+                  )}
                 </Flex>
                 {subItem.subItems && (
                   <ListSubItems
@@ -277,7 +291,6 @@ const SideBarItem = ({
               ) : (
                 badge
               )}
-
               <div
                 className={composeClasses(
                   'w-4 h-4 ml-2 mr-2.5',
