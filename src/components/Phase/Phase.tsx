@@ -3,7 +3,8 @@
  */
 
 import { ElementType } from 'react'
-import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/react/solid'
+import { CheckCircleIcon, ExclamationIcon } from '@heroicons/react/solid'
+import { EyeIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 import Divider from '../Divider'
 import Flex from '../Layout/Flex'
@@ -13,10 +14,11 @@ import Text from '../Typography'
 type Status = 'default' | 'active' | 'success' | 'selected' | 'completed'
 type Variants = 'phases' | 'status' | 'quarters'
 type TagVariants = 'primary' | 'secondary' | 'success' | 'warning'
+export type IconStatus = keyof typeof ICON_STATUS
 
 export interface IListItem {
   label: string
-  completed: boolean
+  status: IconStatus
 }
 
 export interface IPhaseProps extends React.HTMLProps<HTMLDivElement> {
@@ -93,6 +95,16 @@ const phaseStyles: IClassStyles = {
       icon: 'text-gray-500'
     }
   }
+}
+
+const ICON_STATUS = {
+  completed: <CheckCircleIcon className="w-4 h-4 text-green-500" />,
+  onValidation: (
+    <div className="bg-blue-500 p-0.5 rounded-full">
+      <EyeIcon className="w-3 h-3 text-white" />
+    </div>
+  ),
+  missingInformation: <ExclamationIcon className="w-4 h-4 text-yellow-500" />
 }
 
 const Phase = ({
@@ -181,11 +193,7 @@ const Phase = ({
                   <Text variant="p" size="sm" fontBold="medium">
                     {item.label}
                   </Text>
-                  {item.completed ? (
-                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                  ) : (
-                    <ExclamationCircleIcon className="w-4 h-4 text-yellow-600" />
-                  )}
+                  {ICON_STATUS[item.status]}
                 </Flex>
               ))}
             </Flex>
