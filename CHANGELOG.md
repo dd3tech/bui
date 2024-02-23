@@ -1,3 +1,10 @@
+## [6.22.4](https://github.com/dd3tech/bui/compare/v6.22.3...v6.22.4) (2024-02-23)
+
+
+### Bug Fixes
+
+* different statuses were added in the quarters variant ([#184](https://github.com/dd3tech/bui/issues/184)) ([064b8f1](https://github.com/dd3tech/bui/commit/064b8f1835373d940a6809729d600abbc1ef3141))
+
 ## [6.22.3](https://github.com/dd3tech/bui/compare/v6.22.2...v6.22.3) (2024-02-20)
 
 

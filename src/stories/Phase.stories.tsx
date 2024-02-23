@@ -9,11 +9,11 @@ export default {
 } as ComponentMeta<typeof PhaseComponents>
 
 const data = [
-  { label: 'Anuales', completed: true },
-  { label: '4° Trimestre', completed: true },
-  { label: '3° Trimestre', completed: false },
-  { label: '2° Trimestre', completed: true },
-  { label: '1° Trimestre', completed: false }
+  { label: 'Anuales', status: 'completed' },
+  { label: '4° Trimestre', status: 'missingInformation' },
+  { label: '3° Trimestre', status: 'onValidation' },
+  { label: '2° Trimestre', status: 'completed' },
+  { label: '1° Trimestre', status: 'onValidation' }
 ]
 
 const Template: ComponentStory<typeof PhaseComponents> = (args) => (
