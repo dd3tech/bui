@@ -8,9 +8,9 @@ export default {
 } as ComponentMeta<typeof AutoCompleteComponent>
 
 const testProjectData = [
-  { id: 1, name: 'Veracruz 45' },
+  { id: 1, name: 'Veracruz 45', disabled: true },
   { id: 2, name: 'México 45' },
-  { id: 3, name: 'Xalapa' },
+  { id: 3, name: 'Xalapa', disabled: true },
   { id: 4, name: 'Queretaro 34' },
   { id: 5, name: 'Guadalajara 102' }
 ]
@@ -62,8 +62,9 @@ AutoComplete.args = {
   canFindText: 'sin coincidencias',
   isCloseOnBlur: true,
   loadingText: 'Cargando...',
+  items: testProjectData,
   placeholder: 'search project',
-  disabled: true,
+  disabled: false,
   variant: 'success',
   label: 'Find your project'
 }

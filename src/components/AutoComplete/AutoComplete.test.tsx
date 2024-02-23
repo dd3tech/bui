@@ -189,6 +189,23 @@ describe('<AutoComplete />', () => {
       expect(getByRole('panel').className).toContain('hidden')
     })
 
+    it('should disable list option', () => {
+      const onSelected = vi.fn()
+      const { getAllByRole } = render(
+        <AutoComplete
+          onSelectItem={onSelected}
+          items={[
+            ...testProjectData,
+            { id: 6, name: 'Palapas 30', disabled: true }
+          ]}
+        />
+      )
+
+      fireEvent.click(getAllByRole('row')[5])
+
+      expect(onSelected).not.toHaveBeenCalled()
+    })
+
     describe('should respects the componentsProps if passed', () => {
       it('canFindText is working', () => {
         const canFindText = 'no hay coincidencias'
