@@ -90,7 +90,7 @@ const ListSubItems = ({
         className={composeClasses(
           'flex-col transition-all duration-300 ease-out',
           isOpen ? 'mt-1' : 'max-h-0 overflow-hidden',
-          !isSubSubItem && 'pl-10 ml-4 mb-2'
+          !isSubSubItem && 'pl-10 ml-4'
         )}
       >
         {subItemsArray?.map(
@@ -100,7 +100,6 @@ const ListSubItems = ({
                 <Flex
                   alignItems="center"
                   gap="2"
-                  // justifyContent="between"
                   className={composeClasses(
                     subItem.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
                     !subItem.subItems &&
@@ -129,16 +128,7 @@ const ListSubItems = ({
                   >
                     {subItem.title}
                   </Text>
-
-                  {subItem?.badge && typeof subItem?.badge !== 'object' ? (
-                    <SideBarBadge
-                      value={subItem?.badge}
-                      badgeColor={subItem?.badgeColor}
-                      badgeTextColor={subItem?.badgeTextColor}
-                    />
-                  ) : (
-                    subItem?.badge
-                  )}
+                  {subItem?.badge && subItem?.badge}
                 </Flex>
                 {subItem.subItems && (
                   <ListSubItems
@@ -205,7 +195,7 @@ const SideBarItem = ({
                 justifyContent="center"
                 alignItems="center"
                 className={composeClasses(
-                  'w-10 h-8 relative',
+                  'w-10 h-8 relative mb-2',
                   active && (bgActive ?? 'bg-gray-200')
                 )}
                 style={{ borderRadius: 6 }}
@@ -249,7 +239,7 @@ const SideBarItem = ({
           alignItems="center"
           justifyContent="between"
           className={composeClasses(
-            'w-full rounded-r-md h-8 duration-300 ease-in',
+            'w-full rounded-r-md h-8 duration-300 ease-in mb-2',
             active
               ? `${bgActive ?? 'bg-gray-200'} ${colorActive ?? 'text-gray-900'}`
               : 'text-gray-500',
@@ -279,7 +269,6 @@ const SideBarItem = ({
             )}
             {title}
           </Text>
-
           {(!!badge || !!subItems.length) && (
             <Flex alignItems="center">
               {badge && typeof badge !== 'object' ? (
