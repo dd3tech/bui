@@ -18,9 +18,7 @@ const subItems = [
     title: 'SubItem 1',
     active: true,
     goTo: () => console.log('subItem 1.1'),
-    badge: <div className="bg-red-400 rounded-full w-2.5 h-2.5" />,
-    badgeColor: 'bg-red-500',
-    badgeTextColor: 'text-yellow-50'
+    badge: <div className="bg-red-400 rounded-full w-2.5 h-2.5" />
   },
   {
     title: 'SubItem 2',
