@@ -37,8 +37,6 @@ export interface SideBarItemPropsBase {
   hidden?: boolean
   subItems?: SideBarItemPropsBase[]
   badge?: TBadge
-  badgeColor?: string
-  badgeTextColor?: string
 }
 
 export type SideBarList = SideBarItemPropsBase[]
