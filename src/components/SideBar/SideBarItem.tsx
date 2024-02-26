@@ -59,8 +59,6 @@ interface ListSubItemsProps {
   indexItem: number
   isSubSubItem?: boolean
   badge?: TBadge
-  badgeColor?: string
-  badgeTextColor?: string
 }
 
 const ListSubItems = ({
