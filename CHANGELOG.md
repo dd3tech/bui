@@ -1,3 +1,10 @@
+## [6.22.5](https://github.com/dd3tech/bui/compare/v6.22.4...v6.22.5) (2024-02-27)
+
+
+### Bug Fixes
+
+* change validation day active ([#188](https://github.com/dd3tech/bui/issues/188)) ([cd6383d](https://github.com/dd3tech/bui/commit/cd6383da062d89a406338a5d7bbd510b18f00715))
+
 ## [6.22.4](https://github.com/dd3tech/bui/compare/v6.22.3...v6.22.4) (2024-02-23)
 
 
