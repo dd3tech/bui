@@ -474,7 +474,7 @@ function Calendar({
           const isActive =
             day === selectedDate?.getDate() &&
             selectedDate.getMonth() === currentDate.getMonth() &&
-            currentDate?.getFullYear() === currentDate.getFullYear()
+            selectedDate?.getFullYear() === currentDate.getFullYear()
           const date = new Date(
             currentDate.getFullYear(),
             currentDate.getMonth(),
