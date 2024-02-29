@@ -1,3 +1,10 @@
+# [6.23.0](https://github.com/dd3tech/bui/compare/v6.22.5...v6.23.0) (2024-02-29)
+
+
+### Features
+
+* disable autocomplete option ([#186](https://github.com/dd3tech/bui/issues/186)) ([41c7bd7](https://github.com/dd3tech/bui/commit/41c7bd77dd9cafd86ffc91370f3f44436ca0719c))
+
 ## [6.22.5](https://github.com/dd3tech/bui/compare/v6.22.4...v6.22.5) (2024-02-27)
 
 
