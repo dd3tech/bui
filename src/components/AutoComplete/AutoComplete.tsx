@@ -8,12 +8,14 @@ import ChevronDownIcon from '@heroicons/react/outline/ChevronDownIcon'
 import Divider from 'components/Divider'
 import Text from 'components/Typography'
 import Input, { InputProps } from '../Form/Input'
+import { Flex } from '..'
 
 import { composeClasses } from 'lib/classes'
 
 type Item = {
   name: string
   id: string | number
+  disabled?: boolean
 }
 
 export interface AutoCompleteProps extends InputProps {
@@ -156,14 +158,24 @@ function AutoComplete({
                 <li
                   className="block"
                   role="row"
-                  onClick={() => handleSelectedItem(item as Item)}
+                  onClick={() => {
+                    if (item?.disabled) return
+                    handleSelectedItem(item as Item)
+                  }}
                   key={item.id || key}
                 >
-                  <div className="flex items-center justify-between h-auto p-1 mt-1 mb-1 cursor-pointer">
+                  <Flex
+                    justifyContent="between"
+                    alignItems="center"
+                    className={composeClasses(
+                      item?.disabled && 'text-gray-400 cursor-not-allowed',
+                      'h-auto p-1 mt-1 mb-1 cursor-pointer'
+                    )}
+                  >
                     <Text variant="p" className="font-semibold">
                       {item?.name}
                     </Text>
-                  </div>
+                  </Flex>
                   <Divider light={isSelect} />
                 </li>
               ))}
