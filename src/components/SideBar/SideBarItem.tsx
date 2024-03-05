@@ -220,7 +220,7 @@ const SideBarItem = ({
           }
           variantPopup="dark"
           disabled={isExpand || isOptionClicked}
-          complementPosition={{ top: 55, left: 85 }}
+          complementPosition={{ top: 40, left: 85 }}
         >
           {!disabled ? (
             title
