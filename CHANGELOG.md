@@ -1,3 +1,10 @@
+## [6.23.1](https://github.com/dd3tech/bui/compare/v6.23.0...v6.23.1) (2024-03-05)
+
+
+### Bug Fixes
+
+* change position top tooltip sibebar ([#189](https://github.com/dd3tech/bui/issues/189)) ([8d42f83](https://github.com/dd3tech/bui/commit/8d42f8337e3618e355cf979f8ec0afbe1adc981b))
+
 # [6.23.0](https://github.com/dd3tech/bui/compare/v6.22.5...v6.23.0) (2024-02-29)
 
 
