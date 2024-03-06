@@ -1,7 +1,6 @@
 /*
  * Copyright (c) DD360 and its affiliates.
  */
-
 import {
   ComponentProps,
   FC,
@@ -104,7 +103,7 @@ const AsideModal: FC<IAsideModalProps> = ({
     >
       <Flex
         className={composeClasses(
-          isStickyTitle && 'sticky top-0 bg-white pt-7'
+          isStickyTitle && 'sticky top-0 h-24 z-50 bg-white pt-7'
         )}
         justifyContent="between"
         alignItems="center"
