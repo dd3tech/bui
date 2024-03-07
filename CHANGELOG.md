@@ -1,3 +1,10 @@
+## [6.23.2](https://github.com/dd3tech/bui/compare/v6.23.1...v6.23.2) (2024-03-07)
+
+
+### Bug Fixes
+
+* close dropdown when click outside ([#190](https://github.com/dd3tech/bui/issues/190)) ([10198bd](https://github.com/dd3tech/bui/commit/10198bd93eb409da3483055737a772cd5229b504))
+
 ## [6.23.1](https://github.com/dd3tech/bui/compare/v6.23.0...v6.23.1) (2024-03-05)
 
 
