@@ -102,13 +102,15 @@ const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
 
     case 'a':
       return <a {...props} ref={ref} />
-    case 'currency':
+    case 'currency': {
+      const notEmptyValue = props.children || props.children === 0
       return (
         <p {...props} ref={ref}>
-          {props.children && Number(props.children) < 0 && '-'}
-          {props.children && format(props.children)}
+          {notEmptyValue && Number(props.children) < 0 && '-'}
+          {notEmptyValue && format(props.children)}
         </p>
       )
+    }
     case 'anchorSmall':
       return <a className={`text-xs ${props.className}`} {...props} ref={ref} />
     default:
