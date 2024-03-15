@@ -1,3 +1,10 @@
+## [6.23.3](https://github.com/dd3tech/bui/compare/v6.23.2...v6.23.3) (2024-03-15)
+
+
+### Bug Fixes
+
+* **Text:** added default value when variant is currency ([#191](https://github.com/dd3tech/bui/issues/191)) ([b532ab3](https://github.com/dd3tech/bui/commit/b532ab37bc42bdac5e3993b74ce289ecd5bfda5e))
+
 ## [6.23.2](https://github.com/dd3tech/bui/compare/v6.23.1...v6.23.2) (2024-03-07)
 
 
