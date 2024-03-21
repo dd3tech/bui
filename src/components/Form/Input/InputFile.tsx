@@ -78,7 +78,7 @@ function InputFile({
     if (error?.show && error.message) return error?.message
     if (isDrag) return dragMessage
     return boxMessage
-  }, [error?.message, isDrag, dragMessage, boxMessage])
+  }, [error, isDrag, dragMessage, boxMessage])
 
   return (
     <div
