@@ -77,6 +77,8 @@ export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
  * @returns A function that returns a JSX.Element
  */
 const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
+  const notEmptyValue = props?.children || props?.children === 0
+
   switch (props.variant) {
     case 'h1':
       return <h1 {...props} ref={ref} />
@@ -105,8 +107,8 @@ const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
     case 'currency': {
       return (
         <p {...props} ref={ref}>
-          {props.children && Number(props?.children) < 0 && '-'}
-          {props.children && format(props?.children)}
+          {notEmptyValue && Number(props.children) < 0 && '-'}
+          {notEmptyValue && format(props.children)}
         </p>
       )
     }
