@@ -1,3 +1,10 @@
+## [6.23.4](https://github.com/dd3tech/bui/compare/v6.23.3...v6.23.4) (2024-03-21)
+
+
+### Bug Fixes
+
+* changed dependency in function where error message is returned ([#192](https://github.com/dd3tech/bui/issues/192)) ([26a8d48](https://github.com/dd3tech/bui/commit/26a8d48393ddf64af415b1c805045dd8b7a81d11))
+
 ## [6.23.3](https://github.com/dd3tech/bui/compare/v6.23.2...v6.23.3) (2024-03-15)
 
 
