@@ -77,7 +77,7 @@ export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
  * @returns A function that returns a JSX.Element
  */
 const getComponent = (props: TextProps, ref: LegacyRef<any>): JSX.Element => {
-  const notEmptyValue = props?.children || props?.children === 0
+  const notEmptyValue = props.children || props.children === 0
 
   switch (props.variant) {
     case 'h1':
