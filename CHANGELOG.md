@@ -1,3 +1,10 @@
+## [6.23.5](https://github.com/dd3tech/bui/compare/v6.23.4...v6.23.5) (2024-03-22)
+
+
+### Bug Fixes
+
+* **text:** moved const out of the switch ([#193](https://github.com/dd3tech/bui/issues/193)) ([0818658](https://github.com/dd3tech/bui/commit/0818658ceba17a9bbe09f484181e730ad76efd60))
+
 ## [6.23.4](https://github.com/dd3tech/bui/compare/v6.23.3...v6.23.4) (2024-03-21)
 
 
