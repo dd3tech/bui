@@ -195,6 +195,7 @@ function Calendar({
   minDate,
   maxDate
 }: DatePickerProps) {
+  console.log(value)
   const [currentDate, setCurrentDate] = useState(TODAY)
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   const [currentOption, setCurrentOption] = useState<OptionType>(
