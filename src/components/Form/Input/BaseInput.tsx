@@ -97,6 +97,8 @@ export interface InputProps
    * Default = 2
    */
   decimalsLimit?: number
+
+  defaultDate?: Date
 }
 
 const BaseInput = forwardRef<HTMLDivElement, InputProps>(

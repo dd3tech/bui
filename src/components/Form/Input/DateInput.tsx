@@ -71,6 +71,7 @@ function DateInput({
   language,
   disabled,
   variant,
+  defaultDate,
   ...props
 }: InputProps) {
   const [showDatePicker, setShowDatePicker] = useState(false)
@@ -181,6 +182,7 @@ function DateInput({
           </button>
           {showDatePicker && (
             <DatePicker
+              defaultDate={defaultDate}
               language={language}
               onChange={handleDateChange}
               onDaySelected={onDaySelected}

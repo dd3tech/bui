@@ -124,6 +124,7 @@ export interface DatePickerProps {
   onChange?: (newDate: Date) => void
   onlyOf?: OptionType
   onDaySelected?: () => void
+  defaultDate?: Date
 }
 
 const TOTAL_YEARS = 11
@@ -193,9 +194,11 @@ function Calendar({
   onChange,
   onDaySelected,
   minDate,
-  maxDate
+  maxDate,
+  defaultDate
 }: DatePickerProps) {
-  const [currentDate, setCurrentDate] = useState(TODAY)
+  console.log(defaultDate)
+  const [currentDate, setCurrentDate] = useState(defaultDate || TODAY)
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   const [currentOption, setCurrentOption] = useState<OptionType>(
     getInitialOption(onlyOf)
