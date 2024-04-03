@@ -55,6 +55,9 @@ export * from './ConfirmDialog'
 export { default as DatePicker } from './DatePicker'
 export * from './DatePicker'
 
+export { default as DateTimePicker } from './DateTimePicker'
+export * from './DateTimePicker'
+
 export { default as DatePickerWithPortal } from './DatePicker/DatePickerWithPortal'
 export * from './DatePicker/DatePickerWithPortal'
 
