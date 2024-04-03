@@ -78,7 +78,7 @@ function MonthInput({
   const parsedDate = useMemo(() => {
     if (typeof value === 'string' && value.length) {
       const parts = value.split(' ')
-      parts.length >= 2 && new Date(+parts[0], +parts[1])
+      return parts.length >= 2 && new Date(+parts[0], +parts[1])
     }
     return undefined
   }, [value])
@@ -125,7 +125,7 @@ function MonthInput({
           </button>
           {showDatePicker && (
             <DatePicker
-              value={parsedDate}
+              value={parsedDate as Date | undefined}
               language={language}
               onlyOf={pickerType}
               onChange={handleDateChange}
