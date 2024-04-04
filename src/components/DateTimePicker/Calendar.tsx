@@ -5,6 +5,7 @@
 import { useCallback, useState, useMemo, useEffect, CSSProperties } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
+
 import Text from '../Typography/Text'
 
 const monthNames = {
