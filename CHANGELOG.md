@@ -1,3 +1,10 @@
+## [6.23.6](https://github.com/dd3tech/bui/compare/v6.23.5...v6.23.6) (2024-04-04)
+
+
+### Bug Fixes
+
+* imports order rearranged in Calendar DateTimePicker component ([05fe5c8](https://github.com/dd3tech/bui/commit/05fe5c887e1190d2f97f3229461c91d3cb39cd97))
+
 ## [6.23.5](https://github.com/dd3tech/bui/compare/v6.23.4...v6.23.5) (2024-03-22)
 
 
