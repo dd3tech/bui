@@ -2,12 +2,14 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import { useState, ChangeEvent, useCallback, useEffect } from 'react'
+import { useState, ChangeEvent, useCallback, useEffect, useMemo } from 'react'
 import { CalendarIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 
 import BaseInput, { InputProps } from './BaseInput'
 import DatePicker from '../../DatePicker/DatePicker'
+
+export type TypeValue = string | number | null
 
 const monthNames = {
   es: [
@@ -50,9 +52,7 @@ function MonthInput({
 }: InputProps & { pickerType?: 'month' | 'month-year' }) {
   const [showDatePicker, setShowDatePicker] = useState(false)
   const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
-  const [localValue, setLocalValue] = useState<number | string | null>(
-    value as any
-  )
+  const [localValue, setLocalValue] = useState<TypeValue>(value as TypeValue)
   const [displayValue, setDisplayValue] = useState<string | undefined>()
 
   const handleDateChange = useCallback(
@@ -74,6 +74,14 @@ function MonthInput({
     },
     [localValue, onChange]
   )
+
+  const parsedDate: Date | undefined = useMemo(() => {
+    if (typeof value === 'string' && value.length) {
+      const parts = value.split(' ')
+      return parts.length >= 2 ? new Date(+parts[0], +parts[1]) : undefined
+    }
+    return undefined
+  }, [value])
 
   useEffect(() => {
     if (value === '') {
@@ -117,6 +125,7 @@ function MonthInput({
           </button>
           {showDatePicker && (
             <DatePicker
+              value={parsedDate}
               language={language}
               onlyOf={pickerType}
               onChange={handleDateChange}
