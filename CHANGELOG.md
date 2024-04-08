@@ -1,3 +1,10 @@
+## [6.23.7](https://github.com/dd3tech/bui/compare/v6.23.6...v6.23.7) (2024-04-08)
+
+
+### Bug Fixes
+
+* the prop value was added and the date formatting was done on month input cmp ([#196](https://github.com/dd3tech/bui/issues/196)) ([bf1ee67](https://github.com/dd3tech/bui/commit/bf1ee6717683eafd895d0c348e1a1bb2b68db848))
+
 ## [6.23.6](https://github.com/dd3tech/bui/compare/v6.23.5...v6.23.6) (2024-04-04)
 
 
