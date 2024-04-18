@@ -1,3 +1,10 @@
+# [6.24.0](https://github.com/dd3tech/bui/compare/v6.23.7...v6.24.0) (2024-04-18)
+
+
+### Features
+
+* add size prop on switch component ([#197](https://github.com/dd3tech/bui/issues/197)) ([82ec88e](https://github.com/dd3tech/bui/commit/82ec88e7ab690d6a91165bc4f89d1255026d6227))
+
 ## [6.23.7](https://github.com/dd3tech/bui/compare/v6.23.6...v6.23.7) (2024-04-08)
 
 
