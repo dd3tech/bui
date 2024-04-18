@@ -11,19 +11,20 @@ export interface ISwitchProps {
   className?: string
   customIcon?: ReactNode
   text?: string
+  size?: 'sm' | 'lg'
 }
 
 const Switch: FC<ISwitchProps> = forwardRef<HTMLDivElement, ISwitchProps>(
-  ({ toggle, setToggle, customIcon, text, ...props }, ref) => {
+  ({ toggle, setToggle, customIcon, text, size = 'lg', ...props }, ref) => {
     const containerClasses = composeClasses(
-      'w-12 h-6 flex items-center  rounded-full p-1 cursor-pointer transition duration-500',
-      'md:w-16 md:h-8',
+      size === 'lg' ? 'w-12 h-6 md:w-16 md:h-8' : 'w-8 h-4 md:w-12 md:h-6',
+      'flex items-center rounded-full p-1 cursor-pointer transition duration-500',
       toggle ? 'bg-blue-100' : 'bg-gray-300'
     )
 
     const switchClasses = composeClasses(
-      'h-5 w-5 rounded-full shadow-md transform transition-transform duration-500',
-      'md:w-6 md:h-6',
+      size === 'lg' ? 'w-5 h-5 md:w-6 md:h-6' : 'w-4 h-4 md:w-5 md:h-5',
+      'rounded-full shadow-md transform transition-transform duration-500',
       toggle && 'transform translate-x-8',
       toggle ? 'bg-primary' : 'bg-white'
     )
