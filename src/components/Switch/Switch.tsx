@@ -25,7 +25,7 @@ const Switch: FC<ISwitchProps> = forwardRef<HTMLDivElement, ISwitchProps>(
     const switchClasses = composeClasses(
       size === 'lg' ? 'w-5 h-5 md:w-6 md:h-6' : 'w-4 h-4 md:w-5 md:h-5',
       'rounded-full shadow-md transform transition-transform duration-500',
-      toggle && 'transform translate-x-8',
+      toggle && (size === 'lg' ? 'translate-x-8' : 'translate-x-5'),
       toggle ? 'bg-primary' : 'bg-white'
     )
 
