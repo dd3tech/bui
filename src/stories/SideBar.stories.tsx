@@ -17,7 +17,8 @@ const subItems = [
   {
     title: 'SubItem 1',
     active: true,
-    goTo: () => console.log('subItem 1.1')
+    goTo: () => console.log('subItem 1.1'),
+    badge: <div className="bg-red-400 rounded-full w-2.5 h-2.5" />
   },
   {
     title: 'SubItem 2',
@@ -38,7 +39,7 @@ const subItems = [
       {
         title: 'ChildrenSubItem 2',
         active: false,
-        // hidden: true,
+        badge: <div className="bg-yellow-400 rounded-full w-2.5 h-2.5" />,
         goTo: () => console.log('childrenSubItem 1.2')
       }
     ]

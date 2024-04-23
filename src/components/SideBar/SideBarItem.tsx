@@ -12,7 +12,7 @@ import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 import Flex from '../Layout/Flex'
 import ToolTipHover from '../ToolTipHover'
-import type { SideBarItemPropsBase } from './SideBar'
+import type { SideBarItemPropsBase, TBadge } from './SideBar'
 import SideBarBadge from './SideBarBadge'
 
 export interface SideBarItemProps extends SideBarItemPropsBase {
@@ -58,6 +58,7 @@ interface ListSubItemsProps {
   isOpen?: SideBarItemProps['isOpen']
   indexItem: number
   isSubSubItem?: boolean
+  badge?: TBadge
 }
 
 const ListSubItems = ({
@@ -87,7 +88,7 @@ const ListSubItems = ({
         className={composeClasses(
           'flex-col transition-all duration-300 ease-out',
           isOpen ? 'mt-1' : 'max-h-0 overflow-hidden',
-          !isSubSubItem && 'pl-10 ml-4 mb-2'
+          !isSubSubItem && 'pl-10 ml-4'
         )}
       >
         {subItemsArray?.map(
@@ -125,6 +126,7 @@ const ListSubItems = ({
                   >
                     {subItem.title}
                   </Text>
+                  {subItem?.badge && subItem?.badge}
                 </Flex>
                 {subItem.subItems && (
                   <ListSubItems
@@ -191,7 +193,7 @@ const SideBarItem = ({
                 justifyContent="center"
                 alignItems="center"
                 className={composeClasses(
-                  'w-10 h-8 relative',
+                  'w-10 h-8 relative mb-2',
                   active && (bgActive ?? 'bg-gray-200')
                 )}
                 style={{ borderRadius: 6 }}
@@ -235,7 +237,7 @@ const SideBarItem = ({
           alignItems="center"
           justifyContent="between"
           className={composeClasses(
-            'w-full rounded-r-md h-8 duration-300 ease-in',
+            'w-full rounded-r-md h-8 duration-300 ease-in mb-2',
             active
               ? `${bgActive ?? 'bg-gray-200'} ${colorActive ?? 'text-gray-900'}`
               : 'text-gray-500',
@@ -265,7 +267,6 @@ const SideBarItem = ({
             )}
             {title}
           </Text>
-
           {(!!badge || !!subItems.length) && (
             <Flex alignItems="center">
               {badge && typeof badge !== 'object' ? (
@@ -277,7 +278,6 @@ const SideBarItem = ({
               ) : (
                 badge
               )}
-
               <div
                 className={composeClasses(
                   'w-4 h-4 ml-2 mr-2.5',
