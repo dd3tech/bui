@@ -1,3 +1,10 @@
+## [6.24.1](https://github.com/dd3tech/bui/compare/v6.24.0...v6.24.1) (2024-04-23)
+
+
+### Bug Fixes
+
+* added possibility to show sub notifications on sidebar ([#185](https://github.com/dd3tech/bui/issues/185)) ([58adf85](https://github.com/dd3tech/bui/commit/58adf85548bb9fe8177e5496c7de0e43bc19325c))
+
 # [6.24.0](https://github.com/dd3tech/bui/compare/v6.23.7...v6.24.0) (2024-04-18)
 
 
