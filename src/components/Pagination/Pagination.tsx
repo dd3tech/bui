@@ -84,6 +84,7 @@ const Pagination = ({
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
+      e.preventDefault()
       setSize(Number(e.target.value))
       setSelectSliceSize(e.target.value as Pages)
     },
@@ -106,7 +107,7 @@ const Pagination = ({
           role="select-slice-size"
           name="custom-pagination"
           value={selectSliceSize}
-          className="w-12 pl-2 mr-2 outline-none text-primary bg-transparent"
+          className="min-w-12 pl-2 mr-2 outline-none text-primary bg-transparent"
           onChange={(e) => handleChange(e)}
         >
           {options.map((opt) => {
