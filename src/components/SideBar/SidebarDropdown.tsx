@@ -71,6 +71,12 @@ const SidebarDropdown = ({
     setIsOpen(!isOpen)
   }
 
+  const handleButtonCallback = () => {
+    if (!dropdownButtonCallback) return
+    dropdownButtonCallback()
+    setIsOpen(false)
+  }
+
   useEffect(() => {
     if (isOpen && !expand) setIsOpen(false)
   }, [expand])
@@ -146,7 +152,11 @@ const SidebarDropdown = ({
                 alignItems="center"
                 gap="2"
                 className="w-full h-9 p-2 hover:bg-blue-50 transition-all duration-300 ease-in-out cursor-pointer"
-                onClick={item.goTo}
+                onClick={() => {
+                  if (!item.goTo) return
+                  item.goTo()
+                  setIsOpen(false)
+                }}
               >
                 <Text
                   size="sm"
@@ -166,7 +176,7 @@ const SidebarDropdown = ({
             role="sidebar-dropdown-button"
             variant="ghost"
             className="flex justify-center items-center gap-2 h-8 hover:bg-blue-50 transition-all duration-300 ease-in-out cursor-pointer"
-            onClick={dropdownButtonCallback}
+            onClick={handleButtonCallback}
           >
             <Text size="xs" className="underline underline-space">
               {dropdownButtonText}
