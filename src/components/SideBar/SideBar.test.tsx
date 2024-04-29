@@ -6,6 +6,8 @@ import SideBar from './SideBar'
 const dangerZoneCallback = vi.fn()
 const push = vi.fn()
 const flushSync = vi.fn()
+const dropdownButtonCallback = vi.fn()
+const goTo = vi.fn()
 
 const subItems = [
   {
@@ -64,7 +66,17 @@ const props = {
     text: 'Eliminar proyecto',
     active: false,
     callBack: dangerZoneCallback
-  }
+  },
+  activeDropdown: false,
+  dropdownButtonText: 'Create New',
+  dropdownButtonCallback,
+  dropdownList: [
+    {
+      name: 'Dropdown 1',
+      goTo,
+      active: true
+    }
+  ]
 }
 
 describe('<SideBar/>', () => {
@@ -242,5 +254,37 @@ describe('<SideBar/>', () => {
 
   it('bottom element is displayed when included', () => {
     expect(renderResult.getByRole('bottom-element')).toBeDefined()
+  })
+
+  it('display dropdown button', () => {
+    renderResult.rerender(<SideBar {...props} activeDropdown />)
+    expect(renderResult.getByRole('sidebar-dropdown')).toBeDefined()
+  })
+
+  it('dropdown list item callback should be executed', () => {
+    renderResult.rerender(<SideBar {...props} activeDropdown />)
+    const dropdown = renderResult.getByRole('sidebar-dropdown-header')
+    fireEvent.click(dropdown)
+
+    const dropdownItem = renderResult.getByRole('sidebar-dropdown-item-0')
+    fireEvent.click(dropdownItem)
+
+    expect(goTo).toHaveBeenCalled()
+  })
+
+  it('dropdown button callback should be executed', () => {
+    renderResult.rerender(<SideBar {...props} activeDropdown />)
+    const dropdown = renderResult.getByRole('sidebar-dropdown-header')
+    fireEvent.click(dropdown)
+
+    const dropdownBtn = renderResult.getByRole('sidebar-dropdown-button')
+    fireEvent.click(dropdownBtn)
+
+    expect(dropdownButtonCallback).toHaveBeenCalled()
+  })
+
+  it('display skeleton list when is loading', () => {
+    renderResult.rerender(<SideBar {...props} isLoadingSideBarList />)
+    expect(renderResult.getAllByRole('sidebar-list-skeleton')[0]).toBeDefined()
   })
 })

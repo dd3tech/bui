@@ -3,6 +3,10 @@
   -ms-overflow-style: none;
 }
 
+.underline-space {
+  text-underline-offset: 4px;
+}
+
 .hide-scroll::-webkit-scrollbar {
   display: none;
 }
