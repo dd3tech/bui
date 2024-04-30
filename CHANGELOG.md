@@ -1,3 +1,10 @@
+# [6.25.0](https://github.com/dd3tech/bui/compare/v6.24.1...v6.25.0) (2024-04-30)
+
+
+### Features
+
+* added sidebar dropdown ([#198](https://github.com/dd3tech/bui/issues/198)) ([aaacf30](https://github.com/dd3tech/bui/commit/aaacf30b6afaadd7cd109127bac96b1f439442d2))
+
 ## [6.24.1](https://github.com/dd3tech/bui/compare/v6.24.0...v6.24.1) (2024-04-23)
 
 
