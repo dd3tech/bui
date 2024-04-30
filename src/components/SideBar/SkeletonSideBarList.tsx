@@ -15,6 +15,7 @@ const SkeletonSideBarList = ({ childs }: SkeletonSideBarListProps) => {
       {Array.from(Array(childs).keys()).map((key) => (
         <Flex
           key={key}
+          role="sidebar-list-skeleton"
           alignItems="center"
           justifyContent="start"
           gap="1"

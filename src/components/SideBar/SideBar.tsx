@@ -21,6 +21,7 @@ import SideBarHeader from './SideBarHeader'
 import SideBarItem from './SideBarItem'
 import SkeletonSideBarList from './SkeletonSideBarList'
 import ToggleSideBar from './ToggleSideBar'
+import SidebarDropdown from './SidebarDropdown'
 import './sideBar.css'
 
 export type TBadge = string | number | ReactElement
@@ -37,6 +38,12 @@ export interface SideBarItemPropsBase {
   hidden?: boolean
   subItems?: SideBarItemPropsBase[]
   badge?: TBadge
+}
+
+export type SidebarDropdownListItem = {
+  name: string
+  isActive?: boolean
+  goTo?: () => void
 }
 
 export type SideBarList = SideBarItemPropsBase[]
@@ -112,6 +119,26 @@ export interface SideBarProps {
    * Optional object for the styles of the SideBar
    */
   style?: CSSProperties
+  /**
+   * Indicates if the dropdown is active
+   */
+  activeDropdown?: boolean
+  /**
+   * Dropdown button text label
+   */
+  dropdownButtonText?: string
+  /**
+   * Dropdown button callback function
+   */
+  dropdownButtonCallback?: () => void
+  /**
+   * Dropdown list items with name and callback. The isActive property displays an icon next to the name
+   */
+  dropdownList?: {
+    name: string
+    isActive?: boolean
+    goTo?: () => void
+  }[]
 }
 
 const SideBar = ({
@@ -128,7 +155,11 @@ const SideBar = ({
   numSkeletons = 5,
   style,
   renderBottomCmp,
-  dangerZone
+  dangerZone,
+  activeDropdown,
+  dropdownButtonText,
+  dropdownButtonCallback,
+  dropdownList
 }: SideBarProps) => {
   const sidebarRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
@@ -139,7 +170,6 @@ const SideBar = ({
     sideBarList
   )
 
-  const containerHeaderRef = useRef<HTMLDivElement>(null)
   const { isMobile, isMdScreen } = useResize()
 
   const toggleSubMenu = (menuItemIndex: number, subItemIndex?: number) => {
@@ -213,21 +243,13 @@ const SideBar = ({
         />
       )}
 
-      {!expand && isMdScreen && (
-        <ToggleSideBar
-          expand={expand}
-          className="block lg:hidden mt-3"
-          setExpand={setExpand}
-        />
-      )}
-
       <div
         ref={sidebarRef}
         role="container-sidebar"
         className={composeClasses(
-          'border-t-0 box-border overflow-hidden h-full border z-50',
+          'border-t-0 box-border overflow-visible h-full border z-50 group',
           'transition-all delay-75 duration-200 ease-in',
-          expand ? 'w-60 min-w-full' : 'w-0 lg:w-14.5 lg:min-w-14.5',
+          expand ? 'w-60' : 'w-0 lg:w-14.5 lg:min-w-14.5',
           isMobile ? 'absolute' : 'relative'
         )}
         style={{
@@ -237,36 +259,47 @@ const SideBar = ({
           ...style
         }}
       >
+        <ToggleSideBar
+          expand={expand}
+          setExpand={setExpand}
+          alwaysVisible={isMdScreen || isMobile}
+        />
         <Flex
-          className="h-full flex-col transition-all delay-300 ease-out bg-gray-50"
+          className="h-full flex-col transition-all delay-300 ease-out bg-gray-50 overflow-hidden"
           style={{
             maxWidth: 240
           }}
         >
-          <Flex
-            role="container-header"
-            justifyContent="between"
-            alignItems="center"
-            className={composeClasses('w-full h-16 mb-1', expand && 'relative')}
-            ref={containerHeaderRef}
-          >
-            {(!isMdScreen || expand) && (
-              <ToggleSideBar expand={expand} setExpand={setExpand} />
-            )}
-            {expand && (
-              <Flex
-                justifyContent="center"
-                gap="1"
-                className="flex-col col-span-2 p-3 w-full"
-              >
+          {activeDropdown ? (
+            <SidebarDropdown
+              expand={expand}
+              setExpand={setExpand}
+              sideBarName={sideBarName}
+              sideBarSubTitle={sideBarSubTitle}
+              isLoadingHeaderInfo={isLoadingHeaderInfo}
+              dropdownButtonText={dropdownButtonText}
+              dropdownButtonCallback={dropdownButtonCallback}
+              dropdownList={dropdownList}
+            />
+          ) : (
+            <Flex
+              role="container-header"
+              justifyContent="between"
+              alignItems="center"
+              className={composeClasses(
+                'w-full h-16 mb-1',
+                expand && 'relative'
+              )}
+            >
+              {expand && (
                 <SideBarHeader
                   sideBarName={sideBarName}
                   sideBarSubTitle={sideBarSubTitle}
                   isLoadingHeaderInfo={isLoadingHeaderInfo}
                 />
-              </Flex>
-            )}
-          </Flex>
+              )}
+            </Flex>
+          )}
           <div
             role="list-options"
             className="hide-scroll overflow-y-auto overflow-x-hidden flex-grow mx-2"

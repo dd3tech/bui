@@ -145,5 +145,23 @@ SideBar.args = {
   dangerZone: { show: true, text: 'Eliminar proyecto', active: false },
   flushSync: () => console.log('Hello'),
   isLoadingHeaderInfo: false,
-  isLoadingSideBarList: false
+  isLoadingSideBarList: false,
+  activeDropdown: true,
+  dropdownButtonText: 'Create New',
+  dropdownButtonCallback: () => console.log('Callback'),
+  dropdownList: [
+    {
+      name: 'Dropdown 1',
+      goTo: () => console.log('Dropdown 1')
+    },
+    {
+      name: 'Dropdown 2',
+      isActive: true,
+      goTo: () => console.log('Dropdown 2')
+    },
+    {
+      name: 'Dropdown 3',
+      goTo: () => console.log('Dropdown 3')
+    }
+  ]
 }

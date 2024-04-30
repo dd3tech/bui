@@ -33,35 +33,41 @@ const SideBarHeader = ({
       gap="1"
       className="flex-col col-span-2 p-3 w-full"
     >
-      {isLoadingHeaderInfo ? (
-        <>
-          <Skeleton rounded="full" className="h-4 w-32" />
-          <Skeleton rounded="full" className="h-3 w-24" />
-        </>
-      ) : (
-        <>
-          <Text
-            variant="span"
-            size="base"
-            bold
-            className="block w-52 letter-spacing-negative capitalize max-h-11 whitespace-nowrap overflow-hidden overflow-ellipsis"
-            style={{
-              maxWidth: 160
-            }}
-          >
-            {sideBarName}
-          </Text>
-          {sideBarSubTitle && (
+      <Flex
+        justifyContent="center"
+        gap="1"
+        className="flex-col col-span-2 p-3 w-full"
+      >
+        {isLoadingHeaderInfo ? (
+          <>
+            <Skeleton rounded="full" className="h-4 w-32" />
+            <Skeleton rounded="full" className="h-3 w-24" />
+          </>
+        ) : (
+          <>
             <Text
-              variant="small"
-              className="text-blue-600 whitespace-nowrap"
-              style={{ fontSize: '10px' }}
+              variant="span"
+              size="base"
+              bold
+              className="block w-52 letter-spacing-negative capitalize max-h-11 whitespace-nowrap overflow-hidden overflow-ellipsis"
+              style={{
+                maxWidth: 160
+              }}
             >
-              {sideBarSubTitle}
+              {sideBarName}
             </Text>
-          )}
-        </>
-      )}
+            {sideBarSubTitle && (
+              <Text
+                variant="small"
+                className="text-blue-600 whitespace-nowrap"
+                style={{ fontSize: '10px' }}
+              >
+                {sideBarSubTitle}
+              </Text>
+            )}
+          </>
+        )}
+      </Flex>
     </Flex>
   )
 }
