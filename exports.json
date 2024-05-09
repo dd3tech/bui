@@ -186,10 +186,30 @@
       "module": "./dist/esm/components/Kbd/index.js",
       "default": "./dist/esm/components/Kbd/index.js"
     },
-    "./Layout": {
-      "require": "./dist/cjs/components/Layout/index.js",
-      "module": "./dist/esm/components/Layout/index.js",
-      "default": "./dist/esm/components/Layout/index.js"
+    "./Container": {
+      "require": "./dist/cjs/components/Layout/Container/index.js",
+      "module": "./dist/esm/components/Layout/Container/index.js",
+      "default": "./dist/esm/components/Layout/Container/index.js"
+    },
+    "./Flex": {
+      "require": "./dist/cjs/components/Layout/Flex/index.js",
+      "module": "./dist/esm/components/Layout/Flex/index.js",
+      "default": "./dist/esm/components/Layout/Flex/index.js"
+    },
+    "./Row": {
+      "require": "./dist/cjs/components/Layout/Row/index.js",
+      "module": "./dist/esm/components/Layout/Row/index.js",
+      "default": "./dist/esm/components/Layout/Row/index.js"
+    },
+    "./Order": {
+      "require": "./dist/cjs/components/Layout/Order/index.js",
+      "module": "./dist/esm/components/Layout/Order/index.js",
+      "default": "./dist/esm/components/Layout/Order/index.js"
+    },
+    "./Overflow": {
+      "require": "./dist/cjs/components/Layout/Overflow/index.js",
+      "module": "./dist/esm/components/Layout/Overflow/index.js",
+      "default": "./dist/esm/components/Layout/Overflow/index.js"
     },
     "./List": {
       "require": "./dist/cjs/components/List/index.js",
@@ -375,7 +395,11 @@
       "Input": ["./dist/esm/components/Form/Input/index.d.ts"],
       "InputFile": ["./dist/esm/components/Form/InputFile.d.ts"],
       "Kbd": ["./dist/esm/components/Kbd/index.d.ts"],
-      "Layout": ["./dist/esm/components/Layout/index.d.ts"],
+      "Container": ["./dist/esm/components/Layout/Container/index.d.ts"],
+      "Flex": ["./dist/esm/components/Layout/Flex/index.d.ts"],
+      "Row": ["./dist/esm/components/Layout/Row/index.d.ts"],
+      "Order": ["./dist/esm/components/Layout/Order/index.d.ts"],
+      "Overflow": ["./dist/esm/components/Layout/Overflow/index.d.ts"],
       "List": ["./dist/esm/components/List/index.d.ts"],
       "Modal": ["./dist/esm/components/Modal/index.js"],
       "Navbar": ["./dist/esm/components/Navbar/index.d.ts"],
