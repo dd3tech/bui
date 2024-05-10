@@ -1,15 +1,11 @@
 import { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
-import {
-  OfficeBuildingIcon,
-  ChevronUpIcon,
-  ChevronDownIcon,
-  PlusIcon
-} from '@heroicons/react/outline'
+import { OfficeBuildingIcon, PlusIcon } from '@heroicons/react/outline'
 import { CheckCircleIcon } from '@heroicons/react/solid'
 import { composeClasses } from 'lib/classes'
 import {
   Button,
   Circle,
+  Divider,
   Flex,
   Overflow,
   SidebarDropdownListItem,
@@ -44,6 +40,10 @@ interface SidebarDropdownProps {
    */
   dropdownButtonText?: string
   /**
+   * Icon for the dropdown button
+   */
+  dropdownIcon?: ReactNode
+  /**
    * Callback for the dropdown button
    */
   dropdownButtonCallback?: () => void
@@ -60,10 +60,13 @@ const SidebarDropdown = ({
   isLoadingHeaderInfo,
   dropdownList,
   dropdownButtonText,
+  dropdownIcon,
   dropdownButtonCallback,
   setExpand
 }: SidebarDropdownProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const isEmtpyList = !dropdownList?.length
 
   const handleToggleDropdown = () => {
     if (isLoadingHeaderInfo) return
@@ -81,6 +84,17 @@ const SidebarDropdown = ({
     if (isOpen && !expand) setIsOpen(false)
   }, [expand])
 
+  useEffect(() => {
+    const handleClick = () => {
+      if (!isOpen) return
+      setIsOpen(false)
+    }
+    window.addEventListener('mousedown', handleClick)
+    return () => {
+      window.removeEventListener('mousedown', handleClick)
+    }
+  }, [isOpen])
+
   return (
     <div role="sidebar-dropdown" className="relative">
       <div className="p-2">
@@ -96,13 +110,18 @@ const SidebarDropdown = ({
           style={{ height: '60px' }}
           gap={expand ? '2' : '4'}
           onClick={handleToggleDropdown}
+          onMouseDown={(e) => e.stopPropagation()}
         >
           <Circle
             className="p-1 text-blue-700 bg-blue-50 flex-shrink-0"
             width="32px"
             height="32px"
           >
-            <OfficeBuildingIcon className="w-5 h-5 text-gray-500" />
+            {dropdownIcon ? (
+              dropdownIcon
+            ) : (
+              <OfficeBuildingIcon className="w-5 h-5 text-blue-700" />
+            )}
           </Circle>
           <Flex className="flex-col w-32">
             {isLoadingHeaderInfo ? (
@@ -133,14 +152,29 @@ const SidebarDropdown = ({
             justifyContent="center"
             className="flex-col"
           >
-            <ChevronUpIcon className="w-3 h-3 text-gray-500" />
-            <ChevronDownIcon className="w-3 h-3 text-gray-500" />
+            <svg
+              data-slot="icon"
+              fill="none"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              className="w-4 h-4 text-gray-500"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+              ></path>
+            </svg>
           </Flex>
         </Flex>
       </div>
       <Transition show={isOpen} className="absolute top-16 w-full p-2 z-20">
         <Flex
-          className="bg-white h-auto w-full flex-col p-2 border rounded-lg z-50"
+          role="sidebar-dropdown-list"
+          className="bg-white h-auto w-full flex-col p-2 border rounded-lg z-50 shadow-lg"
           style={{ maxHeight: '224px' }}
         >
           <Overflow className="flex-grow">
@@ -166,23 +200,26 @@ const SidebarDropdown = ({
                 </Text>
                 <div className="w-4 flex-shrink-0">
                   {item.isActive && (
-                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
+                    <CheckCircleIcon className="w-4 h-4 text-blue-500" />
                   )}
                 </div>
               </Flex>
             ))}
           </Overflow>
-          <Button
-            role="sidebar-dropdown-button"
-            variant="ghost"
-            className="flex justify-center items-center gap-2 h-8 hover:bg-blue-50 transition-all duration-300 ease-in-out cursor-pointer"
-            onClick={handleButtonCallback}
-          >
-            <Text size="xs" className="underline underline-space">
-              {dropdownButtonText}
-            </Text>
-            <PlusIcon className="w-4 h-4" />
-          </Button>
+          <Flex justifyContent="center" className="flex-col">
+            {!isEmtpyList && <Divider light />}
+            <Button
+              role="sidebar-dropdown-button"
+              variant="ghost"
+              className="flex justify-center items-center gap-2 h-8 hover:bg-blue-50 transition-all duration-300 ease-in-out cursor-pointer"
+              onClick={handleButtonCallback}
+            >
+              <Text size="xs" className="underline underline-space">
+                {dropdownButtonText}
+              </Text>
+              <PlusIcon className="w-4 h-4" />
+            </Button>
+          </Flex>
         </Flex>
       </Transition>
     </div>
