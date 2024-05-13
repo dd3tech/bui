@@ -1,3 +1,10 @@
+## [6.25.1](https://github.com/dd3tech/bui/compare/v6.25.0...v6.25.1) (2024-05-13)
+
+
+### Bug Fixes
+
+* sidebar layout issues ([#201](https://github.com/dd3tech/bui/issues/201)) ([bf8c679](https://github.com/dd3tech/bui/commit/bf8c679aaf6cb8571800558f9cdcadb6c17188c6))
+
 # [6.25.0](https://github.com/dd3tech/bui/compare/v6.24.1...v6.25.0) (2024-04-30)
 
 
