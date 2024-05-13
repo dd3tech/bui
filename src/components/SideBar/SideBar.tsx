@@ -128,6 +128,10 @@ export interface SideBarProps {
    */
   dropdownButtonText?: string
   /**
+   * Icon for the dropdown button
+   */
+  dropdownIcon?: ReactNode
+  /**
    * Dropdown button callback function
    */
   dropdownButtonCallback?: () => void
@@ -159,7 +163,8 @@ const SideBar = ({
   activeDropdown,
   dropdownButtonText,
   dropdownButtonCallback,
-  dropdownList
+  dropdownList,
+  dropdownIcon
 }: SideBarProps) => {
   const sidebarRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null)
@@ -280,6 +285,7 @@ const SideBar = ({
               dropdownButtonText={dropdownButtonText}
               dropdownButtonCallback={dropdownButtonCallback}
               dropdownList={dropdownList}
+              dropdownIcon={dropdownIcon}
             />
           ) : (
             <Flex

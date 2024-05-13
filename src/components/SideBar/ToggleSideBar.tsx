@@ -40,11 +40,7 @@ const ToggleSideBar = ({
         'focus:bg-primary focus:text-white',
         'hover:bg-blue-50',
         'top-1/2 transform -translate-y-1/2',
-        alwaysVisible
-          ? expand
-            ? '-right-5'
-            : '-right-10'
-          : '-right-5 opacity-0 group-hover:opacity-100',
+        alwaysVisible ? (expand ? '-right-5' : '-right-10') : '-right-5',
         className
       )}
       onClick={() => setExpand((prev) => !prev)}

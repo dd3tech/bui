@@ -287,4 +287,20 @@ describe('<SideBar/>', () => {
     renderResult.rerender(<SideBar {...props} isLoadingSideBarList />)
     expect(renderResult.getAllByRole('sidebar-list-skeleton')[0]).toBeDefined()
   })
+
+  it('should close dropdown when clicked outside', () => {
+    renderResult.rerender(<SideBar {...props} activeDropdown />)
+    const dropdown = renderResult.getByRole('sidebar-dropdown-header')
+    const sidebar = renderResult.getByRole('container-sidebar')
+
+    fireEvent.click(dropdown)
+
+    expect(renderResult.getByRole('sidebar-dropdown-list')).toBeDefined()
+
+    fireEvent.mouseDown(sidebar)
+
+    vi.advanceTimersByTime(300)
+
+    expect(renderResult.queryByRole('sidebar-dropdown-list')).toBeNull()
+  })
 })
