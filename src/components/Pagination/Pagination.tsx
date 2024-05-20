@@ -105,7 +105,7 @@ const Pagination = ({
         <select
           role="select-slice-size"
           name="custom-pagination"
-          value={selectSliceSize}
+          value={totalItems <= Number(sliceSize) ? totalItems : selectSliceSize}
           className="w-12 pl-2 mr-2 outline-none text-primary bg-transparent"
           onChange={(e) => handleChange(e)}
         >
