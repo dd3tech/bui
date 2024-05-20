@@ -1,3 +1,10 @@
+## [6.25.2](https://github.com/dd3tech/bui/compare/v6.25.1...v6.25.2) (2024-05-20)
+
+
+### Bug Fixes
+
+* pagination total items ([3d96c60](https://github.com/dd3tech/bui/commit/3d96c606a922a06a61bca500270298973023570a))
+
 ## [6.25.1](https://github.com/dd3tech/bui/compare/v6.25.0...v6.25.1) (2024-05-13)
 
 
