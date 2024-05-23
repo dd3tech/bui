@@ -70,6 +70,7 @@ export * from './Dropdown'
 export { default as FeedBackBox } from './FeedBackBox'
 export * from './FeedBackBox'
 
+export { default as FileViewer } from './FileViewer'
 export * from './FileViewer'
 
 export * from './Filters'

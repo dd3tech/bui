@@ -50,7 +50,11 @@ const IMG_TYPE_LIST = [
   'raw'
 ]
 
-function FileViewer({ children, className, ...otherProps }: FileViewerProps) {
+export function FileViewer({
+  children,
+  className,
+  ...otherProps
+}: FileViewerProps) {
   const hasBgColor = useMemo(() => className?.includes('bg-'), [className])
   return (
     <Portal>
