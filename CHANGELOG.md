@@ -1,3 +1,10 @@
+## [6.25.3](https://github.com/dd3tech/bui/compare/v6.25.2...v6.25.3) (2024-05-23)
+
+
+### Bug Fixes
+
+* export file viewer correctly ([bcc9b5c](https://github.com/dd3tech/bui/commit/bcc9b5c3c0934e25445ef2a3f60790aa43bfbf37))
+
 ## [6.25.2](https://github.com/dd3tech/bui/compare/v6.25.1...v6.25.2) (2024-05-20)
 
 
