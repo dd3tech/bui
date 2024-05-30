@@ -129,7 +129,10 @@ function MonthInput({
               language={language}
               onlyOf={pickerType}
               onChange={handleDateChange}
-              className="absolute top-14 right-0 text-black"
+              className={composeClasses(
+                props?.isCalendar ? 'fixed' : 'absolute top-14 right-0',
+                'text-black'
+              )}
             />
           )}
         </>

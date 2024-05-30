@@ -48,10 +48,9 @@ const WrapperInput = (props: WrapperInputProps) => {
     rounded,
     startAdornment,
     style,
-    variant
+    variant,
+    isCalendar
   } = props
-
-  if (isCell) return <>{children}</>
 
   const { input, text, bgIcon } = inputVariants[variant]
   const styles = {
@@ -69,10 +68,7 @@ const WrapperInput = (props: WrapperInputProps) => {
       !['error', 'success', 'warning'].includes(variant) &&
         isFocused &&
         'border-blue-500',
-      ['error', 'success', 'warning'].includes(variant)
-        ? 'bg-white'
-        : 'bg-gray-50',
-      isDisabled
+      isDisabled && !isCalendar && !isCell
         ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
         : 'hover:bg-white',
       input.borderColor,
@@ -98,7 +94,7 @@ const WrapperInput = (props: WrapperInputProps) => {
             {startAdornment}
           </div>
         )}
-        <div className="w-full relative h-11">
+        <div className="w-full relative h-11 flex items-center">
           {label && (
             <FormLabel
               isLabelScalded={isLabelScalded || isFocused}

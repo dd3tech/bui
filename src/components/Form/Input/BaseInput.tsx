@@ -2,13 +2,7 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import {
-  InputHTMLAttributes,
-  useCallback,
-  useRef,
-  forwardRef,
-  ReactNode
-} from 'react'
+import { InputHTMLAttributes, useRef, forwardRef, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import { useLabelScalded, useInputFocused } from 'hooks'
 import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
@@ -74,6 +68,10 @@ export interface SharedInputProps {
    * Indicates if the input is disabled.
    */
   isDisabled?: boolean
+  /**
+   * Indicates if the input is a calendar.
+   */
+  isCalendar?: boolean
 }
 
 export interface InputProps
@@ -97,6 +95,24 @@ export interface InputProps
    * Default = 2
    */
   decimalsLimit?: number
+}
+
+const handleFocus = (
+  event: React.FocusEvent<HTMLInputElement>,
+  handleFocusOn: () => void,
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
+) => {
+  handleFocusOn()
+  onFocus && onFocus(event)
+}
+
+const handleBlur = (
+  event: React.FocusEvent<HTMLInputElement>,
+  handleFocusOff: () => void,
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
+) => {
+  handleFocusOff()
+  onBlur && onBlur(event)
 }
 
 const BaseInput = forwardRef<HTMLDivElement, InputProps>(
@@ -123,6 +139,7 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
       isRequired,
       disabled,
       isCell,
+      isCalendar = false,
       ...otherProps
     }: InputProps,
     ref
@@ -140,22 +157,6 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
         Boolean(inputRef.current?.value) ||
         Boolean(value?.toLocaleString().length)
     })
-
-    const handleFocus = useCallback(
-      (event: React.FocusEvent<HTMLInputElement>) => {
-        handleFocusOn()
-        onFocus && onFocus(event)
-      },
-      [onFocus]
-    )
-
-    const handleBlur = useCallback(
-      (event: React.FocusEvent<HTMLInputElement>) => {
-        handleFocusOff()
-        onBlur && onBlur(event)
-      },
-      [onBlur]
-    )
 
     return (
       <WrapperInput
@@ -179,27 +180,28 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
         startAdornment={startAdornment}
         style={style}
         variant={variant}
+        isCalendar={isCalendar}
       >
         {isCell ? (
           <input
             {...otherProps}
             placeholder={placeholder}
             className={className}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            onFocus={(event) => handleFocus(event, handleFocusOn, onFocus)}
+            onBlur={(event) => handleBlur(event, handleFocusOff, onBlur)}
             disabled={isDisabled}
             value={value}
           />
         ) : (
           <input
-            ref={inputRef}
             {...otherProps}
+            ref={inputRef}
             placeholder={isLabelScalded ? placeholder : ''}
             className={composeClasses(
               'outline-none w-full h-full font-medium bg-transparent absolute left-0 right-0'
             )}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            onFocus={(event) => handleFocus(event, handleFocusOn, onFocus)}
+            onBlur={(event) => handleBlur(event, handleFocusOff, onBlur)}
             disabled={isDisabled}
             value={value}
             style={{
