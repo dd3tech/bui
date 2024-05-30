@@ -2,7 +2,13 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import { InputHTMLAttributes, useRef, forwardRef, ReactNode } from 'react'
+import {
+  InputHTMLAttributes,
+  useRef,
+  forwardRef,
+  ReactNode,
+  useCallback
+} from 'react'
 import { composeClasses } from 'lib/classes'
 import { useLabelScalded, useInputFocused } from 'hooks'
 import { Padding, Rounded, ShadowVariants } from '../../../interfaces/types'
@@ -97,24 +103,6 @@ export interface InputProps
   decimalsLimit?: number
 }
 
-const handleFocus = (
-  event: React.FocusEvent<HTMLInputElement>,
-  handleFocusOn: () => void,
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
-) => {
-  handleFocusOn()
-  onFocus && onFocus(event)
-}
-
-const handleBlur = (
-  event: React.FocusEvent<HTMLInputElement>,
-  handleFocusOff: () => void,
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
-) => {
-  handleFocusOff()
-  onBlur && onBlur(event)
-}
-
 const BaseInput = forwardRef<HTMLDivElement, InputProps>(
   (
     {
@@ -158,6 +146,22 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
         Boolean(value?.toLocaleString().length)
     })
 
+    const handleFocus = useCallback(
+      (event: React.FocusEvent<HTMLInputElement>) => {
+        handleFocusOn()
+        onFocus && onFocus(event)
+      },
+      [onFocus]
+    )
+
+    const handleBlur = useCallback(
+      (event: React.FocusEvent<HTMLInputElement>) => {
+        handleFocusOff()
+        onBlur && onBlur(event)
+      },
+      [onBlur]
+    )
+
     return (
       <WrapperInput
         boxShadow={boxShadow}
@@ -187,21 +191,21 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
             {...otherProps}
             placeholder={placeholder}
             className={className}
-            onFocus={(event) => handleFocus(event, handleFocusOn, onFocus)}
-            onBlur={(event) => handleBlur(event, handleFocusOff, onBlur)}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             disabled={isDisabled}
             value={value}
           />
         ) : (
           <input
-            {...otherProps}
             ref={inputRef}
+            {...otherProps}
             placeholder={isLabelScalded ? placeholder : ''}
             className={composeClasses(
               'outline-none w-full h-full font-medium bg-transparent absolute left-0 right-0'
             )}
-            onFocus={(event) => handleFocus(event, handleFocusOn, onFocus)}
-            onBlur={(event) => handleBlur(event, handleFocusOff, onBlur)}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             disabled={isDisabled}
             value={value}
             style={{
