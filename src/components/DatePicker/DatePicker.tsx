@@ -527,7 +527,6 @@ const stopPropagationCalendar = (event: React.MouseEvent) => {
 function DatePicker({ className, style, ...props }: DatePickerProps) {
   return (
     <Card
-      id="date-picker-container"
       style={style}
       role="calendar-container"
       width="fit-content"
