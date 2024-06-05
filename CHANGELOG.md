@@ -1,3 +1,12 @@
+## [6.25.4](https://github.com/dd3tech/bui/compare/v6.25.3...v6.25.4) (2024-06-05)
+
+
+### Bug Fixes
+
+* changes in styles ([76d0180](https://github.com/dd3tech/bui/commit/76d0180a84f1d0f94ed725c1e2e05c54638eef25))
+* return useCallback ([4b8d731](https://github.com/dd3tech/bui/commit/4b8d731373b2a6be5ca91174ee25b58e61319005))
+* the possibility to customize isCell inpuis has been added ([3390d32](https://github.com/dd3tech/bui/commit/3390d326fe501d7ed5785a8b8d6522e947cc22ad))
+
 ## [6.25.3](https://github.com/dd3tech/bui/compare/v6.25.2...v6.25.3) (2024-05-23)
 
 
