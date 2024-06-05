@@ -4,10 +4,10 @@
 
 import {
   InputHTMLAttributes,
-  useCallback,
   useRef,
   forwardRef,
-  ReactNode
+  ReactNode,
+  useCallback
 } from 'react'
 import { composeClasses } from 'lib/classes'
 import { useLabelScalded, useInputFocused } from 'hooks'
@@ -74,6 +74,10 @@ export interface SharedInputProps {
    * Indicates if the input is disabled.
    */
   isDisabled?: boolean
+  /**
+   * Indicates if the input is a calendar.
+   */
+  isCalendar?: boolean
 }
 
 export interface InputProps
@@ -123,6 +127,7 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
       isRequired,
       disabled,
       isCell,
+      isCalendar = false,
       ...otherProps
     }: InputProps,
     ref
@@ -179,6 +184,7 @@ const BaseInput = forwardRef<HTMLDivElement, InputProps>(
         startAdornment={startAdornment}
         style={style}
         variant={variant}
+        isCalendar={isCalendar}
       >
         {isCell ? (
           <input

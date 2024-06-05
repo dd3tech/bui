@@ -51,8 +51,6 @@ const WrapperInput = (props: WrapperInputProps) => {
     variant
   } = props
 
-  if (isCell) return <>{children}</>
-
   const { input, text, bgIcon } = inputVariants[variant]
   const styles = {
     adornment: composeClasses(
@@ -63,18 +61,14 @@ const WrapperInput = (props: WrapperInputProps) => {
       'gap-3 placeholder-gray-400 mt-1 flex items-center justify-between bg-transparent font-medium',
       'border-solid border',
       'transition duration-500 ease-out focus:ease-in',
-      !isDisabled && `hover:shadow-${boxShadow} hover:border-info`,
+      !isDisabled && !isCell && `hover:shadow-${boxShadow} hover:border-info`,
       className && isDisabled && getClassesByPseudoClass(className, 'disabled'),
       rounded && `rounded-${rounded}`,
       !['error', 'success', 'warning'].includes(variant) &&
         isFocused &&
         'border-blue-500',
-      ['error', 'success', 'warning'].includes(variant)
-        ? 'bg-white'
-        : 'bg-gray-50',
-      isDisabled
-        ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-        : 'hover:bg-white',
+      isDisabled && !isCell && 'bg-gray-100 text-gray-400 cursor-not-allowed',
+      !isDisabled && !isCell && 'hover:bg-white',
       input.borderColor,
       padding && `p-${padding}`,
       !padding && paddingX && `px-${paddingX}`,
@@ -98,7 +92,7 @@ const WrapperInput = (props: WrapperInputProps) => {
             {startAdornment}
           </div>
         )}
-        <div className="w-full relative h-11">
+        <div className="w-full relative h-11 flex items-center">
           {label && (
             <FormLabel
               isLabelScalded={isLabelScalded || isFocused}
