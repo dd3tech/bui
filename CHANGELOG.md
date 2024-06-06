@@ -1,3 +1,12 @@
+## [6.25.5](https://github.com/dd3tech/bui/compare/v6.25.4...v6.25.5) (2024-06-06)
+
+
+### Bug Fixes
+
+* added validation to close datepicker ([7235801](https://github.com/dd3tech/bui/commit/723580187787851978589fae6dbb824084c43bf2))
+* remove id date picker ([cd9616d](https://github.com/dd3tech/bui/commit/cd9616df97f6b2dab7fdda306336d324091af33a))
+* restore date picker stories ([90e3e66](https://github.com/dd3tech/bui/commit/90e3e66fc10ff3daae15ae003d43722d9114b8ab))
+
 ## [6.25.4](https://github.com/dd3tech/bui/compare/v6.25.3...v6.25.4) (2024-06-05)
 
 
