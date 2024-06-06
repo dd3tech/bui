@@ -2,7 +2,14 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import { useState, ChangeEvent, useCallback, useEffect, useMemo } from 'react'
+import {
+  useState,
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef
+} from 'react'
 import { CalendarIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 
@@ -54,6 +61,7 @@ function MonthInput({
   const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
   const [localValue, setLocalValue] = useState<TypeValue>(value as TypeValue)
   const [displayValue, setDisplayValue] = useState<string | undefined>()
+  const popupRef = useRef<HTMLDivElement>(null)
 
   const handleDateChange = useCallback(
     (newDate: Date) => {
@@ -83,6 +91,18 @@ function MonthInput({
     return undefined
   }, [value])
 
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
+      if (
+        popupRef.current &&
+        !popupRef.current.contains(event.target as Node)
+      ) {
+        setShowDatePicker(false)
+      }
+    },
+    [popupRef]
+  )
+
   useEffect(() => {
     if (value === '') {
       setDisplayValue(undefined)
@@ -107,6 +127,17 @@ function MonthInput({
     }
   }, [value, pickerType, language])
 
+  useEffect(() => {
+    if (showDatePicker) {
+      document.addEventListener('mousedown', handleClickOutside)
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [showDatePicker])
+
   return (
     <BaseInput
       {...props}
@@ -124,16 +155,18 @@ function MonthInput({
             <CalendarIcon width={24} />
           </button>
           {showDatePicker && (
-            <DatePicker
-              value={parsedDate}
-              language={language}
-              onlyOf={pickerType}
-              onChange={handleDateChange}
-              className={composeClasses(
-                props?.isCalendar ? 'fixed' : 'absolute top-14 right-0',
-                'text-black'
-              )}
-            />
+            <div ref={popupRef}>
+              <DatePicker
+                value={parsedDate}
+                language={language}
+                onlyOf={pickerType}
+                onChange={handleDateChange}
+                className={composeClasses(
+                  props?.isCalendar ? 'fixed' : 'absolute top-14 right-0',
+                  'text-black'
+                )}
+              />
+            </div>
           )}
         </>
       }
