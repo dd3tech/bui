@@ -1,7 +1,8 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { alias } from './alias.config'
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
+const r = (p) => resolve(__dirname, p)
 
 export default defineConfig({
   plugins: [react()],
@@ -23,6 +24,14 @@ export default defineConfig({
     setupFiles: './setupTests.ts'
   },
   resolve: {
-    alias
+    alias: {
+      '@': r('./src'),
+      components: r('./src/components'),
+      common: r('./src/common'),
+      hooks: r('./src/hooks'),
+      interfaces: r('./src/interfaces'),
+      lib: r('./src/lib'),
+      theme: r('./src/theme')
+    }
   }
 })

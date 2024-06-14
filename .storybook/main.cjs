@@ -1,4 +1,4 @@
-const { alias } = require('../alias.config')
+const { alias } = require('../alias.config.cjs')
 
 module.exports = {
     stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
