@@ -207,7 +207,9 @@ const SideBarItem = ({
                       : `${colorActive ?? 'text-gray-500'}`
                   )}
                 >
-                  {icon || <ExclamationCircleIcon />}
+                  <div className="w-6 h-6">
+                    {icon || <ExclamationCircleIcon />}
+                  </div>
                 </Flex>
                 {!!badge && !isExpand && (
                   <div
