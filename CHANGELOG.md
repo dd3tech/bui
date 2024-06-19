@@ -1,3 +1,10 @@
+## [6.25.6](https://github.com/dd3tech/bui/compare/v6.25.5...v6.25.6) (2024-06-19)
+
+
+### Bug Fixes
+
+* added styles to sidebar icon due to safari problems ([#208](https://github.com/dd3tech/bui/issues/208)) ([6d962ae](https://github.com/dd3tech/bui/commit/6d962aed1278d5349ddcf7965bcffee6ebec16c9))
+
 ## [6.25.5](https://github.com/dd3tech/bui/compare/v6.25.4...v6.25.5) (2024-06-06)
 
 
