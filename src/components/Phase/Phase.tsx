@@ -95,7 +95,7 @@ const phaseStyles: IClassStyles = {
       icon: 'text-gray-500'
     }
   }
-}
+} as const
 
 const ICON_STATUS = {
   completed: <CheckCircleIcon className="w-4 h-4 text-green-500" />,
@@ -108,13 +108,13 @@ const ICON_STATUS = {
 }
 
 const Phase = ({
-  title,
+  title = 'Title',
   subtitle,
   numberPhase,
   icon: Icon,
-  variant,
-  status,
-  textTag,
+  variant = 'phases',
+  status = 'default',
+  textTag = 'Pending',
   className,
   listData,
   ...props
@@ -171,7 +171,7 @@ const Phase = ({
         <div>
           <Tag
             text={textTag}
-            variant={classVariant?.tagVariant}
+            variant={classVariant?.tagVariant ?? 'primary'}
             fill={classVariant?.tagFill}
             rounded={variant === 'phases' ? 'xl' : 'md'}
             className="font-semibold"
@@ -205,10 +205,5 @@ const Phase = ({
 }
 
 Phase.displayName = 'Phase'
-Phase.defaultProps = {
-  title: 'Title',
-  variant: 'phases',
-  textTag: 'Pending',
-  status: 'default'
-}
+
 export default Phase
