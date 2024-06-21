@@ -58,7 +58,10 @@ function MonthInput({
   ...props
 }: InputProps & { pickerType?: 'month' | 'month-year' }) {
   const [showDatePicker, setShowDatePicker] = useState(false)
-  const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
+  const handleToggleDatePicker = () => {
+    if (props.disabled) return
+    setShowDatePicker(!showDatePicker)
+  }
   const [localValue, setLocalValue] = useState<TypeValue>(value as TypeValue)
   const [displayValue, setDisplayValue] = useState<string | undefined>()
   const popupRef = useRef<HTMLDivElement>(null)
@@ -142,7 +145,6 @@ function MonthInput({
     <BaseInput
       {...props}
       type="text"
-      disabled
       value={displayValue as any}
       className={composeClasses('relative', className)}
       endAdornment={
@@ -155,15 +157,15 @@ function MonthInput({
             <CalendarIcon width={24} />
           </button>
           {showDatePicker && (
-            <div ref={popupRef}>
+            <div ref={popupRef} style={{ zIndex: 9999999 }}>
               <DatePicker
                 value={parsedDate}
                 language={language}
                 onlyOf={pickerType}
                 onChange={handleDateChange}
                 className={composeClasses(
-                  props?.isCalendar ? 'fixed' : 'absolute top-14 right-0',
-                  'text-black'
+                  'text-black absolute top-12',
+                  props?.isCell ? '-left-20 w-44' : 'left-0 '
                 )}
               />
             </div>
