@@ -1,3 +1,10 @@
+## [6.26.1](https://github.com/dd3tech/bui/compare/v6.26.0...v6.26.1) (2024-06-25)
+
+
+### Bug Fixes
+
+* some corrections were made to the month-year input ([#209](https://github.com/dd3tech/bui/issues/209)) ([f149933](https://github.com/dd3tech/bui/commit/f149933dc5f6efede15205e14b0b3e466075598a))
+
 # [6.26.0](https://github.com/dd3tech/bui/compare/v6.25.6...v6.26.0) (2024-06-25)
 
 
