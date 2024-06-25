@@ -1,3 +1,11 @@
+# [6.26.0](https://github.com/dd3tech/bui/compare/v6.25.6...v6.26.0) (2024-06-25)
+
+
+### Features
+
+* update generate-exports script to use combinePackage.cjs ([#210](https://github.com/dd3tech/bui/issues/210)) ([01814c5](https://github.com/dd3tech/bui/commit/01814c50c32055136d5af0ff29cb701a5cb4cba0))
+* update tailwindcss and vite versions ([#207](https://github.com/dd3tech/bui/issues/207)) ([c6e807a](https://github.com/dd3tech/bui/commit/c6e807a3631f80e5469ba431d576f19587fc0199))
+
 ## [6.25.6](https://github.com/dd3tech/bui/compare/v6.25.5...v6.25.6) (2024-06-19)
 
 
