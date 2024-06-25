@@ -90,7 +90,7 @@ describe('<SideBar/>', () => {
     expect(renderResult.container.firstChild).toBeDefined()
   })
 
-  it('danger zone option is displayed when the show property is true', () => {
+  it('danger zone option is display when the show property is true', () => {
     expect(renderResult.getByRole('danger-zone')).toBeDefined()
   })
 
