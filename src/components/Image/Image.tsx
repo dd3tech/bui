@@ -16,10 +16,10 @@ const Image = ({
   src,
   alt,
   className,
-  rounded,
-  circle,
-  width,
-  height,
+  rounded = 'lg',
+  circle = false,
+  width = 200,
+  height = 200,
   ...props
 }: ImageProps) => {
   return (
@@ -37,11 +37,5 @@ const Image = ({
 }
 
 Image.displayName = 'Image'
-Image.defaultProps = {
-  rounded: 'lg',
-  circle: false,
-  width: 200,
-  height: 200
-}
 
 export default Image

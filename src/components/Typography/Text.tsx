@@ -204,19 +204,5 @@ const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>(
 )
 
 Text.displayName = 'Text'
-Text.defaultProps = {
-  children: undefined,
-  variant: undefined,
-  size: undefined,
-  align: undefined,
-  bold: false,
-  className: undefined,
-  fontBold: undefined,
-  textColor: undefined,
-  textMuted: false,
-  textMuted500: false,
-  href: undefined,
-  target: undefined
-}
 
 export default Text

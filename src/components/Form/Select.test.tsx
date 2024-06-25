@@ -208,35 +208,35 @@ describe('<Select />', () => {
 
     fireEvent.blur(select)
     expect(onBlur).toHaveBeenCalled()
-    it('the options must be displayed when clicking on the select-container and when selecting an option an onChange event must occur', () => {
-      const onChange = vi.fn()
-      const onBlur = vi.fn()
-      const onFocus = vi.fn()
-      const { getByRole, getByText } = render(
-        <Select
-          role="select"
-          optionsList={optionsList}
-          onChange={onChange}
-          onFocus={onFocus}
-          onBlur={onBlur}
-        />
-      )
-      const selectContainer = getByRole('select-container')
-      const select = getByRole('select') as HTMLSelectElement
-      fireEvent.click(select)
+  })
+  it('the options must be displayed when clicking on the select-container and when selecting an option an onChange event must occur', () => {
+    const onChange = vi.fn()
+    const onBlur = vi.fn()
+    const onFocus = vi.fn()
+    const { getByRole, getByText } = render(
+      <Select
+        role="select"
+        optionsList={optionsList}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
+    )
+    const selectContainer = getByRole('select-container')
+    const select = getByRole('select') as HTMLSelectElement
+    fireEvent.click(select)
 
-      fireEvent.focus(select)
-      expect(onFocus).toHaveBeenCalled()
+    fireEvent.focus(select)
+    expect(onFocus).toHaveBeenCalled()
 
-      fireEvent.blur(select)
-      expect(onBlur).toHaveBeenCalled()
+    fireEvent.blur(select)
+    expect(onBlur).toHaveBeenCalled()
 
-      fireEvent.focus(select)
-      expect(selectContainer).toHaveClass('border-blue-500')
-      fireEvent.click(getByText('Option 1'))
-      expect(select.value).toBe('1')
-      expect(onChange).toHaveBeenCalled()
-    })
+    fireEvent.focus(select)
+    expect(selectContainer).toHaveClass('border-blue-500')
+    fireEvent.click(getByText('Option 1'))
+    expect(select.value).toBe('1')
+    expect(onChange).toHaveBeenCalled()
   })
 
   it('should render a message', () => {
