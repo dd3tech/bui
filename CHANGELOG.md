@@ -1,3 +1,10 @@
+## [6.26.2](https://github.com/dd3tech/bui/compare/v6.26.1...v6.26.2) (2024-06-25)
+
+
+### Bug Fixes
+
+* rollback ([fd8adbc](https://github.com/dd3tech/bui/commit/fd8adbcbd5716561133fd7ffb34945c55c9b4053))
+
 ## [6.26.1](https://github.com/dd3tech/bui/compare/v6.26.0...v6.26.1) (2024-06-25)
 
 
