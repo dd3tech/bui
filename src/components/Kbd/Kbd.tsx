@@ -10,7 +10,7 @@ export interface KBDProps {
 }
 
 const Kbd = forwardRef<HTMLElement, KBDProps>((props: KBDProps, ref) => {
-  const { kbds = ['Ctrl', 'Shift', 'R'], separator = '+' } = props
+  const { kbds, separator } = props
 
   const isLastKbd = React.useCallback(
     (indexOfKey: number) => {
@@ -37,5 +37,9 @@ const Kbd = forwardRef<HTMLElement, KBDProps>((props: KBDProps, ref) => {
 })
 
 Kbd.displayName = 'Kbd'
+Kbd.defaultProps = {
+  kbds: ['Ctrl', 'Shift', 'R'],
+  separator: '+'
+}
 
 export default Kbd

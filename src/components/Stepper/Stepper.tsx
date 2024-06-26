@@ -37,11 +37,11 @@ function Stepper({
         className={props.classNameCircularProgress ?? ''}
         styles={{
           text: {
-            fill: props.textColor ?? 'var(--primary)',
+            fill: props.textColor,
             fontSize: props.fontSize
           },
           path: {
-            stroke: props.strokeColor ?? 'var(--primary)'
+            stroke: props.strokeColor
           }
         }}
         strokeWidth={props.strokeWidth}
@@ -53,4 +53,10 @@ function Stepper({
 }
 
 Stepper.displayName = 'Stepper'
+Stepper.defaultProps = {
+  textColor: 'var(--primary)',
+  strokeColor: 'var(--primary)',
+  fontSize: ''
+}
+
 export default Stepper

@@ -79,11 +79,11 @@ const iconsSwitch = (iconType: IBadgeProps['icon'], classNameIcon = '') => {
 }
 
 const Badge = ({
-  text = 'Home Badge',
+  text,
   className,
-  variant = 'primary',
+  variant,
   classNameIcon,
-  icon = 'HomeIcon',
+  icon,
   ...props
 }: IBadgeProps) => {
   const classNameByVariant = badgeVariants[variant]
@@ -107,5 +107,10 @@ const Badge = ({
 }
 
 Badge.displayName = 'Badge'
+Badge.defaultProps = {
+  icon: 'HomeIcon',
+  text: 'Home Badge',
+  variant: 'primary'
+}
 
 export default Badge

@@ -42,7 +42,7 @@ const Pagination = ({
   totalPages,
   totalRows,
   currentPage,
-  sliceSize = '5',
+  sliceSize,
   firstText,
   secondText,
   goToPreviousPage,
@@ -197,5 +197,8 @@ const Pagination = ({
 }
 
 Pagination.displayName = 'Pagination'
+Pagination.defaultProps = {
+  sliceSize: '5'
+} as PaginationProps
 
 export default Pagination

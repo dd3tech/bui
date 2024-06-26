@@ -45,5 +45,11 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
 )
 
 Avatar.displayName = 'Avatar'
+Avatar.defaultProps = {
+  children: undefined,
+  src: undefined,
+  alt: undefined,
+  className: undefined
+}
 
 export default Avatar
