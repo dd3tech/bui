@@ -48,5 +48,9 @@ const ImageIcon = ({
 }
 
 ImageIcon.displayName = 'ImageIcon'
+ImageIcon.defaultProps = {
+  button: false,
+  classNameButton: undefined
+}
 
 export default ImageIcon

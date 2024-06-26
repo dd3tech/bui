@@ -22,7 +22,7 @@ export interface OverFlowProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const OverFlow = forwardRef<HTMLDivElement, OverFlowProps>(
   (overflowProps: OverFlowProps, ref) => {
-    const { children, className, overflow = 'auto', ...props } = overflowProps
+    const { children, className, overflow, ...props } = overflowProps
 
     return (
       <div
@@ -37,5 +37,8 @@ const OverFlow = forwardRef<HTMLDivElement, OverFlowProps>(
 )
 
 OverFlow.displayName = 'OverFlow'
+OverFlow.defaultProps = {
+  overflow: 'auto'
+}
 
 export default OverFlow

@@ -84,15 +84,15 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
   (
     {
-      active = false,
-      animation = true,
-      blur = false,
+      active,
+      animation,
+      blur,
       children,
       className,
-      fullScreen = false,
+      fullScreen,
       height,
       overlay = true,
-      preventClose = false,
+      preventClose,
       setCloseModal,
       width,
       btnClose = true,
@@ -184,5 +184,15 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
 )
 
 Modal.displayName = 'Modal'
+Modal.defaultProps = {
+  active: false,
+  animation: true,
+  children: undefined,
+  className: undefined,
+  overlay: true,
+  blur: false,
+  preventClose: false,
+  fullScreen: false
+}
 
 export default Modal
