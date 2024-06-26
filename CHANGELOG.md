@@ -1,3 +1,11 @@
+## [6.26.3](https://github.com/dd3tech/bui/compare/v6.26.2...v6.26.3) (2024-06-26)
+
+
+### Reverts
+
+* Revert "feat: update tailwindcss and vite versions (#207)" ([a41ead4](https://github.com/dd3tech/bui/commit/a41ead4b922a0e3f9acb9d6b33bf0f75d347f21f)), closes [#207](https://github.com/dd3tech/bui/issues/207)
+* Revert "feat: update generate-exports script to use combinePackage.cjs (#210)" ([9b33df6](https://github.com/dd3tech/bui/commit/9b33df66ccd671b4a84eb1554c57f9e242457f29)), closes [#210](https://github.com/dd3tech/bui/issues/210)
+
 ## [6.26.2](https://github.com/dd3tech/bui/compare/v6.26.1...v6.26.2) (2024-06-25)
 
 
