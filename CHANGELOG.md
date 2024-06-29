@@ -1,3 +1,10 @@
+## [6.26.4](https://github.com/dd3tech/bui/compare/v6.26.3...v6.26.4) (2024-06-29)
+
+
+### Bug Fixes
+
+* add call to action in callout ([8d84c04](https://github.com/dd3tech/bui/commit/8d84c04438292f1ed4885f2893ef95f40bdfcf29))
+
 ## [6.26.3](https://github.com/dd3tech/bui/compare/v6.26.2...v6.26.3) (2024-06-26)
 
 
