@@ -2,7 +2,13 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import { forwardRef, HTMLAttributes, ElementType, useMemo } from 'react'
+import {
+  forwardRef,
+  HTMLAttributes,
+  ElementType,
+  useMemo,
+  ReactNode
+} from 'react'
 import { composeClasses, spacing, borderRadius, border } from 'lib'
 
 import Flex from '../Layout/Flex'
@@ -38,6 +44,12 @@ export interface CalloutProps extends HTMLAttributes<HTMLDivElement> {
    * required.
    */
   title: string
+  /**
+   * This prop is used to render a call-to-action element within the Callout.
+   * It can be a button, link, or any other interactive element that prompts
+   * the user to take a specific action.
+   */
+  callToAction?: ReactNode
 }
 
 const Callout = forwardRef<HTMLDivElement, CalloutProps>((props, ref) => {
@@ -47,6 +59,7 @@ const Callout = forwardRef<HTMLDivElement, CalloutProps>((props, ref) => {
     variant = 'success',
     icon: Icon,
     className,
+    callToAction,
     ...otherProps
   } = props
 
@@ -78,9 +91,12 @@ const Callout = forwardRef<HTMLDivElement, CalloutProps>((props, ref) => {
           {title}
         </Text>
       </Flex>
-      <Text variant="p" size="sm" className={spacing.sm.marginTop}>
-        {description}
-      </Text>
+      <Flex justifyContent="between">
+        <Text variant="p" size="sm" className={spacing.sm.marginTop}>
+          {description}
+        </Text>
+        {callToAction}
+      </Flex>
     </div>
   )
 })
