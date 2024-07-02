@@ -135,11 +135,13 @@ const WrapperInput = (props: WrapperInputProps) => {
           </div>
         )}
       </div>
-      {message && (
-        <p className={composeClasses('text-xs mt-1 ml-2', text.color)}>
-          {message}
-        </p>
-      )}
+      <div className="relative w-full">
+        {message && (
+          <p className={composeClasses('text-xs mt-1', text.color)}>
+            {message}
+          </p>
+        )}
+      </div>
     </>
   )
 }
