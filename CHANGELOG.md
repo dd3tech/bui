@@ -1,3 +1,10 @@
+## [6.26.5](https://github.com/dd3tech/bui/compare/v6.26.4...v6.26.5) (2024-07-02)
+
+
+### Bug Fixes
+
+* change style container message ([fad02c6](https://github.com/dd3tech/bui/commit/fad02c6926536e8139c71ed8db9aa9d406bfc789))
+
 ## [6.26.4](https://github.com/dd3tech/bui/compare/v6.26.3...v6.26.4) (2024-06-29)
 
 
