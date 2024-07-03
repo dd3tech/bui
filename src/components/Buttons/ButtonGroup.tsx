@@ -31,7 +31,7 @@ const ButtonGroup: FC<ButtonGroupProps> = forwardRef<
     children,
     orientation = 'vertical',
     gap = 6,
-    align = 'start',
+    align,
     className,
     ...otherProps
   } = btnGroupProps

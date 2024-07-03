@@ -19,13 +19,13 @@ export interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Card = ({
   children,
-  rounded = 'none',
-  height = 'fit-content',
+  rounded,
+  height,
   width,
-  padding = 4,
+  padding,
   paddingX,
   paddingY,
-  className = '',
+  className,
   style,
   ...otherProps
 }: ICardProps) => {
