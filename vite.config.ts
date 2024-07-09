@@ -5,6 +5,11 @@ import { alias } from './alias.config'
 
 export default defineConfig({
   plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [require('tailwindcss'), require('autoprefixer')]
+    }
+  },
   test: {
     coverage: {
       reporter: [
