@@ -19,12 +19,14 @@ export interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
   classNameContainer?: string
   classNameCircularProgress?: string
 }
-
 function Stepper({
   phase,
   totalPhases,
   width,
   height,
+  textColor = 'var(--primary)',
+  strokeColor = 'var(--primary)',
+  fontSize = '',
   ...props
 }: StepperProps) {
   const valuePercentage = useCallback(() => {
@@ -37,11 +39,11 @@ function Stepper({
         className={props.classNameCircularProgress ?? ''}
         styles={{
           text: {
-            fill: props.textColor,
-            fontSize: props.fontSize
+            fill: textColor,
+            fontSize: fontSize
           },
           path: {
-            stroke: props.strokeColor
+            stroke: strokeColor
           }
         }}
         strokeWidth={props.strokeWidth}
@@ -53,10 +55,5 @@ function Stepper({
 }
 
 Stepper.displayName = 'Stepper'
-Stepper.defaultProps = {
-  textColor: 'var(--primary)',
-  strokeColor: 'var(--primary)',
-  fontSize: ''
-}
 
 export default Stepper

@@ -104,17 +104,17 @@ const ICON_STATUS = {
       <EyeIcon className="w-3 h-3 text-white" />
     </div>
   ),
-  missingInformation: <ExclamationIcon className="w-4 h-4 text-yellow-500" />
+  missingInformation: <ExclamationIcon className="w-4 h-4 text-red-500" />
 }
 
 const Phase = ({
-  title,
+  title = 'Title',
   subtitle,
   numberPhase,
   icon: Icon,
-  variant,
-  status,
-  textTag,
+  variant = 'phases',
+  status = 'default',
+  textTag = 'Pending',
   className,
   listData,
   ...props
@@ -171,7 +171,7 @@ const Phase = ({
         <div>
           <Tag
             text={textTag}
-            variant={classVariant?.tagVariant}
+            variant={classVariant?.tagVariant ?? 'primary'}
             fill={classVariant?.tagFill}
             rounded={variant === 'phases' ? 'xl' : 'md'}
             className="font-semibold"
@@ -205,10 +205,5 @@ const Phase = ({
 }
 
 Phase.displayName = 'Phase'
-Phase.defaultProps = {
-  title: 'Title',
-  variant: 'phases',
-  textTag: 'Pending',
-  status: 'default'
-}
+
 export default Phase
