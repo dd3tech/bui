@@ -37,6 +37,11 @@ export interface InputCurrencyProps extends InputProps {
    * example: 0.5 -> decimalScale = 2 -> 0.50
    */
   decimalScale?: number
+  /**
+   * The maximum number of decimal places allowed in the input value.
+   * Default = 2
+   */
+  decimalsLimit?: number
 }
 
 const getEvent = (e: React.FocusEvent<HTMLInputElement>, prefix: string) => {

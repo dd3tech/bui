@@ -5,7 +5,11 @@
 import { useCallback, useState, useEffect } from 'react'
 import BaseInput, { InputProps } from './BaseInput'
 
-function PercentageInput(props: InputProps) {
+interface PercentageInputProps extends InputProps {
+  decimalsLimit?: number
+}
+
+function PercentageInput(props: PercentageInputProps) {
   const { onChange, value, decimalsLimit = 2 } = props
   const [localValue, setLocalValue] = useState(value || 0)
 
