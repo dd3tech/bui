@@ -2,7 +2,7 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import { CSSProperties, ForwardedRef, forwardRef, ReactNode } from 'react'
+import { CSSProperties, ForwardedRef, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
 import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
@@ -26,7 +26,7 @@ export interface WrapperInputProps extends SharedInputProps {
   children?: ReactNode
 }
 
-const WrapperInput = forwardRef<HTMLDivElement, WrapperInputProps>((props) => {
+const WrapperInput = (props: WrapperInputProps) => {
   const {
     boxShadow,
     children,
@@ -44,11 +44,11 @@ const WrapperInput = forwardRef<HTMLDivElement, WrapperInputProps>((props) => {
     padding,
     paddingX,
     paddingY,
+    ref,
     rounded,
     startAdornment,
     style,
-    variant,
-    ref
+    variant
   } = props
 
   const { input, text, bgIcon } = inputVariants[variant]
@@ -144,6 +144,6 @@ const WrapperInput = forwardRef<HTMLDivElement, WrapperInputProps>((props) => {
       </div>
     </>
   )
-})
+}
 
 export default WrapperInput
