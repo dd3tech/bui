@@ -104,7 +104,7 @@ const ICON_STATUS = {
       <EyeIcon className="w-3 h-3 text-white" />
     </div>
   ),
-  missingInformation: <ExclamationIcon className="w-4 h-4 text-yellow-500" />
+  missingInformation: <ExclamationIcon className="w-4 h-4 text-red-500" />
 }
 
 const Phase = ({
