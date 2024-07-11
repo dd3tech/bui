@@ -108,13 +108,13 @@ const ICON_STATUS = {
 }
 
 const Phase = ({
-  title,
+  title = 'Title',
   subtitle,
   numberPhase,
   icon: Icon,
-  variant,
-  status,
-  textTag,
+  variant = 'phases',
+  status = 'default',
+  textTag = 'Pending',
   className,
   listData,
   ...props
@@ -205,10 +205,5 @@ const Phase = ({
 }
 
 Phase.displayName = 'Phase'
-Phase.defaultProps = {
-  title: 'Title',
-  variant: 'phases',
-  textTag: 'Pending',
-  status: 'default'
-}
+
 export default Phase

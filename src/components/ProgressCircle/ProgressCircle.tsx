@@ -20,14 +20,14 @@ export interface ProgressCircleProps
 }
 
 const ProgressCircle = ({
-  value,
-  colorComplete,
-  colorProgress,
-  colorBackground,
-  strokeWidth,
-  children,
-  classNamePercentage,
-  width
+  value = 100,
+  colorComplete = '#34D399',
+  colorProgress = 'var(--primary)',
+  colorBackground = '#DBEAFE',
+  strokeWidth = 11,
+  children = <p>Completado</p>,
+  classNamePercentage = 'w-full text-center text-3xl',
+  width = 200
 }: ProgressCircleProps) => {
   return (
     <>
@@ -51,15 +51,5 @@ const ProgressCircle = ({
 }
 
 ProgressCircle.displayName = 'ProgressCircle'
-ProgressCircle.defaultProps = {
-  colorComplete: '#34D399',
-  colorProgress: 'var(--primary)',
-  colorBackground: '#DBEAFE',
-  value: 100,
-  strokeWidth: 11,
-  classNamePercentage: 'w-full text-center text-3xl',
-  width: 200,
-  children: <p>Completado</p>
-}
 
 export default ProgressCircle

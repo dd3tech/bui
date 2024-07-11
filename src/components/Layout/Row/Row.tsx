@@ -17,7 +17,15 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Row = forwardRef<HTMLDivElement, RowProps>((rowProps: RowProps, ref) => {
-  const { children, className, cols, md, gap, sm, ...props } = rowProps
+  const {
+    children,
+    className,
+    cols = 4,
+    md = 2,
+    gap = 4,
+    sm = 1,
+    ...props
+  } = rowProps
 
   return (
     <div
@@ -37,12 +45,5 @@ const Row = forwardRef<HTMLDivElement, RowProps>((rowProps: RowProps, ref) => {
 })
 
 Row.displayName = 'Row'
-Row.defaultProps = {
-  cols: 4,
-  md: 2,
-  sm: 1,
-  gap: 4,
-  className: undefined
-}
 
 export default Row
