@@ -171,7 +171,7 @@ const Phase = ({
         <div>
           <Tag
             text={textTag}
-            variant={classVariant?.tagVariant}
+            variant={classVariant?.tagVariant ?? 'primary'}
             fill={classVariant?.tagFill}
             rounded={variant === 'phases' ? 'xl' : 'md'}
             className="font-semibold"
