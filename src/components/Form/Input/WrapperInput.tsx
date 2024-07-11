@@ -1,7 +1,8 @@
 /*
  * Copyright (c) DD360 and its affiliates.
  */
-import { CSSProperties, forwardRef, ReactNode } from 'react'
+
+import { CSSProperties, ForwardedRef, forwardRef, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
 import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
@@ -18,6 +19,7 @@ import { SharedInputProps } from './BaseInput'
 export interface WrapperInputProps extends SharedInputProps {
   isFocused: boolean
   isLabelScalded: boolean
+  ref?: ForwardedRef<HTMLDivElement>
   style?: CSSProperties
   variant: InputVariantType
   className?: string
@@ -25,7 +27,7 @@ export interface WrapperInputProps extends SharedInputProps {
 }
 
 const WrapperInput = forwardRef<HTMLDivElement, WrapperInputProps>(
-  (props, ref) => {
+  (props, ref: ForwardedRef<HTMLDivElement>) => {
     const {
       boxShadow,
       children,
