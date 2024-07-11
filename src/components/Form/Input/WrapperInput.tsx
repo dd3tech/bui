@@ -135,7 +135,7 @@ const WrapperInput = forwardRef<HTMLDivElement, WrapperInputProps>(
             </div>
           )}
         </div>
-        <div className="relative w-full">
+        <div className="w-full">
           {message && (
             <p className={composeClasses('text-xs mt-1', text.color)}>
               {message}
