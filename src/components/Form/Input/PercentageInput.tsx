@@ -5,12 +5,8 @@
 import { useCallback, useState, useEffect } from 'react'
 import BaseInput, { InputProps } from './BaseInput'
 
-function PercentageInput({
-  decimalsLimit = 2,
-  onChange,
-  value,
-  ...props
-}: InputProps) {
+function PercentageInput(props: InputProps) {
+  const { onChange, value, decimalsLimit = 2 } = props
   const [localValue, setLocalValue] = useState(value || 0)
 
   function getRegexDecimal(numDecimals: number) {
@@ -33,7 +29,7 @@ function PercentageInput({
         onChange && onChange(event)
       }
     },
-    [onChange, localValue, decimalsLimit]
+    [onChange, localValue]
   )
   useEffect(() => {
     if (!isNaN(Number(value))) setLocalValue(String(value))
