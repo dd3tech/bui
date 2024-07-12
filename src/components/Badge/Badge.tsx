@@ -19,7 +19,7 @@ import { fontSize } from 'lib/font'
 export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
   text?: string
   className?: string
-  variant:
+  variant?:
     | 'warning'
     | 'infoPrimary'
     | 'infoSecondary'
