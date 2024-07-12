@@ -1,3 +1,14 @@
+## [6.26.6](https://github.com/dd3tech/bui/compare/v6.26.5...v6.26.6) (2024-07-12)
+
+
+### Bug Fixes
+
+* change optional dragMessage props ([ee19115](https://github.com/dd3tech/bui/commit/ee191159b5fad49c04784badd65d978c3681e74c))
+* change optional variant props ([8f4c7f1](https://github.com/dd3tech/bui/commit/8f4c7f17794e693e4e42ae86f879d9ccae82f16a))
+* remove defaultProps ([55fbc9c](https://github.com/dd3tech/bui/commit/55fbc9cf5ee404038a7b0722d762f57d8fee2a8a))
+* remove index to key ([d1527b3](https://github.com/dd3tech/bui/commit/d1527b3bbea3cc00f2d414b35712a35be633e0e4))
+* translations were modified ([efe5577](https://github.com/dd3tech/bui/commit/efe5577104397274f3781f67802f5820edf035ca))
+
 ## [6.26.5](https://github.com/dd3tech/bui/compare/v6.26.4...v6.26.5) (2024-07-02)
 
 
