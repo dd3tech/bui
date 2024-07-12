@@ -27,15 +27,15 @@ function InputFile({
   /**
    * works to put a text as a suffix of the Input box
    */
-  hintText = 'Subir en formato PDF y firmado por todas las partes (si aplica).',
+  hintText = 'Upload in PDF format and signed by all parties (if applicable).',
   /**
    * works to put a custom message to the message when doing dragAnDrop
    */
-  dragMessage = 'Suelta aquí',
+  dragMessage = 'Release here',
   /**
    * Indicates the message that goes in the middle of the box where the files are dropped.
    */
-  boxMessage = 'PDF Peso máximo por archivo 20 MB',
+  boxMessage = 'PDF Maximum weight per file 20 MB',
   /**
    * is a callback to listen for input changes from outside the component.
    */
@@ -61,7 +61,7 @@ function InputFile({
    */
   error = {
     show: false,
-    message: 'Tipo de archivo no permitido o excede el peso máximo'
+    message: 'File type not allowed or exceeds the maximum weight'
   },
   ...otherProps
 }: InputFileProps) {
