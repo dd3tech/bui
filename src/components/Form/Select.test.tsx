@@ -373,7 +373,7 @@ describe('<Select />', () => {
       const select = getByRole('select') as HTMLSelectElement
       fireEvent.click(select)
       expect(getByText('Option 1').className).toContain(
-        'whitespace-nowrap overflow-hidden overflow-ellipsis'
+        'whitespace-nowrap overflow-hidden text-ellipsis'
       )
     })
   })

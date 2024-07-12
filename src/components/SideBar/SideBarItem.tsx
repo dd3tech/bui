@@ -117,7 +117,7 @@ const ListSubItems = ({
                   <Text
                     size="sm"
                     className={composeClasses(
-                      'whitespace-nowrap overflow-hidden overflow-ellipsis my-2',
+                      'whitespace-nowrap overflow-hidden text-ellipsis my-2',
                       subItem.disabled ? 'text-gray-300' : 'text-gray-500',
                       subItem.active &&
                         !subItem.subItems &&
@@ -252,7 +252,7 @@ const SideBarItem = ({
             variant="span"
             size="sm"
             className={composeClasses(
-              'whitespace-nowrap overflow-hidden overflow-ellipsis',
+              'whitespace-nowrap overflow-hidden text-ellipsis',
               disabled && 'text-gray-300'
             )}
           >

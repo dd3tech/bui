@@ -353,7 +353,7 @@ function Select({
                   'cursor-not-allowed opacity-50',
                 key === selectedOpt.value && 'bg-blue-50',
                 itemWidth === 'trimWithEllipsis' &&
-                  'whitespace-nowrap overflow-hidden overflow-ellipsis'
+                  'whitespace-nowrap overflow-hidden text-ellipsis'
               )}
               onClick={() =>
                 handleChange({

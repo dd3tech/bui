@@ -25,7 +25,7 @@ const FormLabel = ({
         zIndex: 1,
         ...getAnimationLabel(isLabelScalded)
       }}
-      className="absolute w-full block text-xs font-medium leading-none text-left whitespace-nowrap overflow-hidden overflow-ellipsis"
+      className="absolute w-full block text-xs font-medium leading-none text-left whitespace-nowrap overflow-hidden text-ellipsis"
     >
       <span
         className={composeClasses(!isDisabled ? 'text-info' : 'text-gray-400')}

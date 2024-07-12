@@ -134,13 +134,13 @@ const SidebarDropdown = ({
                 <Text
                   size="xs"
                   textMuted500
-                  className="whitespace-nowrap overflow-hidden overflow-ellipsis"
+                  className="whitespace-nowrap overflow-hidden text-ellipsis"
                 >
                   {sideBarSubTitle}
                 </Text>
                 <Text
                   size="sm"
-                  className="text-blue-700 whitespace-nowrap overflow-hidden overflow-ellipsis"
+                  className="text-blue-700 whitespace-nowrap overflow-hidden text-ellipsis"
                 >
                   {sideBarName}
                 </Text>
@@ -194,7 +194,7 @@ const SidebarDropdown = ({
               >
                 <Text
                   size="sm"
-                  className="text-gray-700 whitespace-nowrap overflow-hidden overflow-ellipsis"
+                  className="text-gray-700 whitespace-nowrap overflow-hidden text-ellipsis"
                 >
                   {item.name}
                 </Text>

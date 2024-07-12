@@ -49,7 +49,7 @@ const SideBarHeader = ({
               variant="span"
               size="base"
               bold
-              className="block w-52 letter-spacing-negative capitalize max-h-11 whitespace-nowrap overflow-hidden overflow-ellipsis"
+              className="block w-52 letter-spacing-negative capitalize max-h-11 whitespace-nowrap overflow-hidden text-ellipsis"
               style={{
                 maxWidth: 160
               }}

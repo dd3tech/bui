@@ -1,8 +1,10 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode:'class',
+  purge: {
+    content: ['./src/**/*.{js,jsx,ts,tsx}']
+  },
+  darkMode: 'class',
   theme: {
     fontFamily: {
       sans: ['var(--fontFamily)', ...defaultTheme.fontFamily.sans]
@@ -48,6 +50,17 @@ module.exports = {
       boxShadow: {
         base: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)'
       }
+    }
+  },
+  variants: {
+    extend: {
+      backgroundColor: ['responsive', 'hover', 'focus', 'active', 'disabled'],
+      opacity: ['responsive', 'hover', 'focus', 'active', 'disabled'],
+      borderColor: ['disabled'],
+      textColor: ['disabled'],
+      cursor: ['responsive', 'hover', 'focus', 'active', 'disabled'],
+      translate: ['group-hover'],
+      scale: ['group-hover']
     }
   },
   plugins: []
