@@ -1,5 +1,4 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const { darkMode } = require('tailwindcss/stubs/defaultConfig.stub')
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
