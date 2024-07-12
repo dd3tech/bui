@@ -12,7 +12,7 @@ export interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   progressIndicator?: number
   hintText?: string
   boxMessage?: string
-  dragMessage: ReactNode
+  dragMessage?: ReactNode
   label?: string
   labelAction?: string
   error?: { show?: boolean; message?: ReactNode }
