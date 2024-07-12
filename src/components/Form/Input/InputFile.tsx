@@ -12,7 +12,7 @@ export interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   progressIndicator?: number
   hintText?: string
   boxMessage?: string
-  dragMessage: ReactNode
+  dragMessage?: ReactNode
   label?: string
   labelAction?: string
   error?: { show?: boolean; message?: ReactNode }
@@ -27,15 +27,15 @@ function InputFile({
   /**
    * works to put a text as a suffix of the Input box
    */
-  hintText,
+  hintText = 'Upload in PDF format and signed by all parties (if applicable).',
   /**
    * works to put a custom message to the message when doing dragAnDrop
    */
-  dragMessage,
+  dragMessage = 'Release here',
   /**
    * Indicates the message that goes in the middle of the box where the files are dropped.
    */
-  boxMessage,
+  boxMessage = 'PDF Maximum weight per file 20 MB',
   /**
    * is a callback to listen for input changes from outside the component.
    */
@@ -43,15 +43,15 @@ function InputFile({
   /**
    * the id works so that the label is able to reference the input
    */
-  id,
+  id = 'upload',
   /**
    * It is a text message that goes on top of the box
    */
-  label,
+  label = 'Drag & drop your files or',
   /**
    * is the message that works to call the Input and with this upload files from a text button
    */
-  labelAction,
+  labelAction = 'browse from your device',
   /**
    * works to reference the role of the entire component container, which is not an Input, just a container
    */
@@ -59,11 +59,14 @@ function InputFile({
   /**
    * is an object that can receive 2 props: { show: is a boolean to detect if an error exists, message: is the error message }
    */
-  error,
+  error = {
+    show: false,
+    message: 'File type not allowed or exceeds the maximum weight'
+  },
   ...otherProps
 }: InputFileProps) {
   const [isDrag, setIsDrag] = useState(false)
-  const disabled = otherProps.disabled
+  const disabled = otherProps.disabled || false
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -161,20 +164,5 @@ function InputFile({
 }
 
 InputFile.displayValue = 'InputFile'
-
-InputFile.defaultProps = {
-  hintText: 'Subir en formato PDF y firmado por todas las partes (si aplica).',
-  progressIndicator: 0,
-  boxMessage: 'PDF Peso máximo por archivo 20 MB',
-  dragMessage: 'Suelta aquí',
-  id: 'upload',
-  label: 'Drag & drop your files or',
-  disabled: false,
-  labelAction: 'browse from your device',
-  error: {
-    show: false,
-    message: 'Tipo de archivo no permitido o excede el peso máximo'
-  }
-}
 
 export default InputFile

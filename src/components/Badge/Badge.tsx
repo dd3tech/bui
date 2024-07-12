@@ -19,7 +19,7 @@ import { fontSize } from 'lib/font'
 export interface IBadgeProps extends React.HTMLProps<HTMLDivElement> {
   text?: string
   className?: string
-  variant:
+  variant?:
     | 'warning'
     | 'infoPrimary'
     | 'infoSecondary'
@@ -79,11 +79,11 @@ const iconsSwitch = (iconType: IBadgeProps['icon'], classNameIcon = '') => {
 }
 
 const Badge = ({
-  text,
+  text = 'Home Badge',
   className,
-  variant,
+  variant = 'primary',
   classNameIcon,
-  icon,
+  icon = 'HomeIcon',
   ...props
 }: IBadgeProps) => {
   const classNameByVariant = badgeVariants[variant]
@@ -107,10 +107,5 @@ const Badge = ({
 }
 
 Badge.displayName = 'Badge'
-Badge.defaultProps = {
-  icon: 'HomeIcon',
-  text: 'Home Badge',
-  variant: 'primary'
-}
 
 export default Badge

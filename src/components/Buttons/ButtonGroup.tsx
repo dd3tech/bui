@@ -31,7 +31,7 @@ const ButtonGroup: FC<ButtonGroupProps> = forwardRef<
     children,
     orientation = 'vertical',
     gap = 6,
-    align,
+    align = 'start',
     className,
     ...otherProps
   } = btnGroupProps
@@ -53,11 +53,5 @@ const ButtonGroup: FC<ButtonGroupProps> = forwardRef<
 })
 
 ButtonGroup.displayName = 'ButtonGroup'
-ButtonGroup.defaultProps = {
-  align: 'start',
-  orientation: 'vertical',
-  gap: 6,
-  className: undefined
-}
 
 export default ButtonGroup

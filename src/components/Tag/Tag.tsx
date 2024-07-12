@@ -66,9 +66,9 @@ const getClassNames = (
 }
 
 const Tag = ({
-  text,
+  text = 'Label tag',
   className,
-  variant,
+  variant = 'primary',
   classNameIcon,
   icon: Icon,
   rounded = 'md',
@@ -94,9 +94,5 @@ const Tag = ({
 }
 
 Tag.displayName = 'Tag'
-Tag.defaultProps = {
-  text: 'Label tag',
-  variant: 'primary'
-}
 
 export default Tag

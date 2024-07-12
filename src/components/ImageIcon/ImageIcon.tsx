@@ -16,7 +16,7 @@ const ImageIcon = ({
   src,
   className,
   alt,
-  button,
+  button = false,
   buttonOnClick,
   classNameButton,
   ...props
@@ -48,9 +48,5 @@ const ImageIcon = ({
 }
 
 ImageIcon.displayName = 'ImageIcon'
-ImageIcon.defaultProps = {
-  button: false,
-  classNameButton: undefined
-}
 
 export default ImageIcon

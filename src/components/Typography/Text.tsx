@@ -175,7 +175,15 @@ const rmvUnnecesaryProps = (props: TextProps) => {
 }
 
 const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>(
-  (textProps: TextProps, ref) => {
+  (
+    {
+      bold = false,
+      textMuted = false,
+      textMuted500 = false,
+      ...textProps
+    }: TextProps,
+    ref
+  ) => {
     const { ...props } = textProps
 
     const defaultValue = props.defaultValue || '-'
@@ -185,11 +193,11 @@ const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>(
     props.className = composeClasses(
       props.className,
       props.align && `text-${props.align}`,
-      props.bold && 'font-bold',
+      bold && 'font-bold',
       props.fontBold && `font-${props.fontBold}`,
       props.textColor,
-      props.textMuted && 'text-gray-300',
-      props.textMuted500 && 'text-info',
+      textMuted && 'text-gray-300',
+      textMuted500 && 'text-info',
       getFontSizeBySize(props.size),
       props.variant && !props.size && getFontSizeByVariant(props.variant)
     )
@@ -204,19 +212,5 @@ const Text: FC<TextProps> = forwardRef<HTMLElement, TextProps>(
 )
 
 Text.displayName = 'Text'
-Text.defaultProps = {
-  children: undefined,
-  variant: undefined,
-  size: undefined,
-  align: undefined,
-  bold: false,
-  className: undefined,
-  fontBold: undefined,
-  textColor: undefined,
-  textMuted: false,
-  textMuted500: false,
-  href: undefined,
-  target: undefined
-}
 
 export default Text
