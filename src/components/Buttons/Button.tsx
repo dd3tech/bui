@@ -28,6 +28,7 @@ export interface IButtonProps
   rounded?: Rounded
   role?: string
   renderLoading?: LoaderContentProps
+  animation?: 'spin' | 'ping' | 'pulse' | 'bounce'
 }
 
 const LoaderContent: React.FC<LoaderContentProps> = ({
@@ -82,6 +83,7 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
       renderLoading,
       fontWeight = 'bold',
       rounded = 'md',
+      animation,
       ...props
     }: IButtonProps,
     ref
@@ -100,6 +102,7 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
           sizeVariants[size],
           `font-${fontWeight}`,
           `rounded-${rounded}`,
+          animation && `animate-${animation}`,
           className
         )}
         onClick={(e) => {
