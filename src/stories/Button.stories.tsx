@@ -62,3 +62,11 @@ BtnOutlineWhite.args = {
   paddingY: 3,
   className: 'text-base rounded-lg px-'
 }
+
+export const BtnAnimation = Template.bind({})
+BtnAnimation.args = {
+  variant: 'primary',
+  children: 'Primary',
+  animation: 'pulse',
+  onClick: () => console.log('CLICK')
+}
