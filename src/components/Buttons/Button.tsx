@@ -45,19 +45,23 @@ const LoaderContent: React.FC<LoaderContentProps> = ({
 }
 
 const buttonsVariants: { [key: string]: string } = {
-  primary: 'bg-primary text-white hover:bg-blue-800 disabled:bg-gray-300',
+  primary:
+    'bg-primary text-white hover:bg-blue-800 disabled:bg-gray-300 disabled:hover:bg-gray-300',
   secondary:
-    'bg-secondary border border-black hover:bg-white disabled:opacity-20',
+    'bg-secondary border border-black hover:bg-white disabled:opacity-20 disabled:hover:bg-secondary',
   cancel:
-    'bg-white text-black hover:text-white hover:bg-error disabled:opacity-75',
-  error: 'text-white bg-error hover:bg-error disabled:opacity-75',
-  outlineBlue: 'bg-secondary border border-primary text-primary',
-  success: 'bg-success hover:bg-green-600 text-white',
+    'bg-white text-black hover:text-white hover:bg-error disabled:opacity-75 disabled:hover:bg-white',
+  error:
+    'text-white bg-error hover:bg-error disabled:opacity-75 disabled:hover:bg-error',
+  outlineBlue:
+    'bg-secondary border border-primary text-primary hover:border-blue-800 disabled:hover:border-primary',
+  success: 'bg-success hover:bg-green-600 text-white disabled:hover:bg-success',
   outlineWhite:
-    'bg-secondary border border-white text-white hover:bg-gray-50 hover:text-black',
-  danger: 'bg-error hover:bg-error text-white disabled:bg-red-300',
+    'bg-secondary border border-white text-white hover:bg-gray-50 hover:text-black disabled:hover:bg-secondary',
+  danger:
+    'bg-error hover:bg-error text-white disabled:bg-red-300 disabled:hover:bg-red-300',
   outlineWhiteRed:
-    'bg-white border border-error text-error hover:bg-error hover:text-white'
+    'bg-white border border-error text-error hover:bg-error hover:text-white disabled:hover:bg-white'
 }
 
 const sizeVariants: { [key: string]: string } = {
@@ -82,6 +86,7 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
       renderLoading,
       fontWeight = 'bold',
       rounded = 'md',
+      disabled,
       ...props
     }: IButtonProps,
     ref
@@ -91,22 +96,22 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
         ref={ref}
         className={composeClasses(
           'transition duration-500 ease-out',
-          'hover:ease-in',
           padding && `p-${padding}`,
           paddingX && `px-${paddingX}`,
           paddingY && `py-${paddingY}`,
           buttonsVariants[variant],
-          (isLoading || props.disabled) && 'cursor-not-allowed',
+          (isLoading || disabled) && 'cursor-not-allowed',
           sizeVariants[size],
           `font-${fontWeight}`,
           `rounded-${rounded}`,
           className
         )}
         onClick={(e) => {
-          if (!props.disabled && onClick !== undefined && !isLoading) {
+          if (!disabled && onClick !== undefined && !isLoading) {
             onClick(e)
           }
         }}
+        disabled={disabled}
         {...props}
       >
         {isLoading ? <LoaderContent {...renderLoading} /> : children}
