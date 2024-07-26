@@ -1,3 +1,11 @@
+## [6.26.7](https://github.com/dd3tech/bui/compare/v6.26.6...v6.26.7) (2024-07-26)
+
+
+### Bug Fixes
+
+* add className date picker input date ([71e3120](https://github.com/dd3tech/bui/commit/71e312013e110bcc9f08935944262edfa76b6a46))
+* remove className date picker ([74e9002](https://github.com/dd3tech/bui/commit/74e9002e45abba3a2298c1cde6742864834ca650))
+
 ## [6.26.6](https://github.com/dd3tech/bui/compare/v6.26.5...v6.26.6) (2024-07-12)
 
 
