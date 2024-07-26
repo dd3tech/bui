@@ -66,6 +66,7 @@ function changeFormat(date: string) {
 
 function DateInput({
   className,
+  classNameInputDatePicker,
   value,
   onChange,
   language,
@@ -185,7 +186,10 @@ function DateInput({
               onChange={handleDateChange}
               onDaySelected={onDaySelected}
               value={currentDate}
-              className="absolute top-14 right-0 text-black"
+              className={composeClasses(
+                'absolute top-14 right-0 text-black',
+                classNameInputDatePicker
+              )}
               minDate={props.min ? new Date(props.min) : undefined}
               maxDate={props.max ? new Date(props.max) : undefined}
             />
