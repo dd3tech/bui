@@ -124,7 +124,6 @@ export interface DatePickerProps {
   onChange?: (newDate: Date) => void
   onlyOf?: OptionType
   onDaySelected?: () => void
-  classNameInputDatePicker?: string
 }
 
 const TOTAL_YEARS = 11
@@ -525,22 +524,13 @@ const stopPropagationCalendar = (event: React.MouseEvent) => {
   event.stopPropagation()
 }
 
-function DatePicker({
-  className,
-  style,
-  classNameInputDatePicker,
-  ...props
-}: DatePickerProps) {
+function DatePicker({ className, style, ...props }: DatePickerProps) {
   return (
     <Card
       style={style}
       role="calendar-container"
       width="fit-content"
-      className={composeClasses(
-        'p-5 bg-white z-10',
-        className,
-        classNameInputDatePicker
-      )}
+      className={composeClasses('p-5 bg-white z-10', className)}
       rounded="lg"
       onClick={stopPropagationCalendar}
       onMouseDown={stopPropagationCalendar}
