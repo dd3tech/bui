@@ -101,6 +101,11 @@ export interface InputProps
    * Default = 2
    */
   decimalsLimit?: number
+  /**
+   * An optional CSS class to apply to the date picker component.
+   * This allows for customization of the component's appearance through external styles.
+   */
+  classNameInputDatePicker?: string
 }
 
 const BaseInput = forwardRef<HTMLDivElement, InputProps>(
