@@ -159,6 +159,8 @@ function MonthInput({
           {showDatePicker && (
             <div ref={popupRef} style={{ zIndex: 9999999 }}>
               <DatePicker
+                minDate={props.min ? new Date(props.min) : undefined}
+                maxDate={props.max ? new Date(props.max) : undefined}
                 value={parsedDate}
                 language={language}
                 onlyOf={pickerType}
