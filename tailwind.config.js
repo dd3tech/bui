@@ -1,10 +1,9 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  purge: {
-    content: ['./src/**/*.{js,jsx,ts,tsx}']
-  },
+  important: false,
   darkMode: 'class',
+    content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
       sans: ['var(--fontFamily)', ...defaultTheme.fontFamily.sans]
@@ -51,7 +50,7 @@ module.exports = {
         base: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)'
       }
     }
-  },
+  }, 
   variants: {
     extend: {
       backgroundColor: ['responsive', 'hover', 'focus', 'active', 'disabled'],
