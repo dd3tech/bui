@@ -1,3 +1,10 @@
+## [6.26.8](https://github.com/dd3tech/bui/compare/v6.26.7...v6.26.8) (2024-07-31)
+
+
+### Bug Fixes
+
+* upgrade tailwindcss ([bdd09db](https://github.com/dd3tech/bui/commit/bdd09db9881fc8827c17165fc80a8be47ab5eebf))
+
 ## [6.26.7](https://github.com/dd3tech/bui/compare/v6.26.6...v6.26.7) (2024-07-26)
 
 
