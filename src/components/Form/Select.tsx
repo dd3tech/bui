@@ -16,10 +16,10 @@ import CheckCircleIcon from '@heroicons/react/outline/CheckCircleIcon'
 import XCircleIcon from '@heroicons/react/outline/XCircleIcon'
 import InformationCircleIcon from '@heroicons/react/outline/InformationCircleIcon'
 import ChevronDownIcon from '@heroicons/react/outline/ChevronDownIcon'
-import ChevronUpIcon from '@heroicons/react/outline/ChevronUpIcon'
 import { StyleObject } from 'lib/styles'
 import { composeClasses } from 'lib/classes'
 import { Padding, ShadowVariants } from '../../interfaces/types'
+import Transition from 'components/Transition'
 import {
   inputVariants,
   InputVariant as SelectVariantType,
@@ -38,6 +38,7 @@ export interface ISelectOptions {
 
 export interface SelectProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: SelectVariantType
+  selectType?: 'primary' | 'secondary'
   label?: string
   message?: string
   noBorders?: boolean
@@ -118,6 +119,7 @@ export const getSelectedKey = (optionsList: ISelectOptions) => {
 
 function Select({
   variant = 'default',
+  selectType = 'primary',
   label,
   rounded = 'lg',
   className,
@@ -185,6 +187,7 @@ function Select({
       !padding && paddingY && `py-${paddingY}`,
       input.color,
       large ? 'h-13' : 'h-12',
+      selectType === 'secondary' && 'rounded-full text-xs max-h-7',
       className
     )
   }
@@ -268,7 +271,7 @@ function Select({
             {startAdornment}
           </div>
         )}
-        <div className="flex flex-col w-full relative h-11">
+        <div className="flex flex-col w-full relative">
           {label && (
             <FormLabel
               label={label}
@@ -309,21 +312,19 @@ function Select({
           </div>
         )}
 
-        <div>
-          {isOpen ? (
-            <ChevronUpIcon
-              role="chevron"
-              className="text-gray-400"
-              width={18}
-            />
-          ) : (
-            <ChevronDownIcon
-              role="chevron"
-              className="text-gray-400"
-              width={18}
-            />
-          )}
-        </div>
+        <Transition
+          alwaysRender
+          show={isOpen}
+          animationStart="rotateRight"
+          animationEnd="rotateRightBack"
+          duration={200}
+        >
+          <ChevronDownIcon
+            role="chevron"
+            className="text-gray-400"
+            width={18}
+          />
+        </Transition>
 
         {['warning', 'error', 'success'].includes(variant) && (
           <IconStatus variant={variant} />
@@ -333,7 +334,8 @@ function Select({
         role="dropdown"
         className={composeClasses(
           'absolute left-0 z-10 w-full py-1 mt-1 bg-white overflow-y-auto',
-          `top-${large ? '13' : '12'}  rounded-${rounded} shadow-${boxShadow}`,
+          selectType === 'secondary' ? 'top-7' : `top-${large ? '13' : '12'}`,
+          `rounded-${rounded} shadow-${boxShadow}`,
           itemWidth === 'fullWidth' && 'min-w-max'
         )}
         style={getAnimationStyle(isOpen)}
