@@ -18,8 +18,8 @@ import InformationCircleIcon from '@heroicons/react/outline/InformationCircleIco
 import ChevronDownIcon from '@heroicons/react/outline/ChevronDownIcon'
 import { StyleObject } from 'lib/styles'
 import { composeClasses } from 'lib/classes'
-import { Padding, ShadowVariants } from '../../interfaces/types'
 import Transition from 'components/Transition'
+import { Padding, ShadowVariants } from '../../interfaces/types'
 import {
   inputVariants,
   InputVariant as SelectVariantType,
