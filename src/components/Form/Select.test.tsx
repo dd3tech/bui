@@ -362,6 +362,21 @@ describe('<Select />', () => {
       expect(getByRole('dropdown').className).not.toContain('min-w-max')
     })
 
+    it('should work secondary type of select', () => {
+      const { getByRole, getByText } = render(
+        <Select
+          role="select"
+          optionsList={optionsList}
+          selectType="secondary"
+        />
+      )
+      const select = getByRole('select') as HTMLSelectElement
+      fireEvent.click(select)
+      expect(getByText('Option 1').className).toContain(
+        'whitespace-nowrap overflow-hidden overflow-ellipsis'
+      )
+    })
+
     it('the item must cut the text with ellipsis when trimWithEllipsis is passed', () => {
       const { getByRole, getByText } = render(
         <Select
