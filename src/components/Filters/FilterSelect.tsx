@@ -64,7 +64,6 @@ const FilterSelect = ({
   selectedValue: defaultValue = '',
   textApplyBtn = 'Apply',
   textResetBtn = 'Reset',
-  position = { show: false, left: 0, top: 0 },
   className,
   width,
   onApply,
@@ -90,7 +89,6 @@ const FilterSelect = ({
       onCancel={reset}
       textConfirmBtn={textApplyBtn}
       textCancelBtn={textResetBtn}
-      position={position}
       className={className}
       width={width}
     >
