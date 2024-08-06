@@ -36,10 +36,6 @@ export interface IFilterSelect {
    */
   textResetBtn?: string
   /**
-   * The position in which the ConfirmDialog will be displayed
-   */
-  position?: { show: boolean; left: number; top: number }
-  /**
    * The class name to apply to the ConfirmDialog
    */
   className?: string
