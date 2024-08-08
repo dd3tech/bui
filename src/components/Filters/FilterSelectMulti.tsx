@@ -33,10 +33,6 @@ export interface FilterSelectMultiProps {
    */
   textResetBtn?: string
   /**
-   * The position in which the ConfirmDialog will be displayed
-   */
-  position?: { show: boolean; left: number; top: number }
-  /**
    * The class name to apply to the ConfirmDialog
    */
   className?: string
@@ -60,7 +56,6 @@ const FilterSelectMulti = ({
   initialItemList,
   textApplyBtn = 'Apply',
   textResetBtn = 'Reset',
-  position = { show: false, left: 0, top: 0 },
   className,
   width,
   onApply,
@@ -96,7 +91,6 @@ const FilterSelectMulti = ({
       onCancel={reset}
       textConfirmBtn={textApplyBtn}
       textCancelBtn={textResetBtn}
-      position={position}
       className={className}
       width={width}
     >
