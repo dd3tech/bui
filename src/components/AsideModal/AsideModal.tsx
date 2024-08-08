@@ -103,9 +103,7 @@ const AsideModal: FC<IAsideModalProps> = ({
       {...otherProps}
     >
       <Flex
-        className={composeClasses(
-          isStickyTitle && 'sticky top-0 bg-white pt-7'
-        )}
+        className={composeClasses(isStickyTitle && 'sticky top-0 bg-white')}
         justifyContent="between"
         alignItems="center"
       >
