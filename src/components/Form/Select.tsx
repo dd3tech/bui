@@ -19,6 +19,7 @@ import ChevronDownIcon from '@heroicons/react/outline/ChevronDownIcon'
 import { StyleObject } from 'lib/styles'
 import { composeClasses } from 'lib/classes'
 import Transition from 'components/Transition'
+import Text from 'components/Typography'
 import { Padding, ShadowVariants } from '../../interfaces/types'
 import {
   inputVariants,
@@ -152,6 +153,7 @@ function Select({
   const selectRef = useRef<HTMLInputElement>(null)
   const [focused, setFocused] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [hasInteracted, setHasInteracted] = useState(false)
   const [selectedOpt, setSelectedOpt] = useState<{
     value: string
     label: string
@@ -159,6 +161,8 @@ function Select({
     value: '',
     label: ''
   })
+
+  const isSecondary = selectType === 'secondary'
 
   const styles = {
     adornment: composeClasses(
@@ -187,7 +191,7 @@ function Select({
       !padding && paddingY && `py-${paddingY}`,
       input.color,
       large ? 'h-13' : 'h-12',
-      selectType === 'secondary' && 'rounded-full text-xs max-h-7',
+      isSecondary && 'rounded-full text-xs max-h-7',
       className
     )
   }
@@ -215,6 +219,7 @@ function Select({
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
+      !hasInteracted && setHasInteracted(true)
       const value = event.target.value
       const label = getLabel(value, optionsList) as string
       setSelectedOpt({ value, label })
@@ -272,7 +277,7 @@ function Select({
           </div>
         )}
         <div className="flex flex-col w-full relative">
-          {label && (
+          {label && !isSecondary && (
             <FormLabel
               label={label}
               isLabelScalded={isLabelScalded}
@@ -294,14 +299,17 @@ function Select({
               readOnly
               style={{
                 cursor: 'inherit',
-                ...getPaddingInput(!!label)
+                ...getPaddingInput(!!label, isSecondary)
               }}
             />
             <div
               className="absolute w-full h-full whitespace-nowrap overflow-hidden top-0 left-0 bg-transparent text-left"
-              style={{ zIndex: -1, ...getPaddingInput(!!label) }}
+              style={{
+                zIndex: -1,
+                ...getPaddingInput(!!label, isSecondary)
+              }}
             >
-              {selectedOpt.label}
+              {isSecondary && !hasInteracted ? label : selectedOpt.label}
             </div>
           </div>
         </div>
@@ -334,12 +342,19 @@ function Select({
         role="dropdown"
         className={composeClasses(
           'absolute left-0 z-10 w-full py-1 mt-1 bg-white overflow-y-auto',
-          selectType === 'secondary' ? 'top-7' : `top-${large ? '13' : '12'}`,
+          isSecondary ? 'top-7' : `top-${large ? '13' : '12'}`,
           `rounded-${rounded} shadow-${boxShadow}`,
           itemWidth === 'fullWidth' && 'min-w-max'
         )}
         style={getAnimationStyle(isOpen)}
       >
+        {isSecondary && hasInteracted && (
+          <div className="h-8 p-1 pb-2 border-b border-gray-300">
+            <Text size="xs" textMuted500>
+              {label}
+            </Text>
+          </div>
+        )}
         {Object.entries(optionsList).map(([key, option]) => {
           const txtLabel = getLabel(key, optionsList)
           const disabled = typeof option !== 'string' ? option.disabled : false
