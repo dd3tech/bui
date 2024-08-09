@@ -1,3 +1,10 @@
+## [6.26.10](https://github.com/dd3tech/bui/compare/v6.26.9...v6.26.10) (2024-08-09)
+
+
+### Bug Fixes
+
+* secondary select label ([a0a807d](https://github.com/dd3tech/bui/commit/a0a807dd0d42fe8698367a987d727403be4bacdf))
+
 ## [6.26.9](https://github.com/dd3tech/bui/compare/v6.26.8...v6.26.9) (2024-08-02)
 
 
