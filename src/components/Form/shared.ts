@@ -182,11 +182,21 @@ export const getAnimationLabel = (isLabelScalded: boolean): StyleObject => {
   }
 }
 
-export const getPaddingInput = (hasLabel: boolean): StyleObject => {
-  return {
-    paddingTop: hasLabel ? 15 : 10,
-    paddingBottom: hasLabel ? 5 : 10
+export const getPaddingInput = (
+  hasLabel: boolean,
+  isSecondaryType?: boolean
+): StyleObject => {
+  const padding = {
+    paddingTop: 10,
+    paddingBottom: 10
   }
+
+  if (!isSecondaryType) {
+    padding.paddingTop = hasLabel ? 15 : 10
+    padding.paddingBottom = hasLabel ? 5 : 10
+  }
+
+  return padding
 }
 
 export const inputIsDisabled = (variant: InputVariant): boolean =>
