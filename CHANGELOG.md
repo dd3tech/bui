@@ -1,3 +1,11 @@
+## [6.26.11](https://github.com/dd3tech/bui/compare/v6.26.10...v6.26.11) (2024-08-12)
+
+
+### Bug Fixes
+
+* remove props confirm dialog ([afc4679](https://github.com/dd3tech/bui/commit/afc467986c2fa2c0cdbcb112645ee95e778d6a90))
+* small changes in asideModal and confirmDialog ([237cd06](https://github.com/dd3tech/bui/commit/237cd06abdeb00d7fd28e9b76a1c6db8e76b5cb5))
+
 ## [6.26.10](https://github.com/dd3tech/bui/compare/v6.26.9...v6.26.10) (2024-08-09)
 
 
