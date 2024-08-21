@@ -173,7 +173,7 @@ function TabGroup({
 
   useEffect(() => {
     handleChangeIndicator(value)
-  }, [orientation, variant, wideLine])
+  }, [orientation, variant, wideLine, value])
 
   return (
     <div
