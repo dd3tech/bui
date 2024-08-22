@@ -1,3 +1,10 @@
+## [6.26.12](https://github.com/dd3tech/bui/compare/v6.26.11...v6.26.12) (2024-08-21)
+
+
+### Bug Fixes
+
+* update tab indicator ([6d326b2](https://github.com/dd3tech/bui/commit/6d326b2e92408e89f76fe5e22149467a69e19090))
+
 ## [6.26.11](https://github.com/dd3tech/bui/compare/v6.26.10...v6.26.11) (2024-08-12)
 
 
