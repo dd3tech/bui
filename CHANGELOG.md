@@ -1,3 +1,10 @@
+## [6.26.14](https://github.com/dd3tech/bui/compare/v6.26.13...v6.26.14) (2024-08-22)
+
+
+### Bug Fixes
+
+* tooltip added in titles when text is too long ([b2a2667](https://github.com/dd3tech/bui/commit/b2a266758a3dc0f5e28281582f6c9374ebb90144))
+
 ## [6.26.13](https://github.com/dd3tech/bui/compare/v6.26.12...v6.26.13) (2024-08-22)
 
 
