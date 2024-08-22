@@ -12,6 +12,7 @@ import { composeClasses } from 'lib/classes'
 import Text from '../Typography'
 import Flex from '../Layout/Flex'
 import ToolTipHover from '../ToolTipHover'
+import Tooltip from '../Tooltip/Tooltip'
 import type { SideBarItemPropsBase, TBadge } from './SideBar'
 import SideBarBadge from './SideBarBadge'
 
@@ -114,18 +115,35 @@ const ListSubItems = ({
                       )}
                     </div>
                   )}
-                  <Text
-                    size="sm"
-                    className={composeClasses(
-                      'whitespace-nowrap overflow-hidden overflow-ellipsis my-2',
-                      subItem.disabled ? 'text-gray-300' : 'text-gray-500',
-                      subItem.active &&
-                        !subItem.subItems &&
-                        'font-semibold text-blue-600'
-                    )}
-                  >
-                    {subItem.title}
-                  </Text>
+                  {subItem?.title?.length > 19 ? (
+                    <Tooltip content={<Text>{subItem.title}</Text>}>
+                      <Text
+                        size="sm"
+                        className={composeClasses(
+                          'whitespace-nowrap overflow-hidden overflow-ellipsis my-2',
+                          subItem.disabled ? 'text-gray-300' : 'text-gray-500',
+                          subItem.active &&
+                            !subItem.subItems &&
+                            'font-semibold text-blue-600'
+                        )}
+                      >
+                        {subItem.title}
+                      </Text>
+                    </Tooltip>
+                  ) : (
+                    <Text
+                      size="sm"
+                      className={composeClasses(
+                        'whitespace-nowrap overflow-hidden overflow-ellipsis my-2',
+                        subItem.disabled ? 'text-gray-300' : 'text-gray-500',
+                        subItem.active &&
+                          !subItem.subItems &&
+                          'font-semibold text-blue-600'
+                      )}
+                    >
+                      {subItem.title}
+                    </Text>
+                  )}
                   {subItem?.badge && subItem?.badge}
                 </Flex>
                 {subItem.subItems && (
@@ -193,7 +211,7 @@ const SideBarItem = ({
                 justifyContent="center"
                 alignItems="center"
                 className={composeClasses(
-                  'w-10 h-8 relative mb-2',
+                  'w-10 h-8 relative',
                   active && (bgActive ?? 'bg-gray-200')
                 )}
                 style={{ borderRadius: 6 }}
@@ -239,7 +257,7 @@ const SideBarItem = ({
           alignItems="center"
           justifyContent="between"
           className={composeClasses(
-            'w-full rounded-r-md h-8 duration-300 ease-in mb-2',
+            'w-full rounded-r-md h-8 duration-300 ease-in text-sm',
             active
               ? `${bgActive ?? 'bg-gray-200'} ${colorActive ?? 'text-gray-900'}`
               : 'text-gray-500',
@@ -247,12 +265,10 @@ const SideBarItem = ({
           )}
           style={{ maxWidth: 188 }}
         >
-          <Text
+          <Flex
             role={`option-${index}`}
-            variant="span"
-            size="sm"
             className={composeClasses(
-              'whitespace-nowrap overflow-hidden overflow-ellipsis',
+              'whitespace-nowrap overflow-hidden overflow-ellipsis flex-col',
               disabled && 'text-gray-300'
             )}
           >
@@ -267,10 +283,19 @@ const SideBarItem = ({
                 {disabledOptionsTag}
               </Flex>
             )}
-            {title}
-          </Text>
+            {title.length > 19 ? (
+              <Tooltip content={<Text>{title}</Text>}>
+                <Text className="truncate block" variant="span" size="sm">
+                  {title}
+                </Text>
+              </Tooltip>
+            ) : (
+              <Text className="truncate block">{title}</Text>
+            )}
+          </Flex>
+
           {(!!badge || !!subItems.length) && (
-            <Flex alignItems="center">
+            <Flex alignItems="center" className="ml-1">
               {badge && typeof badge !== 'object' ? (
                 <SideBarBadge
                   value={badge}
