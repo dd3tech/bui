@@ -179,12 +179,7 @@ function Select({
       !['error', 'success', 'warning'].includes(variant) &&
         focused &&
         'border-blue-500',
-      ['error', 'success', 'warning'].includes(variant)
-        ? 'bg-white'
-        : 'bg-gray-50',
-      isDisabled
-        ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-        : 'hover:bg-white',
+      isDisabled && 'bg-gray-100 text-gray-400 cursor-not-allowed',
       input.borderColor,
       padding && `p-${padding}`,
       !padding && paddingX && `px-${paddingX}`,
