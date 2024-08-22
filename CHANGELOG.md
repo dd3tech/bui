@@ -1,3 +1,11 @@
+## [6.26.13](https://github.com/dd3tech/bui/compare/v6.26.12...v6.26.13) (2024-08-22)
+
+
+### Bug Fixes
+
+* change style text-area ([eb3abae](https://github.com/dd3tech/bui/commit/eb3abae9613c3b98e6291609b7f1d861d39b833d))
+* change styles select ([54dd412](https://github.com/dd3tech/bui/commit/54dd412413a3a49fa2bddfdfa18d4c3a0992f836))
+
 ## [6.26.12](https://github.com/dd3tech/bui/compare/v6.26.11...v6.26.12) (2024-08-21)
 
 
