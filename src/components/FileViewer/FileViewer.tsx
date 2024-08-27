@@ -2,7 +2,7 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import { HTMLProps, ReactNode, useMemo } from 'react'
+import { HTMLProps, ReactNode, useEffect, useMemo, useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import { composeStyles } from 'lib/styles'
 import { Portal } from 'common/Portal'
@@ -151,11 +151,16 @@ const FileContent = ({
   className,
   role = 'viewer-file-container'
 }: FileContentProps) => {
-  const encodedUrl = encodeURIComponent(url || '')
+  const [encodedUrl, setEncodedUrl] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!url) return
+    setEncodedUrl(encodeURIComponent(url))
+  }, [fileType, url])
 
   return (
     <>
-      {url && url !== '' ? (
+      {url ? (
         <div
           role={role}
           className={composeClasses(
