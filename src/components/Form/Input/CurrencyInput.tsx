@@ -208,7 +208,7 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             defaultValue={(defaultValue as string) || undefined}
             value={formattedValue()}
             allowDecimals={true}
-            allowNegativeValue={true}
+            allowNegativeValue={min === undefined || Number(min) < 0}
             step={undefined}
             onFocus={handleFocus}
             onBlur={handleBlur}
@@ -226,6 +226,8 @@ const CurrencyInput = forwardRef<HTMLDivElement, InputCurrencyProps>(
             }}
             onChange={undefined}
             onValueChange={handleOnChange}
+            max={max}
+            min={min}
           />
         )}
       </WrapperInput>
