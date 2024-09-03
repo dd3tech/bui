@@ -1,3 +1,10 @@
+## [6.26.15](https://github.com/dd3tech/bui/compare/v6.26.14...v6.26.15) (2024-09-03)
+
+
+### Bug Fixes
+
+* do not allow negative numbers when min prop is zero ([d24efc7](https://github.com/dd3tech/bui/commit/d24efc71e79709b09ecfb8861ab9921ee2f49a2b))
+
 ## [6.26.14](https://github.com/dd3tech/bui/compare/v6.26.13...v6.26.14) (2024-08-22)
 
 
