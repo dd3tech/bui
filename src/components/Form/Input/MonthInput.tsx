@@ -167,6 +167,8 @@ function MonthInput({
                   'text-black absolute top-12',
                   props?.isCell ? '-left-20 w-44' : 'left-0 '
                 )}
+                minDate={props.minDate ? new Date(props.minDate) : undefined}
+                maxDate={props.maxDate ? new Date(props.maxDate) : undefined}
               />
             </div>
           )}

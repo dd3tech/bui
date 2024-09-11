@@ -106,6 +106,16 @@ export interface InputProps
    * This allows for customization of the component's appearance through external styles.
    */
   classNameInputDatePicker?: string
+  /**
+   * The earliest selectable date in the date picker.
+   * This property limits the user's ability to select a date that is earlier than the specified value.
+   */
+  minDate?: Date
+  /**
+   * The latest selectable date in the date picker.
+   * This property restricts the user from selecting a date that is later than the specified value.
+   */
+  maxDate?: Date
 }
 
 const BaseInput = forwardRef<HTMLDivElement, InputProps>(
