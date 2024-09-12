@@ -1,3 +1,10 @@
+## [6.26.17](https://github.com/dd3tech/bui/compare/v6.26.16...v6.26.17) (2024-09-12)
+
+
+### Bug Fixes
+
+* added specification in the input of tables ([30a0810](https://github.com/dd3tech/bui/commit/30a08101d02d33d571e8b8e8de54dd9ea0994d71))
+
 ## [6.26.16](https://github.com/dd3tech/bui/compare/v6.26.15...v6.26.16) (2024-09-12)
 
 
