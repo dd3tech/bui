@@ -77,7 +77,7 @@
   color: #8f969a;
 }
 
-.table-container-cmpnt [role='input-container'] {
+.table-container-cmpnt td [role='input-container'] {
   height: 30px;
   width: 100%;
   padding: 0;
