@@ -1,3 +1,10 @@
+## [6.26.16](https://github.com/dd3tech/bui/compare/v6.26.15...v6.26.16) (2024-09-12)
+
+
+### Bug Fixes
+
+* added minDate and maxDate props in the input component ([8416576](https://github.com/dd3tech/bui/commit/8416576fa19ea0d8afc089edc340ea37eb28beba))
+
 ## [6.26.15](https://github.com/dd3tech/bui/compare/v6.26.14...v6.26.15) (2024-09-03)
 
 
