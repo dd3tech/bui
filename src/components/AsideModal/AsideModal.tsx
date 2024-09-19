@@ -103,7 +103,9 @@ const AsideModal: FC<IAsideModalProps> = ({
       {...otherProps}
     >
       <Flex
-        className={composeClasses(isStickyTitle && 'sticky top-0 bg-white')}
+        className={composeClasses(
+          isStickyTitle && 'sticky top-0 bg-white z-50'
+        )}
         justifyContent="between"
         alignItems="center"
       >
@@ -112,7 +114,7 @@ const AsideModal: FC<IAsideModalProps> = ({
         </Text>
         <div
           role="btn-close"
-          className="text-info cursor-pointer hover:text-primary transition ease-in-out duration-300"
+          className="text-info cursor-pointer hover:text-primary transition ease-in-out duration-300 py-2"
           onClick={() => handleModalClose(true)}
         >
           <XCircleIcon className="w-6" />
