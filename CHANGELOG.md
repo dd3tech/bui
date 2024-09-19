@@ -1,3 +1,10 @@
+## [6.26.18](https://github.com/dd3tech/bui/compare/v6.26.17...v6.26.18) (2024-09-19)
+
+
+### Bug Fixes
+
+* add zIndex container close button ([#239](https://github.com/dd3tech/bui/issues/239)) ([477935b](https://github.com/dd3tech/bui/commit/477935babb4b4daeeeadba8b805bbf41081a908e))
+
 ## [6.26.17](https://github.com/dd3tech/bui/compare/v6.26.16...v6.26.17) (2024-09-12)
 
 
