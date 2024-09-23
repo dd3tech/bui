@@ -155,7 +155,7 @@ const RangeSlider = ({
   useEffect(() => {
     updateMin(initValue.min)
     updateMax(initValue.max)
-  }, [fireReset])
+  }, [fireReset, min, max, initMinValue, initMaxValue])
 
   return (
     <div className={composeClasses('relative multi-slider', className)}>
