@@ -164,7 +164,7 @@ function MonthInput({
                 onlyOf={pickerType}
                 onChange={handleDateChange}
                 className={composeClasses(
-                  'text-black absolute top-12',
+                  'text-black absolute top-12 z-50',
                   props?.isCell ? '-left-20 w-44' : 'left-0 '
                 )}
                 minDate={props.minDate ? new Date(props.minDate) : undefined}
