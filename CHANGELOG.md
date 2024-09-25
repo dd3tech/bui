@@ -1,3 +1,10 @@
+## [6.26.19](https://github.com/dd3tech/bui/compare/v6.26.18...v6.26.19) (2024-09-25)
+
+
+### Bug Fixes
+
+* add zIndex date picker ([c4fbf5c](https://github.com/dd3tech/bui/commit/c4fbf5cfe41177d06474c5e264747dc215217fb1))
+
 ## [6.26.18](https://github.com/dd3tech/bui/compare/v6.26.17...v6.26.18) (2024-09-19)
 
 
