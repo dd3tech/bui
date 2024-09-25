@@ -1,3 +1,10 @@
+## [6.26.20](https://github.com/dd3tech/bui/compare/v6.26.19...v6.26.20) (2024-09-25)
+
+
+### Bug Fixes
+
+* change alert icon color ([19c3435](https://github.com/dd3tech/bui/commit/19c343584de661e40e8f8fe8aa6afd5e590a9881))
+
 ## [6.26.19](https://github.com/dd3tech/bui/compare/v6.26.18...v6.26.19) (2024-09-25)
 
 
