@@ -104,7 +104,9 @@ const ICON_STATUS = {
       <EyeIcon className="w-3 h-3 text-white" />
     </div>
   ),
-  missingInformation: <ExclamationIcon className="w-4 h-4 text-red-500" />
+  missingInformation: (
+    <ExclamationIcon className="w-4 h-4" style={{ color: '#d97706' }} />
+  )
 }
 
 const Phase = ({
@@ -186,7 +188,7 @@ const Phase = ({
             <Flex gap="2" className="flex-col">
               {listData.map((item, index) => (
                 <Flex
-                  key={index}
+                  key={`phase-${item.label}-${index}`}
                   gap="2"
                   className="flex-row items-center justify-between"
                 >
