@@ -46,7 +46,8 @@ const WrapperInput = forwardRef<HTMLDivElement, WrapperInputProps>(
       rounded,
       startAdornment,
       style,
-      variant
+      variant,
+      isCalendar
     } = props
 
     const { input, text, bgIcon } = inputVariants[variant]
@@ -66,6 +67,7 @@ const WrapperInput = forwardRef<HTMLDivElement, WrapperInputProps>(
         rounded && `rounded-${rounded}`,
         !['error', 'success', 'warning'].includes(variant) &&
           isFocused &&
+          !isCalendar &&
           'border-blue-500',
         isDisabled && !isCell && 'bg-gray-100 text-gray-400 cursor-not-allowed',
         !isDisabled && !isCell && 'hover:bg-white',
