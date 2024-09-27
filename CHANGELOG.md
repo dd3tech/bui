@@ -1,3 +1,10 @@
+## [6.26.21](https://github.com/dd3tech/bui/compare/v6.26.20...v6.26.21) (2024-09-27)
+
+
+### Bug Fixes
+
+* description custom was added as a new prop ([bab602c](https://github.com/dd3tech/bui/commit/bab602c47179b7a9ea024420fbcd7646e576375e))
+
 ## [6.26.20](https://github.com/dd3tech/bui/compare/v6.26.19...v6.26.20) (2024-09-25)
 
 
