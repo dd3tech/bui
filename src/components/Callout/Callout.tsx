@@ -50,6 +50,12 @@ export interface CalloutProps extends HTMLAttributes<HTMLDivElement> {
    * the user to take a specific action.
    */
   callToAction?: ReactNode
+  /**
+   * This prop is used to render a custom description in the Callout.
+   * It can be a button, link, or any other interactive element that prompts
+   * the user to take a specific action.
+   */
+  descriptionCustom?: ReactNode
 }
 
 const Callout = forwardRef<HTMLDivElement, CalloutProps>((props, ref) => {
@@ -60,6 +66,7 @@ const Callout = forwardRef<HTMLDivElement, CalloutProps>((props, ref) => {
     icon: Icon,
     className,
     callToAction,
+    descriptionCustom,
     ...otherProps
   } = props
 
@@ -93,7 +100,7 @@ const Callout = forwardRef<HTMLDivElement, CalloutProps>((props, ref) => {
       </Flex>
       <Flex justifyContent="between">
         <Text variant="p" size="sm" className={spacing.sm.marginTop}>
-          {description}
+          {descriptionCustom ?? description}
         </Text>
         {callToAction}
       </Flex>
