@@ -1,3 +1,10 @@
+## [6.26.22](https://github.com/dd3tech/bui/compare/v6.26.21...v6.26.22) (2024-10-03)
+
+
+### Bug Fixes
+
+* validation was changed when displaying tooltip ([9835af6](https://github.com/dd3tech/bui/commit/9835af60f58aae077bfd4ea498f78f971eadf35a))
+
 ## [6.26.21](https://github.com/dd3tech/bui/compare/v6.26.20...v6.26.21) (2024-09-27)
 
 
