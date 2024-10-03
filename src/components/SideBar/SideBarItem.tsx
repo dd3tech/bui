@@ -115,8 +115,11 @@ const ListSubItems = ({
                       )}
                     </div>
                   )}
-                  {subItem?.title?.length > 19 ? (
-                    <Tooltip content={<Text>{subItem.title}</Text>}>
+                  {subItem?.title?.length > 23 ? (
+                    <Tooltip
+                      position="right"
+                      content={<Text>{subItem.title}</Text>}
+                    >
                       <Text
                         size="sm"
                         className={composeClasses(
