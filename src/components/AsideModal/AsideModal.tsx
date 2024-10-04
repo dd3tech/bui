@@ -106,19 +106,23 @@ const AsideModal: FC<IAsideModalProps> = ({
         className={composeClasses(
           isStickyTitle && 'sticky top-0 bg-white z-50'
         )}
-        justifyContent="between"
-        alignItems="center"
       >
-        <Text variant={titleVariant} bold>
-          {title}
-        </Text>
-        <div
-          role="btn-close"
-          className="text-info cursor-pointer hover:text-primary transition ease-in-out duration-300 py-2"
-          onClick={() => handleModalClose(true)}
+        <Flex
+          className={composeClasses(isStickyTitle && 'mt-4', 'w-full')}
+          justifyContent="between"
+          alignItems="center"
         >
-          <XCircleIcon className="w-6" />
-        </div>
+          <Text variant={titleVariant} bold>
+            {title}
+          </Text>
+          <div
+            role="btn-close"
+            className="text-info cursor-pointer hover:text-primary transition ease-in-out duration-300 py-2"
+            onClick={() => handleModalClose(true)}
+          >
+            <XCircleIcon className="w-6" />
+          </div>
+        </Flex>
       </Flex>
       {children}
     </aside>
