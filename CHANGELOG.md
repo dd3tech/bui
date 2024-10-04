@@ -1,3 +1,10 @@
+## [6.26.23](https://github.com/dd3tech/bui/compare/v6.26.22...v6.26.23) (2024-10-04)
+
+
+### Bug Fixes
+
+* extended the character limit in tooltip validation ([f58b3fd](https://github.com/dd3tech/bui/commit/f58b3fd1516a6d6df76a35cf89478407617121c8))
+
 ## [6.26.22](https://github.com/dd3tech/bui/compare/v6.26.21...v6.26.22) (2024-10-03)
 
 
