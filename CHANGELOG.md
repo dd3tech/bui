@@ -1,3 +1,10 @@
+## [6.26.24](https://github.com/dd3tech/bui/compare/v6.26.23...v6.26.24) (2024-10-04)
+
+
+### Bug Fixes
+
+* add margin top ([dcf08de](https://github.com/dd3tech/bui/commit/dcf08dec728055b2a6057eff8e897c218a028684))
+
 ## [6.26.23](https://github.com/dd3tech/bui/compare/v6.26.22...v6.26.23) (2024-10-04)
 
 
