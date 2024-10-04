@@ -115,7 +115,7 @@ const ListSubItems = ({
                       )}
                     </div>
                   )}
-                  {subItem?.title?.length > 23 ? (
+                  {subItem?.title?.length > 25 ? (
                     <Tooltip
                       position="right"
                       content={<Text>{subItem.title}</Text>}
