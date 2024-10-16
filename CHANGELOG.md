@@ -1,3 +1,10 @@
+## [6.26.25](https://github.com/dd3tech/bui/compare/v6.26.24...v6.26.25) (2024-10-16)
+
+
+### Bug Fixes
+
+* set year on change value ([b866bd9](https://github.com/dd3tech/bui/commit/b866bd95570f7fd5f4f807e7651603a9239f10aa))
+
 ## [6.26.24](https://github.com/dd3tech/bui/compare/v6.26.23...v6.26.24) (2024-10-04)
 
 
