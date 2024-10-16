@@ -8,10 +8,20 @@ import BaseInput, { InputProps } from './BaseInput'
 import DatePicker from 'components/DatePicker/DatePicker'
 import { composeClasses } from 'lib/classes'
 
-function YearInput({ className, value, onChange, ...props }: InputProps) {
+function YearInput({
+  className,
+  value,
+  disabled,
+  onChange,
+  ...props
+}: InputProps) {
   const [showDatePicker, setShowDatePicker] = useState(false)
   const [year, setYear] = useState<string>(String(value ?? ''))
-  const handleToggleDatePicker = () => setShowDatePicker(!showDatePicker)
+
+  const handleToggleDatePicker = () => {
+    if (disabled) return
+    setShowDatePicker(!showDatePicker)
+  }
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,7 +49,7 @@ function YearInput({ className, value, onChange, ...props }: InputProps) {
   }, [year])
 
   useEffect(() => {
-    if (value === '') setYear('')
+    setYear(String(value ?? ''))
   }, [value])
 
   return (
@@ -48,6 +58,7 @@ function YearInput({ className, value, onChange, ...props }: InputProps) {
       type="text"
       onChange={handleChange}
       value={year}
+      disabled={disabled}
       maxLength={4}
       className={composeClasses('relative', className)}
       endAdornment={
@@ -56,10 +67,11 @@ function YearInput({ className, value, onChange, ...props }: InputProps) {
             role="toggle-calendar"
             type="button"
             onClick={handleToggleDatePicker}
+            className={composeClasses(disabled && 'cursor-not-allowed')}
           >
             <CalendarIcon width={24} />
           </button>
-          {showDatePicker && (
+          {showDatePicker && !disabled && (
             <DatePicker
               onlyOf="year"
               onChange={handleDateChange}
