@@ -2,7 +2,14 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import { HTMLProps, ReactNode, useMemo } from 'react'
+import {
+  HTMLProps,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react'
 import { composeClasses } from 'lib/classes'
 import { composeStyles } from 'lib/styles'
 import { Portal } from 'common/Portal'
@@ -151,11 +158,36 @@ const FileContent = ({
   className,
   role = 'viewer-file-container'
 }: FileContentProps) => {
-  const encodedUrl = encodeURIComponent(url || '')
+  const timer = useRef<null | ReturnType<typeof setInterval>>(null)
+  const [attempts, setAttempts] = useState(0)
+  const [encodedUrl, setEncodedUrl] = useState('')
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setEncodedUrl(encodeURIComponent(url || ''))
+  }, [url])
+
+  useEffect(() => {
+    const retry = () => {
+      if (attempts >= 5 || isLoaded) {
+        timer.current && clearInterval(timer.current)
+        return
+      }
+      setAttempts((prev) => prev + 1)
+      setEncodedUrl('')
+      setEncodedUrl(encodeURIComponent(url || ''))
+    }
+
+    timer.current && clearInterval(timer.current)
+    timer.current = setInterval(retry, 2000)
+    return () => {
+      timer.current && clearInterval(timer.current)
+    }
+  }, [attempts, isLoaded, url])
 
   return (
     <>
-      {url && url !== '' ? (
+      {encodedUrl && encodedUrl !== '' ? (
         <div
           role={role}
           className={composeClasses(
@@ -174,11 +206,16 @@ const FileContent = ({
               />
             </div>
           ) : (
-            <iframe
-              role="viewer-file"
-              className="w-full h-full"
-              src={`https://docs.google.com/gview?url=${encodedUrl}&embedded=true`}
-            ></iframe>
+            <>
+              <iframe
+                onLoad={() => {
+                  setIsLoaded(true)
+                }}
+                role="viewer-file"
+                className="w-full h-full"
+                src={`https://docs.google.com/gview?url=${encodedUrl}&embedded=true`}
+              />
+            </>
           )}
         </div>
       ) : (
