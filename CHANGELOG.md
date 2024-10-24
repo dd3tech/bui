@@ -1,3 +1,10 @@
+## [6.26.26](https://github.com/dd3tech/bui/compare/v6.26.25...v6.26.26) (2024-10-24)
+
+
+### Bug Fixes
+
+* file viewer retry on error ([237fc44](https://github.com/dd3tech/bui/commit/237fc443fa4ab8d1a6af8a583250c9f60edb931d))
+
 ## [6.26.25](https://github.com/dd3tech/bui/compare/v6.26.24...v6.26.25) (2024-10-16)
 
 
