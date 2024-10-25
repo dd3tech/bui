@@ -37,7 +37,7 @@
   position: absolute;
   bottom: 0px;
   right: 0px;
-  width: 1px;
+  width: 0.1em;
   height: 100%;
   background-color: #8f969a;
   transform: translateZ(0);
@@ -54,6 +54,8 @@
   margin-bottom: 4px;
   margin-top: 4px;
   background-color: #d1d5db;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .table-container-cmpnt.horizontal-borders thead tr th::before,
@@ -62,7 +64,7 @@
   position: absolute;
   bottom: 0px;
   right: 0px;
-  height: 1px;
+  height: 0.1em;
   width: 100%;
   background-color: #d1d5db;
   transform: translateZ(0);
