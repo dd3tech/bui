@@ -1,3 +1,10 @@
+## [6.26.27](https://github.com/dd3tech/bui/compare/v6.26.26...v6.26.27) (2024-10-25)
+
+
+### Bug Fixes
+
+* prevent table lines from disappearing when zooming in the browser ([a8da19c](https://github.com/dd3tech/bui/commit/a8da19ce4dcabf0cd8bc1faf5e4241aeb4b7cf69))
+
 ## [6.26.26](https://github.com/dd3tech/bui/compare/v6.26.25...v6.26.26) (2024-10-24)
 
 
