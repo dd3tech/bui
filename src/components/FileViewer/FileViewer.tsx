@@ -206,16 +206,14 @@ const FileContent = ({
               />
             </div>
           ) : (
-            <>
-              <iframe
-                onLoad={() => {
-                  setIsLoaded(true)
-                }}
-                role="viewer-file"
-                className="w-full h-full"
-                src={`https://docs.google.com/gview?url=${encodedUrl}&embedded=true`}
-              />
-            </>
+            <iframe
+              onLoad={() => {
+                setIsLoaded(true)
+              }}
+              role="viewer-file"
+              className="w-full h-full"
+              src={`https://docs.google.com/gview?url=${encodedUrl}&embedded=true`}
+            />
           )}
         </div>
       ) : (
