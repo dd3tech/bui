@@ -163,6 +163,7 @@ const TopPage = ({
                   width="40px"
                   height="40px"
                   onClick={callToActionIcon.onClick}
+                  data-testid="action-icon"
                 >
                   <span className="text-blue-600 w-5 h-5">
                     {callToActionIcon.titleIcon}

@@ -66,9 +66,10 @@ describe('<TopPage />', () => {
   })
 
   it('should call the onClick event of the action icon', () => {
-    const { container } = render(<TopPage {...defaultProps} />)
-    const iconButton = container.querySelector('.cursor-pointer')
-    fireEvent.click(iconButton!)
+    const { getByTestId } = render(<TopPage {...defaultProps} />)
+    const iconButton = getByTestId('action-icon')
+
+    fireEvent.click(iconButton)
     expect(defaultProps.callToActionIcon.onClick).toHaveBeenCalled()
   })
 
