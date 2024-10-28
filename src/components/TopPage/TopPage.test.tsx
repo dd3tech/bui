@@ -20,7 +20,8 @@ const defaultProps = {
   ],
   callToActionIcon: {
     titleIcon: <EyeIcon />,
-    onClick: vi.fn()
+    onClick: vi.fn(),
+    isSelected: false
   },
   tabs: {
     value: 0,

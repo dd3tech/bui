@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { composeClasses } from 'lib/classes'
 import Breadcrumbs, { BreadcrumbsProps } from 'components/Breadcrumbs'
 import Flex from 'components/Layout/Flex'
@@ -13,6 +13,7 @@ interface IActionButton {
   icon: React.ReactNode
   variant: 'primary' | 'secondary' | 'tertiary'
   label: string
+  isDisabled?: boolean
 }
 
 interface ITab {
@@ -35,8 +36,10 @@ interface ITopPage {
   callToActionsButtons?: IActionButton[]
   children: React.ReactNode
   callToActionIcon?: {
-    titleIcon: React.ReactNode
-    onClick: () => void
+    titleIcon?: React.ReactNode
+    onClick?: () => void
+    isSelected?: boolean
+    isDisabled?: boolean
   }
   tabs?: ITab
 }
@@ -95,6 +98,12 @@ const TopPage = ({
   callToActionIcon,
   tabs
 }: ITopPage) => {
+  const styleIcon = useCallback(() => {
+    if (callToActionIcon?.isDisabled) return 'text-gray-300'
+    if (callToActionIcon?.isSelected) return 'text-white'
+    return 'text-blue-600'
+  }, [callToActionIcon])
+
   return (
     <div className="mx-5">
       <div>
@@ -146,6 +155,7 @@ const TopPage = ({
                     variant={button.variant}
                     onClick={button.onClick}
                     className="flex gap-2 items-center justify-center h-10"
+                    disabled={button?.isDisabled}
                   >
                     {button.label}
                     {button.icon && (
@@ -159,14 +169,21 @@ const TopPage = ({
                 <Circle
                   backgroundColor="#ffffff"
                   useBackground={false}
-                  className="border cursor-pointer border-solid border-gray-300 bg-white transition duration-500 ease-out hover:bg-gray-100"
+                  className={composeClasses(
+                    'border cursor-pointer border-solid border-gray-300 bg-white transition duration-500 ease-out hover:bg-gray-100',
+                    callToActionIcon?.isSelected && 'bg-blue-600',
+                    callToActionIcon?.isDisabled && 'bg-gray-100'
+                  )}
                   width="40px"
                   height="40px"
-                  onClick={callToActionIcon.onClick}
+                  onClick={() => {
+                    if (callToActionIcon?.isDisabled) return
+                    callToActionIcon?.onClick?.()
+                  }}
                   data-testid="action-icon"
                 >
-                  <span className="text-blue-600 w-5 h-5">
-                    {callToActionIcon.titleIcon}
+                  <span className={composeClasses('w-5 h-5', styleIcon())}>
+                    {callToActionIcon?.titleIcon}
                   </span>
                 </Circle>
               )}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { EyeIcon } from '@heroicons/react/outline'
+import { XCircleIcon, AcademicCapIcon } from '@heroicons/react/outline'
 import TopPage from '../components/TopPage/TopPage'
 
 export default {
@@ -25,19 +25,22 @@ Default.args = {
     {
       label: 'Action 1',
       onClick: () => console.log('Action 1 clicked'),
-      icon: <EyeIcon />,
-      variant: 'primary'
+      icon: <XCircleIcon />,
+      variant: 'primary',
+      isDisabled: true
     },
     {
       label: 'Action 2',
       onClick: () => console.log('Action 2 clicked'),
-      icon: <EyeIcon />,
+      icon: <XCircleIcon />,
       variant: 'secondary'
     }
   ],
   callToActionIcon: {
-    titleIcon: <EyeIcon />,
-    onClick: () => alert('Icon clicked')
+    titleIcon: <AcademicCapIcon />,
+    onClick: () => console.log('Icon clicked'),
+    isSelected: false,
+    isDisabled: true
   },
   optionsBreadcrumbs: [
     { name: 'Home', to: () => null },
