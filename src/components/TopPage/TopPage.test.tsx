@@ -18,7 +18,7 @@ const defaultProps = {
       variant: 'primary' as const
     }
   ],
-  callToActionIcon: {
+  actionIcon: {
     titleIcon: <EyeIcon />,
     onClick: vi.fn(),
     isSelected: false
@@ -71,7 +71,7 @@ describe('<TopPage />', () => {
     const iconButton = getByTestId('action-icon')
 
     fireEvent.click(iconButton)
-    expect(defaultProps.callToActionIcon.onClick).toHaveBeenCalled()
+    expect(defaultProps.actionIcon.onClick).toHaveBeenCalled()
   })
 
   it('should render tabs and handle tab switching', () => {

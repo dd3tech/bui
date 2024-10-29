@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import { composeClasses } from 'lib/classes'
-import Breadcrumbs, { BreadcrumbsProps } from 'components/Breadcrumbs'
+import Breadcrumbs from 'components/Breadcrumbs'
+import type { BreadcrumbsProps } from 'components/Breadcrumbs'
 import Flex from 'components/Layout/Flex'
 import Circle from 'components/Circle'
 import { Button } from 'components/Buttons'
@@ -18,14 +19,14 @@ interface IActionButton {
 
 interface ITab {
   value: number
-  setValue: (value: number) => void
+  setValue: React.Dispatch<React.SetStateAction<number>>
   items: {
     label: string
     disabled?: boolean
   }[]
 }
 
-interface ITopPage {
+interface TopPageProps {
   optionsBreadcrumbs?: BreadcrumbsProps['options']
   lastUpdate?: {
     translation: 'es' | 'en'
@@ -35,7 +36,7 @@ interface ITopPage {
   description?: string
   callToActionsButtons?: IActionButton[]
   children: React.ReactNode
-  callToActionIcon?: {
+  actionIcon?: {
     titleIcon?: React.ReactNode
     onClick?: () => void
     isSelected?: boolean
@@ -95,14 +96,14 @@ const TopPage = ({
   lastUpdate,
   description,
   callToActionsButtons,
-  callToActionIcon,
+  actionIcon,
   tabs
-}: ITopPage) => {
+}: TopPageProps) => {
   const styleIcon = useCallback(() => {
-    if (callToActionIcon?.isDisabled) return 'text-gray-300'
-    if (callToActionIcon?.isSelected) return 'text-white'
+    if (actionIcon?.isDisabled) return 'text-gray-300'
+    if (actionIcon?.isSelected) return 'text-white'
     return 'text-blue-600'
-  }, [callToActionIcon])
+  }, [actionIcon])
 
   return (
     <div className="mx-5">
@@ -145,7 +146,7 @@ const TopPage = ({
             )}
             {description && <Text size="sm">{description}</Text>}
           </Flex>
-          {(callToActionsButtons || callToActionIcon) && (
+          {(callToActionsButtons || actionIcon) && (
             <Flex gap="3" alignItems="center">
               {callToActionsButtons &&
                 callToActionsButtons.slice(0, 4).map((button, index) => (
@@ -165,25 +166,25 @@ const TopPage = ({
                     )}
                   </Button>
                 ))}
-              {callToActionIcon && (
+              {actionIcon && (
                 <Circle
                   backgroundColor="#ffffff"
                   useBackground={false}
                   className={composeClasses(
                     'border cursor-pointer border-solid border-gray-300 bg-white transition duration-500 ease-out hover:bg-gray-100',
-                    callToActionIcon?.isSelected && 'bg-blue-600',
-                    callToActionIcon?.isDisabled && 'bg-gray-100'
+                    actionIcon?.isSelected && 'bg-blue-600',
+                    actionIcon?.isDisabled && 'bg-gray-100'
                   )}
                   width="40px"
                   height="40px"
                   onClick={() => {
-                    if (callToActionIcon?.isDisabled) return
-                    callToActionIcon?.onClick?.()
+                    if (actionIcon?.isDisabled) return
+                    actionIcon?.onClick?.()
                   }}
                   data-testid="action-icon"
                 >
                   <span className={composeClasses('w-5 h-5', styleIcon())}>
-                    {callToActionIcon?.titleIcon}
+                    {actionIcon?.titleIcon}
                   </span>
                 </Circle>
               )}
@@ -206,5 +207,7 @@ const TopPage = ({
     </div>
   )
 }
+
+TopPage.displayName = 'TopPage'
 
 export default TopPage
