@@ -6,6 +6,7 @@ import { ChangeEvent, useState } from 'react'
 import ConfirmDialog from 'components/ConfirmDialog/ConfirmDialog'
 import Input from 'components/Form/Input'
 import Text from 'components/Typography/Text'
+import { Flex } from 'components/Layout'
 
 export interface IRange {
   minVal?: number
@@ -137,7 +138,7 @@ const FilterRange = ({
       className={className}
       width={width}
     >
-      <div className="flex mb-3">
+      <Flex className="mb-3 w-72" justifyContent="center">
         <div className="grid">
           <Text className="mb-1 text-xxs" fontBold="medium">
             {textMin}
@@ -147,7 +148,7 @@ const FilterRange = ({
             name="minVal"
             type="number"
             placeholder={min?.toString()}
-            className="h-7 w-full pl-4 text-xs bg-white"
+            className="h-7 w-32 pl-4 text-xs bg-white"
             min={min}
             value={range.minVal || ''}
             onChange={handleChange}
@@ -167,14 +168,14 @@ const FilterRange = ({
             name="maxVal"
             type="number"
             placeholder={max?.toString()}
-            className="h-7 w-full text-xs bg-white"
+            className="h-7 w-32 text-xs bg-white"
             max={max}
             value={range.maxVal || ''}
             onChange={handleChange}
             variant={inputMaxVariant}
           />
         </div>
-      </div>
+      </Flex>
     </ConfirmDialog>
   )
 }

@@ -7,8 +7,7 @@ const onReset = vi.fn()
 
 const defaultProps: FilterRangeProps = {
   onApply,
-  onReset,
-  position: { show: true, left: 0, top: 0 }
+  onReset
 }
 
 describe('<FilterRange/>', () => {
