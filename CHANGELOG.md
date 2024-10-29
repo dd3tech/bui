@@ -1,3 +1,18 @@
+# [6.27.0](https://github.com/dd3tech/bui/compare/v6.26.27...v6.27.0) (2024-10-29)
+
+
+### Bug Fixes
+
+* add props icon and buttons ([ec9e45d](https://github.com/dd3tech/bui/commit/ec9e45dce0c72a65f4713f43fce18cc953cd56ad))
+* new top page component ([40c2120](https://github.com/dd3tech/bui/commit/40c212073e1b94387c909c76365bf80fd0cfb3e2))
+* new top page component ([a76a1d4](https://github.com/dd3tech/bui/commit/a76a1d4a8eb610da301ca60aa7009425a9143080))
+
+
+### Features
+
+* add exports component TopPage ([a631b7b](https://github.com/dd3tech/bui/commit/a631b7bdbe5b52389e6772b8110d5c4cbd3138ff))
+* add file utils ([e2e8417](https://github.com/dd3tech/bui/commit/e2e8417b2f318566cb43306df8f0329424a3b23d))
+
 ## [6.26.27](https://github.com/dd3tech/bui/compare/v6.26.26...v6.26.27) (2024-10-25)
 
 
