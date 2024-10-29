@@ -336,6 +336,11 @@
       "module": "./dist/esm/components/Timeline/index.js",
       "default": "./dist/esm/components/Timeline/index.js"
     },
+    "./TopPage": {
+      "require": "./dist/cjs/components/TopPage/index.js",
+      "module": "./dist/esm/components/TopPage/index.js",
+      "default": "./dist/esm/components/TopPage/index.js"
+    },
     "./Tooltip": {
       "require": "./dist/cjs/components/Tooltip/index.js",
       "module": "./dist/esm/components/Tooltip/index.js",
@@ -382,7 +387,9 @@
       "Circle": ["./dist/esm/components/Circle/index.d.ts"],
       "ConfirmDialog": ["./dist/esm/components/ConfirmDialog/index.d.ts"],
       "DatePicker": ["./dist/esm/components/DatePicker/index.d.ts"],
-      "DatePickerWithPortal": ["./dist/esm/components/DatePicker/DatePickerWithPortal.d.ts"],
+      "DatePickerWithPortal": [
+        "./dist/esm/components/DatePicker/DatePickerWithPortal.d.ts"
+      ],
       "Divider": ["./dist/esm/components/Divider/index.d.ts"],
       "Dropdown": ["./dist/esm/components/Dropdown/index.d.ts"],
       "DynamicHeroIcon": ["./dist/esm/common/DynamicHeroIcon/index.d.ts"],
@@ -419,12 +426,15 @@
       "Stepper": ["./dist/esm/components/Stepper/index.d.ts"],
       "Switch": ["./dist/esm/components/Switch/index.d.ts"],
       "Table": ["./dist/esm/components/Table/index.d.ts"],
-      "TableContentSkeleton": [ "./dist/esm/components/Skeleton/TableContentSkeleton.d.ts"],
+      "TableContentSkeleton": [
+        "./dist/esm/components/Skeleton/TableContentSkeleton.d.ts"
+      ],
       "Tabs": ["./dist/esm/components/Tabs/index.d.ts"],
       "Tag": ["./dist/esm/components/Tag/index.d.ts"],
       "Text": ["./dist/esm/components/Typography/index.d.ts"],
       "TextArea": ["./dist/esm/components/Form/TextArea.d.ts"],
       "Timeline": ["./dist/esm/components/Timeline/index.d.ts"],
+      "TopPage": ["./dist/esm/components/TopPage/index.d.ts"],
       "Tooltip": ["./dist/esm/components/Tooltip/index.d.ts"],
       "ToolTipHover": ["./dist/esm/components/ToolTipHover/index.d.ts"],
       "Transition": ["./dist/esm/components/Transition/index.d.ts"],
