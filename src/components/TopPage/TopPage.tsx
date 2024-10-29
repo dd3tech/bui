@@ -8,6 +8,7 @@ import { Button } from 'components/Buttons'
 import { Tab, TabGroup } from 'components/Tabs'
 import Divider from 'components/Divider'
 import Text from '../Typography'
+import { monthLabelsShort } from '../../utils/utils'
 
 interface IActionButton {
   onClick: () => void
@@ -54,37 +55,7 @@ const translationLastUpdate = (translation: 'es' | 'en') => {
 const formatDate = (date: Date, language: 'en' | 'es') => {
   const day = date?.getDate?.()?.toString()?.padStart(2, '0')
 
-  const monthNames = {
-    en: [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec'
-    ],
-    es: [
-      'Ene',
-      'Feb',
-      'Mar',
-      'Abr',
-      'May',
-      'Jun',
-      'Jul',
-      'Ago',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dic'
-    ]
-  }
-  const month = monthNames?.[language]?.[date?.getMonth()]
+  const month = monthLabelsShort?.[language]?.[date?.getMonth()]
   const year = date?.getFullYear()
   return `${day}-${month}-${year}`
 }
