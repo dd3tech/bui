@@ -1,6 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { FilterBar as FilterBarComponent } from '../components/Filters'
+import { FilterSearch } from './FilterSearch.stories'
 
 export default {
   title: 'Filters/FilterBar',
@@ -22,6 +23,9 @@ const Template: ComponentStory<typeof FilterBarComponent> = ({
         iconOff={<span>A</span>}
         iconOn={<span>B</span>}
       />
+    </FilterBarComponent.Section>
+    <FilterBarComponent.Section borderLeft className="w-96 ml-auto">
+      <FilterSearch />
     </FilterBarComponent.Section>
   </FilterBarComponent>
 )

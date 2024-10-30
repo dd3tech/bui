@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import FilterInput from './FilterInput'
 import { FilterRangeSlider } from 'components/Filters'
@@ -50,16 +50,19 @@ export const DropdownRangeSlider = ({
   const [isActive, setIsActive] = useState<boolean>(false)
   const [selected, setSelected] = useState<RangeValues>(initialState)
 
-  const handleSubmit = (newValue: RangeValues) => {
-    onSubmit(newValue)
-    setIsActive(false)
-    setSelected(newValue)
-  }
+  const handleSubmit = useCallback(
+    (newValue: RangeValues) => {
+      onSubmit(newValue)
+      setIsActive(false)
+      setSelected(newValue)
+    },
+    [onSubmit]
+  )
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsActive(false)
     onClose && onClose()
-  }
+  }, [onClose])
 
   return (
     <div

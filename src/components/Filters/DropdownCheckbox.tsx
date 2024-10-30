@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useCallback, useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import ConfirmDialog from 'components/ConfirmDialog'
 import { Flex } from 'components/Layout'
@@ -41,30 +41,36 @@ export const DropdownCheckbox = ({
   const [selected, setSelected] = useState(initialState)
   const [value, setValue] = useState<string[]>(initialState)
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target
-    setValue((prev) =>
-      name === 'all'
-        ? checked
-          ? options.map((item) => item.value)
-          : []
-        : checked
-        ? [...prev, name]
-        : prev.filter((item) => item !== name)
-    )
-  }
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { name, checked } = e.target
+      setValue((prev) =>
+        name === 'all'
+          ? checked
+            ? options.map((item) => item.value)
+            : []
+          : checked
+          ? [...prev, name]
+          : prev.filter((item) => item !== name)
+      )
+    },
+    [options]
+  )
 
-  const handleSubmit = (newValue: string[]) => {
-    onSubmit(newValue)
-    setIsActive(false)
-    setSelected(newValue)
-  }
+  const handleSubmit = useCallback(
+    (newValue: string[]) => {
+      onSubmit(newValue)
+      setIsActive(false)
+      setSelected(newValue)
+    },
+    [onSubmit]
+  )
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsActive(false)
     setValue(selected)
     onClose && onClose()
-  }
+  }, [selected, onClose])
 
   const isAllSelected = value.length === options.length
 

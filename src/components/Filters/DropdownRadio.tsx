@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Flex } from 'components/Layout'
 import ConfirmDialog from 'components/ConfirmDialog'
@@ -40,21 +40,24 @@ export const DropdownRadio = ({
   )
   const [value, setValue] = useState<string>(initialValue || options[0].value)
 
-  const handleChange = (newValue: string) => {
+  const handleChange = useCallback((newValue: string) => {
     setValue(newValue)
-  }
+  }, [])
 
-  const handleSubmit = (newValue: string) => {
-    onSubmit(newValue)
-    setIsActive(false)
-    setSelected(newValue)
-  }
+  const handleSubmit = useCallback(
+    (newValue: string) => {
+      onSubmit(newValue)
+      setIsActive(false)
+      setSelected(newValue)
+    },
+    [onSubmit]
+  )
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsActive(false)
     setValue(selected)
     onClose && onClose()
-  }
+  }, [onClose, selected])
 
   return (
     <div
@@ -84,7 +87,7 @@ export const DropdownRadio = ({
           }}
         >
           <div onClick={(e) => e.stopPropagation()} role="container-popover">
-            {options?.map((option) => (
+            {options.map((option) => (
               <Flex
                 key={`filter-radio-${option.value}`}
                 justifyContent="start"

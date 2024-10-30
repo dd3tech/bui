@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import { ReactNode, useCallback, useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Button } from 'components/Buttons'
 import Tooltip from 'components/Tooltip'
@@ -28,12 +28,12 @@ const ToggleButton = ({
 }: ToggleButtonProps) => {
   const [isToggled, setIsToggled] = useState(isActive)
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (disabled) return
     const newState = !isToggled
     setIsToggled(newState)
     onToggle(newState)
-  }
+  }, [disabled, isToggled, onToggle])
 
   const toogleButtonComponent = () => (
     <Button
