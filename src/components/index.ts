@@ -179,5 +179,8 @@ export * from './Transition'
 export { default as Wrapper } from './Wrapper'
 export * from './Wrapper'
 
+export { default as TopPage } from './TopPage'
+export * from './TopPage'
+
 /** @deprecated */
 export * from './RangeSlider/MultiRangeSlider'
