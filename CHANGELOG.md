@@ -1,3 +1,10 @@
+## [6.27.1](https://github.com/dd3tech/bui/compare/v6.27.0...v6.27.1) (2024-10-30)
+
+
+### Bug Fixes
+
+* Added export of the top-page component ([f28f32d](https://github.com/dd3tech/bui/commit/f28f32dae0ad0bf90e889c0e4971f2aa53693dca))
+
 # [6.27.0](https://github.com/dd3tech/bui/compare/v6.26.27...v6.27.0) (2024-10-29)
 
 
