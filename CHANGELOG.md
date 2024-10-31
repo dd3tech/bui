@@ -1,3 +1,16 @@
+# [6.28.0](https://github.com/dd3tech/bui/compare/v6.27.1...v6.28.0) (2024-10-31)
+
+
+### Bug Fixes
+
+* add usecallback to component functions ([4b9aa76](https://github.com/dd3tech/bui/commit/4b9aa7668eb4208eb87a009e5ae8e82d85ac14aa))
+* filter section height and solve comments ([c78e30c](https://github.com/dd3tech/bui/commit/c78e30c718f76de621e56fea99e2aece5a20e70d))
+
+
+### Features
+
+* filter bar and new filters ([40bdec3](https://github.com/dd3tech/bui/commit/40bdec3c084857b53d233925caab4cdb48c9edd1))
+
 ## [6.27.1](https://github.com/dd3tech/bui/compare/v6.27.0...v6.27.1) (2024-10-30)
 
 
