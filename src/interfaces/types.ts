@@ -281,5 +281,6 @@ export type ButtonVariant =
   | 'disabled'
   | 'danger'
   | 'outlineWhiteRed'
+  | 'muted'
 
 export type PositionVariants = 'right' | 'left' | 'top' | 'bottom'

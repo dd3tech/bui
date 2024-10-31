@@ -7,8 +7,7 @@ const onApply = vi.fn((range: RangeValues) => alert(range))
 const onReset = vi.fn()
 const defaultProps: FilterRangeSliderProps = {
   onApply,
-  onReset,
-  position: { show: true, left: 0, top: 0 }
+  onReset
 }
 
 describe('<FilterRangeSlider/>', () => {
