@@ -25,9 +25,9 @@ const Section = ({
       role="filter-bar-section"
       alignItems="center"
       className={composeClasses(
-        'h-full min-h-full px-4 flex-shrink-0',
-        borderLeft && 'border-l-2 border-gray-200',
-        borderRight && 'border-r-2 border-gray-200',
+        'h-[full] self-stretch flex-shrink-0',
+        borderLeft && 'pl-4 ml-4 border-l-2 border-gray-200',
+        borderRight && 'pr-4 mr-4 border-r-2 border-gray-200',
         className
       )}
       {...props}

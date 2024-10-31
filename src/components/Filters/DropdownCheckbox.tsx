@@ -121,12 +121,12 @@ export const DropdownCheckbox = ({
             </Flex>
             {options?.map((item, index) => (
               <Flex
-                key={`${item}-${index}`}
+                key={`${item.value}-${index}`}
                 alignItems="center"
                 className="w-full text-right mb-2"
               >
                 <input
-                  role={`option-${item}`}
+                  role={`option-${item.value}`}
                   type="checkbox"
                   name={item.value}
                   id={item.value}

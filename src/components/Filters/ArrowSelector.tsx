@@ -26,8 +26,8 @@ export const ArrowSelector = ({
     >
       <Circle
         role="arrow-selector-left"
-        className="border w-4 cursor-pointer"
-        style={{ background: 'white', height: 24, width: 24 }}
+        className="border w-4 bg-white hover:bg-blue-50 cursor-pointer transition duration-300 ease-linear"
+        style={{ height: 24, width: 24 }}
         onClick={onClickLeft}
       >
         <ChevronLeftIcon width={10} className="text-blue-700" />
@@ -41,8 +41,8 @@ export const ArrowSelector = ({
       </Text>
       <Circle
         role="arrow-selector-right"
-        className="border w-4 cursor-pointer"
-        style={{ background: 'white', height: 24, width: 24 }}
+        className="border w-4 bg-white hover:bg-blue-50 cursor-pointer transition duration-300 ease-linear"
+        style={{ height: 24, width: 24 }}
         onClick={onClickRight}
       >
         <ChevronRightIcon width={10} className="text-blue-700" />

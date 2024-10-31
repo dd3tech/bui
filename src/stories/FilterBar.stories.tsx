@@ -13,6 +13,9 @@ const Template: ComponentStory<typeof FilterBarComponent> = ({
   isFlex
 }: any) => (
   <FilterBarComponent className={className} isFlex={isFlex}>
+    <FilterBarComponent.Section borderRight className="w-96">
+      <FilterSearch />
+    </FilterBarComponent.Section>
     <FilterBarComponent.Section borderRight>
       <FilterBarComponent.Label number={10} label="Filter 1" />
     </FilterBarComponent.Section>
@@ -23,9 +26,6 @@ const Template: ComponentStory<typeof FilterBarComponent> = ({
         iconOff={<span>A</span>}
         iconOn={<span>B</span>}
       />
-    </FilterBarComponent.Section>
-    <FilterBarComponent.Section borderLeft className="w-96 ml-auto">
-      <FilterSearch />
     </FilterBarComponent.Section>
   </FilterBarComponent>
 )

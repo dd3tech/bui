@@ -40,29 +40,27 @@ export const FilterSearch = ({
   const clearSearch = () => setSearch('')
 
   return (
-    <div className="w-full">
-      <Input
-        role="filter-search"
-        message={message}
-        variant={variant}
-        label={label}
-        placeholder={placeholder}
-        className="w-full h-10 max-h-10 -mt-0.5 text-xs"
-        style={{ backgroundColor: '#ffffff' }}
-        value={search}
-        disabled={disabled}
-        startAdornment={<SearchIcon className="text-gray-400 w-3.5 h-3.5" />}
-        endAdornment={
-          search && (
-            <XCircleIcon
-              onClick={clearSearch}
-              className="text-gray-400 w-4 h-4 cursor-pointer"
-            />
-          )
-        }
-        onChange={handleChange}
-      />
-    </div>
+    <Input
+      role="filter-search"
+      message={message}
+      variant={variant}
+      label={label}
+      placeholder={placeholder}
+      className="w-full h-10 max-h-10 -mt-0.5 text-xs"
+      style={{ backgroundColor: '#ffffff' }}
+      value={search}
+      disabled={disabled}
+      startAdornment={<SearchIcon className="text-gray-400 w-3.5 h-3.5" />}
+      endAdornment={
+        search && (
+          <XCircleIcon
+            onClick={clearSearch}
+            className="text-gray-400 w-4 h-4 cursor-pointer"
+          />
+        )
+      }
+      onChange={handleChange}
+    />
   )
 }
 

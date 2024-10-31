@@ -17,11 +17,16 @@ export const FilterBar = ({
   children,
   isFlex = true,
   className,
+  style,
   ...props
 }: FilterBarProps) => {
   return (
     <div
       role="filter-bar"
+      style={{
+        minHeight: '60px',
+        ...style
+      }}
       className={composeClasses(
         'p-2.5 bg-gray-100 rounded-lg',
         isFlex && 'flex items-center',
