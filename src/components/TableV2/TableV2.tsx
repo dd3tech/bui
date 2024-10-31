@@ -1,14 +1,14 @@
-import { Rounded } from 'interfaces'
 import { composeClasses } from 'lib/classes'
+import { Rounded } from 'interfaces'
 import Header from './base/Header'
 import HeaderRow from './base/HeaderRow'
 import HeaderCell from './base/HeaderCell'
-import './base/tableV2.css'
 import Body from './base/TableBody'
 import Row from './base/TableRow'
 import Cell from './base/TableCell'
+import './base/tableV2.css'
 
-interface TableV2Props extends React.HTMLAttributes<HTMLTableElement> {
+export interface TableV2Props extends React.HTMLAttributes<HTMLTableElement> {
   /**
    * Table content
    */
@@ -36,7 +36,7 @@ interface TableV2Props extends React.HTMLAttributes<HTMLTableElement> {
   className?: string
 }
 
-const TableV2 = ({
+export const TableV2 = ({
   children,
   rounded = 'lg',
   horizontalBorders = true,
