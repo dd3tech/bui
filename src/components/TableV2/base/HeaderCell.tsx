@@ -85,7 +85,7 @@ const HeaderCell = ({
       {showSortIcon ? (
         <Flex alignItems="center" justifyContent="between" gap="1">
           {props.children}
-          <button onClick={handleSort}>
+          <button role="sort-button" onClick={handleSort}>
             {sort === 'ASC' ? (
               <SortAscendingIcon className="w-4 h-4" />
             ) : (
