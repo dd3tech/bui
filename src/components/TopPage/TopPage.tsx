@@ -44,6 +44,7 @@ interface TopPageProps {
     isDisabled?: boolean
   }
   tabs?: ITab
+  classNameHeader?: string
 }
 
 const translationLastUpdate = (translation: 'es' | 'en') => {
@@ -68,7 +69,8 @@ const TopPage = ({
   description,
   callToActionsButtons,
   actionIcon,
-  tabs
+  tabs,
+  classNameHeader
 }: TopPageProps) => {
   const styleIcon = useCallback(() => {
     if (actionIcon?.isDisabled) return 'text-gray-300'
@@ -77,8 +79,11 @@ const TopPage = ({
   }, [actionIcon])
 
   return (
-    <div className="mx-5">
-      <div>
+    <div className="px-5">
+      <div
+        className={classNameHeader ?? 'sticky top-0 bg-white'}
+        style={{ zIndex: 10000 }}
+      >
         {(optionsBreadcrumbs || lastUpdate) && (
           <Flex className="pt-3 h-8" justifyContent="between">
             <div>
