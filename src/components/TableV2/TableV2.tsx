@@ -47,7 +47,7 @@ export const TableV2 = ({
   return (
     <div
       className={composeClasses(
-        'tableV2-container-cmpnt vertical-borders horizontal-borders',
+        'tableV2-container-cmpnt',
         className,
         horizontalBorders && 'horizontal-borders',
         verticalBorders && 'vertical-borders',

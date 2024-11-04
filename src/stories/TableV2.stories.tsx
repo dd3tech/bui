@@ -44,9 +44,7 @@ const Template: ComponentStory<typeof TableV2Comp> = (_args) => {
         <TableV2Comp.Body>
           <TableV2Comp.Row>
             {columns.map((val) => (
-              <TableV2Comp.Cell key={val} type="link">
-                23650
-              </TableV2Comp.Cell>
+              <TableV2Comp.Cell key={val}>Cell</TableV2Comp.Cell>
             ))}
           </TableV2Comp.Row>
           <TableV2Comp.Row>

@@ -1,7 +1,7 @@
-import { formatCustomDecimal } from 'dd360-utils'
-import Input, { GenericInputProps } from '../../Form/Input/Input'
+import { HTMLAttributes } from 'react'
 import { composeClasses } from 'lib/classes'
-import Text from 'components/Typography'
+import Input, { GenericInputProps } from '../../Form/Input/Input'
+import CellText from './TableCellText'
 
 type unit = `${number}${'px' | 'rem'}`
 
@@ -44,9 +44,25 @@ export interface CellProps
    */
   type?: 'text' | 'link' | 'currency' | 'percentage'
   /**
+   * Text alignment
+   */
+  align?: 'center' | 'left' | 'right'
+  /**
    * Function to call when cell is clicked
    */
   to?: () => void
+  /**
+   * Class name for the text
+   */
+  textClassName?: HTMLAttributes<HTMLSpanElement>['className']
+  /**
+   * Default value to show
+   */
+  defaultValue?: string
+  /**
+   * Show default value
+   */
+  showDefaultValue?: boolean
 }
 
 const Cell = ({
@@ -58,41 +74,18 @@ const Cell = ({
   stickyRight,
   stickyBottom,
   type = 'text',
+  align = 'left',
+  textClassName,
+  defaultValue,
+  showDefaultValue,
+  children,
   to,
   ...props
 }: CellProps) => {
-  //format if child is text
-  const format = (child: React.ReactNode) => {
-    if (typeof child === 'string') {
-      switch (type) {
-        case 'currency':
-          return (
-            <Text className="block text-right">{`$${formatCustomDecimal(
-              Number(child)
-            )}`}</Text>
-          )
-        case 'percentage':
-          return (
-            <Text className="block text-right">{`${Number(child).toFixed(
-              2
-            )}%`}</Text>
-          )
-        case 'link':
-          return (
-            <Text
-              className="text-blue-700 cursor-pointer"
-              onClick={() => to && to()}
-            >
-              {child}
-            </Text>
-          )
-        default:
-          return child
-      }
-    } else {
-      return child
-    }
-  }
+  const isSimpleChildren =
+    typeof children === 'string' ||
+    typeof children === 'number' ||
+    typeof children === 'undefined'
 
   return (
     <td
@@ -102,7 +95,6 @@ const Cell = ({
         disabled && 'text-gray-200',
         error && 'error-100',
         inputProps && 'pt-0 pb-0',
-        (type === 'percentage' || type === 'currency') && 'text-right',
         props.className
       )}
       style={{
@@ -113,7 +105,22 @@ const Cell = ({
         ...props.style
       }}
     >
-      {inputProps ? <Input {...inputProps}></Input> : format(props.children)}
+      {inputProps ? (
+        <Input {...inputProps}></Input>
+      ) : isSimpleChildren ? (
+        <CellText
+          type={type}
+          align={align}
+          defaultValue={defaultValue}
+          showDefaultValue={showDefaultValue}
+          className={textClassName}
+          to={to}
+        >
+          {children}
+        </CellText>
+      ) : (
+        children
+      )}
     </td>
   )
 }

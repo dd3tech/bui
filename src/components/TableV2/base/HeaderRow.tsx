@@ -14,8 +14,9 @@ export interface HeaderRowProps
 }
 
 const headerRowVariant: { [key: string]: string } = {
-  primary: `h-8 ${fontSize.xxs} bg-gray-50 relative`,
-  secondary: `${fontSize.xxs} h-10 text-info`
+  primary: `h-8 ${fontSize.xxs}`,
+  secondary: `h-9 ${fontSize.xxs} large-borders`,
+  tertiary: `h-9 ${fontSize.xs} full-borders`
 }
 
 const HeaderRow = ({
@@ -27,6 +28,7 @@ const HeaderRow = ({
     <tr
       {...props}
       className={composeClasses(
+        'bg-gray-50 relative',
         props.className,
         fontWeight.bold,
         headerRowVariant[variant]
