@@ -1,3 +1,10 @@
+## [6.28.1](https://github.com/dd3tech/bui/compare/v6.28.0...v6.28.1) (2024-11-04)
+
+
+### Bug Fixes
+
+* add sticky top page ([25b84e2](https://github.com/dd3tech/bui/commit/25b84e2652b460fa8a04a24121b2914dd71e2a1c))
+
 # [6.28.0](https://github.com/dd3tech/bui/compare/v6.27.1...v6.28.0) (2024-10-31)
 
 
