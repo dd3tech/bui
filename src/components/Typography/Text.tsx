@@ -7,7 +7,8 @@ import React, {
   FC,
   forwardRef,
   HTMLAttributes,
-  LegacyRef
+  LegacyRef,
+  MouseEvent
 } from 'react'
 import { format } from 'dd360-utils'
 import { composeClasses } from 'lib'
@@ -66,7 +67,7 @@ export interface TextProps extends DetailedHTMLProps<HTMLAttributes<any>, any> {
   href?: string
   target?: string
   style?: any
-  onClick?: () => void
+  onClick?: (e: MouseEvent<HTMLSpanElement>) => void
   onBlur?: () => void
 }
 

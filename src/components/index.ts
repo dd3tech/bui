@@ -150,6 +150,9 @@ export * from './Switch'
 export { default as Table } from './Table'
 export * from './Table'
 
+export { default as TableV2 } from './TableV2'
+export * from './TableV2'
+
 export { default as TableContentSkeleton } from './Skeleton/TableContentSkeleton'
 export * from './Skeleton/TableContentSkeleton'
 

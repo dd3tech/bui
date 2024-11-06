@@ -306,6 +306,11 @@
       "module": "./dist/esm/components/Table/index.js",
       "default": "./dist/esm/components/Table/index.js"
     },
+    "./TableV2": {
+      "require": "./dist/cjs/components/TableV2/index.js",
+      "module": "./dist/esm/components/TableV2/index.js",
+      "default": "./dist/esm/components/TableV2/index.js"
+    },
     "./TableContentSkeleton": {
       "require": "./dist/cjs/components/Skeleton/TableContentSkeleton.js",
       "module": "./dist/esm/components/Skeleton/TableContentSkeleton.js",
@@ -426,6 +431,7 @@
       "Stepper": ["./dist/esm/components/Stepper/index.d.ts"],
       "Switch": ["./dist/esm/components/Switch/index.d.ts"],
       "Table": ["./dist/esm/components/Table/index.d.ts"],
+      "TableV2": ["./dist/esm/components/TableV2/index.d.ts"],
       "TableContentSkeleton": [
         "./dist/esm/components/Skeleton/TableContentSkeleton.d.ts"
       ],

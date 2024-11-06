@@ -1,0 +1,75 @@
+.tableV2-container-cmpnt thead tr th,
+.tableV2-container-cmpnt tbody tr td {
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: left;
+}
+
+.tableV2-container-cmpnt tbody tr {
+  height: 30px;
+}
+
+.tableV2-container-cmpnt.bordered {
+  border: 1px solid #d1d5db;
+}
+
+.tableV2-container-cmpnt thead tr th::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    right: 0px;
+    width: 1px;
+    height: 16px;
+    background-color: #E5E7EB;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.tableV2-container-cmpnt thead tr.large-borders th::after {
+    bottom: 10%;
+    height: 80%;
+}
+
+.tableV2-container-cmpnt thead tr.full-borders th::after {
+    bottom: 0px;
+    height: 100%;
+}
+
+.tableV2-container-cmpnt.vertical-borders tbody tr td::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 1px;
+    height: 100%;
+    background-color: #E5E7EB;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.tableV2-container-cmpnt tbody tr td.white-border::after,
+.tableV2-container-cmpnt.vertical-borders tbody tr td.white-border::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  right: 0px;
+  width: 1px;
+  height: calc(100% - 1px);
+  background-color: white;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+  
+.tableV2-container-cmpnt.horizontal-borders thead tr th::before,
+.tableV2-container-cmpnt.horizontal-borders tbody tr td::before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 0.1em;
+    width: 100%;
+    background-color: #E5E7EB;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
