@@ -80,7 +80,7 @@ const CellText = ({
       )}
       onClick={(e) => {
         e.preventDefault()
-        to && to()
+        to?.()
       }}
     >
       {values.value}

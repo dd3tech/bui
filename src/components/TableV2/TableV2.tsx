@@ -68,7 +68,6 @@ TableV2.HeaderCell = HeaderCell
 TableV2.Body = Body
 TableV2.Row = Row
 TableV2.Cell = Cell
-// TableV2.Accordion = Accordion
 
 TableV2.displayName = 'TableV2'
 
