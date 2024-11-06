@@ -63,6 +63,10 @@ export interface CellProps
    * Show default value
    */
   showDefaultValue?: boolean
+  /**
+   * Cell color
+   */
+  cellColor?: 'red' | 'green' | 'yellow'
 }
 
 const Cell = ({
@@ -78,6 +82,7 @@ const Cell = ({
   textClassName,
   defaultValue,
   showDefaultValue,
+  cellColor,
   children,
   to,
   ...props
@@ -87,6 +92,12 @@ const Cell = ({
     typeof children === 'number' ||
     typeof children === 'undefined'
 
+  const cellColorStyle = {
+    red: '#FEE2E2',
+    green: '#ECFDF5',
+    yellow: '#FFFBEB'
+  }
+
   return (
     <td
       {...props}
@@ -95,6 +106,7 @@ const Cell = ({
         disabled && 'text-gray-200',
         error && 'error-100',
         inputProps && 'pt-0 pb-0',
+        cellColor && 'white-border',
         props.className
       )}
       style={{
@@ -102,6 +114,7 @@ const Cell = ({
         top: stickyTop,
         right: stickyRight,
         bottom: stickyBottom,
+        backgroundColor: cellColor ? cellColorStyle[cellColor] : undefined,
         ...props.style
       }}
     >

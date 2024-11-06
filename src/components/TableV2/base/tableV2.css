@@ -47,6 +47,19 @@
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
 }
+
+.tableV2-container-cmpnt tbody tr td.white-border::after,
+.tableV2-container-cmpnt.vertical-borders tbody tr td.white-border::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  right: 0px;
+  width: 1px;
+  height: calc(100% - 1px);
+  background-color: white;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
   
 .tableV2-container-cmpnt.horizontal-borders thead tr th::before,
 .tableV2-container-cmpnt.horizontal-borders tbody tr td::before {
