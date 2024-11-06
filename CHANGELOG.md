@@ -1,3 +1,19 @@
+# [6.29.0](https://github.com/dd3tech/bui/compare/v6.28.1...v6.29.0) (2024-11-06)
+
+
+### Bug Fixes
+
+* add cell color prop ([345ac7e](https://github.com/dd3tech/bui/commit/345ac7eb931a2fc6c4e91116cf800280b2473e5b))
+* add imports ([e6ff15e](https://github.com/dd3tech/bui/commit/e6ff15e828f1ef1399a62326921f18b8c5707491))
+* add role to sort button ([1bd9931](https://github.com/dd3tech/bui/commit/1bd993149c7025932e3c4aa20dcefffc1d23f511))
+* format cell ([9571ff6](https://github.com/dd3tech/bui/commit/9571ff6190d6b40421b65b26236f18127ef780cc))
+* resolve comments ([24a37f2](https://github.com/dd3tech/bui/commit/24a37f2c391a2cb47037ab72a5241be172bf3956))
+
+
+### Features
+
+* add tableV2 part 1 ([3145a89](https://github.com/dd3tech/bui/commit/3145a890dae529f8a304d42917145d801054ea17))
+
 ## [6.28.1](https://github.com/dd3tech/bui/compare/v6.28.0...v6.28.1) (2024-11-04)
 
 
