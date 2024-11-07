@@ -27,7 +27,7 @@ interface ITab {
   }[]
 }
 
-interface TopPageProps {
+export interface TopPageProps {
   optionsBreadcrumbs?: BreadcrumbsProps['options']
   lastUpdate?: {
     translation: 'es' | 'en'
@@ -36,7 +36,6 @@ interface TopPageProps {
   title: string
   description?: string
   callToActionsButtons?: IActionButton[]
-  children: React.ReactNode
   actionIcon?: {
     titleIcon?: React.ReactNode
     onClick?: () => void
@@ -62,7 +61,6 @@ const formatDate = (date: Date, language: 'en' | 'es') => {
 }
 
 const TopPage = ({
-  children,
   optionsBreadcrumbs,
   title,
   lastUpdate,
@@ -179,7 +177,6 @@ const TopPage = ({
           )}
         </div>
       </div>
-      <div className="my-6">{children}</div>
     </div>
   )
 }

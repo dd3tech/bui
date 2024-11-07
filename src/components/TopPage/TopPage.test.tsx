@@ -27,8 +27,7 @@ const defaultProps = {
     value: 0,
     setValue: vi.fn(),
     items: [{ label: 'Tab 1' }, { label: 'Tab 2' }]
-  },
-  children: <p>Test children</p>
+  }
 }
 
 beforeEach(() => {
