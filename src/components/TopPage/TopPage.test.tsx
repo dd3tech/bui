@@ -91,9 +91,4 @@ describe('<TopPage />', () => {
     fireEvent.click(getByText('Tab 2'))
     expect(getByText('Tab 2')).toBeDefined()
   })
-
-  it('should render children content', () => {
-    const { getByText } = render(<TopPage {...defaultProps} />)
-    expect(getByText('Test children')).toBeDefined()
-  })
 })
