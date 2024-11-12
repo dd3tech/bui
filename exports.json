@@ -326,6 +326,11 @@
       "module": "./dist/esm/components/Tag/index.js",
       "default": "./dist/esm/components/Tag/index.js"
     },
+    "./PageTemplate": {
+      "require": "./dist/cjs/components/PageTemplate/index.js",
+      "module": "./dist/esm/components/PageTemplate/index.js",
+      "default": "./dist/esm/components/PageTemplate/index.js"
+    },
     "./Text": {
       "require": "./dist/cjs/components/Typography/index.js",
       "module": "./dist/esm/components/Typography/index.js",

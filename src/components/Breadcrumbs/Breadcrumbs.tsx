@@ -5,10 +5,12 @@
 import React, { forwardRef, ReactNode, FC } from 'react'
 import { ChevronRightIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
+import Skeleton from 'components/Skeleton/Skeleton'
 
 export interface BreadcrumbsProps extends React.HTMLProps<HTMLDivElement> {
   options: Array<{ name?: string; icon?: () => ReactNode; to?: () => void }>
   separator?: any
+  isLoading?: boolean
 }
 
 export type InsertSeparatorsProps = {
@@ -32,13 +34,20 @@ const InsertSeparators: FC<InsertSeparatorsProps> = ({
 }
 
 const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
-  ({ options, separator, className, ...props }: BreadcrumbsProps, ref) => {
+  (
+    { options, separator, className, isLoading, ...props }: BreadcrumbsProps,
+    ref
+  ) => {
     const isActiveLink = React.useCallback(
       (indexOfKey: number) => {
-        return options.length - 1 === indexOfKey
+        return options?.length - 1 === indexOfKey
       },
       [options]
     )
+
+    if (isLoading) {
+      return <Skeleton className="w-52 h-6 pt-1 bg-gray-300 rounded-lg" />
+    }
 
     return (
       <div
@@ -49,7 +58,7 @@ const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
         ref={ref}
         {...props}
       >
-        {options.map(({ name, icon, to }, indexKey) => (
+        {options?.map(({ name, icon, to }, indexKey) => (
           <React.Fragment key={`${name}-${to}-${indexKey}`}>
             {icon && icon()}
             <p
