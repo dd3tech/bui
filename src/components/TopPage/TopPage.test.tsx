@@ -27,8 +27,7 @@ const defaultProps = {
     value: 0,
     setValue: vi.fn(),
     items: [{ label: 'Tab 1' }, { label: 'Tab 2' }]
-  },
-  children: <p>Test children</p>
+  }
 }
 
 beforeEach(() => {
@@ -91,10 +90,5 @@ describe('<TopPage />', () => {
     expect(getByText('Tab 1')).toBeDefined()
     fireEvent.click(getByText('Tab 2'))
     expect(getByText('Tab 2')).toBeDefined()
-  })
-
-  it('should render children content', () => {
-    const { getByText } = render(<TopPage {...defaultProps} />)
-    expect(getByText('Test children')).toBeDefined()
   })
 })

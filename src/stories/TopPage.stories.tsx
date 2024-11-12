@@ -53,6 +53,5 @@ Default.args = {
       { label: 'Tab 1', content: <div>Content for Tab 1</div> },
       { label: 'Tab 2', content: <div>Content for Tab 2</div> }
     ]
-  },
-  children: <p>This is the main content of the TopPage component.</p>
+  }
 }
