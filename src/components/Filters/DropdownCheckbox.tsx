@@ -23,6 +23,8 @@ export interface DropdownCheckboxProps {
   title?: string
   /** Alignment of the dropdown */
   align?: 'left' | 'right'
+
+  label?: string
 }
 
 export const DropdownCheckbox = ({
@@ -34,7 +36,8 @@ export const DropdownCheckbox = ({
   onSubmit,
   onClose,
   title,
-  align = 'left'
+  align = 'left',
+  label
 }: DropdownCheckboxProps) => {
   const initialState = initialValue || options?.map((item) => item.value)
   const [isActive, setIsActive] = useState<boolean>(false)
@@ -83,8 +86,8 @@ export const DropdownCheckbox = ({
       <FilterInput
         isActive={isActive}
         setIsActive={setIsActive}
-        label="Filter by"
-        value={selected.join(', ')}
+        label={label ?? 'Filter by'}
+        value={options.map((option) => option.label).join(', ')}
         variant="primary"
       />
       {isActive && (

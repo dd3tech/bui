@@ -80,7 +80,7 @@ const TopPage = ({
     <div className="px-5">
       <div
         className={classNameHeader ?? 'sticky top-0 bg-white'}
-        style={{ zIndex: 10000 }}
+        style={{ zIndex: 500 }}
       >
         {(optionsBreadcrumbs || lastUpdate) && (
           <Flex className="pt-3 h-8" justifyContent="between">
@@ -125,11 +125,10 @@ const TopPage = ({
               {callToActionsButtons &&
                 callToActionsButtons.slice(0, 4).map((button, index) => (
                   <Button
-                    paddingX="4"
                     key={index}
                     variant={button.variant}
                     onClick={button.onClick}
-                    className="flex gap-2 items-center justify-center h-10"
+                    className="flex gap-2 items-center justify-center h-10 p-4"
                     disabled={button?.isDisabled}
                   >
                     {button.label}

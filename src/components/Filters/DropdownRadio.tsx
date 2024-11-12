@@ -22,6 +22,8 @@ export interface DropdownRadioProps {
   title?: string
   /** Alignment of the dropdown */
   align?: 'left' | 'right'
+
+  label?: string
 }
 
 export const DropdownRadio = ({
@@ -32,7 +34,8 @@ export const DropdownRadio = ({
   onSubmit,
   onClose,
   title,
-  align = 'left'
+  align = 'left',
+  label
 }: DropdownRadioProps) => {
   const [isActive, setIsActive] = useState<boolean>(false)
   const [selected, setSelected] = useState<string>(
@@ -68,7 +71,7 @@ export const DropdownRadio = ({
       <FilterInput
         isActive={isActive}
         setIsActive={setIsActive}
-        label="Filter by"
+        label={label ?? 'Filter by'}
         value={selected}
         variant="primary"
       />

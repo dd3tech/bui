@@ -26,6 +26,8 @@ export interface DropdownRangeProps {
   title?: string
   /** Alignment of the dropdown */
   align?: 'left' | 'right'
+
+  label: string
 }
 
 type RangeValues = { maxVal: number; minVal: number }
@@ -41,7 +43,8 @@ export const DropdownRange = ({
   onSubmit,
   onClose,
   title,
-  align = 'left'
+  align = 'left',
+  label
 }: DropdownRangeProps) => {
   const initialState = {
     maxVal: initMaxValue || max,
@@ -73,7 +76,7 @@ export const DropdownRange = ({
       <FilterInput
         isActive={isActive}
         setIsActive={setIsActive}
-        label="Filter by"
+        label={label ?? 'Filter by'}
         value={`${selected.minVal}-${selected.maxVal} ${unitName}`}
         variant="primary"
       />

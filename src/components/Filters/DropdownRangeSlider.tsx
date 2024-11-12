@@ -26,6 +26,8 @@ export interface DropdownRangeSliderProps {
   title?: string
   /** Alignment of the dropdown */
   align?: 'left' | 'right'
+
+  label?: string
 }
 
 type RangeValues = { max: number; min: number }
@@ -41,7 +43,8 @@ export const DropdownRangeSlider = ({
   onSubmit,
   onClose,
   title,
-  align = 'left'
+  align = 'left',
+  label
 }: DropdownRangeSliderProps) => {
   const initialState = {
     max: initMaxValue || max,
@@ -73,7 +76,7 @@ export const DropdownRangeSlider = ({
       <FilterInput
         isActive={isActive}
         setIsActive={setIsActive}
-        label="Filter by"
+        label={label ?? 'Filter by'}
         value={`${selected.min}-${selected.max} ${unitName}`}
         variant="primary"
       />
