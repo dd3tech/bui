@@ -44,6 +44,8 @@ export const DropdownCheckbox = ({
   const [selected, setSelected] = useState(initialState)
   const [value, setValue] = useState<string[]>(initialState)
 
+  const isAllSelected = value.length === options.length
+
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       const { name, checked } = e.target
@@ -75,7 +77,11 @@ export const DropdownCheckbox = ({
     onClose && onClose()
   }, [selected, onClose])
 
-  const isAllSelected = value.length === options.length
+  const selectedLabel = useCallback(() => {
+    return options
+      .filter((item) => value.includes(item.value))
+      .map((item) => item.label)
+  }, [options, value])
 
   return (
     <div
@@ -87,7 +93,7 @@ export const DropdownCheckbox = ({
         isActive={isActive}
         setIsActive={setIsActive}
         label={label ?? 'Filter by'}
-        value={options.map((option) => option.label).join(', ')}
+        value={isAllSelected ? allText || 'All' : selectedLabel()?.join(', ')}
         variant="primary"
       />
       {isActive && (
