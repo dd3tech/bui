@@ -1,3 +1,11 @@
+# [6.30.0](https://github.com/dd3tech/bui/compare/v6.29.0...v6.30.0) (2024-11-12)
+
+
+### Features
+
+* correction test top page ([f5b890c](https://github.com/dd3tech/bui/commit/f5b890c294bfda87575125aaf41fceeb14d64f18))
+* TemplatePage component was added ([cc472b1](https://github.com/dd3tech/bui/commit/cc472b1f75a41f208051d958f7ca71fefd637b14))
+
 # [6.29.0](https://github.com/dd3tech/bui/compare/v6.28.1...v6.29.0) (2024-11-06)
 
 
