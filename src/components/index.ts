@@ -185,5 +185,8 @@ export * from './Wrapper'
 export { default as TopPage } from './TopPage'
 export * from './TopPage'
 
+export { default as TemplatePage } from './TemplatePage'
+export * from './TemplatePage'
+
 /** @deprecated */
 export * from './RangeSlider/MultiRangeSlider'
