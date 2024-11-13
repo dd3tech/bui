@@ -78,10 +78,7 @@ const TopPage = ({
 
   return (
     <div className="px-5">
-      <div
-        className={classNameHeader ?? 'sticky top-0 bg-white'}
-        style={{ zIndex: 10000 }}
-      >
+      <div className={classNameHeader ?? 'sticky top-0 bg-white z-40'}>
         {(optionsBreadcrumbs || lastUpdate) && (
           <Flex className="pt-3 h-8" justifyContent="between">
             <div>
