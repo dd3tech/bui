@@ -77,105 +77,98 @@ const TopPage = ({
   }, [actionIcon])
 
   return (
-    <div className="px-5">
-      <div
-        className={classNameHeader ?? 'sticky top-0 bg-white'}
-        style={{ zIndex: 10000 }}
+    <div className={classNameHeader ?? 'sticky top-0 bg-white z-40 px-5'}>
+      {(optionsBreadcrumbs || lastUpdate) && (
+        <Flex className="pt-3 h-8" justifyContent="between">
+          <div>
+            {optionsBreadcrumbs && (
+              <div>
+                <Breadcrumbs options={optionsBreadcrumbs} />
+              </div>
+            )}
+          </div>
+          {lastUpdate && (
+            <Text size="sm" className="flex gap-1">
+              {translationLastUpdate(lastUpdate.translation)}
+              <span className="font-bold">
+                {formatDate(lastUpdate.date, lastUpdate.translation)}
+              </span>
+            </Text>
+          )}
+        </Flex>
+      )}
+      <Flex
+        className={composeClasses(
+          !optionsBreadcrumbs && !lastUpdate && 'mt-4',
+          'mt-1'
+        )}
+        alignItems="center"
+        justifyContent="between"
+        style={{
+          height: '52px'
+        }}
       >
-        {(optionsBreadcrumbs || lastUpdate) && (
-          <Flex className="pt-3 h-8" justifyContent="between">
-            <div>
-              {optionsBreadcrumbs && (
-                <div>
-                  <Breadcrumbs options={optionsBreadcrumbs} />
-                </div>
-              )}
-            </div>
-            {lastUpdate && (
-              <Text size="sm" className="flex gap-1">
-                {translationLastUpdate(lastUpdate.translation)}
-                <span className="font-bold">
-                  {formatDate(lastUpdate.date, lastUpdate.translation)}
+        <Flex className="flex-col">
+          {title && (
+            <Text bold size="2xl">
+              {title}
+            </Text>
+          )}
+          {description && <Text size="sm">{description}</Text>}
+        </Flex>
+        {(callToActionsButtons || actionIcon) && (
+          <Flex gap="3" alignItems="center">
+            {callToActionsButtons &&
+              callToActionsButtons.slice(0, 4).map((button, index) => (
+                <Button
+                  paddingX="4"
+                  key={index}
+                  variant={button.variant}
+                  onClick={button.onClick}
+                  className="flex gap-2 items-center justify-center h-10"
+                  disabled={button?.isDisabled}
+                >
+                  {button.label}
+                  {button.icon && (
+                    <span className="w-4 h-4 flex-shrink-0">{button.icon}</span>
+                  )}
+                </Button>
+              ))}
+            {actionIcon && (
+              <Circle
+                backgroundColor="#ffffff"
+                useBackground={false}
+                className={composeClasses(
+                  'border cursor-pointer border-solid border-gray-300 bg-white transition duration-500 ease-out hover:bg-gray-100',
+                  actionIcon?.isSelected && 'bg-blue-600',
+                  actionIcon?.isDisabled && 'bg-gray-100'
+                )}
+                width="40px"
+                height="40px"
+                onClick={() => {
+                  if (actionIcon?.isDisabled) return
+                  actionIcon?.onClick?.()
+                }}
+                data-testid="action-icon"
+              >
+                <span className={composeClasses('w-5 h-5', styleIcon())}>
+                  {actionIcon?.titleIcon}
                 </span>
-              </Text>
+              </Circle>
             )}
           </Flex>
         )}
-        <Flex
-          className={composeClasses(
-            !optionsBreadcrumbs && !lastUpdate && 'mt-4',
-            'mt-1'
-          )}
-          alignItems="center"
-          justifyContent="between"
-          style={{
-            height: '52px'
-          }}
-        >
-          <Flex className="flex-col">
-            {title && (
-              <Text bold size="2xl">
-                {title}
-              </Text>
-            )}
-            {description && <Text size="sm">{description}</Text>}
-          </Flex>
-          {(callToActionsButtons || actionIcon) && (
-            <Flex gap="3" alignItems="center">
-              {callToActionsButtons &&
-                callToActionsButtons.slice(0, 4).map((button, index) => (
-                  <Button
-                    paddingX="4"
-                    key={index}
-                    variant={button.variant}
-                    onClick={button.onClick}
-                    className="flex gap-2 items-center justify-center h-10"
-                    disabled={button?.isDisabled}
-                  >
-                    {button.label}
-                    {button.icon && (
-                      <span className="w-4 h-4 flex-shrink-0">
-                        {button.icon}
-                      </span>
-                    )}
-                  </Button>
-                ))}
-              {actionIcon && (
-                <Circle
-                  backgroundColor="#ffffff"
-                  useBackground={false}
-                  className={composeClasses(
-                    'border cursor-pointer border-solid border-gray-300 bg-white transition duration-500 ease-out hover:bg-gray-100',
-                    actionIcon?.isSelected && 'bg-blue-600',
-                    actionIcon?.isDisabled && 'bg-gray-100'
-                  )}
-                  width="40px"
-                  height="40px"
-                  onClick={() => {
-                    if (actionIcon?.isDisabled) return
-                    actionIcon?.onClick?.()
-                  }}
-                  data-testid="action-icon"
-                >
-                  <span className={composeClasses('w-5 h-5', styleIcon())}>
-                    {actionIcon?.titleIcon}
-                  </span>
-                </Circle>
-              )}
-            </Flex>
-          )}
-        </Flex>
-        <div className="-mx-5 mt-1">
-          {tabs ? (
-            <TabGroup value={tabs.value} onChange={tabs.setValue}>
-              {tabs.items.map((tab, index) => (
-                <Tab key={index} label={tab.label} disabled={tab.disabled} />
-              ))}
-            </TabGroup>
-          ) : (
-            <Divider className="mt-3" light />
-          )}
-        </div>
+      </Flex>
+      <div className="-mx-5 mt-1">
+        {tabs ? (
+          <TabGroup value={tabs.value} onChange={tabs.setValue}>
+            {tabs.items.map((tab, index) => (
+              <Tab key={index} label={tab.label} disabled={tab.disabled} />
+            ))}
+          </TabGroup>
+        ) : (
+          <Divider className="mt-3" light />
+        )}
       </div>
     </div>
   )
