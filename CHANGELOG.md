@@ -1,3 +1,11 @@
+## [6.30.1](https://github.com/dd3tech/bui/compare/v6.30.0...v6.30.1) (2024-11-13)
+
+
+### Bug Fixes
+
+* remove div ([6dd4224](https://github.com/dd3tech/bui/commit/6dd4224c57bf0cd12436704ee4dcdefee40c63ac))
+* z index was modified ([0738fc9](https://github.com/dd3tech/bui/commit/0738fc9c334f4f77eef7bc06a06262a5b787ffcb))
+
 # [6.30.0](https://github.com/dd3tech/bui/compare/v6.29.0...v6.30.0) (2024-11-12)
 
 
