@@ -21,6 +21,14 @@ type Pages =
   | '55'
   | '60'
   | '65'
+  | '70'
+  | '75'
+  | '80'
+  | '85'
+  | '90'
+  | '95'
+  | '100'
+  | '105'
 
 export interface PaginationProps {
   totalPages: number
@@ -106,7 +114,7 @@ const Pagination = ({
           role="select-slice-size"
           name="custom-pagination"
           value={totalItems <= Number(sliceSize) ? totalItems : selectSliceSize}
-          className="w-12 pl-2 mr-2 outline-none text-primary bg-transparent"
+          className="w-auto pl-2 mr-2 outline-none text-primary bg-transparent"
           onChange={(e) => handleChange(e)}
         >
           {options.map((opt) => {

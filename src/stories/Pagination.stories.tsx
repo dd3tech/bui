@@ -15,12 +15,12 @@ const mockFn = (text: string) => alert(text)
 
 export const Pagination = Template.bind({})
 Pagination.args = {
-  totalRows: 30,
+  totalRows: 120,
   totalPages: 10,
   currentPage: 1,
   sliceSize: '5' as any,
   firstText: 'Show',
-  secondText: 'of 30 projects',
+  secondText: 'of 120 projects',
   goToPreviousPage: () => mockFn('Go to previous page'),
   goToNextPage: () => mockFn('Go to next page'),
   goToPage: () => mockFn('Go to x page'),
