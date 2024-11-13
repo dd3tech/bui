@@ -1,3 +1,10 @@
+## [6.30.2](https://github.com/dd3tech/bui/compare/v6.30.1...v6.30.2) (2024-11-13)
+
+
+### Bug Fixes
+
+* changed to a width auto ([49d6b95](https://github.com/dd3tech/bui/commit/49d6b952f1477c5817e4fa36d5737c72da1f0fc8))
+
 ## [6.30.1](https://github.com/dd3tech/bui/compare/v6.30.0...v6.30.1) (2024-11-13)
 
 
