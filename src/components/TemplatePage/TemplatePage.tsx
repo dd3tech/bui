@@ -104,7 +104,7 @@ const TemplatePage: React.FC<TemplatePageProps> = ({
       <TopPage {...props} />
       <div className="px-5">
         <div className="my-4">
-          <FilterBar className="">
+          <FilterBar className="flex-wrap">
             {search && (
               <FilterBar.Section
                 className={smallSearch ? 'w-12 xl:w-60' : 'w-60'}
@@ -112,7 +112,6 @@ const TemplatePage: React.FC<TemplatePageProps> = ({
                 <FilterSearch {...search} smallSearch={smallSearch} />
               </FilterBar.Section>
             )}
-
             {results && (
               <FilterBar.Section
                 className="ml-4 gap-2 flex justify-center -pr-6"
@@ -138,37 +137,32 @@ const TemplatePage: React.FC<TemplatePageProps> = ({
                 {filterComponents}
               </FilterBar.Section>
             )}
-            <Flex
-              className="w-full"
-              justifyContent="end"
-              alignItems="center"
-              gap="4"
-            >
-              {clearFilters && (
-                <FilterBar.Section>
-                  <Button variant="ghost" onClick={clearFilters.onClick}>
-                    <Text textMuted500>{clearFilters.label}</Text>
-                  </Button>
-                </FilterBar.Section>
-              )}
-              {callToAction && (
-                <FilterBar.Section>
-                  <Button
-                    variant="secondary"
-                    onClick={callToAction.onClick}
-                    className="whitespace-nowrap w-36 flex flex-grow justify-center"
-                  >
-                    <Flex gap="2" alignItems="center" justifyContent="center">
-                      <Text>{callToAction.label}</Text>
-                      <DynamicHeroIcon
-                        icon={callToAction.icon}
-                        className="w-5 h-5 text-blue-600"
-                      />
-                    </Flex>
-                  </Button>
-                </FilterBar.Section>
-              )}
-            </Flex>
+            <div className="flex-grow" />
+
+            {clearFilters && (
+              <FilterBar.Section>
+                <Button variant="ghost" onClick={clearFilters.onClick}>
+                  <Text textMuted500>{clearFilters.label}</Text>
+                </Button>
+              </FilterBar.Section>
+            )}
+            {callToAction && (
+              <FilterBar.Section>
+                <Button
+                  variant="secondary"
+                  onClick={callToAction.onClick}
+                  className="whitespace-nowrap w-36 flex justify-center"
+                >
+                  <Flex gap="2" alignItems="center" justifyContent="center">
+                    <Text>{callToAction.label}</Text>
+                    <DynamicHeroIcon
+                      icon={callToAction.icon}
+                      className="w-5 h-5 text-blue-600"
+                    />
+                  </Flex>
+                </Button>
+              </FilterBar.Section>
+            )}
           </FilterBar>
         </div>
         {children}
