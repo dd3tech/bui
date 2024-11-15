@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useState } from 'react'
+import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import ConfirmDialog from 'components/ConfirmDialog'
 import { Flex } from 'components/Layout'
@@ -83,11 +83,16 @@ export const DropdownCheckbox = ({
       .map((item) => item.label)
   }, [options, value])
 
+  useEffect(() => {
+    setSelected(initialState)
+    setValue(initialState)
+  }, [initialValue])
+
   return (
     <div
       role="dropdown-checkbox"
-      className="relative"
       onMouseDown={(e) => e.stopPropagation()}
+      className="relative"
     >
       <FilterInput
         isActive={isActive}
@@ -95,6 +100,7 @@ export const DropdownCheckbox = ({
         label={label ?? 'Filter by'}
         value={isAllSelected ? allText || 'All' : selectedLabel()?.join(', ')}
         variant="primary"
+        style={{ position: 'relative' }}
       />
       {isActive && (
         <ConfirmDialog

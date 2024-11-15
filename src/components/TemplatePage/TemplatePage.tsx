@@ -23,6 +23,7 @@ import DropdownRange, { DropdownRangeProps } from '../Filters/DropdownRange'
 import DropdownRangeSlider, {
   DropdownRangeSliderProps
 } from '../Filters/DropdownRangeSlider'
+import Select, { SelectProps } from 'components/Form/Select'
 
 interface TemplatePageProps extends TopPageProps {
   children?: ReactNode
@@ -35,6 +36,7 @@ interface TemplatePageProps extends TopPageProps {
     dropdownRadio?: DropdownRadioProps[]
     dropdownRange?: DropdownRangeProps[]
     dropdownRangeSlider?: DropdownRangeSliderProps[]
+    select?: SelectProps[]
   }
   clearFilters?: {
     onClick: () => void
@@ -61,6 +63,13 @@ const TemplatePage: React.FC<TemplatePageProps> = ({
   ...props
 }) => {
   const filterComponents = [
+    ...(filters?.select?.map((props, index) => (
+      <Select
+        style={{ height: '40px', marginTop: '-1px', background: '#fff' }}
+        {...props}
+        key={`selected-${index}`}
+      />
+    )) || []),
     ...(filters?.dropdownCheckbox?.map((props, index) => (
       <DropdownCheckbox {...props} key={`dropdown-checkbox-${index}`} />
     )) || []),
@@ -124,7 +133,7 @@ const TemplatePage: React.FC<TemplatePageProps> = ({
             {!!filterComponents.length && (
               <FilterBar.Section
                 borderRight
-                className="flex justify-center gap-2"
+                className="flex justify-center items-center gap-2"
               >
                 {filterComponents}
               </FilterBar.Section>

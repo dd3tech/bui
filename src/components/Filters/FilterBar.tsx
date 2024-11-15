@@ -24,11 +24,10 @@ export const FilterBar = ({
     <div
       role="filter-bar"
       style={{
-        minHeight: '60px',
         ...style
       }}
       className={composeClasses(
-        'p-2.5 bg-gray-100 rounded-lg',
+        'p-2.5 bg-gray-100 rounded-lg flex-wrap h-auto gap-y-2',
         isFlex && 'flex items-center',
         className
       )}
