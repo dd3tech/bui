@@ -1,7 +1,6 @@
 /*
  * Copyright (c) DD360 and its affiliates.
  */
-
 import { ReactNode, useEffect, useRef } from 'react'
 import { composeClasses } from 'lib/classes'
 import Card from '../Card/Card'
@@ -20,6 +19,8 @@ export interface IConfirmDialog {
   width?: number | string
 }
 
+let activeDialog: HTMLDivElement | null = null
+
 const ConfirmDialog = ({
   title,
   children,
@@ -30,34 +31,25 @@ const ConfirmDialog = ({
   onConfirm,
   onCancel
 }: IConfirmDialog) => {
-  let activeDialog: HTMLDivElement | null = null
   const dialogRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    const currentDialog = dialogRef?.current
-
+    const currentDialog = dialogRef.current
     if (activeDialog && activeDialog !== currentDialog) {
       activeDialog.dispatchEvent(new CustomEvent('closeDialog'))
     }
     activeDialog = currentDialog
 
-    return () => {
-      if (activeDialog === currentDialog) {
-        activeDialog = null
-      }
-    }
-  }, [])
-
-  useEffect(() => {
     const handleClose = () => {
       if (onCancel) onCancel()
     }
-
-    const currentDialog = dialogRef.current
     currentDialog?.addEventListener('closeDialog', handleClose)
 
     return () => {
       currentDialog?.removeEventListener('closeDialog', handleClose)
+      if (activeDialog === currentDialog) {
+        activeDialog = null
+      }
     }
   }, [onCancel])
 
@@ -66,7 +58,7 @@ const ConfirmDialog = ({
       refCard={dialogRef}
       onClick={(e) => e.stopPropagation()}
       rounded="lg"
-      className={composeClasses('w-full absolute bg-white', className)}
+      className={composeClasses('w-full mt-1 absolute bg-white', className)}
       width={width}
     >
       {title && (
