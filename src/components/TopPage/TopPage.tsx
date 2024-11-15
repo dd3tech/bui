@@ -42,7 +42,7 @@ export interface TopPageProps {
   callToActionsButtons?: IActionButton[]
   actionIcon?: {
     titleIcon?: React.ReactNode
-    onClick?: () => void
+    onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
     isSelected?: boolean
     isDisabled?: boolean
   }
@@ -156,9 +156,9 @@ const TopPage = ({
                   )}
                   width="40px"
                   height="40px"
-                  onClick={() => {
+                  onClick={(e) => {
                     if (actionIcon?.isDisabled) return
-                    actionIcon?.onClick?.()
+                    actionIcon?.onClick?.(e)
                   }}
                   data-testid="action-icon"
                 >
