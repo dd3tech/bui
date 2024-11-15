@@ -125,10 +125,12 @@ const TopPage = ({
               {callToActionsButtons &&
                 callToActionsButtons.slice(0, 4).map((button, index) => (
                   <Button
+                    padding="0"
+                    paddingX="4"
                     key={index}
                     variant={button.variant}
                     onClick={button.onClick}
-                    className="flex gap-2 items-center justify-center h-10 px-6"
+                    className="flex gap-2 items-center justify-center h-10"
                     disabled={button?.isDisabled}
                   >
                     {button.label}

@@ -149,7 +149,6 @@ const TemplatePage: React.FC<TemplatePageProps> = ({
               </FilterBar.Section>
             )}
             <div className="flex-grow" />
-
             {clearFilters && (
               <FilterBar.Section>
                 <Button variant="ghost" onClick={clearFilters.onClick}>
