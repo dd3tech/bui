@@ -40,7 +40,7 @@ const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
   ) => {
     const isActiveLink = React.useCallback(
       (indexOfKey: number) => {
-        return options.length - 1 === indexOfKey
+        return options?.length - 1 === indexOfKey
       },
       [options]
     )
@@ -58,7 +58,7 @@ const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
         ref={ref}
         {...props}
       >
-        {options.map(({ name, icon, to }, indexKey) => (
+        {options?.map(({ name, icon, to }, indexKey) => (
           <React.Fragment key={`${name}-${to}-${indexKey}`}>
             {icon && icon()}
             <p
