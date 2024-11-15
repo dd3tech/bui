@@ -13,6 +13,7 @@ import {
 } from 'components/Filters'
 import { Button } from 'components/Buttons'
 import { Flex } from 'components/Layout'
+import Select, { SelectProps } from 'components/Form/Select'
 import DynamicHeroIcon, { DynamicHeroIconProps } from 'common/DynamicHeroIcon'
 import Text from '../Typography'
 import DropdownCheckbox, {
@@ -23,7 +24,25 @@ import DropdownRange, { DropdownRangeProps } from '../Filters/DropdownRange'
 import DropdownRangeSlider, {
   DropdownRangeSliderProps
 } from '../Filters/DropdownRangeSlider'
-import Select, { SelectProps } from 'components/Form/Select'
+
+interface FiltersProps {
+  dropdownCheckbox?: DropdownCheckboxProps[]
+  dropdownRadio?: DropdownRadioProps[]
+  dropdownRange?: DropdownRangeProps[]
+  dropdownRangeSlider?: DropdownRangeSliderProps[]
+  select?: SelectProps[]
+}
+
+interface ClearFiltersProps {
+  onClick: () => void
+  label: string
+}
+
+interface CallToActionProps {
+  onClick: () => void
+  label: string
+  icon: DynamicHeroIconProps['icon']
+}
 
 interface TemplatePageProps extends TopPageProps {
   children?: ReactNode
@@ -31,22 +50,9 @@ interface TemplatePageProps extends TopPageProps {
   search?: FilterSearchProps
   results?: FilterLabelProps
   viewToggle?: ToggleButtonProps
-  filters?: {
-    dropdownCheckbox?: DropdownCheckboxProps[]
-    dropdownRadio?: DropdownRadioProps[]
-    dropdownRange?: DropdownRangeProps[]
-    dropdownRangeSlider?: DropdownRangeSliderProps[]
-    select?: SelectProps[]
-  }
-  clearFilters?: {
-    onClick: () => void
-    label: string
-  }
-  callToAction?: {
-    onClick: () => void
-    label: string
-    icon: DynamicHeroIconProps['icon']
-  }
+  filters?: FiltersProps
+  clearFilters?: ClearFiltersProps
+  callToAction?: CallToActionProps
   arrowSelector?: ArrowSelectorProps
 }
 
@@ -65,7 +71,12 @@ const TemplatePage: React.FC<TemplatePageProps> = ({
   const filterComponents = [
     ...(filters?.select?.map((props, index) => (
       <Select
-        style={{ height: '40px', marginTop: '-1px', background: '#fff' }}
+        style={{
+          height: '40px',
+          marginTop: '-1px',
+          background: '#fff',
+          width: '170px'
+        }}
         {...props}
         key={`selected-${index}`}
       />
