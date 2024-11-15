@@ -44,10 +44,12 @@ Default.args = {
     isSelected: false,
     isDisabled: true
   },
-  optionsBreadcrumbs: [
-    { name: 'Home', to: () => null },
-    { name: 'Category', to: () => null }
-  ],
+  optionsBreadcrumbs: {
+    options: [
+      { name: 'Home', to: '/home' },
+      { name: 'Category', to: '/category' }
+    ]
+  },
   tabs: {
     value: 0,
     setValue: (value) => console.log('Tab switched to', value),

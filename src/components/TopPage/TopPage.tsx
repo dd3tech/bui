@@ -28,7 +28,11 @@ interface ITab {
 }
 
 export interface TopPageProps {
-  optionsBreadcrumbs?: BreadcrumbsProps['options']
+  optionsBreadcrumbs?: {
+    options: BreadcrumbsProps['options']
+    separator?: BreadcrumbsProps['separator']
+    isLoading?: BreadcrumbsProps['isLoading']
+  }
   lastUpdate?: {
     translation: 'es' | 'en'
     date: Date
@@ -87,7 +91,7 @@ const TopPage = ({
             <div>
               {optionsBreadcrumbs && (
                 <div>
-                  <Breadcrumbs options={optionsBreadcrumbs} />
+                  <Breadcrumbs {...optionsBreadcrumbs} />
                 </div>
               )}
             </div>
