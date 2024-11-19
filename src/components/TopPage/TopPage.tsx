@@ -12,7 +12,7 @@ import { monthLabelsShort } from '../../utils/utils'
 
 interface IActionButton {
   onClick: () => void
-  icon: React.ReactNode
+  icon?: React.ReactNode
   variant: 'primary' | 'secondary' | 'tertiary'
   label: string
   isDisabled?: boolean
