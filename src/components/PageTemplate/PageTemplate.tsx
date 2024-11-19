@@ -56,7 +56,7 @@ interface PageTemplateProps extends TopPageProps {
   arrowSelector?: ArrowSelectorProps
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({
+const PageTemplate = ({
   children,
   footer,
   search,
@@ -67,7 +67,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
   callToAction,
   arrowSelector,
   ...props
-}) => {
+}: PageTemplateProps) => {
   const filterComponents = [
     ...(filters?.select?.map((props, index) => (
       <Select
