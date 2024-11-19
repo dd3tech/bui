@@ -17,7 +17,8 @@ const mockCallToAction = {
 const mockSearch: FilterSearchProps = {
   value: '',
   placeholder: 'Search...',
-  onChange: vi.fn()
+  onChange: vi.fn(),
+  handleClearSearch: vi.fn()
 }
 const mockArrowSelector = {
   label: 'Move to month',
