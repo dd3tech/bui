@@ -10,7 +10,7 @@ import Divider from 'components/Divider'
 import Text from '../Typography'
 import { monthLabelsShort } from '../../utils/utils'
 
-interface IActionButton {
+export interface IActionButton {
   onClick: () => void
   icon?: React.ReactNode
   variant: 'primary' | 'secondary' | 'tertiary'
@@ -83,10 +83,7 @@ const TopPage = ({
 
   return (
     <div className="px-5">
-      <div
-        className={classNameHeader ?? 'sticky top-0 bg-white'}
-        style={{ zIndex: 500 }}
-      >
+      <div className={classNameHeader ?? 'sticky top-0 bg-white z-40'}>
         {(optionsBreadcrumbs || lastUpdate) && (
           <Flex className="pt-3 h-8" justifyContent="between">
             <div>
