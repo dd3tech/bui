@@ -44,7 +44,7 @@ interface CallToActionProps {
   icon: DynamicHeroIconProps['icon']
 }
 
-interface TemplatePageProps extends TopPageProps {
+interface PageTemplateProps extends TopPageProps {
   children?: ReactNode
   footer?: ReactNode
   search?: FilterSearchProps
@@ -56,7 +56,7 @@ interface TemplatePageProps extends TopPageProps {
   arrowSelector?: ArrowSelectorProps
 }
 
-const TemplatePage: React.FC<TemplatePageProps> = ({
+const PageTemplate: React.FC<PageTemplateProps> = ({
   children,
   footer,
   search,
@@ -191,4 +191,4 @@ const TemplatePage: React.FC<TemplatePageProps> = ({
   )
 }
 
-export default TemplatePage
+export default PageTemplate

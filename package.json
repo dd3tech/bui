@@ -480,10 +480,10 @@
       "module": "./dist/esm/components/Timeline/index.js",
       "default": "./dist/esm/components/Timeline/index.js"
     },
-    "./TemplatePage": {
-      "require": "./dist/cjs/components/TemplatePage/index.js",
-      "module": "./dist/esm/components/TemplatePage/index.js",
-      "default": "./dist/esm/components/TemplatePage/index.js"
+    "./PageTemplate": {
+      "require": "./dist/cjs/components/PageTemplate/index.js",
+      "module": "./dist/esm/components/PageTemplate/index.js",
+      "default": "./dist/esm/components/PageTemplate/index.js"
     },
     "./Tooltip": {
       "require": "./dist/cjs/components/Tooltip/index.js",

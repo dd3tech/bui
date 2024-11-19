@@ -1,4 +1,4 @@
-import TemplatePage from './TemplatePage'
+import PageTemplate from './PageTemplate'
 
-export default TemplatePage
-export * from './TemplatePage'
+export default PageTemplate
+export * from './PageTemplate'
