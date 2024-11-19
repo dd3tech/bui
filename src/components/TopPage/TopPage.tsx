@@ -16,6 +16,7 @@ interface IActionButton {
   variant: 'primary' | 'secondary' | 'tertiary'
   label: string
   isDisabled?: boolean
+  isLoading?: boolean
 }
 
 interface ITab {
@@ -136,6 +137,7 @@ const TopPage = ({
                     onClick={button.onClick}
                     className="flex gap-2 items-center justify-center h-10"
                     disabled={button?.isDisabled}
+                    isLoading={button?.isLoading}
                   >
                     {button.label}
                     {button.icon && (
