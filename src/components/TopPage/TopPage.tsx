@@ -36,6 +36,7 @@ export interface ActionIconProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   isSelected?: boolean
   isDisabled?: boolean
+  role?: string
 }
 export interface BreadcrumbsTopPageProps {
   options: BreadcrumbsProps['options']
@@ -85,7 +86,7 @@ const TopPage = ({
   classNameHeader
 }: TopPageProps) => {
   const styleIcon = useCallback(() => {
-    if (actionIcon?.isDisabled) return 'text-gray-300'
+    if (actionIcon?.isDisabled) return 'text-blue-300'
     if (actionIcon?.isSelected) return 'text-white'
     return 'text-blue-600'
   }, [actionIcon])
@@ -155,6 +156,7 @@ const TopPage = ({
               ))}
             {actionIcon && (
               <Circle
+                role={actionIcon?.role}
                 backgroundColor="#ffffff"
                 useBackground={false}
                 className={composeClasses(

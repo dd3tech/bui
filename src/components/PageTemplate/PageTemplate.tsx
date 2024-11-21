@@ -70,7 +70,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
   arrowSelector,
   role,
   hiddenFilterBar,
-  ...props
+  ...otherProps
 }) => {
   const filterComponents = [
     ...(filters?.select?.map((props, index) => (
@@ -136,7 +136,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
 
   return (
     <div role={role}>
-      <TopPage {...props} />
+      <TopPage {...otherProps} />
       <div className="px-5">
         <div className="my-4">
           {hasFilterBar && (
