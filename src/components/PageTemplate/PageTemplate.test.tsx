@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react'
 import { FilterSearchProps } from 'components/Filters'
 import PageTemplate from './PageTemplate'
 
-const title = 'Test Page Title'
+const title = { label: 'Test Page Title', isLoading: false }
 
 const mockClearFilters = {
   onClick: vi.fn(),
@@ -37,7 +37,7 @@ const propsDefault = {
 describe('PageTemplate Component', () => {
   it('renders the title', () => {
     const { getByText } = render(<PageTemplate {...propsDefault} />)
-    expect(getByText(title)).toBeInTheDocument()
+    expect(getByText(title.label)).toBeInTheDocument()
   })
 
   it('renders the search input', () => {
