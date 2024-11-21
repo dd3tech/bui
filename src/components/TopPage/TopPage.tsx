@@ -103,7 +103,7 @@ const TopPage = ({
             )}
           </div>
           {lastUpdate && (
-            <Text role="title" size="sm" className="flex gap-1">
+            <Text size="sm" className="flex gap-1">
               {translationLastUpdate(lastUpdate.translation)}
               <span className="font-bold">
                 {formatDate(lastUpdate.date, lastUpdate.translation)}
@@ -127,7 +127,7 @@ const TopPage = ({
           {title.isLoading ? (
             <Skeleton className="w-48 h-9 rounded-full" />
           ) : (
-            <Text bold size="2xl">
+            <Text role="title" bold size="2xl">
               {title.label}
             </Text>
           )}
