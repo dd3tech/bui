@@ -18,6 +18,7 @@ export interface ActionButtonProps {
   label: string
   isDisabled?: boolean
   isLoading?: boolean
+  role?: string
 }
 
 export interface TabTopPageProps {
@@ -144,6 +145,7 @@ const TopPage = ({
                   className="flex gap-2 items-center justify-center h-9"
                   disabled={button?.isDisabled}
                   isLoading={button?.isLoading}
+                  role={button?.role}
                 >
                   {button.label}
                   {button.icon && (
