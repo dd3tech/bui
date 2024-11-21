@@ -28,6 +28,8 @@ export interface DropdownRangeProps {
   align?: 'left' | 'right'
 
   label: string
+
+  className?: string
 }
 
 type RangeValues = { maxVal: number; minVal: number }
@@ -44,7 +46,8 @@ export const DropdownRange = ({
   onClose,
   title,
   align = 'left',
-  label
+  label,
+  className
 }: DropdownRangeProps) => {
   const initialState = {
     maxVal: initMaxValue || max,
@@ -70,7 +73,7 @@ export const DropdownRange = ({
   return (
     <div
       role="dropdown-range"
-      className="relative"
+      className={composeClasses('relative', className)}
       onMouseDown={(e) => e.stopPropagation()}
     >
       <FilterInput

@@ -24,6 +24,8 @@ export interface DropdownRadioProps {
   align?: 'left' | 'right'
 
   label?: string
+
+  className?: string
 }
 
 export const DropdownRadio = ({
@@ -35,7 +37,8 @@ export const DropdownRadio = ({
   onClose,
   title,
   align = 'left',
-  label
+  label,
+  className
 }: DropdownRadioProps) => {
   const [isActive, setIsActive] = useState<boolean>(false)
   const [selected, setSelected] = useState<string>(
@@ -65,7 +68,7 @@ export const DropdownRadio = ({
   return (
     <div
       role="dropdown-radio"
-      className="relative"
+      className={composeClasses('relative', className)}
       onMouseDown={(e) => e.stopPropagation()}
     >
       <FilterInput

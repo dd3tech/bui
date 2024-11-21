@@ -25,6 +25,8 @@ export interface DropdownCheckboxProps {
   align?: 'left' | 'right'
 
   label?: string
+
+  className?: string
 }
 
 export const DropdownCheckbox = ({
@@ -37,7 +39,8 @@ export const DropdownCheckbox = ({
   onClose,
   title,
   align = 'left',
-  label
+  label,
+  className
 }: DropdownCheckboxProps) => {
   const initialState = initialValue || options?.map((item) => item.value)
   const [isActive, setIsActive] = useState<boolean>(false)
@@ -92,7 +95,7 @@ export const DropdownCheckbox = ({
     <div
       role="dropdown-checkbox"
       onMouseDown={(e) => e.stopPropagation()}
-      className="relative"
+      className={composeClasses('relative', className)}
     >
       <FilterInput
         isActive={isActive}

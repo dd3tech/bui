@@ -54,6 +54,8 @@ interface PageTemplateProps extends TopPageProps {
   clearFilters?: ClearFiltersProps
   callToAction?: CallToActionProps
   arrowSelector?: ArrowSelectorProps
+  role?: string
+  hiddenFilterBar?: boolean
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({
@@ -66,6 +68,8 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
   clearFilters,
   callToAction,
   arrowSelector,
+  role,
+  hiddenFilterBar,
   ...props
 }) => {
   const filterComponents = [
@@ -75,25 +79,41 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
           height: '40px',
           marginTop: '-1px',
           background: '#fff',
-          width: '170px'
+          width: '200px'
         }}
         {...props}
         key={`selected-${index}`}
       />
     )) || []),
     ...(filters?.dropdownCheckbox?.map((props, index) => (
-      <DropdownCheckbox {...props} key={`dropdown-checkbox-${index}`} />
+      <DropdownCheckbox
+        className="w-full md:w-auto"
+        {...props}
+        key={`dropdown-checkbox-${index}`}
+      />
     )) || []),
     ...(filters?.dropdownRadio?.map((props, index) => (
-      <DropdownRadio {...props} key={`dropdown-radio-${index}`} />
+      <DropdownRadio
+        className="w-full md:w-auto"
+        {...props}
+        key={`dropdown-radio-${index}`}
+      />
     )) || []),
     ...(filters?.dropdownRange?.map((props, index) => (
-      <DropdownRange {...props} key={`dropdown-range-${index}`} />
+      <DropdownRange
+        {...props}
+        key={`dropdown-range-${index}`}
+        className="w-full md:w-auto"
+      />
     )) || []),
     ...(filters?.dropdownRangeSlider?.map((props, index) => (
-      <DropdownRangeSlider {...props} key={`dropdown-range-slider-${index}`} />
+      <DropdownRangeSlider
+        {...props}
+        key={`dropdown-range-slider-${index}`}
+        className="w-full md:w-auto"
+      />
     )) || [])
-  ].slice(0, 3)
+  ].slice(0, 4)
 
   const propsArray = [
     search,
@@ -111,10 +131,11 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
   const smallSearch = definedPropsCount > 6
 
   const hasFilterBar =
-    search || results || viewToggle || arrowSelector || filters
+    (search || results || viewToggle || arrowSelector || filters) &&
+    !hiddenFilterBar
 
   return (
-    <div>
+    <div role={role}>
       <TopPage {...props} />
       <div className="px-5">
         <div className="my-4">
@@ -122,14 +143,14 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
             <FilterBar className="flex-wrap">
               {search && (
                 <FilterBar.Section
-                  className={smallSearch ? 'w-12 xl:w-60' : 'w-60'}
+                  className={smallSearch ? 'w-12 xl:w-60' : 'w-full sm:w-60'}
                 >
                   <FilterSearch {...search} smallSearch={smallSearch} />
                 </FilterBar.Section>
               )}
               {results && (
                 <FilterBar.Section
-                  className="ml-4 gap-2 flex justify-center -pr-6"
+                  className="ml-4 gap-2 flex justify-center -pr-6 w-full sm:w-auto"
                   borderRight
                 >
                   <FilterBar.Label {...results} />
@@ -145,18 +166,17 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
                 </FilterBar.Section>
               )}
               {!!filterComponents.length && (
-                <FilterBar.Section
-                  borderRight
-                  className="flex justify-center items-center gap-2"
-                >
+                <FilterBar.Section className="flex justify-start items-center gap-2 flex-wrap w-full md:w-auto">
                   {filterComponents}
                 </FilterBar.Section>
               )}
               <div className="flex-grow" />
               {clearFilters && (
-                <FilterBar.Section>
+                <FilterBar.Section className="w-full md:w-auto justify-center md:border-l-2 md:pl-4">
                   <Button variant="ghost" onClick={clearFilters.onClick}>
-                    <Text textMuted500>{clearFilters.label}</Text>
+                    <Text className="text-gray-400" size="xs">
+                      {clearFilters.label}
+                    </Text>
                   </Button>
                 </FilterBar.Section>
               )}

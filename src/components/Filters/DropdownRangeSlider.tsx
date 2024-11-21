@@ -28,6 +28,8 @@ export interface DropdownRangeSliderProps {
   align?: 'left' | 'right'
 
   label?: string
+
+  className?: string
 }
 
 type RangeValues = { max: number; min: number }
@@ -44,7 +46,8 @@ export const DropdownRangeSlider = ({
   onClose,
   title,
   align = 'left',
-  label
+  label,
+  className
 }: DropdownRangeSliderProps) => {
   const initialState = {
     max: initMaxValue || max,
@@ -70,7 +73,7 @@ export const DropdownRangeSlider = ({
   return (
     <div
       role="dropdown-range-slider"
-      className="relative"
+      className={composeClasses('relative', className)}
       onMouseDown={(e) => e.stopPropagation()}
     >
       <FilterInput
