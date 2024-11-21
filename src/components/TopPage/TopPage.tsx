@@ -98,12 +98,12 @@ const TopPage = ({
           <div>
             {optionsBreadcrumbs && (
               <div>
-                <Breadcrumbs {...optionsBreadcrumbs} />
+                <Breadcrumbs role="breadcrumbs" {...optionsBreadcrumbs} />
               </div>
             )}
           </div>
           {lastUpdate && (
-            <Text size="sm" className="flex gap-1">
+            <Text role="title" size="sm" className="flex gap-1">
               {translationLastUpdate(lastUpdate.translation)}
               <span className="font-bold">
                 {formatDate(lastUpdate.date, lastUpdate.translation)}
