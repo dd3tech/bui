@@ -4,7 +4,10 @@ import { EyeIcon } from '@heroicons/react/outline'
 import TopPage from './TopPage'
 
 const defaultProps = {
-  title: 'Title',
+  title: {
+    label: 'Title',
+    isLoading: false
+  },
   description: 'Description',
   lastUpdate: {
     translation: 'en' as const,
