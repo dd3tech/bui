@@ -17,7 +17,10 @@ const Template: ComponentStory<typeof PageTemplate> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  title: 'Sample Page Title',
+  title: {
+    label: 'Title',
+    isLoading: false
+  },
   description: 'This is a detailed description of the PageTemplate component.',
   lastUpdate: {
     translation: 'en',

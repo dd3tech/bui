@@ -123,11 +123,11 @@ const TopPage = ({
           height: '52px'
         }}
       >
-        <Flex className="flex-col" role="title-testing-1">
+        <Flex className="flex-col">
           {title.isLoading ? (
             <Skeleton className="w-48 h-9 rounded-full" />
           ) : (
-            <Text role="title-testing-2" bold size="2xl">
+            <Text role="title-label" bold size="2xl">
               {title.label}
             </Text>
           )}

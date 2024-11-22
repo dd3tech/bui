@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 
 import TopPage from 'components/TopPage'
 import type { TopPageProps } from 'components/TopPage'
@@ -43,7 +43,7 @@ interface CallToActionProps {
   label: string
   icon: DynamicHeroIconProps['icon']
 }
-
+//
 interface PageTemplateProps extends TopPageProps {
   children?: ReactNode
   footer?: ReactNode
@@ -57,8 +57,24 @@ interface PageTemplateProps extends TopPageProps {
   role?: string
   hiddenFilterBar?: boolean
 }
-
-const PageTemplate: React.FC<PageTemplateProps> = ({
+// const BarList: FC<BarListProps> = ({
+//   classNameBar,
+//   fontSizeBar = 'base',
+//   heightBar = 'full',
+//   listData,
+//   roundedBar = 'md',
+//   titleMetrics,
+//   titleValues,
+//   marginYItem = '1',
+//   defaultBackgroundBarColor = '#b5d4fc',
+//   defaultTextBarColor = '#1D4ED8',
+//   valuePrefix,
+//   valueSuffix,
+//   style,
+//   className,
+//   ...otherProps
+// }) => {
+const PageTemplate: FC<PageTemplateProps> = ({
   children,
   footer,
   search,
