@@ -139,7 +139,7 @@ const TopPage = ({
               callToActionsButtons.slice(0, 4).map((button, index) => (
                 <Button
                   padding="0"
-                  paddingX="8"
+                  paddingX="6"
                   key={index}
                   variant={button.variant}
                   onClick={button.onClick}
