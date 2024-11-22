@@ -26,9 +26,9 @@ export interface DropdownRangeProps {
   title?: string
   /** Alignment of the dropdown */
   align?: 'left' | 'right'
-
-  label: string
-
+  /** Label for the dropdown trigger */
+  label?: string
+  /** Additional CSS classes for custom styling */
   className?: string
 }
 

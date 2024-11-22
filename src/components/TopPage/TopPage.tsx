@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import React, { useCallback } from 'react'
 import { composeClasses } from 'lib/classes'
 import Breadcrumbs from 'components/Breadcrumbs'
@@ -44,20 +48,32 @@ export interface BreadcrumbsTopPageProps {
   isLoading?: BreadcrumbsProps['isLoading']
 }
 
+export interface LastUpdateTopPageProps {
+  translation: 'es' | 'en'
+  date: Date
+}
+
+export interface TitleTopPageProps {
+  label: string
+  isLoading?: boolean
+}
+
 export interface TopPageProps {
+  /** Breadcrumb options and loading state */
   optionsBreadcrumbs?: BreadcrumbsTopPageProps
-  lastUpdate?: {
-    translation: 'es' | 'en'
-    date: Date
-  }
-  title: {
-    label: string
-    isLoading?: boolean
-  }
+  /** Last update information with date and translation */
+  lastUpdate?: LastUpdateTopPageProps
+  /** Page title with label and loading state */
+  title: TitleTopPageProps
+  /** Optional description displayed below the title */
   description?: string
+  /** List of action buttons with labels, icons, and onClick handlers */
   callToActionsButtons?: ActionButtonProps[]
+  /** Icon button for additional actions */
   actionIcon?: ActionIconProps
+  /** Tabs for navigation with labels and states */
   tabs?: TabTopPageProps
+  /** Additional CSS classes for the header */
   classNameHeader?: string
 }
 

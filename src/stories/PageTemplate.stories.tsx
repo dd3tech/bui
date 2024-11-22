@@ -66,7 +66,6 @@ Default.args = {
       Footer
     </div>
   ),
-
   results: {
     number: 10,
     label: 'Results found'
@@ -96,8 +95,7 @@ Default.args = {
           { label: 'Option 3', value: 'option3' }
         ],
         allText: 'Select All',
-        initialValue: ['option1'],
-        className: 'w-24'
+        initialValue: ['option1']
       }
     ],
     dropdownRangeSlider: [
@@ -117,13 +115,8 @@ Default.args = {
     ]
   },
   clearFilters: {
-    label: 'Reset',
+    label: 'Restore',
     onClick: () => alert('Filters have been reset')
-  },
-  callToAction: {
-    onClick: () => alert('Action executed'),
-    label: 'Click here',
-    icon: 'AcademicCapIcon'
   },
   arrowSelector: {
     label: 'Move to Month',

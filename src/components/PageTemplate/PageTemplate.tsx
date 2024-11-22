@@ -1,5 +1,8 @@
-import { FC, ReactNode } from 'react'
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
 
+import { FC, ReactNode } from 'react'
 import TopPage from 'components/TopPage'
 import type { TopPageProps } from 'components/TopPage'
 import {
@@ -43,37 +46,31 @@ interface CallToActionProps {
   label: string
   icon: DynamicHeroIconProps['icon']
 }
-//
 interface PageTemplateProps extends TopPageProps {
+  /** Main content rendered inside the page template */
   children?: ReactNode
+  /** Footer displayed at the bottom of the page */
   footer?: ReactNode
+  /** Search bar properties like placeholder, value, and onChange */
   search?: FilterSearchProps
+  /** Displays result information such as number of results and label */
   results?: FilterLabelProps
+  /** Toggle button to switch views (e.g., table or card) */
   viewToggle?: ToggleButtonProps
+  /** Filters such as dropdowns, checkboxes, or sliders */
   filters?: FiltersProps
+  /** Button to clear applied filters, with label and onClick */
   clearFilters?: ClearFiltersProps
+  /** Primary call-to-action button with label, icon, and onClick */
   callToAction?: CallToActionProps
+  /** Arrow selector for navigating between items or pages */
   arrowSelector?: ArrowSelectorProps
+  /** ARIA role for the page container */
   role?: string
+  /** Hides the filter bar when true */
   hiddenFilterBar?: boolean
 }
-// const BarList: FC<BarListProps> = ({
-//   classNameBar,
-//   fontSizeBar = 'base',
-//   heightBar = 'full',
-//   listData,
-//   roundedBar = 'md',
-//   titleMetrics,
-//   titleValues,
-//   marginYItem = '1',
-//   defaultBackgroundBarColor = '#b5d4fc',
-//   defaultTextBarColor = '#1D4ED8',
-//   valuePrefix,
-//   valueSuffix,
-//   style,
-//   className,
-//   ...otherProps
-// }) => {
+
 const PageTemplate: FC<PageTemplateProps> = ({
   children,
   footer,
@@ -188,9 +185,16 @@ const PageTemplate: FC<PageTemplateProps> = ({
               )}
               <div className="flex-grow" />
               {clearFilters && (
-                <FilterBar.Section className="w-full md:w-auto justify-center md:border-l-2 md:pl-4">
-                  <Button variant="ghost" onClick={clearFilters.onClick}>
-                    <Text className="text-gray-400" size="xs">
+                <FilterBar.Section className="w-full md:w-auto justify-center md:border-l-2 md:pl-4 ">
+                  <Button
+                    className="hover:bg-blue-600 rounded-lg group transition-colors duration-500"
+                    variant="ghost"
+                    onClick={clearFilters.onClick}
+                  >
+                    <Text
+                      className="text-gray-400 group-hover:text-white transition-colors duration-500"
+                      size="xs"
+                    >
                       {clearFilters.label}
                     </Text>
                   </Button>
@@ -201,7 +205,7 @@ const PageTemplate: FC<PageTemplateProps> = ({
                   <Button
                     variant="secondary"
                     onClick={callToAction.onClick}
-                    className="whitespace-nowrap w-36 flex justify-center"
+                    className="whitespace-nowrap w-36 flex justify-center ml-4"
                   >
                     <Flex gap="2" alignItems="center" justifyContent="center">
                       <Text>{callToAction.label}</Text>
