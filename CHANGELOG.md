@@ -1,3 +1,18 @@
+## [6.30.2](https://github.com/dd3tech/bui/compare/v6.30.1...v6.30.2) (2024-11-13)
+
+
+### Bug Fixes
+
+* changed to a width auto ([49d6b95](https://github.com/dd3tech/bui/commit/49d6b952f1477c5817e4fa36d5737c72da1f0fc8))
+
+## [6.30.1](https://github.com/dd3tech/bui/compare/v6.30.0...v6.30.1) (2024-11-13)
+
+
+### Bug Fixes
+
+* remove div ([6dd4224](https://github.com/dd3tech/bui/commit/6dd4224c57bf0cd12436704ee4dcdefee40c63ac))
+* z index was modified ([0738fc9](https://github.com/dd3tech/bui/commit/0738fc9c334f4f77eef7bc06a06262a5b787ffcb))
+
 # [6.30.0](https://github.com/dd3tech/bui/compare/v6.29.0...v6.30.0) (2024-11-12)
 
 ### Features
