@@ -147,7 +147,11 @@ const TopPage = ({
               {title.label}
             </Text>
           )}
-          {description && <Text size="sm">{description}</Text>}
+          {description && (
+            <Text role="description" size="sm">
+              {description}
+            </Text>
+          )}
         </Flex>
         {(callToActionsButtons || actionIcon) && (
           <Flex gap="3" alignItems="center">
