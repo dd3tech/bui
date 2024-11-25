@@ -4,7 +4,7 @@
 
 import { FC, ReactNode } from 'react'
 import TopPage from 'components/TopPage'
-import type { TopPageProps } from 'components/TopPage'
+import { TopPageProps } from 'components/TopPage'
 import {
   ArrowSelector,
   ArrowSelectorProps,
