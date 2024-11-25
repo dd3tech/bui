@@ -709,6 +709,9 @@
       "Timeline": [
         "./dist/esm/components/Timeline/index.d.ts"
       ],
+      "PageTemplate": [
+        "./dist/esm/components/PageTemplate/index.d.ts"
+      ],
       "TopPage": [
         "./dist/esm/components/TopPage/index.d.ts"
       ],
