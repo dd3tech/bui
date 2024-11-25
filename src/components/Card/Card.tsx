@@ -15,6 +15,7 @@ export interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
   height?: 'fit-content' | 'auto' | number
   width?: number | string
+  refCard?: React.Ref<HTMLDivElement>
 }
 
 const Card = ({
@@ -27,6 +28,7 @@ const Card = ({
   paddingY,
   className = '',
   style,
+  refCard,
   ...otherProps
 }: ICardProps) => {
   const getPadding = useCallback(() => {
@@ -47,6 +49,7 @@ const Card = ({
 
   return (
     <div
+      ref={refCard}
       data-testid="card-contain"
       style={{ ...style, height, width }}
       className={composeClasses(

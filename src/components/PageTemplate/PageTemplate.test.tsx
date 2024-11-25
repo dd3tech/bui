@@ -1,9 +1,9 @@
 import { vi } from 'vitest'
 import { fireEvent, render } from '@testing-library/react'
 import { FilterSearchProps } from 'components/Filters'
-import TemplatePage from './TemplatePage'
+import PageTemplate from './PageTemplate'
 
-const title = 'Test Page Title'
+const title = { label: 'Test Page Title', isLoading: false }
 
 const mockClearFilters = {
   onClick: vi.fn(),
@@ -17,7 +17,8 @@ const mockCallToAction = {
 const mockSearch: FilterSearchProps = {
   value: '',
   placeholder: 'Search...',
-  onChange: vi.fn()
+  onChange: vi.fn(),
+  handleClearSearch: vi.fn()
 }
 const mockArrowSelector = {
   label: 'Move to month',
@@ -33,77 +34,77 @@ const propsDefault = {
   arrowSelector: mockArrowSelector
 }
 
-describe('TemplatePage Component', () => {
+describe('PageTemplate Component', () => {
   it('renders the title', () => {
-    const { getByText } = render(<TemplatePage {...propsDefault} />)
-    expect(getByText(title)).toBeInTheDocument()
+    const { getByText } = render(<PageTemplate {...propsDefault} />)
+    expect(getByText(title.label)).toBeInTheDocument()
   })
 
   it('renders the search input', () => {
-    const { getByPlaceholderText } = render(<TemplatePage {...propsDefault} />)
+    const { getByPlaceholderText } = render(<PageTemplate {...propsDefault} />)
     expect(getByPlaceholderText('Search...')).toBeInTheDocument()
   })
 
   it('renders the clear filters button', () => {
-    const { getByText } = render(<TemplatePage {...propsDefault} />)
+    const { getByText } = render(<PageTemplate {...propsDefault} />)
     expect(getByText('Clear Filters')).toBeInTheDocument()
   })
 
   it('renders the call to action button', () => {
-    const { getByText } = render(<TemplatePage {...propsDefault} />)
+    const { getByText } = render(<PageTemplate {...propsDefault} />)
     expect(getByText('Call to Action')).toBeInTheDocument()
   })
 
   it('renders the arrow selector', () => {
-    const { getByText } = render(<TemplatePage {...propsDefault} />)
+    const { getByText } = render(<PageTemplate {...propsDefault} />)
     expect(getByText('Move to month')).toBeInTheDocument()
   })
 
   it('calls the clear filters function when the clear button is clicked', () => {
-    const { getByText } = render(<TemplatePage {...propsDefault} />)
+    const { getByText } = render(<PageTemplate {...propsDefault} />)
     fireEvent.click(getByText('Clear Filters'))
     expect(mockClearFilters.onClick).toHaveBeenCalled()
   })
 
   it('calls the call to action function when the button is clicked', () => {
-    const { getByText } = render(<TemplatePage {...propsDefault} />)
+    const { getByText } = render(<PageTemplate {...propsDefault} />)
     fireEvent.click(getByText('Call to Action'))
     expect(mockCallToAction.onClick).toHaveBeenCalled()
   })
 
   it('renders children when provided', () => {
     const { getByText } = render(
-      <TemplatePage {...propsDefault}>
+      <PageTemplate {...propsDefault}>
         <div>Child Content</div>
-      </TemplatePage>
+      </PageTemplate>
     )
     expect(getByText('Child Content')).toBeInTheDocument()
   })
 
   it('does not render the call to action button if callToAction prop is not provided', () => {
     const { queryByText } = render(
-      <TemplatePage {...propsDefault} callToAction={undefined} />
+      <PageTemplate {...propsDefault} callToAction={undefined} />
     )
     expect(queryByText('Call to Action')).not.toBeInTheDocument()
   })
 
   it('does not render the search input if search prop is not provided', () => {
     const { queryByPlaceholderText } = render(
-      <TemplatePage {...propsDefault} search={undefined} />
+      <PageTemplate {...propsDefault} search={undefined} />
     )
     expect(queryByPlaceholderText('Search...')).not.toBeInTheDocument()
   })
 
   it('does not render the clear filters button if clearFilters prop is not provided', () => {
     const { queryByText } = render(
-      <TemplatePage {...propsDefault} clearFilters={undefined} />
+      <PageTemplate {...propsDefault} clearFilters={undefined} />
     )
     expect(queryByText('Clear Filters')).not.toBeInTheDocument()
   })
 
   it('does not render the arrow selector if arrowSelector prop is not provided', () => {
     const { queryByText } = render(
-      <TemplatePage {...propsDefault} arrowSelector={undefined} />
+      <PageTemplate {...propsDefault} arrowSelector={undefined} />
     )
     expect(queryByText('Move to month')).not.toBeInTheDocument()
   })

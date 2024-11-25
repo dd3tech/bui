@@ -326,6 +326,11 @@
       "module": "./dist/esm/components/Tag/index.js",
       "default": "./dist/esm/components/Tag/index.js"
     },
+    "./PageTemplate": {
+      "require": "./dist/cjs/components/PageTemplate/index.js",
+      "module": "./dist/esm/components/PageTemplate/index.js",
+      "default": "./dist/esm/components/PageTemplate/index.js"
+    },
     "./Text": {
       "require": "./dist/cjs/components/Typography/index.js",
       "module": "./dist/esm/components/Typography/index.js",
@@ -416,6 +421,7 @@
       "Modal": ["./dist/esm/components/Modal/index.js"],
       "Navbar": ["./dist/esm/components/Navbar/index.d.ts"],
       "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
+      "PageTemplate": ["./dist/esm/components/PageTemplate/index.d.ts"],
       "Portal": ["./dist/esm/common/Portal/index.d.ts"],
       "Phase": ["./dist/esm/components/Phase/index.d.ts"],
       "Progress": ["./dist/esm/components/Progress/index.d.ts"],

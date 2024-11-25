@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useState } from 'react'
+import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import { composeClasses } from 'lib/classes'
 import ConfirmDialog from 'components/ConfirmDialog'
 import { Flex } from 'components/Layout'
@@ -23,6 +23,10 @@ export interface DropdownCheckboxProps {
   title?: string
   /** Alignment of the dropdown */
   align?: 'left' | 'right'
+  /** Label for the dropdown trigger */
+  label?: string
+  /** Additional CSS classes for custom styling */
+  className?: string
 }
 
 export const DropdownCheckbox = ({
@@ -34,12 +38,16 @@ export const DropdownCheckbox = ({
   onSubmit,
   onClose,
   title,
-  align = 'left'
+  align = 'left',
+  label,
+  className
 }: DropdownCheckboxProps) => {
   const initialState = initialValue || options?.map((item) => item.value)
   const [isActive, setIsActive] = useState<boolean>(false)
   const [selected, setSelected] = useState(initialState)
   const [value, setValue] = useState<string[]>(initialState)
+
+  const isAllSelected = value.length === options.length
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -72,20 +80,30 @@ export const DropdownCheckbox = ({
     onClose && onClose()
   }, [selected, onClose])
 
-  const isAllSelected = value.length === options.length
+  const selectedLabel = useCallback(() => {
+    return options
+      .filter((item) => value.includes(item.value))
+      .map((item) => item.label)
+  }, [options, value])
+
+  useEffect(() => {
+    setSelected(initialState)
+    setValue(initialState)
+  }, [initialValue])
 
   return (
     <div
       role="dropdown-checkbox"
-      className="relative"
       onMouseDown={(e) => e.stopPropagation()}
+      className={composeClasses('relative', className)}
     >
       <FilterInput
         isActive={isActive}
         setIsActive={setIsActive}
-        label="Filter by"
-        value={selected.join(', ')}
+        label={label ?? 'Filter by'}
+        value={isAllSelected ? allText || 'All' : selectedLabel()?.join(', ')}
         variant="primary"
+        style={{ position: 'relative' }}
       />
       {isActive && (
         <ConfirmDialog

@@ -22,6 +22,10 @@ export interface DropdownRadioProps {
   title?: string
   /** Alignment of the dropdown */
   align?: 'left' | 'right'
+  /** Label for the dropdown trigger */
+  label?: string
+  /** Additional CSS classes for custom styling */
+  className?: string
 }
 
 export const DropdownRadio = ({
@@ -32,7 +36,9 @@ export const DropdownRadio = ({
   onSubmit,
   onClose,
   title,
-  align = 'left'
+  align = 'left',
+  label,
+  className
 }: DropdownRadioProps) => {
   const [isActive, setIsActive] = useState<boolean>(false)
   const [selected, setSelected] = useState<string>(
@@ -62,13 +68,13 @@ export const DropdownRadio = ({
   return (
     <div
       role="dropdown-radio"
-      className="relative"
+      className={composeClasses('relative', className)}
       onMouseDown={(e) => e.stopPropagation()}
     >
       <FilterInput
         isActive={isActive}
         setIsActive={setIsActive}
-        label="Filter by"
+        label={label ?? 'Filter by'}
         value={selected}
         variant="primary"
       />

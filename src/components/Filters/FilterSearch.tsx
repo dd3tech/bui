@@ -1,4 +1,10 @@
-import { ChangeEventHandler, useEffect, useRef, useState } from 'react'
+import {
+  ChangeEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 import { XCircleIcon } from '@heroicons/react/solid'
 import { SearchIcon } from '@heroicons/react/outline'
 import Input, { InputVariant } from 'components/Form'
@@ -21,6 +27,8 @@ export interface FilterSearchProps {
   onChange: ChangeEventHandler<HTMLInputElement>
   /** Renders the search input in a compact size */
   smallSearch?: boolean
+
+  handleClearSearch: () => void
 }
 
 export const FilterSearch = ({
@@ -31,7 +39,8 @@ export const FilterSearch = ({
   disabled,
   placeholder,
   onChange,
-  smallSearch
+  smallSearch,
+  handleClearSearch
 }: FilterSearchProps) => {
   const [search, setSearch] = useState(value)
   const [isExpanded, setIsExpanded] = useState(false)
@@ -43,7 +52,10 @@ export const FilterSearch = ({
     onChange(e)
   }
 
-  const clearSearch = () => setSearch('')
+  const clearSearch = useCallback(() => {
+    setSearch('')
+    handleClearSearch()
+  }, [setSearch])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

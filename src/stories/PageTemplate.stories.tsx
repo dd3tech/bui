@@ -1,24 +1,27 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { XCircleIcon, AcademicCapIcon } from '@heroicons/react/outline'
-import TemplatePage from '../components/TemplatePage/TemplatePage'
+import PageTemplate from '../components/PageTemplate/PageTemplate'
 
 export default {
-  title: 'Components/TemplatePage',
-  component: TemplatePage,
+  title: 'Components/PageTemplate',
+  component: PageTemplate,
   parameters: {
     layout: 'fullscreen'
   }
-} as ComponentMeta<typeof TemplatePage>
+} as ComponentMeta<typeof PageTemplate>
 
-const Template: ComponentStory<typeof TemplatePage> = (args) => (
-  <TemplatePage {...args} />
+const Template: ComponentStory<typeof PageTemplate> = (args) => (
+  <PageTemplate {...args} />
 )
 
 export const Default = Template.bind({})
 Default.args = {
-  title: 'Sample Page Title',
-  description: 'This is a detailed description of the TemplatePage component.',
+  title: {
+    label: 'Title',
+    isLoading: false
+  },
+  description: 'This is a detailed description of the PageTemplate component.',
   lastUpdate: {
     translation: 'en',
     date: new Date()
@@ -44,24 +47,25 @@ Default.args = {
     isSelected: false,
     isDisabled: true
   },
-  optionsBreadcrumbs: [
-    { name: 'Home', to: () => null },
-    { name: 'Category', to: () => null }
-  ],
+  optionsBreadcrumbs: {
+    options: [
+      { name: 'Home', to: '/home' },
+      { name: 'Category', to: '/category' }
+    ]
+  },
   tabs: {
     value: 0,
     setValue: (value) => console.log('Tab switched to', value),
     items: [{ label: 'Tab 1' }, { label: 'Tab 2' }]
   },
   children: (
-    <p>This is the primary content area for the TemplatePage component.</p>
+    <p>This is the primary content area for the PageTemplate component.</p>
   ),
   footer: (
     <div className="bg-gray-100 text-gray-500 w-full flex justify-center py-2">
       Footer
     </div>
   ),
-
   results: {
     number: 10,
     label: 'Results found'
@@ -91,8 +95,7 @@ Default.args = {
           { label: 'Option 3', value: 'option3' }
         ],
         allText: 'Select All',
-        initialValue: ['option1'],
-        className: 'w-24'
+        initialValue: ['option1']
       }
     ],
     dropdownRangeSlider: [
@@ -112,13 +115,8 @@ Default.args = {
     ]
   },
   clearFilters: {
-    label: 'Reset',
+    label: 'Restore',
     onClick: () => alert('Filters have been reset')
-  },
-  callToAction: {
-    onClick: () => alert('Action executed'),
-    label: 'Click here',
-    icon: 'AcademicCapIcon'
   },
   arrowSelector: {
     label: 'Move to Month',

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) DD360 and its affiliates.
+ */
+
 import React, { useCallback } from 'react'
 import { composeClasses } from 'lib/classes'
 import Breadcrumbs from 'components/Breadcrumbs'
@@ -5,44 +9,71 @@ import type { BreadcrumbsProps } from 'components/Breadcrumbs'
 import Flex from 'components/Layout/Flex'
 import Circle from 'components/Circle'
 import { Button } from 'components/Buttons'
+import Skeleton from 'components/Skeleton/Skeleton'
 import { Tab, TabGroup } from 'components/Tabs'
 import Divider from 'components/Divider'
 import Text from '../Typography'
 import { monthLabelsShort } from '../../utils/utils'
 
-interface IActionButton {
+export interface ActionButtonProps {
   onClick: () => void
-  icon: React.ReactNode
+  icon?: React.ReactNode
   variant: 'primary' | 'secondary' | 'tertiary'
   label: string
   isDisabled?: boolean
+  isLoading?: boolean
+  role?: string
 }
 
-interface ITab {
+export interface TabTopPageProps {
   value: number
   setValue: React.Dispatch<React.SetStateAction<number>>
   items: {
     label: string
     disabled?: boolean
+    hidden?: boolean
   }[]
 }
 
+export interface ActionIconProps {
+  titleIcon?: React.ReactNode
+  onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  isSelected?: boolean
+  isDisabled?: boolean
+  role?: string
+}
+export interface BreadcrumbsTopPageProps {
+  options: BreadcrumbsProps['options']
+  separator?: BreadcrumbsProps['separator']
+  isLoading?: BreadcrumbsProps['isLoading']
+}
+
+export interface LastUpdateTopPageProps {
+  translation: 'es' | 'en'
+  date: Date
+}
+
+export interface TitleTopPageProps {
+  label: string
+  isLoading?: boolean
+}
+
 export interface TopPageProps {
-  optionsBreadcrumbs?: BreadcrumbsProps['options']
-  lastUpdate?: {
-    translation: 'es' | 'en'
-    date: Date
-  }
-  title: string
+  /** Breadcrumb options and loading state */
+  optionsBreadcrumbs?: BreadcrumbsTopPageProps
+  /** Last update information with date and translation */
+  lastUpdate?: LastUpdateTopPageProps
+  /** Page title with label and loading state */
+  title: TitleTopPageProps
+  /** Optional description displayed below the title */
   description?: string
-  callToActionsButtons?: IActionButton[]
-  actionIcon?: {
-    titleIcon?: React.ReactNode
-    onClick?: () => void
-    isSelected?: boolean
-    isDisabled?: boolean
-  }
-  tabs?: ITab
+  /** List of action buttons with labels, icons, and onClick handlers */
+  callToActionsButtons?: ActionButtonProps[]
+  /** Icon button for additional actions */
+  actionIcon?: ActionIconProps
+  /** Tabs for navigation with labels and states */
+  tabs?: TabTopPageProps
+  /** Additional CSS classes for the header */
   classNameHeader?: string
 }
 
@@ -71,7 +102,7 @@ const TopPage = ({
   classNameHeader
 }: TopPageProps) => {
   const styleIcon = useCallback(() => {
-    if (actionIcon?.isDisabled) return 'text-gray-300'
+    if (actionIcon?.isDisabled) return 'text-blue-300'
     if (actionIcon?.isSelected) return 'text-white'
     return 'text-blue-600'
   }, [actionIcon])
@@ -83,7 +114,7 @@ const TopPage = ({
           <div>
             {optionsBreadcrumbs && (
               <div>
-                <Breadcrumbs options={optionsBreadcrumbs} />
+                <Breadcrumbs role="breadcrumbs" {...optionsBreadcrumbs} />
               </div>
             )}
           </div>
@@ -109,24 +140,33 @@ const TopPage = ({
         }}
       >
         <Flex className="flex-col">
-          {title && (
-            <Text bold size="2xl">
-              {title}
+          {title.isLoading ? (
+            <Skeleton className="w-48 h-9 rounded-full" />
+          ) : (
+            <Text role="title-label" bold size="2xl">
+              {title.label}
             </Text>
           )}
-          {description && <Text size="sm">{description}</Text>}
+          {description && (
+            <Text role="description" size="sm">
+              {description}
+            </Text>
+          )}
         </Flex>
         {(callToActionsButtons || actionIcon) && (
           <Flex gap="3" alignItems="center">
             {callToActionsButtons &&
               callToActionsButtons.slice(0, 4).map((button, index) => (
                 <Button
-                  paddingX="4"
+                  padding="0"
+                  paddingX="6"
                   key={index}
                   variant={button.variant}
                   onClick={button.onClick}
-                  className="flex gap-2 items-center justify-center h-10"
+                  className="flex gap-2 items-center justify-center h-9"
                   disabled={button?.isDisabled}
+                  isLoading={button?.isLoading}
+                  role={button?.role}
                 >
                   {button.label}
                   {button.icon && (
@@ -136,6 +176,7 @@ const TopPage = ({
               ))}
             {actionIcon && (
               <Circle
+                role={actionIcon?.role}
                 backgroundColor="#ffffff"
                 useBackground={false}
                 className={composeClasses(
@@ -145,9 +186,9 @@ const TopPage = ({
                 )}
                 width="40px"
                 height="40px"
-                onClick={() => {
+                onClick={(e) => {
                   if (actionIcon?.isDisabled) return
-                  actionIcon?.onClick?.()
+                  actionIcon?.onClick?.(e)
                 }}
                 data-testid="action-icon"
               >
@@ -163,7 +204,12 @@ const TopPage = ({
         {tabs ? (
           <TabGroup value={tabs.value} onChange={tabs.setValue}>
             {tabs.items.map((tab, index) => (
-              <Tab key={index} label={tab.label} disabled={tab.disabled} />
+              <Tab
+                key={index}
+                label={tab.label}
+                disabled={tab.disabled}
+                hidden={tab.hidden}
+              />
             ))}
           </TabGroup>
         ) : (

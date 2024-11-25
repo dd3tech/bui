@@ -26,6 +26,10 @@ export interface DropdownRangeSliderProps {
   title?: string
   /** Alignment of the dropdown */
   align?: 'left' | 'right'
+  /** Label for the dropdown trigger */
+  label?: string
+  /** Additional CSS classes for custom styling */
+  className?: string
 }
 
 type RangeValues = { max: number; min: number }
@@ -41,7 +45,9 @@ export const DropdownRangeSlider = ({
   onSubmit,
   onClose,
   title,
-  align = 'left'
+  align = 'left',
+  label,
+  className
 }: DropdownRangeSliderProps) => {
   const initialState = {
     max: initMaxValue || max,
@@ -67,13 +73,13 @@ export const DropdownRangeSlider = ({
   return (
     <div
       role="dropdown-range-slider"
-      className="relative"
+      className={composeClasses('relative', className)}
       onMouseDown={(e) => e.stopPropagation()}
     >
       <FilterInput
         isActive={isActive}
         setIsActive={setIsActive}
-        label="Filter by"
+        label={label ?? 'Filter by'}
         value={`${selected.min}-${selected.max} ${unitName}`}
         variant="primary"
       />

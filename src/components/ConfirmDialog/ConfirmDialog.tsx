@@ -1,12 +1,12 @@
 /*
  * Copyright (c) DD360 and its affiliates.
  */
-
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useRef } from 'react'
 import { composeClasses } from 'lib/classes'
 import Card from '../Card/Card'
 import Text from '../Typography/Text'
 import Button from '../Buttons/Button'
+import Flex from 'components/Layout/Flex/Flex'
 
 export interface IConfirmDialog {
   title?: string
@@ -19,6 +19,8 @@ export interface IConfirmDialog {
   width?: number | string
 }
 
+let activeDialog: HTMLDivElement | null = null
+
 const ConfirmDialog = ({
   title,
   children,
@@ -29,11 +31,34 @@ const ConfirmDialog = ({
   onConfirm,
   onCancel
 }: IConfirmDialog) => {
+  const dialogRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const currentDialog = dialogRef.current
+    if (activeDialog && activeDialog !== currentDialog) {
+      activeDialog.dispatchEvent(new CustomEvent('closeDialog'))
+    }
+    activeDialog = currentDialog
+
+    const handleClose = () => {
+      if (onCancel) onCancel()
+    }
+    currentDialog?.addEventListener('closeDialog', handleClose)
+
+    return () => {
+      currentDialog?.removeEventListener('closeDialog', handleClose)
+      if (activeDialog === currentDialog) {
+        activeDialog = null
+      }
+    }
+  }, [onCancel])
+
   return (
     <Card
+      refCard={dialogRef}
       onClick={(e) => e.stopPropagation()}
       rounded="lg"
-      className={composeClasses('w-max absolute bg-white', className)}
+      className={composeClasses('w-full mt-1 absolute bg-white', className)}
       width={width}
     >
       {title && (
@@ -42,14 +67,17 @@ const ConfirmDialog = ({
         </Text>
       )}
       {children}
-      <div className="flex gap-4 justify-end mt-1.5">
+      <Flex gap="3" justifyContent="center" className="mt-1.5">
         {onCancel && (
           <Button
             role="cancel-btn"
             variant="link"
             className="underline text-xs disabled:opacity-75 text-black"
             style={{ padding: 0, fontWeight: 600 }}
-            onClick={onCancel}
+            onClick={() => {
+              onCancel?.()
+              activeDialog = null
+            }}
           >
             {textCancelBtn}
           </Button>
@@ -63,9 +91,8 @@ const ConfirmDialog = ({
         >
           {textConfirmBtn}
         </Button>
-      </div>
+      </Flex>
     </Card>
   )
 }
-
 export default ConfirmDialog
