@@ -1,3 +1,13 @@
+## [6.30.3](https://github.com/dd3tech/bui/compare/v6.30.2...v6.30.3) (2024-11-25)
+
+
+### Bug Fixes
+
+* add imports page template ([faed43a](https://github.com/dd3tech/bui/commit/faed43ab18afe5d72cb12b711f10de9e67414f23))
+* add role description top page ([06b095a](https://github.com/dd3tech/bui/commit/06b095a66434a48fd7d97190366e47bc8233cc15))
+* remove type import ([9543527](https://github.com/dd3tech/bui/commit/9543527b76bd0c0c8d7672a8c805b90120c4ed49))
+* rename the component TemplatePage to PageTemplate ([450b45a](https://github.com/dd3tech/bui/commit/450b45a2b8b3fd62a050ca7d28d8d7513221a3a1))
+
 ## [6.30.2](https://github.com/dd3tech/bui/compare/v6.30.1...v6.30.2) (2024-11-13)
 
 
