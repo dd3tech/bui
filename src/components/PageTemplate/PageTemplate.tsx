@@ -4,7 +4,6 @@
 
 import { FC, ReactNode } from 'react'
 import TopPage from 'components/TopPage'
-import { TopPageProps } from 'components/TopPage'
 import {
   ArrowSelector,
   ArrowSelectorProps,
@@ -24,6 +23,7 @@ import DropdownCheckbox, {
 } from '../Filters/DropdownCheckbox'
 import DropdownRadio, { DropdownRadioProps } from '../Filters/DropdownRadio'
 import DropdownRange, { DropdownRangeProps } from '../Filters/DropdownRange'
+import { TopPageProps } from '../TopPage/TopPage'
 import DropdownRangeSlider, {
   DropdownRangeSliderProps
 } from '../Filters/DropdownRangeSlider'
@@ -230,5 +230,7 @@ const PageTemplate: FC<PageTemplateProps> = ({
     </div>
   )
 }
+
+PageTemplate.displayName = 'PageTemplate'
 
 export default PageTemplate
