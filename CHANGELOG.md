@@ -1,3 +1,11 @@
+## [6.30.4](https://github.com/dd3tech/bui/compare/v6.30.3...v6.30.4) (2024-11-26)
+
+
+### Bug Fixes
+
+* change format props page template ([93ddde0](https://github.com/dd3tech/bui/commit/93ddde039e8a83f8e9c36c882fa2787077ad2772))
+* remove cast ([6897df0](https://github.com/dd3tech/bui/commit/6897df01363f511ada214c320a93d1c8124a6aa2))
+
 ## [6.30.3](https://github.com/dd3tech/bui/compare/v6.30.2...v6.30.3) (2024-11-25)
 
 
