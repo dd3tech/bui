@@ -1,3 +1,10 @@
+## [6.30.5](https://github.com/dd3tech/bui/compare/v6.30.4...v6.30.5) (2024-11-26)
+
+
+### Bug Fixes
+
+* change width filter bar search ([a3f774c](https://github.com/dd3tech/bui/commit/a3f774cf62c3549b438e641406b33d3ab9438aa7))
+
 ## [6.30.4](https://github.com/dd3tech/bui/compare/v6.30.3...v6.30.4) (2024-11-26)
 
 
