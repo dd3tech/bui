@@ -149,7 +149,7 @@ const PageTemplate: FC<PageTemplateProps> = ({
 
   return (
     <div role={role}>
-      <TopPage {...(otherProps as TopPageProps)} />
+      <TopPage {...otherProps} />
       <div className="px-5">
         <div className="my-4">
           {hasFilterBar && (
