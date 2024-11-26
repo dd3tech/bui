@@ -156,7 +156,7 @@ const PageTemplate: FC<PageTemplateProps> = ({
             <FilterBar className="flex-wrap">
               {search && (
                 <FilterBar.Section
-                  className={smallSearch ? 'w-12 xl:w-60' : 'w-full sm:w-60'}
+                  className={smallSearch ? 'w-12 xl:w-80' : 'w-full sm:w-80'}
                 >
                   <FilterSearch {...search} smallSearch={smallSearch} />
                 </FilterBar.Section>
