@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import DynamicHeroIcon from 'common/DynamicHeroIcon'
 import Button from 'components/Buttons/Button'
 import Card from 'components/Card/Card'
@@ -34,6 +35,8 @@ const SnackBar = ({
   buttonGhost,
   show
 }: SnackBarProps) => {
+  const [isVisible, setIsVisible] = useState(show)
+
   const SnackBarButton = (icon?: keyof typeof DynamicHeroIcon) => (
     <DynamicHeroIcon
       icon={icon || 'XCircleIcon'}
@@ -41,7 +44,13 @@ const SnackBar = ({
     />
   )
 
-  if (!show) return null
+  useEffect(() => {
+    if (show) {
+      setIsVisible(true)
+    }
+  }, [show])
+
+  if (!isVisible) return null
 
   return (
     <div
