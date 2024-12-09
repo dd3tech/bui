@@ -130,8 +130,8 @@ const TopPage = ({
       )}
       <Flex
         className={composeClasses(
-          !optionsBreadcrumbs && !lastUpdate && 'mt-4',
-          'mt-1'
+          !optionsBreadcrumbs && !lastUpdate && 'pt-4',
+          'pt-1'
         )}
         alignItems="center"
         justifyContent="between"

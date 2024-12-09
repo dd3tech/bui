@@ -1,3 +1,10 @@
+## [6.30.6](https://github.com/dd3tech/bui/compare/v6.30.5...v6.30.6) (2024-12-07)
+
+
+### Bug Fixes
+
+* styles were modified in the title of the top page ([cd8b8a3](https://github.com/dd3tech/bui/commit/cd8b8a379f548397e87fe53f1a3ba0cc04ea1174))
+
 ## [6.30.5](https://github.com/dd3tech/bui/compare/v6.30.4...v6.30.5) (2024-11-26)
 
 
