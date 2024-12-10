@@ -286,6 +286,11 @@
       "module": "./dist/esm/components/Skeleton/Skeleton.js",
       "default": "./dist/esm/components/Skeleton/Skeleton.js"
     },
+    "./SnackBar": {
+      "require": "./dist/cjs/components/SnackBar/index.js",
+      "module": "./dist/esm/components/SnackBar/index.js",
+      "default": "./dist/esm/components/SnackBar/index.js"
+    },
     "./Spinner": {
       "require": "./dist/cjs/components/Spinner/index.js",
       "module": "./dist/esm/components/Spinner/index.js",

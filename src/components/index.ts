@@ -188,5 +188,8 @@ export * from './TopPage'
 export { default as PageTemplate } from './PageTemplate'
 export * from './PageTemplate'
 
+export { default as SnackBar } from './SnackBar'
+export * from './SnackBar'
+
 /** @deprecated */
 export * from './RangeSlider/MultiRangeSlider'
