@@ -100,14 +100,14 @@ const PageTemplate: FC<PageTemplateProps> = ({
     )) || []),
     ...(filters?.dropdownCheckbox?.map((props, index) => (
       <DropdownCheckbox
-        className="w-full md:w-auto"
+        className="w-full md:w-auto h-12"
         {...props}
         key={`dropdown-checkbox-${index}`}
       />
     )) || []),
     ...(filters?.dropdownRadio?.map((props, index) => (
       <DropdownRadio
-        className="w-full md:w-auto"
+        className="w-full md:w-auto h-12"
         {...props}
         key={`dropdown-radio-${index}`}
       />
@@ -116,14 +116,14 @@ const PageTemplate: FC<PageTemplateProps> = ({
       <DropdownRange
         {...props}
         key={`dropdown-range-${index}`}
-        className="w-full md:w-auto"
+        className="w-full md:w-auto h-12"
       />
     )) || []),
     ...(filters?.dropdownRangeSlider?.map((props, index) => (
       <DropdownRangeSlider
         {...props}
         key={`dropdown-range-slider-${index}`}
-        className="w-full md:w-auto"
+        className="w-full md:w-auto h-12"
       />
     )) || [])
   ].slice(0, 4)
