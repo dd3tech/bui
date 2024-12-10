@@ -1,3 +1,12 @@
+## [6.30.7](https://github.com/dd3tech/bui/compare/v6.30.6...v6.30.7) (2024-12-10)
+
+
+### Bug Fixes
+
+* a portal was added ([6e44386](https://github.com/dd3tech/bui/commit/6e443861a215f7e7901d94161b1bd141d22b010c))
+* new SnackBar component added ([661b22d](https://github.com/dd3tech/bui/commit/661b22ddea7877f2de3676c901d4ea3e697abb94))
+* update package-lock ([cb684ea](https://github.com/dd3tech/bui/commit/cb684eac50984275b2a72ffe35374185aa217ec7))
+
 ## [6.30.6](https://github.com/dd3tech/bui/compare/v6.30.5...v6.30.6) (2024-12-07)
 
 
