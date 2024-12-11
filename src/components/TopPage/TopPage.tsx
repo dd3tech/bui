@@ -18,11 +18,12 @@ import { monthLabelsShort } from '../../utils/utils'
 export interface ActionButtonProps {
   onClick: () => void
   icon?: React.ReactNode
-  variant: 'primary' | 'secondary' | 'tertiary'
+  variant: 'primary' | 'secondary' | 'tertiary' | 'ghost'
   label: string
   isDisabled?: boolean
   isLoading?: boolean
   role?: string
+  className?: string
 }
 
 export interface TabTopPageProps {
@@ -163,7 +164,10 @@ const TopPage = ({
                   key={index}
                   variant={button.variant}
                   onClick={button.onClick}
-                  className="flex gap-2 items-center justify-center h-9"
+                  className={composeClasses(
+                    button.className,
+                    'flex gap-2 items-center justify-center h-9'
+                  )}
                   disabled={button?.isDisabled}
                   isLoading={button?.isLoading}
                   role={button?.role}
