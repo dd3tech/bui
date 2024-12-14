@@ -1,3 +1,10 @@
+## [6.30.8](https://github.com/dd3tech/bui/compare/v6.30.7...v6.30.8) (2024-12-14)
+
+
+### Bug Fixes
+
+* added prop className to the dropdown of the select component ([54b5c99](https://github.com/dd3tech/bui/commit/54b5c990fb3093677194a0032b3188203ae1492a))
+
 ## [6.30.7](https://github.com/dd3tech/bui/compare/v6.30.6...v6.30.7) (2024-12-10)
 
 
