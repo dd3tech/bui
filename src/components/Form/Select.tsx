@@ -55,6 +55,7 @@ export interface SelectProps extends InputHTMLAttributes<HTMLInputElement> {
   optionsList: ISelectOptions
   itemWidth?: 'trimWithEllipsis' | 'fullWidth' | 'textWrap'
   isRequired?: boolean
+  classNameDropdown?: string
 }
 
 const IconStatus = ({ variant }: { variant: SelectVariantType }) => {
@@ -144,6 +145,7 @@ function Select({
   placeholder,
   itemWidth = 'trimWithEllipsis',
   isRequired,
+  classNameDropdown,
   ...otherProps
 }: SelectProps) {
   const { disabled } = otherProps
@@ -336,6 +338,7 @@ function Select({
       <div
         role="dropdown"
         className={composeClasses(
+          classNameDropdown,
           'absolute left-0 z-10 w-full py-1 mt-1 bg-white overflow-y-auto',
           isSecondary ? 'top-7' : `top-${large ? '13' : '12'}`,
           `rounded-${rounded} shadow-${boxShadow}`,
