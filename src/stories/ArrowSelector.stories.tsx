@@ -29,7 +29,7 @@ ArrowSelector.args = {
   toggleOptions: {
     firstOption: 'Option 1',
     secondOption: 'Option 2',
-    optionSelected: 'Option1',
+    optionSelected: 'Option 1',
     onOptionChange: () => console.log('Option changed')
   }
 }
