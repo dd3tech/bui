@@ -1,3 +1,13 @@
+## [6.30.9](https://github.com/dd3tech/bui/compare/v6.30.8...v6.30.9) (2024-12-18)
+
+
+### Bug Fixes
+
+* add prop toggleOptions in arrowSelector ([8e975d2](https://github.com/dd3tech/bui/commit/8e975d2f67da06b2b7811aaf5a738fbb593761a5))
+* add Styles circles arrow selector ([f23cf02](https://github.com/dd3tech/bui/commit/f23cf0237e8ed6380a2e11f5f1b43408bdf7a6da))
+* correction name test ([1fb010d](https://github.com/dd3tech/bui/commit/1fb010d7f4c16fea8c50748ded01d12628c6da0e))
+* remove file css ([09f1cce](https://github.com/dd3tech/bui/commit/09f1cce6b9e69ee014fc19f267353da4f53d9540))
+
 ## [6.30.8](https://github.com/dd3tech/bui/compare/v6.30.7...v6.30.8) (2024-12-14)
 
 
