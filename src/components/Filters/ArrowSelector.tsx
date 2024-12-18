@@ -70,7 +70,8 @@ export const ArrowSelector = ({
     >
       <Circle
         role="arrow-selector-left"
-        className="w-6 h-6 border border-gray-300 bg-white hover:bg-blue-50 cursor-pointer transition-all ease-linear"
+        style={{ width: 24, height: 24 }}
+        className="border border-gray-300 bg-white hover:bg-blue-50 cursor-pointer transition-all ease-linear"
         onClick={onClickLeft}
       >
         <ChevronLeftIcon width={10} className="text-blue-700" />
@@ -108,8 +109,9 @@ export const ArrowSelector = ({
       </Flex>
 
       <Circle
+        style={{ width: 24, height: 24 }}
         role="arrow-selector-right"
-        className="w-6 h-6 border border-gray-300 bg-white hover:bg-blue-50 cursor-pointer transition-all ease-linear"
+        className="border border-gray-300 bg-white hover:bg-blue-50 cursor-pointer transition-all ease-linear"
         onClick={onClickRight}
       >
         <ChevronRightIcon width={10} className="text-blue-700" />
