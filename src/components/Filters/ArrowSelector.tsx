@@ -50,15 +50,17 @@ export const ArrowSelector = ({
     option: string
     isSelected: boolean
   }) => (
-    <div
+    <Flex
+      justifyContent="center"
+      alignItems="center"
       className={composeClasses(
         isSelected ? 'text-white' : 'text-gray-500',
-        'relative z-10 rounded-full px-2 cursor-pointer text-xs'
+        'relative z-10 rounded-full px-2 cursor-pointer text-xs text-center'
       )}
       onClick={() => handleOptionClick(option)}
     >
       {option}
-    </div>
+    </Flex>
   )
 
   return (
@@ -87,12 +89,13 @@ export const ArrowSelector = ({
         </Text>
 
         {toggleOptions && (
-          <div className="relative flex items-center gap-2 bg-white border border-gray-300 rounded-full p-1">
+          <div className="relative grid grid-cols-2 bg-white border border-gray-300 rounded-full p-1">
             <div
-              className="absolute top-0 left-0 bg-blue-600 rounded-full transition-all w-1/2 h-full"
+              className="absolute top-0 left-0 bg-blue-600 rounded-full transition-all h-full"
               style={{
+                width: `${100 / 2}%`,
                 transform: `translateX(${
-                  selectedOption === toggleOptions.firstOption ? '0' : '100%'
+                  selectedOption === toggleOptions.firstOption ? '0%' : '100%'
                 })`
               }}
             />
