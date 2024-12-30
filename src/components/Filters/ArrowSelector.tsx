@@ -37,12 +37,12 @@ export const ArrowSelector = ({
 
   const handleOptionClick = useCallback(
     (option: string) => {
+      if (option === selectedOption) return
       setSelectedOption(option)
       toggleOptions?.onOptionChange?.(option)
     },
-    [toggleOptions]
+    [toggleOptions, selectedOption]
   )
-
   const ToggleOption = ({
     option,
     isSelected
@@ -55,7 +55,7 @@ export const ArrowSelector = ({
       alignItems="center"
       className={composeClasses(
         isSelected ? 'text-white' : 'text-gray-500',
-        'relative z-10 rounded-full px-2 cursor-pointer text-xs text-center'
+        'relative z-10 rounded-full px-2 cursor-pointer text-xs text-center py-1'
       )}
       onClick={() => handleOptionClick(option)}
     >
@@ -89,7 +89,7 @@ export const ArrowSelector = ({
         </Text>
 
         {toggleOptions && (
-          <div className="relative grid grid-cols-2 bg-white border border-gray-300 rounded-full p-1">
+          <div className="relative grid grid-cols-2 bg-white border border-gray-300 rounded-full">
             <div
               className="absolute top-0 left-0 bg-blue-600 rounded-full transition-all h-full"
               style={{
