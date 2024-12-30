@@ -1,3 +1,10 @@
+## [6.30.10](https://github.com/dd3tech/bui/compare/v6.30.9...v6.30.10) (2024-12-30)
+
+
+### Bug Fixes
+
+* adjustment in size of options ([0230dc2](https://github.com/dd3tech/bui/commit/0230dc27503699309047af9e241f588b69984bba))
+
 ## [6.30.9](https://github.com/dd3tech/bui/compare/v6.30.8...v6.30.9) (2024-12-18)
 
 
