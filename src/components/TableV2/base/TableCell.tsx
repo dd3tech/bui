@@ -126,7 +126,7 @@ const Cell = ({
         right: stickyRight,
         bottom: stickyBottom,
         paddingRight: '15px',
-        paddingLeft: !!indexCell ? '30px' : '15px',
+        paddingLeft: indexCell ? '30px' : '15px',
         backgroundColor: cellColor ? cellColorStyle[cellColor] : undefined,
         ...props.style
       }}
