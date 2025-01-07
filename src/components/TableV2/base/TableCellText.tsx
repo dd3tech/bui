@@ -79,7 +79,7 @@ const CellText = ({
         getTextAlignment()
       )}
       onClick={(e) => {
-        e.preventDefault()
+        e.stopPropagation()
         to?.()
       }}
     >

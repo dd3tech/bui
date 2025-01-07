@@ -1,9 +1,12 @@
 .tableV2-container-cmpnt thead tr th,
 .tableV2-container-cmpnt tbody tr td {
   position: relative;
+  text-align: left;
+}
+
+.tableV2-container-cmpnt thead tr th {
   padding-left: 15px;
   padding-right: 15px;
-  text-align: left;
 }
 
 .tableV2-container-cmpnt tbody tr {
