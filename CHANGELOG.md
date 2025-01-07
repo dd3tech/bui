@@ -1,3 +1,10 @@
+# [6.31.0](https://github.com/dd3tech/bui/compare/v6.30.10...v6.31.0) (2025-01-07)
+
+
+### Features
+
+* add counter to cell ([cee9ad4](https://github.com/dd3tech/bui/commit/cee9ad4c8a072592857c089f0697ede73d27e83f))
+
 ## [6.30.10](https://github.com/dd3tech/bui/compare/v6.30.9...v6.30.10) (2024-12-30)
 
 
