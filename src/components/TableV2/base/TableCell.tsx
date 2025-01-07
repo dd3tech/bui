@@ -1,5 +1,6 @@
 import { HTMLAttributes } from 'react'
 import { composeClasses } from 'lib/classes'
+import { Flex } from 'components/Layout'
 import Input, { GenericInputProps } from '../../Form/Input/Input'
 import CellText from './TableCellText'
 
@@ -52,6 +53,14 @@ export interface CellProps
    */
   to?: () => void
   /**
+   * Index of the cell
+   */
+  indexCell?: number
+  /**
+   * Function to call when cell is edited
+   */
+  onEdit?: () => void
+  /**
    * Class name for the text
    */
   textClassName?: HTMLAttributes<HTMLSpanElement>['className']
@@ -79,6 +88,8 @@ const Cell = ({
   stickyBottom,
   type = 'text',
   align = 'left',
+  indexCell,
+  onEdit,
   textClassName,
   defaultValue,
   showDefaultValue,
@@ -114,10 +125,25 @@ const Cell = ({
         top: stickyTop,
         right: stickyRight,
         bottom: stickyBottom,
+        paddingRight: '15px',
+        paddingLeft: indexCell ? '30px' : '15px',
         backgroundColor: cellColor ? cellColorStyle[cellColor] : undefined,
         ...props.style
       }}
     >
+      {indexCell && (
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          className={composeClasses(
+            onEdit && 'hover:bg-blue-300 cursor-pointer',
+            'absolute top-0 left-0 w-6 h-full bg-gray-200 transition-all duration-300 ease-linear'
+          )}
+          onClick={onEdit}
+        >
+          {indexCell}
+        </Flex>
+      )}
       {inputProps ? (
         <Input {...inputProps}></Input>
       ) : isSimpleChildren ? (
