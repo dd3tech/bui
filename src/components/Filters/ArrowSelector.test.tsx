@@ -52,7 +52,14 @@ describe('<ArrowSelector />', () => {
   })
 
   it('should call onOptionChange when first option is clicked', () => {
-    const { getByText } = render(<ArrowSelector {...props} />)
+    const customProps = {
+      ...props,
+      toggleOptions: {
+        ...props.toggleOptions,
+        optionSelected: 'Option 2'
+      }
+    }
+    const { getByText } = render(<ArrowSelector {...customProps} />)
 
     fireEvent.click(getByText('Option 1'))
     expect(props.toggleOptions.onOptionChange).toHaveBeenCalledWith('Option 1')
