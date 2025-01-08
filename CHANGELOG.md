@@ -1,3 +1,12 @@
+## [6.31.1](https://github.com/dd3tech/bui/compare/v6.31.0...v6.31.1) (2025-01-08)
+
+
+### Bug Fixes
+
+* adjustment styles ([c2ca9b2](https://github.com/dd3tech/bui/commit/c2ca9b28317d647d6311a59479e9db6981fc730a))
+* change width container ([5ce0427](https://github.com/dd3tech/bui/commit/5ce0427feacf279e6694ee0bd1fd6c14ecdf7328))
+* correction test ([2da8a15](https://github.com/dd3tech/bui/commit/2da8a155681a1b2f33aaf0e9a5c3380a63238694))
+
 # [6.31.0](https://github.com/dd3tech/bui/compare/v6.30.10...v6.31.0) (2025-01-07)
 
 
