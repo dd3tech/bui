@@ -93,7 +93,7 @@ export const ArrowSelector = ({
             <div
               className="absolute top-0 left-0 bg-blue-600 rounded-full transition-all h-full"
               style={{
-                width: `${100 / 2}%`,
+                width: '50%',
                 transform: `translateX(${
                   selectedOption === toggleOptions.firstOption ? '0%' : '100%'
                 })`
