@@ -75,7 +75,7 @@ export interface CellProps
   /**
    * Cell color
    */
-  cellColor?: 'red' | 'green' | 'yellow'
+  cellColor?: 'red' | 'green' | 'yellow' | 'blue'
 }
 
 const Cell = ({
@@ -106,7 +106,8 @@ const Cell = ({
   const cellColorStyle = {
     red: '#FEE2E2',
     green: '#ECFDF5',
-    yellow: '#FFFBEB'
+    yellow: '#FFFBEB',
+    blue: '#EFF6FF'
   }
 
   return (
@@ -117,7 +118,11 @@ const Cell = ({
         disabled && 'text-gray-200',
         error && 'error-100',
         inputProps && 'pt-0 pb-0',
-        cellColor && 'white-border',
+        cellColor
+          ? cellColor === 'blue'
+            ? 'blue-border'
+            : 'white-border'
+          : '',
         props.className
       )}
       style={{

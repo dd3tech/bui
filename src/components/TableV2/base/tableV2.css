@@ -63,6 +63,12 @@
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
 }
+
+.tableV2-container-cmpnt tbody tr td.blue-border,
+.tableV2-container-cmpnt.vertical-borders tbody tr td.blue-border {
+  border: 1px solid #3B82F6;
+  color: #1D4ED8;
+}
   
 .tableV2-container-cmpnt.horizontal-borders thead tr th::before,
 .tableV2-container-cmpnt.horizontal-borders tbody tr td::before {
