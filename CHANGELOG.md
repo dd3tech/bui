@@ -1,3 +1,10 @@
+# [6.32.0](https://github.com/dd3tech/bui/compare/v6.31.1...v6.32.0) (2025-01-20)
+
+
+### Features
+
+* add blue cell ([08cc316](https://github.com/dd3tech/bui/commit/08cc316fb01983c1482fd0f971ca6c39ec2b4c62))
+
 ## [6.31.1](https://github.com/dd3tech/bui/compare/v6.31.0...v6.31.1) (2025-01-08)
 
 
