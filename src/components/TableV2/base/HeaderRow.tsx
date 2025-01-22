@@ -28,7 +28,7 @@ const HeaderRow = ({
     <tr
       {...props}
       className={composeClasses(
-        'bg-gray-50 relative',
+        'bg-gray-50 sticky top-0 z-10',
         props.className,
         fontWeight.bold,
         headerRowVariant[variant]

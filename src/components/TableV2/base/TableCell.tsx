@@ -110,11 +110,18 @@ const Cell = ({
     blue: '#EFF6FF'
   }
 
+  const isSticky = stickyLeft || stickyTop || stickyRight || stickyBottom
+
+  const getBackgroundColor = () => {
+    if (isSticky) {
+      return cellColor ? cellColorStyle[cellColor] : '#ffff'
+    }
+    return cellColor ? cellColorStyle[cellColor] : undefined
+  }
   return (
     <td
       {...props}
       className={composeClasses(
-        (stickyLeft || stickyTop || stickyRight || stickyBottom) && 'sticky',
         disabled && 'text-gray-200',
         error && 'error-100',
         inputProps && 'pt-0 pb-0',
@@ -126,13 +133,15 @@ const Cell = ({
         props.className
       )}
       style={{
+        position: isSticky && 'sticky',
         left: stickyLeft,
         top: stickyTop,
         right: stickyRight,
         bottom: stickyBottom,
+        backgroundColor: getBackgroundColor(),
+        zIndex: isSticky && 1,
         paddingRight: '15px',
         paddingLeft: indexCell ? '30px' : '15px',
-        backgroundColor: cellColor ? cellColorStyle[cellColor] : undefined,
         ...props.style
       }}
     >

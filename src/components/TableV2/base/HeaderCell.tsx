@@ -60,6 +60,8 @@ const HeaderCell = ({
     onSort && onSort(newSort)
   }, [sort, onSort])
 
+  const isSticky = stickyLeft || stickyTop || stickyRight || stickyBottom
+
   useEffect(() => {
     if (sortValue) {
       setSort(sortValue)
@@ -70,15 +72,17 @@ const HeaderCell = ({
     <th
       {...props}
       className={composeClasses(
-        (stickyLeft || stickyTop || stickyRight || stickyBottom) && 'sticky',
         props.className,
         'h-8 px-2 text-[10px] text-gray-700 font-semibold text-left'
       )}
       style={{
+        position: isSticky && 'sticky',
         left: stickyLeft,
         top: stickyTop,
         right: stickyRight,
         bottom: stickyBottom,
+        backgroundColor: isSticky && '#f9fafb',
+        zIndex: isSticky && 1,
         ...props.style
       }}
     >
