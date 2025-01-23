@@ -1,3 +1,10 @@
+## [6.32.1](https://github.com/dd3tech/bui/compare/v6.32.0...v6.32.1) (2025-01-23)
+
+
+### Bug Fixes
+
+* add validation sticky cells ([1743373](https://github.com/dd3tech/bui/commit/17433733d4170e5727154991177e2db073d0c067))
+
 # [6.32.0](https://github.com/dd3tech/bui/compare/v6.31.1...v6.32.0) (2025-01-20)
 
 
