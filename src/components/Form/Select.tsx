@@ -56,6 +56,7 @@ export interface SelectProps extends InputHTMLAttributes<HTMLInputElement> {
   itemWidth?: 'trimWithEllipsis' | 'fullWidth' | 'textWrap'
   isRequired?: boolean
   classNameDropdown?: string
+  styleDropdown?: StyleObject
 }
 
 const IconStatus = ({ variant }: { variant: SelectVariantType }) => {
@@ -146,6 +147,7 @@ function Select({
   itemWidth = 'trimWithEllipsis',
   isRequired,
   classNameDropdown,
+  styleDropdown,
   ...otherProps
 }: SelectProps) {
   const { disabled } = otherProps
@@ -344,7 +346,10 @@ function Select({
           `rounded-${rounded} shadow-${boxShadow}`,
           itemWidth === 'fullWidth' && 'min-w-max'
         )}
-        style={getAnimationStyle(isOpen)}
+        style={{
+          ...getAnimationStyle(isOpen),
+          ...styleDropdown
+        }}
       >
         {isSecondary && hasInteracted && (
           <div className="h-8 p-1 pb-2 border-b border-gray-300">
