@@ -1,3 +1,10 @@
+## [6.32.2](https://github.com/dd3tech/bui/compare/v6.32.1...v6.32.2) (2025-01-24)
+
+
+### Bug Fixes
+
+* add style dropdown component select ([834055a](https://github.com/dd3tech/bui/commit/834055ac92ee47b5b873558dc427a912b9900f8b))
+
 ## [6.32.1](https://github.com/dd3tech/bui/compare/v6.32.0...v6.32.1) (2025-01-23)
 
 
