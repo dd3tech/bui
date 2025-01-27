@@ -6,6 +6,7 @@ import HeaderCell from './base/HeaderCell'
 import Body from './base/TableBody'
 import Row from './base/TableRow'
 import Cell from './base/TableCell'
+import InputCell from './base/TableInputCell'
 import './base/tableV2.css'
 
 export interface TableV2Props extends React.HTMLAttributes<HTMLTableElement> {
@@ -68,6 +69,7 @@ TableV2.HeaderCell = HeaderCell
 TableV2.Body = Body
 TableV2.Row = Row
 TableV2.Cell = Cell
+TableV2.InputCell = InputCell
 
 TableV2.displayName = 'TableV2'
 

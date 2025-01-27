@@ -12,13 +12,14 @@ export interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
    * result: commonly used to display a row of totals
    * default: apply the base styles
    */
-  variant?: 'header' | 'result' | 'default'
+  variant?: 'header' | 'result' | 'default' | 'summary'
 }
 
 const rowVariant: { [key: string]: string } = {
   default: `${fontSize.xxs} h-7 text-gray-700 bg-transparent`,
   header: `${fontSize.sm} ${fontWeight.bold} text-gray-900 bg-gray-100`,
-  result: `${fontSize.xs} ${fontWeight.bold} text-gray-700 bg-gray-50`
+  result: `${fontSize.xxs} text-gray-900 bg-gray-50`,
+  summary: `${fontSize.xxs} bg-gray-700 hover:bg-gray-700 text-white`
 }
 
 const Row = ({ variant = 'default', ...props }: RowProps) => {
