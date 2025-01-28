@@ -7,8 +7,8 @@ import Body from './base/TableBody'
 import Row from './base/TableRow'
 import Cell from './base/TableCell'
 import InputCell from './base/TableInputCell'
-import './base/tableV2.css'
 import Accordion from './base/Accordion'
+import './base/tableV2.css'
 
 export interface TableV2Props extends React.HTMLAttributes<HTMLTableElement> {
   /**
