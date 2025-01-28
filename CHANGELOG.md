@@ -1,3 +1,10 @@
+# [6.33.0](https://github.com/dd3tech/bui/compare/v6.32.2...v6.33.0) (2025-01-28)
+
+
+### Features
+
+* add input cell ([eec9472](https://github.com/dd3tech/bui/commit/eec9472a8379615fa6df633690346d67789227d1))
+
 ## [6.32.2](https://github.com/dd3tech/bui/compare/v6.32.1...v6.32.2) (2025-01-24)
 
 
