@@ -76,6 +76,13 @@ export interface CellProps
    * Cell color
    */
   cellColor?: 'red' | 'green' | 'yellow' | 'blue'
+  /**
+   *  Cell variants
+   * summary: commonly used to display a row of summaries
+   * result: commonly used to display a row of subtotals
+   * default: apply the base styles
+   */
+  variant?: 'result' | 'default' | 'summary'
 }
 
 const Cell = ({
@@ -94,6 +101,7 @@ const Cell = ({
   defaultValue,
   showDefaultValue,
   cellColor,
+  variant = 'default',
   children,
   to,
   ...props
@@ -114,17 +122,28 @@ const Cell = ({
 
   const getBackgroundColor = () => {
     if (isSticky) {
-      return cellColor ? cellColorStyle[cellColor] : '#ffff'
+      if (cellColor) return cellColorStyle[cellColor]
+
+      switch (variant) {
+        case 'summary':
+          return '#374151'
+        case 'result':
+          return '#F9FAFB'
+        default:
+          return '#FFFFFF'
+      }
     }
+
     return cellColor ? cellColorStyle[cellColor] : undefined
   }
+
   return (
     <td
       {...props}
       className={composeClasses(
         disabled && 'text-gray-200',
         error && 'error-100',
-        inputProps && 'pt-0 pb-0',
+        inputProps && 'p-0',
         cellColor
           ? cellColor === 'blue'
             ? 'blue-border'
@@ -159,7 +178,16 @@ const Cell = ({
         </Flex>
       )}
       {inputProps ? (
-        <Input {...inputProps}></Input>
+        <Input
+          paddingX="0"
+          style={{ height: '30px', paddingBottom: '3px' }}
+          className={composeClasses(
+            inputProps.className,
+            'w-full border-none bg-transparent hover:bg-transparent focus:border-transparent focus:outline-none',
+            `text-${align}`
+          )}
+          {...inputProps}
+        />
       ) : isSimpleChildren ? (
         <CellText
           type={type}

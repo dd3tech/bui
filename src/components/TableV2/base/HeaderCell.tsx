@@ -40,6 +40,10 @@ export interface HeaderCellProps
    * Sort value
    */
   sortValue?: SortType
+  /**
+   * Text alignment
+   */
+  align?: 'center' | 'left' | 'right'
 }
 
 const HeaderCell = ({
@@ -50,6 +54,7 @@ const HeaderCell = ({
   showSortIcon,
   onSort,
   sortValue,
+  align = 'left',
   ...props
 }: HeaderCellProps) => {
   const [sort, setSort] = useState<SortType>(sortValue ? sortValue : 'DESC')
@@ -73,7 +78,7 @@ const HeaderCell = ({
       {...props}
       className={composeClasses(
         props.className,
-        'h-8 px-2 text-[10px] text-gray-700 font-semibold text-left'
+        'h-8 px-2 text-[10px] text-gray-700 font-semibold'
       )}
       style={{
         position: isSticky && 'sticky',
@@ -83,6 +88,7 @@ const HeaderCell = ({
         bottom: stickyBottom,
         backgroundColor: isSticky && '#f9fafb',
         zIndex: isSticky && 1,
+        textAlign: align,
         ...props.style
       }}
     >
