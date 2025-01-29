@@ -1,3 +1,11 @@
+## [6.33.1](https://github.com/dd3tech/bui/compare/v6.33.0...v6.33.1) (2025-01-29)
+
+
+### Bug Fixes
+
+* add accordion table v2 ([9c8a038](https://github.com/dd3tech/bui/commit/9c8a0388264271fe92be04906890f139b4d5eb4b))
+* reorder imports ([d8db44b](https://github.com/dd3tech/bui/commit/d8db44b6df752a90899372774beeb730225963e4))
+
 # [6.33.0](https://github.com/dd3tech/bui/compare/v6.32.2...v6.33.0) (2025-01-28)
 
 
