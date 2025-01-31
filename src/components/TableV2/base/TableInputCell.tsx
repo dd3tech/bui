@@ -43,6 +43,18 @@ export interface InputCellProps
    * Display a spinner if is loading
    */
   isLoading?: boolean
+  /**
+   * Applies a blue style to the component.
+   */
+  isBlue?: boolean
+  /**
+   * Indicates whether the component is in an error state.
+   */
+  isError?: boolean
+  /**
+   * Elements to be rendered inside the component.
+   */
+  children?: React.ReactNode
 }
 
 const InputCell = ({
@@ -55,6 +67,9 @@ const InputCell = ({
   stickyBottom,
   align = 'left',
   isLoading = false,
+  isBlue,
+  isError,
+  children,
   ...props
 }: InputCellProps) => {
   const isSticky = stickyLeft || stickyTop || stickyRight || stickyBottom
@@ -66,7 +81,10 @@ const InputCell = ({
         disabled && 'text-gray-200 cursor-not-allowed',
         error && 'error-100',
         inputProps && 'p-0',
-        props.className
+        props.className,
+        isBlue && !isError && 'bg-blue-100 border-blue-300 border-t border-x',
+        isError && 'bg-red-100 border-red-300 border-t border-x',
+        'overflow-hidden'
       )}
       style={{
         position: isSticky && 'sticky',
@@ -85,18 +103,21 @@ const InputCell = ({
           <Spinner width="16px" height="16px" />
         </Flex>
       ) : (
-        <Input
-          isCell
-          paddingX="0"
-          style={{ height: '26px', paddingBottom: '3px' }}
-          disabled={disabled}
-          className={composeClasses(
-            'w-full border-none bg-transparent hover:bg-transparent focus:border-transparent focus:outline-none',
-            `text-${align}`,
-            inputProps.className
-          )}
-          {...inputProps}
-        />
+        <Flex justifyContent="center" alignItems="center" className="h-full">
+          {children}
+          <Input
+            isCell
+            paddingX="0"
+            style={{ maxHeight: '28px', paddingBottom: '3px' }}
+            disabled={disabled}
+            className={composeClasses(
+              'w-full border-none bg-transparent hover:bg-transparent focus:border-transparent focus:outline-none',
+              `text-${align}`,
+              inputProps.className
+            )}
+            {...inputProps}
+          />
+        </Flex>
       )}
     </td>
   )
