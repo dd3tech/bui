@@ -1,3 +1,10 @@
+# [6.34.0](https://github.com/dd3tech/bui/compare/v6.33.1...v6.34.0) (2025-01-31)
+
+
+### Features
+
+* add sticky cell shadow ([933dea8](https://github.com/dd3tech/bui/commit/933dea8143e7fb28881ec67051cd5153e90ad9fb))
+
 ## [6.33.1](https://github.com/dd3tech/bui/compare/v6.33.0...v6.33.1) (2025-01-29)
 
 
