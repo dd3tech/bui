@@ -82,3 +82,18 @@
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
 }
+
+.tableV2-container-cmpnt thead tr th.sticky-shadow::after,
+.tableV2-container-cmpnt tbody tr td.sticky-shadow::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 1px;
+    height: 100%;
+    z-index: 2;
+    background-color: #adafb5;
+    box-shadow: 4px 0px 6px 0px #adafb5;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}

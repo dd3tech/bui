@@ -44,6 +44,10 @@ export interface HeaderCellProps
    * Text alignment
    */
   align?: 'center' | 'left' | 'right'
+  /**
+   * Show a shadow when cell is sticky
+   */
+  stickyShadow?: boolean
 }
 
 const HeaderCell = ({
@@ -55,6 +59,7 @@ const HeaderCell = ({
   onSort,
   sortValue,
   align = 'left',
+  stickyShadow,
   ...props
 }: HeaderCellProps) => {
   const [sort, setSort] = useState<SortType>(sortValue ? sortValue : 'DESC')
@@ -78,6 +83,7 @@ const HeaderCell = ({
       {...props}
       className={composeClasses(
         props.className,
+        stickyShadow && 'sticky-shadow',
         'h-8 px-2 text-[10px] text-gray-700 font-semibold'
       )}
       style={{

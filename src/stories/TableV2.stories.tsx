@@ -29,6 +29,13 @@ const Template: ComponentStory<typeof TableV2Comp> = (_args) => {
       <TableV2Comp>
         <TableV2Comp.Header>
           <TableV2Comp.HeaderRow>
+            <TableV2Comp.HeaderCell
+              style={{ minWidth: 108 }}
+              stickyShadow
+              stickyLeft="0px"
+            >
+              Column Head
+            </TableV2Comp.HeaderCell>
             {columns.map((val) => (
               <TableV2Comp.HeaderCell
                 key={val}
@@ -43,11 +50,17 @@ const Template: ComponentStory<typeof TableV2Comp> = (_args) => {
         </TableV2Comp.Header>
         <TableV2Comp.Body>
           <TableV2Comp.Row>
+            <TableV2Comp.Cell stickyShadow stickyLeft="0px">
+              Cell
+            </TableV2Comp.Cell>
             {columns.map((val) => (
               <TableV2Comp.Cell key={val}>Cell</TableV2Comp.Cell>
             ))}
           </TableV2Comp.Row>
           <TableV2Comp.Row>
+            <TableV2Comp.Cell stickyShadow stickyLeft="0px">
+              Cell
+            </TableV2Comp.Cell>
             {columns.map((val) => (
               <TableV2Comp.Cell key={val}>Cell</TableV2Comp.Cell>
             ))}

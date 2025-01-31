@@ -83,6 +83,10 @@ export interface CellProps
    * default: apply the base styles
    */
   variant?: 'result' | 'default' | 'summary'
+  /**
+   * Show a shadow when cell is sticky
+   */
+  stickyShadow?: boolean
 }
 
 const Cell = ({
@@ -95,6 +99,7 @@ const Cell = ({
   stickyBottom,
   type = 'text',
   align = 'left',
+  stickyShadow,
   indexCell,
   onEdit,
   textClassName,
@@ -141,6 +146,7 @@ const Cell = ({
     <td
       {...props}
       className={composeClasses(
+        stickyShadow && 'sticky-shadow',
         disabled && 'text-gray-200',
         error && 'error-100',
         inputProps && 'p-0',
