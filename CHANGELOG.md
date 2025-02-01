@@ -1,3 +1,11 @@
+## [6.34.1](https://github.com/dd3tech/bui/compare/v6.34.0...v6.34.1) (2025-02-01)
+
+
+### Bug Fixes
+
+* add border right and left ([a885e26](https://github.com/dd3tech/bui/commit/a885e26c5dcc4d02555aae4f2ef17565911ffeac))
+* add styles props isBlue and isError ([26b5a4d](https://github.com/dd3tech/bui/commit/26b5a4d3d198126272afd2eda772efe7d3a75f63))
+
 # [6.34.0](https://github.com/dd3tech/bui/compare/v6.33.1...v6.34.0) (2025-01-31)
 
 
