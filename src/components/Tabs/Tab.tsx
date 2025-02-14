@@ -5,6 +5,7 @@
 import { useMemo, useCallback, forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'
 import { ClockIcon } from '@heroicons/react/outline'
+import Tooltip from 'components/Tooltip'
 
 interface PrivateProps {
   onChange?: (event: React.MouseEvent<HTMLButtonElement>) => void
@@ -27,6 +28,7 @@ interface Props
   isVertical?: boolean
   tabWidth?: number
   tabMinWidth?: number
+  textTooltip?: string
 }
 
 const variantStyle = {
@@ -49,6 +51,7 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
       isVertical,
       tabWidth,
       tabMinWidth,
+      textTooltip,
       ...otherProps
     },
     ref
@@ -90,39 +93,51 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
         : undefined
     }, [value, textColor, textDisabledColor, disabled])
 
+    const renderTab = () => {
+      return (
+        <button
+          ref={ref}
+          {...otherProps}
+          role="tab"
+          disabled={disabled}
+          onClick={handleClick}
+          style={{
+            color: getTextColor,
+            minWidth: variant !== 'tertiary' ? '132px' : tabMinWidth,
+            width: tabWidth || undefined
+          }}
+          className={composeClasses(
+            'inline-flex justify-center w-auto flex-wrap border-transparent items-center box-content leading-5 select-none transition-all duration-300 ease-in hover:border-blue-400',
+            isVertical ? 'border-r-3' : 'border-b-3',
+            classes,
+            variantStyle[variant],
+            className,
+            hidden && 'hidden'
+          )}
+        >
+          {label}
+          {disabledText && disabled && (
+            <label
+              role="contentinfo"
+              style={{ fontSize: 10 }}
+              className="flex gap-1.5 ml-3"
+            >
+              <ClockIcon width={15} />
+              {disabledText}
+            </label>
+          )}
+        </button>
+      )
+    }
+
     return (
-      <button
-        ref={ref}
-        {...otherProps}
-        role="tab"
-        disabled={disabled}
-        onClick={handleClick}
-        style={{
-          color: getTextColor,
-          minWidth: variant !== 'tertiary' ? '132px' : tabMinWidth,
-          width: tabWidth || undefined
-        }}
-        className={composeClasses(
-          'inline-flex justify-center w-auto flex-wrap border-transparent items-center box-content leading-5 select-none transition-all duration-300 ease-in hover:border-blue-400',
-          isVertical ? 'border-r-3' : 'border-b-3',
-          classes,
-          variantStyle[variant],
-          className,
-          hidden && 'hidden'
+      <>
+        {textTooltip ? (
+          <Tooltip content={textTooltip}>{renderTab()}</Tooltip>
+        ) : (
+          renderTab()
         )}
-      >
-        {label}
-        {disabledText && disabled && (
-          <label
-            role="contentinfo"
-            style={{ fontSize: 10 }}
-            className="flex gap-1.5 ml-3"
-          >
-            <ClockIcon width={15} />
-            {disabledText}
-          </label>
-        )}
-      </button>
+      </>
     )
   }
 )
