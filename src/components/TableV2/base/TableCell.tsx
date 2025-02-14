@@ -1,8 +1,8 @@
 import { HTMLAttributes } from 'react'
 import { composeClasses } from 'lib/classes'
-import { Flex } from 'components/Layout'
 import Input, { GenericInputProps } from '../../Form/Input/Input'
 import CellText from './TableCellText'
+import IndexCell from './TableIndexCell'
 
 type unit = `${number}${'px' | 'rem'}`
 
@@ -170,19 +170,7 @@ const Cell = ({
         ...props.style
       }}
     >
-      {indexCell && (
-        <Flex
-          alignItems="center"
-          justifyContent="center"
-          className={composeClasses(
-            onEdit && 'hover:bg-blue-300 cursor-pointer',
-            'absolute top-0 left-0 w-6 h-full bg-gray-200 transition-all duration-300 ease-linear'
-          )}
-          onClick={onEdit}
-        >
-          {indexCell}
-        </Flex>
-      )}
+      {indexCell && <IndexCell onEdit={onEdit} indexCell={indexCell} />}
       {inputProps ? (
         <Input
           paddingX="0"

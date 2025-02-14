@@ -28,7 +28,7 @@ const Row = ({ variant = 'default', ...props }: RowProps) => {
       {...props}
       className={composeClasses(
         props.className,
-        'hover:bg-gray-50',
+        'hover:bg-gray-50 group',
         fontWeight.medium,
         rowVariant[variant]
       )}
