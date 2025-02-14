@@ -1,3 +1,10 @@
+## [6.34.2](https://github.com/dd3tech/bui/compare/v6.34.1...v6.34.2) (2025-02-14)
+
+
+### Bug Fixes
+
+* display pencil icon on index cell ([8c8ba16](https://github.com/dd3tech/bui/commit/8c8ba16cd9c26a75d608ceb48a452fc0ca19a6ce))
+
 ## [6.34.1](https://github.com/dd3tech/bui/compare/v6.34.0...v6.34.1) (2025-02-01)
 
 
