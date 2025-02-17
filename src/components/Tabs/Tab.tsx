@@ -65,6 +65,7 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
 
     const handleClick = useCallback(
       (event: React.MouseEvent<HTMLButtonElement>) => {
+        if (disabled) return
         onChange && onChange(event)
         onClick && onClick(event)
       },
@@ -99,7 +100,6 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
           ref={ref}
           {...otherProps}
           role="tab"
-          disabled={disabled}
           onClick={handleClick}
           style={{
             color: getTextColor,
@@ -112,7 +112,8 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
             classes,
             variantStyle[variant],
             className,
-            hidden && 'hidden'
+            hidden && 'hidden',
+            disabled && 'cursor-not-allowed'
           )}
         >
           {label}
@@ -132,7 +133,7 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
 
     return (
       <>
-        {textTooltip?.length ? (
+        {textTooltip ? (
           <Tooltip position="right" content={textTooltip}>
             {renderTab()}
           </Tooltip>
