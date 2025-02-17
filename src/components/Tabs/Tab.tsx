@@ -133,7 +133,10 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
     return (
       <>
         {textTooltip?.length ? (
-          <Tooltip content={textTooltip}>{renderTab()}</Tooltip>
+          <>
+            <Tooltip content={textTooltip}>{renderTab()}</Tooltip>
+            {console.log('aca')}
+          </>
         ) : (
           renderTab()
         )}
