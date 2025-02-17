@@ -8,16 +8,17 @@ export interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
   children?: React.ReactNode
   /**
    *  Row variants
-   * header: commonly used to display a row of titles
+   * highlight: commonly used to display a highlighted row
    * result: commonly used to display a row of totals
+   * summary: commonly used to display a summary row
    * default: apply the base styles
    */
-  variant?: 'header' | 'result' | 'default' | 'summary'
+  variant?: 'highlight' | 'result' | 'default' | 'summary'
 }
 
 const rowVariant: { [key: string]: string } = {
   default: `${fontSize.xxs} h-7 text-gray-700 bg-transparent`,
-  header: `${fontSize.sm} ${fontWeight.bold} text-gray-900 bg-gray-100`,
+  highlight: `${fontSize.xxs} text-gray-900 bg-gray-100 hover:bg-gray-100`,
   result: `${fontSize.xxs} text-gray-900 bg-gray-50`,
   summary: `${fontSize.xxs} bg-gray-700 hover:bg-gray-700 text-white`
 }
