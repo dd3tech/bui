@@ -1,3 +1,10 @@
+## [6.34.4](https://github.com/dd3tech/bui/compare/v6.34.3...v6.34.4) (2025-02-17)
+
+
+### Bug Fixes
+
+* negative number on currency cell ([c0fe375](https://github.com/dd3tech/bui/commit/c0fe375fcc5b7fc94450a9978f92459094ec3592))
+
 ## [6.34.3](https://github.com/dd3tech/bui/compare/v6.34.2...v6.34.3) (2025-02-17)
 
 
