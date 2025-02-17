@@ -82,7 +82,7 @@ export interface CellProps
    * result: commonly used to display a row of subtotals
    * default: apply the base styles
    */
-  variant?: 'result' | 'default' | 'summary'
+  variant?: 'result' | 'default' | 'summary' | 'highlight'
   /**
    * Show a shadow when cell is sticky
    */
@@ -134,6 +134,8 @@ const Cell = ({
           return '#374151'
         case 'result':
           return '#F9FAFB'
+        case 'highlight':
+          return '#F3F4F6'
         default:
           return '#FFFFFF'
       }
