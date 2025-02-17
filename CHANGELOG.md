@@ -1,3 +1,10 @@
+## [6.34.3](https://github.com/dd3tech/bui/compare/v6.34.2...v6.34.3) (2025-02-17)
+
+
+### Bug Fixes
+
+* tablev2 variant row ([43fbcd1](https://github.com/dd3tech/bui/commit/43fbcd111e09af3f8999fc2a3dba87bf3f79f117))
+
 ## [6.34.2](https://github.com/dd3tech/bui/compare/v6.34.1...v6.34.2) (2025-02-14)
 
 
