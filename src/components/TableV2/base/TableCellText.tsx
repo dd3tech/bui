@@ -49,8 +49,9 @@ const CellText = ({
 
   const values = useMemo(() => {
     if (type === 'currency') {
+      const num = Number(children)
       return {
-        value: `$${formatCustomDecimal(Number(children))}`
+        value: `${num < 0 ? '-$' : '$'}${formatCustomDecimal(Math.abs(num))}`
       }
     } else if (type === 'percentage') {
       return {
