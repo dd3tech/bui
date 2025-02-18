@@ -32,6 +32,7 @@ export interface TabTopPageProps {
     label: string
     disabled?: boolean
     hidden?: boolean
+    tooltipLabel?: string
   }[]
 }
 
@@ -209,6 +210,7 @@ const TopPage = ({
                 label={tab.label}
                 disabled={tab.disabled}
                 hidden={tab.hidden}
+                tooltipLabel={tab.tooltipLabel}
               />
             ))}
           </TabGroup>
