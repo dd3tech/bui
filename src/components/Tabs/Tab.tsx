@@ -28,7 +28,7 @@ interface Props
   isVertical?: boolean
   tabWidth?: number
   tabMinWidth?: number
-  toolTipText?: string
+  tooltipLabel?: string
 }
 
 const variantStyle = {
@@ -51,7 +51,7 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
       isVertical,
       tabWidth,
       tabMinWidth,
-      toolTipText,
+      tooltipLabel,
       ...otherProps
     },
     ref
@@ -133,8 +133,8 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
 
     return (
       <>
-        {toolTipText ? (
-          <Tooltip position="right" content={toolTipText}>
+        {tooltipLabel ? (
+          <Tooltip position="right" content={tooltipLabel}>
             {renderTab()}
           </Tooltip>
         ) : (
