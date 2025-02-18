@@ -75,6 +75,8 @@ const ListSubItems = ({
   ) => {
     const { subItems, goTo } = subItem
 
+    if (subItem?.disabled) return
+
     if (!subItems?.length) {
       goTo?.()
       return
