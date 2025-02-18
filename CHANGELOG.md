@@ -1,3 +1,11 @@
+## [6.34.5](https://github.com/dd3tech/bui/compare/v6.34.4...v6.34.5) (2025-02-18)
+
+
+### Bug Fixes
+
+* add tooltip optional tabs ([62b3152](https://github.com/dd3tech/bui/commit/62b3152b3e05b8634852f6329d4476632ff80a75))
+* correction name prop ([e17eb3f](https://github.com/dd3tech/bui/commit/e17eb3fefc7f7241a93d624fcc218818b74ea0c8))
+
 ## [6.34.4](https://github.com/dd3tech/bui/compare/v6.34.3...v6.34.4) (2025-02-17)
 
 
