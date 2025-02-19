@@ -1,3 +1,10 @@
+## [6.34.6](https://github.com/dd3tech/bui/compare/v6.34.5...v6.34.6) (2025-02-19)
+
+
+### Bug Fixes
+
+* add props noOpacity tooltip ([2038158](https://github.com/dd3tech/bui/commit/2038158317ba7deec79aceed89ff8b74747d59a2))
+
 ## [6.34.5](https://github.com/dd3tech/bui/compare/v6.34.4...v6.34.5) (2025-02-18)
 
 
