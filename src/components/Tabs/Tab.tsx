@@ -28,7 +28,7 @@ interface Props
   isVertical?: boolean
   tabWidth?: number
   tabMinWidth?: number
-  toolTipsProps?: TooltipProps
+  toolTipProps?: TooltipProps
 }
 
 const variantStyle = {
@@ -51,7 +51,7 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
       isVertical,
       tabWidth,
       tabMinWidth,
-      toolTipsProps,
+      toolTipProps,
       ...otherProps
     },
     ref
@@ -133,14 +133,14 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
 
     return (
       <>
-        {toolTipsProps ? (
+        {toolTipProps ? (
           <Tooltip
-            variant={toolTipsProps.variant ?? 'primary'}
-            endAdornment={toolTipsProps.endAdornment}
-            startAdornment={toolTipsProps.startAdornment}
-            position={toolTipsProps.position ?? 'right'}
-            content={toolTipsProps.content ?? ''}
-            noOpacity={toolTipsProps.noOpacity}
+            variant={toolTipProps.variant ?? 'primary'}
+            endAdornment={toolTipProps.endAdornment}
+            startAdornment={toolTipProps.startAdornment}
+            position={toolTipProps.position ?? 'right'}
+            content={toolTipProps.content ?? ''}
+            noOpacity={toolTipProps.noOpacity}
           >
             {renderTab()}
           </Tooltip>

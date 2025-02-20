@@ -211,7 +211,7 @@ const TopPage = ({
                 label={tab.label}
                 disabled={tab.disabled}
                 hidden={tab.hidden}
-                toolTipsProps={tab.toolTipProps}
+                toolTipProps={tab.toolTipProps}
               />
             ))}
           </TabGroup>
