@@ -14,6 +14,7 @@ import { Tab, TabGroup } from 'components/Tabs'
 import Divider from 'components/Divider'
 import Text from '../Typography'
 import { monthLabelsShort } from '../../utils/utils'
+import { TooltipProps } from 'components/Tooltip'
 
 export interface ActionButtonProps {
   onClick: () => void
@@ -32,7 +33,7 @@ export interface TabTopPageProps {
     label: string
     disabled?: boolean
     hidden?: boolean
-    tooltipLabel?: string
+    toolTipProps?: TooltipProps
   }[]
 }
 
@@ -210,7 +211,7 @@ const TopPage = ({
                 label={tab.label}
                 disabled={tab.disabled}
                 hidden={tab.hidden}
-                tooltipLabel={tab.tooltipLabel}
+                toolTipProps={tab.toolTipProps}
               />
             ))}
           </TabGroup>

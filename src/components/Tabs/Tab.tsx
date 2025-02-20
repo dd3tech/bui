@@ -5,7 +5,7 @@
 import { useMemo, useCallback, forwardRef } from 'react'
 import { composeClasses } from 'lib/classes'
 import { ClockIcon } from '@heroicons/react/outline'
-import Tooltip from 'components/Tooltip'
+import Tooltip, { TooltipProps } from 'components/Tooltip'
 
 interface PrivateProps {
   onChange?: (event: React.MouseEvent<HTMLButtonElement>) => void
@@ -28,7 +28,7 @@ interface Props
   isVertical?: boolean
   tabWidth?: number
   tabMinWidth?: number
-  tooltipLabel?: string
+  toolTipProps?: TooltipProps
 }
 
 const variantStyle = {
@@ -51,7 +51,7 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
       isVertical,
       tabWidth,
       tabMinWidth,
-      tooltipLabel,
+      toolTipProps,
       ...otherProps
     },
     ref
@@ -133,8 +133,15 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
 
     return (
       <>
-        {tooltipLabel ? (
-          <Tooltip position="right" content={tooltipLabel}>
+        {toolTipProps ? (
+          <Tooltip
+            variant={toolTipProps.variant ?? 'primary'}
+            endAdornment={toolTipProps.endAdornment}
+            startAdornment={toolTipProps.startAdornment}
+            position={toolTipProps.position ?? 'right'}
+            content={toolTipProps.content ?? ''}
+            noOpacity={toolTipProps.noOpacity}
+          >
             {renderTab()}
           </Tooltip>
         ) : (
