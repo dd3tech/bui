@@ -1,3 +1,11 @@
+## [6.34.7](https://github.com/dd3tech/bui/compare/v6.34.6...v6.34.7) (2025-02-20)
+
+
+### Bug Fixes
+
+* added the possibility to send all tooltip props in the top page tabs ([c8d1d23](https://github.com/dd3tech/bui/commit/c8d1d2351362f7a3f4357fef6c41baf6835b2259))
+* correction name props ([2a23e60](https://github.com/dd3tech/bui/commit/2a23e60abb9a5acc4367768a5fea1209778ddd25))
+
 ## [6.34.6](https://github.com/dd3tech/bui/compare/v6.34.5...v6.34.6) (2025-02-19)
 
 
