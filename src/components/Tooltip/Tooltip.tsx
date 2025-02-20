@@ -62,7 +62,7 @@ const Tooltip: FC<TooltipProps> = ({
   const colorVariants: { [key: string]: string } = {
     primary: composeClasses(
       fontSize.xs,
-      'p-2 text-white rounded-md text-center bg-gray-900 opacity-90'
+      'p-2 text-white rounded-md text-center bg-gray-900 opacity-80'
     )
   }
 
