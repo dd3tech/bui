@@ -94,48 +94,35 @@ const ListSubItems = ({
           !isSubSubItem && 'pl-10 ml-4'
         )}
       >
-        {subItemsArray?.map(
-          (subItem, index: number) =>
-            !subItem.hidden && (
-              <div key={`sub-item-${subItem.title}-${index}`}>
-                <Flex
-                  alignItems="center"
-                  gap="2"
-                  className={composeClasses(
-                    subItem.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
-                    !subItem.subItems &&
-                      'border-l border-gray-300 text-gray-500 -ml-4 pl-3 hover:opacity-75'
-                  )}
-                  onClick={() => onToggleMenu(subItem, index)}
-                >
-                  {subItem?.subItems && (
-                    <div className="w-4 h-4 -ml-6 text-gray-500">
-                      {subItem.isOpen ? (
-                        <ChevronUpIcon className="w-full" />
-                      ) : (
-                        <ChevronDownIcon className="w-full" />
-                      )}
-                    </div>
-                  )}
-                  {subItem?.title?.length > 25 ? (
-                    <Tooltip
-                      position="right"
-                      content={<Text>{subItem.title}</Text>}
-                    >
-                      <Text
-                        size="sm"
-                        className={composeClasses(
-                          'whitespace-nowrap overflow-hidden overflow-ellipsis my-2',
-                          subItem.disabled ? 'text-gray-300' : 'text-gray-500',
-                          subItem.active &&
-                            !subItem.subItems &&
-                            'font-semibold text-blue-600'
-                        )}
-                      >
-                        {subItem.title}
-                      </Text>
-                    </Tooltip>
-                  ) : (
+        {subItemsArray?.map((subItem, index: number) => {
+          if (subItem.hidden) return null
+
+          const renderSubItem = () => {
+            return (
+              <Flex
+                alignItems="center"
+                gap="2"
+                className={composeClasses(
+                  subItem.disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+                  !subItem.subItems &&
+                    'border-l border-gray-300 text-gray-500 -ml-4 pl-3 hover:opacity-75'
+                )}
+                onClick={() => onToggleMenu(subItem, index)}
+              >
+                {subItem?.subItems && (
+                  <div className="w-4 h-4 -ml-6 text-gray-500">
+                    {subItem.isOpen ? (
+                      <ChevronUpIcon className="w-full" />
+                    ) : (
+                      <ChevronDownIcon className="w-full" />
+                    )}
+                  </div>
+                )}
+                {subItem?.title?.length > 25 ? (
+                  <Tooltip
+                    position="right"
+                    content={<Text>{subItem.title}</Text>}
+                  >
                     <Text
                       size="sm"
                       className={composeClasses(
@@ -148,21 +135,44 @@ const ListSubItems = ({
                     >
                       {subItem.title}
                     </Text>
-                  )}
-                  {subItem?.badge && subItem?.badge}
-                </Flex>
-                {subItem.subItems && (
-                  <ListSubItems
-                    indexItem={indexItem}
-                    isOpen={subItem.isOpen}
-                    subItemsArray={subItem.subItems}
-                    toggleSubMenu={toggleSubMenu}
-                    isSubSubItem
-                  />
+                  </Tooltip>
+                ) : (
+                  <Text
+                    size="sm"
+                    className={composeClasses(
+                      'whitespace-nowrap overflow-hidden overflow-ellipsis my-2',
+                      subItem.disabled ? 'text-gray-300' : 'text-gray-500',
+                      subItem.active &&
+                        !subItem.subItems &&
+                        'font-semibold text-blue-600'
+                    )}
+                  >
+                    {subItem.title}
+                  </Text>
                 )}
-              </div>
+                {subItem?.badge && subItem?.badge}
+              </Flex>
             )
-        )}
+          }
+          return (
+            <div key={`sub-item-${subItem.title}-${index}`}>
+              {subItem.toolTip ? (
+                <Tooltip content={subItem?.toolTip}>{renderSubItem()}</Tooltip>
+              ) : (
+                renderSubItem()
+              )}
+              {subItem.subItems && (
+                <ListSubItems
+                  indexItem={indexItem}
+                  isOpen={subItem.isOpen}
+                  subItemsArray={subItem.subItems}
+                  toggleSubMenu={toggleSubMenu}
+                  isSubSubItem
+                />
+              )}
+            </div>
+          )
+        })}
       </Flex>
     </div>
   )

@@ -38,6 +38,7 @@ export interface SideBarItemPropsBase {
   hidden?: boolean
   subItems?: SideBarItemPropsBase[]
   badge?: TBadge
+  toolTip?: string
 }
 
 export type SidebarDropdownListItem = {
