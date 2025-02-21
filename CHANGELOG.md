@@ -1,3 +1,10 @@
+## [6.34.8](https://github.com/dd3tech/bui/compare/v6.34.7...v6.34.8) (2025-02-21)
+
+
+### Bug Fixes
+
+* add tooltip sub item sidebar ([2f7d534](https://github.com/dd3tech/bui/commit/2f7d534b010ed2027658b76a1d8d7185150eac37))
+
 ## [6.34.7](https://github.com/dd3tech/bui/compare/v6.34.6...v6.34.7) (2025-02-20)
 
 
