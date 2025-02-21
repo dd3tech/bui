@@ -140,7 +140,6 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
             startAdornment={toolTipProps.startAdornment}
             position={toolTipProps.position ?? 'right'}
             content={toolTipProps.content ?? ''}
-            noOpacity={toolTipProps.noOpacity}
           >
             {renderTab()}
           </Tooltip>

@@ -37,12 +37,6 @@ export interface TooltipProps {
    * primary by default
    */
   variant?: TooltipVariant
-  /**
-   * If true, the tooltip will use a solid color without any opacity.
-   * This is useful when you need a fully opaque background or text color.
-   * By default, this is set to false, allowing for transparency if defined in the variant styles.
-   */
-  noOpacity?: boolean
 }
 
 const Tooltip: FC<TooltipProps> = ({
@@ -51,8 +45,7 @@ const Tooltip: FC<TooltipProps> = ({
   endAdornment,
   position,
   startAdornment,
-  variant = 'primary',
-  noOpacity = false
+  variant = 'primary'
 }) => {
   const { isVisible, handleMouseEnter, handleMouseLeave, refs } = useTooltip({
     placement: position
@@ -68,9 +61,8 @@ const Tooltip: FC<TooltipProps> = ({
 
   const colorVariants: { [key: string]: string } = {
     primary: composeClasses(
-      !noOpacity && 'opacity-70',
       fontSize.xs,
-      'p-2 text-white rounded-md text-center bg-gray-900'
+      'p-2 text-white rounded-md text-center bg-gray-900 opacity-90'
     )
   }
 
