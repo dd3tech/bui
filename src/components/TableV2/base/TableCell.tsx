@@ -87,6 +87,10 @@ export interface CellProps
    * Show a shadow when cell is sticky
    */
   stickyShadow?: boolean
+  /**
+   * Show a shadow when cell is sticky left
+   */
+  leftStickyShadow?: boolean
 }
 
 const Cell = ({
@@ -100,6 +104,7 @@ const Cell = ({
   type = 'text',
   align = 'left',
   stickyShadow,
+  leftStickyShadow,
   indexCell,
   onEdit,
   textClassName,
@@ -149,6 +154,7 @@ const Cell = ({
       {...props}
       className={composeClasses(
         stickyShadow && 'sticky-shadow',
+        leftStickyShadow && 'left-sticky-shadow',
         disabled && 'text-gray-200',
         error && 'error-100',
         inputProps && 'p-0',
