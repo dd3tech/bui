@@ -46,6 +46,13 @@ const Template: ComponentStory<typeof TableV2Comp> = (_args) => {
                 Column Head
               </TableV2Comp.HeaderCell>
             ))}
+            <TableV2Comp.HeaderCell
+              style={{ minWidth: 108 }}
+              leftStickyShadow
+              stickyRight="0px"
+            >
+              Column Head
+            </TableV2Comp.HeaderCell>
           </TableV2Comp.HeaderRow>
         </TableV2Comp.Header>
         <TableV2Comp.Body>
@@ -56,6 +63,9 @@ const Template: ComponentStory<typeof TableV2Comp> = (_args) => {
             {columns.map((val) => (
               <TableV2Comp.Cell key={val}>Cell</TableV2Comp.Cell>
             ))}
+            <TableV2Comp.Cell leftStickyShadow stickyRight="0px">
+              Cell
+            </TableV2Comp.Cell>
           </TableV2Comp.Row>
           <TableV2Comp.Row>
             <TableV2Comp.Cell stickyShadow stickyLeft="0px">
@@ -64,6 +74,9 @@ const Template: ComponentStory<typeof TableV2Comp> = (_args) => {
             {columns.map((val) => (
               <TableV2Comp.Cell key={val}>Cell</TableV2Comp.Cell>
             ))}
+            <TableV2Comp.Cell leftStickyShadow stickyRight="0px">
+              Cell
+            </TableV2Comp.Cell>
           </TableV2Comp.Row>
         </TableV2Comp.Body>
       </TableV2Comp>
