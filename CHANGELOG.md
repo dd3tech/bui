@@ -1,3 +1,10 @@
+# [6.35.0](https://github.com/dd3tech/bui/compare/v6.34.8...v6.35.0) (2025-02-25)
+
+
+### Features
+
+* add shadow on the left of the columns ([0e8f641](https://github.com/dd3tech/bui/commit/0e8f641e93b2d03a7d70e21479877f33884e2f01))
+
 ## [6.34.8](https://github.com/dd3tech/bui/compare/v6.34.7...v6.34.8) (2025-02-21)
 
 
