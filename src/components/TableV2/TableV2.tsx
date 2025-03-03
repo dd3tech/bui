@@ -9,6 +9,7 @@ import Cell from './base/TableCell'
 import InputCell from './base/TableInputCell'
 import Accordion from './base/Accordion'
 import './base/tableV2.css'
+import { forwardRef, ForwardRefExoticComponent, RefAttributes } from 'react'
 
 export interface TableV2Props extends React.HTMLAttributes<HTMLTableElement> {
   /**
@@ -38,31 +39,51 @@ export interface TableV2Props extends React.HTMLAttributes<HTMLTableElement> {
   className?: string
 }
 
-export const TableV2 = ({
-  children,
-  rounded = 'lg',
-  horizontalBorders = true,
-  verticalBorders = true,
-  className,
-  ...props
-}: TableV2Props) => {
-  return (
-    <div
-      className={composeClasses(
-        'tableV2-container-cmpnt',
-        className,
-        horizontalBorders && 'horizontal-borders',
-        verticalBorders && 'vertical-borders',
-        `rounded-${rounded}`,
-        'border border-gray-200 overflow-auto bg-white'
-      )}
-    >
-      <table {...props} className="w-full border-collapse">
-        {children}
-      </table>
-    </div>
-  )
+interface TableV2Component
+  extends ForwardRefExoticComponent<
+    TableV2Props & RefAttributes<HTMLDivElement>
+  > {
+  Header: typeof Header
+  HeaderRow: typeof HeaderRow
+  HeaderCell: typeof HeaderCell
+  Body: typeof Body
+  Row: typeof Row
+  Cell: typeof Cell
+  InputCell: typeof InputCell
+  Accordion: typeof Accordion
 }
+
+export const TableV2 = forwardRef<HTMLDivElement, TableV2Props>(
+  (
+    {
+      children,
+      rounded = 'lg',
+      horizontalBorders = true,
+      verticalBorders = true,
+      className,
+      ...props
+    }: TableV2Props,
+    ref
+  ) => {
+    return (
+      <div
+        ref={ref}
+        className={composeClasses(
+          'tableV2-container-cmpnt',
+          className,
+          horizontalBorders && 'horizontal-borders',
+          verticalBorders && 'vertical-borders',
+          `rounded-${rounded}`,
+          'border border-gray-200 overflow-auto bg-white'
+        )}
+      >
+        <table {...props} className="w-full border-collapse">
+          {children}
+        </table>
+      </div>
+    )
+  }
+) as TableV2Component
 
 TableV2.Header = Header
 TableV2.HeaderRow = HeaderRow
