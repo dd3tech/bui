@@ -1,3 +1,10 @@
+## [6.35.1](https://github.com/dd3tech/bui/compare/v6.35.0...v6.35.1) (2025-03-04)
+
+
+### Bug Fixes
+
+* add forwardref to table v2 ([c414f04](https://github.com/dd3tech/bui/commit/c414f048297f43ec60f134106b64cb6bb821f83f))
+
 # [6.35.0](https://github.com/dd3tech/bui/compare/v6.34.8...v6.35.0) (2025-02-25)
 
 
