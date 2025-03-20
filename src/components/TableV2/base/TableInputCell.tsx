@@ -78,14 +78,17 @@ const InputCell = ({
     <td
       {...props}
       className={composeClasses(
-        disabled && 'text-gray-200 cursor-not-allowed',
+        disabled && 'text-gray-200 bg-gray-200 cursor-not-allowed',
         error && 'error-100',
         inputProps && 'p-0',
         props.className,
         isBlue &&
           !isError &&
+          !disabled &&
           'bg-blue-100 border-blue-300 border-t border-l border-r',
-        isError && 'bg-red-100 border-red-300 border-t border-l border-r',
+        isError &&
+          !disabled &&
+          'bg-red-100 border-red-300 border-t border-l border-r',
         'overflow-hidden'
       )}
       style={{
