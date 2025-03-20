@@ -1,3 +1,11 @@
+## [6.35.4](https://github.com/dd3tech/bui/compare/v6.35.3...v6.35.4) (2025-03-20)
+
+
+### Bug Fixes
+
+* correction test ([fb9a648](https://github.com/dd3tech/bui/commit/fb9a648459ba2fabb36efef1dfb6874ac2fe44d3))
+* order of the years in date picker was inverted ([9dfe940](https://github.com/dd3tech/bui/commit/9dfe940e68b38e529158abc7558d7fecb58dce05))
+
 ## [6.35.3](https://github.com/dd3tech/bui/compare/v6.35.2...v6.35.3) (2025-03-20)
 
 
