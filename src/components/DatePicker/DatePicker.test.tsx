@@ -231,7 +231,7 @@ describe('<DatePicker /> ', () => {
         fireEvent.click(getByRole('pevRangeYear'))
         today.setFullYear(today.getFullYear() - 11)
         expect(getByRole('range-years').firstChild?.textContent).toEqual(
-          `${today.getFullYear()} - ${today.getFullYear() - 10}`
+          `${today.getFullYear() - 10} - ${today.getFullYear()}`
         )
       })
 
@@ -243,7 +243,7 @@ describe('<DatePicker /> ', () => {
         fireEvent.click(getByRole('nextRangeYear'))
         today.setFullYear(today.getFullYear() + 11)
         expect(getByRole('range-years').firstChild?.textContent).toEqual(
-          `${today.getFullYear()} - ${today.getFullYear() - 10}`
+          `${today.getFullYear() - 10} - ${today.getFullYear()}`
         )
       })
     })
