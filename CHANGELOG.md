@@ -1,3 +1,10 @@
+## [6.35.2](https://github.com/dd3tech/bui/compare/v6.35.1...v6.35.2) (2025-03-20)
+
+
+### Bug Fixes
+
+* position absolute on page template footer ([bcfc8fa](https://github.com/dd3tech/bui/commit/bcfc8fac071dea4b1e6ce960f55de5be1fab0ac8))
+
 ## [6.35.1](https://github.com/dd3tech/bui/compare/v6.35.0...v6.35.1) (2025-03-04)
 
 
