@@ -1,3 +1,10 @@
+## [6.35.3](https://github.com/dd3tech/bui/compare/v6.35.2...v6.35.3) (2025-03-20)
+
+
+### Bug Fixes
+
+* add validation input cell disabled ([f287e23](https://github.com/dd3tech/bui/commit/f287e232f6c03cee1ac462932c2278575c411b01))
+
 ## [6.35.2](https://github.com/dd3tech/bui/compare/v6.35.1...v6.35.2) (2025-03-20)
 
 
