@@ -223,7 +223,7 @@ const PageTemplate: FC<PageTemplateProps> = ({
         {children}
       </div>
       {footer && (
-        <div className="fixed bottom-0 left-5 right-5">
+        <div className="absolute bottom-0 left-5 right-5">
           <div className="mb-2">{footer}</div>
         </div>
       )}
