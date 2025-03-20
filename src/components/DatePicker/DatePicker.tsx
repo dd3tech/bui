@@ -324,7 +324,7 @@ function Calendar({
             onClick={updateCurrentOption}
           >
             <Text bold size="sm">
-              {yearList[yearList.length - 1]} - {yearList[0]}
+              {yearList[0]} - {yearList[yearList.length - 1]}
             </Text>
           </button>
           <button
