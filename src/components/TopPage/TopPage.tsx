@@ -66,7 +66,7 @@ export interface TopPageProps {
   /** Last update information with date and translation */
   lastUpdate?: LastUpdateTopPageProps
   /** Page title with label and loading state */
-  title: TitleTopPageProps
+  title?: TitleTopPageProps
   /** Optional description displayed below the title */
   description?: string
   /** List of action buttons with labels, icons, and onClick handlers */
@@ -142,11 +142,11 @@ const TopPage = ({
         }}
       >
         <Flex className="flex-col">
-          {title.isLoading ? (
+          {title?.isLoading ? (
             <Skeleton className="w-48 h-9 rounded-full" />
           ) : (
             <Text role="title-label" bold size="2xl">
-              {title.label}
+              {title?.label}
             </Text>
           )}
           {description && (
