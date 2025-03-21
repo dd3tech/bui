@@ -69,6 +69,8 @@ interface PageTemplateProps extends TopPageProps {
   role?: string
   /** Hides the filter bar when true */
   hiddenFilterBar?: boolean
+  /** Hides the top page when true */
+  hiddenTopPage?: boolean
 }
 
 const PageTemplate: FC<PageTemplateProps> = ({
@@ -83,6 +85,7 @@ const PageTemplate: FC<PageTemplateProps> = ({
   arrowSelector,
   role,
   hiddenFilterBar,
+  hiddenTopPage,
   ...otherProps
 }) => {
   const filterComponents = [
@@ -149,7 +152,7 @@ const PageTemplate: FC<PageTemplateProps> = ({
 
   return (
     <div role={role}>
-      <TopPage {...otherProps} />
+      {!hiddenTopPage && <TopPage {...otherProps} />}
       <div className="px-5">
         <div className="my-4">
           {hasFilterBar && (
@@ -223,7 +226,7 @@ const PageTemplate: FC<PageTemplateProps> = ({
         {children}
       </div>
       {footer && (
-        <div className="absolute bottom-0 left-5 right-5">
+        <div className="absolute bottom-0 left-5 right-5 z-30">
           <div className="mb-2">{footer}</div>
         </div>
       )}
