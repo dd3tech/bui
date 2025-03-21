@@ -1,3 +1,11 @@
+## [6.35.5](https://github.com/dd3tech/bui/compare/v6.35.4...v6.35.5) (2025-03-21)
+
+
+### Bug Fixes
+
+* add z-index on footer and hide toppage boolean ([b196fd9](https://github.com/dd3tech/bui/commit/b196fd9f8056c870d971251b63fb2c1efb263892))
+* make the top page title optional ([ddf81a5](https://github.com/dd3tech/bui/commit/ddf81a519202b3dba0d9cf27917fcc49c92a38be))
+
 ## [6.35.4](https://github.com/dd3tech/bui/compare/v6.35.3...v6.35.4) (2025-03-20)
 
 
