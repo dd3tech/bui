@@ -103,6 +103,9 @@ export * from './List'
 export { default as Modal } from './Modal'
 export * from './Modal'
 
+export { default as ModalV2 } from './ModalV2'
+export * from './ModalV2'
+
 export { default as Navbar } from './Navbar'
 export * from './Navbar'
 
