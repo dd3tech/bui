@@ -6,6 +6,8 @@ interface CustomButtonProps {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'danger'
   label?: string
   className?: string
+  isDisabledButton?: boolean
+  onClick: () => void
 }
 
 interface ModalCustomProps {
@@ -14,10 +16,7 @@ interface ModalCustomProps {
   width?: string
   onClose: () => void
   children: ReactNode
-  onSubmit: () => void
-  isDisabledButton?: boolean
-  customButtonRight?: CustomButtonProps
-  customButtonLeft?: CustomButtonProps
+  buttonsModal?: CustomButtonProps[]
 }
 
 const ModalV2 = ({
@@ -25,10 +24,7 @@ const ModalV2 = ({
   showModal,
   onClose,
   children,
-  onSubmit,
-  isDisabledButton,
-  customButtonRight,
-  customButtonLeft,
+  buttonsModal,
   width = '670px'
 }: ModalCustomProps) => {
   return (
@@ -47,27 +43,25 @@ const ModalV2 = ({
       <Flex className="px-6 mt-8" gap="2">
         {children}
       </Flex>
-      <Flex
-        className="mt-8 bg-gray-50 px-6 -mb-4 py-6 border-t rounded-b-2xl"
-        justifyContent="end"
-        gap="6"
-      >
-        <Button
-          onClick={onClose}
-          className={customButtonLeft?.className ?? 'w-32 text-nowrap'}
-          variant={customButtonLeft?.variant ?? 'secondary'}
+      {buttonsModal?.length && (
+        <Flex
+          className="mt-8 bg-gray-50 px-6 -mb-4 py-6 border-t rounded-b-2xl"
+          justifyContent="end"
+          gap="6"
         >
-          {customButtonLeft?.label ?? 'Cancel'}
-        </Button>
-        <Button
-          disabled={isDisabledButton}
-          onClick={onSubmit}
-          className={customButtonRight?.className ?? 'w-32 text-nowrap'}
-          variant={customButtonRight?.variant ?? 'primary'}
-        >
-          {customButtonRight?.label ?? 'Save'}
-        </Button>
-      </Flex>
+          {buttonsModal?.map((button, index) => (
+            <Button
+              key={index}
+              onClick={button.onClick}
+              className={button.className ?? 'w-32 text-nowrap'}
+              variant={button.variant ?? 'secondary'}
+              disabled={button.isDisabledButton}
+            >
+              {button.label}
+            </Button>
+          ))}
+        </Flex>
+      )}
     </Modal>
   )
 }

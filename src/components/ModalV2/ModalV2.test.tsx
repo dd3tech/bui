@@ -9,12 +9,7 @@ describe('<ModalV2/>', () => {
 
   beforeEach(() => {
     renderResult = render(
-      <ModalV2
-        showModal={false}
-        onClose={setCloseModal}
-        onSubmit={handleSubmit}
-        title="Test Title"
-      >
+      <ModalV2 showModal={false} onClose={setCloseModal} title="Test Title">
         <div>Test Content</div>
       </ModalV2>
     )
@@ -26,12 +21,7 @@ describe('<ModalV2/>', () => {
 
   it('should open when showModal is true', () => {
     renderResult.rerender(
-      <ModalV2
-        showModal={true}
-        onClose={setCloseModal}
-        onSubmit={handleSubmit}
-        title="Test Title"
-      >
+      <ModalV2 showModal={true} onClose={setCloseModal} title="Test Title">
         <div>Test Content</div>
       </ModalV2>
     )
@@ -43,12 +33,7 @@ describe('<ModalV2/>', () => {
 
   it('should render the title correctly', () => {
     renderResult.rerender(
-      <ModalV2
-        showModal={true}
-        onClose={setCloseModal}
-        onSubmit={handleSubmit}
-        title="Test Title"
-      >
+      <ModalV2 showModal={true} onClose={setCloseModal} title="Test Title">
         <div>Test Content</div>
       </ModalV2>
     )
@@ -58,12 +43,7 @@ describe('<ModalV2/>', () => {
 
   it('should render children content', () => {
     renderResult.rerender(
-      <ModalV2
-        showModal={true}
-        onClose={setCloseModal}
-        onSubmit={handleSubmit}
-        title="Test Title"
-      >
+      <ModalV2 showModal={true} onClose={setCloseModal} title="Test Title">
         <div data-testid="test-content">Test Content</div>
       </ModalV2>
     )
@@ -76,7 +56,6 @@ describe('<ModalV2/>', () => {
       <ModalV2
         showModal={true}
         onClose={setCloseModal}
-        onSubmit={handleSubmit}
         title="Test Title"
         width="500px"
       >
@@ -90,12 +69,7 @@ describe('<ModalV2/>', () => {
 
   it('should close when clicking the close button', () => {
     renderResult.rerender(
-      <ModalV2
-        showModal={true}
-        onClose={setCloseModal}
-        onSubmit={handleSubmit}
-        title="Test Title"
-      >
+      <ModalV2 showModal={true} onClose={setCloseModal} title="Test Title">
         <div>Test Content</div>
       </ModalV2>
     )
@@ -107,12 +81,7 @@ describe('<ModalV2/>', () => {
 
   it('should close when pressing Escape key', () => {
     renderResult.rerender(
-      <ModalV2
-        showModal={true}
-        onClose={setCloseModal}
-        onSubmit={handleSubmit}
-        title="Test Title"
-      >
+      <ModalV2 showModal={true} onClose={setCloseModal} title="Test Title">
         <div>Test Content</div>
       </ModalV2>
     )
@@ -127,10 +96,19 @@ describe('<ModalV2/>', () => {
       <ModalV2
         showModal={true}
         onClose={setCloseModal}
-        onSubmit={handleSubmit}
         title="Test Title"
-        customButtonLeft={{ label: 'Custom Cancel', variant: 'danger' }}
-        customButtonRight={{ label: 'Custom Save', variant: 'tertiary' }}
+        buttonsModal={[
+          {
+            label: 'Custom Cancel',
+            onClick: () => alert('Custom Cancel'),
+            variant: 'danger'
+          },
+          {
+            label: 'Custom Save',
+            onClick: () => alert('Custom Save'),
+            variant: 'tertiary'
+          }
+        ]}
       >
         <div>Test Content</div>
       </ModalV2>
@@ -145,9 +123,15 @@ describe('<ModalV2/>', () => {
       <ModalV2
         showModal={true}
         onClose={setCloseModal}
-        onSubmit={handleSubmit}
         title="Test Title"
-        isDisabledButton={true}
+        buttonsModal={[
+          {
+            label: 'Save',
+            onClick: handleSubmit,
+            variant: 'primary',
+            isDisabledButton: true
+          }
+        ]}
       >
         <div>Test Content</div>
       </ModalV2>
@@ -162,7 +146,18 @@ describe('<ModalV2/>', () => {
       <ModalV2
         showModal={true}
         onClose={setCloseModal}
-        onSubmit={handleSubmit}
+        buttonsModal={[
+          {
+            label: 'Cancel',
+            onClick: setCloseModal,
+            variant: 'secondary'
+          },
+          {
+            label: 'Save',
+            onClick: handleSubmit,
+            variant: 'primary'
+          }
+        ]}
         title="Test Title"
       >
         <div>Test Content</div>
@@ -178,7 +173,13 @@ describe('<ModalV2/>', () => {
       <ModalV2
         showModal={true}
         onClose={setCloseModal}
-        onSubmit={handleSubmit}
+        buttonsModal={[
+          {
+            label: 'Save',
+            onClick: handleSubmit,
+            variant: 'primary'
+          }
+        ]}
         title="Test Title"
       >
         <div>Test Content</div>
@@ -195,7 +196,13 @@ describe('<ModalV2/>', () => {
       <ModalV2
         showModal={true}
         onClose={setCloseModal}
-        onSubmit={handleSubmit}
+        buttonsModal={[
+          {
+            label: 'Cancel',
+            onClick: setCloseModal,
+            variant: 'secondary'
+          }
+        ]}
         title="Test Title"
       >
         <div>Test Content</div>

@@ -48,5 +48,17 @@ ModalV2.args = {
   ),
   height: '500px',
   onSubmit: () => alert('Submit'),
-  title: 'Modal title'
+  title: 'Modal title',
+  buttonsModal: [
+    {
+      label: 'Cancel',
+      onClick: () => alert('Cancel'),
+      variant: 'secondary'
+    },
+    {
+      label: 'Save',
+      onClick: () => alert('Save'),
+      variant: 'primary'
+    }
+  ]
 }

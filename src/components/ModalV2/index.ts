@@ -2,7 +2,7 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import Modal from './ModalV2'
+import ModalV2 from './ModalV2'
 
-export default Modal
+export default ModalV2
 export * from './ModalV2'
