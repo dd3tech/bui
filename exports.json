@@ -429,6 +429,7 @@
       "Overflow": ["./dist/esm/components/Layout/Overflow/index.d.ts"],
       "List": ["./dist/esm/components/List/index.d.ts"],
       "Modal": ["./dist/esm/components/Modal/index.js"],
+      "ModalV2": ["./dist/esm/components/ModalV2/index.js"],
       "Navbar": ["./dist/esm/components/Navbar/index.d.ts"],
       "Pagination": ["./dist/esm/components/Pagination/index.d.ts"],
       "PageTemplate": ["./dist/esm/components/PageTemplate/index.d.ts"],
