@@ -1,3 +1,15 @@
+# [6.36.0](https://github.com/dd3tech/bui/compare/v6.35.5...v6.36.0) (2025-03-28)
+
+
+### Features
+
+* add files in exportjson ([d17c615](https://github.com/dd3tech/bui/commit/d17c6152c1754e3a953655a5fe6b27ba31f56570))
+* Add files in file exportjson ([8882a6f](https://github.com/dd3tech/bui/commit/8882a6f3e77386454e08492a6deaaf7fa9eaf434))
+* Add files in packagejson ([94a7e79](https://github.com/dd3tech/bui/commit/94a7e79a9aa76a34118c5b2d0bf872985f23bc05))
+* Added logic to the modal buttons ([6be49fa](https://github.com/dd3tech/bui/commit/6be49faa23d09d5e1fccddf3e81f1ca09610a22d))
+* Added logic to the modal buttons ([98ca880](https://github.com/dd3tech/bui/commit/98ca880d42e53bd59bc887dc83b774932d720f54))
+* new version modal v2 ([74c206c](https://github.com/dd3tech/bui/commit/74c206c7168ae49b6b947c100db141dd86d529b7))
+
 ## [6.35.5](https://github.com/dd3tech/bui/compare/v6.35.4...v6.35.5) (2025-03-21)
 
 
