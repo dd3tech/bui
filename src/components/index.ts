@@ -8,6 +8,9 @@ export * from './Anchor'
 export { default as AsideModal } from './AsideModal'
 export * from './AsideModal'
 
+export { default as AsideModalV2 } from './AsideModalV2'
+export * from './AsideModalV2'
+
 export { default as AutoComplete } from './AutoComplete'
 export * from './AutoComplete'
 
