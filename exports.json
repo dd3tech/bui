@@ -34,12 +34,17 @@
     "./AsideModal": {
       "require": "./dist/cjs/components/AsideModal/index.js",
       "module": "./dist/esm/components/AsideModal/index.js",
-      "default": "./dist/esm/components/AsideModal/inde,x.js"
+      "default": "./dist/esm/components/AsideModal/index.js"
+    },
+    "./AsideModalV2": {
+      "require": "./dist/cjs/components/AsideModalV2/index.js",
+      "module": "./dist/esm/components/AsideModalV2/index.js",
+      "default": "./dist/esm/components/AsideModalV2/index.js"
     },
     "./AutoComplete": {
       "require": "./dist/cjs/components/AutoComplete/index.js",
       "module": "./dist/esm/components/AutoComplete/index.js",
-      "default": "./dist/esm/components/AutoComplete/inde,x.js"
+      "default": "./dist/esm/components/AutoComplete/index.js"
     },
     "./Avatar": {
       "require": "./dist/cjs/components/Avatar/index.js",
@@ -391,6 +396,7 @@
       "ActiveButton": ["./dist/esm/components/Buttons/ActiveButton.d.ts"],
       "Anchor": ["./dist/esm/components/Anchor/index.d.ts"],
       "AsideModal": ["./dist/esm/components/AsideModal/index.d.ts"],
+      "AsideModalV2": ["./dist/esm/components/AsideModalV2/index.d.ts"],
       "Autocomplete": ["./dist/esm/components/Autocomplete/index.d.ts"],
       "Avatar": ["./dist/esm/components/Avatar/index.d.ts"],
       "Badge": ["./dist/esm/components/Badge/index.d.ts"],
