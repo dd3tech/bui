@@ -1,3 +1,11 @@
+# [6.37.0](https://github.com/dd3tech/bui/compare/v6.36.0...v6.37.0) (2025-03-31)
+
+
+### Features
+
+* Add files in packagejson ([bc862bd](https://github.com/dd3tech/bui/commit/bc862bdf9ac32a8b35d43dd1bb5c6ac9e7921355))
+* Add new component aside modal v2 ([751cb75](https://github.com/dd3tech/bui/commit/751cb755873bae13e253efd136b9593308e83855))
+
 # [6.36.0](https://github.com/dd3tech/bui/compare/v6.35.5...v6.36.0) (2025-03-28)
 
 
