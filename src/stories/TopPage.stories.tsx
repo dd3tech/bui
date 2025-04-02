@@ -1,57 +1,52 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { XCircleIcon, AcademicCapIcon } from '@heroicons/react/outline'
+import type { Meta, StoryObj } from '@storybook/react'
+import { XCircleIcon } from '@heroicons/react/outline'
 import TopPage from '../components/TopPage/TopPage'
 
-export default {
+const meta: Meta<typeof TopPage> = {
   title: 'Components/TopPage',
   component: TopPage,
   parameters: {
     layout: 'fullscreen'
   }
-} as ComponentMeta<typeof TopPage>
+}
 
-const Template: ComponentStory<typeof TopPage> = (args) => <TopPage {...args} />
+export default meta
+type Story = StoryObj<typeof TopPage>
 
-export const Default = Template.bind({})
-Default.args = {
-  title: 'Example Title',
-  description: 'This is a description for the TopPage component.',
-  lastUpdate: {
-    translation: 'es',
-    date: new Date()
-  },
-  callToActionsButtons: [
-    {
-      label: 'Action 1',
-      onClick: () => console.log('Action 1 clicked'),
-      icon: <XCircleIcon />,
-      variant: 'primary',
-      isDisabled: true
+export const Default: Story = {
+  args: {
+    title: 'Example Title' as any,
+    description: 'This is a description for the TopPage component.',
+    lastUpdate: {
+      translation: 'es',
+      date: new Date()
     },
-    {
-      label: 'Action 2',
-      onClick: () => console.log('Action 2 clicked'),
-      icon: <XCircleIcon />,
-      variant: 'secondary'
+    callToActionsButtons: [
+      {
+        label: 'Action 1',
+        onClick: () => console.log('Action 1 clicked'),
+        icon: <XCircleIcon />,
+        variant: 'primary',
+        isDisabled: true
+      },
+      {
+        label: 'Action 2',
+        onClick: () => console.log('Action 2 clicked'),
+        icon: <XCircleIcon />,
+        variant: 'secondary'
+      }
+    ],
+    optionsBreadcrumbs: {
+      options: [
+        { name: 'Home', to: () => null },
+        { name: 'Category', to: () => null }
+      ]
+    },
+    tabs: {
+      value: 0,
+      setValue: (value) => console.log('Tab changed to', value),
+      items: [{ label: 'Tab 1' }, { label: 'Tab 2' }]
     }
-  ],
-  callToActionIcon: {
-    titleIcon: <AcademicCapIcon />,
-    onClick: () => console.log('Icon clicked'),
-    isSelected: false,
-    isDisabled: true
-  },
-  optionsBreadcrumbs: [
-    { name: 'Home', to: () => null },
-    { name: 'Category', to: () => null }
-  ],
-  tabs: {
-    value: 0,
-    setValue: (value) => console.log('Tab changed to', value),
-    items: [
-      { label: 'Tab 1', content: <div>Content for Tab 1</div> },
-      { label: 'Tab 2', content: <div>Content for Tab 2</div> }
-    ]
   }
 }

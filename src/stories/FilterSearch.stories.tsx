@@ -1,29 +1,19 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { FilterSearch as FilterSearchComponent } from '../components/Filters'
 
-export default {
+const meta: Meta<typeof FilterSearchComponent> = {
   title: 'Filters/FilterSearch',
   component: FilterSearchComponent
-} as ComponentMeta<typeof FilterSearchComponent>
+}
 
-const Template: ComponentStory<typeof FilterSearchComponent> = ({
-  value,
-  onChange,
-  disabled
-}: any) => (
-  <FilterSearchComponent
-    value={value}
-    onChange={onChange}
-    placeholder="Search"
-    disabled={disabled}
-  />
-)
+export default meta
+type Story = StoryObj<typeof FilterSearchComponent>
 
-export const FilterSearch = Template.bind({})
-FilterSearch.args = {
-  value: '',
-  onChange: () => console.log('Search'),
-  disabled: false,
-  className: 'w-24'
+export const FilterSearch: Story = {
+  args: {
+    value: '',
+    onChange: () => console.log('Search'),
+    disabled: false,
+    placeholder: 'Search'
+  }
 }

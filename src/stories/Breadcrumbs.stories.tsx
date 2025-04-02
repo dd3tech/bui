@@ -1,18 +1,7 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import BreadcrumbsComponent, {
-  BreadcrumbsProps
-} from '../components/Breadcrumbs/Breadcrumbs'
+import type { Meta, StoryObj } from '@storybook/react'
+import BreadcrumbsComponent from '../components/Breadcrumbs/Breadcrumbs'
 import DynamicHeroIcon from '../common/DynamicHeroIcon'
-
-export default {
-  title: 'Navigation/Breadcrumbs',
-  component: BreadcrumbsComponent
-} as ComponentMeta<typeof BreadcrumbsComponent>
-
-const Template: ComponentStory<typeof BreadcrumbsComponent> = (args) => (
-  <BreadcrumbsComponent {...args} />
-)
 
 const optionsWithOutIcon = [
   {
@@ -47,21 +36,32 @@ const optionsWithIcon = [
   }
 ]
 
-export const Breadcrumbs = Template.bind({})
-Breadcrumbs.args = {
-  options: optionsWithIcon,
-  separator: '>',
-  className: 'ml-12'
-} as BreadcrumbsProps
+const meta: Meta<typeof BreadcrumbsComponent> = {
+  title: 'Navigation/Breadcrumbs',
+  component: BreadcrumbsComponent
+}
 
-export const WhitOutIcon = Template.bind({})
-WhitOutIcon.args = {
-  options: optionsWithOutIcon,
-  separator: '>'
-} as BreadcrumbsProps
+export default meta
+type Story = StoryObj<typeof BreadcrumbsComponent>
 
-export const WithIcon = Template.bind({})
-WithIcon.args = {
-  options: optionsWithIcon as BreadcrumbsProps['options'],
-  separator: '>'
-} as BreadcrumbsProps
+export const Breadcrumbs: Story = {
+  args: {
+    options: optionsWithIcon,
+    separator: '>',
+    className: 'ml-12'
+  }
+}
+
+export const WhitOutIcon: Story = {
+  args: {
+    options: optionsWithOutIcon,
+    separator: '>'
+  }
+}
+
+export const WithIcon: Story = {
+  args: {
+    options: optionsWithIcon,
+    separator: '>'
+  }
+}

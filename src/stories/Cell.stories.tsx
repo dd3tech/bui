@@ -1,30 +1,31 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import CellComponent from '../components/Cell/Cell'
 import DynamicHeroIcon from '../common/DynamicHeroIcon'
 
-export default {
+const meta: Meta<typeof CellComponent> = {
   title: 'Navigation/Cell',
   component: CellComponent,
   args: {
     children: 'Label placeholder'
   }
-} as ComponentMeta<typeof CellComponent>
-
-const Template: ComponentStory<typeof CellComponent> = (args) => (
-  <CellComponent {...args} />
-)
-
-export const CellWithIcon = Template.bind({})
-CellWithIcon.args = {
-  size: 'medium',
-  icon: <DynamicHeroIcon icon="MailIcon" />,
-  border: true,
-  onClick: () => console.log('CLICK')
 }
 
-export const Cell = Template.bind({})
-Cell.args = {
-  size: 'medium',
-  onClick: () => console.log('CLICK')
+export default meta
+type Story = StoryObj<typeof CellComponent>
+
+export const CellWithIcon: Story = {
+  args: {
+    size: 'medium',
+    icon: <DynamicHeroIcon icon="MailIcon" />,
+    border: true,
+    onClick: () => console.log('CLICK')
+  }
+}
+
+export const Cell: Story = {
+  args: {
+    size: 'medium',
+    onClick: () => console.log('CLICK')
+  }
 }

@@ -1,13 +1,16 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { TagIcon, HomeIcon } from '@heroicons/react/outline'
 import Text from '../components/Typography'
 import TimelineComp from '../components/Timeline'
 
-export default {
+const meta: Meta<typeof TimelineComp> = {
   title: 'Components/Timeline',
   component: TimelineComp
-} as ComponentMeta<typeof TimelineComp>
+}
+
+export default meta
+type Story = StoryObj<typeof TimelineComp>
 
 const data = [
   {
@@ -46,8 +49,11 @@ const data = [
   }
 ]
 
-const BasicTemplate: ComponentStory<typeof TimelineComp> = (args) => {
-  return (
+export const BasicTimeline: Story = {
+  args: {
+    position: 'left'
+  },
+  render: (args) => (
     <TimelineComp {...args}>
       {data.map((data, index) => (
         <TimelineComp.Item key={index}>
@@ -73,8 +79,11 @@ const BasicTemplate: ComponentStory<typeof TimelineComp> = (args) => {
   )
 }
 
-const Template: ComponentStory<typeof TimelineComp> = (args) => {
-  return (
+export const Timeline: Story = {
+  args: {
+    position: 'alternate'
+  },
+  render: (args) => (
     <TimelineComp {...args}>
       {data.map((data, index) => (
         <TimelineComp.Item key={index}>
@@ -104,14 +113,4 @@ const Template: ComponentStory<typeof TimelineComp> = (args) => {
       ))}
     </TimelineComp>
   )
-}
-
-export const BasicTimeline = BasicTemplate.bind({})
-BasicTimeline.args = {
-  position: 'left'
-}
-
-export const Timeline = Template.bind({})
-Timeline.args = {
-  position: 'alternate'
 }

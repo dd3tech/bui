@@ -1,25 +1,33 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import BaseCircleButtonComponent from '../components/Buttons/ShapeButton'
 import DynamicHeroIcon from '../common/DynamicHeroIcon'
 
-export default {
+const meta: Meta<typeof BaseCircleButtonComponent.BaseCircleButton> = {
   title: 'Buttons/BaseCircleButton',
   component: BaseCircleButtonComponent.BaseCircleButton
-} as ComponentMeta<typeof BaseCircleButtonComponent.BaseCircleButton>
+}
 
-const Template: ComponentStory<
-  typeof BaseCircleButtonComponent.BaseCircleButton
-> = (args) => <BaseCircleButtonComponent.BaseCircleButton {...args} />
+export default meta
+type Story = StoryObj<typeof BaseCircleButtonComponent.BaseCircleButton>
 
-export const SquareButton = Template.bind({})
-SquareButton.args = { variant: 'square' }
-export const CircleButton = Template.bind({})
-CircleButton.args = { variant: '' }
-export const WithCustomIcon = Template.bind({})
-WithCustomIcon.args = {
-  variant: 'circle',
-  Icon: () => (
-    <DynamicHeroIcon icon="AcademicCapIcon" className="text-primary w-6" />
-  )
+export const SquareButton: Story = {
+  args: {
+    variant: 'square'
+  }
+}
+
+export const CircleButton: Story = {
+  args: {
+    variant: 'circle'
+  }
+}
+
+export const WithCustomIcon: Story = {
+  args: {
+    variant: 'circle',
+    icon: () => (
+      <DynamicHeroIcon icon="AcademicCapIcon" className="text-primary w-6" />
+    )
+  }
 }

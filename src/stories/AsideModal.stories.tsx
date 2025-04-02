@@ -1,40 +1,32 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
 import Button from '../components/Buttons/Button'
 import AsideModalComponent from '../components/AsideModal'
 
-export default {
+const meta: Meta<typeof AsideModalComponent> = {
   title: 'Modals/AsideModal',
   component: AsideModalComponent
-} as ComponentMeta<typeof AsideModalComponent>
-
-const Template: ComponentStory<typeof AsideModalComponent> = ({
-  open: _open,
-  onClose: _onClose,
-  title,
-  children,
-  ...otherArgs
-}) => {
-  const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
-
-  return (
-    <>
-      <Button onClick={handleOpen}>Open Modal</Button>
-      <AsideModalComponent
-        open={open}
-        onClose={handleClose}
-        title={title}
-        children={children}
-        {...otherArgs}
-      />
-    </>
-  )
 }
 
-export const AsideModal = Template.bind({})
-AsideModal.args = {
-  children: 'Aside modal children',
-  title: 'Aside modal title'
+export default meta
+type Story = StoryObj<typeof AsideModalComponent>
+
+export const AsideModal: Story = {
+  args: {
+    children: 'Aside modal children',
+    title: 'Aside modal title'
+  },
+  render: function Render(args) {
+    const [open, setOpen] = useState(false)
+    const handleOpen = () => setOpen(true)
+    const handleClose = () => setOpen(false)
+
+    return (
+      <>
+        <Button onClick={handleOpen}>Open Modal</Button>
+        <AsideModalComponent {...args} open={open} onClose={handleClose} />
+      </>
+    )
+  }
 }

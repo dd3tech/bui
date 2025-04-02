@@ -1,64 +1,73 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import Button from '../components/Buttons/Button'
 
-export default {
+const meta: Meta<typeof Button> = {
   title: 'Buttons/Button',
   component: Button
-} as ComponentMeta<typeof Button>
-
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
-
-export const BtnPrimary = Template.bind({})
-BtnPrimary.args = {
-  variant: 'primary',
-  children: 'Primary',
-  onClick: () => console.log('CLICK')
-}
-export const BtnPrimaryLoading = Template.bind({})
-BtnPrimaryLoading.args = {
-  variant: 'primary',
-  children: 'Primary',
-  isLoading: true,
-  disabled: true,
-  onclick: () => console.log('CLICK')
 }
 
-export const BtnSecondary = Template.bind({})
-BtnSecondary.args = {
-  variant: 'secondary',
-  children: 'Secondary'
+export default meta
+type Story = StoryObj<typeof Button>
+
+export const BtnPrimary: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Primary',
+    onClick: () => console.log('CLICK')
+  }
 }
 
-export const BtnSuccess = Template.bind({})
-BtnSuccess.args = {
-  variant: 'success',
-  children: 'Success'
+export const BtnPrimaryLoading: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Primary',
+    isLoading: true,
+    disabled: true,
+    onClick: () => console.log('CLICK')
+  }
 }
 
-export const BtnError = Template.bind({})
-BtnError.args = {
-  variant: 'error',
-  children: 'Error'
+export const BtnSecondary: Story = {
+  args: {
+    variant: 'secondary',
+    children: 'Secondary'
+  }
 }
 
-export const BtnDanger = Template.bind({})
-BtnDanger.args = {
-  variant: 'danger',
-  children: 'Danger'
+export const BtnSuccess: Story = {
+  args: {
+    variant: 'success',
+    children: 'Success'
+  }
 }
 
-export const BtnOutlineRed = Template.bind({})
-BtnOutlineRed.args = {
-  variant: 'outlineWhiteRed',
-  children: 'Danger'
+export const BtnError: Story = {
+  args: {
+    variant: 'error',
+    children: 'Error'
+  }
 }
 
-export const BtnOutlineWhite = Template.bind({})
-BtnOutlineWhite.args = {
-  variant: 'outlineWhite',
-  children: 'Contacto',
-  paddingX: 14,
-  paddingY: 3,
-  className: 'text-base rounded-lg px-'
+export const BtnDanger: Story = {
+  args: {
+    variant: 'danger',
+    children: 'Danger'
+  }
+}
+
+export const BtnOutlineRed: Story = {
+  args: {
+    variant: 'outlineWhiteRed',
+    children: 'Danger'
+  }
+}
+
+export const BtnOutlineWhite: Story = {
+  args: {
+    variant: 'outlineWhite',
+    children: 'Contacto',
+    paddingX: '14',
+    paddingY: '3',
+    className: 'text-base rounded-lg px-'
+  }
 }

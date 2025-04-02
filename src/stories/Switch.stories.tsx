@@ -1,29 +1,29 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Switch as SwitchComponent } from '../components'
 import { HomeIcon } from '@heroicons/react/outline'
 
-export default {
+const meta: Meta<typeof SwitchComponent> = {
   title: 'Controls/Switch',
   component: SwitchComponent
-} as ComponentMeta<typeof SwitchComponent>
+}
 
-const Template: ComponentStory<typeof SwitchComponent> = (args) => (
-  <SwitchComponent {...args} />
-)
+export default meta
+type Story = StoryObj<typeof SwitchComponent>
 
 const setToggleFn = () => alert('Toggle')
 
-export const Switch = Template.bind({})
-
-Switch.args = {
-  toggle: false,
-  setToggle: setToggleFn
+export const Switch: Story = {
+  args: {
+    toggle: false,
+    setToggle: setToggleFn
+  }
 }
 
-export const WithCustomIcon = Template.bind({})
-WithCustomIcon.args = {
-  toggle: false,
-  setToggle: setToggleFn,
-  customIcon: <HomeIcon className="text-gray-400 p-0.5" />
+export const WithCustomIcon: Story = {
+  args: {
+    toggle: false,
+    setToggle: setToggleFn,
+    customIcon: <HomeIcon className="text-gray-400 p-0.5" />
+  }
 }

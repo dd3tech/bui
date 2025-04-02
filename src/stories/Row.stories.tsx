@@ -1,30 +1,29 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-
+import type { Meta, StoryObj } from '@storybook/react'
 import RowComponent from '../components/Layout/Row'
 
-export default {
+const meta: Meta<typeof RowComponent> = {
   title: 'Layout/Row',
   component: RowComponent
-} as ComponentMeta<typeof RowComponent>
+}
 
-const Template: ComponentStory<typeof RowComponent> = (args) => (
-  <RowComponent {...args} />
-)
+export default meta
+type Story = StoryObj<typeof RowComponent>
 
-export const Row = Template.bind({})
-Row.args = {
-  cols: 1,
-  md: 2,
-  gap: 5,
-  children: (
-    <>
-      <div className="bg-gray-300 text-center h-24">
-        <h2>1st Col</h2>
-      </div>
-      <div className="bg-blue-300 text-center h-24">
-        <h2>2nd Col</h2>
-      </div>
-    </>
-  )
+export const Row: Story = {
+  args: {
+    cols: 1,
+    md: 2,
+    gap: 5,
+    children: (
+      <>
+        <div className="bg-gray-300 text-center h-24">
+          <h2>1st Col</h2>
+        </div>
+        <div className="bg-blue-300 text-center h-24">
+          <h2>2nd Col</h2>
+        </div>
+      </>
+    )
+  }
 }
