@@ -1,17 +1,20 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { HomeIcon } from '@heroicons/react/outline'
 import ExclamationIcon from '@heroicons/react/solid/ExclamationIcon'
 import SideBarComponent from '../components/SideBar/SideBar'
 import Flex from '../components/Layout/Flex'
 
-export default {
+const meta: Meta<typeof SideBarComponent> = {
   title: 'Layout/SideBar',
   component: SideBarComponent,
   parameters: {
     layout: 'fullscreen'
   }
-} as ComponentMeta<typeof SideBarComponent>
+}
+
+export default meta
+type Story = StoryObj<typeof SideBarComponent>
 
 const subItems = [
   {
@@ -118,8 +121,36 @@ const sideBarList = [
   }
 ]
 
-const Template: ComponentStory<typeof SideBarComponent> = (args) => {
-  return (
+export const SideBar: Story = {
+  args: {
+    sideBarList,
+    sideBarName: 'Ejemplo SideBar',
+    sideBarSubTitle: 'Crédito Pre-puente',
+    disabledOptionsTag: 'Próximamente',
+    dangerZone: { show: true, text: 'Eliminar proyecto', active: false },
+    flushSync: () => console.log('Hello') as any,
+    isLoadingHeaderInfo: false,
+    isLoadingSideBarList: false,
+    activeDropdown: true,
+    dropdownButtonText: 'Create New',
+    dropdownButtonCallback: () => console.log('Callback'),
+    dropdownList: [
+      {
+        name: 'Dropdown 1',
+        goTo: () => console.log('Dropdown 1')
+      },
+      {
+        name: 'Dropdown 2',
+        isActive: true,
+        goTo: () => console.log('Dropdown 2')
+      },
+      {
+        name: 'Dropdown 3',
+        goTo: () => console.log('Dropdown 3')
+      }
+    ]
+  },
+  render: (args) => (
     <Flex style={{ height: 'calc(100vh - 50px)' }}>
       <div>
         <SideBarComponent {...args} />
@@ -133,35 +164,4 @@ const Template: ComponentStory<typeof SideBarComponent> = (args) => {
       </Flex>
     </Flex>
   )
-}
-
-export const SideBar = Template.bind({})
-
-SideBar.args = {
-  sideBarList,
-  sideBarName: 'Ejemplo SideBar',
-  sideBarSubTitle: 'Crédito Pre-puente',
-  disabledOptionsTag: 'Próximamente',
-  dangerZone: { show: true, text: 'Eliminar proyecto', active: false },
-  flushSync: () => console.log('Hello'),
-  isLoadingHeaderInfo: false,
-  isLoadingSideBarList: false,
-  activeDropdown: true,
-  dropdownButtonText: 'Create New',
-  dropdownButtonCallback: () => console.log('Callback'),
-  dropdownList: [
-    {
-      name: 'Dropdown 1',
-      goTo: () => console.log('Dropdown 1')
-    },
-    {
-      name: 'Dropdown 2',
-      isActive: true,
-      goTo: () => console.log('Dropdown 2')
-    },
-    {
-      name: 'Dropdown 3',
-      goTo: () => console.log('Dropdown 3')
-    }
-  ]
 }

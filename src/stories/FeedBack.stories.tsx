@@ -1,29 +1,29 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import FeedBackBox from '../components/FeedBackBox'
 
-export default {
+const meta: Meta<typeof FeedBackBox> = {
   title: 'Components/FeedBackBox',
   component: FeedBackBox
-} as ComponentMeta<typeof FeedBackBox>
-
-const Template: ComponentStory<typeof FeedBackBox> = (args) => (
-  <FeedBackBox {...args} />
-)
-
-export const success = Template.bind({})
-success.args = {
-  type: 'success',
-  title: 'Creaste tu cuenta',
-  description:
-    'Revisa tu correo y sigue las instrucciones para iniciar sesión.',
-  txtCloseBtn: 'Cerrar'
 }
 
-export const error = Template.bind({})
-error.args = {
-  type: 'error',
-  title: 'Error al crear tu cuenta',
-  description: 'Lo sentimos, vuelve a intentar enviar el formulario.',
-  txtCloseBtn: 'Cerrar'
+export default meta
+type Story = StoryObj<typeof FeedBackBox>
+
+export const success: Story = {
+  args: {
+    type: 'success',
+    title: 'Creaste tu cuenta',
+    description:
+      'Revisa tu correo y sigue las instrucciones para iniciar sesión.',
+    txtCloseBtn: 'Cerrar'
+  }
+}
+
+export const error: Story = {
+  args: {
+    type: 'error',
+    title: 'Error al crear tu cuenta',
+    description: 'Lo sentimos, vuelve a intentar enviar el formulario.',
+    txtCloseBtn: 'Cerrar'
+  }
 }

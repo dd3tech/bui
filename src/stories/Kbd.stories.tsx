@@ -1,18 +1,17 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import KbdComponent from '../components/Kbd/Kbd'
 
-export default {
+const meta: Meta<typeof KbdComponent> = {
   title: 'Typography/Kbd',
   component: KbdComponent
-} as ComponentMeta<typeof KbdComponent>
+}
 
-const Template: ComponentStory<typeof KbdComponent> = (args) => (
-  <KbdComponent {...args} />
-)
+export default meta
+type Story = StoryObj<typeof KbdComponent>
 
-export const Kbd = Template.bind({})
-Kbd.args = {
-  kbds: ['Ctrl', 'Shift', 'R'],
-  separator: '+'
+export const Kbd: Story = {
+  args: {
+    kbds: ['Ctrl', 'Shift', 'R'],
+    separator: '+'
+  }
 }

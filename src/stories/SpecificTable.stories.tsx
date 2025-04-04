@@ -1,18 +1,17 @@
 import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { ArrowLeftIcon } from '@heroicons/react/outline'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ITopHeader, IHeader } from '../interfaces/SpecificTable'
 import exampleJSON from '../../assets/table-value.json'
 import SpecificTableComponent from '../components/Table/SpecificTable'
 
-export default {
+const meta: Meta<typeof SpecificTableComponent> = {
   title: 'Components/Table',
   component: SpecificTableComponent
-} as ComponentMeta<typeof SpecificTableComponent>
+}
 
-const Template: ComponentStory<typeof SpecificTableComponent> = (args) => (
-  <SpecificTableComponent {...args} />
-)
+export default meta
+type Story = StoryObj<typeof SpecificTableComponent>
 
 const topHeader: ITopHeader[] = [
   {
@@ -32,6 +31,7 @@ const topHeader: ITopHeader[] = [
     children: <div className="pl-4">Valores y detalles</div>
   }
 ]
+
 const header: IHeader[] = [
   {
     title: 'Credito',
@@ -128,10 +128,10 @@ const header: IHeader[] = [
   }
 ]
 
-export const specificTable = Template.bind({})
-
-specificTable.args = {
-  topHeader,
-  header,
-  data: exampleJSON.data
+export const specificTable: Story = {
+  args: {
+    topHeader,
+    header,
+    data: exampleJSON.data
+  }
 }

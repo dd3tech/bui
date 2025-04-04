@@ -1,17 +1,22 @@
 import React from 'react'
-import { Story, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import Button from '../components/Buttons/Button'
-import ButtonGroupComponent, {
-  ButtonGroupProps
-} from '../components/Buttons/ButtonGroup'
+import ButtonGroupComponent from '../components/Buttons/ButtonGroup'
 
-export default {
+const meta: Meta<typeof ButtonGroupComponent> = {
   title: 'Buttons/ButtonGroup',
   component: ButtonGroupComponent
-} as Meta<ButtonGroupProps>
+}
 
-const Template: Story<ButtonGroupProps> = (args: ButtonGroupProps) => {
-  return (
+export default meta
+type Story = StoryObj<typeof ButtonGroupComponent>
+
+export const ButtonGroup: Story = {
+  args: {
+    orientation: 'horizontal',
+    gap: 6
+  },
+  render: (args) => (
     <ButtonGroupComponent {...args}>
       <Button variant="primary" className="w-32">
         1st button
@@ -24,10 +29,4 @@ const Template: Story<ButtonGroupProps> = (args: ButtonGroupProps) => {
       </Button>
     </ButtonGroupComponent>
   )
-}
-
-export const ButtonGroup = Template.bind({})
-ButtonGroup.args = {
-  orientation: 'horizontal',
-  gap: 6
 }

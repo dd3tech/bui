@@ -1,21 +1,19 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import CalloutComponent from '../components/Callout'
-
 import { CheckCircleIcon } from '@heroicons/react/solid'
 
-export default {
+const meta: Meta<typeof CalloutComponent> = {
   title: 'Components/Callout',
   component: CalloutComponent
-} as ComponentMeta<typeof CalloutComponent>
+}
 
-const Template: ComponentStory<typeof CalloutComponent> = (args) => (
-  <CalloutComponent {...args} />
-)
+export default meta
+type Story = StoryObj<typeof CalloutComponent>
 
-export const Callout = Template.bind({})
-Callout.args = {
-  title: 'All systems operational',
-  description: 'All systems are operational and functioning as expected.',
-  icon: CheckCircleIcon
+export const Callout: Story = {
+  args: {
+    title: 'All systems operational',
+    description: 'All systems are operational and functioning as expected.',
+    icon: CheckCircleIcon
+  }
 }

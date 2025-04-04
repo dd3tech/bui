@@ -1,16 +1,11 @@
 import React, { useRef, useState } from 'react'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { FilterIcon } from '@heroicons/react/outline'
+import type { Meta, StoryObj } from '@storybook/react'
 import {
   FilterSelect as FilterSelectComponent,
   IRadioItems,
   Text
 } from '../components'
-import { FilterIcon } from '@heroicons/react/outline'
-
-export default {
-  title: 'Components/FilterSelect',
-  component: FilterSelectComponent
-} as ComponentMeta<typeof FilterSelectComponent>
 
 const list: IRadioItems = {
   A: {
@@ -29,41 +24,49 @@ const handleChange = (value: string) => {
   console.log('handleChange', value)
 }
 
-const Template: ComponentStory<typeof FilterSelectComponent> = (args) => {
-  const refButton = useRef<null | HTMLButtonElement>(null)
-  const [position, setPosition] = useState({ show: false, left: 0, top: 0 })
-
-  const handleClick = () => {
-    if (refButton.current !== null) {
-      const { offsetLeft, offsetTop } = refButton.current
-      setPosition((current) => ({
-        ...position,
-        show: !current.show,
-        left: offsetLeft + 10,
-        top: offsetTop + 30
-      }))
-    }
-  }
-
-  return (
-    <div className="h-64">
-      <button onClick={handleClick} ref={refButton}>
-        <div className="flex items-center">
-          <Text className="mt-0.5 mr-1" bold>
-            FilterSelect
-          </Text>
-          <FilterIcon className="w-4 h-4" />
-        </div>
-      </button>
-      <FilterSelectComponent {...args} position={position} />
-    </div>
-  )
+const meta: Meta<typeof FilterSelectComponent> = {
+  title: 'Components/FilterSelect',
+  component: FilterSelectComponent
 }
 
-export const FilterSelect = Template.bind({})
-FilterSelect.args = {
-  title: 'Nombre del filtro',
-  listItems: list,
-  selectedValue: 'B',
-  onApply: handleChange
+export default meta
+type Story = StoryObj<typeof FilterSelectComponent>
+
+export const FilterSelect: Story = {
+  args: {
+    title: 'Nombre del filtro',
+    listItems: list,
+    selectedValue: 'B',
+    onApply: handleChange
+  },
+  render: (args) => {
+    const refButton = useRef<null | HTMLButtonElement>(null)
+    const [position, setPosition] = useState({ show: false, left: 0, top: 0 })
+
+    const handleClick = () => {
+      if (refButton.current !== null) {
+        const { offsetLeft, offsetTop } = refButton.current
+        setPosition((current) => ({
+          ...position,
+          show: !current.show,
+          left: offsetLeft + 10,
+          top: offsetTop + 30
+        }))
+      }
+    }
+
+    return (
+      <div className="h-64">
+        <button onClick={handleClick} ref={refButton}>
+          <div className="flex items-center">
+            <Text className="mt-0.5 mr-1" bold>
+              FilterSelect
+            </Text>
+            <FilterIcon className="w-4 h-4" />
+          </div>
+        </button>
+        <FilterSelectComponent {...args} />
+      </div>
+    )
+  }
 }

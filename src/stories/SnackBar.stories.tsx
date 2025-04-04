@@ -1,33 +1,38 @@
 import React, { useState } from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import SnackBar from '../components/SnackBar/SnackBar'
 import Button from '../components/Buttons/Button'
 
-export default {
+const meta: Meta<typeof SnackBar> = {
   title: 'Layout/SnackBar',
   component: SnackBar
-} as ComponentMeta<typeof SnackBar>
-
-const Template: ComponentStory<typeof SnackBar> = (args) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  return (
-    <>
-      <Button onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? 'Close SnackBar' : 'Show SnackBar'}
-      </Button>
-      <SnackBar {...args} show={isOpen} />
-    </>
-  )
 }
 
-export const Snack = Template.bind({})
-Snack.args = {
-  title: {
-    label: 'Title Testing'
+export default meta
+type Story = StoryObj<typeof SnackBar>
+
+export const Snack: Story = {
+  args: {
+    title: {
+      label: 'Title Testing'
+    },
+    description: 'Description Testing',
+    buttonGhost: {
+      label: 'Do not show again',
+      position: 'right',
+      onClick: () => alert('Do not show again')
+    }
   },
-  description: 'Description Testing',
-  buttonGhost: {
-    label: 'Do not show again'
+  render: (args) => {
+    const [isOpen, setIsOpen] = useState(false)
+
+    return (
+      <>
+        <Button onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? 'Close SnackBar' : 'Show SnackBar'}
+        </Button>
+        <SnackBar {...args} show={isOpen} />
+      </>
+    )
   }
 }

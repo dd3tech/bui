@@ -1,19 +1,18 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Stepper as StepperComponent } from '../components'
 
-export default {
+const meta: Meta<typeof StepperComponent> = {
   title: 'Controls/Stepper',
   component: StepperComponent
-} as ComponentMeta<typeof StepperComponent>
+}
 
-const Template: ComponentStory<typeof StepperComponent> = (args) => (
-  <StepperComponent {...args} />
-)
+export default meta
+type Story = StoryObj<typeof StepperComponent>
 
-export const Stepper = Template.bind({})
-Stepper.args = {
-  phase: 1,
-  totalPhases: 1,
-  width: '5rem'
+export const Stepper: Story = {
+  args: {
+    phase: 1,
+    totalPhases: 1,
+    width: '5rem'
+  }
 }

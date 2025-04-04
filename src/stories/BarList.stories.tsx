@@ -1,11 +1,5 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import BarListComponent from '../components/BarList'
-
-export default {
-  title: 'Components/BarList',
-  component: BarListComponent
-} as ComponentMeta<typeof BarList>
 
 const data = [
   { label: 'Snapchat', value: 0, href: '/' },
@@ -15,51 +9,28 @@ const data = [
   { label: 'Instagram', value: 100 }
 ]
 
-const Template: ComponentStory<typeof BarListComponent> = ({
-  listData,
-  titleMetrics,
-  titleValues,
-  className,
-  roundedBar,
-  heightBar,
-  classNameBar,
-  fontSizeBar,
-  marginYItem,
-  defaultBackgroundBarColor,
-  defaultTextBarColor,
-  valuePrefix,
-  valueSuffix
-}) => (
-  <BarListComponent
-    listData={listData}
-    titleMetrics={titleMetrics}
-    titleValues={titleValues}
-    className={className}
-    roundedBar={roundedBar}
-    heightBar={heightBar}
-    classNameBar={classNameBar}
-    fontSizeBar={fontSizeBar}
-    marginYItem={marginYItem}
-    defaultBackgroundBarColor={defaultBackgroundBarColor}
-    defaultTextBarColor={defaultTextBarColor}
-    valuePrefix={valuePrefix}
-    valueSuffix={valueSuffix}
-  />
-)
+const meta: Meta<typeof BarListComponent> = {
+  title: 'Components/BarList',
+  component: BarListComponent
+}
 
-export const BarList = Template.bind({})
-BarList.args = {
-  listData: data,
-  titleMetrics: 'Networks',
-  titleValues: 'Users',
-  className: 'max-w-lg',
-  roundedBar: 'md',
-  heightBar: 'full',
-  classNameBar: '',
-  fontSizeBar: 'base',
-  marginYItem: '1',
-  defaultBackgroundBarColor: '#b5d4fc',
-  defaultTextBarColor: '#1D4ED8',
-  valuePrefix: '',
-  valueSuffix: ''
+export default meta
+type Story = StoryObj<typeof BarListComponent>
+
+export const BarList: Story = {
+  args: {
+    listData: data,
+    titleMetrics: 'Networks',
+    titleValues: 'Users',
+    className: 'max-w-lg',
+    roundedBar: 'md',
+    heightBar: 'full',
+    classNameBar: '',
+    fontSizeBar: 'base',
+    marginYItem: '1',
+    defaultBackgroundBarColor: '#b5d4fc',
+    defaultTextBarColor: '#1D4ED8',
+    valuePrefix: '',
+    valueSuffix: ''
+  }
 }

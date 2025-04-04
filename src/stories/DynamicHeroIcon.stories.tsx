@@ -1,19 +1,18 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { DynamicHeroIcon as DynamicHeroIconComponent } from '../common/DynamicHeroIcon'
 
-export default {
+const meta: Meta<typeof DynamicHeroIconComponent> = {
   title: 'Components/DynamicHeroIcon',
   component: DynamicHeroIconComponent
-} as ComponentMeta<typeof DynamicHeroIconComponent>
+}
 
-const Template: ComponentStory<typeof DynamicHeroIconComponent> = (args) => (
-  <DynamicHeroIconComponent {...args} />
-)
+export default meta
+type Story = StoryObj<typeof DynamicHeroIconComponent>
 
-export const DynamicHeroIcon = Template.bind({})
-DynamicHeroIcon.args = {
-  icon: 'CameraIcon',
-  className: 'text-info bold',
-  width: 30
+export const DynamicHeroIcon: Story = {
+  args: {
+    icon: 'CameraIcon',
+    className: 'text-info bold',
+    width: 30
+  }
 }

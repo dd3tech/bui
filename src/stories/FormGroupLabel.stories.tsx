@@ -1,26 +1,27 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { FormControlLabel as FormControlLabelComponent } from '../components'
-import { Checkbox } from './CheckBox.stories'
+import type { Meta, StoryObj } from '@storybook/react'
+import {
+  Checkbox,
+  FormControlLabel as FormControlLabelComponent
+} from '../components'
 
-export default {
+const meta: Meta<typeof FormControlLabelComponent> = {
   title: 'Form/FormControl',
   component: FormControlLabelComponent
-} as ComponentMeta<typeof FormControlLabelComponent>
+}
 
-const Template: ComponentStory<typeof FormControlLabelComponent> = (args) => (
-  <FormControlLabelComponent {...args} />
-)
+export default meta
+type Story = StoryObj<typeof FormControlLabelComponent>
 
-export const FormControlLabel = Template.bind({})
-
-Checkbox.args = {
-  size: '2xl',
+const checkboxArgs = {
+  fontSize: '2xl' as const,
   checked: true
 }
 
-FormControlLabel.args = {
-  label: 'Start',
-  labelPlacement: 'end',
-  control: <Checkbox {...Checkbox.args} />
+export const FormControlLabel: Story = {
+  args: {
+    label: 'Start',
+    labelPlacement: 'end',
+    control: <Checkbox {...checkboxArgs} />
+  }
 }

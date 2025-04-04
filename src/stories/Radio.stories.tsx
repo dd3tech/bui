@@ -1,8 +1,7 @@
-import React from 'react'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Radio as RadioComponent } from '../components'
 
-export default {
+const meta: Meta<typeof RadioComponent> = {
   title: 'Buttons/Radio',
   component: RadioComponent,
   args: {
@@ -12,29 +11,31 @@ export default {
     inputProps: { 'aria-label': 'A' },
     color: 'primary'
   }
-} as ComponentMeta<typeof RadioComponent>
-
-const Template: ComponentStory<typeof RadioComponent> = (args) => (
-  <RadioComponent {...args} />
-)
-
-export const Radio = Template.bind({})
-Radio.args = {
-  checked: true,
-  disabled: false,
-  error: false
 }
 
-export const RadioDisabledSelelected = Template.bind({})
-RadioDisabledSelelected.args = {
-  checked: true,
-  disabled: true,
-  error: false
+export default meta
+type Story = StoryObj<typeof RadioComponent>
+
+export const Radio: Story = {
+  args: {
+    checked: true,
+    disabled: false,
+    error: false
+  }
 }
 
-export const RadioError = Template.bind({})
-RadioError.args = {
-  checked: false,
-  disabled: false,
-  error: true
+export const RadioDisabledSelelected: Story = {
+  args: {
+    checked: true,
+    disabled: true,
+    error: false
+  }
+}
+
+export const RadioError: Story = {
+  args: {
+    checked: false,
+    disabled: false,
+    error: true
+  }
 }

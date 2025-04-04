@@ -1,21 +1,22 @@
-import React from 'react'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { DatePicker as DatePickerComponent } from '../components'
 
-export default {
+const meta: Meta<typeof DatePickerComponent> = {
   title: 'Components/DatePicker',
   component: DatePickerComponent,
-  argTypes: { minDate: { control: 'object' } }
-} as ComponentMeta<typeof DatePickerComponent>
+  argTypes: {
+    minDate: { control: 'object' }
+  }
+}
 
-const Template: ComponentStory<typeof DatePickerComponent> = (args) => (
-  <DatePickerComponent {...args} />
-)
+export default meta
+type Story = StoryObj<typeof DatePickerComponent>
 
-export const DatePicker = Template.bind({})
-DatePicker.args = {
-  format: 'short',
-  language: 'en',
-  value: new Date('02, 27, 2023'),
-  minDate: new Date('02, 11, 2023')
+export const DatePicker: Story = {
+  args: {
+    format: 'short',
+    language: 'en',
+    value: new Date('02, 27, 2023'),
+    minDate: new Date('02, 11, 2023')
+  }
 }

@@ -2,9 +2,9 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
+import { ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import { fontSize } from 'lib/font'
-import { ReactNode } from 'react'
 import Button from './Button'
 
 export interface ActiveButtonProps {
