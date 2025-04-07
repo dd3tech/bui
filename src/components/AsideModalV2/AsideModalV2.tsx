@@ -19,6 +19,9 @@ export interface ModalButton {
   variant: ButtonVariant
   size?: 'small' | 'medium' | 'large' | 'extraLarge'
   onClick: () => void
+  disabled?: boolean
+  isLoading?: boolean
+  role?: string
 }
 
 export interface ModalDescription {
@@ -33,6 +36,8 @@ export interface ModalTabItem {
   description?: ModalDescription
   buttons?: ModalButton[]
   search?: FilterSearchProps
+  className?: string
+  id?: string
 }
 
 export interface ModalTabs {
@@ -114,11 +119,14 @@ const AsideModalV2: FC<AsideModalProps> = ({
             <Flex gap="4" className="flex-shrink-0">
               {buttons.map((button, index) => (
                 <Button
+                  role={button.role}
                   key={`btn-${index}`}
                   variant={button.variant || 'primary'}
                   size={button.size || 'small'}
                   onClick={button.onClick}
                   className="px-6"
+                  disabled={button.disabled}
+                  isLoading={button.isLoading}
                 >
                   {button.label}
                 </Button>
@@ -214,6 +222,8 @@ const AsideModalV2: FC<AsideModalProps> = ({
             <TabGroup value={tabs.value} onChange={tabs.setValue}>
               {tabs.items.map((tab, index) => (
                 <Tab
+                  id={tab?.id}
+                  className={tab?.className}
                   key={`tab-${index}`}
                   label={tab.label}
                   disabled={tab.disabled}
