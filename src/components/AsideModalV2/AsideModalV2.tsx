@@ -171,6 +171,9 @@ const AsideModalV2: FC<AsideModalProps> = ({
                   size={button?.size || 'small'}
                   onClick={button.onClick}
                   className="px-6"
+                  role={button.role}
+                  disabled={button.disabled}
+                  isLoading={button.isLoading}
                 >
                   {button.label}
                 </Button>
