@@ -54,6 +54,7 @@
         "generate-exports": "node ./scripts/combinePackage.js"
     },
     "dependencies": {
+        "@cyntler/react-doc-viewer": "^1.17.0",
         "@heroicons/react": "^1.0.6",
         "@popperjs/core": "2.11.8",
         "dd360-utils": "^1.0.18",

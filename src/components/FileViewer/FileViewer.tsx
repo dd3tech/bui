@@ -2,22 +2,18 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import {
-  HTMLProps,
-  ReactNode,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from 'react'
+import { HTMLProps, ReactNode, useMemo } from 'react'
+import DocViewer, { DocViewerRenderers } from '@cyntler/react-doc-viewer'
+import { DocViewerProps } from '@cyntler/react-doc-viewer/dist/DocViewer'
+import { DownloadIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 import { composeStyles } from 'lib/styles'
 import { Portal } from 'common/Portal'
-
-import { DownloadIcon } from '@heroicons/react/outline'
 import Button, { IButtonProps } from '../Buttons/Button'
 import Text from '../Typography/Text'
 import Spinner from '../Spinner'
+
+import '@cyntler/react-doc-viewer/dist/index.css'
 
 /** Interfaces */
 export interface FileViewerProps extends HTMLProps<HTMLDivElement> {
@@ -158,41 +154,31 @@ const FileContent = ({
   className,
   role = 'viewer-file-container'
 }: FileContentProps) => {
-  const timer = useRef<null | ReturnType<typeof setInterval>>(null)
-  const [attempts, setAttempts] = useState(0)
-  const [encodedUrl, setEncodedUrl] = useState('')
-  const [isLoaded, setIsLoaded] = useState(false)
+  const validUrl = url !== '' && !!url
+  const colorTheme = '#FFFFFF80'
 
-  useEffect(() => {
-    setEncodedUrl(encodeURIComponent(url || ''))
-  }, [url])
+  const theme: DocViewerProps['theme'] = {
+    primary: colorTheme,
+    secondary: colorTheme,
+    tertiary: colorTheme,
+    disableThemeScrollbar: true
+  }
 
-  useEffect(() => {
-    const retry = () => {
-      if (attempts >= 5 || isLoaded) {
-        timer.current && clearInterval(timer.current)
-        return
-      }
-      setAttempts((prev) => prev + 1)
-      setEncodedUrl('')
-      setEncodedUrl(encodeURIComponent(url || ''))
-    }
-
-    timer.current && clearInterval(timer.current)
-    timer.current = setInterval(retry, 2000)
-    return () => {
-      timer.current && clearInterval(timer.current)
-    }
-  }, [attempts, isLoaded, url])
+  const config: DocViewerProps['config'] = {
+    header: {
+      disableHeader: true
+    },
+    pdfVerticalScrollByDefault: true
+  }
 
   return (
     <>
-      {encodedUrl && encodedUrl !== '' ? (
+      {validUrl ? (
         <div
           role={role}
           className={composeClasses(
             className,
-            'w-full h-full flex justify-center items-center rounded-lg overflow-hidden z-50'
+            'w-full h-full flex justify-center items-center rounded-lg overflow-hidden zz-50'
           )}
           onClick={(e) => e.stopPropagation()}
         >
@@ -206,14 +192,16 @@ const FileContent = ({
               />
             </div>
           ) : (
-            <iframe
-              onLoad={() => {
-                setIsLoaded(true)
-              }}
-              role="viewer-file"
-              className="w-full h-full"
-              src={`https://docs.google.com/gview?url=${encodedUrl}&embedded=true`}
-            />
+            <div role="viewer-file">
+              <DocViewer
+                documents={[{ uri: url || '' }]}
+                pluginRenderers={DocViewerRenderers}
+                prefetchMethod="GET"
+                className="h-full w-full overflow-auto"
+                theme={theme}
+                config={config}
+              />
+            </div>
           )}
         </div>
       ) : (

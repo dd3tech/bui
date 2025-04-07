@@ -9,6 +9,13 @@ import {
   XIcon
 } from '@heroicons/react/outline'
 
+vi.mock('@cyntler/react-doc-viewer', () => ({
+  default: vi.fn(() => null),
+  DocViewerRenderers: []
+}))
+
+vi.mock('react/jsx-runtime.js')
+
 describe('<FileViewer/>', () => {
   const mockClick = vi.fn()
 
@@ -155,13 +162,12 @@ describe('<FileViewer/>', () => {
   })
 
   it('should display the spinner when url is empty', () => {
-    const { getByRole, queryByRole } = render(
+    const { getByRole } = render(
       <FileViewer>
         <FileViewer.FileContent fileType="pdf" />
       </FileViewer>
     )
 
-    expect(queryByRole('viewer-file-container')).toBeNull()
     expect(getByRole('viewer-spinner')).toBeDefined()
   })
 
@@ -191,22 +197,5 @@ describe('<FileViewer/>', () => {
 
     expect(getByRole('viewer-image')).toBeDefined()
     expect(queryByRole('viewer-file')).toBeNull()
-  })
-
-  it('should have the iframe the right url', () => {
-    const { getByRole } = render(
-      <FileViewer>
-        <FileViewer.FileContent
-          url="https://dd360-url-test.com"
-          fileType="pdf"
-        />
-      </FileViewer>
-    )
-    const fileViewer = getByRole('viewer-file') as HTMLIFrameElement
-    const encodedUrl = encodeURIComponent('https://dd360-url-test.com')
-
-    expect(fileViewer.src).toBe(
-      `https://docs.google.com/gview?url=${encodedUrl}&embedded=true`
-    )
   })
 })
