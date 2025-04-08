@@ -14,8 +14,6 @@ vi.mock('@cyntler/react-doc-viewer', () => ({
   DocViewerRenderers: []
 }))
 
-vi.mock('react/jsx-runtime.js')
-
 describe('<FileViewer/>', () => {
   const mockClick = vi.fn()
 

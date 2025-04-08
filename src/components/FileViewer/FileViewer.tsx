@@ -192,7 +192,7 @@ const FileContent = ({
               />
             </div>
           ) : (
-            <div role="viewer-file">
+            <div role="viewer-file" className="w-full h-full">
               <DocViewer
                 documents={[{ uri: url || '' }]}
                 pluginRenderers={DocViewerRenderers}

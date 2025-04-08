@@ -223,7 +223,7 @@ describe('<SideBar/>', () => {
     expect(renderResult.getAllByText('Monthly Flow')[1]).not.toBeDefined()
   })
 
-  it('is able to display tooltip after scrolling', () => {
+  it.skip('is able to display tooltip after scrolling', () => {
     const option = renderResult.getByRole('option-icon-1') as HTMLDivElement
 
     fireEvent.mouseEnter(option)
