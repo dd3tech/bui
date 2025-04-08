@@ -38,6 +38,7 @@ export interface ModalTabItem {
   search?: FilterSearchProps
   className?: string
   id?: string
+  role?: string
 }
 
 export interface ModalTabs {
