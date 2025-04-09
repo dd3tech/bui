@@ -51,7 +51,7 @@ function BaseCircleButton({
       disabled={disabled}
       style={{ ...props.style, width, height }}
       className={composeClasses(
-        'border border-gray-300 flex items-center justify-center',
+        'border border-gray-300 flex items-center justify-center bg-white',
         variant === 'circle' ? borderRadius.full.all : borderRadius.lg.all,
         `shadow-${shadow}`,
         buildClassName(disabled, selected)
