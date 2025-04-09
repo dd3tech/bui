@@ -1,3 +1,13 @@
+## [6.37.1](https://github.com/dd3tech/bui/compare/v6.37.0...v6.37.1) (2025-04-09)
+
+
+### Bug Fixes
+
+* add prop role buttons ([3229d5d](https://github.com/dd3tech/bui/commit/3229d5d7b71c98b15652d4610bddc9a283dcf025))
+* new props added to aside modal v2 component ([ae15204](https://github.com/dd3tech/bui/commit/ae152041fa879617394e2360a2555f8a35f14db0))
+* new props added to component aside modal v2 ([e0940b6](https://github.com/dd3tech/bui/commit/e0940b61e63768c210b2fbabec86f7b72d90a1b4))
+* styles were changed ([765200c](https://github.com/dd3tech/bui/commit/765200cca90f641af7dc0786192a6fc51bc8df52))
+
 # [6.37.0](https://github.com/dd3tech/bui/compare/v6.36.0...v6.37.0) (2025-03-31)
 
 
