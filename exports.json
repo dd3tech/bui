@@ -91,6 +91,11 @@
       "module": "./dist/esm/components/Card/index.js",
       "default": "./dist/esm/components/Card/index.js"
     },
+    "./Chip": {
+      "require": "./dist/cjs/components/Chip/index.js",
+      "module": "./dist/esm/components/Chip/index.js",
+      "default": "./dist/esm/components/Chip/index.js"
+    },
     "./DownloadCard": {
       "require": "./dist/cjs/components/Card/DownloadCard.js",
       "module": "./dist/esm/components/Card/DownloadCard.js",
@@ -301,6 +306,11 @@
       "module": "./dist/esm/components/SnackBar/index.js",
       "default": "./dist/esm/components/SnackBar/index.js"
     },
+    "./FilterBarButton": {
+      "require": "./dist/cjs/components/Buttons/index.js",
+      "module": "./dist/esm/components/Buttons/index.js",
+      "default": "./dist/esm/components/Buttons/index.js"
+    },
     "./Spinner": {
       "require": "./dist/cjs/components/Spinner/index.js",
       "module": "./dist/esm/components/Spinner/index.js",
@@ -399,7 +409,7 @@
       "AsideModalV2": ["./dist/esm/components/AsideModalV2/index.d.ts"],
       "Autocomplete": ["./dist/esm/components/Autocomplete/index.d.ts"],
       "Avatar": ["./dist/esm/components/Avatar/index.d.ts"],
-      "Badge": ["./dist/esm/components/Badge/index.d.ts"],
+      "Chip": ["./dist/esm/components/Chip/index.d.ts"],
       "BarList": ["./dist/esm/components/BarList/index.d.ts"],
       "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
       "Button": ["./dist/esm/components/Buttons/Button.d.ts"],
