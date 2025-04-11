@@ -21,7 +21,7 @@ const subItems = [
     title: 'SubItem 1',
     active: true,
     goTo: () => console.log('subItem 1.1'),
-    badge: <div className="bg-red-400 rounded-full w-2.5 h-2.5" />
+    Chip: <div className="bg-red-400 rounded-full w-2.5 h-2.5" />
   },
   {
     title: 'SubItem 2',
@@ -42,7 +42,7 @@ const subItems = [
       {
         title: 'ChildrenSubItem 2',
         active: false,
-        badge: <div className="bg-yellow-400 rounded-full w-2.5 h-2.5" />,
+        Chip: <div className="bg-yellow-400 rounded-full w-2.5 h-2.5" />,
         goTo: () => console.log('childrenSubItem 1.2')
       }
     ]
@@ -56,7 +56,7 @@ const sideBarList = [
     isOpen: true,
     icon: <HomeIcon />,
     subItems: subItems,
-    badge: 4
+    Chip: 4
   },
   {
     title: 'Information 2',
@@ -91,9 +91,9 @@ const sideBarList = [
         ]
       }
     ],
-    badge: '+99',
-    badgeColor: 'bg-red-500',
-    badgeTextColor: 'text-yellow-50'
+    Chip: '+99',
+    ChipColor: 'bg-red-500',
+    ChipTextColor: 'text-yellow-50'
   },
   {
     title: 'Information 3',
@@ -101,8 +101,8 @@ const sideBarList = [
     isOpen: false,
     disabled: true,
     subItems: subItems,
-    badge: <ExclamationIcon className="w-4 h-4 text-yellow-400" />,
-    badgeColor: 'bg-yellow-500'
+    Chip: <ExclamationIcon className="w-4 h-4 text-yellow-400" />,
+    ChipColor: 'bg-yellow-500'
   },
   {
     title: 'Information 4',
@@ -115,9 +115,9 @@ const sideBarList = [
     active: false,
     isOpen: false,
     subItems: subItems,
-    badge: '+99',
-    badgeColor: 'bg-red-500',
-    badgeTextColor: 'text-yellow-50'
+    Chip: '+99',
+    ChipColor: 'bg-red-500',
+    ChipTextColor: 'text-yellow-50'
   }
 ]
 
