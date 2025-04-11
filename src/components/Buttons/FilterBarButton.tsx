@@ -6,19 +6,14 @@ import { Flex, Text, Transition } from 'components'
 import Badge from 'components/Badge'
 import Button from './Button'
 
-interface IIconSpecialButton {
-  icon: ReactNode
-  onClick: () => void
-}
-
 interface IButtons extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: ReactNode
 }
 
-interface ISpecialButton {
+interface IFilterBarButton {
   valueBadge: number | null
-  iconLeft?: IIconSpecialButton
-  iconRight?: IIconSpecialButton
+  iconLeft?: ReactNode
+  iconRight?: ReactNode
   label: string
   titlePopover?: string
   childrenPopover?: ReactNode
@@ -28,7 +23,7 @@ interface ISpecialButton {
   principalButton?: IButtons
 }
 
-const SpecialButton = ({
+const FilterBarButton = ({
   valueBadge,
   iconLeft,
   iconRight,
@@ -39,12 +34,10 @@ const SpecialButton = ({
   secondaryButton,
   primaryButton,
   principalButton
-}: ISpecialButton) => {
-  const [isPressed, setIsPressed] = useState(false)
+}: IFilterBarButton) => {
   const [showPopover, setShowPopover] = useState(false)
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setIsPressed(!isPressed)
     setShowPopover(!showPopover)
     principalButton?.onClick?.(e)
   }
@@ -52,42 +45,24 @@ const SpecialButton = ({
   return (
     <>
       <Button
-        data-testid="special-button"
+        data-testid="filter-bar-button"
         {...principalButton}
         onClick={handleClick}
         variant="secondary"
         className={composeClasses(
           'h-10 px-4 whitespace-nowrap hover:border hover:border-primary hover:text-primary',
-          isPressed && 'border border-primary text-primary',
+          showPopover && 'border border-primary text-primary',
           principalButton?.className
         )}
         style={{
-          backgroundColor: isPressed ? '#EFF6FF' : 'transparent',
+          backgroundColor: showPopover ? '#EFF6FF' : 'transparent',
           ...(principalButton?.style || {})
         }}
       >
         <Flex gap="3" alignItems="center" justifyContent="center">
-          {iconLeft && (
-            <div
-              onClick={(e) => {
-                e.stopPropagation()
-                iconLeft.onClick()
-              }}
-            >
-              {iconLeft.icon}
-            </div>
-          )}
+          {iconLeft && <div>{iconLeft}</div>}
           <Text>{label}</Text>
-          {iconRight && (
-            <div
-              onClick={(e) => {
-                e.stopPropagation()
-                iconRight.onClick()
-              }}
-            >
-              {iconRight.icon}
-            </div>
-          )}
+          {iconRight && <div>{iconRight}</div>}
           {valueBadge && <Badge value={valueBadge} variant="default" />}
         </Flex>
       </Button>
@@ -97,11 +72,14 @@ const SpecialButton = ({
           <div
             className={composeClasses(
               classNamePopover,
-              'bg-white border mt-1 rounded-lg shadow-md p-4 transition-all duration-200 ease-out opacity-100 translate-y-0 z-50'
+              'bg-white border mt-1 rounded-lg shadow-md transition-all duration-200 ease-out opacity-100 translate-y-0 z-50'
             )}
             style={{ width: 468 }}
           >
-            <Flex className="w-full" justifyContent="between">
+            <Flex
+              className="w-full py-5 px-6 border-b"
+              justifyContent="between"
+            >
               <Text bold>{titlePopover ?? 'Title'}</Text>
               <XIcon
                 className="h-5 w-5 cursor-pointer"
@@ -109,7 +87,11 @@ const SpecialButton = ({
               />
             </Flex>
             {childrenPopover}
-            <Flex justifyContent="between" className="mt-4" gap="4">
+            <Flex
+              className="bg-gray-50 px-6 py-6 border-t rounded-b-2xl"
+              justifyContent="end"
+              gap="4"
+            >
               <Button
                 {...secondaryButton}
                 className="w-full"
@@ -128,4 +110,4 @@ const SpecialButton = ({
   )
 }
 
-export default SpecialButton
+export default FilterBarButton

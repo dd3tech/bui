@@ -306,7 +306,7 @@
       "module": "./dist/esm/components/SnackBar/index.js",
       "default": "./dist/esm/components/SnackBar/index.js"
     },
-    "./SpecialButton": {
+    "./FilterBarButton": {
       "require": "./dist/cjs/components/Buttons/index.js",
       "module": "./dist/esm/components/Buttons/index.js",
       "default": "./dist/esm/components/Buttons/index.js"

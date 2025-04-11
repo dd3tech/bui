@@ -1,35 +1,29 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { XCircleIcon } from '@heroicons/react/outline'
-import SpecialButton from '../components/Buttons/SpecialButton'
+import FilterBarButton from '../components/Buttons/FilterBarButton'
 import { Flex, Text } from '../components'
 
-const meta: Meta<typeof SpecialButton> = {
-  title: 'Buttons/SpecialButton',
-  component: SpecialButton
+const meta: Meta<typeof FilterBarButton> = {
+  title: 'Buttons/FilterBarButton',
+  component: FilterBarButton
 }
 
 export default meta
-type Story = StoryObj<typeof SpecialButton>
+type Story = StoryObj<typeof FilterBarButton>
 
 export const Default: Story = {
   args: {
-    label: 'Click me',
+    label: 'Call to action',
     valueBadge: 5,
-    iconLeft: {
-      icon: <XCircleIcon width={20} />,
-      onClick: () => alert('Left icon clicked')
-    },
-    iconRight: {
-      icon: <XCircleIcon width={20} />,
-      onClick: () => alert('Right icon clicked')
-    },
-    titlePopover: 'Filters',
+    iconLeft: <XCircleIcon width={20} />,
+    iconRight: <XCircleIcon width={20} />,
+    titlePopover: 'More Filter',
     childrenPopover: (
       <Flex
         justifyContent="center"
         alignItems="center"
-        className="border-blue-600 border border-dashed text-primary w-full"
+        className="border-blue-600 border border-dashed text-primary w-full rounded-lg"
         style={{ backgroundColor: '#EFF6FF', height: 150 }}
       >
         <Flex

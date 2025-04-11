@@ -1,8 +1,8 @@
 export { default as Button } from './Button'
 export * from './Button'
 
-export { default as SpecialButton } from './SpecialButton'
-export * from './SpecialButton'
+export { default as FilterBarButton } from './FilterBarButton'
+export * from './FilterBarButton'
 
 export { default as ActiveButton } from './ActiveButton'
 export * from './ActiveButton'
