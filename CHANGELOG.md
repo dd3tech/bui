@@ -1,3 +1,16 @@
+# [6.38.0](https://github.com/dd3tech/bui/compare/v6.37.1...v6.38.0) (2025-04-21)
+
+
+### Bug Fixes
+
+* remove viewer test ([269c1da](https://github.com/dd3tech/bui/commit/269c1da33718d6869e2783cecdca387d00144d40))
+
+
+### Features
+
+* new component SpecialButton has been added ([47c7a15](https://github.com/dd3tech/bui/commit/47c7a1527813783538eca982a28c47e8fff46e2d))
+* small adjustments were made in ui and in operation ([8980325](https://github.com/dd3tech/bui/commit/89803251eca3c50c7ff3ebb58e84bce9dccded20))
+
 ## [6.37.1](https://github.com/dd3tech/bui/compare/v6.37.0...v6.37.1) (2025-04-09)
 
 
