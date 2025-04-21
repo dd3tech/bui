@@ -1,6 +1,9 @@
 export { default as Button } from './Button'
 export * from './Button'
 
+export { default as FilterBarButton } from './FilterBarButton'
+export * from './FilterBarButton'
+
 export { default as ActiveButton } from './ActiveButton'
 export * from './ActiveButton'
 

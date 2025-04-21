@@ -193,6 +193,7 @@
             "module": "./dist/esm/components/Badge/index.js",
             "default": "./dist/esm/components/Badge/index.js"
         },
+       
         "./BarList": {
             "require": "./dist/cjs/components/BarList/index.js",
             "module": "./dist/esm/components/BarList/index.js",
@@ -227,6 +228,11 @@
             "require": "./dist/cjs/components/Card/index.js",
             "module": "./dist/esm/components/Card/index.js",
             "default": "./dist/esm/components/Card/index.js"
+        },
+        "./Chip": {
+            "require": "./dist/cjs/components/Chip/index.js",
+            "module": "./dist/esm/components/Chip/index.js",
+            "default": "./dist/esm/components/Chip/index.js"
         },
         "./DownloadCard": {
             "require": "./dist/cjs/components/Card/DownloadCard.js",
@@ -438,6 +444,11 @@
             "module": "./dist/esm/components/SnackBar/index.js",
             "default": "./dist/esm/components/SnackBar/index.js"
         },
+        "./FilterBarButton": {
+            "require": "./dist/cjs/components/Buttons/index.js",
+            "module": "./dist/esm/components/Buttons/index.js",
+            "default": "./dist/esm/components/Buttons/index.js"
+          },
         "./Spinner": {
             "require": "./dist/cjs/components/Spinner/index.js",
             "module": "./dist/esm/components/Spinner/index.js",
@@ -556,8 +567,8 @@
             "Avatar": [
                 "./dist/esm/components/Avatar/index.d.ts"
             ],
-            "Badge": [
-                "./dist/esm/components/Badge/index.d.ts"
+            "Chip": [
+                "./dist/esm/components/Chip/index.d.ts"
             ],
             "BarList": [
                 "./dist/esm/components/BarList/index.d.ts"
