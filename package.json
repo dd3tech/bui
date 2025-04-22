@@ -448,6 +448,11 @@
             "module": "./dist/esm/components/Buttons/index.js",
             "default": "./dist/esm/components/Buttons/index.js"
         },
+        "./SingleSelect": {
+            "require": "./dist/cjs/components/SingleSelect/index.js",
+            "module": "./dist/esm/components/SingleSelect/index.js",
+            "default": "./dist/esm/components/SingleSelect/index.js"
+        },
         "./Spinner": {
             "require": "./dist/cjs/components/Spinner/index.js",
             "module": "./dist/esm/components/Spinner/index.js",
