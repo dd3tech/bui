@@ -1,3 +1,11 @@
+# [6.39.0](https://github.com/dd3tech/bui/compare/v6.38.1...v6.39.0) (2025-04-22)
+
+
+### Features
+
+* Correction name stories ([f8c55ba](https://github.com/dd3tech/bui/commit/f8c55baea48c6ca95e355bdda8edc7a2214da5a3))
+* new SingleSelect component added ([8da6584](https://github.com/dd3tech/bui/commit/8da6584496c0debf3d685c2fbf92b3310d498d48))
+
 ## [6.38.1](https://github.com/dd3tech/bui/compare/v6.38.0...v6.38.1) (2025-04-22)
 
 
