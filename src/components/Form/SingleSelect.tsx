@@ -22,7 +22,10 @@ export interface ISelectOption {
   selected?: boolean
 }
 
-export const getLabel = (key: string, optionsList: ISelectOption[]): string => {
+export const getSingleSelectLabel = (
+  key: string,
+  optionsList: ISelectOption[]
+): string => {
   const found = optionsList.find((opt) => opt.value === key)
   return found?.label || key
 }

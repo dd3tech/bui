@@ -15,4 +15,7 @@ export * from './InputCurrency'
 export { default as Select } from './Select'
 export * from './Select'
 
+export { default as SingleSelect } from './SingleSelect'
+export * from './SingleSelect'
+
 export * from './shared'
