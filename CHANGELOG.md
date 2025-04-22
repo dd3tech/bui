@@ -1,3 +1,10 @@
+## [6.39.1](https://github.com/dd3tech/bui/compare/v6.39.0...v6.39.1) (2025-04-22)
+
+
+### Bug Fixes
+
+* exports was added ([b78485b](https://github.com/dd3tech/bui/commit/b78485b6b1da2b2d38d11d40b2dfd117f4092c68))
+
 # [6.39.0](https://github.com/dd3tech/bui/compare/v6.38.1...v6.39.0) (2025-04-22)
 
 

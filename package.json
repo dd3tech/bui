@@ -1,6 +1,6 @@
 {
     "name": "dd360-ds",
-    "version": "6.39.0",
+    "version": "6.39.1",
     "description": "DD360 Components is a tailwind based React component library",
     "license": "MIT",
     "homepage": "https://bui.dd360.mx",
@@ -449,9 +449,9 @@
             "default": "./dist/esm/components/Buttons/index.js"
         },
         "./SingleSelect": {
-            "require": "./dist/cjs/components/SingleSelect/index.js",
-            "module": "./dist/esm/components/SingleSelect/index.js",
-            "default": "./dist/esm/components/SingleSelect/index.js"
+            "require": "./dist/cjs/components/Form/index.js",
+            "module": "./dist/esm/components/Form/index.js",
+            "default": "./dist/esm/components/Form/index.js"
         },
         "./Spinner": {
             "require": "./dist/cjs/components/Spinner/index.js",
