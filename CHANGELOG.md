@@ -1,3 +1,10 @@
+## [6.38.1](https://github.com/dd3tech/bui/compare/v6.38.0...v6.38.1) (2025-04-22)
+
+
+### Bug Fixes
+
+* add min width button aside modal v2 ([9e5d389](https://github.com/dd3tech/bui/commit/9e5d38961d6c8ef88c38b04b29cdc992f65871e4))
+
 # [6.38.0](https://github.com/dd3tech/bui/compare/v6.37.1...v6.38.0) (2025-04-21)
 
 
