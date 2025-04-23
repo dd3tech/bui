@@ -125,8 +125,8 @@ const AsideModalV2: FC<AsideModalProps> = ({
                   variant={button.variant || 'primary'}
                   size={button.size || 'small'}
                   onClick={button.onClick}
-                  className="px-6"
-                  style={{ minWidth: '130px' }}
+                  paddingX="10"
+                  paddingY="2"
                   disabled={button.disabled}
                   isLoading={button.isLoading}
                 >
@@ -141,54 +141,59 @@ const AsideModalV2: FC<AsideModalProps> = ({
     </>
   )
 
-  const renderTabContent = (tab: ModalTabItem, index: number) => (
-    <TabPanel
-      className="p-0"
-      key={`tab-panel-${index}`}
-      index={index}
-      value={tabs?.value || 0}
-    >
-      <Flex gap="4" className="flex-col">
-        <Flex gap="2" alignItems="center" justifyContent="between">
-          <Flex gap="1" alignItems="center">
-            {tab?.description?.icon && (
-              <DynamicHeroIcon
-                icon={tab.description.icon}
-                className={tab?.description?.classIcon}
-              />
-            )}
-            {tab?.description?.label && (
-              <Text size="sm" className="flex-1">
-                {tab.description.label}
-              </Text>
+  const renderTabContent = (tab: ModalTabItem, index: number) => {
+    if (!tab?.description && !tab?.buttons && !tab.search) return null
+
+    return (
+      <TabPanel
+        className="p-0"
+        key={`tab-panel-${index}`}
+        index={index}
+        value={tabs?.value || 0}
+      >
+        {(tab?.description || tab?.buttons || tab.search) && (
+          <Flex gap="4" className="flex-col">
+            <Flex gap="2" alignItems="center" justifyContent="between">
+              <Flex gap="1" alignItems="center">
+                {tab?.description?.icon && (
+                  <DynamicHeroIcon
+                    icon={tab.description.icon}
+                    className={tab?.description?.classIcon}
+                  />
+                )}
+                {tab?.description?.label && (
+                  <Text size="sm" className="flex-1">
+                    {tab.description.label}
+                  </Text>
+                )}
+              </Flex>
+              {tab?.buttons?.length && (
+                <Flex gap="4" alignItems="end" className="flex-shrink-0">
+                  {tab?.buttons?.map((button, btnIndex) => (
+                    <Button
+                      key={`tab-btn-${btnIndex}`}
+                      variant={button?.variant || 'primary'}
+                      size={button?.size || 'small'}
+                      onClick={button.onClick}
+                      paddingX="8"
+                      role={button.role}
+                      disabled={button.disabled}
+                      isLoading={button.isLoading}
+                    >
+                      {button.label}
+                    </Button>
+                  ))}
+                </Flex>
+              )}
+            </Flex>
+            {tab?.search && (
+              <FilterSearch data-testid="filter-search" {...tab.search} />
             )}
           </Flex>
-
-          {tab?.buttons?.length && (
-            <Flex gap="4" alignItems="end" className="flex-shrink-0">
-              {tab?.buttons?.map((button, btnIndex) => (
-                <Button
-                  key={`tab-btn-${btnIndex}`}
-                  variant={button?.variant || 'primary'}
-                  size={button?.size || 'small'}
-                  onClick={button.onClick}
-                  className="px-6"
-                  role={button.role}
-                  disabled={button.disabled}
-                  isLoading={button.isLoading}
-                >
-                  {button.label}
-                </Button>
-              ))}
-            </Flex>
-          )}
-        </Flex>
-        {tab?.search && (
-          <FilterSearch data-testid="filter-search" {...tab.search} />
         )}
-      </Flex>
-    </TabPanel>
-  )
+      </TabPanel>
+    )
+  }
 
   return (
     <aside
@@ -221,7 +226,6 @@ const AsideModalV2: FC<AsideModalProps> = ({
             onClick={() => handleModalClose(true)}
           />
         </Flex>
-
         {tabs?.items?.length ? (
           <>
             <TabGroup value={tabs.value} onChange={tabs.setValue}>
