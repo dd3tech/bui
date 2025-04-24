@@ -1,3 +1,10 @@
+## [6.39.3](https://github.com/dd3tech/bui/compare/v6.39.2...v6.39.3) (2025-04-24)
+
+
+### Bug Fixes
+
+* modified the way props are extended in the tabs buttons of the asidemodalv2 component ([df1f605](https://github.com/dd3tech/bui/commit/df1f60526d9d371368557ade80d658d333d173db))
+
 ## [6.39.2](https://github.com/dd3tech/bui/compare/v6.39.1...v6.39.2) (2025-04-24)
 
 
