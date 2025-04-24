@@ -2,10 +2,9 @@ import { ComponentProps, FC, ReactNode, useEffect, useRef } from 'react'
 import { XIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 import { useModalManager } from 'hooks'
-import { ButtonVariant } from 'interfaces'
 import DynamicHeroIcon, { DynamicHeroIconProps } from 'common/DynamicHeroIcon'
 import { Flex } from 'components/Layout'
-import { Button } from 'components/Buttons'
+import { Button, IButtonProps } from 'components/Buttons'
 import { FilterSearch, FilterSearchProps } from 'components/Filters'
 import { Tab, TabGroup, TabPanel } from 'components/Tabs'
 import Divider from 'components/Divider'
@@ -14,14 +13,8 @@ import Text, { TextVariantType } from '../Typography'
 
 type ModalPosition = 'left' | 'right'
 
-export interface ModalButton {
+export interface ModalButton extends Partial<IButtonProps> {
   label: string
-  variant: ButtonVariant
-  size?: 'small' | 'medium' | 'large' | 'extraLarge'
-  onClick: () => void
-  disabled?: boolean
-  isLoading?: boolean
-  role?: string
 }
 
 export interface ModalDescription {
@@ -174,11 +167,12 @@ const AsideModalV2: FC<AsideModalProps> = ({
                       key={`tab-btn-${btnIndex}`}
                       variant={button?.variant || 'primary'}
                       size={button?.size || 'small'}
-                      onClick={button.onClick}
-                      paddingX="8"
-                      role={button.role}
-                      disabled={button.disabled}
-                      isLoading={button.isLoading}
+                      onClick={button?.onClick}
+                      paddingX={button?.paddingX || '8'}
+                      paddingY={button?.paddingY || '2'}
+                      role={button?.role}
+                      disabled={button?.disabled}
+                      isLoading={button?.isLoading}
                     >
                       {button.label}
                     </Button>
