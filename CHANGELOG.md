@@ -1,3 +1,10 @@
+## [6.39.2](https://github.com/dd3tech/bui/compare/v6.39.1...v6.39.2) (2025-04-24)
+
+
+### Bug Fixes
+
+* modified styles of the AsideModalV2, Button and FilterBarButton components ([85f1aa6](https://github.com/dd3tech/bui/commit/85f1aa6b7f0f2d3edb97bf1baa70f6752d0054f9))
+
 ## [6.39.1](https://github.com/dd3tech/bui/compare/v6.39.0...v6.39.1) (2025-04-22)
 
 
