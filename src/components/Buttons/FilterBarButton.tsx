@@ -72,7 +72,7 @@ const FilterBarButton = ({
           <div
             className={composeClasses(
               classNamePopover,
-              'bg-white border mt-1 rounded-lg shadow-md transition-all duration-200 ease-out opacity-100 translate-y-0 z-50'
+              'bg-white border mt-1 rounded-xl shadow-md transition-all duration-200 ease-out opacity-100 translate-y-0 z-50'
             )}
             style={{ width: 468 }}
           >

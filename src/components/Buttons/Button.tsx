@@ -98,7 +98,7 @@ const Button = forwardRef<HTMLButtonElement, IButtonProps>(
         ref={ref}
         className={composeClasses(
           'transition duration-500 ease-out',
-          padding && `p-${padding}`,
+          !paddingX && !paddingY && padding && `p-${padding}`,
           paddingX && `px-${paddingX}`,
           paddingY && `py-${paddingY}`,
           buttonsVariants[variant],
