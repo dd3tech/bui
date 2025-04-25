@@ -1,3 +1,10 @@
+## [6.39.4](https://github.com/dd3tech/bui/compare/v6.39.3...v6.39.4) (2025-04-25)
+
+
+### Bug Fixes
+
+* correction styles ([2d1d223](https://github.com/dd3tech/bui/commit/2d1d2237137d20b158018152d20a0c8c1efdbb83))
+
 ## [6.39.3](https://github.com/dd3tech/bui/compare/v6.39.2...v6.39.3) (2025-04-24)
 
 
