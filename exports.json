@@ -1,3 +1,4 @@
+
 {
   "exports": {
     ".": {
@@ -414,6 +415,7 @@
       "AsideModalV2": ["./dist/esm/components/AsideModalV2/index.d.ts"],
       "Autocomplete": ["./dist/esm/components/Autocomplete/index.d.ts"],
       "Avatar": ["./dist/esm/components/Avatar/index.d.ts"],
+      "Badge": ["./dist/esm/components/Badge/index.d.ts"],
       "Chip": ["./dist/esm/components/Chip/index.d.ts"],
       "BarList": ["./dist/esm/components/BarList/index.d.ts"],
       "Breadcrumbs": ["./dist/esm/components/Breadcrumbs/index.d.ts"],
@@ -486,3 +488,4 @@
     }
   }
 }
+
