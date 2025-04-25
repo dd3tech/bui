@@ -209,7 +209,7 @@ function SingleSelect({
               return (
                 <Flex
                   className={composeClasses(
-                    'w-full px-2 py-2 hover:bg-gray-100',
+                    'w-full px-2 py-2 hover:bg-blue-100 hover:text-blue-800 hover:font-bold',
                     option.selected && 'text-blue-700'
                   )}
                   justifyContent="between"

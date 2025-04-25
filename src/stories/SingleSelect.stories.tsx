@@ -26,6 +26,6 @@ export const SingleSelect: Story = {
     optionsList,
     name: 'example',
     placeholder: 'Select an option',
-    value: 2
+    value: 1
   }
 }
