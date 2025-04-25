@@ -1,3 +1,4 @@
+
 {
     "name": "dd360-ds",
     "version": "6.39.4",
@@ -571,6 +572,9 @@
             "Avatar": [
                 "./dist/esm/components/Avatar/index.d.ts"
             ],
+            "Badge": [
+                "./dist/esm/components/Badge/index.d.ts"
+            ],
             "Chip": [
                 "./dist/esm/components/Chip/index.d.ts"
             ],
@@ -769,3 +773,4 @@
         }
     }
 }
+
