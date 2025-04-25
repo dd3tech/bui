@@ -1,3 +1,10 @@
+## [6.39.5](https://github.com/dd3tech/bui/compare/v6.39.4...v6.39.5) (2025-04-25)
+
+
+### Bug Fixes
+
+* correction exports ([59833c7](https://github.com/dd3tech/bui/commit/59833c741238110a53242f12e7cdf4935932ab80))
+
 ## [6.39.4](https://github.com/dd3tech/bui/compare/v6.39.3...v6.39.4) (2025-04-25)
 
 
