@@ -18,4 +18,7 @@ export * from './Select'
 export { default as SingleSelect } from './SingleSelect'
 export * from './SingleSelect'
 
+export { default as MultiSelect } from './MultiSelect'
+export * from './MultiSelect'
+
 export * from './shared'

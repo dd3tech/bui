@@ -373,6 +373,11 @@
             "module": "./dist/esm/components/ModalV2/index.js",
             "default": "./dist/esm/components/ModalV2/index.js"
         },
+        "./MultiSelect": {
+            "require": "./dist/cjs/components/Form/index.js",
+            "module": "./dist/esm/components/Form/index.js",
+            "default": "./dist/esm/components/Form/index.js"
+        },
         "./Navbar": {
             "require": "./dist/cjs/components/Navbar/index.js",
             "module": "./dist/esm/components/Navbar/index.js",

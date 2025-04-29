@@ -77,13 +77,12 @@ function SingleSelect({
   const [selectedOption, setSelectedOption] = useState<ISelectOption | null>(
     null
   )
+  const [options, setOptions] = useState<ISelectOption[]>(optionsList)
 
   const handleClick = () => {
     if (isDisabled) return
     setIsOpen(!isOpen)
   }
-
-  const [options, setOptions] = useState<ISelectOption[]>(optionsList)
 
   const styles = {
     adornment: composeClasses(
@@ -175,7 +174,7 @@ function SingleSelect({
 
         <Transition
           alwaysRender
-          show={isOpen || !isDisabled}
+          show={isOpen && !isDisabled}
           animationStart="rotateRight"
           animationEnd="rotateRightBack"
           duration={200}
@@ -183,7 +182,7 @@ function SingleSelect({
           <ChevronDownIcon
             role="chevron"
             className="text-gray-400"
-            width={18}
+            width={20}
           />
         </Transition>
       </div>
