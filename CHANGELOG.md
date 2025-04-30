@@ -1,3 +1,10 @@
+# [6.40.0](https://github.com/dd3tech/bui/compare/v6.39.5...v6.40.0) (2025-04-30)
+
+
+### Features
+
+* new multi select component added ([149a4d8](https://github.com/dd3tech/bui/commit/149a4d87ce44c3f7f708b5c41467711739f3f0a7))
+
 ## [6.39.5](https://github.com/dd3tech/bui/compare/v6.39.4...v6.39.5) (2025-04-25)
 
 
