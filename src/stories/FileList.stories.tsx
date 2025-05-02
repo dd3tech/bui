@@ -18,8 +18,7 @@ export const Default: Story = {
   args: {
     inputFileProps: {
       title: 'Upload your files',
-      subtitle: 'Drag & drop or browse from your device',
-      hintText: 'Supported formats: PDF, JPG, PNG (max 10MB)'
+      subtitle: 'Drag & drop or browse from your device'
     },
     header: (
       <Flex justifyContent="between" alignItems="center" className="px-4 mt-2">
@@ -51,8 +50,7 @@ export const WithImageFiles: Story = {
   args: {
     inputFileProps: {
       title: 'Upload your images',
-      subtitle: 'Drag & drop or browse from your device',
-      hintText: 'Supported formats: JPG, PNG (max 5MB)'
+      subtitle: 'Drag & drop or browse from your device'
     },
     header: (
       <Flex justifyContent="between" alignItems="center" className="px-4 mt-2">
