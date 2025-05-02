@@ -22,3 +22,6 @@ export { default as MultiSelect } from './MultiSelect'
 export * from './MultiSelect'
 
 export * from './shared'
+
+export { default as FileItem } from './File'
+export * from './File'
