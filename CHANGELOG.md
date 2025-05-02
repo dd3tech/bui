@@ -1,3 +1,10 @@
+## [6.40.1](https://github.com/dd3tech/bui/compare/v6.40.0...v6.40.1) (2025-05-02)
+
+
+### Bug Fixes
+
+* small adjustments were made in aside modal v2 and single select ([ffa096a](https://github.com/dd3tech/bui/commit/ffa096a05f57ad9cfb0851a7a772c1d73d722fba))
+
 # [6.40.0](https://github.com/dd3tech/bui/compare/v6.39.5...v6.40.0) (2025-04-30)
 
 
