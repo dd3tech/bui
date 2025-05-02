@@ -32,7 +32,7 @@ const Badge = ({ value, variant = 'default' }: IBadge) => {
       justifyContent="center"
       alignItems="center"
       className={composeClasses(
-        'rounded-2xl text-xs font-medium px-1 text-white',
+        'rounded-full text-xs font-medium px-1 text-white',
         badgeColor
       )}
       style={{ height: 24, width: 24 }}

@@ -204,7 +204,7 @@ const AsideModalV2: FC<AsideModalProps> = ({
       <Flex
         gap="4"
         className={composeClasses(
-          'bg-gray-50 px-10 py-6 flex-col',
+          'bg-gray-50 px-10 pt-6 pb-4 flex-col',
           isStickyTitle && 'sticky top-0 z-50'
         )}
       >

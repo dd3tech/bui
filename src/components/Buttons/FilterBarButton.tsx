@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, useCallback } from 'react'
 import { XIcon } from '@heroicons/react/outline'
 import { composeClasses } from 'lib/classes'
 
@@ -36,11 +36,31 @@ const FilterBarButton = ({
   principalButton
 }: IFilterBarButton) => {
   const [showPopover, setShowPopover] = useState(false)
+  const [isClosing, setIsClosing] = useState(false)
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setShowPopover(!showPopover)
-    principalButton?.onClick?.(e)
-  }
+  const handleClick = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (showPopover) {
+        setIsClosing(true)
+        setTimeout(() => {
+          setShowPopover(false)
+          setIsClosing(false)
+        }, 200)
+      } else {
+        setShowPopover(true)
+      }
+      principalButton?.onClick?.(e)
+    },
+    [showPopover, principalButton, setShowPopover, setIsClosing]
+  )
+
+  const handleClose = useCallback(() => {
+    setIsClosing(true)
+    setTimeout(() => {
+      setShowPopover(false)
+      setIsClosing(false)
+    }, 200)
+  }, [setIsClosing, setShowPopover])
 
   return (
     <>
@@ -67,12 +87,19 @@ const FilterBarButton = ({
         </Flex>
       </Button>
 
-      {showPopover && (
-        <Transition className="w-full">
+      {(showPopover || isClosing) && (
+        <Transition
+          className="w-full"
+          show={!isClosing}
+          animationStart="fadeIn"
+          animationEnd="fadeOut"
+          duration={200}
+          alwaysRender
+        >
           <div
             className={composeClasses(
               classNamePopover,
-              'bg-white border mt-1 rounded-xl shadow-md transition-all duration-200 ease-out opacity-100 translate-y-0 z-50'
+              'bg-white border mt-1 rounded-xl shadow-md z-50'
             )}
             style={{ width: 468 }}
           >
@@ -81,10 +108,7 @@ const FilterBarButton = ({
               justifyContent="between"
             >
               <Text bold>{titlePopover ?? 'Title'}</Text>
-              <XIcon
-                className="h-5 w-5 cursor-pointer"
-                onClick={() => setShowPopover(false)}
-              />
+              <XIcon className="h-5 w-5 cursor-pointer" onClick={handleClose} />
             </Flex>
             {childrenPopover}
             <Flex

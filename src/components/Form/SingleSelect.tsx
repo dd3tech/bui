@@ -194,7 +194,8 @@ function SingleSelect({
               'absolute left-0 z-10 w-full bg-white overflow-y-auto top-13 rounded-lg shadow-lg'
             )}
             style={{
-              ...getAnimationStyle(isOpen)
+              ...getAnimationStyle(isOpen),
+              border: '1px solid #F9FAFB'
             }}
           >
             <div className="h-8 p-2">
@@ -208,7 +209,7 @@ function SingleSelect({
               return (
                 <Flex
                   className={composeClasses(
-                    'w-full px-2 py-2 hover:bg-blue-100 hover:text-blue-800 hover:font-bold',
+                    'w-full px-2 py-2 hover:bg-blue-50 hover:text-blue-800 hover:font-bold',
                     option.selected && 'text-blue-700'
                   )}
                   justifyContent="between"

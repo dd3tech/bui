@@ -16,7 +16,7 @@ describe('<Badge />', () => {
 
     expect(badge.className).toContain('bg-yellow-400')
     expect(badge.className).toContain('text-white')
-    expect(badge.className).toContain('rounded-2xl')
+    expect(badge.className).toContain('rounded-full')
     expect(badge.className).toContain('text-xs')
     expect(badge.className).toContain('font-medium')
   })

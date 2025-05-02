@@ -31,6 +31,7 @@ describe('<MultiSelect />', () => {
     expect(getByText('Select options')).toBeInTheDocument()
     expect(selectContainer).toBeInTheDocument()
   })
+
   it('should open dropdown when clicked', () => {
     const { getByTestId } = render(<MultiSelect {...defaultProps} />)
 
@@ -47,7 +48,7 @@ describe('<MultiSelect />', () => {
     const { getByTestId } = render(<MultiSelect {...defaultProps} />)
 
     fireEvent.click(getByTestId('select-container'))
-
+    fireEvent.click(getByTestId('select-all'))
     const checkbox = getByTestId('option-1')
     fireEvent.click(checkbox)
 
@@ -70,6 +71,7 @@ describe('<MultiSelect />', () => {
     fireEvent.click(selectContainer)
 
     const allCheckbox = getByTestId('select-all')
+    fireEvent.click(allCheckbox)
     fireEvent.click(allCheckbox)
 
     const option1Checkbox = getByTestId('option-1')
@@ -140,5 +142,26 @@ describe('<MultiSelect />', () => {
     fireEvent.click(getByTestId('select-container'))
     expect(getByTestId('option-4')).toBeInTheDocument()
     expect(getByTestId('option-5')).toBeInTheDocument()
+  })
+
+  it('should have all non-disabled options selected by default', () => {
+    const { getByTestId } = render(<MultiSelect {...defaultProps} />)
+
+    fireEvent.click(getByTestId('select-container'))
+    const option1Checkbox = getByTestId('option-1')
+    const option2Checkbox = getByTestId('option-2')
+    const option3Checkbox = getByTestId('option-3')
+
+    expect(option1Checkbox).toBeChecked()
+    expect(option2Checkbox).toBeChecked()
+    expect(option3Checkbox).not.toBeChecked()
+  })
+
+  it('should not show blue background when all options are selected', () => {
+    const { getByTestId } = render(<MultiSelect {...defaultProps} />)
+    const selectContainer = getByTestId('select-container')
+
+    expect(selectContainer).not.toHaveClass('bg-blue-100')
+    expect(selectContainer).not.toHaveClass('border-blue-600')
   })
 })

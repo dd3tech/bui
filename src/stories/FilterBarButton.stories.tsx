@@ -19,6 +19,14 @@ export const Default: Story = {
     iconLeft: <XCircleIcon width={20} />,
     iconRight: <XCircleIcon width={20} />,
     titlePopover: 'More Filter',
+    secondaryButton: {
+      label: 'Cancel',
+      onClick: () => alert('Cancel')
+    },
+    primaryButton: {
+      label: 'Submit',
+      onClick: () => alert('Submit')
+    },
     childrenPopover: (
       <Flex
         justifyContent="center"
