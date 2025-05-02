@@ -8,8 +8,10 @@ import {
   useEffect,
   useRef,
   useState,
-  useMemo
+  useMemo,
+  useCallback
 } from 'react'
+import { XIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { StyleObject } from 'lib/styles'
 import { composeClasses } from 'lib/classes'
@@ -72,9 +74,8 @@ function MultiSelect({
   const selectRef = useRef<HTMLInputElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOptions, setSelectedOptions] = useState<IMultiSelectOption[]>(
-    []
+    optionsList.filter((opt) => !opt.disabled)
   )
-
   const [options, setOptions] = useState<IMultiSelectOption[]>(optionsList)
 
   const styles = {
@@ -94,10 +95,10 @@ function MultiSelect({
     )
   }
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (isDisabled) return
     setIsOpen(!isOpen)
-  }
+  }, [isDisabled, isOpen, setIsOpen])
 
   const handleOptionToggle = (option: IMultiSelectOption) => {
     if (option.disabled) return
@@ -119,13 +120,20 @@ function MultiSelect({
         .every((opt) => selectedOptions.some((sel) => sel.value === opt.value)),
     [options, selectedOptions]
   )
-  const handleSelectAll = () => {
+  const handleSelectAll = useCallback(() => {
     allSelected
       ? setSelectedOptions([])
       : setSelectedOptions(options.filter((opt) => !opt.disabled))
-  }
+  }, [allSelected, options, setSelectedOptions])
 
-  const handleClear = () => setSelectedOptions([])
+  const handleClear = useCallback(() => {
+    setSelectedOptions([])
+  }, [setSelectedOptions])
+
+  const onSubmit = useCallback(() => {
+    buttonSubmit?.onClick()
+    setIsOpen(false)
+  }, [buttonSubmit, setIsOpen])
 
   useEffect(() => {
     const handleClickOutside = (e: globalThis.MouseEvent) => {
@@ -153,7 +161,9 @@ function MultiSelect({
         role="select-container"
         className={composeClasses(
           styles.container,
-          selectedOptions.length > 0 && 'bg-blue-100 border border-blue-600'
+          selectedOptions.length > 0 &&
+            !allSelected &&
+            'bg-blue-100 border border-blue-600'
         )}
         style={{ zIndex: 2, ...style }}
         onClick={handleClick}
@@ -180,19 +190,23 @@ function MultiSelect({
             )}
           </div>
         </div>
-        <Transition
-          alwaysRender
-          show={isOpen && !isDisabled}
-          animationStart="rotateRight"
-          animationEnd="rotateRightBack"
-          duration={200}
-        >
-          <ChevronDownIcon
-            role="chevron"
-            className="text-gray-400"
-            width={20}
-          />
-        </Transition>
+        {selectedOptions.length > 0 && !allSelected ? (
+          <XIcon onClick={handleClear} className="text-gray-400" width={30} />
+        ) : (
+          <Transition
+            alwaysRender
+            show={isOpen && !isDisabled}
+            animationStart="rotateRight"
+            animationEnd="rotateRightBack"
+            duration={200}
+          >
+            <ChevronDownIcon
+              role="chevron"
+              className="text-gray-400"
+              width={20}
+            />
+          </Transition>
+        )}
       </div>
       {isOpen && !isDisabled && (
         <Transition
@@ -241,7 +255,7 @@ function MultiSelect({
               >
                 {buttonClear?.label}
               </Button>
-              <Button onClick={buttonSubmit?.onClick} className="px-8">
+              <Button onClick={onSubmit} className="px-8">
                 {buttonSubmit?.label}
               </Button>
             </Flex>
