@@ -62,7 +62,6 @@ function MultiSelect({
   labelAll,
   className,
   classNameAdornment,
-  large,
   style,
   optionsList,
   onChangeSelect,
@@ -84,13 +83,12 @@ function MultiSelect({
       classNameAdornment
     ),
     container: composeClasses(
-      'relative placeholder-gray-400 mt-1 flex items-center justify-between font-medium gap-3 cursor-pointer',
+      'relative placeholder-gray-400 flex items-center justify-between font-medium gap-3 cursor-pointer h-10 bg-white',
       'border-solid border rounded-lg px-4',
       'transition duration-500 ease-out focus:ease-in border-gray-300',
       !isDisabled && !isOpen && `hover:shadow-lg hover:border-info`,
       isOpen && !isDisabled && 'border-blue-500',
       isDisabled && 'bg-gray-100 text-gray-400 cursor-not-allowed',
-      large ? 'h-13' : 'h-12',
       className
     )
   }
@@ -170,13 +168,11 @@ function MultiSelect({
         data-testid="select-container"
       >
         <div className="flex flex-col w-full relative">
-          <div className="relative flex items-center">
+          <Flex className="relative" alignItems="center" gap="4">
             <input
               {...otherProps}
               value={label || ''}
-              className={composeClasses(
-                'outline-none w-full font-medium bg-transparent'
-              )}
+              className="outline-none w-full font-medium bg-transparent truncate text-sm"
               readOnly
               style={{
                 cursor: 'inherit',
@@ -188,7 +184,7 @@ function MultiSelect({
             {selectedOptions.length > 0 && !allSelected && (
               <Badge value={selectedOptions.length} />
             )}
-          </div>
+          </Flex>
         </div>
         {selectedOptions.length > 0 && !allSelected ? (
           <XIcon onClick={handleClear} className="text-gray-400" width={30} />
@@ -209,56 +205,66 @@ function MultiSelect({
         )}
       </div>
       {isOpen && !isDisabled && (
-        <Transition
-          className="w-full z-50 absolute left-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg"
-          style={{ zIndex: 10 }}
-        >
-          <div className="px-4 py-1">
-            <Text size="sm">{label}</Text>
+        <Transition className="w-full absolute z-50">
+          <div
+            role="dropdown"
+            className={composeClasses(
+              'relative left-0 z-50 w-full bg-white overflow-y-auto top-1 rounded-lg shadow-lg'
+            )}
+          >
+            <div className="px-4 py-2">
+              <Text size="sm">{label}</Text>
 
-            <div className="max-h-44 overflow-auto text-base">
-              <ul>
-                <li className="flex items-center mb-1 border-b pb-1 sticky top-0 bg-white">
-                  <input
-                    type="checkbox"
-                    checked={allSelected}
-                    onChange={handleSelectAll}
-                    className="mr-2"
-                    data-testid="select-all"
-                  />
-                  <span>{labelAll || 'All'}</span>
-                </li>
-                {options.map((option) => (
-                  <li key={option.value} className="flex items-center mb-1">
+              <div className="max-h-44 overflow-auto text-sm">
+                <ul>
+                  <li className="flex items-center my-1 border-b pb-1 sticky top-0 bg-white">
                     <input
                       type="checkbox"
-                      checked={selectedOptions.some(
-                        (o) => o.value === option.value
-                      )}
-                      onChange={() => handleOptionToggle(option)}
-                      disabled={option.disabled}
+                      checked={allSelected}
+                      onChange={handleSelectAll}
                       className="mr-2"
-                      data-testid={`option-${option.value}`}
+                      data-testid="select-all"
                     />
-                    <span className={option.disabled ? 'text-gray-400' : ''}>
-                      {option.label || option.value}
-                    </span>
+                    <span>{labelAll || 'All'}</span>
                   </li>
-                ))}
-              </ul>
-            </div>
+                  {options.map((option) => (
+                    <li key={option.value} className="flex items-center mb-1">
+                      <input
+                        type="checkbox"
+                        checked={selectedOptions.some(
+                          (o) => o.value === option.value
+                        )}
+                        onChange={() => handleOptionToggle(option)}
+                        disabled={option.disabled}
+                        className="mr-2"
+                        data-testid={`option-${option.value}`}
+                      />
+                      <span className={option.disabled ? 'text-gray-400' : ''}>
+                        {option.label || option.value}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <Flex justifyContent="around" className="border-t py-2">
-              <Button
-                variant="ghost"
-                onClick={buttonClear?.onClick || handleClear}
-              >
-                {buttonClear?.label}
-              </Button>
-              <Button onClick={onSubmit} className="px-8">
-                {buttonSubmit?.label}
-              </Button>
-            </Flex>
+              <Flex justifyContent="around" className="border-t py-2">
+                <Button
+                  variant="ghost"
+                  size="small"
+                  onClick={buttonClear?.onClick || handleClear}
+                >
+                  {buttonClear?.label}
+                </Button>
+                <Button
+                  size="small"
+                  onClick={onSubmit}
+                  paddingX="6"
+                  paddingY="0"
+                >
+                  {buttonSubmit?.label}
+                </Button>
+              </Flex>
+            </div>
           </div>
         </Transition>
       )}
