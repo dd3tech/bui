@@ -14,12 +14,21 @@ export const Default: Story = {
   args: {
     hintText: 'Subir en formato XML - PDF',
     progressIndicator: 0,
-    boxMessage: 'PDF Peso máximo por archivo 20 MB',
     dragMessage: 'Suelta aquí',
     id: 'upload',
     disabled: false,
-    label: 'Drag & drop your files or',
-    labelAction: 'browse from your device',
+    title: 'Drag & drop your files or',
+    subtitle: 'browse from your device',
+    singleFile: false,
+    onView: () => {
+      console.log('onView')
+    },
+    onDownload: () => {
+      console.log('onDownload')
+    },
+    onDelete: () => {
+      console.log('onDelete')
+    },
     error: {
       show: false,
       message: (
