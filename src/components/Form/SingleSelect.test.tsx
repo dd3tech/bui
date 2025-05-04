@@ -80,11 +80,4 @@ describe('<SingleSelect />', () => {
     expect(optionContainer).toHaveClass('text-blue-700')
     expect(optionContainer?.querySelector('svg')).toBeInTheDocument()
   })
-
-  it('should handle large variant', () => {
-    const { getByRole } = render(
-      <SingleSelect optionsList={optionsList} large />
-    )
-    expect(getByRole('select-container')).toHaveClass('h-13')
-  })
 })

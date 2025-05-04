@@ -64,7 +64,6 @@ function SingleSelect({
   label,
   className,
   classNameAdornment,
-  large,
   style,
   optionsList,
   onChangeSelect,
@@ -90,13 +89,12 @@ function SingleSelect({
       classNameAdornment
     ),
     container: composeClasses(
-      'relative placeholder-gray-400 mt-1 flex items-center justify-between font-medium gap-3 cursor-pointer',
+      'relative placeholder-gray-400 flex items-center justify-between font-medium gap-3 cursor-pointer h-10 bg-white',
       'border-solid border rounded-lg px-4',
       'transition duration-500 ease-out focus:ease-in border-gray-300',
       !isDisabled && !isOpen && `hover:shadow-lg hover:border-info`,
       isOpen && !isDisabled && 'border-blue-500',
       isDisabled && 'bg-gray-100 text-gray-400 cursor-not-allowed',
-      large ? 'h-13' : 'h-12',
       className
     )
   }
@@ -159,7 +157,7 @@ function SingleSelect({
               {...otherProps}
               value={selectedOption?.label ?? optionsList?.[0]?.label}
               className={composeClasses(
-                'outline-none w-full font-medium bg-transparent'
+                'outline-none w-full font-medium bg-transparent truncate text-sm'
               )}
               placeholder=""
               readOnly
@@ -187,11 +185,11 @@ function SingleSelect({
         </Transition>
       </div>
       {isOpen && !isDisabled && (
-        <Transition className="w-full z-50">
+        <Transition className="w-full absolute z-50">
           <div
             role="dropdown"
             className={composeClasses(
-              'absolute left-0 z-10 w-full bg-white overflow-y-auto top-13 rounded-lg shadow-lg'
+              'relative left-0 z-50 w-full bg-white overflow-y-auto top-1 rounded-lg shadow-lg'
             )}
             style={{
               ...getAnimationStyle(isOpen),
@@ -240,5 +238,4 @@ function SingleSelect({
     </div>
   )
 }
-
 export default SingleSelect
