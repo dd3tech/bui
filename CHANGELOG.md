@@ -1,3 +1,10 @@
+## [6.40.2](https://github.com/dd3tech/bui/compare/v6.40.1...v6.40.2) (2025-05-04)
+
+
+### Bug Fixes
+
+* small styles adjustment ([758e028](https://github.com/dd3tech/bui/commit/758e0281ba28d2051aeacbae2be06219ffdaaffa))
+
 ## [6.40.1](https://github.com/dd3tech/bui/compare/v6.40.0...v6.40.1) (2025-05-02)
 
 
