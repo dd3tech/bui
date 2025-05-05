@@ -35,7 +35,7 @@ const Badge = ({ value, variant = 'default' }: IBadge) => {
         'rounded-full text-xs font-medium px-1 text-white',
         badgeColor
       )}
-      style={{ height: 24, width: 24 }}
+      style={{ height: 24, width: 24, minWidth: 24, minHeight: 24 }}
     >
       {value}
     </Flex>

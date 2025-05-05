@@ -29,6 +29,10 @@ export interface CellTextProps
    * Show default value
    */
   showDefaultValue?: boolean
+  /**
+   * Is accordion
+   */
+  isAccordion?: boolean
 }
 
 const CellText = ({
@@ -38,6 +42,7 @@ const CellText = ({
   showDefaultValue,
   children,
   to,
+  isAccordion,
   ...props
 }: CellTextProps) => {
   const getTextAlignment = () => {
@@ -80,7 +85,7 @@ const CellText = ({
         getTextAlignment()
       )}
       onClick={(e) => {
-        e.stopPropagation()
+        !isAccordion && e.stopPropagation()
         to?.()
       }}
     >
