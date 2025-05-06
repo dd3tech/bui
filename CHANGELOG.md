@@ -1,3 +1,10 @@
+## [6.41.1](https://github.com/dd3tech/bui/compare/v6.41.0...v6.41.1) (2025-05-06)
+
+
+### Bug Fixes
+
+* change accumulate variant text color ([9c9ec0f](https://github.com/dd3tech/bui/commit/9c9ec0f4f344ad64e13705547f8edec05fda7517))
+
 # [6.41.0](https://github.com/dd3tech/bui/compare/v6.40.2...v6.41.0) (2025-05-06)
 
 
