@@ -22,7 +22,7 @@ const rowVariant: { [key: string]: string } = {
   highlight: `${fontSize.xxs} text-gray-900 bg-gray-100 hover:bg-gray-100`,
   result: `${fontSize.xxs} text-gray-900 bg-gray-50`,
   summary: `${fontSize.xxs} bg-gray-700 hover:bg-gray-700 text-white`,
-  accumulate: `${fontSize.xxs} text-gray-900 bg-surface hover:bg-surface`
+  accumulate: `${fontSize.xxs} text-white bg-surface hover:bg-surface`
 }
 
 const Row = ({ variant = 'default', ...props }: RowProps) => {
