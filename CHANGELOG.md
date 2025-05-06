@@ -1,3 +1,10 @@
+# [6.41.0](https://github.com/dd3tech/bui/compare/v6.40.2...v6.41.0) (2025-05-06)
+
+
+### Features
+
+* add accumulate row variant on table v2 ([2d496e4](https://github.com/dd3tech/bui/commit/2d496e4b194ff9b43f3e9d5ce49d543736e8d3ec))
+
 ## [6.40.2](https://github.com/dd3tech/bui/compare/v6.40.1...v6.40.2) (2025-05-04)
 
 
