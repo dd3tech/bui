@@ -1,3 +1,10 @@
+## [6.41.2](https://github.com/dd3tech/bui/compare/v6.41.1...v6.41.2) (2025-05-07)
+
+
+### Bug Fixes
+
+* small adjustments were made to single select and multi select components ([d5ce082](https://github.com/dd3tech/bui/commit/d5ce082a9760a4112b17064989b295a490a14d62))
+
 ## [6.41.1](https://github.com/dd3tech/bui/compare/v6.41.0...v6.41.1) (2025-05-06)
 
 
