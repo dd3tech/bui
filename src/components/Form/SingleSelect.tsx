@@ -130,8 +130,6 @@ function SingleSelect({
 
   useEffect(() => {
     if (!value) return
-    const selected = optionsList.find((option) => option.value === value)
-    setSelectedOption(selected ?? null)
     setOptions(
       optionsList.map((option) =>
         option.value === value ? { ...option, selected: true } : option
@@ -155,11 +153,11 @@ function SingleSelect({
           <div className="relative">
             <input
               {...otherProps}
-              value={selectedOption?.label ?? optionsList?.[0]?.label}
+              value={selectedOption?.label ?? label}
               className={composeClasses(
                 'outline-none w-full font-medium bg-transparent truncate text-sm'
               )}
-              placeholder=""
+              placeholder="skjfafkhad"
               readOnly
               style={{
                 cursor: 'inherit',

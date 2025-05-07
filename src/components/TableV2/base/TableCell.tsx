@@ -91,6 +91,10 @@ export interface CellProps
    * Show a shadow when cell is sticky left
    */
   leftStickyShadow?: boolean
+  /**
+   * Is accordion
+   */
+  isAccordion?: boolean
 }
 
 const Cell = ({
@@ -113,6 +117,7 @@ const Cell = ({
   cellColor,
   variant = 'default',
   children,
+  isAccordion,
   to,
   ...props
 }: CellProps) => {
@@ -194,6 +199,7 @@ const Cell = ({
         />
       ) : isSimpleChildren ? (
         <CellText
+          isAccordion={isAccordion}
           type={type}
           align={align}
           defaultValue={defaultValue}

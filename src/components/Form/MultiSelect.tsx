@@ -228,7 +228,7 @@ function MultiSelect({
                     <span>{labelAll || 'All'}</span>
                   </li>
                   {options.map((option) => (
-                    <li key={option.value} className="flex items-center mb-1">
+                    <li key={option.value} className="flex items-center my-2">
                       <input
                         type="checkbox"
                         checked={selectedOptions.some(
@@ -247,8 +247,9 @@ function MultiSelect({
                 </ul>
               </div>
 
-              <Flex justifyContent="around" className="border-t py-2">
+              <Flex justifyContent="between" className="border-t pt-3 pb-2">
                 <Button
+                  className="w-full"
                   variant="ghost"
                   size="small"
                   onClick={buttonClear?.onClick || handleClear}
@@ -256,6 +257,7 @@ function MultiSelect({
                   {buttonClear?.label}
                 </Button>
                 <Button
+                  className="w-full"
                   size="small"
                   onClick={onSubmit}
                   paddingX="6"
