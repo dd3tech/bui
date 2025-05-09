@@ -8,13 +8,16 @@ import { Button, IButtonProps } from 'components/Buttons'
 import { FilterSearch, FilterSearchProps } from 'components/Filters'
 import { Tab, TabGroup, TabPanel } from 'components/Tabs'
 import Divider from 'components/Divider'
-import ShapeButton from '../Buttons/ShapeButton'
 import Text, { TextVariantType } from '../Typography'
+import Tag from 'components/Tag'
+import Tooltip from '../Tooltip/Tooltip'
+import ShapeButton from '../Buttons/ShapeButton'
 
 type ModalPosition = 'left' | 'right'
 
 export interface ModalButton extends Partial<IButtonProps> {
   label: string
+  tooltip?: string
 }
 
 export interface ModalDescription {
@@ -53,6 +56,10 @@ export interface AsideModalProps extends ComponentProps<'aside'> {
   buttons?: ModalButton[]
   search?: FilterSearchProps
   tabs?: ModalTabs
+  tagTitle?: {
+    variant: 'primary' | 'secondary' | 'success' | 'warning'
+    text: string
+  }
 }
 
 const AsideModalV2: FC<AsideModalProps> = ({
@@ -68,6 +75,7 @@ const AsideModalV2: FC<AsideModalProps> = ({
   children,
   search,
   tabs,
+  tagTitle,
   ...otherProps
 }) => {
   const isRightPosition = position === 'right'
@@ -111,21 +119,38 @@ const AsideModalV2: FC<AsideModalProps> = ({
 
           {buttons?.length && (
             <Flex gap="4" className="flex-shrink-0">
-              {buttons.map((button, index) => (
-                <Button
-                  role={button.role}
-                  key={`btn-${index}`}
-                  variant={button.variant || 'primary'}
-                  size={button.size || 'small'}
-                  onClick={button.onClick}
-                  paddingX="10"
-                  paddingY="2"
-                  disabled={button.disabled}
-                  isLoading={button.isLoading}
-                >
-                  {button.label}
-                </Button>
-              ))}
+              {buttons.map((button, index) =>
+                button.tooltip ? (
+                  <Tooltip key={`btn-${index}`} content={button.tooltip}>
+                    <Button
+                      role={button.role}
+                      variant={button.variant || 'primary'}
+                      size={button.size || 'small'}
+                      onClick={button.onClick}
+                      paddingX="10"
+                      paddingY="2"
+                      disabled={button.disabled}
+                      isLoading={button.isLoading}
+                    >
+                      {button.label}
+                    </Button>
+                  </Tooltip>
+                ) : (
+                  <Button
+                    role={button.role}
+                    key={`btn-${index}`}
+                    variant={button.variant || 'primary'}
+                    size={button.size || 'small'}
+                    onClick={button.onClick}
+                    paddingX="10"
+                    paddingY="2"
+                    disabled={button.disabled}
+                    isLoading={button.isLoading}
+                  >
+                    {button.label}
+                  </Button>
+                )
+              )}
             </Flex>
           )}
         </Flex>
@@ -209,9 +234,14 @@ const AsideModalV2: FC<AsideModalProps> = ({
         )}
       >
         <Flex className="w-full" justifyContent="between" alignItems="center">
-          <Text variant={titleVariant} bold>
-            {title}
-          </Text>
+          <Flex gap="6" alignItems="center">
+            <Text variant={titleVariant} bold>
+              {title}
+            </Text>
+            {tagTitle && (
+              <Tag variant={tagTitle.variant} text={tagTitle.text} />
+            )}
+          </Flex>
           <ShapeButton.CircleButton
             data-testid="close-button"
             width="34px"

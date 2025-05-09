@@ -260,7 +260,7 @@ function MultiSelect({
                   className="w-full"
                   size="small"
                   onClick={onSubmit}
-                  paddingX="6"
+                  paddingX="2"
                   paddingY="0"
                 >
                   {buttonSubmit?.label}

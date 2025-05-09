@@ -58,6 +58,7 @@ export interface SingleSelectProps
   styleDropdown?: StyleObject
   onChangeSelect?: (option: ISelectOption) => void
   isDisabled?: boolean
+  placeholder?: string
 }
 
 function SingleSelect({
@@ -69,6 +70,7 @@ function SingleSelect({
   onChangeSelect,
   value,
   isDisabled,
+  placeholder,
   ...otherProps
 }: SingleSelectProps) {
   const selectRef = useRef<HTMLInputElement>(null)
@@ -146,18 +148,21 @@ function SingleSelect({
     >
       <div
         role="select-container"
-        className={styles.container}
+        className={composeClasses(
+          styles.container,
+          !!selectedOption && 'bg-blue-100 border border-blue-600'
+        )}
         style={{ zIndex: 2, ...style }}
       >
         <div className="flex flex-col w-full relative">
           <div className="relative">
             <input
+              value={selectedOption?.label}
+              placeholder={placeholder}
               {...otherProps}
-              value={selectedOption?.label ?? label}
               className={composeClasses(
                 'outline-none w-full font-medium bg-transparent truncate text-sm'
               )}
-              placeholder="skjfafkhad"
               readOnly
               style={{
                 cursor: 'inherit',
