@@ -3,39 +3,45 @@
  */
 
 import { ChangeEvent, ReactNode, useCallback, useState } from 'react'
-import UploadIcon from '@heroicons/react/outline/UploadIcon'
-import ProgressBar from '../../ProgressBar/ProgressBar'
+import {
+  UploadIcon,
+  PaperClipIcon,
+  TrashIcon,
+  DownloadIcon,
+  EyeIcon
+} from '@heroicons/react/outline'
+import { InformationCircleIcon } from '@heroicons/react/solid'
 import { composeClasses } from 'lib/classes'
+import { Flex } from 'components/Layout'
+import Tooltip from 'components/Tooltip'
+import { Button } from 'components/Buttons'
+import ProgressBar from '../../ProgressBar/ProgressBar'
 import Text from '../../Typography/Text'
 
 export interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   progressIndicator?: number
-  hintText?: string
-  boxMessage?: string
   dragMessage?: ReactNode
-  label?: string
-  labelAction?: string
+  title?: string
+  subtitle?: string
   error?: { show?: boolean; message?: ReactNode }
   roleContainer?: string
+  singleFile?: boolean
+  tooltipText?: string
+  uploadText?: string
+  onView?: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onDownload?: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onDelete?: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-function InputFile({
+export function InputFile({
   /**
    * This property works to provide a value to the progress bar when uploading a file
    */
   progressIndicator = 0,
   /**
-   * works to put a text as a suffix of the Input box
-   */
-  hintText = 'Upload in PDF format and signed by all parties (if applicable).',
-  /**
    * works to put a custom message to the message when doing dragAnDrop
    */
   dragMessage = 'Release here',
-  /**
-   * Indicates the message that goes in the middle of the box where the files are dropped.
-   */
-  boxMessage = 'PDF Maximum weight per file 20 MB',
   /**
    * is a callback to listen for input changes from outside the component.
    */
@@ -47,11 +53,11 @@ function InputFile({
   /**
    * It is a text message that goes on top of the box
    */
-  label = 'Drag & drop your files or',
+  title = 'Drag & drop your files',
   /**
-   * is the message that works to call the Input and with this upload files from a text button
+   * is the message that goes below the title
    */
-  labelAction = 'browse from your device',
+  subtitle = 'browse from your device',
   /**
    * works to reference the role of the entire component container, which is not an Input, just a container
    */
@@ -63,103 +69,180 @@ function InputFile({
     show: false,
     message: 'File type not allowed or exceeds the maximum weight'
   },
+  /**
+   * is a boolean that works to indicate if the input selects a single file or multiple files
+   */
+  singleFile = false,
+  /**
+   * is a string that works to indicate the tooltip text
+   */
+  tooltipText,
+  /**
+   * is a string that works to indicate the action of the label
+   */
+  uploadText = 'Upload',
+  /**
+   * is a function that works to view the file
+   */
+  onView,
+  /**
+   * is a function that works to download the file
+   */
+  onDownload,
+  /**
+   * is a function that works to delete the file
+   */
+  onDelete,
   ...otherProps
 }: InputFileProps) {
-  const [isDrag, setIsDrag] = useState(false)
+  const [isDrag, setIsDrag] = useState<boolean>(false)
+  const [file, setFile] = useState<FileList | null>(null)
   const disabled = otherProps.disabled || false
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       if (disabled) return
       setIsDrag(false)
+      setFile(event.target.files)
       onChange && onChange(event)
     },
     [isDrag, onChange]
   )
 
-  const getBannerMessage = useCallback((): ReactNode => {
-    if (error?.show && error.message) return error?.message
-    if (isDrag) return dragMessage
-    return boxMessage
-  }, [error, isDrag, dragMessage, boxMessage])
-
   return (
-    <div
+    <label
       role={roleContainer}
-      className={composeClasses(disabled && 'cursor-not-allowed')}
+      htmlFor={id}
+      className={composeClasses(
+        'relative w-full p-4 flex flex-col gap-1 border border-dashed bg-white border-gray-400 rounded-xl hover:bg-blue-50',
+        isDrag && 'bg-gray-50',
+        error?.show && 'border-error',
+        disabled && 'cursor-not-allowed'
+      )}
     >
-      <Text variant="p" className="mb-2 text-xs text-gray-400">
-        {label}{' '}
-        <label
-          htmlFor={id}
-          className={
-            composeClasses(
-              'text-primary underline underline-offset-1 leading-6',
-              disabled ? 'cursor-not-allowed' : 'cursor-pointer'
-            ) as string
-          }
-        >
-          {labelAction}
-        </label>
+      <Flex justifyContent="between" alignItems="center">
+        <Flex alignItems="center" gap="2">
+          <Text>{title}</Text>
+          {tooltipText && (
+            <Tooltip content={tooltipText} position="right">
+              <InformationCircleIcon className="w-4 h-4 text-gray-900 z-10" />
+            </Tooltip>
+          )}
+        </Flex>
+        {!(singleFile && file?.length) && (
+          <Flex alignItems="center" gap="2">
+            <UploadIcon className="w-4 h-4 text-blue-700" />
+            <Text variant="small" className="text-blue-700">
+              {uploadText}
+            </Text>
+          </Flex>
+        )}
+      </Flex>
+      <Text textMuted500 style={{ fontSize: '10px' }}>
+        {subtitle}
       </Text>
-      <label
-        role="border"
-        htmlFor={id}
+      <div
         className={composeClasses(
-          'border relative h-20 border-gray-400 rounded-xl w-full flex items-center justify-center text-gray-400 gap-3 mb-2 hover:bg-gray-50',
-          !isDrag && 'border-dotted',
-          isDrag && 'border-dashed bg-gray-50'
+          'flex gap-3 items-center',
+          error?.show && 'text-error'
         )}
       >
-        <div
+        <input
+          {...otherProps}
+          type="file"
+          id={id}
+          onChange={handleChange}
+          onDragEnd={() => setIsDrag(false)}
+          onDragLeave={() => setIsDrag(false)}
+          onDragOver={() => {
+            if (disabled) return
+            setIsDrag(true)
+          }}
+          disabled={progressIndicator >= 1 || disabled}
           className={composeClasses(
-            'flex gap-3 items-center',
-            error?.show && 'text-error'
+            'opacity-0 absolute top-0 left-0 bottom-0 right-0',
+            disabled ? 'cursor-not-allowed' : 'cursor-pointer'
           )}
-        >
-          <input
-            {...otherProps}
-            type="file"
-            id={id}
-            onChange={handleChange}
-            onDragEnd={() => setIsDrag(false)}
-            onDragLeave={() => setIsDrag(false)}
-            onDragOver={() => {
-              if (disabled) return
-              setIsDrag(true)
-            }}
-            disabled={progressIndicator >= 1 || disabled}
-            className={composeClasses(
-              'opacity-0 absolute top-0 left-0 bottom-0 right-0',
-              disabled ? 'cursor-not-allowed' : 'cursor-pointer'
-            )}
-          />
-          <UploadIcon className="w-5 h-5" />
-          <div className="flex flex-col gap-1">
-            <Text variant="small" className="text-center">
-              {getBannerMessage()}
-            </Text>
-            {!error?.show && !isDrag && progressIndicator !== 0 && (
+        />
+        {isDrag && !error?.show && (
+          <Text className="whitespace-nowrap" style={{ fontSize: '10px' }}>
+            {dragMessage}
+          </Text>
+        )}
+        {error?.show && (
+          <Text className="whitespace-nowrap" style={{ fontSize: '10px' }}>
+            {error.message}
+          </Text>
+        )}
+        {!error?.show && !isDrag && progressIndicator !== 0 && (
+          <Flex alignItems="center" gap="2" className="w-full">
+            <UploadIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            <Flex className="w-full flex-col" gap="1">
+              <Text textMuted500 style={{ fontSize: '10px' }}>
+                {file?.item(0)?.name}
+              </Text>
               <ProgressBar
                 value={progressIndicator}
                 backgroundColor="var(--primary)"
                 height="6px"
                 bgColorContainer="#EFF6FF"
               />
-            )}
-          </div>
-        </div>
-      </label>
-      {hintText && (
-        <Text
-          style={{ fontSize: '10px' }}
-          variant="p"
-          className="italic text-info font-semibold"
-        >
-          {hintText}
-        </Text>
-      )}
-    </div>
+            </Flex>
+          </Flex>
+        )}
+        {singleFile && file?.length === 1 && !error?.show && (
+          <Flex
+            justifyContent="between"
+            alignItems="center"
+            gap="2"
+            className="w-full z-10"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+            }}
+          >
+            <Flex alignItems="center" gap="2">
+              <PaperClipIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
+              <Text size="xs" className="whitespace-nowrap">
+                {file.item(0)?.name}
+              </Text>
+            </Flex>
+            <Flex alignItems="center" gap="2">
+              {onView && (
+                <Button
+                  variant="ghost"
+                  padding="0.5"
+                  className="rounded-full"
+                  onClick={onView}
+                >
+                  <EyeIcon className="w-4 h-4 text-gray-400 flex-shrink-0 cursor-pointer" />
+                </Button>
+              )}
+              {onDownload && (
+                <Button
+                  variant="ghost"
+                  padding="0.5"
+                  className="rounded-full"
+                  onClick={onDownload}
+                >
+                  <DownloadIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                </Button>
+              )}
+              {onDelete && (
+                <Button
+                  variant="ghost"
+                  padding="0.5"
+                  className="rounded-full"
+                  onClick={onDelete}
+                >
+                  <TrashIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
+                </Button>
+              )}
+            </Flex>
+          </Flex>
+        )}
+      </div>
+    </label>
   )
 }
 

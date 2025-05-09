@@ -288,6 +288,21 @@
             "module": "./dist/esm/components/FeedBackBox/index.js",
             "default": "./dist/esm/components/FeedBackBox/index.js"
         },
+        "./FileItem": {
+            "require": "./dist/cjs/components/Form/File/FileItem.js",
+            "module": "./dist/esm/components/Form/File/FileItem.js",
+            "default": "./dist/esm/components/Form/File/FileList.js"
+        },
+        "./FileImageItem": {
+            "require": "./dist/cjs/components/Form/File/FileImageItem.js",
+            "module": "./dist/esm/components/Form/File/FileImageItem.js",
+            "default": "./dist/esm/components/Form/File/FileImageItem.js"
+        },
+        "./FileList": {
+            "require": "./dist/cjs/components/Form/File/FileList.js",
+            "module": "./dist/esm/components/Form/File/FileList.js",
+            "default": "./dist/esm/components/Form/File/FileList.js"
+        },
         "./FileViewer": {
             "require": "./dist/cjs/components/FileViewer/index.js",
             "module": "./dist/esm/components/FileViewer/index.js",
@@ -635,6 +650,15 @@
             ],
             "FeedBackBox": [
                 "./dist/esm/components/FeedBackBox/index.d.ts"
+            ],
+            "FileItem": [
+                "./dist/esm/components/Form/File/FileItem.d.ts"
+            ],
+            "FileImageItem": [
+                "./dist/esm/components/Form/File/FileImageItem.d.ts"
+            ],
+            "FileList": [
+                "./dist/esm/components/Form/File/FileList.d.ts"
             ],
             "FileViewer": [
                 "./dist/esm/components/FileViewer/index.d.ts"
