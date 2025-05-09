@@ -97,7 +97,7 @@ const Radio = forwardRef<HTMLLabelElement, IRadio>(
         <span
           role="radioCustom"
           className={composeClasses(
-            'flex justify-center items-center relative w-5 h-5 rounded-full mr-3.5 border',
+            'flex justify-center items-center relative w-5 h-5 rounded-full mr-2 border',
             classes.radio
           )}
         >
