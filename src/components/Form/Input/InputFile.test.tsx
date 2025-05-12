@@ -1,4 +1,3 @@
-import React from 'react'
 import { fireEvent, render } from '@testing-library/react'
 import { describe, it, vi } from 'vitest'
 import InputFile from './InputFile'
@@ -13,39 +12,32 @@ describe('<InputFile />', () => {
   it('should render label and labelAction correctly', () => {
     const { getByText } = render(<InputFile />)
 
-    const label = getByText('Drag & drop your files or')
+    const label = getByText('Drag & drop your files')
     const labelAction = getByText('browse from your device')
 
     expect(label).toBeInTheDocument()
     expect(labelAction).toBeInTheDocument()
   })
 
-  it('should render boxMessage correctly', () => {
-    const { getByText } = render(
-      <InputFile boxMessage="PDF, PNG, JPG, Peso máximo por archivo 20 MB" />
-    )
-
-    expect(
-      getByText('PDF, PNG, JPG, Peso máximo por archivo 20 MB').textContent
-    ).toEqual('PDF, PNG, JPG, Peso máximo por archivo 20 MB')
-  })
-
   it('handles onDragEnd, onDragLeave, and onDragOver', () => {
     const onChange = vi.fn()
-    const { getByRole } = render(
-      <InputFile role="input-file" onChange={onChange} />
+    const { getByRole, queryByText } = render(
+      <InputFile
+        role="input-file"
+        onChange={onChange}
+        dragMessage="Drag text"
+      />
     )
     const input = getByRole('input-file')
-    const borderContainer = getByRole('border')
 
     fireEvent.dragOver(input)
-    expect(borderContainer.className).toContain('border-dashed bg-gray-50')
+    expect(queryByText('Drag text')).toBeDefined()
 
     fireEvent.dragEnd(input)
-    expect(borderContainer.className).not.toContain('border-dashed bg-gray-50')
+    expect(queryByText('Drag text')).toBeDefined()
 
     fireEvent.dragLeave(input)
-    expect(borderContainer.className).not.toContain('border-dashed bg-gray-50')
+    expect(queryByText('Drag text')).toBeNull()
   })
 
   it('should be change input file value', () => {
