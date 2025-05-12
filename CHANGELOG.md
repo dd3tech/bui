@@ -1,3 +1,15 @@
+# [6.42.0](https://github.com/dd3tech/bui/compare/v6.41.3...v6.42.0) (2025-05-12)
+
+
+### Bug Fixes
+
+* remove hint text ([41e0d4d](https://github.com/dd3tech/bui/commit/41e0d4d03ab44dfdf6ffabd646f8e316d86932c9))
+
+
+### Features
+
+* add file list components and new layout of input file ([1ab8fc1](https://github.com/dd3tech/bui/commit/1ab8fc106848a586b70fac70db31bcb825a7096f))
+
 ## [6.41.3](https://github.com/dd3tech/bui/compare/v6.41.2...v6.41.3) (2025-05-12)
 
 
