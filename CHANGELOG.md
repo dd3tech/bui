@@ -1,3 +1,10 @@
+## [6.41.3](https://github.com/dd3tech/bui/compare/v6.41.2...v6.41.3) (2025-05-12)
+
+
+### Bug Fixes
+
+* adjustement styles ([10f6c02](https://github.com/dd3tech/bui/commit/10f6c02747b677f9193efec816b13028688252ab))
+
 ## [6.41.2](https://github.com/dd3tech/bui/compare/v6.41.1...v6.41.2) (2025-05-07)
 
 
