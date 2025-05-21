@@ -20,7 +20,7 @@ export const FilterRangeSlider: Story = {
     title: 'Nombre del filtro',
     min: 50,
     max: 150,
-    width: 188,
+    width: 250,
     onApply: (range: IRangeSlider) => console.log(range)
   },
   render: (args) => {

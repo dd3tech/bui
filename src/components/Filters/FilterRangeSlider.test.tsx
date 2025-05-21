@@ -25,12 +25,12 @@ describe('<FilterRangeSlider/>', () => {
       <FilterRangeSlider {...defaultProps} initMinValue={1} initMaxValue={30} />
     )
 
-    const applyBtn = getByRole('confirm-btn')
+    const applyBtn = getByRole('combo-select-submit')
     fireEvent.click(applyBtn)
     expect(onApply).toHaveBeenCalled()
     expect(onApply).toHaveBeenCalledTimes(1)
 
-    const resetBtn = getByRole('cancel-btn')
+    const resetBtn = getByRole('combo-select-clear')
     fireEvent.click(resetBtn)
     expect(onReset).toHaveBeenCalled()
     expect(onReset).toHaveBeenCalledTimes(1)

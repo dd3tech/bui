@@ -15,7 +15,8 @@ import { XIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { StyleObject } from 'lib/styles'
 import { composeClasses } from 'lib/classes'
-import { Badge, Transition, Text, Flex, Button } from 'components'
+import { Badge, Transition, Flex } from 'components'
+import ComboSelect from './ComboSelect'
 
 export interface IMultiSelectOption {
   value: string | number
@@ -206,68 +207,45 @@ function MultiSelect({
       </div>
       {isOpen && !isDisabled && (
         <Transition className="w-full absolute z-50">
-          <div
-            role="dropdown"
-            className={composeClasses(
-              'relative left-0 z-50 w-full bg-white overflow-y-auto top-1 rounded-lg shadow-lg'
-            )}
+          <ComboSelect
+            label={label || ''}
+            submitText={buttonSubmit.label}
+            clearText={buttonClear.label}
+            onSubmit={onSubmit}
+            onClear={buttonClear.onClick}
           >
-            <div className="px-4 py-2">
-              <Text size="sm">{label}</Text>
-
-              <div className="max-h-44 overflow-auto text-sm">
-                <ul>
-                  <li className="flex items-center my-1 border-b pb-1 sticky top-0 bg-white">
+            <div className="max-h-44 overflow-auto text-sm">
+              <ul>
+                <li className="flex items-center my-1 border-b pb-1 sticky top-0 bg-white">
+                  <input
+                    type="checkbox"
+                    checked={allSelected}
+                    onChange={handleSelectAll}
+                    className="mr-2"
+                    data-testid="select-all"
+                  />
+                  <span>{labelAll || 'All'}</span>
+                </li>
+                {options.map((option) => (
+                  <li key={option.value} className="flex items-center my-2">
                     <input
                       type="checkbox"
-                      checked={allSelected}
-                      onChange={handleSelectAll}
+                      checked={selectedOptions.some(
+                        (o) => o.value === option.value
+                      )}
+                      onChange={() => handleOptionToggle(option)}
+                      disabled={option.disabled}
                       className="mr-2"
-                      data-testid="select-all"
+                      data-testid={`option-${option.value}`}
                     />
-                    <span>{labelAll || 'All'}</span>
+                    <span className={option.disabled ? 'text-gray-400' : ''}>
+                      {option.label || option.value}
+                    </span>
                   </li>
-                  {options.map((option) => (
-                    <li key={option.value} className="flex items-center my-2">
-                      <input
-                        type="checkbox"
-                        checked={selectedOptions.some(
-                          (o) => o.value === option.value
-                        )}
-                        onChange={() => handleOptionToggle(option)}
-                        disabled={option.disabled}
-                        className="mr-2"
-                        data-testid={`option-${option.value}`}
-                      />
-                      <span className={option.disabled ? 'text-gray-400' : ''}>
-                        {option.label || option.value}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <Flex justifyContent="between" className="border-t pt-3 pb-2">
-                <Button
-                  className="w-full"
-                  variant="ghost"
-                  size="small"
-                  onClick={buttonClear?.onClick || handleClear}
-                >
-                  {buttonClear?.label}
-                </Button>
-                <Button
-                  className="w-full"
-                  size="small"
-                  onClick={onSubmit}
-                  paddingX="2"
-                  paddingY="0"
-                >
-                  {buttonSubmit?.label}
-                </Button>
-              </Flex>
+                ))}
+              </ul>
             </div>
-          </div>
+          </ComboSelect>
         </Transition>
       )}
     </div>

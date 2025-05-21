@@ -25,20 +25,20 @@ describe('<FilterRange/>', () => {
       <FilterRange {...defaultProps} defaultMin={1} defaultMax={30} />
     )
 
-    const applyBtn = getByRole('confirm-btn')
+    const applyBtn = getByRole('combo-select-submit')
     fireEvent.click(applyBtn)
     expect(onApply).toHaveBeenCalled()
     expect(onApply).toHaveBeenCalledTimes(1)
 
-    const resetBtn = getByRole('cancel-btn')
+    const resetBtn = getByRole('combo-select-clear')
     fireEvent.click(resetBtn)
     expect(onReset).toHaveBeenCalled()
     expect(onReset).toHaveBeenCalledTimes(1)
   })
 
   it('the min and max values should change', () => {
-    const { getByTestId } = render(<FilterRange {...defaultProps} />)
-    const card = getByTestId('card-contain')
+    const { getByRole } = render(<FilterRange {...defaultProps} />)
+    const card = getByRole('combo-select-content')
     const inputMin = card.querySelector(
       'input[name="minVal"]'
     ) as HTMLInputElement
@@ -54,17 +54,17 @@ describe('<FilterRange/>', () => {
   })
 
   it('should not return a value if the entered range is not allowed', () => {
-    const { getByTestId, getByRole } = render(
+    const { getByRole } = render(
       <FilterRange {...defaultProps} min={10} max={50} />
     )
-    const card = getByTestId('card-contain')
+    const card = getByRole('combo-select-content')
     const inputMin = card.querySelector(
       'input[name="minVal"]'
     ) as HTMLInputElement
     const inputMax = card.querySelector(
       'input[name="maxVal"]'
     ) as HTMLInputElement
-    const applyBtn = getByRole('confirm-btn')
+    const applyBtn = getByRole('combo-select-submit')
 
     fireEvent.change(inputMin, { target: { value: 9 } })
 

@@ -33,7 +33,7 @@ describe('<DropdownRangeSlider/>', () => {
     const { getByRole } = render(<DropdownRangeSlider {...props} />)
 
     fireEvent.click(getByRole('filter-input'))
-    fireEvent.click(getByRole('confirm-btn'))
+    fireEvent.click(getByRole('combo-select-submit'))
 
     expect(props.onSubmit).toHaveBeenCalledWith({
       max: 50,
@@ -45,7 +45,7 @@ describe('<DropdownRangeSlider/>', () => {
     const { getByRole } = render(<DropdownRangeSlider {...props} />)
 
     fireEvent.click(getByRole('filter-input'))
-    fireEvent.click(getByRole('cancel-btn'))
+    fireEvent.click(getByRole('combo-select-clear'))
 
     expect(props.onClose).toHaveBeenCalledTimes(1)
   })

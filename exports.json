@@ -122,6 +122,11 @@
       "module": "./dist/esm/components/ConfirmDialog/index.js",
       "default": "./dist/esm/components/ConfirmDialog/index.js"
     },
+    "./ComboSelect": {
+      "require": "./dist/cjs/components/Form/index.js",
+      "module": "./dist/esm/components/Form/index.js",
+      "default": "./dist/esm/components/Form/index.js"
+    },
     "./DatePicker": {
       "require": "./dist/cjs/components/DatePicker/index.js",
       "module": "./dist/esm/components/DatePicker/index.js",
@@ -449,6 +454,7 @@
       "Checkbox": ["./dist/esm/components/Checkbox/index.d.ts"],
       "Circle": ["./dist/esm/components/Circle/index.d.ts"],
       "ConfirmDialog": ["./dist/esm/components/ConfirmDialog/index.d.ts"],
+      "ComboSelect": ["./dist/esm/components/Form/ComboSelect/index.d.ts"],
       "DatePicker": ["./dist/esm/components/DatePicker/index.d.ts"],
       "DatePickerWithPortal": [
         "./dist/esm/components/DatePicker/DatePickerWithPortal.d.ts"
