@@ -353,6 +353,11 @@
             "module": "./dist/esm/components/Layout/Container/index.js",
             "default": "./dist/esm/components/Layout/Container/index.js"
         },
+        "./ComboSelect": {
+            "require": "./dist/cjs/components/Form/index.js",
+            "module": "./dist/esm/components/Form/index.js",
+            "default": "./dist/esm/components/Form/index.js"
+        },
         "./Flex": {
             "require": "./dist/cjs/components/Layout/Flex/index.js",
             "module": "./dist/esm/components/Layout/Flex/index.js",
@@ -594,9 +599,6 @@
             "Badge": [
                 "./dist/esm/components/Badge/index.d.ts"
             ],
-            "Chip": [
-                "./dist/esm/components/Chip/index.d.ts"
-            ],
             "BarList": [
                 "./dist/esm/components/BarList/index.d.ts"
             ],
@@ -618,20 +620,23 @@
             "Card": [
                 "./dist/esm/components/Card/index.d.ts"
             ],
-            "DownloadCard": [
-                "./dist/esm/components/Card/DownloadCard.d.ts"
-            ],
             "Cell": [
                 "./dist/esm/components/Cell/index.d.ts"
             ],
             "Checkbox": [
                 "./dist/esm/components/Checkbox/index.d.ts"
             ],
+            "Chip": [
+                "./dist/esm/components/Chip/index.d.ts"
+            ],
             "Circle": [
                 "./dist/esm/components/Circle/index.d.ts"
             ],
             "ConfirmDialog": [
                 "./dist/esm/components/ConfirmDialog/index.d.ts"
+            ],
+            "ComboSelect": [
+                "./dist/esm/components/Form/ComboSelect/index.d.ts"
             ],
             "DatePicker": [
                 "./dist/esm/components/DatePicker/index.d.ts"
@@ -641,6 +646,9 @@
             ],
             "Divider": [
                 "./dist/esm/components/Divider/index.d.ts"
+            ],
+            "DownloadCard": [
+                "./dist/esm/components/Card/DownloadCard.d.ts"
             ],
             "Dropdown": [
                 "./dist/esm/components/Dropdown/index.d.ts"

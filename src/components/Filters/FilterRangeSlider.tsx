@@ -4,8 +4,8 @@
 
 import { useCallback, useState } from 'react'
 import RangeSlider, { RangeValues } from '../RangeSlider/RangeSlider'
-import ConfirmDialog from '../ConfirmDialog/ConfirmDialog'
 import Text from '../Typography/Text'
+import ComboSelect from 'components/Form/ComboSelect'
 
 export interface FilterRangeSliderProps {
   /**
@@ -49,6 +49,14 @@ export interface FilterRangeSliderProps {
    */
   textResetBtn?: string
   /**
+   * Text displayed in the range input
+   */
+  fromText?: string
+  /**
+   * Text displayed in the range input
+   */
+  toText?: string
+  /**
    * The class name to apply to the ConfirmDialog
    */
   className?: string
@@ -78,6 +86,8 @@ const FilterRangeSlider = ({
   unitName = 'Km',
   textApplyBtn = 'Apply',
   textResetBtn = 'Reset',
+  fromText = 'From',
+  toText = 'To',
   className,
   width,
   onApply,
@@ -98,19 +108,22 @@ const FilterRangeSlider = ({
   }
 
   return (
-    <ConfirmDialog
-      title={title}
-      onConfirm={apply}
-      onCancel={reset}
-      textConfirmBtn={textApplyBtn}
-      textCancelBtn={textResetBtn}
+    <ComboSelect
+      label={title || ''}
+      onSubmit={apply}
+      onClear={reset}
+      submitText={textApplyBtn}
+      clearText={textResetBtn}
       className={className}
-      width={width}
+      style={{ width }}
     >
-      <div>
-        <Text size="base" bold>
+      <div className="w-full mt-2">
+        <Text className="flex gap-1" style={{ fontSize: '10px' }}>
+          <Text textMuted500>{fromText}</Text>
           {range.min}
-          {unitName} - {range.max}
+          {unitName}
+          <Text textMuted500>{toText}</Text>
+          {range.max}
           {unitName}
         </Text>
         <RangeSlider
@@ -126,7 +139,7 @@ const FilterRangeSlider = ({
           className="pt-2.5 pb-4"
         />
       </div>
-    </ConfirmDialog>
+    </ComboSelect>
   )
 }
 
