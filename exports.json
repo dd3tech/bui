@@ -155,7 +155,7 @@
     "./FileItem": {
       "require": "./dist/cjs/components/Form/File/FileItem.js",
       "module": "./dist/esm/components/Form/File/FileItem.js",
-      "default": "./dist/esm/components/Form/File/FileList.js"
+      "default": "./dist/esm/components/Form/File/FileItem.js"
     },
     "./FileImageItem": {
       "require": "./dist/cjs/components/Form/File/FileImageItem.js",
