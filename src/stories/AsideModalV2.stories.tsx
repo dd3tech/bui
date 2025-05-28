@@ -33,12 +33,12 @@ const sampleButtons: ModalButton[] = [
     label: 'Cancel',
     variant: 'secondary',
     onClick: () => console.log('Cancel clicked')
-  },
+  } as ModalButton,
   {
     label: 'Save',
     variant: 'primary',
     onClick: () => console.log('Save clicked')
-  }
+  } as ModalButton
 ]
 
 const Template: ComponentStory<typeof AsideModalComponent> = (args) => {

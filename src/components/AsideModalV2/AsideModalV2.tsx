@@ -102,7 +102,7 @@ const AsideModalV2: FC<AsideModalProps> = ({
       <Flex gap="4" className="flex-col">
         <Flex gap="2" alignItems="center" justifyContent="between">
           {description && (
-            <Flex gap="1" alignItems="center">
+            <Flex gap="1" alignItems="center" className="mr-12">
               {description.icon && (
                 <DynamicHeroIcon
                   icon={description.icon}
@@ -239,7 +239,11 @@ const AsideModalV2: FC<AsideModalProps> = ({
               {title}
             </Text>
             {tagTitle && (
-              <Tag variant={tagTitle.variant} text={tagTitle.text} />
+              <Tag
+                variant={tagTitle?.variant}
+                text={tagTitle?.text}
+                fontSize="small"
+              />
             )}
           </Flex>
           <ShapeButton.CircleButton
