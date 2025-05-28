@@ -1,3 +1,10 @@
+## [6.42.1](https://github.com/dd3tech/bui/compare/v6.42.0...v6.42.1) (2025-05-28)
+
+
+### Bug Fixes
+
+* smalls styles adjustments were made to the Aside Modal v2 component ([d3344b3](https://github.com/dd3tech/bui/commit/d3344b392ddc55851093f89f4abf00ef7c631e8c))
+
 # [6.42.0](https://github.com/dd3tech/bui/compare/v6.41.3...v6.42.0) (2025-05-12)
 
 
