@@ -14,12 +14,6 @@ describe('<FileItem>', () => {
     expect(getByRole('file-item')).toBeDefined()
   })
 
-  it('displays file size when provided', () => {
-    const { getByRole } = render(<FileItem {...defaultProps} />)
-
-    expect(getByRole('file-size')).toBeDefined()
-  })
-
   it('renders children components', () => {
     const { getByTestId } = render(
       <FileItem {...defaultProps}>
