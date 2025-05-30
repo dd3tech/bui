@@ -1,8 +1,8 @@
 import { CSSProperties, ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Flex } from 'components/Layout'
-import ToolTipHover from 'components/ToolTipHover'
 import Text from 'components/Typography'
+import Tooltip from 'components/Tooltip'
 import FileItemButton from './FileItemButton'
 import FileItemDropdown from './FileItemDropdown'
 
@@ -54,22 +54,32 @@ export const FileItem = ({
       }}
     >
       <Flex alignItems="center" gap="2" className="mr-auto overflow-hidden">
-        <ToolTipHover
-          variantPopup="dark"
-          complementPosition={{ top: -15, left: 0 }}
-          element={
-            <Flex alignItems="center" justifyContent="start">
-              <div className="truncate">
-                <Text role="file-title" size="xs">
-                  {name}
-                </Text>
-              </div>
-              {fileSize && (
-                <Text role="file-size" className="mt-0.5 ml-0.5" size="xs">
-                  {fileSize} KB
+        <Tooltip
+          variant="primary"
+          content={
+            <>
+              <Flex alignItems="center" justifyContent="start">
+                <div className="truncate">
+                  <Text role="file-title" size="xs">
+                    {name}
+                  </Text>
+                </div>
+                {fileSize && (
+                  <Text role="file-size" className="mt-0.5 ml-0.5" size="xs">
+                    {fileSize} KB
+                  </Text>
+                )}
+              </Flex>
+              {type && (
+                <Text
+                  role="file-type"
+                  variant="small"
+                  className="block text-left"
+                >
+                  {type}
                 </Text>
               )}
-            </Flex>
+            </>
           }
         >
           <Text
@@ -79,10 +89,7 @@ export const FileItem = ({
           >
             {name}
           </Text>
-          <Text role="file-type" variant="small" className="block text-left">
-            {type}
-          </Text>
-        </ToolTipHover>
+        </Tooltip>
       </Flex>
       <div
         role="file-actions"
