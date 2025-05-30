@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { composeClasses } from 'lib/classes'
 import { Button, IButtonProps } from 'components/Buttons'
 
-export interface FileItemButtonProps {
+export interface FileItemButtonProps extends Omit<IButtonProps, 'children'> {
   /**
    * Content to display inside the button
    */

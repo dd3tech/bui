@@ -12,7 +12,6 @@ type Story = StoryObj<typeof InputFile>
 
 export const Default: Story = {
   args: {
-    hintText: 'Subir en formato XML - PDF',
     progressIndicator: 0,
     dragMessage: 'Suelta aquí',
     id: 'upload',
