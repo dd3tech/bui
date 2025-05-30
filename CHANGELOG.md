@@ -1,3 +1,12 @@
+## [6.42.2](https://github.com/dd3tech/bui/compare/v6.42.1...v6.42.2) (2025-05-30)
+
+
+### Bug Fixes
+
+* change file item tooltip ([802a061](https://github.com/dd3tech/bui/commit/802a061b3e1925138e535e5fa91addac1034fd05))
+* file item export ([d26d5d4](https://github.com/dd3tech/bui/commit/d26d5d4916fe2fe5baa8618c1b7bb099b9f7e188))
+* resolve test ([caab233](https://github.com/dd3tech/bui/commit/caab233682af55880d264c575ec584137226a084))
+
 ## [6.42.1](https://github.com/dd3tech/bui/compare/v6.42.0...v6.42.1) (2025-05-28)
 
 
