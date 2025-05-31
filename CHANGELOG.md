@@ -1,3 +1,15 @@
+# [6.43.0](https://github.com/dd3tech/bui/compare/v6.42.2...v6.43.0) (2025-05-31)
+
+
+### Bug Fixes
+
+* optional divider and filter range layout ([97fdc4b](https://github.com/dd3tech/bui/commit/97fdc4bbfef855f639a8d82a12d91731181f6147))
+
+
+### Features
+
+* add combo select component ([a28b23e](https://github.com/dd3tech/bui/commit/a28b23e2378a4c0f7d60a4ae5271d2f47b7e5761))
+
 ## [6.42.2](https://github.com/dd3tech/bui/compare/v6.42.1...v6.42.2) (2025-05-30)
 
 
