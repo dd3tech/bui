@@ -3,10 +3,9 @@
  */
 
 import { ChangeEvent, useState } from 'react'
-import ConfirmDialog from 'components/ConfirmDialog/ConfirmDialog'
 import Input from 'components/Form/Input'
-import Text from 'components/Typography/Text'
 import { Flex } from 'components/Layout'
+import ComboSelect from 'components/Form/ComboSelect'
 
 export interface IRange {
   minVal?: number
@@ -19,13 +18,9 @@ export interface FilterRangeProps {
    */
   title?: string
   /**
-   * Text displayed above the minimum value input
+   * Text displayed as unit of ranges
    */
-  textMin?: string
-  /**
-   * Text displayed above the maximum value input
-   */
-  textMax?: string
+  labelInput?: string
   /**
    * Minimum number allowed
    */
@@ -73,8 +68,7 @@ const FilterRange = ({
   title,
   min = 0,
   max = 999999999,
-  textMin = 'Minimum',
-  textMax = 'Maximum',
+  labelInput = 'MXN',
   defaultMin,
   defaultMax,
   textApplyBtn = 'Apply',
@@ -129,54 +123,71 @@ const FilterRange = ({
   }
 
   return (
-    <ConfirmDialog
-      title={title}
-      onConfirm={apply}
-      onCancel={reset}
-      textConfirmBtn={textApplyBtn}
-      textCancelBtn={textResetBtn}
+    <ComboSelect
+      label={title || ''}
       className={className}
-      width={width}
+      submitText={textApplyBtn}
+      clearText={textResetBtn}
+      hideDivider
+      onSubmit={apply}
+      onClear={reset}
+      style={{ width }}
     >
-      <Flex className="mb-3 w-72" justifyContent="center">
+      <Flex className="mb-3 w-full" justifyContent="center" alignItems="center">
         <div className="grid">
-          <Text className="mb-1 text-xxs" fontBold="medium">
-            {textMin}
-          </Text>
           <Input
             data-testid="minVal"
             name="minVal"
             type="number"
             placeholder={min?.toString()}
             className="h-7 w-32 pl-4 text-xs bg-white"
+            style={{ height: 40 }}
             min={min}
             value={range.minVal || ''}
             onChange={handleChange}
             variant={inputMinVariant}
+            endAdornment={
+              inputMinVariant !== 'error' && (
+                <Flex
+                  alignItems="center"
+                  className="h-10 pl-4 border-l border-solid border-gray-300 text-gray-500"
+                >
+                  {labelInput}
+                </Flex>
+              )
+            }
           />
         </div>
         <hr
-          className="w-2.5 ml-3.5 mr-3.5 mb-3.5 mt-auto border-gray-900"
+          className="w-2.5 mx-3.5 border-gray-900"
           style={{ minWidth: 12, borderTopWidth: 1.2 }}
         />
         <div className="grid">
-          <Text className="mb-1 text-xxs" fontBold="medium">
-            {textMax}
-          </Text>
           <Input
             data-testid="maxVal"
             name="maxVal"
             type="number"
             placeholder={max?.toString()}
             className="h-7 w-32 text-xs bg-white"
+            style={{ height: 40 }}
             max={max}
             value={range.maxVal || ''}
             onChange={handleChange}
             variant={inputMaxVariant}
+            endAdornment={
+              inputMaxVariant !== 'error' && (
+                <Flex
+                  alignItems="center"
+                  className="h-10 pl-4 border-l border-solid border-gray-300 text-gray-500"
+                >
+                  {labelInput}
+                </Flex>
+              )
+            }
           />
         </div>
       </Flex>
-    </ConfirmDialog>
+    </ComboSelect>
   )
 }
 

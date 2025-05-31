@@ -21,6 +21,9 @@ export * from './SingleSelect'
 export { default as MultiSelect } from './MultiSelect'
 export * from './MultiSelect'
 
+export { default as ComboSelect } from './ComboSelect'
+export * from './ComboSelect'
+
 export * from './shared'
 
 export { default as FileItem } from './File'
