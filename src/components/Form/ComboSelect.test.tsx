@@ -66,4 +66,28 @@ describe('<ComboSelect>', () => {
     fireEvent.click(getByRole('combo-select-submit'))
     expect(defaultProps.onSubmit).toHaveBeenCalled()
   })
+
+  it('should hide divider when hideDivider is true', () => {
+    const { getByRole } = render(
+      <ComboSelect {...defaultProps} hideDivider>
+        <div>Content</div>
+      </ComboSelect>
+    )
+
+    expect(getByRole('combo-select-actions').className).not.toContain(
+      'border-t h-10'
+    )
+  })
+
+  it('should not hide divider when hideDivider is false', () => {
+    const { getByRole } = render(
+      <ComboSelect {...defaultProps} hideDivider={false}>
+        <div>Content</div>
+      </ComboSelect>
+    )
+
+    expect(getByRole('combo-select-actions').className).toContain(
+      'border-t h-10'
+    )
+  })
 })

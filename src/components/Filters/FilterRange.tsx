@@ -128,11 +128,12 @@ const FilterRange = ({
       className={className}
       submitText={textApplyBtn}
       clearText={textResetBtn}
+      hideDivider
       onSubmit={apply}
       onClear={reset}
       style={{ width }}
     >
-      <Flex className="mb-3 w-full" justifyContent="center">
+      <Flex className="mb-3 w-full" justifyContent="center" alignItems="center">
         <div className="grid">
           <Input
             data-testid="minVal"
@@ -158,7 +159,7 @@ const FilterRange = ({
           />
         </div>
         <hr
-          className="w-2.5 ml-3.5 mr-3.5 mb-3.5 mt-auto border-gray-900"
+          className="w-2.5 mx-3.5 border-gray-900"
           style={{ minWidth: 12, borderTopWidth: 1.2 }}
         />
         <div className="grid">

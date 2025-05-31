@@ -30,6 +30,10 @@ export interface ComboSelectProps {
    */
   style?: CSSProperties
   /**
+   * Indicates whether to hide the divider between the content and actions
+   */
+  hideDivider?: boolean
+  /**
    * Function executed when clicking the submit/apply button
    */
   onSubmit?: () => void
@@ -44,6 +48,7 @@ export const ComboSelect = ({
   children,
   submitText,
   clearText,
+  hideDivider = false,
   className,
   style,
   onSubmit,
@@ -67,7 +72,7 @@ export const ComboSelect = ({
           role="combo-select-actions"
           justifyContent="between"
           alignItems="end"
-          className="border-t h-10"
+          className={composeClasses(!hideDivider && 'border-t h-10')}
         >
           <Button
             role="combo-select-clear"

@@ -112,6 +112,7 @@ const FilterRangeSlider = ({
       label={title || ''}
       onSubmit={apply}
       onClear={reset}
+      hideDivider
       submitText={textApplyBtn}
       clearText={textResetBtn}
       className={className}
