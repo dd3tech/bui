@@ -1,3 +1,11 @@
+## [6.43.1](https://github.com/dd3tech/bui/compare/v6.43.0...v6.43.1) (2025-06-10)
+
+
+### Bug Fixes
+
+* add prop to hide divider on aside modal v2 ([0590cd4](https://github.com/dd3tech/bui/commit/0590cd4a77726540bf34d83a4a960d8328918b04))
+* change file item button layout ([aa0e3ff](https://github.com/dd3tech/bui/commit/aa0e3ff85f5204717bff64e2b813f93457e5fc76))
+
 # [6.43.0](https://github.com/dd3tech/bui/compare/v6.42.2...v6.43.0) (2025-05-31)
 
 
