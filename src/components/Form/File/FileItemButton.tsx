@@ -30,10 +30,8 @@ export interface FileItemButtonProps extends Omit<IButtonProps, 'children'> {
 }
 
 const BUTTON_VARIANTS = {
-  primary:
-    'text-gray-500 hover:border-blue-500 hover:text-white hover:bg-blue-500',
-  secondary:
-    'text-red-500 hover:border-red-500 hover:text-white hover:bg-red-500'
+  primary: 'text-gray-500 hover:text-blue-500',
+  secondary: 'text-red-500 hover:text-red-400'
 }
 
 const FileItemButton = ({
