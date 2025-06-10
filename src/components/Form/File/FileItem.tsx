@@ -93,7 +93,7 @@ export const FileItem = ({
       </Flex>
       <div
         role="file-actions"
-        className="grid items-center gap-3"
+        className="grid items-center gap-2"
         style={{
           gridAutoFlow: 'column',
           gridTemplateColumns: 'repeat(auto-fit, auto)'

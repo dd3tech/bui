@@ -59,7 +59,8 @@ export const Basic = Template.bind({})
 Basic.args = {
   title: 'Basic Aside Modal',
   children: 'This is the basic content of the modal',
-  description: sampleDescription
+  description: sampleDescription,
+  hideDivider: false
 }
 
 export const WithButtons = Template.bind({})

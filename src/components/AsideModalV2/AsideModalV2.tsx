@@ -56,6 +56,7 @@ export interface AsideModalProps extends ComponentProps<'aside'> {
   buttons?: ModalButton[]
   search?: FilterSearchProps
   tabs?: ModalTabs
+  hideDivider?: boolean
   tagTitle?: {
     variant: 'primary' | 'secondary' | 'success' | 'warning'
     text: string
@@ -71,6 +72,7 @@ const AsideModalV2: FC<AsideModalProps> = ({
   disableEscapeKeyDown,
   isStickyTitle,
   description,
+  hideDivider = false,
   buttons,
   children,
   search,
@@ -98,7 +100,7 @@ const AsideModalV2: FC<AsideModalProps> = ({
 
   const renderHeaderContent = () => (
     <>
-      <Divider light className="mt-1 bg-gray-50" />
+      {!hideDivider && <Divider light className="mt-1 bg-gray-50" />}
       <Flex gap="4" className="flex-col">
         <Flex gap="2" alignItems="center" justifyContent="between">
           {description && (
@@ -229,7 +231,8 @@ const AsideModalV2: FC<AsideModalProps> = ({
       <Flex
         gap="4"
         className={composeClasses(
-          'bg-gray-50 px-10 pt-6 pb-4 flex-col',
+          'bg-gray-50 px-10 pt-6 flex-col',
+          !hideDivider && 'pb-4',
           isStickyTitle && 'sticky top-0 z-50'
         )}
       >

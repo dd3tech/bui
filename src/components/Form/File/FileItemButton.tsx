@@ -30,10 +30,8 @@ export interface FileItemButtonProps extends Omit<IButtonProps, 'children'> {
 }
 
 const BUTTON_VARIANTS = {
-  primary:
-    'border-gray-500 text-gray-500 hover:border-blue-500 hover:text-white hover:bg-blue-500',
-  secondary:
-    'border-gray-500 text-red-500 hover:border-red-500 hover:text-white hover:bg-red-500'
+  primary: 'text-gray-500 hover:text-blue-500',
+  secondary: 'text-red-500 hover:text-red-400'
 }
 
 const FileItemButton = ({
@@ -41,7 +39,7 @@ const FileItemButton = ({
   className,
   onClick,
   isLoading,
-  variant = 'secondary',
+  variant = 'ghost',
   isDanger,
   ...props
 }: FileItemButtonProps) => {
@@ -50,7 +48,7 @@ const FileItemButton = ({
       {...props}
       role="button-file-item"
       className={composeClasses(
-        'w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ease-linear',
+        'w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ease-linear',
         BUTTON_VARIANTS[isDanger ? 'secondary' : 'primary'],
         className
       )}
