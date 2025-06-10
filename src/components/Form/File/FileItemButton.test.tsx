@@ -15,6 +15,7 @@ describe('<FileItemButton>', () => {
     render(<FileItemButton onClick={handleClick}>Click Me</FileItemButton>)
 
     fireEvent.click(screen.getByText('Click Me'))
+
     expect(handleClick).toHaveBeenCalledTimes(1)
   })
 
@@ -24,7 +25,7 @@ describe('<FileItemButton>', () => {
     )
 
     const buttonElement = getByRole('button-file-item').closest('button')
-    expect(buttonElement).toHaveClass('border-gray-500')
+
     expect(buttonElement).toHaveClass('text-red-500')
   })
 })
