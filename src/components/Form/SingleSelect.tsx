@@ -14,6 +14,7 @@ import { StyleObject } from 'lib/styles'
 import { composeClasses } from 'lib/classes'
 import { Transition, Text, Flex } from 'components'
 import { CheckCircleIcon } from '@heroicons/react/outline'
+import FormLabel from './FormLabel'
 
 export interface ISelectOption {
   value: string | number
@@ -59,6 +60,7 @@ export interface SingleSelectProps
   onChangeSelect?: (option: ISelectOption) => void
   isDisabled?: boolean
   placeholder?: string
+  isFilter?: boolean
 }
 
 function SingleSelect({
@@ -69,8 +71,10 @@ function SingleSelect({
   optionsList,
   onChangeSelect,
   value,
-  isDisabled,
+  isDisabled = false,
   placeholder,
+  isRequired,
+  isFilter = true,
   ...otherProps
 }: SingleSelectProps) {
   const selectRef = useRef<HTMLInputElement>(null)
@@ -91,12 +95,15 @@ function SingleSelect({
       classNameAdornment
     ),
     container: composeClasses(
-      'relative placeholder-gray-400 flex items-center justify-between font-medium gap-3 cursor-pointer h-10 bg-white',
+      'relative placeholder-gray-400 flex items-center justify-between font-medium gap-3 h-10',
+      isFilter ? 'bg-white' : 'bg-transparent',
       'border-solid border rounded-lg px-4',
       'transition duration-500 ease-out focus:ease-in border-gray-300',
       !isDisabled && !isOpen && `hover:shadow-lg hover:border-info`,
       isOpen && !isDisabled && 'border-blue-500',
-      isDisabled && 'bg-gray-100 text-gray-400 cursor-not-allowed',
+      isDisabled
+        ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+        : 'cursor-pointer ',
       className
     )
   }
@@ -150,29 +157,32 @@ function SingleSelect({
         role="select-container"
         className={composeClasses(
           styles.container,
-          !!selectedOption && 'bg-blue-100 border border-blue-600'
+          isFilter && !!selectedOption && 'bg-blue-100 border border-blue-600'
         )}
         style={{ zIndex: 2, ...style }}
       >
-        <div className="flex flex-col w-full relative">
-          <div className="relative">
-            <input
-              value={selectedOption?.label}
-              placeholder={placeholder}
-              {...otherProps}
-              className={composeClasses(
-                'outline-none w-full font-medium bg-transparent truncate text-sm'
-              )}
-              readOnly
-              style={{
-                cursor: 'inherit',
-                paddingTop: 10,
-                paddingBottom: 10
-              }}
-            />
-          </div>
-        </div>
-
+        {!isFilter && (
+          <FormLabel
+            label={label ?? ''}
+            isLabelScalded={!!selectedOption}
+            isDisabled={isDisabled}
+            isRequired={isRequired}
+          />
+        )}
+        <input
+          placeholder={isFilter ? placeholder : ''}
+          value={selectedOption?.label}
+          {...otherProps}
+          className={composeClasses(
+            'outline-none w-full bg-transparent truncate text-sm',
+            isFilter && '-mt-2'
+          )}
+          readOnly
+          style={{
+            cursor: 'inherit',
+            paddingTop: 10
+          }}
+        />
         <Transition
           alwaysRender
           show={isOpen && !isDisabled}
@@ -191,9 +201,7 @@ function SingleSelect({
         <Transition className="w-full absolute z-50">
           <div
             role="dropdown"
-            className={composeClasses(
-              'relative left-0 z-50 w-full bg-white overflow-y-auto top-1 rounded-lg shadow-lg'
-            )}
+            className="relative left-0 z-50 w-full overflow-y-auto top-1 rounded-lg shadow-lg bg-white"
             style={{
               ...getAnimationStyle(isOpen),
               border: '1px solid #F9FAFB'
@@ -210,7 +218,7 @@ function SingleSelect({
               return (
                 <Flex
                   className={composeClasses(
-                    'w-full px-2 py-2 hover:bg-blue-50 hover:text-blue-800 hover:font-bold',
+                    'w-full px-2 py-2 hover:bg-blue-50 hover:text-blue-800',
                     option.selected && 'text-blue-700'
                   )}
                   justifyContent="between"
