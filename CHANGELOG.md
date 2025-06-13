@@ -1,3 +1,10 @@
+## [6.43.2](https://github.com/dd3tech/bui/compare/v6.43.1...v6.43.2) (2025-06-13)
+
+
+### Bug Fixes
+
+* change styles single select ([6435614](https://github.com/dd3tech/bui/commit/6435614354af382062637574af2e4e39c1be2a98))
+
 ## [6.43.1](https://github.com/dd3tech/bui/compare/v6.43.0...v6.43.1) (2025-06-10)
 
 
