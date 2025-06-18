@@ -26,7 +26,6 @@ export const SingleSelect: Story = {
     optionsList,
     name: 'example',
     placeholder: 'Select an option',
-    value: 1,
-    isLabelScalded: true
+    value: 1
   }
 }
