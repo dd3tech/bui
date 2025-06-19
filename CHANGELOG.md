@@ -1,3 +1,10 @@
+## [6.43.3](https://github.com/dd3tech/bui/compare/v6.43.2...v6.43.3) (2025-06-19)
+
+
+### Bug Fixes
+
+* added validation when displaying label in drop-down list ([364ea36](https://github.com/dd3tech/bui/commit/364ea361b81d4123b4c14e6d8db5e3c42b61bc2f))
+
 ## [6.43.2](https://github.com/dd3tech/bui/compare/v6.43.1...v6.43.2) (2025-06-13)
 
 
