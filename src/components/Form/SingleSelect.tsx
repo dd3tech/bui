@@ -207,11 +207,13 @@ function SingleSelect({
               border: '1px solid #F9FAFB'
             }}
           >
-            <div className="h-8 p-2">
-              <Text size="xs" textMuted500>
-                {label}
-              </Text>
-            </div>
+            {isFilter && (
+              <div className="h-8 p-2">
+                <Text size="xs" textMuted500>
+                  {label}
+                </Text>
+              </div>
+            )}
             {options.map((option) => {
               const { value, label, disabled } = option
 
