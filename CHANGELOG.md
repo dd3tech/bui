@@ -1,3 +1,11 @@
+## [6.43.4](https://github.com/dd3tech/bui/compare/v6.43.3...v6.43.4) (2025-06-20)
+
+
+### Bug Fixes
+
+* update state options single select ([74eede3](https://github.com/dd3tech/bui/commit/74eede355f8899e59dcd65094944038b43666f8f))
+* update value single select ([3a4210c](https://github.com/dd3tech/bui/commit/3a4210c85c73963a4cb45de5df2102bf1bed2941))
+
 ## [6.43.3](https://github.com/dd3tech/bui/compare/v6.43.2...v6.43.3) (2025-06-19)
 
 
