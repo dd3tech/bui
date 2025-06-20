@@ -125,6 +125,10 @@ function SingleSelect({
   }
 
   useEffect(() => {
+    setOptions(optionsList)
+  }, [optionsList])
+
+  useEffect(() => {
     const handleClickOutside = (e: globalThis.MouseEvent) => {
       if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
         setIsOpen(false)
