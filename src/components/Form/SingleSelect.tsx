@@ -82,6 +82,7 @@ function SingleSelect({
   const [selectedOption, setSelectedOption] = useState<ISelectOption | null>(
     null
   )
+  const [newValue, setNewValue] = useState(value)
   const [options, setOptions] = useState<ISelectOption[]>(optionsList)
 
   const handleClick = () => {
@@ -125,6 +126,10 @@ function SingleSelect({
   }
 
   useEffect(() => {
+    setOptions(optionsList)
+  }, [optionsList])
+
+  useEffect(() => {
     const handleClickOutside = (e: globalThis.MouseEvent) => {
       if (selectRef.current && !selectRef.current.contains(e.target as Node)) {
         setIsOpen(false)
@@ -138,13 +143,17 @@ function SingleSelect({
   }, [])
 
   useEffect(() => {
-    if (!value) return
+    if (!newValue) return
     setOptions(
       optionsList.map((option) =>
         option.value === value ? { ...option, selected: true } : option
       )
     )
   }, [])
+
+  useEffect(() => {
+    setNewValue(value)
+  }, [value])
 
   return (
     <div
@@ -171,7 +180,7 @@ function SingleSelect({
         )}
         <input
           placeholder={isFilter ? placeholder : ''}
-          value={selectedOption?.label}
+          value={selectedOption?.label || newValue}
           {...otherProps}
           className={composeClasses(
             'outline-none w-full bg-transparent truncate text-sm',
