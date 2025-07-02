@@ -2,7 +2,7 @@
  * Copyright (c) DD360 and its affiliates.
  */
 
-import { ChangeEvent, ReactNode, useCallback, useState } from 'react'
+import { ChangeEvent, ReactNode, useCallback, useState, useEffect } from 'react'
 import {
   UploadIcon,
   PaperClipIcon,
@@ -31,6 +31,7 @@ export interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   onView?: (e: React.MouseEvent<HTMLButtonElement>) => void
   onDownload?: (e: React.MouseEvent<HTMLButtonElement>) => void
   onDelete?: (e: React.MouseEvent<HTMLButtonElement>) => void
+  fileValue?: FileList
 }
 
 export function InputFile({
@@ -93,10 +94,14 @@ export function InputFile({
    * is a function that works to delete the file
    */
   onDelete,
+  /**
+   * is a file that works to set the value of the file
+   */
+  fileValue,
   ...otherProps
 }: InputFileProps) {
   const [isDrag, setIsDrag] = useState<boolean>(false)
-  const [file, setFile] = useState<FileList | null>(null)
+  const [file, setFile] = useState<FileList | null>(fileValue || null)
   const disabled = otherProps.disabled || false
 
   const handleChange = useCallback(
@@ -108,6 +113,11 @@ export function InputFile({
     },
     [isDrag, onChange]
   )
+
+  useEffect(() => {
+    if (!fileValue) return
+    setFile(fileValue)
+  }, [fileValue])
 
   return (
     <label
