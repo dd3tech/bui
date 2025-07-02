@@ -31,7 +31,7 @@ export interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   onView?: (e: React.MouseEvent<HTMLButtonElement>) => void
   onDownload?: (e: React.MouseEvent<HTMLButtonElement>) => void
   onDelete?: (e: React.MouseEvent<HTMLButtonElement>) => void
-  fileValue?: FileList
+  fileValue?: FileList | null
 }
 
 export function InputFile({
@@ -97,7 +97,7 @@ export function InputFile({
   /**
    * is a file that works to set the value of the file
    */
-  fileValue,
+  fileValue = null,
   ...otherProps
 }: InputFileProps) {
   const [isDrag, setIsDrag] = useState<boolean>(false)
@@ -116,7 +116,6 @@ export function InputFile({
   )
 
   useEffect(() => {
-    if (!fileValue) return
     setFile(fileValue)
   }, [fileValue])
 
