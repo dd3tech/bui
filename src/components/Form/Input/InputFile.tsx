@@ -104,6 +104,7 @@ export function InputFile({
   const [file, setFile] = useState<FileList | null>(fileValue || null)
   const disabled = otherProps.disabled || false
 
+  console.log('file', file)
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       if (disabled) return
