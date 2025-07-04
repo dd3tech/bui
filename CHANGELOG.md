@@ -1,3 +1,11 @@
+## [6.43.5](https://github.com/dd3tech/bui/compare/v6.43.4...v6.43.5) (2025-07-04)
+
+
+### Bug Fixes
+
+* added spinners when downloading, viewing or deleting files ([9e12ea7](https://github.com/dd3tech/bui/commit/9e12ea77a0109551a4ddb6056f24be02f5a9414a))
+* added the props fileName and isLoading ([affa7f2](https://github.com/dd3tech/bui/commit/affa7f27db14f1de479504122308d90798a996c1))
+
 ## [6.43.4](https://github.com/dd3tech/bui/compare/v6.43.3...v6.43.4) (2025-06-20)
 
 
