@@ -16,6 +16,7 @@ import { Flex } from 'components/Layout'
 import Tooltip from 'components/Tooltip'
 import { Button } from 'components/Buttons'
 import Skeleton from 'components/Skeleton'
+import Spinner from 'components/Spinner'
 import ProgressBar from '../../ProgressBar/ProgressBar'
 import Text from '../../Typography/Text'
 
@@ -34,6 +35,9 @@ export interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   onDelete?: (e: React.MouseEvent<HTMLButtonElement>) => void
   fileName?: string
   isLoading?: boolean
+  isLoadingDelete?: boolean
+  isLoadingDownload?: boolean
+  isLoadingView?: boolean
 }
 
 export function InputFile({
@@ -104,6 +108,18 @@ export function InputFile({
    * is a boolean that works to indicate if the file is loading
    */
   isLoading,
+  /**
+   * is a boolean that works to indicate if the file is loading
+   */
+  isLoadingDelete,
+  /**
+   * is a boolean that works to indicate if the file is loading
+   */
+  isLoadingDownload,
+  /**
+   * is a boolean that works to indicate if the file is loading
+   */
+  isLoadingView,
   ...otherProps
 }: InputFileProps) {
   const [isDrag, setIsDrag] = useState<boolean>(false)
@@ -149,7 +165,7 @@ export function InputFile({
             </Tooltip>
           )}
         </Flex>
-        {!(singleFile && fileList?.length) && (
+        {!(singleFile && fileList?.length) && !!(singleFile && !fileName) && (
           <Flex alignItems="center" gap="2">
             <UploadIcon className="w-4 h-4 text-blue-700" />
             <Text variant="small" className="text-blue-700">
@@ -241,7 +257,11 @@ export function InputFile({
                     className="rounded-full"
                     onClick={onView}
                   >
-                    <EyeIcon className="w-4 h-4 text-gray-400 flex-shrink-0 cursor-pointer" />
+                    {isLoadingView ? (
+                      <Spinner width="18px" height="18px" color="#1D4ED8" />
+                    ) : (
+                      <EyeIcon className="w-4 h-4 text-gray-400 flex-shrink-0 cursor-pointer" />
+                    )}
                   </Button>
                 )}
                 {onDownload && (
@@ -251,7 +271,11 @@ export function InputFile({
                     className="rounded-full"
                     onClick={onDownload}
                   >
-                    <DownloadIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                    {isLoadingDownload ? (
+                      <Spinner width="18px" height="18px" color="#1D4ED8" />
+                    ) : (
+                      <DownloadIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                    )}
                   </Button>
                 )}
                 {onDelete && (
@@ -261,7 +285,11 @@ export function InputFile({
                     className="rounded-full"
                     onClick={handleDelete}
                   >
-                    <TrashIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
+                    {isLoadingDelete ? (
+                      <Spinner width="18px" height="18px" color="#DC2626" />
+                    ) : (
+                      <TrashIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
+                    )}
                   </Button>
                 )}
               </Flex>
