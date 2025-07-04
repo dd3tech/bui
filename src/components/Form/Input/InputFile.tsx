@@ -15,6 +15,8 @@ import { composeClasses } from 'lib/classes'
 import { Flex } from 'components/Layout'
 import Tooltip from 'components/Tooltip'
 import { Button } from 'components/Buttons'
+import Skeleton from 'components/Skeleton'
+import Spinner from 'components/Spinner'
 import ProgressBar from '../../ProgressBar/ProgressBar'
 import Text from '../../Typography/Text'
 
@@ -31,6 +33,11 @@ export interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   onView?: (e: React.MouseEvent<HTMLButtonElement>) => void
   onDownload?: (e: React.MouseEvent<HTMLButtonElement>) => void
   onDelete?: (e: React.MouseEvent<HTMLButtonElement>) => void
+  fileName?: string
+  isLoading?: boolean
+  isLoadingDelete?: boolean
+  isLoadingDownload?: boolean
+  isLoadingView?: boolean
 }
 
 export function InputFile({
@@ -93,20 +100,49 @@ export function InputFile({
    * is a function that works to delete the file
    */
   onDelete,
+  /**
+   * is a file that works to set the value of the file
+   */
+  fileName,
+  /**
+   * is a boolean that works to indicate if the file is loading
+   */
+  isLoading,
+  /**
+   * is a boolean that works to indicate if the file is loading
+   */
+  isLoadingDelete,
+  /**
+   * is a boolean that works to indicate if the file is loading
+   */
+  isLoadingDownload,
+  /**
+   * is a boolean that works to indicate if the file is loading
+   */
+  isLoadingView,
   ...otherProps
 }: InputFileProps) {
   const [isDrag, setIsDrag] = useState<boolean>(false)
-  const [file, setFile] = useState<FileList | null>(null)
+  const [fileList, setFileList] = useState<FileList | null>(null)
+
   const disabled = otherProps.disabled || false
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       if (disabled) return
       setIsDrag(false)
-      setFile(event.target.files)
+      setFileList(event.target.files)
       onChange && onChange(event)
     },
     [isDrag, onChange]
+  )
+
+  const handleDelete = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      setFileList(null)
+      onDelete && onDelete(e)
+    },
+    [onDelete]
   )
 
   return (
@@ -129,7 +165,7 @@ export function InputFile({
             </Tooltip>
           )}
         </Flex>
-        {!(singleFile && file?.length) && (
+        {!(singleFile && fileList?.length) && !!(singleFile && !fileName) && (
           <Flex alignItems="center" gap="2">
             <UploadIcon className="w-4 h-4 text-blue-700" />
             <Text variant="small" className="text-blue-700">
@@ -158,6 +194,7 @@ export function InputFile({
             if (disabled) return
             setIsDrag(true)
           }}
+          multiple={!singleFile}
           disabled={progressIndicator >= 1 || disabled}
           className={composeClasses(
             'opacity-0 absolute top-0 left-0 bottom-0 right-0',
@@ -179,7 +216,7 @@ export function InputFile({
             <UploadIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
             <Flex className="w-full flex-col" gap="1">
               <Text textMuted500 style={{ fontSize: '10px' }}>
-                {file?.item(0)?.name}
+                {fileList?.item(0)?.name}
               </Text>
               <ProgressBar
                 value={progressIndicator}
@@ -190,57 +227,74 @@ export function InputFile({
             </Flex>
           </Flex>
         )}
-        {singleFile && file?.length === 1 && !error?.show && (
-          <Flex
-            justifyContent="between"
-            alignItems="center"
-            gap="2"
-            className="w-full z-10"
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-            }}
-          >
-            <Flex alignItems="center" gap="2">
-              <PaperClipIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
-              <Text size="xs" className="whitespace-nowrap">
-                {file.item(0)?.name}
-              </Text>
+        {isLoading && <Skeleton className="w-full h-5 rounded-full" />}
+        {singleFile &&
+          (fileList?.length === 1 || fileName) &&
+          !error?.show &&
+          !isLoading &&
+          !progressIndicator && (
+            <Flex
+              justifyContent="between"
+              alignItems="center"
+              gap="2"
+              className="w-full z-10"
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+              }}
+            >
+              <Flex alignItems="center" gap="2">
+                <PaperClipIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <Text size="xs" className="whitespace-nowrap">
+                  {fileList?.item(0)?.name || fileName}
+                </Text>
+              </Flex>
+              <Flex alignItems="center" gap="2">
+                {onView && (
+                  <Button
+                    variant="ghost"
+                    padding="0.5"
+                    className="rounded-full"
+                    onClick={onView}
+                  >
+                    {isLoadingView ? (
+                      <Spinner width="18px" height="18px" color="#1D4ED8" />
+                    ) : (
+                      <EyeIcon className="w-4 h-4 text-gray-400 flex-shrink-0 cursor-pointer" />
+                    )}
+                  </Button>
+                )}
+                {onDownload && (
+                  <Button
+                    variant="ghost"
+                    padding="0.5"
+                    className="rounded-full"
+                    onClick={onDownload}
+                  >
+                    {isLoadingDownload ? (
+                      <Spinner width="18px" height="18px" color="#1D4ED8" />
+                    ) : (
+                      <DownloadIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                    )}
+                  </Button>
+                )}
+                {onDelete && (
+                  <Button
+                    variant="ghost"
+                    padding="0.5"
+                    className="rounded-full"
+                    onClick={handleDelete}
+                  >
+                    {isLoadingDelete ? (
+                      <Spinner width="18px" height="18px" color="#DC2626" />
+                    ) : (
+                      <TrashIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
+                    )}
+                  </Button>
+                )}
+              </Flex>
             </Flex>
-            <Flex alignItems="center" gap="2">
-              {onView && (
-                <Button
-                  variant="ghost"
-                  padding="0.5"
-                  className="rounded-full"
-                  onClick={onView}
-                >
-                  <EyeIcon className="w-4 h-4 text-gray-400 flex-shrink-0 cursor-pointer" />
-                </Button>
-              )}
-              {onDownload && (
-                <Button
-                  variant="ghost"
-                  padding="0.5"
-                  className="rounded-full"
-                  onClick={onDownload}
-                >
-                  <DownloadIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                </Button>
-              )}
-              {onDelete && (
-                <Button
-                  variant="ghost"
-                  padding="0.5"
-                  className="rounded-full"
-                  onClick={onDelete}
-                >
-                  <TrashIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
-                </Button>
-              )}
-            </Flex>
-          </Flex>
-        )}
+          )}
       </div>
     </label>
   )
