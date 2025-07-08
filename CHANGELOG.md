@@ -1,3 +1,10 @@
+## [6.43.6](https://github.com/dd3tech/bui/compare/v6.43.5...v6.43.6) (2025-07-08)
+
+
+### Bug Fixes
+
+* add prop isLoading button modal v2 ([9fb4682](https://github.com/dd3tech/bui/commit/9fb4682955e6ea1daba4089513c70df7bb92b757))
+
 ## [6.43.5](https://github.com/dd3tech/bui/compare/v6.43.4...v6.43.5) (2025-07-04)
 
 
