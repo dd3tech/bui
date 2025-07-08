@@ -6,7 +6,8 @@ interface CustomButtonProps {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'danger'
   label?: string
   className?: string
-  isDisabledButton?: boolean
+  disabled?: boolean
+  isLoading?: boolean
   onClick: () => void
 }
 
@@ -52,10 +53,11 @@ const ModalV2 = ({
           {buttonsModal?.map((button, index) => (
             <Button
               key={index}
-              onClick={button.onClick}
-              className={button.className ?? 'w-32 text-nowrap'}
-              variant={button.variant ?? 'secondary'}
-              disabled={button.isDisabledButton}
+              onClick={button?.onClick}
+              className={button?.className ?? 'w-32 text-nowrap'}
+              variant={button?.variant ?? 'secondary'}
+              disabled={button?.disabled}
+              isLoading={button?.isLoading}
             >
               {button.label}
             </Button>

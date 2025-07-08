@@ -129,7 +129,7 @@ describe('<ModalV2/>', () => {
             label: 'Save',
             onClick: handleSubmit,
             variant: 'primary',
-            isDisabledButton: true
+            disabled: true
           }
         ]}
       >
