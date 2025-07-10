@@ -1,3 +1,10 @@
+## [6.43.7](https://github.com/dd3tech/bui/compare/v6.43.6...v6.43.7) (2025-07-10)
+
+
+### Bug Fixes
+
+* different validations were added ([5dfefec](https://github.com/dd3tech/bui/commit/5dfefecae45db9adcb21db6c20a230366eb87641))
+
 ## [6.43.6](https://github.com/dd3tech/bui/compare/v6.43.5...v6.43.6) (2025-07-08)
 
 
