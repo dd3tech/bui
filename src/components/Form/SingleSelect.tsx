@@ -82,8 +82,6 @@ function SingleSelect({
   const [selectedOption, setSelectedOption] = useState<ISelectOption | null>(
     null
   )
-  const [newValue, setNewValue] = useState(value)
-  const [options, setOptions] = useState<ISelectOption[]>(optionsList)
 
   const handleClick = () => {
     if (isDisabled) return
@@ -112,22 +110,30 @@ function SingleSelect({
   const handleSelect = (option: ISelectOption) => {
     if (option.disabled) return
 
-    const updatedOptions = options.map((opt) =>
-      opt.value === option.value
-        ? { ...opt, selected: true }
-        : { ...opt, selected: false }
-    )
+    const originalOption = optionsList.find((opt) => opt.value === option.value)
 
-    setOptions(updatedOptions)
-    setSelectedOption(option)
+    setSelectedOption(originalOption || option)
     setIsOpen(false)
 
-    onChangeSelect?.(option)
+    onChangeSelect?.(originalOption || option)
   }
 
-  useEffect(() => {
-    setOptions(optionsList)
-  }, [optionsList])
+  const optionsWithSelected = optionsList.map((opt) => ({
+    ...opt,
+    selected: opt.value === value
+  }))
+
+  const getInputLabel = () => {
+    let inputLabel = label
+    if (!isFilter && !selectedOption) return ''
+    if (!selectedOption) return inputLabel
+
+    return selectedOption.value === ''
+      ? inputLabel
+      : (inputLabel =
+          optionsList.find((opt) => opt.value === selectedOption.value)
+            ?.label || label)
+  }
 
   useEffect(() => {
     const handleClickOutside = (e: globalThis.MouseEvent) => {
@@ -143,17 +149,9 @@ function SingleSelect({
   }, [])
 
   useEffect(() => {
-    if (!newValue) return
-    setOptions(
-      optionsList.map((option) =>
-        option.value === value ? { ...option, selected: true } : option
-      )
-    )
-  }, [])
-
-  useEffect(() => {
-    setNewValue(value)
-  }, [value])
+    const found = optionsList.find((opt) => opt.value === value)
+    setSelectedOption(found || null)
+  }, [value, optionsList])
 
   return (
     <div
@@ -166,7 +164,10 @@ function SingleSelect({
         role="select-container"
         className={composeClasses(
           styles.container,
-          isFilter && !!selectedOption && 'bg-blue-100 border border-blue-600'
+          isFilter &&
+            !!selectedOption &&
+            selectedOption.value !== '' &&
+            'bg-blue-100 border border-blue-600'
         )}
         style={{ zIndex: 2, ...style }}
       >
@@ -180,7 +181,7 @@ function SingleSelect({
         )}
         <input
           placeholder={isFilter ? placeholder : ''}
-          value={selectedOption?.label || newValue}
+          value={getInputLabel()}
           {...otherProps}
           className={composeClasses(
             'outline-none w-full bg-transparent truncate text-sm',
@@ -223,14 +224,14 @@ function SingleSelect({
                 </Text>
               </div>
             )}
-            {options.map((option) => {
+            {optionsWithSelected.map((option) => {
               const { value, label, disabled } = option
 
               return (
                 <Flex
                   className={composeClasses(
                     'w-full px-2 py-2 hover:bg-blue-50 hover:text-blue-800',
-                    option.selected && 'text-blue-700'
+                    option.selected && isFilter && 'text-blue-700'
                   )}
                   justifyContent="between"
                   alignItems="center"
@@ -250,7 +251,9 @@ function SingleSelect({
                     {label ?? value}
                   </button>
 
-                  {option.selected && <CheckCircleIcon width={20} />}
+                  {option.selected && isFilter && (
+                    <CheckCircleIcon width={20} />
+                  )}
                 </Flex>
               )
             })}
