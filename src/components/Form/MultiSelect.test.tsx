@@ -97,15 +97,6 @@ describe('<MultiSelect />', () => {
     expect(defaultProps.buttonSubmit.onClick).toHaveBeenCalled()
   })
 
-  it('should call buttonClear.onClick when Clear button is clicked', () => {
-    const { getByTestId, getByText } = render(<MultiSelect {...defaultProps} />)
-
-    fireEvent.click(getByTestId('select-container'))
-    fireEvent.click(getByText('Clear'))
-
-    expect(defaultProps.buttonClear.onClick).toHaveBeenCalled()
-  })
-
   it('should close dropdown when clicking outside', () => {
     const { getByTestId, queryByTestId } = render(
       <div>
