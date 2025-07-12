@@ -1,3 +1,10 @@
+## [6.43.8](https://github.com/dd3tech/bui/compare/v6.43.7...v6.43.8) (2025-07-12)
+
+
+### Bug Fixes
+
+* styles were changed and the clear function was modified ([7fe2b47](https://github.com/dd3tech/bui/commit/7fe2b47abd0554dd356b5ecaac65b6e80e02ba61))
+
 ## [6.43.7](https://github.com/dd3tech/bui/compare/v6.43.6...v6.43.7) (2025-07-10)
 
 
