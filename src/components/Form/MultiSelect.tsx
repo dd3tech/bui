@@ -46,7 +46,7 @@ export interface MultiSelectProps
   isRequired?: boolean
   classNameDropdown?: string
   styleDropdown?: StyleObject
-  onChangeSelect?: (option: IMultiSelectOption) => void
+  onChangeSelect?: (option: IMultiSelectOption[]) => void
   isDisabled?: boolean
   buttonSubmit: {
     label: string
@@ -108,7 +108,7 @@ function MultiSelect({
       updatedSelected = [...selectedOptions, option]
     }
     setSelectedOptions(updatedSelected)
-    onChangeSelect?.(option)
+    onChangeSelect?.(updatedSelected)
   }
 
   const allSelected = useMemo(
@@ -124,10 +124,6 @@ function MultiSelect({
       ? setSelectedOptions([])
       : setSelectedOptions(options.filter((opt) => !opt.disabled))
   }, [allSelected, options, setSelectedOptions])
-
-  const handleClear = useCallback(() => {
-    setSelectedOptions([])
-  }, [setSelectedOptions])
 
   const onSubmit = useCallback(() => {
     buttonSubmit?.onClick()
@@ -188,7 +184,14 @@ function MultiSelect({
           </Flex>
         </div>
         {selectedOptions.length > 0 && !allSelected ? (
-          <XIcon onClick={handleClear} className="text-gray-400" width={30} />
+          <XIcon
+            onClick={() => {
+              setSelectedOptions(optionsList.filter((opt) => !opt.disabled))
+              buttonClear.onClick()
+            }}
+            className="text-gray-400"
+            width={30}
+          />
         ) : (
           <Transition
             alwaysRender
@@ -212,9 +215,11 @@ function MultiSelect({
             submitText={buttonSubmit.label}
             clearText={buttonClear.label}
             onSubmit={onSubmit}
-            onClear={buttonClear.onClick}
+            onClear={() =>
+              setSelectedOptions(optionsList.filter((opt) => !opt.disabled))
+            }
           >
-            <div className="max-h-44 overflow-auto text-sm">
+            <div className="overflow-auto text-sm">
               <ul>
                 <li className="flex items-center my-1 border-b pb-1 sticky top-0 bg-white">
                   <input
