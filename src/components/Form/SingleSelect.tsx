@@ -110,7 +110,9 @@ function SingleSelect({
   const handleSelect = (option: ISelectOption) => {
     if (option.disabled) return
 
-    const originalOption = optionsList.find((opt) => opt.value === option.value)
+    const originalOption = optionsList?.find(
+      (opt) => String(opt?.value) === String(option?.value)
+    )
 
     setSelectedOption(originalOption || option)
     setIsOpen(false)
@@ -118,21 +120,17 @@ function SingleSelect({
     onChangeSelect?.(originalOption || option)
   }
 
-  const optionsWithSelected = optionsList.map((opt) => ({
+  const optionsWithSelected = optionsList?.map((opt) => ({
     ...opt,
-    selected: opt.value === value
+    selected: String(opt?.value) === String(value)
   }))
 
   const getInputLabel = () => {
-    let inputLabel = label
-    if (!isFilter && !selectedOption) return ''
-    if (!selectedOption) return inputLabel
+    if (!isFilter && !selectedOption) return placeholder || label || ''
+    if (!selectedOption) return placeholder || label || ''
 
-    return selectedOption.value === ''
-      ? inputLabel
-      : (inputLabel =
-          optionsList.find((opt) => opt.value === selectedOption.value)
-            ?.label || label)
+    // Si hay una opción seleccionada, mostrar su label
+    return selectedOption.label || selectedOption.value.toString()
   }
 
   useEffect(() => {
@@ -149,10 +147,11 @@ function SingleSelect({
   }, [])
 
   useEffect(() => {
-    const found = optionsList.find((opt) => opt.value === value)
+    const found = optionsList?.find(
+      (opt) => String(opt?.value) === String(value)
+    )
     setSelectedOption(found || null)
   }, [value, optionsList])
-
   return (
     <div
       ref={selectRef}
