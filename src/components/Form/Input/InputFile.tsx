@@ -165,7 +165,7 @@ export function InputFile({
             </Tooltip>
           )}
         </Flex>
-        {!(singleFile && fileList?.length) && !!(singleFile && !fileName) && (
+        {!(singleFile && fileList?.length) && (
           <Flex alignItems="center" gap="2">
             <UploadIcon className="w-4 h-4 text-blue-700" />
             <Text variant="small" className="text-blue-700">
