@@ -1,3 +1,10 @@
+## [6.43.10](https://github.com/dd3tech/bui/compare/v6.43.9...v6.43.10) (2025-08-19)
+
+
+### Bug Fixes
+
+* remove validation input file ([6262111](https://github.com/dd3tech/bui/commit/6262111931f0a59ce67927fdc2e452daa3bb7de5))
+
 ## [6.43.9](https://github.com/dd3tech/bui/compare/v6.43.8...v6.43.9) (2025-07-24)
 
 
