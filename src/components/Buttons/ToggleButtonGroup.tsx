@@ -42,13 +42,22 @@ const ToggleButtonGroup: React.FC<ToggleGroupProps> = ({
   // Current value
   const currentValue = value !== undefined ? value : internalValue
 
+  // Helper function to get selected ID
+  const getSelectedId = (
+    kind: 'single' | 'group',
+    currentValue: string | boolean | null,
+    items: ToggleOption[]
+  ): string | null => {
+    if (kind === 'single') {
+      const isFirstItemSelected =
+        currentValue === true || currentValue === items[0]?.id
+      return isFirstItemSelected ? items[0]?.id : null
+    }
+    return currentValue as string | null
+  }
+
   // Convert to internal format
-  const selectedId =
-    kind === 'single'
-      ? currentValue === true || currentValue === items[0]?.id
-        ? items[0]?.id
-        : null
-      : (currentValue as string | null)
+  const selectedId = getSelectedId(kind, currentValue, items)
 
   const handleChange = (newValue: string | null) => {
     const finalValue = kind === 'single' ? newValue === items[0]?.id : newValue

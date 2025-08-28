@@ -82,15 +82,13 @@ export const Group: Story = {
         <div className="p-4 border border-gray-200 rounded-lg">
           {tab === 'sold' && (
             <div className="space-y-2">
-              <h3 className="font-semibold text-gray-900">Ventas Panel</h3>
+              <h3 className="font-semibold text-gray-900">Sales Dashboard</h3>
               <p className="text-gray-600">Showing sales data and metrics...</p>
             </div>
           )}
           {tab === 'deeded' && (
             <div className="space-y-2">
-              <h3 className="font-semibold text-gray-900">
-                Escrituradas Panel
-              </h3>
+              <h3 className="font-semibold text-gray-900">Deeded Dashboard</h3>
               <p className="text-gray-600">Showing deeded properties data...</p>
             </div>
           )}
