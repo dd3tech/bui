@@ -1,3 +1,11 @@
+# [6.44.0](https://github.com/dd3tech/bui/compare/v6.43.10...v6.44.0) (2025-09-01)
+
+
+### Features
+
+* the toggle buttons component has been added ([b56c3b4](https://github.com/dd3tech/bui/commit/b56c3b436df3817c1a7f515e5870ff493620f085))
+* the toggle buttons component has been added ([5317ef3](https://github.com/dd3tech/bui/commit/5317ef3cbe657070cfa927b635ee62969ae1a99b))
+
 ## [6.43.10](https://github.com/dd3tech/bui/compare/v6.43.9...v6.43.10) (2025-08-19)
 
 
