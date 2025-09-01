@@ -12,3 +12,6 @@ export * from './ButtonGroup'
 
 export { default as ShapeButton } from './ShapeButton'
 export * from './ShapeButton'
+
+export { default as ToggleButtonGroup } from './ToggleButtonGroup'
+export * from './ToggleButtonGroup'
