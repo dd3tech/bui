@@ -220,8 +220,8 @@ function MultiSelect({
             }
           >
             <div className="overflow-auto text-sm">
-              <ul>
-                <li className="flex items-center my-1 border-b pb-1 sticky top-0 bg-white">
+              <ul className="max-h-60">
+                <li className="flex items-center pb-1 border-b sticky top-0 bg-white">
                   <input
                     type="checkbox"
                     checked={allSelected}
