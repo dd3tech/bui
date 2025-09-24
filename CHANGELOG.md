@@ -1,3 +1,10 @@
+## [6.44.1](https://github.com/dd3tech/bui/compare/v6.44.0...v6.44.1) (2025-09-24)
+
+
+### Bug Fixes
+
+* add scroll on multiselect options ([9c02ae5](https://github.com/dd3tech/bui/commit/9c02ae597c6841849489d45a1374e609d8e2e99a))
+
 # [6.44.0](https://github.com/dd3tech/bui/compare/v6.43.10...v6.44.0) (2025-09-01)
 
 
