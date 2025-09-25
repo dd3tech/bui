@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitest/config'
-// import react from '@vitejs/plugin-react/dist/index.mjs'
+// import react from '@vitejs/plugin-react'
 import { alias } from './alias.config'
 
 export default defineConfig({
