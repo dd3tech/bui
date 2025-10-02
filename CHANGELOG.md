@@ -1,3 +1,10 @@
+## [6.44.2](https://github.com/dd3tech/bui/compare/v6.44.1...v6.44.2) (2025-10-02)
+
+
+### Bug Fixes
+
+* validation input file single was modified ([44258b9](https://github.com/dd3tech/bui/commit/44258b96a9b5dea0bc57a529b87778c545b2faf7))
+
 ## [6.44.1](https://github.com/dd3tech/bui/compare/v6.44.0...v6.44.1) (2025-09-24)
 
 
