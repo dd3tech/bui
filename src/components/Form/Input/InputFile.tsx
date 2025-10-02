@@ -229,7 +229,7 @@ export function InputFile({
         )}
         {isLoading && <Skeleton className="w-full h-5 rounded-full" />}
         {singleFile &&
-          (fileList?.length === 1 || fileName) &&
+          fileName &&
           !error?.show &&
           !isLoading &&
           !progressIndicator && (
@@ -246,7 +246,7 @@ export function InputFile({
               <Flex alignItems="center" gap="2">
                 <PaperClipIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
                 <Text size="xs" className="whitespace-nowrap">
-                  {fileList?.item(0)?.name || fileName}
+                  {fileName}
                 </Text>
               </Flex>
               <Flex alignItems="center" gap="2">
