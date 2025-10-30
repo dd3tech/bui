@@ -172,8 +172,12 @@ function TabGroup({
   ])
 
   useEffect(() => {
+    if (!refContainer.current) return
+    const observer = new ResizeObserver(() => handleChangeIndicator(value))
+    observer.observe(refContainer.current)
     handleChangeIndicator(value)
-  }, [orientation, variant, wideLine, value])
+    return () => observer.disconnect()
+  }, [value, handleChangeIndicator])
 
   return (
     <div
