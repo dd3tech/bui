@@ -101,24 +101,35 @@ function TabGroup({
 
   const handleChangeIndicator = useCallback(
     (newValue: number) => {
-      if (refContainer.current) {
-        const { height, left, top, width } = getClientSize(
-          refContainer.current.children,
-          newValue
-        )
-        let newDashRect: DashRect = {}
-        if (orientation == 'horizontal') {
-          newDashRect = { left, height: wideLine, width }
-        } else {
-          newDashRect = Object.assign(
-            { height, width: wideLine, top },
-            variant == 'secondary' ? { left: 0 } : { right: 0 }
-          )
+      if (!refContainer.current) return
+      const nodes = refContainer.current.children
+      if (!nodes.length) return
+
+      const idx = Math.max(0, Math.min(newValue, nodes.length - 1))
+      const { height, left, top, width } = getClientSize(nodes, idx)
+
+      const nextDash: DashRect =
+        orientation === 'horizontal'
+          ? { left, height: wideLine, width }
+          : Object.assign(
+              { height, width: wideLine, top },
+              variant === 'secondary' ? { left: 0 } : { right: 0 }
+            )
+
+      setDashRect((prev) => {
+        if (
+          prev.left === nextDash.left &&
+          prev.top === nextDash.top &&
+          prev.width === nextDash.width &&
+          prev.height === nextDash.height &&
+          prev.right === nextDash.right
+        ) {
+          return prev
         }
-        setDashRect(newDashRect)
-      }
+        return nextDash
+      })
     },
-    [orientation, variant, refContainer, dashRect]
+    [orientation, variant, wideLine]
   )
 
   const onClick = useCallback(
@@ -172,11 +183,30 @@ function TabGroup({
   ])
 
   useEffect(() => {
-    if (!refContainer.current) return
-    const observer = new ResizeObserver(() => handleChangeIndicator(value))
-    observer.observe(refContainer.current)
-    handleChangeIndicator(value)
-    return () => observer.disconnect()
+    const el = refContainer.current
+    if (!el) return
+
+    const recalc = () => handleChangeIndicator(value)
+
+    let rafId = 0
+    const onResize = () => {
+      if (rafId) return
+      rafId = requestAnimationFrame(() => {
+        rafId = 0
+        recalc()
+      })
+    }
+
+    const RO = (globalThis as any).ResizeObserver
+    const ro: ResizeObserver | null = RO ? new RO(onResize) : null
+    ro?.observe(el)
+
+    recalc()
+
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId)
+      ro?.disconnect()
+    }
   }, [value, handleChangeIndicator])
 
   return (

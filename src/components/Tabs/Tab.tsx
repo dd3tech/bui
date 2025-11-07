@@ -94,6 +94,8 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
         : undefined
     }, [value, textColor, textDisabledColor, disabled])
 
+    if (hidden) return null
+
     const renderTab = () => {
       return (
         <button
@@ -112,7 +114,6 @@ const Tab = forwardRef<HTMLButtonElement, Props>(
             classes,
             variantStyle[variant],
             className,
-            hidden && 'hidden',
             disabled && 'cursor-not-allowed'
           )}
         >

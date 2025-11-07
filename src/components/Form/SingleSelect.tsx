@@ -184,7 +184,7 @@ function SingleSelect({
         {!isFilter && (
           <FormLabel
             label={label ?? ''}
-            isLabelScalded={!!selectedOption}
+            isLabelScalded={!selectedOption}
             isDisabled={isDisabled}
             isRequired={isRequired}
           />
