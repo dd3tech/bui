@@ -128,7 +128,7 @@ function SingleSelect({
   }))
 
   const getInputLabel = () => {
-    if (!isFilter && !selectedOption) return placeholder || label || ''
+    if (!isFilter && !selectedOption) return ''
     if (!selectedOption) return placeholder || label || ''
 
     return selectedOption.label || selectedOption.value.toString()
