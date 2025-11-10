@@ -1,3 +1,10 @@
+## [6.44.3](https://github.com/dd3tech/bui/compare/v6.44.2...v6.44.3) (2025-11-10)
+
+
+### Bug Fixes
+
+* add validation tab hidden and change validation value single select ([43deb9b](https://github.com/dd3tech/bui/commit/43deb9b17fc26594ca21a1d30a66858ff4260cbe))
+
 ## [6.44.2](https://github.com/dd3tech/bui/compare/v6.44.1...v6.44.2) (2025-10-02)
 
 
