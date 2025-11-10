@@ -120,7 +120,6 @@ function TabGroup({
     },
     [orientation, variant, refContainer, dashRect]
   )
-
   const onClick = useCallback(
     (event: MouseEvent<HTMLButtonElement>) => {
       const nodes = Array.prototype.slice.call(refContainer.current?.children)
@@ -156,6 +155,7 @@ function TabGroup({
           ...child.props
         })
       }
+      if ((child as React.ReactElement)?.props?.hidden) return null
       return child
     })
   }, [
@@ -172,8 +172,9 @@ function TabGroup({
   ])
 
   useEffect(() => {
+    if ((children as React.ReactElement)?.props?.hidden) return
     handleChangeIndicator(value)
-  }, [orientation, variant, wideLine, value])
+  }, [orientation, variant, wideLine, value, children])
 
   return (
     <div

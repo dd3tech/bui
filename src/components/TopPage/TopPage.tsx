@@ -204,16 +204,18 @@ const TopPage = ({
       </Flex>
       <div className="-mx-5 mt-1">
         {tabs ? (
-          <TabGroup value={tabs.value} onChange={tabs.setValue}>
-            {tabs.items.map((tab, index) => (
-              <Tab
-                key={index}
-                label={tab.label}
-                disabled={tab.disabled}
-                hidden={tab.hidden}
-                toolTipProps={tab.toolTipProps}
-              />
-            ))}
+          <TabGroup value={tabs?.value} onChange={tabs?.setValue}>
+            {tabs?.items?.map((tab, index) => {
+              return (
+                <Tab
+                  key={index}
+                  label={tab.label}
+                  disabled={tab.disabled}
+                  hidden={tab.hidden}
+                  toolTipProps={tab.toolTipProps}
+                />
+              )
+            })}
           </TabGroup>
         ) : (
           <Divider className="mt-3" light />
