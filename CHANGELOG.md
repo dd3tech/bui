@@ -1,3 +1,10 @@
+## [6.44.4](https://github.com/dd3tech/bui/compare/v6.44.3...v6.44.4) (2025-12-10)
+
+
+### Bug Fixes
+
+* contentType props was added ([4790234](https://github.com/dd3tech/bui/commit/4790234d8f7a2b3616795f0cb3a703e55510c6ec))
+
 ## [6.44.3](https://github.com/dd3tech/bui/compare/v6.44.2...v6.44.3) (2025-11-10)
 
 
