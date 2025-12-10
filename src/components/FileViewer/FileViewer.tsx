@@ -43,6 +43,7 @@ export interface FileContentProps {
   fileType: string
   className?: string
   role?: string
+  contentType?: string
 }
 
 const IMG_TYPE_LIST = [
