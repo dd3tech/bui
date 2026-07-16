@@ -243,9 +243,9 @@ export function InputFile({
                 e.stopPropagation()
               }}
             >
-              <Flex alignItems="center" gap="2">
+              <Flex alignItems="center" gap="2" className="min-w-0">
                 <PaperClipIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <Text size="xs" className="whitespace-nowrap">
+                <Text size="xs" className="truncate">
                   {fileName}
                 </Text>
               </Flex>
