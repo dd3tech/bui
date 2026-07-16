@@ -54,6 +54,7 @@
         "generate-exports": "node ./scripts/combinePackage.js"
     },
     "dependencies": {
+        "@cyntler/react-doc-viewer": "^1.17.0",
         "@heroicons/react": "^1.0.6",
         "@popperjs/core": "2.11.8",
         "dd360-utils": "^1.0.18",
@@ -61,8 +62,8 @@
         "react-currency-input-field": "^3.10.0"
     },
     "peerDependencies": {
-        "react": ">=17.0.0",
-        "react-dom": ">=17.0.0"
+        "react": ">=18.0.0",
+        "react-dom": ">=18.0.0"
     },
     "devDependencies": {
         "@babel/core": "^7.26.10",
@@ -110,8 +111,8 @@
         "path": "0.12.7",
         "postcss": "8.5.3",
         "prettier": "2.4.1",
-        "react": "17.0.2",
-        "react-dom": "17.0.2",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
         "rimraf": "3.0.2",
         "rollup": "2.40.0",
         "rollup-plugin-dts": "4.2.3",

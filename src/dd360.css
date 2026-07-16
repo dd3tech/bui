@@ -10,3 +10,12 @@ body {
 input:-webkit-autofill {
   -webkit-background-clip: text;
 }
+
+/*File viewer library styles */
+#msdoc-iframe, #msdoc-renderer, #proxy-renderer {
+  height: 100%;
+}
+
+#pdf-download {
+  display: none;
+}
